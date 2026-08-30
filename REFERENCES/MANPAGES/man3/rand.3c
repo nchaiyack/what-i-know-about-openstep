@@ -1,0 +1,42 @@
+.\"	@(#)rand.3c	6.2 (Berkeley) 9/29/85
+.\"
+.TH RAND 3C "August 1, 1992"
+.AT 3
+.SH NAME
+rand, srand \- random number generator
+.SH SYNOPSIS
+.nf
+.ft B
+#include <stdlib.h>
+.PP
+.B void srand(int \fIseed\fR);
+.PP
+.B int rand(void);
+.fi
+.SH DESCRIPTION
+.ft B
+The newer random(3) should be used in new applications;
+rand remains for compatibility.
+.ft R
+.PP
+.I Rand
+uses a multiplicative congruential
+random number generator with period
+.if t 2\u\s732\s0\d
+.if n 2**32
+to return successive pseudo-random
+numbers in the range from 0 to
+.if t 2\u\s731\s10\d\(mi1.
+.if n (2**31)\(mi1
+.PP
+The generator is reinitialized by calling
+.I srand
+with 1 as argument.
+It can be set to a random starting point by calling
+.I srand
+with whatever you like as argument.
+.SH "RETURN VALUE"
+The \fIsrand\fR function returns no value.  The \fIrand\fR function
+computes a sequence of psuedo-random integers.
+.SH "SEE ALSO"
+random(3)

@@ -1,0 +1,38 @@
+.TH kern_timestamp 2 "March 24, 1989" "NeXT Computer, Inc."
+.SH NAME
+.nf
+kern_timestamp  \-  return (machine-dependent) timestamp
+.SH SYNOPSIS
+.nf
+\fB#include <sys/time_stamp.h>\fR
+
+kern_return_t \fBkern_timestamp(\fRstruct tsval \fI*tsp\fR\fB)\fR
+.fi
+.SH ARGUMENTS
+.TP 15
+.B
+\fItsp\fR
+pointer to a \fBstruct tsval\fR to receive the timestamp.
+
+.SH DESCRIPTION
+.B kern_timestamp()
+obtains a current low-overhead timestamp from the kernel.
+
+.SH DIAGNOSTICS
+.TP 25
+KERN_SUCCESS
+The timestamp has been returned.
+
+.TP 25
+KERN_INVALID_ADDRESS
+\fItsp\fR doesn't point to valid user memory.
+.SH BUGS
+Availability limited.  Timestamp format is machine-dependent;
+the value
+of the symbol
+.B TS_FORMAT
+must be saved for
+.B convert_ts_to_tv().
+Multimax timestamps are subject to rollover on
+an hourly basis (2^32 usec).  Timestamps on most other systems have a
+granularity of 10ms.

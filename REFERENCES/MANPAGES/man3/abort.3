@@ -1,0 +1,32 @@
+.\"	@(#)abort.3	6.3 (Berkeley) 5/27/86
+.\"
+.TH ABORT 3 "August 1, 1992"
+.AT 3
+.SH NAME
+abort \- generate a fault
+.SH SYNOPSIS
+.nf
+.B #include <stdlib.h>
+.PP
+.B void abort(void);
+.fi
+.SH DESCRIPTION
+.I Abort
+executes an instruction which is illegal in user mode.
+This generates a
+.B SIGABRT
+signal that normally terminates
+the process with a core dump, which may be used for debugging.
+.PP
+The abort() function flushes standard I/O buffers before process termination.
+.SH SEE ALSO
+sigvec(2), exit(2)
+.SH DIAGNOSTICS
+Usually \*(lqIllegal instruction \- core dumped\*(rq from the shell.
+.SH BUGS
+The BSD implementation of
+.I abort
+doesn't flush standard I/O buffers. Use
+.IR fflush (3S)
+before calling
+.IR abort .

@@ -1,0 +1,27 @@
+{
+    NSServices = (
+      {
+	NSPortName = SimpleService;
+        NSMessage = doOpenFileService;
+        NSSendTypes = (NSStringPboardType);
+        NSMenuItem = {
+            default = "Open File";
+        };
+        NSKeyEquivalent = {
+            default = F;
+        };
+	NSExecutable = SimpleService;
+      },
+      {
+	NSPortName = SimpleService;
+        NSMessage = doCapitalizeService;
+        NSSendTypes = (NSStringPboardType);
+        NSReturnTypes = (NSStringPboardType);
+        NSMenuItem = {
+            default = "Capitalize String";
+        };
+	NSExecutable = SimpleService;
+      }
+    );
+}
+

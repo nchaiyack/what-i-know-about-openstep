@@ -1,0 +1,96 @@
+{
+    APPCLASS = NSApplication; 
+    DYNAMIC_CODE_GEN = YES; 
+    FILESTABLE = {
+        CLASSES = (
+            Document.m, 
+            DocumentReadWrite.m, 
+            Controller.m, 
+            MultiplePageView.m, 
+            ScalingScrollView.m, 
+            TextFinder.m, 
+            Preferences.m
+        ); 
+        FRAMEWORKS = (AppKit.framework, Foundation.framework); 
+        FRAMEWORKSEARCH = (); 
+        H_FILES = (
+            Document.h, 
+            Controller.h, 
+            MultiplePageView.h, 
+            TextFinder.h, 
+            ScalingScrollView.h, 
+            Preferences.h
+        ); 
+        IMAGES = (Edit.tiff, EditApp.ico, EditTitle.tiff); 
+        INTERFACES = (
+            Document.nib, 
+            "Edit-winnt.nib", 
+            Edit.nib, 
+            EncodingAccessory.nib, 
+            FindPanel.nib, 
+            Info.nib, 
+            Preferences.nib
+        ); 
+        LIBRARYSEARCH = (); 
+        M_FILES = (); 
+        OTHER_LIBS = (); 
+        OTHER_LINKED = (Edit_main.m); 
+        OTHER_RESOURCES = (Encodings.txt, FindPanel.strings, Localizable.strings); 
+        OTHER_SOURCES = (
+            Makefile.preamble, 
+            Makefile, 
+            Makefile.postamble, 
+            m.template, 
+            h.template, 
+            TextEdit.rtf, 
+            EditRTF.ico, 
+            EditRTFD.ico, 
+            EditTXT.ico, 
+            rtf.tiff, 
+            rtfd.tiff, 
+            text.tiff, 
+            README.rtf
+        ); 
+        PRECOMPILED_HEADERS = (); 
+        PROJECT_HEADERS = (); 
+        PUBLIC_HEADERS = (); 
+    }; 
+    GENERATEMAIN = NO; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {
+        Document.nib = Document.nib; 
+        "Edit-winnt.nib" = "Edit-winnt.nib"; 
+        Edit.nib = Edit.nib; 
+        EncodingAccessory.nib = EncodingAccessory.nib; 
+        FindPanel.nib = FindPanel.nib; 
+        FindPanel.strings = FindPanel.strings; 
+        Info.nib = Info.nib; 
+        Localizable.strings = Localizable.strings; 
+        Preferences.nib = Preferences.nib; 
+    }; 
+    MAKEFILEDIR = "$(NEXT_ROOT)/NextDeveloper/Makefiles/project"; 
+    NEXTSTEP_APPICON = Edit.tiff; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    NEXTSTEP_DOCUMENTEXTENSIONS = (
+        {Extension = ""; Image = text.tiff; }, 
+        {Extension = rtf; Image = rtf.tiff; }, 
+        {Extension = rtfd; Image = rtfd.tiff; }
+    ); 
+    NEXTSTEP_INSTALLDIR = /NextDeveloper/Demos; 
+    NEXTSTEP_MAINNIB = Edit; 
+    PDO_UNIX_BUILDTOOL = $NEXT_ROOT/NextDeveloper/bin/make; 
+    PDO_UNIX_MAINNIB = Edit; 
+    PROJECTNAME = TextEdit; 
+    PROJECTTYPE = Application; 
+    PROJECTVERSION = 2.6; 
+    SYSTEMEXTENSIONS = (); 
+    TARGETS = (); 
+    WINDOWS_APPICON = EditApp.ico; 
+    WINDOWS_BUILDTOOL = $NEXT_ROOT/NextDeveloper/Executables/make; 
+    WINDOWS_DOCUMENTEXTENSIONS = (
+        {Extension = rtf; Image = EditRTF.ico; }, 
+        {Extension = rtfd; Image = EditRTFD.ico; }
+    ); 
+    WINDOWS_INSTALLDIR = /NextDemos; 
+    WINDOWS_MAINNIB = Edit; 
+}

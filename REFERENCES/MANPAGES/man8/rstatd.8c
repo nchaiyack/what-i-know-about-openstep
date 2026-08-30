@@ -1,0 +1,21 @@
+.\" @(#)rstatd.8c	1.2 87/08/23 3.2/4.3NFSSRC
+.\" @(#)rstatd.8c	1.2 87/02/10 NFSSRC
+.\" @(#)rstatd.8c 1.1 86/09/25 SMI; from UCB 4.2
+.TH RSTATD 8C "4 April 1985"
+.SH NAME
+rstatd \- kernel statistics server
+.SH SYNOPSIS
+.B /usr/etc/rpc.rstatd
+.SH DESCRIPTION
+.IX  "rstatd command"  ""  "\fLrstatd\fP \(em kernel statistics server"
+.IX  statistics  rstatd  ""  "\fLrstatd\fP \(em kernel statistics server"
+.IX  servers  rstatd  ""  "\fLrstatd\fP \(em kernel statistics server"
+.LP
+.I Rstatd
+is a server which returns performance statistics obtained from the kernel.
+The 
+.I rstatd
+daemon is normally invoked by
+.IR inetd (8C).
+.SH "SEE ALSO"
+services(5), inetd(8)

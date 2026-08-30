@@ -1,0 +1,18 @@
+"SelectionNotifMatrix" = {ACTIONS = ("copyItem:", "cutItem:", "pasteItem:"); SUPERCLASS = NSMatrix; };
+"ToDoController" = {
+    ACTIONS = (
+        "closeDoc:", 
+        "copyItem:", 
+        "cutItem:", 
+        "newDoc:", 
+        "openDoc:", 
+        "pasteItem:", 
+        "saveDoc:", 
+        "showInfo:", 
+        "showInspector:", 
+        "showPreferences:"
+    ); 
+    OUTLETS = (inspector); 
+    SUPERCLASS = NSObject; 
+};
+"FirstResponder" = {CATEGORY = LocalActions; };

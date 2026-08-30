@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.0px Times; min-height: 10.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 48.0px Helvetica; min-height: 58.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 19.0px Helvetica; min-height: 23.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 25.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 25.0px; font: 22.0px Times; min-height: 28.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 25.0px; font: 6.0px Times; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 25.0px; font: 18.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 25.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 40.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 40.0px; font: 2.0px Courier; min-height: 2.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 40.0px; font: 12.0px Courier}
+    p.p16 {margin: 0.0px 0.0px 0.0px 25.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 25.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Helvetica}
+    p.p19 {margin: 0.0px 0.0px 0.0px 25.0px; font: 12.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 40.0px; font: 12.0px Times}
+    p.p21 {margin: 0.0px 0.0px 0.0px 40.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 40.0px; font: 6.0px Times; min-height: 8.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 40.0px; font: 14.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 40.0px; font: 10.0px Courier; min-height: 12.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Times}
+    span.s3 {font: 14.0px Times}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><b>Services</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p4"><b>Introduction</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7">The OpenStep services facility allows an application to offer its functionality to other applications, without requiring the other applications to know in advance what's offered. A service-providing application advertises an operation that it can perform on a particular type of data—for example, encrypting text, performing optical character recognition on a bitmapped image, or providing text such as a message of the day (with no input data). Any application that uses the services facility then automatically has access to that functionality through its Services menu, or through certain other mechanisms. It doesn't need to know what the operations are in advance; it merely indicates what types of data it has, and the Services menu makes available the operations that apply to those types. The services facility thus gives applications an open-ended means of extending each others' functionality.</p>
+<p class="p8"><br></p>
+<p class="p7">This document describes the four available types of service: standard services, which the user chooses from the Services menu; filter services, which the developer invokes through the NSPasteboard class; print filter services, which the user chooses when saving a printout as a PostScript file; and spell checker services, which the user chooses from the standard spelling checker panel. The first section, “Standard Services,” describes the general structure of all the services and the details of standard services. The second section, “Variations on Standard Services,” describes ways that the other three types of service differ from standard services.</p>
+<p class="p8"><br></p>
+<p class="p9"><br></p>
+<p class="p4"><b>Standard Services</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7">In general terms, the standard services facility works as though the user copies data from one application and pastes it into another, modifies the data, then copies the result and pastes it back into the original application. The standard services facility does in fact use the pasteboard to transfer data, automatically copying the selection from the service requestor and pasting the altered data back—though the data transfer doesn't have to be two-way, as the examples in the introduction indicate. You should be familiar with the Application Kit's NSPasteboard class before working with the standard services facility.</p>
+<p class="p8"><br></p>
+<p class="p7">This section describes how to provide a service in your application, and how to make sure your application can also request appropriate services in any situation. “Providing a Standard Service” covers everything you need to know as the implementor of a service. “Using Services” shows you what you need to make your custom classes work as requestors of services.</p>
+<p class="p8"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b>Providing a Standard Service</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">Suppose you're working on a program to read USENET news, and have an object with a method to encrypt and decrypt articles, such as the one below. News articles containing offensive material are often encrypted with this algorithm, called “rot13,” in which letters are shifted halfway through the alphabet.</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">- (NSString *)rotateLettersInString:(NSString *)aString</p>
+<p class="p15">{</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSString *newString;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>unsigned length;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>unichar *buf;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>unsigned i;</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>length = [aString length];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>buf = malloc( (length + 1) * sizeof(unichar) );</p>
+<p class="p15"><span class="Apple-converted-space">    </span>[aString getCharacters:buf];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>buf[length] = (unichar)0;<span class="Apple-converted-space">  </span>// not really needed....</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>for (i = 0; i &lt; length; i++) {</p>
+<p class="p15"><span class="Apple-converted-space">        </span>if (buf[i] &gt;= (unichar)'a' &amp;&amp; buf[i] &lt;= (unichar) 'z') {</p>
+<p class="p15"><span class="Apple-converted-space">            </span>buf[i] += 13;</p>
+<p class="p15"><span class="Apple-converted-space">            </span>if (buf[i] &gt; 'z') buf[i] -= 26;</p>
+<p class="p15"><span class="Apple-converted-space">        </span>}</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">         </span>else if (buf[i] &gt;= (unichar)'A' &amp;&amp;<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>buf[i] &lt;= (unichar) 'Z') {</p>
+<p class="p15"><span class="Apple-converted-space">            </span>buf[i] += 13;</p>
+<p class="p15"><span class="Apple-converted-space">            </span>if (buf[i] &gt; 'Z') buf[i] -= 26;</p>
+<p class="p15"><span class="Apple-converted-space">        </span>}</p>
+<p class="p15"><span class="Apple-converted-space">    </span>}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>newString = [NSString stringWithCharacters:buf length:length];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>free(buf);</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>return newString;</p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7">Since this feature is generally useful as a simple encryption scheme, it can be exported to other applications. To offer this functionality as a service, write a method such as this:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">- (void)simpleEncrypt:(NSPasteboard *)pboard</p>
+<p class="p15"><span class="Apple-converted-space">    </span>userData:(NSString *)data</p>
+<p class="p15"><span class="Apple-converted-space">    </span>error:(NSString **)error</p>
+<p class="p15">{</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSString *pboardString;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSString *newString;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSArray *types;</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>types = [pboard types];</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>if (![types containsObject:NSStringPboardType]) {</p>
+<p class="p15"><span class="Apple-converted-space">        </span>*error = NSLocalizedString(@"Error: couldn't encrypt text.",</p>
+<p class="p15"><span class="Apple-converted-space">                   </span>@"pboard couldn't give string.");</p>
+<p class="p15"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p15"><span class="Apple-converted-space">     </span>}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>pboardString = [pboard stringForType:NSStringPboardType];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>if (!pboardString) {</p>
+<p class="p15"><span class="Apple-converted-space">        </span>*error = NSLocalizedString(@"Error: couldn't encrypt text.",</p>
+<p class="p15"><span class="Apple-converted-space">                   </span>@"pboard couldn't give string.");</p>
+<p class="p15"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>newString = [self rotateLettersInString:pboardString];</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>if (!newString) {</p>
+<p class="p15"><span class="Apple-converted-space">        </span>*error = NSLocalizedString(@"Error: couldn't encrypt text.",</p>
+<p class="p15"><span class="Apple-converted-space">                   </span>@"self couldn't rotate letters.");</p>
+<p class="p15"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>types = [NSArray arrayWithObject:NSStringPboardType];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>[pboard declareTypes:types owner:nil];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>[pboard setString:newString forType:NSStringPboardType];</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7">A method for providing a standard service is of the form <i>serviceName</i><span class="s2"><b>:userData:error:</b></span> and takes arguments as shown in the example. The method itself takes data from the pasteboard as needed, operates on it, and writes any results back to the pasteboard. In case of an error, the method simply sets the pointer given by the <i>error</i> argument to a non-<span class="s2"><b>nil</b></span> NSString and returns. The <i>userData</i> argument isn't used here; see “Entries in a Service Specification” and “Add-on Services” for some suggestions on how to use it.</p>
+<p class="p8"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b>Making a Service Available</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">Now you have an object with methods that allow it to perform a service for another application. There are two things remaining to do: register the object at run time so the services facility knows which object to have perform the service, and advertise the service to the services facility. You create and register your object in the <span class="s2"><b>applicationDidFinishLaunching:</b></span> application delegate method (or equivalent) with NSApplication's <span class="s2"><b>setServicesProvider:</b></span> method. If your object is called <span class="s2"><b>encryptor</b></span> you create and register it with this code fragment:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">EncryptoClass *encryptor;</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">encryptor = [[EncryptoClass alloc] init];</p>
+<p class="p15">[NSApp setServicesProvider:encryptor];</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7">You can register only one service provider per application. If you have more than one service to provide, a single object must be able to provide all of the services.</p>
+<p class="p8"><br></p>
+<p class="p7">In order for the system to know that your application provides a service, you must advertise that fact. You do this by adding an entry to your application project's <span class="s2"><b>CustomInfo.plist</b></span> file, which is incorporated into the application's <span class="s2"><b>Info.plist</b></span> file when you build your project. The entry you add is called the <i>service specification</i>. In our example, the service specification looks like this:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">{</p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSServices = (</p>
+<p class="p15"><span class="Apple-converted-space">      </span>{ NSPortName = NewsReader;</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSMessage = simpleEncrypt;</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSSendTypes = (NSStringPboardType);</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSReturnTypes = (NSStringPboardType);</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSMenuItem = {</p>
+<p class="p15"><span class="Apple-converted-space">            </span>default = "Encrypt Text";</p>
+<p class="p15"><span class="Apple-converted-space">            </span>English = "Encrypt Text";</p>
+<p class="p15"><span class="Apple-converted-space">            </span>French = "Encoder le texte";</p>
+<p class="p15"><span class="Apple-converted-space">            </span>German = "Text verschlüsseln";</p>
+<p class="p15"><span class="Apple-converted-space">        </span>};</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSKeyEquivalent = {</p>
+<p class="p15"><span class="Apple-converted-space">            </span>default = E;</p>
+<p class="p15"><span class="Apple-converted-space">            </span>German = S;</p>
+<p class="p15"><span class="Apple-converted-space">        </span>};</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">      </span>}</p>
+<p class="p15"><span class="Apple-converted-space">    </span>);</p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7">The meaning of each of the subfields is explained further in the section below, “Entries in a Service Specification.”<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>Note: </b></span>If you've just built an application with a service and you want to test the service, log out and log back in again. The application must be in one of the standard directories: <span class="s2"><b>~/Apps</b></span>, <span class="s2"><b>/NextApps</b></span>, or <span class="s2"><b>/LocalApps</b></span>.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p10"><br></p>
+<p class="p18"><b>Entries in a Service Specification</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">This template shows all possible fields in a standard service specification:</p>
+<p class="p8"><br></p>
+<p class="p19"><b>NSServices = (</b></p>
+<p class="p19"><b><span class="Apple-tab-span">	</span>{<span class="Apple-tab-span">	</span>NSMessage =</b><span class="s3"> <i>messageName</i></span><b>;</b></p>
+<p class="p19"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSPortName = </b><span class="s3"><i>programName</i></span><b>;</b></p>
+<p class="p7"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s2"><b>NSSendTypes = (</b></span> <i>type1 </i>[, <i>type2</i>] ... <span class="s2"><b>);</b></span></p>
+<p class="p7"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s2"><b>NSReturnTypes = (</b></span> <i>type1 </i>[, <i>type2</i>] ... <span class="s2"><b>);</b></span></p>
+<p class="p19"><span class="s3"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span><b>NSMenuItem = { default =</b><span class="s3"> <i>item</i></span><b>;</b><span class="s3"> [ <i>language</i> </span><b>=</b><span class="s3"> <i>item</i></span><b>;</b><span class="s3"> ]</span><b> };</b></p>
+<p class="p19"><span class="s3"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span><b>NSKeyEquivalent = { default = </b><span class="s3"><i>character</i></span><b>;</b><span class="s3"> [ <i>language</i> </span><b>=</b><span class="s3"> <i>character</i></span><b>;</b><span class="s3"> ]</span><b> };</b></p>
+<p class="p19"><span class="s3"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span><b>NSUserData = </b><span class="s3"><i>string</i></span><b>;</b></p>
+<p class="p7"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s2"><b>NSTimeout = </b></span><i>milliseconds</i><span class="s2"><b>;</b></span></p>
+<p class="p19"><span class="s3"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span><b>NSHost = </b><span class="s3"><i>hostName</i></span><b>;</b></p>
+<p class="p19"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSExecutable = </b><span class="s3"><i>pathname</i></span><b>;</b></p>
+<p class="p19"><span class="s3"><span class="Apple-tab-span">	</span></span><b>}</b></p>
+<p class="p7"><span class="Apple-tab-span">	</span>[<span class="s2"><b>, {</b></span> <i>another service entry</i> <span class="s2"><b>}</b></span> ] ...</p>
+<p class="p19"><b>);</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7">Filter, print filter, and spell checker services differ slightly. Their service specifications are described in “Variations on Standard Services.”</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>NSMessage</b></span> indicates the name of the Objective-C method to invoke. Its value is the first part of the method name, which follows the form <i>messageName</i><span class="s2"><b>:userData:error:</b></span>. This is a required entry.</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>NSPortName</b></span> is the name of the port the application should use to listen for service requests. Its value depends on how you registered the service provider. If you used the NSApplication method <span class="s2"><b>setServicesProvider:</b></span>, <span class="s2"><b>NSPortName</b></span> is the application name. If you used the <span class="s2"><b>NSRegisterServicesProvider()</b></span> function (which should only be used for filter services), <span class="s2"><b>NSPortName</b></span> is the value passed to that function for its <i>name</i> argument. See “Filter Services” for more information on <span class="s2"><b>NSRegisterServicesProvider()</b></span>. This is a required entry.</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>NSSendTypes</b></span> and <span class="s2"><b>NSReturnTypes</b></span> are arrays of names for data types, such as <span class="s2"><b>NSStringPboardType</b></span>. Send types are the types sent from the service requestor; return types are the types returned to the service requestor. See the NSPasteboard class specification for a list of standard data types. A service provider must specify one or both of these entries.</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>NSMenuItem</b></span> and <span class="s2"><b>NSKeyEquivalent</b></span> indicate the text of the Services menu item and its key equivalent (if any). Both of these entries take the form of dictionaries, with language names as keys and the text as values. In addition to actual language names, you can define a value for the key <span class="s2"><b>default</b></span>, which is used when no languages in the user's preferences match the languages named in the service specification. The text of a menu item can indicate a single submenu with a slash; for example, “Mail/Send Selection” appears in the Services menu as a submenu named “Mail” with an item named “Send Selection”. <span class="s2"><b>NSMenuItem</b></span> is required, but <span class="s2"><b>NSKeyEquivalent</b></span> is optional.</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>NSUserData</b></span> is a string containing a value of your choice. You can use this string to control the behavior of your service method; this entry is useful for applications that provide open-ended services (see “Add-on Services”). <span class="s2"><b>NSUserData</b></span> is an optional entry.</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>NSTimeout</b></span> is a string indicating the number of milliseconds the Services facility should wait for a response from the service provider when a response is required. If this time is exceeded, the services facility opens an attention panel informing the user that an error has occurred. This is an optional entry. If you don't specify this entry, the timeout value is 3000 milliseconds (30 seconds).</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>NSHost</b></span> is a string containing the name of a host on the network. The executable is launched on this host instead of on the host of the application requesting the service. This is an optional entry.</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>NSExecutable</b></span> is the path of the application that performs this service. This can either be a full or relative path. If it is a relative path, the application must be located in the same bundle as this service declaration. This entry is most useful for filter services. This entry is optional.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p10"><br></p>
+<p class="p18"><b>Add-on Services</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">You typically define services when you create your application and advertise them in the <span class="s2"><b>Info.plist</b></span> file of the application's bundle. The services facility also allows you to advertise services outside of the application bundle, enabling you to create “add-on” services after the fact. This is where the <span class="s2"><b>NSUserData</b></span> entry becomes truly useful: You can define a single message in your application that performs actions based on the user data provided, such as running the user data string as a UNIX command (which the Terminal application does) or treating it as a special argument in addition to the selected data that gets sent through the pasteboard.</p>
+<p class="p8"><br></p>
+<p class="p7">To define an add-on service, you create a bundle with a <span class="s2"><b>.service</b></span> extension that contains an <span class="s2"><b>Info.plist</b></span> file, which in turn contains the add-on service specification. You then put this bundle into a <span class="s2"><b>Services</b></span> directory in the library search path (<span class="s2"><b>~/Library</b></span>, <span class="s2"><b>/LocalLibrary</b></span>, <span class="s2"><b>/NextLibrary</b></span>). The services facility scans these directories when the user logs in and takes note of which services are defined; you can force this scanning by running the <span class="s2"><b>make_services</b></span> UNIX command. If your application creates a service at run time and needs it to be available immediately, it calls this function to force scanning:</p>
+<p class="p8"><br></p>
+<p class="p20"><span class="s3">void </span><b>NSUpdateDynamicServices(</b><span class="s3">void</span><b>)</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p11"><b>Using Services</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">If you add a Services menu to your application in Interface Builder, there's nothing else you need to do for your application to work with the standard services facility; your application automatically has access to all appropriate services provided by other applications. If you need to construct menus programmatically or if you subclass NSView or NSWindow (or any other subclass of NSResponder), however, you need to do a little work to tie things into the standard services facility. Setting a Services menu programmatically is straightforward. You simply designate the NSMenu that you want as your Services menu with NSApplication's <span class="s2"><b>setServicesMenu:</b></span> method. Tying custom NSViews or NSWindows into the standard services facility falls into three steps, in which you invoke or implement these methods:</p>
+<p class="p8"><br></p>
+<p class="p20"><b>registerServicesMenuSendTypes:returnTypes:</b></p>
+<p class="p20"><b>validRequestorForSendType:returnType:</b></p>
+<p class="p20"><b>writeSelectionToPasteboard:types:</b></p>
+<p class="p20"><b>readSelectionFromPasteboard:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p7">The following sections cover each of these methods. A final section, “Invoking a Standard Service Programmatically,” shows how to invoke a standard service in your code.</p>
+<p class="p8"><br></p>
+<p class="p10"><br></p>
+<p class="p18"><b>Registering User-Interface Objects for Standard Services</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">The Services menu doesn't contain <i>every</i> standard service offered by other applications. For example, in a text editor a service to invert a bitmapped image is of no use and shouldn't be offered. Which services appear in the Services menu is determined by the data types that the objects in the application—specifically the NSResponder objects—can send and receive through the pasteboard.</p>
+<p class="p8"><br></p>
+<p class="p7">An NSResponder registers these data types using NSApplication's <span class="s2"><b>registerServicesMenuSendTypes:returnTypes:</b></span> method. Application Kit objects already do this, but your custom NSResponder subclass must do this in its <span class="s2"><b>initialize</b></span> class method. All types used by instances of the class must be registered, even if they're not always available; Services menu items are enabled and disabled dynamically based on what's available at the moment, as described in “Enabling Services Menu Items Based on the Selection”.</p>
+<p class="p8"><br></p>
+<p class="p7">An object doesn't have to register the same types for both sending and receiving. Suppose you're writing a rich text editor that can send unformatted and rich text, but can only receive unformatted text. Here's a portion of the initialization method for the text-editor NSView subclass:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">+ (void)initialize</p>
+<p class="p15">{</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>static BOOL initialized = NO;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>/* Make sure code only gets executed once. */</p>
+<p class="p15"><span class="Apple-converted-space">    </span>if (initialized == YES) return;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>initialized = YES;</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>sendTypes = [NSArray arrayWithObjects:NSStringPboardType,</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSRTFPboardType, nil];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>returnTypes = [NSArray arrayWithObjects:NSStringPboardType,<span class="Apple-converted-space"> </span></p>
+<p class="p15">        nil];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>[NSApp registerServicesMenuSendTypes:sendTypes</p>
+<p class="p15"><span class="Apple-converted-space">       </span> returnTypes:returnTypes];</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7">Your NSResponder object can register any pasteboard data type, public or proprietary, common or rare. If it handles the public and common types, of course, it will have access to more services. See the NSPasteboard class specification for a list of standard pasteboard data types.</p>
+<p class="p8"><br></p>
+<p class="p10"><br></p>
+<p class="p18"><b>Enabling Services Menu Items Based on the Selection</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">While your application is running, various types of data can be selected and available for transfer on the pasteboard. If a service doesn't apply to the type of the selected data, its menu item needs to be disabled. To check whether a service applies, the application object sends <span class="s2"><b>validRequestorForSendType:returnType:</b></span> messages to objects in the responder chain to see whether they have data of the type used by that service.<span class="s2"><b> </b></span>While the Services menu is visible, this method is invoked frequently—typically many times per event—to ensure that the menu items for all service providers are properly enabled: It's sent for each service and possibly for many objects in the responder chain. Because this method is invoked so frequently, it must be fast so that event handling doesn't fall behind the user's actions.</p>
+<p class="p8"><br></p>
+<p class="p7">The following example shows how this method can be implemented for an object that handles unformatted text:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">- (id)validRequestorForSendType:(NSString *)sendType</p>
+<p class="p15"><span class="Apple-converted-space">    </span>returnType:(NSString *)returnType;</p>
+<p class="p15">{</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>if ( (!sendType || [sendType isEqual:NSStringPboardType]) &amp;&amp;</p>
+<p class="p15"><span class="Apple-converted-space">         </span>(!returnType || [returnType isEqual:NSStringPboardType]) ) {</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">        </span>if ( ([self selection] || !sendType) &amp;&amp;</p>
+<p class="p15"><span class="Apple-converted-space">             </span>([self isEditable] || !returnType) ) {</p>
+<p class="p15"><span class="Apple-converted-space">            </span>return self;</p>
+<p class="p15"><span class="Apple-converted-space">        </span>}</p>
+<p class="p15"><span class="Apple-converted-space">    </span>}</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>return [super validRequestorForSendType:sendType</p>
+<p class="p15"><span class="Apple-converted-space">        </span>returnType:returnType];</p>
+<p class="p14"><br></p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7">This implementation checks both the types indicated and the state of the object. The object is a valid requestor if the send and return types are unformatted text or simply aren't specified, and if the object has a selection and is editable (when send and return types are given). If this object can't handle the service request in its current state, it invokes its superclass' implementation.</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>validRequestorForSendType:returnType:</b></span> is sent along an abridged responder chain, comprising only the responder chain for the key window and the application object. The main window is excluded.</p>
+<p class="p8"><br></p>
+<p class="p10"><br></p>
+<p class="p18"><b>Sending and Receiving Data</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">When the user chooses a Services menu command, the responder chain is checked with <span class="s2"><b>validRequestorForSendType:returnType:</b></span> and the first object that returns a value other than <span class="s2"><b>nil</b></span> is called upon to handle the service request by providing data (if any is required) with a <span class="s2"><b>writeSelectionToPasteboard:types:</b></span> message. You can implement this method to provide the data immediately or to provide the data only when it's actually requested. Here's an implementation for an object that writes unformatted text immediately:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">- (BOOL)writeSelectionToPasteboard:(NSPasteboard *)pboard</p>
+<p class="p15"><span class="Apple-converted-space">    </span>types:(NSArray *)types</p>
+<p class="p15">{</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSArray *typesDeclared;</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>if ([types containsObject:NSStringPboardType] == NO) {</p>
+<p class="p15"><span class="Apple-converted-space">        </span>return NO;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>typesDeclared = [NSArray arrayWithObject:NSStringPboardType];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>[pboard declareTypes:typesDeclared owner:nil];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>return [pboard setString:[self selection]</p>
+<p class="p15"><span class="Apple-converted-space">        </span>forType:NSStringPboardType];</p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7">This method returns <span class="s2"><b>YES</b></span> if it successfully writes or declares any data and <span class="s2"><b>NO</b></span> if it fails. If you want to provide the data only on demand—which makes sense for large amounts—you have to declare an object as the owner for the data and then make sure that object responds to <span class="s2"><b>pasteboard:provideDataForType:</b></span> (as described in the NSPasteboard class specification). In such a case, the two methods look like this:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">- (BOOL)writeSelectionToPasteboard:(NSPasteboard *)pboard</p>
+<p class="p15"><span class="Apple-converted-space">    </span>types:(NSArray *)types</p>
+<p class="p15">{</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSArray *typesDeclared;</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>if ([types containsObject:NSStringPboardType] == NO) {</p>
+<p class="p15"><span class="Apple-converted-space">        </span>return NO;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>typesDeclared = [NSArray arrayWithObject:NSStringPboardType];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>[pboard declareTypes:typesDeclared owner:self];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>return YES;</p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">- (void)pasteboard:(NSPasteboard *)pboard</p>
+<p class="p15"><span class="Apple-converted-space">    </span>provideDataForType:(NSString *)type</p>
+<p class="p15">{</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>[pboard setString:[self selection] forType:NSStringPboardType];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7">You can even write some types in <span class="s2"><b>writeSelectionToPasteboard:types:</b></span> and offer the rest on demand only via <span class="s2"><b>pasteboard:provideDataForType:</b></span>. Remember that the owner of a pasteboard must exist when the data is finally requested. To be safe, you should make sure the owner is an object that will never be deallocated.</p>
+<p class="p8"><br></p>
+<p class="p7">Once the service requestor writes data to the pasteboard, it waits for a response as the service provider is invoked to perform the operation; if the service doesn't return data, of course, the requesting application simply continues running and none of the following applies. The service provider reads the data from the pasteboard, works on it, and then returns the result. At this point the service requestor is sent a <span class="s2"><b>readSelectionFromPasteboard:</b></span> message telling it to replace the selection with whatever data came back. Our simple text object can implement this method as follows:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">- (BOOL)readSelectionFromPasteboard:(NSPasteboard *)pboard;</p>
+<p class="p15">{</p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSArray *types;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>unsigned index;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSString *theText;</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>types = [pboard types];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>index = [types indexOfObject:NSStringPboardType];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>if ([types containsObject:NSStringPBoardType] == NO) {</p>
+<p class="p15"><span class="Apple-converted-space">        </span>return NO;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>}</p>
+<p class="p15"><span class="Apple-converted-space">    </span>theText = [pboard stringForType:NSStringPboardType];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>[self replaceSelectionWithString:theText];</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>return YES;</p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7">This method returns <span class="s2"><b>YES</b></span> if it successfully reads the data from the pasteboard, <span class="s2"><b>NO</b></span> otherwise.</p>
+<p class="p8"><br></p>
+<p class="p10"><br></p>
+<p class="p18"><b>Invoking a Standard Service Programmatically</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">Though the user typically invokes a standard service by choosing an item in the Services menu, you can invoke it in code using this function:</p>
+<p class="p8"><br></p>
+<p class="p23">BOOL <span class="s2"><b>NSPerformService(</b></span>NSString *<i>serviceItem</i>, NSPasteboard *<i>pboard</i><span class="s2"><b>)</b></span></p>
+<p class="p21"><b></b><br></p>
+<p class="p7">This function returns <span class="s2"><b>YES</b></span> if the service is successfully performed, <span class="s2"><b>NO</b></span> otherwise. <i>serviceItem</i> is the name of a Services menu item (in any language). It must be the full name of the service, including the submenu and slash; for example, “Mail/Selection”. <i>pboard</i> contains the data to be used for the service, and when the function returns contains the data resulting from the service. You can then do with the data what you wish.</p>
+<p class="p8"><br></p>
+<p class="p9"><br></p>
+<p class="p4"><b>Variations on Standard Services</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7">The three other types of services—filter, print filter, and spell checker—all share the use of a service specification, but they're each implemented in different ways. The following sections describe how the service specification for each type of service differs from that for a standard service, and how you take advantage of that type of service.</p>
+<p class="p8"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b>Filter Services</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">The NSPasteboard class automatically uses a filter service when you invoke a method for filtering data, such as:</p>
+<p class="p8"><br></p>
+<p class="p23">+ (NSArray *)<span class="s2"><b>typesFilterableTo:</b></span>(NSString *)<i>type</i></p>
+<p class="p23">+ (NSPasteboard *)<span class="s2"><b>pasteboardByFilteringFile:</b></span>(NSString *)<i>filename</i></p>
+<p class="p23">+ (NSPasteboard *)<span class="s2"><b>pasteboardByFilteringData:</b></span>(NSData *)data</p>
+<p class="p23"><span class="Apple-tab-span">	</span><span class="s2"><b>ofType:</b></span>(NSString *)<i>type</i></p>
+<p class="p20"><span class="s3">+ (NSPasteboard *)</span><b>pasteboardByFilteringTypesInPasteboard:</b></p>
+<p class="p23"><span class="Apple-tab-span">	</span>(NSPasteboard *)<i>pboard</i></p>
+<p class="p21"><i></i><br></p>
+<p class="p7">Because filter services commonly translate data from unknown file formats into known formats, you need a way of dynamically specifying pasteboard types. The filter services and pasteboard facilities define types based on file extensions with these functions:</p>
+<p class="p8"><br></p>
+<p class="p23">NSString *<span class="s2"><b>NSCreateFilenamePboardType(</b></span>NSString *<i>fileExtension</i><span class="s2"><b>)</b></span></p>
+<p class="p23">NSString *<span class="s2"><b>NSCreateFileContentsPboardType(</b></span>NSString *<i>fileExtension</i><span class="s2"><b>)</b></span></p>
+<p class="p23">NSString *<span class="s2"><b>NSGetFileType(</b></span>NSString *<i>pboardType</i><span class="s2"><b>)</b></span></p>
+<p class="p23">NSArray *<span class="s2"><b>NSGetFileTypes(</b></span>NSArray *<i>pboardTypes</i><span class="s2"><b>)</b></span></p>
+<p class="p21"><b></b><br></p>
+<p class="p7">The <i>fileExtension</i> argument is a file extension, minus the period (for example, “eps” or “tiff”). You create pasteboard type strings with the first two functions, and get file types (extensions) from pasteboard type strings with the second two functions. In a service specification (in the <span class="s2"><b>CustomInfo.plist</b></span> file), you can indicate a file type based on the extension as <span class="s2"><b>NSTypedFilenamesPboardType:</b></span><i>fileExtension</i> and a file contents type as <span class="s2"><b>NSTypedFileContentsPboardType:</b></span><i>fileExtension</i>; for example:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">NSSendTypes = (NSTypedFilenamesPboardType:tiff);</p>
+<p class="p14"><br></p>
+<p class="p15">NSSendTypes = (NSTypedFileContentsPboardType:tiff);</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7">You implement a filter service exactly like a standard service, with a <i>filterName</i><span class="s2"><b>:userData:error:</b></span> method that accepts a pasteboard containing a file path, converts the contents of the file to the requested type or types, and returns the converted data on the pasteboard. There are two major differences between filter services and standard services. The first major difference is in the way you register the service provider. With filter services, you typically don't have an NSApplication object to register the service provider with. Instead, you use the function <span class="s2"><b>NSRegisterServicesProvider()</b></span>. This function's declaration is:</p>
+<p class="p8"><br></p>
+<p class="p23">(void)<span class="s2"><b>NSRegisterServicesProvider(</b></span>id <i>provider</i>, NSString *<i>name</i><span class="s2"><b>)</b></span></p>
+<p class="p21"><b></b><br></p>
+<p class="p7"><i>provider</i> is the object that provides the services, and <i>name</i> is the same value you specify for the <span class="s2"><b>NSPortName</b></span> entry in the services specification. After making this function call, the filter service must enter the run loop in order to respond to service requests as shown:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">while(1) {</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-tab-span">	</span>NS_DURING</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>[[NSRunLoop currentRunLoop] run];</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-tab-span">	</span>NS_HANDLER</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSLog(@"Received exception: %@", localException);</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-tab-span">	</span>NS_ENDHANDLER</p>
+<p class="p14"><br></p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7">The second major difference is in the service specification: Instead of an <span class="s2"><b>NSMessage</b></span> entry you define an <span class="s2"><b>NSFilter</b></span> entry with <i>filterName</i> as the value; you must define both send and return types; and the <span class="s2"><b>NSMenuItem</b></span> and <span class="s2"><b>NSKeyEquivalent</b></span> entries are ignored.</p>
+<p class="p8"><br></p>
+<p class="p7">A filter service can use data-transfer mechanisms other than the pasteboard, indicated by an optional entry in the filter service specification. The key is <span class="s2"><b>NSInputMechanism</b></span>, and it can have a value of <span class="s2"><b>NSUnixStdio</b></span>, <span class="s2"><b>NSMapFile</b></span>, or <span class="s2"><b>NSIdentity</b></span>. If you specify an input mechanism, the value for the <span class="s2"><b>NSFilter </b></span>entry is ignored (though it's still required).</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>NSUnixStdio</b></span> allows you to turn nearly any UNIX command-line program into a filter service. Instead of sending an Objective-C message to an object in your filter service program, the services facility simply runs the executable specified in the service specification with the contents of the pasteboard as the argument (which must be of <span class="s2"><b>NSFilenamesPboardType</b></span> or <span class="s2"><b>NSTypedFilenamesPboardType</b></span>). If there is more than one filename on the pasteboard, only the first is used. The output of the filter program (on <span class="s2"><b>stdout</b></span>) is captured by the services facility and put on a pasteboard for use by the requestor of the filter. Note that the UNIX program must be relaunched every time the service is invoked; if you're creating a filter service from scratch it's more efficient to package it as an application that can remain running. Here's a sample service specification for a UNIX program that converts GIF images to TIFF:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">{</p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSServices = (</p>
+<p class="p15"><span class="Apple-converted-space">      </span>{ NSFilter = "";</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSPortName = gif2tiff;</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSInputMechanism = NSUnixStdio;</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSSendTypes = (NSTypedFilenamesPboardType:gif);</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSReturnTypes = (NSTIFFPboardType);</p>
+<p class="p15"><span class="Apple-converted-space">      </span>}</p>
+<p class="p15"><span class="Apple-converted-space">    </span>);</p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7"><span class="s2"><b>NSMapFile</b></span> defines an “empty” service for data in files, used when you invoke NSPasteboard's <span class="s2"><b>pasteboardByFilteringFile:</b></span> class method. Its value must be an <span class="s2"><b>NSFilenamesPboardType</b></span> or an <span class="s2"><b>NSTypedFilenamesPboardType</b></span>. When the filter service is invoked for a file, the services facility merely puts the contents of the file on the pasteboard. This input mechanism is useful for file types with nonstandard or special extensions whose format is nonetheless the same as a standard type. For example, if you've defined an image format based on a subset of TIFF and given it a file extension of <span class="s2"><b>stif</b></span>, you can define a service that maps the <span class="s2"><b>stif</b></span> file extension to <span class="s2"><b>NSTIFFPboardType</b></span>:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">{</p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSServices = (</p>
+<p class="p15"><span class="Apple-converted-space">      </span>{ NSFilter = "";</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSInputMechanism = NSMapFile;</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSSendTypes = (NSTypedFilenamesPboardType:stif);</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSReturnTypes = (NSTIFFPboardType);</p>
+<p class="p15"><span class="Apple-converted-space">      </span>}</p>
+<p class="p15"><span class="Apple-converted-space">    </span>);</p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7"><span class="s2"><b>NSIdentity</b></span> defines an empty service for data in memory, used when you invoke NSPasteboard's <span class="s2"><b>pasteboardByFilteringData:ofType:</b></span> class method. It declares that the send type is effectively identical to the return type—though the reverse isn't necessarily true. For example, you can define a service that filters your custom image format in memory with this service specification:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">{</p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSServices = (</p>
+<p class="p15"><span class="Apple-converted-space">      </span>{ NSFilter = "";</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSInputMechanism = NSIdentity;</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSSendTypes = (MyCustomImagePboardType);</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSReturnTypes = (NSTIFFPboardType);</p>
+<p class="p15"><span class="Apple-converted-space">      </span>}</p>
+<p class="p15"><span class="Apple-converted-space">    </span>);</p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p7">Neither <span class="s2"><b>NSMapFile</b></span> nor <span class="s2"><b>NSIdentity</b></span> result in any program being executed, so their services specifications lack the <span class="s2"><b>NSPortName</b></span> entry.</p>
+<p class="p8"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b>Print Filter Services</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">A print filter service is invoked when the user saves a file as a PostScript file through the Print panel. When the user clicks the Save... button on the Print panel a Save panel opens with a pop-up list near the bottom. This pop-up list contains special types of PostScript that the user can choose from. A print filter service adds an entry to this list.</p>
+<p class="p8"><br></p>
+<p class="p7">You implement a print filter service as a UNIX command line program that reads PostScript on the standard input stream and writes it to a file specified on the command line by a <span class="s2"><b>-o</b></span> option; for example:</p>
+<p class="p8"><br></p>
+<p class="p15">ps2superps -o outputfile.ps</p>
+<p class="p24"><br></p>
+<p class="p7">Instead of an <span class="s2"><b>NSMessage</b></span> entry, the service specification for a print filter service contains a <span class="s2"><b>NSPrintFilter</b></span> entry, whose value is the extension used for the output file. If it's empty “ps” is used by default. The <span class="s2"><b>NSPortName</b></span> entry is the name of the UNIX program—<span class="s2"><b>ps2superps</b></span> in the example. <span class="s2"><b>NSMenuItem</b></span> gives the string that appears in the pop-up list. The following entries are ignored in a print filter service specification:</p>
+<p class="p8"><br></p>
+<p class="p23">NSKeyEquivalent</p>
+<p class="p23">NSSendTypes</p>
+<p class="p23">NSReturnTypes</p>
+<p class="p23">NSUserData</p>
+<p class="p21"><br></p>
+<p class="p7">A print filter service specification adds one entry: <span class="s2"><b>NSDeviceDependent</b></span>. Its value is “YES” or “NO” (the default). If you specify “YES” for this entry the PostScript code sent through your print filter is specific to the type of printer chosen in the Print panel.</p>
+<p class="p8"><br></p>
+<p class="p7">Here's a sample print filter service specification:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">{</p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSServices = (</p>
+<p class="p15"><span class="Apple-converted-space">      </span>{ NSPrintFilter = "superps";</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSPortName = ps2superps;</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSMenuItem = {</p>
+<p class="p15"><span class="Apple-converted-space">            </span>default = "Super PostScript for Chosen Printer";</p>
+<p class="p15"><span class="Apple-converted-space">            </span>English = "Super PostScript for Chosen Printer";</p>
+<p class="p15"><span class="Apple-converted-space">            </span>French =</p>
+<p class="p15"><span class="Apple-converted-space">                </span>"Super PostScript pour l'imprimante sélectionnée";</p>
+<p class="p15"><span class="Apple-converted-space">            </span>German = "SuperPostScript für ausgewählten Drucker";</p>
+<p class="p15"><span class="Apple-converted-space">        </span>};</p>
+<p class="p15"><span class="Apple-converted-space">        </span>NSDeviceDependent = "YES";</p>
+<p class="p15"><span class="Apple-converted-space">      </span>}</p>
+<p class="p15"><span class="Apple-converted-space">    </span>);</p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p25"><br></p>
+<p class="p11"><b>Spell Checker Services</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">A Spell checker service is made available in the Application Kit's standard spell checker panel. You implement a spell checker service by creating a program that uses an NSSpellServer object. See the NSSpellServer class specification for full information on creating a spell checker service. You'll want to create the spell check service as an add-on service as described in “Add-on Services.” Instead of a <span class="s2"><b>NSMessage</b></span> entry, the service specification for a spell checker service contains a <span class="s2"><b>NSSpellChecker</b></span> entry, whose value is the text that should be used to identify the spell checker in the spelling panel's pop-up list. A spell checker service specification should also contain a <span class="s2"><b>NSLanguages</b></span> entry whose value is the language for which the spell checker applies. The spell checker won't be advertised unless one of its values for <span class="s2"><b>NSLanguages</b></span> matches one of the user's preferred languages.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">As an example, here's the service specification for the NeXT spell checker:</p>
+<p class="p8"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15">{</p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSServices = (</p>
+<p class="p15"><span class="Apple-converted-space">      </span>{NSExecutable = NeXTspell;<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p15">       NSLanguages = (English);<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p15">       NSSpellChecker = NeXT;<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p15">      },<span class="Apple-converted-space"> </span></p>
+<p class="p15"><span class="Apple-converted-space">    </span>);</p>
+<p class="p15">}</p>
+<p class="p14"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p25"><br></p>
+<p class="p8"><br></p>
+</body>
+</html>

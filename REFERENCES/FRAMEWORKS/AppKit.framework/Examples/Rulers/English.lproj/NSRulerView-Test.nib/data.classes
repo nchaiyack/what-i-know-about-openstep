@@ -1,0 +1,7 @@
+"NestleView" = {ACTIONS = {}; OUTLETS = {nestledView = id; }; SUPERCLASS = NSView; };
+"RectsView" = {
+    ACTIONS = {"lock:" = id; "nestle:" = id; "zoomIn:" = id; "zoomOut:" = id; }; 
+    OUTLETS = {scrollView = id; }; 
+    SUPERCLASS = NSView; 
+};
+"FirstResponder" = {ACTIONS = {"lock:" = id; }; CATEGORY = LocalActions; OUTLETS = {}; };

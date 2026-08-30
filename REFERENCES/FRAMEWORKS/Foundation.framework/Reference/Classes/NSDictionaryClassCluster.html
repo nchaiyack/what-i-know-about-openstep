@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 28.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 35.0px Helvetica; min-height: 42.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 10.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 36.0px Helvetica; min-height: 43.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 26.0px Helvetica}
+    p.p11 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 12.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 12.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 75.0px; font: 12.0px Helvetica}
+    p.p22 {margin: 0.0px 0.0px 0.0px 75.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 9.0px Helvetica}
+    p.p26 {margin: 0.0px 0.0px 0.0px 10.0px; font: 9.0px Helvetica; min-height: 11.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 10.0px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 10.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 12.0px Helvetica}
+    p.p30 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p33 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p34 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p35 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p39 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p41 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p43 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p46 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p48 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p49 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p50 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p51 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p52 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p53 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p54 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 12.0px Helvetica}
+    p.p55 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p56 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p57 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p58 {margin: 0.0px 0.0px 0.0px 95.0px; font: 35.0px Courier; min-height: 42.0px}
+    p.p59 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.0px Helvetica}
+    span.s3 {font: 14.0px Times}
+    span.s4 {font: 12.0px Helvetica}
+    span.s5 {font: 14.0px Symbol}
+    span.s6 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">c<span class="Apple-tab-span">	</span></span><b>NSDictionary Class Cluster</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Class Cluster Description</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7">The NSDictionary and NSMutableDictionary classes declare the programmatic interface for objects that store associations of keys and values. You use these classes when you need a convenient and efficient way to retrieve data associated with an arbitrary key.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">Because of the nature of class clusters, the objects you create with this interface are not actual instances of the NSDictionary or NSMutableDictionary classes. Rather, the instances belong to one of their private subclasses. (For convenience, we use the term <i>dictionary</i> to refer to any one of these instances without specifying its exact class membership.) Although a dictionary's class is private, its interface is public, as declared by these abstract superclasses, NSDictionary and NSMutableDictionary.</p>
+<p class="p8"><br></p>
+<p class="p7">A key-value pair within a dictionary is called an <i>entry</i>. Each entry consists of one object that represents the key, and a second object which is that key's value. Within a dictionary, the keys are unique. That is, no two keys in a single dictionary are equal (as determined by <b>isEqual:</b>).</p>
+<p class="p8"><br></p>
+<p class="p7">You establish an immutable dictionary's entries when it's created, and thereafter the entries can't be modified. A mutable dictionary allows the addition and deletion of entries at any time, automatically allocating memory as needed.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">Internally, a dictionary uses a hash table to organize its storage and to provide rapid access to a value given the corresponding key. However, the methods defined in this cluster insulate you from the complexities of working with hash tables, hashing functions, or the hashed value of keys. The methods described below take keys directly, not their hashed form.</p>
+<p class="p8"><br></p>
+<p class="p7">Generally, you create a temporary dictionary by sending one of the <b>dictionary...</b> messages to either the NSDictionary or NSMutableDictionary class object. These methods return a dictionary containing the associations specified as arguments to the method. Methods that add entries to dictionaries—whether as part of initialization (for all dictionaries) or during modification (for mutable dictionaries)—copy each key argument (keys must conform to the NSCopying protocol) and add the copies to the dictionary. Each corresponding value object receives a <b>retain</b> message to ensure that it won't be deallocated before the dictionary is through with it.</p>
+<p class="p8"><br></p>
+<p class="p7">The dictionary classes adopt the NSCopying and NSMutableCopying protocols, making it convenient to convert a dictionary of one type to the other.</p>
+<p class="p8"><br></p>
+<p class="p9"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2">i<span class="Apple-tab-span">	</span></span><b></b><b>NSDictionary</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s3">NSObject</span></p>
+<p class="p13"><br></p>
+<p class="p14"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s3">NSCoding</span></p>
+<p class="p15">NSCopying</p>
+<p class="p15">NSMutableCopying</p>
+<p class="p15">NSObject (NSObject)<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p17"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSDictionary.h</p>
+<p class="p18"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><b></b><br></p>
+<p class="p5"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="22pt" viewBox="0 0 597 22" role="img" aria-labelledby="eps-svg-1-title" data-source="NSDictionaryClassCluster.rtfd/AtaGlance.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">AtaGlance.eps</title><defs>
+<g>
+<g id="eps-svg-1-glyph-0-0">
+<path d="M 8.859375 -6.265625 C 8.796875 -7.078125 8.625 -7.609375 8.234375 -8.140625 C 7.5 -9.09375 6.328125 -9.640625 4.90625 -9.640625 C 2.234375 -9.640625 0.578125 -7.71875 0.578125 -4.65625 C 0.578125 -1.59375 2.21875 0.296875 4.859375 0.296875 C 7.234375 0.296875 8.78125 -1.0625 8.90625 -3.234375 L 7 -3.234375 C 6.875 -2.03125 6.125 -1.34375 4.90625 -1.34375 C 3.40625 -1.34375 2.515625 -2.5625 2.515625 -4.625 C 2.515625 -6.71875 3.4375 -7.96875 4.984375 -7.96875 C 6.109375 -7.96875 6.75 -7.421875 7 -6.265625 Z M 8.859375 -6.265625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-1">
+<path d="M 2.6875 -9.484375 L 0.875 -9.484375 L 0.875 0 L 2.6875 0 Z M 2.6875 -9.484375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-2">
+<path d="M 6.8125 -0.21875 C 6.5 -0.515625 6.390625 -0.734375 6.390625 -1.078125 L 6.390625 -4.984375 C 6.390625 -6.40625 5.421875 -7.140625 3.515625 -7.140625 C 1.625 -7.140625 0.640625 -6.328125 0.515625 -4.703125 L 2.28125 -4.703125 C 2.359375 -5.4375 2.671875 -5.671875 3.5625 -5.671875 C 4.265625 -5.671875 4.609375 -5.4375 4.609375 -4.96875 C 4.609375 -4.734375 4.5 -4.53125 4.296875 -4.421875 C 4.0625 -4.296875 4.0625 -4.296875 3.15625 -4.140625 L 2.4375 -4.015625 C 1.046875 -3.78125 0.359375 -3.0625 0.359375 -1.8125 C 0.359375 -0.546875 1.203125 0.296875 2.5 0.296875 C 3.28125 0.296875 3.984375 -0.03125 4.625 -0.703125 C 4.625 -0.34375 4.671875 -0.203125 4.84375 0 L 6.8125 0 Z M 4.609375 -2.828125 C 4.609375 -1.765625 4.09375 -1.171875 3.171875 -1.171875 C 2.5625 -1.171875 2.1875 -1.5 2.1875 -2.015625 C 2.1875 -2.5625 2.46875 -2.828125 3.21875 -2.984375 L 3.84375 -3.09375 C 4.328125 -3.1875 4.40625 -3.21875 4.609375 -3.3125 Z M 4.609375 -2.828125 "/>
+</g>
+<g id="eps-svg-1-glyph-0-3">
+<path d="M 6.5625 -4.765625 C 6.53125 -6.234375 5.390625 -7.140625 3.515625 -7.140625 C 1.734375 -7.140625 0.625 -6.234375 0.625 -4.796875 C 0.625 -4.328125 0.765625 -3.921875 1.015625 -3.65625 C 1.265625 -3.40625 1.484375 -3.28125 2.15625 -3.0625 L 4.328125 -2.390625 C 4.78125 -2.25 4.9375 -2.109375 4.9375 -1.8125 C 4.9375 -1.390625 4.4375 -1.125 3.59375 -1.125 C 3.109375 -1.125 2.75 -1.203125 2.515625 -1.375 C 2.3125 -1.515625 2.234375 -1.65625 2.15625 -2.046875 L 0.375 -2.046875 C 0.421875 -0.5 1.5625 0.296875 3.6875 0.296875 C 4.671875 0.296875 5.40625 0.09375 5.921875 -0.328125 C 6.453125 -0.734375 6.765625 -1.390625 6.765625 -2.078125 C 6.765625 -2.984375 6.3125 -3.578125 5.375 -3.84375 L 3.078125 -4.515625 C 2.578125 -4.671875 2.4375 -4.765625 2.4375 -5.0625 C 2.4375 -5.453125 2.859375 -5.703125 3.5 -5.703125 C 4.375 -5.703125 4.796875 -5.390625 4.8125 -4.765625 Z M 6.5625 -4.765625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-4">
+</g>
+<g id="eps-svg-1-glyph-0-5">
+<path d="M 3.90625 -6.875 L 2.90625 -6.875 L 2.90625 -8.765625 L 1.078125 -8.765625 L 1.078125 -6.875 L 0.1875 -6.875 L 0.1875 -5.671875 L 1.078125 -5.671875 L 1.078125 -1.359375 C 1.078125 -0.25 1.65625 0.296875 2.859375 0.296875 C 3.28125 0.296875 3.578125 0.265625 3.90625 0.15625 L 3.90625 -1.125 C 3.734375 -1.09375 3.640625 -1.078125 3.5 -1.078125 C 3.015625 -1.078125 2.90625 -1.21875 2.90625 -1.84375 L 2.90625 -5.671875 L 3.90625 -5.671875 Z M 3.90625 -6.875 "/>
+</g>
+<g id="eps-svg-1-glyph-0-6">
+<path d="M 9.25 -5.09375 L 5.453125 -5.09375 L 5.453125 -3.46875 L 7.609375 -3.46875 C 7.546875 -2.9375 7.421875 -2.609375 7.140625 -2.28125 C 6.671875 -1.703125 5.9375 -1.359375 5.203125 -1.359375 C 3.609375 -1.359375 2.5 -2.75 2.5 -4.6875 C 2.5 -6.734375 3.484375 -7.96875 5.140625 -7.96875 C 5.828125 -7.96875 6.390625 -7.78125 6.828125 -7.390625 C 7.09375 -7.15625 7.234375 -6.9375 7.40625 -6.453125 L 9.25 -6.453125 C 9.015625 -8.40625 7.421875 -9.640625 5.140625 -9.640625 C 2.40625 -9.640625 0.546875 -7.625 0.546875 -4.671875 C 0.546875 -1.796875 2.421875 0.296875 4.984375 0.296875 C 6.25 0.296875 7.109375 -0.15625 7.84375 -1.21875 L 8.078125 0.03125 L 9.25 0.03125 Z M 9.25 -5.09375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-7">
+<path d="M 0.8125 -7.015625 L 0.8125 0 L 2.640625 0 L 2.640625 -4.21875 C 2.640625 -5.046875 3.21875 -5.59375 4.109375 -5.59375 C 4.890625 -5.59375 5.28125 -5.15625 5.28125 -4.328125 L 5.28125 0 L 7.09375 0 L 7.09375 -4.703125 C 7.09375 -6.265625 6.25 -7.140625 4.75 -7.140625 C 3.796875 -7.140625 3.15625 -6.796875 2.640625 -6 L 2.640625 -7.015625 Z M 0.8125 -7.015625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-8">
+<path d="M 6.78125 -4.390625 C 6.65625 -6.109375 5.53125 -7.140625 3.75 -7.140625 C 1.65625 -7.140625 0.4375 -5.765625 0.4375 -3.359375 C 0.4375 -1.046875 1.65625 0.296875 3.734375 0.296875 C 5.4375 0.296875 6.609375 -0.75 6.78125 -2.4375 L 5.046875 -2.4375 C 4.828125 -1.515625 4.453125 -1.171875 3.734375 -1.171875 C 2.8125 -1.171875 2.265625 -1.984375 2.265625 -3.359375 C 2.265625 -4.046875 2.390625 -4.65625 2.609375 -5.0625 C 2.828125 -5.453125 3.21875 -5.671875 3.75 -5.671875 C 4.484375 -5.671875 4.84375 -5.3125 5.046875 -4.390625 Z M 6.78125 -4.390625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-9">
+<path d="M 6.8125 -2.9375 C 6.828125 -3.09375 6.828125 -3.15625 6.828125 -3.25 C 6.828125 -3.953125 6.71875 -4.609375 6.546875 -5.09375 C 6.078125 -6.375 4.953125 -7.140625 3.53125 -7.140625 C 1.515625 -7.140625 0.28125 -5.6875 0.28125 -3.328125 C 0.28125 -1.078125 1.515625 0.296875 3.5 0.296875 C 5.0625 0.296875 6.34375 -0.578125 6.75 -1.96875 L 4.953125 -1.96875 C 4.734375 -1.421875 4.21875 -1.09375 3.5625 -1.09375 C 3.046875 -1.09375 2.625 -1.3125 2.359375 -1.703125 C 2.203125 -1.96875 2.125 -2.28125 2.109375 -2.9375 Z M 2.125 -4.140625 C 2.25 -5.21875 2.703125 -5.75 3.515625 -5.75 C 4.34375 -5.75 4.84375 -5.1875 4.921875 -4.140625 Z M 2.125 -4.140625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-10">
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 21.5 L 595.5 1.5 L 49.5 1.5 L 49.5 21.5 L 595.5 21.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 200 L 20 200 " transform="matrix(0.1, 0, 0, -0.1, 0, 22)"/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-0" x="67" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="76.386" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="80" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="87.228" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="94.456" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="101.684" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="105.298" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-5" x="112.526" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="116.855" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="120.469" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="127.697" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-6" x="131.311" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="141.425" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="145.039" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-7" x="152.267" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-8" x="160.21" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-9" x="167.438" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-10" x="174.666" y="17"/>
+</g>
+</svg></b><b></b></p>
+<p class="p21"><b>Purpose</b></p>
+<p class="p7">An NSDictionary object stores an immutable set of entries.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>Principal Attributes</b></p>
+<p class="p7">•<span class="Apple-tab-span">	</span>A count of the number of entries in the dictionary.</p>
+<p class="p7">•<span class="Apple-tab-span">	</span>The set of keys contained in the dictionary.</p>
+<p class="p7">•<span class="Apple-tab-span">	</span>The objects that correspond to the keys in the dictionary.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>Creation</b></p>
+<p class="p23">+ dictionary<span class="Apple-tab-span">	</span>Returns an empty dictionary.</p>
+<p class="p23">+ dictionaryWithContentsOfFile:<span class="Apple-tab-span">	</span>Returns a dictionary initialized from the property list stored in the specified file.</p>
+<p class="p23">+ dictionaryWithDictionary:<span class="Apple-tab-span">	</span>Returns a dictionary initialized from an existing dictionary.</p>
+<p class="p23">+ dictionaryWithObject:forKey:<span class="Apple-tab-span">	</span>Returns a dictionary initialized with a single object and key.</p>
+<p class="p23">+ dictionaryWithObjects:forKeys:<span class="Apple-tab-span">	</span>Returns a dictionary of the specified objects and their keys.</p>
+<p class="p23">+ dictionaryWithObjects:forKeys:count:<span class="Apple-tab-span">	</span>Returns a dictionary of the specified objects and their keys.</p>
+<p class="p23">+ dictionaryWithObjectsAndKeys:<span class="Apple-tab-span">	</span>Returns a dictionary of the specified objects and their keys.</p>
+<p class="p24"><br></p>
+<p class="p21"><b>Commonly Used Methods</b></p>
+<p class="p23"><span class="s5">-</span> count<span class="Apple-tab-span">	</span>Returns the number of objects currently in the dictionary.</p>
+<p class="p23"><span class="s5">-</span> objectForKey:<span class="Apple-tab-span">	</span>Returns the object that corresponds to the specified key.</p>
+<p class="p23"><span class="s5">-</span> keyEnumerator<span class="Apple-tab-span">	</span>Returns an enumerator object that lets you access each key in the dictionary.</p>
+<p class="p24"><br></p>
+<p class="p21"><b>Primitive Methods</b></p>
+<p class="p23"><span class="s5">-</span> count</p>
+<p class="p23"><span class="s5">-</span> objectForKey:</p>
+<p class="p23"><span class="s5">-</span> keyEnumerator</p>
+<p class="p25"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="9pt" viewBox="0 0 597 9" role="img" aria-labelledby="eps-svg-2-title" data-source="NSDictionaryClassCluster.rtfd/AtaGlanceClose.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-2-title">AtaGlanceClose.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 7.5 L 595.5 0.25 L 49.5 0.25 L 49.5 7.5 L 595.5 7.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 20 L 20 20 " transform="matrix(0.1, 0, 0, -0.1, 0, 9)"/>
+</svg></b><b></b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b>Class Description</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p7">The NSDictionary class declares the programmatic interface to objects that manage immutable associations of keys and values. NSDictionary's three primitive methods—<b>count</b>, <b>objectForKey:</b>, and <b>keyEnumerator</b>—provide the basis for all of the other methods in its interface. The <b>count</b> method returns the number of entries in the dictionary. <b>objectForKey: </b>returns the value associated with a given key. <b>keyEnumerator</b> returns an object that lets you iterate through each of the keys in the dictionary.</p>
+<p class="p8"><br></p>
+<p class="p7">The other methods declared here operate by invoking one or more of these primitives. The non-primitive methods provide convenient ways of accessing multiple entries at once. The <b>description...</b> and <b>writeToFile:atomically:</b> methods cause a dictionary to write a representation of itself to a string or to a file, respectively.</p>
+<p class="p8"><br></p>
+<p class="p31"><br></p>
+<p class="p32"><b>Adopted Protocols</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p33">NSCoding<span class="Apple-tab-span">	</span><span class="s5">-</span> encodeWithCoder:</p>
+<p class="p34"><span class="s5">-</span> initWithCoder:</p>
+<p class="p35"><br></p>
+<p class="p33">NSCopying<span class="Apple-tab-span">	</span><span class="s5">-</span> copyWithZone:</p>
+<p class="p36"><br></p>
+<p class="p33">NSMutableCopying<span class="Apple-tab-span">	</span><span class="s5">-</span> mutableCopyWithZone:</p>
+<p class="p37"><br></p>
+<p class="p32"><b>Method Types</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p33">Creating dictionaries<span class="Apple-tab-span">	</span>+ allocWithZone:</p>
+<p class="p34">+ dictionary</p>
+<p class="p34">+ dictionaryWithContentsOfFile:</p>
+<p class="p34">+ dictionaryWithDictionary:</p>
+<p class="p34">+ dictionaryWithObject:forKey:</p>
+<p class="p34">+ dictionaryWithObjects:forKeys:</p>
+<p class="p34">+ dictionaryWithObjects:forKeys:count:</p>
+<p class="p34">+ dictionaryWithObjectsAndKeys:</p>
+<p class="p34"><span class="s5">-</span> initWithContentsOfFile:</p>
+<p class="p34"><span class="s5">-</span> initWithDictionary:</p>
+<p class="p34"><span class="s5">-</span> initWithObjects:forKeys:</p>
+<p class="p34"><span class="s5">-</span> initWithObjects:forKeys:count:</p>
+<p class="p34"><span class="s5">-</span> initWithObjectsAndKeys:</p>
+<p class="p35"><br></p>
+<p class="p33">Counting entries<span class="Apple-tab-span">	</span><span class="s5">-</span> count<span class="Apple-converted-space"> </span></p>
+<p class="p36"><br></p>
+<p class="p33">Accessing keys and values<span class="Apple-tab-span">	</span><span class="s5">-</span> allKeys</p>
+<p class="p34"><span class="s5">-</span> allKeysForObject:</p>
+<p class="p34"><span class="s5">-</span> allValues</p>
+<p class="p34"><span class="s5">-</span> description</p>
+<p class="p34"><span class="s5">-</span> descriptionInStringsFileFormat</p>
+<p class="p34"><span class="s5">-</span> descriptionWithLocale:</p>
+<p class="p34"><span class="s5">-</span> descriptionWithLocale:indent:</p>
+<p class="p34"><span class="s5">-</span> keyEnumerator<span class="Apple-converted-space"> </span></p>
+<p class="p34"><span class="s5">-</span> keysSortedByValueUsingSelector:</p>
+<p class="p34"><span class="s5">-</span> objectEnumerator</p>
+<p class="p34"><span class="s5">-</span> objectForKey:</p>
+<p class="p34"><span class="s5">-</span> objectsForKeys:notFoundMarker:</p>
+<p class="p35"><br></p>
+<p class="p33">Comparing dictionaries<span class="Apple-tab-span">	</span><span class="s5">-</span> isEqualToDictionary:</p>
+<p class="p36"><br></p>
+<p class="p33">Storing dictionaries<span class="Apple-tab-span">	</span><span class="s5">-</span> writeToFile:atomically:</p>
+<p class="p37"><br></p>
+<p class="p32"><b>Class Methods</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p38"><b></b><b>allocWithZone:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40">+ (id)<b>allocWithZone:</b>(NSZone *)<i>zone</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Creates and returns an uninitialized dictionary in the specified zone. If the receiver is the NSDictionary class object, an instance of an immutable private subclass is returned; otherwise, an object of the receiver's class is returned.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">Typically, you create temporary dictionaries using the <b>dictionary... </b>class methods, not the <b>alloc...</b> and<b> init... </b>methods.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ dictionary</b>, <b>+ dictionaryWithContentsOfFile:</b>, <b>+ dictionaryWithObjects:forKeys:</b>, <b>+ dictionaryWithObjects:forKeys:count:</b>, <b>+ dictionaryWithObjectsAndKeys:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>dictionary</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40">+ (id)<b>dictionary</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p7">Creates and returns an empty dictionary. This method is declared primarily for the use with mutable subclasses of NSDictionary.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ dictionaryWithContentsOfFile:</b>, <b>+ dictionaryWithObjects:forKeys:</b>, <b>+ dictionaryWithObjects:forKeys:count:</b>, <b>+ dictionaryWithObjectsAndKeys:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>dictionaryWithContentsOfFile:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40">+ (id)<b>dictionaryWithContentsOfFile:</b>(NSString *)<i>path</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Creates and returns a dictionary containing the keys and values found in <i>path</i>. <i>path</i> can be a full or relative pathname; the file that it names must contain a string representation of a dictionary, such as that produced by the <b>writeToFile:atomically:</b> method.</p>
+<p class="p8"><br></p>
+<p class="p7"><b>nil</b> is returned if there's a file error or if the contents of the file is an invalid representation of a dictionary.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ dictionary</b>, <b>+ dictionaryWithObjects:forKeys:</b>, <b>+ dictionaryWithObjects:forKeys:count:</b>, <b>+ dictionaryWithObjectsAndKeys:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>dictionaryWithDictionary:</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p40">+ (id)<b>dictionaryWithDictionary:</b>(NSDictionary *)<i>otherDictionary</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Creates and returns a dictionary containing the keys and values found in <i>otherDictionary</i>.</p>
+<p class="p8"><br></p>
+<p class="p47"><br></p>
+<p class="p45"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>dictionaryWithObject:forKey:</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p40">+ (id)<b>dictionaryWithObjects:</b>(id)<i>anObject</i> <b>forKey:</b>(id)<i>aKey</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Creates and returns a dictionary containing a single object, <i>anObject</i>, for a single key, <i>aKey</i>.</p>
+<p class="p8"><br></p>
+<p class="p47"><br></p>
+<p class="p38"><b></b><b>dictionaryWithObjects:forKeys:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40">+ (id)<b>dictionaryWithObjects:</b>(NSArray *)<i>objects</i> <b>forKeys:</b>(NSArray *)<i>keys</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Creates and returns a dictionary containing entries constructed from the contents of <i>objects</i> and <i>keys</i>. This method steps through the <i>objects</i> and <i>keys</i> arrays, creating entries in the new dictionary as it goes. Each value object receives a <b>retain</b> message before being added to the dictionary. In contrast, each key is copied (using <b>copyWithZone:</b>; keys must conform to the NSCopying protocol), and the copy is added to the dictionary. An NSInvalidArgumentException is raised if <i>objects</i> and <i>keys</i> don't have the same number of elements.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ dictionary</b>, <b>+ dictionaryWithContentsOfFile:</b>, <b>+ dictionaryWithObjects:forKeys:count:</b>, <b>+ dictionaryWithObjectsAndKeys:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>dictionaryWithObjects:forKeys:count:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40">+ (id)<b>dictionaryWithObjects:</b>(id *)<i>objects</i></p>
+<p class="p40"><b><span class="Apple-converted-space">     </span>forKeys:</b>(id *)<i>keys</i></p>
+<p class="p40"><b><span class="Apple-converted-space">     </span>count:</b>(unsigned int)<i>count</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Creates and returns a dictionary containing <i>count</i> objects from the <i>objects</i> array. The objects are associated with keys taken from the <i>keys</i> array. For example, this code excerpt creates a dictionary that associates the alphabetic characters with their ASCII values:</p>
+<p class="p8"><br></p>
+<p class="p48">static const int N_ENTRIES = 26;</p>
+<p class="p48">NSDictionary *asciiDict;</p>
+<p class="p48">NSString *keyArray[N_ENTRIES];</p>
+<p class="p48">NSNumber *valueArray[N_ENTRIES];</p>
+<p class="p48">int i;</p>
+<p class="p49"><br></p>
+<p class="p48">for (i = 0; i &lt; N_ENTRIES; i++) {</p>
+<p class="p48"><span class="Apple-tab-span">	</span>char charValue = 'a' + i;</p>
+<p class="p48"><span class="Apple-tab-span">	</span>keyArray[i] = [NSString stringWithFormat:@"%c", charValue];</p>
+<p class="p48"><span class="Apple-tab-span">	</span>valueArray[i] = [NSNumber numberWithChar:charValue];</p>
+<p class="p48">}</p>
+<p class="p48">asciiDict = [NSDictionary dictionaryWithObjects:(id *)valueArray<span class="Apple-converted-space"> </span></p>
+<p class="p48"><span class="Apple-tab-span">	</span>forKeys:(id *)keyArray count:N_ENTRIES];</p>
+<p class="p50"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ dictionary</b>, <b>+ dictionaryWithContentsOfFile:</b>, <b>+ dictionaryWithObjects:forKeys:</b>, <b>+ dictionaryWithObjectsAndKeys:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>dictionaryWithObjectsAndKeys:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40">+ (id)<b>dictionaryWithObjectsAndKeys:</b>(id)<i>object</i><b>, </b>(id)<i>key, ...</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Creates and returns a dictionary containing entries constructed from the specified set of objects and keys. <b>initWithObjectsAndKeys:</b> takes a variable number of arguments: a null-terminated list of alternating objects and keys. If any key is <b>nil</b>, an NSInvalidArgumentException is raised.</p>
+<p class="p8"><br></p>
+<p class="p7">This method is similar to <b>initWithObjects:forKeys:</b>, differing only in the way key-value pairs are specified.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ dictionary</b>, <b>+ dictionaryWithContentsOfFile:</b>, <b>+ dictionaryWithObjects:forKeys:</b>, <b>+ dictionaryWithObjects:forKeys:count:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p32"><b>Instance Methods</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p38"><b></b><b>allKeys</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (NSArray *)<b>allKeys</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p7">Returns a new array containing the dictionary's keys or an empty array if the dictionary has no entries. The order of the elements in the array isn't defined.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>allValues</b>, <span class="s5">-</span> <b>allKeysForObject:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>allKeysForObject:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (NSArray *)<b>allKeysForObject:</b>(id)<i>anObject</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Finds all occurrences of the value <i>anObject</i> in the dictionary and returns a new array with the corresponding keys. Each object in the dictionary is sent an <b>isEqual:</b> message to determine if it's equal to <i>anObject</i>. If no object matching <i>anObject</i> is found, this method returns <b>nil</b>.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>allKeys</b>, <span class="s5">-</span> <b>keyEnumerator</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>allValues</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (NSArray *)<b>allValues</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p7">Returns a new array containing the dictionary's values, or an empty array if the dictionary has no entries. The order of the values in the array isn't defined.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>allKeys</b>, <span class="s5">-</span> <b>objectEnumerator</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>count</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (unsigned int)<b>count</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p7">Returns the number of entries in the dictionary.</p>
+<p class="p8"><br></p>
+<p class="p47"><br></p>
+<p class="p38"><b></b><b>description</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40">@protocol NSObject</p>
+<p class="p40"><span class="s5">-</span> (NSString *)<b>description</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p7">Returns a string that represents the contents of the receiver, formatted as a property list. If each key in the dictionary responds to <b>compare:</b>, the entries are listed in ascending order, by key. Otherwise, the order in which the entries are listed is undefined.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>descriptionWithLocale:</b>, <span class="s5">-</span> <b>descriptionWithLocale:indent:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>descriptionInStringsFileFormat</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (NSString *)<b>descriptionInStringsFileFormat</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p7">Returns a string that represents the contents of the receiver, formatted in <b>.strings</b> file format. The order in which the entries are listed is undefined.</p>
+<p class="p8"><br></p>
+<p class="p47"><br></p>
+<p class="p38"><b></b><b>descriptionWithLocale:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (NSString *)<b>descriptionWithLocale:</b>(NSDictionary *)<i>locale</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Returns a string object that represents the contents of the receiver, formatted as a property list. <i>locale</i> specifies options used for formatting each of the receiver's keys and values; specify <b>nil</b> if you don't want them formatted.</p>
+<p class="p8"><br></p>
+<p class="p7">For a description of how <i>locale</i> is applied to each element in the receiver, see <b>descriptionWithLocale:indent:</b>.</p>
+<p class="p8"><br></p>
+<p class="p7">If each key in the dictionary responds to <b>compare:</b>, the entries are listed in ascending order, by key. Otherwise, the order in which the entries are listed is undefined.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>description</b>, <span class="s5">-</span> <b>descriptionWithLocale:indent:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>descriptionWithLocale:indent:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (NSString *)<b>descriptionWithLocale:</b>(NSDictionary *)<i>locale</i> <b>indent:</b>(unsigned int)<i>level</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Returns a string object that represents the contents of the receiver, formatted as a property list. Use <i>locale</i> to specify options to be passed to the methods that format each of the receiver's keys and values; specify <b>nil</b> if you don't want them formatted. <i>level</i> allows you to specify a level of indent, to make the output more readable: set level to 0 to use four spaces to indent, or 1 to indent the output with a tab character.</p>
+<p class="p8"><br></p>
+<p class="p7">The returned NSString contains the string representations of each of the receiver's entries. <b>descriptionWithLocale:indent:</b> obtains the string representation of a given key or value as follows:</p>
+<p class="p8"><br></p>
+<p class="p52">•<span class="Apple-tab-span">	</span>If the object is an NSString, it is used as is.</p>
+<p class="p53"><br></p>
+<p class="p52">•<span class="Apple-tab-span">	</span>If the object responds to <b>descriptionWithLocale:indent:</b>, that method is invoked to obtain the object's string representation.</p>
+<p class="p53"><br></p>
+<p class="p52">•<span class="Apple-tab-span">	</span>If the object responds to <b>descriptionWithLocale:</b>, that method is invoked to obtain the object's string representation.</p>
+<p class="p53"><br></p>
+<p class="p52">•<span class="Apple-tab-span">	</span>If none of the above conditions are met, the object's string representation is obtained by invoking its <b>description</b> method.</p>
+<p class="p53"><br></p>
+<p class="p7">If each key in the dictionary responds to <b>compare:</b>, the entries are listed in ascending order, by key. Otherwise, the order in which the entries are listed is undefined.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>description</b>, <span class="s5">-</span> <b>descriptionWithLocale:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>hash</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40">@protocol NSObject</p>
+<p class="p40"><span class="s5">-</span> (unsigned int)<b>hash</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p7">Returns an unsigned integer that can be used as a table address in a hash table structure. For a dictionary, <b>hash</b> returns the number of entries in the dictionary. If two dictionaries are equal (as determined by the <b>isEqual:</b> method), they will have the same hash value.</p>
+<p class="p8"><br></p>
+<p class="p54"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s5">-</span><span class="s3"> <b>isEqual:</b></span></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>initWithContentsOfFile:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (id)<b>initWithContentsOfFile:</b>(NSString *)<i>path</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Initializes a newly allocated dictionary using the keys and values found in <i>path</i>. <i>path</i> can be a full or relative pathname; the file that it names must contain a string representation of a dictionary, such as that produced by the <b>writeToFile:atomically:</b> method.</p>
+<p class="p8"><br></p>
+<p class="p7">After initializing the receiver, this method returns <b>self</b>. However, if the new instance can't be initialized (either because of a file error or because the contents of the file is an invalid representation of a dictionary), it's deallocated and <b>nil</b> is returned.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>dictionaryWithContentsOfFile:</b>, <span class="s5">-</span> <b>writeToFile:atomically:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>initWithDictionary:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (id)<b>initWithDictionary:</b>(NSDictionary *)<i>otherDictionary</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Initializes a newly allocated dictionary by placing in it the keys and values contained in <i>otherDictionary</i>. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>initWithContentsOfFile:</b>, <span class="s5">-</span> <b>initWithObjects:forKeys:</b>, <span class="s5">-</span> <b>initWithObjects:forKeys:count:</b>,<span class="s5">-</span> <b>initWithObjectsAndKeys:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>initWithObjects:forKeys:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (id)<b>initWithObjects:</b>(NSArray *)<i>objects </i><b>forKeys:</b>(NSArray *)<i>keys</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Initializes a newly allocated dictionary with entries constructed from the contents of the <i>objects</i> and <i>keys</i> arrays. This method steps through the <i>objects</i> and <i>keys</i> arrays, creating entries in the new dictionary as it goes. Each value object receives a <b>retain</b> message before being added to the dictionary. In contrast, each key object is copied (using <b>copyWithZone:</b>), and the copy is added to the dictionary. An NSInvalidArgumentException is raised if the <i>objects</i> and <i>keys</i> arrays do not have the same number of elements.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>dictionaryWithObjects:forKeys:</b>, <span class="s5">-</span> <b>initWithContentsOfFile:</b>, <span class="s5">-</span> <b>initWithDictionary:</b>, <span class="s5">-</span> <b>initWithObjects:forKeys:count:</b>, <span class="s5">-</span> <b>initWithObjectsAndKeys:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>initWithObjects:forKeys:count:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (id)<b>initWithObjects:</b>(id *)<i>objects </i><b>forKeys:</b>(id *)<i>keys </i><b>count:</b>(unsigned int)<i>count</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Initializes a newly allocated dictionary with <i>count</i> entries. This method steps through the <i>objects</i> and <i>keys</i> arrays, creating entries in the new dictionary as it goes. Each value object receives a <b>retain</b> message before being added to the dictionary. In contrast, each key object is copied (using <b>copyWithZone:</b>), and the copy is added to the dictionary. An NSInvalidArgumentException is raised if a key or value object is <b>nil</b>.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>dictionaryWithObjects:forKeys:count:</b>, <span class="s5">-</span> <b>initWithContentsOfFile:</b>, <span class="s5">-</span> <b>initWithDictionary:</b>, <span class="s5">-</span> <b>initWithObjects:forKeys:</b>, <span class="s5">-</span> <b>initWithObjectsAndKeys:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>initWithObjectsAndKeys:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (id)<b>initWithObjectsAndKeys:</b>(id)<i>object, </i>(id)<i>key, ...</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Initializes a newly allocated dictionary with entries constructed from the specified set of objects and keys. <b>initWithObjectsAndKeys:</b> takes a variable number of arguments: a null-terminated list of alternating objects and keys. If a key is found to be <b>nil</b>, an NSInvalidArgumentException is raised.</p>
+<p class="p8"><br></p>
+<p class="p7">This method is similar to <b>initWithObjects:forKeys:</b>, differing only in the way in which the key-value pairs are specified.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>dictionaryWithObjectsAndKeys:</b>, <span class="s5">-</span> <b>initWithContentsOfFile:</b>, <span class="s5">-</span> <b>initWithDictionary:</b>, <span class="s5">-</span> <b>initWithObjects:forKeys:</b>, <span class="s5">-</span> <b>initWithObjects:forKeys:count:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>isEqual:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40">@protocol NSObject</p>
+<p class="p40"><span class="s5">-</span> (BOOL)<b>isEqual:</b>(id)<i>anObject</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Returns YES if the receiver and <i>anObject</i> are equal; otherwise returns NO. A YES return value indicates that the receiver and <i>anObject </i>are both instances of classes that inherit from NSDictionary and<i> </i>contain the same data (as determined by the <b>isEqualToDictionary:</b> method).</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span><b> isEqualToDictionary:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>isEqualToDictionary:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (BOOL)<b>isEqualToDictionary:</b>(NSDictionary *)<i>otherDictionary</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Compares the receiving dictionary to <i>otherDictionary</i>. If the contents of <i>otherDictionary</i> are equal to the contents of the receiver, this method returns YES. If not, it returns NO.</p>
+<p class="p8"><br></p>
+<p class="p7">Two dictionaries have equal contents if they each hold the same number of entries and, for a given key, the corresponding value objects in each dictionary satisfy the <b>isEqual:</b> test.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s5">-</span> <b>isEqual:</b> (NSObject)</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p38"><b></b><b>keyEnumerator</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (NSEnumerator *)<b>keyEnumerator</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p7">Returns an enumerator object that lets you access each key in the dictionary:</p>
+<p class="p8"><br></p>
+<p class="p48">NSEnumerator *enumerator = [myDictionary keyEnumerator];</p>
+<p class="p48">id key;</p>
+<p class="p49"><br></p>
+<p class="p48">while ((key = [enumerator nextObject])) {</p>
+<p class="p48"><span class="Apple-converted-space">    </span>/* code that uses the returned key */<span class="Apple-converted-space"> </span></p>
+<p class="p48">}</p>
+<p class="p50"><br></p>
+<p class="p7">When this method is used with mutable subclasses of NSDictionary, your code shouldn't modify the entries during enumeration. If you intend to modify the entries, use the <b>allKeys</b> method to create a “snapshot” of the dictionary's keys. Then use this snapshot to traverse the entries, modifying them along the way.</p>
+<p class="p8"><br></p>
+<p class="p7">Note that the <b>objectEnumerator</b> method provides a convenient way to access each value in the dictionary.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>allKeys</b>, <span class="s5">-</span> <b>allKeysForObject:</b>, <span class="s5">-</span> <b>objectEnumerator</b>,<b> </b><span class="s5">-</span><b> nextObject </b>(NSEnumerator protocol)</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p45"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>keysSortedByValueUsingSelector:</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (NSArray *)<b>keysSortedByValueUsingSelector:</b>(SEL)<i>comparator</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Returns an array of the dictionary's keys, in the order they would be in if the dictionary was sorted by its values. Pairs of dictionary values are compared using the comparison method specified by <i>comparator</i>; the comparator message is sent to one of the values, and has as its single argument the other value from the dictionary.<span class="Apple-converted-space">  </span>The comparator method should return NSOrderedAscending if the receiver is smaller than the argument, NSOrderedDescending if the receiver is larger than the argument, and NSOrderedSame if they are equal.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>allKeys</b>, <span class="s5">-</span><b> sortedArrayUsingSelector:</b> (NSArray)</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p38"><b></b><b>objectEnumerator</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (NSEnumerator *)<b>objectEnumerator</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p7">Returns an enumerator object that lets you access each value in the dictionary:</p>
+<p class="p8"><br></p>
+<p class="p48">NSEnumerator *enumerator = [myDictionary objectEnumerator];</p>
+<p class="p48">id value;</p>
+<p class="p49"><br></p>
+<p class="p48">while ((value = [enumerator nextObject])) {</p>
+<p class="p48"><span class="Apple-converted-space">    </span>/* code that acts on the dictionary's values */<span class="Apple-converted-space"> </span></p>
+<p class="p48">}</p>
+<p class="p50"><br></p>
+<p class="p7">When this method is used with mutable subclasses of NSDictionary, your code shouldn't modify the entries during enumeration. If you intend to modify the entries, use the <b>allValues</b> method to create a “snapshot” of the dictionary's values. Work from this snapshot to modify the values.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>keyEnumerator</b>,<b> </b><span class="s5">-</span><b> nextObject </b>(NSEnumerator protocol)</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p38"><b></b><b>objectForKey:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (id)<b>objectForKey:</b>(id)<i>aKey</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Returns an entry's value given its key, or <b>nil</b> if no value is associated with <i>aKey</i>.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>allKeys</b>, <span class="s5">-</span> <b>allValues</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>objectsForKeys:notFoundMarker:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (NSArray *)<b>objectsForKeys:</b>(NSArray *)<i>keys</i> <b>notFoundMarker:</b>(id)<i>anObject</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Returns the set of objects from the receiver that correspond to the specified <i>keys</i> as an NSArray. The objects in the returned array and the <i>keys</i> array have a one-for-one correspondence, so that the <i>n</i>th object in the returned array corresponds to the <i>n</i>th key in <i>keys</i>. If an object isn't found in the receiver to correspond to a given key, the marker object, specified by <i>anObject</i>, is placed in the corresponding element of the returned array.</p>
+<p class="p8"><br></p>
+<p class="p47"><br></p>
+<p class="p38"><b></b><b>writeToFile:atomically:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (BOOL)<b>writeToFile:</b>(NSString *)<i>path</i></p>
+<p class="p55"><b>atomically:</b>(BOOL)<i>flag</i></p>
+<p class="p56"><i></i><br></p>
+<p class="p7">Writes a textual description of the contents of the dictionary to <i>path</i>.<i> path</i> must be an absolute path name.</p>
+<p class="p8"><br></p>
+<p class="p7">If <i>flag</i> is YES, the dictionary is written to an auxiliary file, and then the auxiliary file is renamed to <i>path</i>. If flag is NO, the dictionary is written directly to <i>path</i>. The YES option guarantees that <i>path</i>, if it exists at all, won't be corrupted even if the system should crash during writing.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">This method returns YES if the file is written successfully, and NO otherwise.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>initWithContentsOfFile:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2">i<span class="Apple-tab-span">	</span></span><b></b><b>NSMutableDictionary</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p57"><span class="s4"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSDictionary : NSObject</p>
+<p class="p13"><br></p>
+<p class="p14"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s3">NSCoding</span></p>
+<p class="p15">NSCopying</p>
+<p class="p15">NSMutableCopying (NSDictionary)<span class="Apple-converted-space"> </span></p>
+<p class="p15">NSObject (NSObject)<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p17"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSDictionary.h</p>
+<p class="p18"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><b></b><br></p>
+<p class="p5"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="22pt" viewBox="0 0 597 22" role="img" aria-labelledby="eps-svg-3-title" data-source="NSDictionaryClassCluster.rtfd/615586_AtaGlance.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-3-title">615586_AtaGlance.eps</title><defs>
+<g>
+<g id="eps-svg-3-glyph-0-0">
+<path d="M 8.859375 -6.265625 C 8.796875 -7.078125 8.625 -7.609375 8.234375 -8.140625 C 7.5 -9.09375 6.328125 -9.640625 4.90625 -9.640625 C 2.234375 -9.640625 0.578125 -7.71875 0.578125 -4.65625 C 0.578125 -1.59375 2.21875 0.296875 4.859375 0.296875 C 7.234375 0.296875 8.78125 -1.0625 8.90625 -3.234375 L 7 -3.234375 C 6.875 -2.03125 6.125 -1.34375 4.90625 -1.34375 C 3.40625 -1.34375 2.515625 -2.5625 2.515625 -4.625 C 2.515625 -6.71875 3.4375 -7.96875 4.984375 -7.96875 C 6.109375 -7.96875 6.75 -7.421875 7 -6.265625 Z M 8.859375 -6.265625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-1">
+<path d="M 2.6875 -9.484375 L 0.875 -9.484375 L 0.875 0 L 2.6875 0 Z M 2.6875 -9.484375 "/>
+</g>
+<g id="eps-svg-3-glyph-0-2">
+<path d="M 6.8125 -0.21875 C 6.5 -0.515625 6.390625 -0.734375 6.390625 -1.078125 L 6.390625 -4.984375 C 6.390625 -6.40625 5.421875 -7.140625 3.515625 -7.140625 C 1.625 -7.140625 0.640625 -6.328125 0.515625 -4.703125 L 2.28125 -4.703125 C 2.359375 -5.4375 2.671875 -5.671875 3.5625 -5.671875 C 4.265625 -5.671875 4.609375 -5.4375 4.609375 -4.96875 C 4.609375 -4.734375 4.5 -4.53125 4.296875 -4.421875 C 4.0625 -4.296875 4.0625 -4.296875 3.15625 -4.140625 L 2.4375 -4.015625 C 1.046875 -3.78125 0.359375 -3.0625 0.359375 -1.8125 C 0.359375 -0.546875 1.203125 0.296875 2.5 0.296875 C 3.28125 0.296875 3.984375 -0.03125 4.625 -0.703125 C 4.625 -0.34375 4.671875 -0.203125 4.84375 0 L 6.8125 0 Z M 4.609375 -2.828125 C 4.609375 -1.765625 4.09375 -1.171875 3.171875 -1.171875 C 2.5625 -1.171875 2.1875 -1.5 2.1875 -2.015625 C 2.1875 -2.5625 2.46875 -2.828125 3.21875 -2.984375 L 3.84375 -3.09375 C 4.328125 -3.1875 4.40625 -3.21875 4.609375 -3.3125 Z M 4.609375 -2.828125 "/>
+</g>
+<g id="eps-svg-3-glyph-0-3">
+<path d="M 6.5625 -4.765625 C 6.53125 -6.234375 5.390625 -7.140625 3.515625 -7.140625 C 1.734375 -7.140625 0.625 -6.234375 0.625 -4.796875 C 0.625 -4.328125 0.765625 -3.921875 1.015625 -3.65625 C 1.265625 -3.40625 1.484375 -3.28125 2.15625 -3.0625 L 4.328125 -2.390625 C 4.78125 -2.25 4.9375 -2.109375 4.9375 -1.8125 C 4.9375 -1.390625 4.4375 -1.125 3.59375 -1.125 C 3.109375 -1.125 2.75 -1.203125 2.515625 -1.375 C 2.3125 -1.515625 2.234375 -1.65625 2.15625 -2.046875 L 0.375 -2.046875 C 0.421875 -0.5 1.5625 0.296875 3.6875 0.296875 C 4.671875 0.296875 5.40625 0.09375 5.921875 -0.328125 C 6.453125 -0.734375 6.765625 -1.390625 6.765625 -2.078125 C 6.765625 -2.984375 6.3125 -3.578125 5.375 -3.84375 L 3.078125 -4.515625 C 2.578125 -4.671875 2.4375 -4.765625 2.4375 -5.0625 C 2.4375 -5.453125 2.859375 -5.703125 3.5 -5.703125 C 4.375 -5.703125 4.796875 -5.390625 4.8125 -4.765625 Z M 6.5625 -4.765625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-4">
+</g>
+<g id="eps-svg-3-glyph-0-5">
+<path d="M 3.90625 -6.875 L 2.90625 -6.875 L 2.90625 -8.765625 L 1.078125 -8.765625 L 1.078125 -6.875 L 0.1875 -6.875 L 0.1875 -5.671875 L 1.078125 -5.671875 L 1.078125 -1.359375 C 1.078125 -0.25 1.65625 0.296875 2.859375 0.296875 C 3.28125 0.296875 3.578125 0.265625 3.90625 0.15625 L 3.90625 -1.125 C 3.734375 -1.09375 3.640625 -1.078125 3.5 -1.078125 C 3.015625 -1.078125 2.90625 -1.21875 2.90625 -1.84375 L 2.90625 -5.671875 L 3.90625 -5.671875 Z M 3.90625 -6.875 "/>
+</g>
+<g id="eps-svg-3-glyph-0-6">
+<path d="M 9.25 -5.09375 L 5.453125 -5.09375 L 5.453125 -3.46875 L 7.609375 -3.46875 C 7.546875 -2.9375 7.421875 -2.609375 7.140625 -2.28125 C 6.671875 -1.703125 5.9375 -1.359375 5.203125 -1.359375 C 3.609375 -1.359375 2.5 -2.75 2.5 -4.6875 C 2.5 -6.734375 3.484375 -7.96875 5.140625 -7.96875 C 5.828125 -7.96875 6.390625 -7.78125 6.828125 -7.390625 C 7.09375 -7.15625 7.234375 -6.9375 7.40625 -6.453125 L 9.25 -6.453125 C 9.015625 -8.40625 7.421875 -9.640625 5.140625 -9.640625 C 2.40625 -9.640625 0.546875 -7.625 0.546875 -4.671875 C 0.546875 -1.796875 2.421875 0.296875 4.984375 0.296875 C 6.25 0.296875 7.109375 -0.15625 7.84375 -1.21875 L 8.078125 0.03125 L 9.25 0.03125 Z M 9.25 -5.09375 "/>
+</g>
+<g id="eps-svg-3-glyph-0-7">
+<path d="M 0.8125 -7.015625 L 0.8125 0 L 2.640625 0 L 2.640625 -4.21875 C 2.640625 -5.046875 3.21875 -5.59375 4.109375 -5.59375 C 4.890625 -5.59375 5.28125 -5.15625 5.28125 -4.328125 L 5.28125 0 L 7.09375 0 L 7.09375 -4.703125 C 7.09375 -6.265625 6.25 -7.140625 4.75 -7.140625 C 3.796875 -7.140625 3.15625 -6.796875 2.640625 -6 L 2.640625 -7.015625 Z M 0.8125 -7.015625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-8">
+<path d="M 6.78125 -4.390625 C 6.65625 -6.109375 5.53125 -7.140625 3.75 -7.140625 C 1.65625 -7.140625 0.4375 -5.765625 0.4375 -3.359375 C 0.4375 -1.046875 1.65625 0.296875 3.734375 0.296875 C 5.4375 0.296875 6.609375 -0.75 6.78125 -2.4375 L 5.046875 -2.4375 C 4.828125 -1.515625 4.453125 -1.171875 3.734375 -1.171875 C 2.8125 -1.171875 2.265625 -1.984375 2.265625 -3.359375 C 2.265625 -4.046875 2.390625 -4.65625 2.609375 -5.0625 C 2.828125 -5.453125 3.21875 -5.671875 3.75 -5.671875 C 4.484375 -5.671875 4.84375 -5.3125 5.046875 -4.390625 Z M 6.78125 -4.390625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-9">
+<path d="M 6.8125 -2.9375 C 6.828125 -3.09375 6.828125 -3.15625 6.828125 -3.25 C 6.828125 -3.953125 6.71875 -4.609375 6.546875 -5.09375 C 6.078125 -6.375 4.953125 -7.140625 3.53125 -7.140625 C 1.515625 -7.140625 0.28125 -5.6875 0.28125 -3.328125 C 0.28125 -1.078125 1.515625 0.296875 3.5 0.296875 C 5.0625 0.296875 6.34375 -0.578125 6.75 -1.96875 L 4.953125 -1.96875 C 4.734375 -1.421875 4.21875 -1.09375 3.5625 -1.09375 C 3.046875 -1.09375 2.625 -1.3125 2.359375 -1.703125 C 2.203125 -1.96875 2.125 -2.28125 2.109375 -2.9375 Z M 2.125 -4.140625 C 2.25 -5.21875 2.703125 -5.75 3.515625 -5.75 C 4.34375 -5.75 4.84375 -5.1875 4.921875 -4.140625 Z M 2.125 -4.140625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-10">
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 21.5 L 595.5 1.5 L 49.5 1.5 L 49.5 21.5 L 595.5 21.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 200 L 20 200 " transform="matrix(0.1, 0, 0, -0.1, 0, 22)"/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#eps-svg-3-glyph-0-0" x="67" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-1" x="76.386" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="80" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-3" x="87.228" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-3" x="94.456" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-4" x="101.684" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="105.298" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-5" x="112.526" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-4" x="116.855" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="120.469" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-4" x="127.697" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-6" x="131.311" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-1" x="141.425" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="145.039" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-7" x="152.267" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-8" x="160.21" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-9" x="167.438" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-10" x="174.666" y="17"/>
+</g>
+</svg></b><b></b></p>
+<p class="p21"><b>Purpose</b></p>
+<p class="p7">An NSDictionary object stores a mutable set of entries.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>Principal Attributes</b></p>
+<p class="p7">•<span class="Apple-tab-span">	</span>A count of the number of entries in the dictionary</p>
+<p class="p7">•<span class="Apple-tab-span">	</span>The set of keys contained in the dictionary</p>
+<p class="p7">•<span class="Apple-tab-span">	</span>The objects that correspond to the keys in the dictionary</p>
+<p class="p22"><br></p>
+<p class="p21"><b>Creation</b></p>
+<p class="p23">+ dictionaryWithCapacity:<span class="Apple-tab-span">	</span>Returns an empty dictionary with enough allocated space to hold a specified number of objects</p>
+<p class="p24"><br></p>
+<p class="p21"><b>Commonly Used Methods</b></p>
+<p class="p23"><span class="s5">-</span> removeObjectForKey:<span class="Apple-tab-span">	</span>Removes the specified entry from the dictionary.</p>
+<p class="p23"><span class="s5">-</span> removeObjectForKeys:<span class="Apple-tab-span">	</span>Removes multiple entries from the dictionary.</p>
+<p class="p24"><br></p>
+<p class="p21"><b>Primitive Methods</b></p>
+<p class="p23"><span class="s5">-</span> setObject:forKey:</p>
+<p class="p23"><span class="s5">-</span> removeObjectForKey:</p>
+<p class="p25"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="9pt" viewBox="0 0 597 9" role="img" aria-labelledby="eps-svg-4-title" data-source="NSDictionaryClassCluster.rtfd/753213_AtaGlanceClose.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-4-title">753213_AtaGlanceClose.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 7.5 L 595.5 0.25 L 49.5 0.25 L 49.5 7.5 L 595.5 7.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 20 L 20 20 " transform="matrix(0.1, 0, 0, -0.1, 0, 9)"/>
+</svg></b><b></b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b>Class Description</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p7">The NSMutableDictionary class declares the programmatic interface to objects that manage mutable associations of keys and values. With its two efficient primitive methods—<b>setObject:forKey:</b> and <b>removeObject:forKey:</b>—this class adds modification operations to the basic operations it inherits from NSDictionary.</p>
+<p class="p8"><br></p>
+<p class="p7">The other methods declared here operate by invoking one or both of these primitives. The non-primitive methods provide convenient ways of adding or removing multiple entries at a time.</p>
+<p class="p8"><br></p>
+<p class="p7">When an entry is removed from a mutable dictionary, the key and value objects that make up the entry receive <b>release</b> messages. If there are no further references to the objects, they're deallocated. Note that if your program keeps a reference to such an object, the reference will become invalid unless you remember to send the object a <b>retain</b> message before it's removed from the dictionary. For example, the third statement below would result in a run-time error if <i>anObject</i> was not retained before it was removed:</p>
+<p class="p8"><br></p>
+<p class="p48">id anObject = [[<i>aDictionary</i> objectForKey:<i>theKey</i>] retain];</p>
+<p class="p49"><br></p>
+<p class="p48">[<i>aDictionary</i> removeObjectForKey:<i>theKey</i>];</p>
+<p class="p48">[anObject <i>someMessage</i>];</p>
+<p class="p58"><br></p>
+<p class="p32"><b>Method Types</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p33">Creating an NSMutableDictionary<span class="Apple-tab-span">	</span>+ allocWithZone:</p>
+<p class="p34">+ dictionaryWithCapacity:</p>
+<p class="p34"><span class="s5">-</span> initWithCapacity:</p>
+<p class="p35"><br></p>
+<p class="p33">Adding and removing entries<span class="Apple-tab-span">	</span><span class="s5">-</span> addEntriesFromDictionary:</p>
+<p class="p34"><span class="s5">-</span> removeAllObjects</p>
+<p class="p34"><span class="s5">-</span> removeObjectForKey:<span class="Apple-converted-space"> </span></p>
+<p class="p34"><span class="s5">-</span> removeObjectsForKeys:</p>
+<p class="p34"><span class="s5">-</span> setDictionary:</p>
+<p class="p34"><span class="s5">-</span> setObject:forKey:<span class="Apple-converted-space"> </span></p>
+<p class="p59"><br></p>
+<p class="p32"><b>Class Methods</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p38"><b></b><b>allocWithZone:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40">+ (id)<b>allocWithZone:</b>(NSZone *)<i>zone</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Creates and returns an uninitialized mutable dictionary in the specified zone. If the receiver is this class, an instance of a mutable private subclass is returned; otherwise, an object of the receiver's class is returned.</p>
+<p class="p8"><br></p>
+<p class="p7">Typically, you create temporary dictionaries using the <b>dictionary... </b>class methods, not the <b>alloc...</b> and<b> init... </b>methods.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>dictionary</b> (NSDictionary),<b> </b>+ <b>dictionaryWithCapacity:</b>, + <b>dictionaryWithContentsOfFile:</b> (NSDictionary), + <b>dictionaryWithObjects:forKeys:</b> (NSDictionary), + <b>dictionaryWithObjects:forKeys:count: </b>(NSDictionary), + <b>dictionaryWithObjectsAndKeys:</b> (NSDictionary)</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p38"><b></b><b>dictionaryWithCapacity:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><b>+ (id)dictionaryWithCapacity:(unsigned int)</b><i>numItems</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Creates and returns an mutable dictionary, giving it enough allocated memory to hold <i>numItems</i> entries. Mutable dictionaries allocate additional memory as needed, so <i>numItems</i> simply establishes the object's initial capacity.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>dictionary</b> (NSDictionary), + <b>dictionaryWithContentsOfFile:</b> (NSDictionary), + <b>dictionaryWithObjects:forKeys:</b> (NSDictionary), + <b>dictionaryWithObjects:forKeys:count: </b>(NSDictionary), + <b>dictionaryWithObjectsAndKeys:</b> (NSDictionary), <span class="s5">-</span> <b>initWithCapacity:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p32"><b>Instance Methods</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p38"><b></b><b>addEntriesFromDictionary:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (void)<b>addEntriesFromDictionary:</b>(NSDictionary *)<i>otherDictionary</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Adds the entries from <i>otherDictionary</i> to the receiver. Each value object from <i>otherDictionary</i> is sent a <b>retain</b> message before being added to the receiver. In contrast, each key object is copied (using <b>copyWithZone:</b>; keys must conform to the NSCopying protocol), and the copy is added to the receiver.</p>
+<p class="p8"><br></p>
+<p class="p7">If both dictionaries contain the same key, the receiver's previous value object for that key is sent a <b>release</b> message and the new value object takes its place.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>setObject:forKey:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>initWithCapacity:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (id)<b>initWithCapacity:</b>(unsigned int)<i>numItems</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Initializes a newly allocated mutable dictionary, allocating enough memory to hold <i>numItems</i> entries. Mutable dictionaries allocate additional memory as needed, so <i>numItems</i> simply establishes the object's initial capacity. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">+</span> <b>dictionaryWithCapacity:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>removeAllObjects</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (void)<b>removeAllObjects</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p7">Empties the dictionary of its entries. Each key and corresponding value object is sent a <b>release</b> message.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>removeObjectForKey:</b>,<b> </b><span class="s5">-</span> <b>removeObjectsForKeys:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>removeObjectForKey:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (void)<b>removeObjectForKey:</b>(id)<i>aKey</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Removes <i>aKey</i> and its associated value object from the dictionary.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">For example, assume you have a, archived dictionary that records the call letters and associated frequencies of radio stations. To remove an entry of a defunct station, you could write code similar to the following:</p>
+<p class="p8"><br></p>
+<p class="p48">NSMutableDictionary *stations = nil;</p>
+<p class="p49"><br></p>
+<p class="p48">stations = [[NSMutableDictionary alloc]<span class="Apple-converted-space"> </span></p>
+<p class="p48"><span class="Apple-tab-span">	</span>initWithContentsOfFile:<i>theArchiveFile</i>];</p>
+<p class="p48">[stations removeObjectForKey:@”KIKT”];</p>
+<p class="p50"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>removeAllObjects</b>,<b> </b><span class="s5">-</span> <b>removeObjectsForKeys:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>removeObjectsForKeys:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (void)<b>removeObjectsForKeys:</b>(NSArray *)<i>keyArray</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Removes one or more entries from the receiver. The entries are identified by the keys in <i>keyArray</i>.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>removeAllObjects</b>,<b> </b><span class="s5">-</span> <b>removeObjectForKey:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p38"><b></b><b>setDictionary:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (void)<b>setDictionary:</b>(NSDictionary *)<i>otherDictionary</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Sets the receiver to entries in <i>otherDictionary</i>. setDictionary does this by removing all entries from the receiver (with <b>removeAllObjects</b>) then adding each entry from <i>otherDictionary</i> into the receiver.</p>
+<p class="p8"><br></p>
+<p class="p47"><br></p>
+<p class="p38"><b></b><b>setObject:forKey:</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40"><span class="s5">-</span> (void)<b>setObject:</b>(id)<i>anObject </i><b>forKey</b>:(id)<i>aKey</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p7">Adds an entry to the receiver, consisting of a<i>Key</i> and its corresponding value object <i>anObject</i>. The value object receives a <b>retain</b> message before being added to the dictionary. In contrast, the key is copied (using <b>copyWithZone:</b>; keys must conform to the NSCopying protocol), and the copy is added to the dictionary. An NSInvalidArgumentException is raised if the key or value object is <b>nil</b>.</p>
+<p class="p8"><br></p>
+<p class="p7">If <i>aKey</i> already exists in the receiver, the receiver's previous value object for that key is sent a <b>release</b> message and <i>anObject</i> takes its place.</p>
+<p class="p8"><br></p>
+<p class="p42"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>removeObjectForKey:</b></p>
+<p class="p43"><b></b><br></p>
+</body>
+</html>

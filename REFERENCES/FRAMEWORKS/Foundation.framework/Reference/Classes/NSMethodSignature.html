@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.2px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.2px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 35.0px Times; min-height: 42.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Helvetica}
+    p.p18 {margin: 0.0px 0.0px 0.0px 75.6px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 75.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 14.0px Times}
+    p.p23 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 23.0px Times; min-height: 28.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSMethodSignature<span class="Apple-converted-space"> </span></b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s2">NSObject</span></p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s3"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSObject (NSObject)</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSMethodSignature.h<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Class Description</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">An NSMethodSignature records type information for the arguments and return value of a method. It's used to forward messages that the receiving object doesn't respond to—most notably in the case of distributed objects. An NSMethodSignature is typically created using NSObject's <b>methodSignatureForSelector:</b> instance method. It's then used to create an NSInvocation, which is passed as the argument to a <b>forwardInvocation:</b> message to send the invocation on to whatever other object can handle the message. In the default case, NSObject invokes <b>doesNotRecognizeSelector:</b>, which raises an exception. For distributed objects, the NSInvocation is encoded using the information in the NSMethodSignature and sent to the real object represented by the receiver of the message.</p>
+<p class="p12"><br></p>
+<p class="p11">An NSMethodSignature presents its argument types by index with the <b>getArgumentTypeAtIndex:</b> method. The hidden arguments for every method, <b>self</b> and <b>_cmd</b>, are at indices 0 and 1 respectively. The arguments normally specified in a message invocation follow these. In addition to the argument types, an NSMethodSignature offers the total number of arguments with <b>numberOfArguments</b>, the total stack frame length occupied by all arguments with <b>frameLength</b> (this varies with hardware architecture), and the length and type of the return value with <b>methodReturnLength</b> and <b>methodReturnType</b>. Finally, applications using distributed objects can determine if the method is asynchronous with the <b>isOneway</b> method.</p>
+<p class="p12"><br></p>
+<p class="p11">For more information about the nature of a method, including the hidden arguments, see <i>Object-Oriented Programming and the Objective-C Language</i>.</p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p9"><b>Method Types</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p14">Querying attributes<span class="Apple-tab-span">	</span><span class="s4">-</span> frameLength</p>
+<p class="p15"><span class="s4">-</span> getAgumentTypeAtIndex:</p>
+<p class="p15"><span class="s4">-</span> isOneway</p>
+<p class="p15"><span class="s4">-</span> numberOfArguments</p>
+<p class="p15"><span class="s4">-</span> methodReturnLength</p>
+<p class="p15"><span class="s4">-</span> methodReturnType</p>
+<p class="p16"><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p17"><b></b><b>getArgumentTypeAtIndex:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><span class="s4">-</span><b> </b>(const char *)<b>getArgumentTypeAtIndex:</b>(unsigned int)<i>index</i></p>
+<p class="p20"><i></i><br></p>
+<p class="p11">Returns the type encoding for the argument at <i>index</i>. Indices begin with 0. The hidden arguments <b>self</b> (of type <b>id</b>) and <b>_cmd</b> (of type SEL) are at indices 0 and 1; method-specific arguments begin at index 2. Raises NSInvalidArgumentException if <i>index</i> is too large for the actual number of arguments.</p>
+<p class="p12"><br></p>
+<p class="p11">Argument types are given as C strings with Objective-C type encoding. This encoding is implementation-specific, so OpenStep applications should use it with caution.</p>
+<p class="p12"><br></p>
+<p class="p21"><br></p>
+<p class="p17"><b></b><b>frameLength</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><span class="s4">-</span><b> </b>(unsigned int)<b>frameLength</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p11">Returns the number of bytes that the arguments, taken together, occupy on the stack. This number varies with the hardware architecture the application runs on.</p>
+<p class="p12"><br></p>
+<p class="p21"><br></p>
+<p class="p17"><b></b><b>isOneway</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><span class="s4">-</span><b> </b>(BOOL)<b>isOneway</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p11">Returns YES if the method is asynchronous when invoked through distributed objects. In this case the sender of the remote message doesn't block awaiting a reply. Returns NO otherwise.</p>
+<p class="p12"><br></p>
+<p class="p21"><br></p>
+<p class="p17"><b></b><b>methodReturnLength</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><span class="s4">-</span><b> </b>(unsigned int)<b>methodReturnLength</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p11">Returns the number of bytes required for the return value.</p>
+<p class="p12"><br></p>
+<p class="p22"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>methodReturnType</b></p>
+<p class="p23"><b></b><br></p>
+<p class="p24"><b></b><br></p>
+<p class="p17"><b></b><b>methodReturnType</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><span class="s4">-</span><b> </b>(char *)<b>methodReturnType</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p11">Returns a C string encoding the return type of the method in Objective-C type encoding. This encoding is implementation-specific, so OpenStep applications should use it with caution.</p>
+<p class="p12"><br></p>
+<p class="p22"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>methodReturnLength</b></p>
+<p class="p23"><b></b><br></p>
+<p class="p24"><b></b><br></p>
+<p class="p17"><b></b><b>numberOfArguments</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><span class="s4">-</span><b> </b>(unsigned int)<b>numberOfArguments</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p11">Returns the number of arguments recorded in the NSMethodSignature. This is at least 2, since an NSMethodSignature includes the hidden arguments <b>self</b> and <b>_cmd</b>, which are the first two arguments passed to every method implementation.</p>
+<p class="p12"><br></p>
+</body>
+</html>

@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 12.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 10.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p19 {margin: 0.0px 0.0px 0.0px 75.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 75.0px; font: 12.0px Helvetica}
+    p.p21 {margin: 0.0px 0.0px 0.0px 388.0px; text-indent: -313.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 388.0px; text-indent: -313.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 10.0px; font: 9.0px Helvetica; min-height: 11.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 10.0px; font: 9.0px Helvetica}
+    p.p27 {margin: 0.0px 0.0px 0.0px 10.0px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 10.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 12.0px Helvetica}
+    p.p30 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p35 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Times}
+    p.p37 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p40 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p41 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p42 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p46 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p48 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p49 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p50 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p51 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p52 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p53 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p54 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p55 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p56 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p57 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p58 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p59 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Helvetica}
+    span.s3 {font: 14.0px Times}
+    span.s4 {font: 14.0px Symbol}
+    span.s5 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSColor</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><span class="s2"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSResponder : NSObject</p>
+<p class="p6"><br></p>
+<p class="p7"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s3">NSCoding</span></p>
+<p class="p8">NSCopying</p>
+<p class="p8">NSObject (NSObject)</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSColor.h</p>
+<p class="p11"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="595pt" height="21pt" viewBox="0 0 595 21" role="img" aria-labelledby="eps-svg-1-title" data-source="NSColor.rtfd/AtaGlance1.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">AtaGlance1.eps</title><defs>
+<g>
+<g id="eps-svg-1-glyph-0-0">
+<path d="M 8.859375 -6.265625 C 8.796875 -7.078125 8.625 -7.609375 8.234375 -8.140625 C 7.5 -9.09375 6.328125 -9.640625 4.90625 -9.640625 C 2.234375 -9.640625 0.578125 -7.71875 0.578125 -4.65625 C 0.578125 -1.59375 2.21875 0.296875 4.859375 0.296875 C 7.234375 0.296875 8.78125 -1.0625 8.90625 -3.234375 L 7 -3.234375 C 6.875 -2.03125 6.125 -1.34375 4.90625 -1.34375 C 3.40625 -1.34375 2.515625 -2.5625 2.515625 -4.625 C 2.515625 -6.71875 3.4375 -7.96875 4.984375 -7.96875 C 6.109375 -7.96875 6.75 -7.421875 7 -6.265625 Z M 8.859375 -6.265625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-1">
+<path d="M 2.6875 -9.484375 L 0.875 -9.484375 L 0.875 0 L 2.6875 0 Z M 2.6875 -9.484375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-2">
+<path d="M 6.8125 -0.21875 C 6.5 -0.515625 6.390625 -0.734375 6.390625 -1.078125 L 6.390625 -4.984375 C 6.390625 -6.40625 5.421875 -7.140625 3.515625 -7.140625 C 1.625 -7.140625 0.640625 -6.328125 0.515625 -4.703125 L 2.28125 -4.703125 C 2.359375 -5.4375 2.671875 -5.671875 3.5625 -5.671875 C 4.265625 -5.671875 4.609375 -5.4375 4.609375 -4.96875 C 4.609375 -4.734375 4.5 -4.53125 4.296875 -4.421875 C 4.0625 -4.296875 4.0625 -4.296875 3.15625 -4.140625 L 2.4375 -4.015625 C 1.046875 -3.78125 0.359375 -3.0625 0.359375 -1.8125 C 0.359375 -0.546875 1.203125 0.296875 2.5 0.296875 C 3.28125 0.296875 3.984375 -0.03125 4.625 -0.703125 C 4.625 -0.34375 4.671875 -0.203125 4.84375 0 L 6.8125 0 Z M 4.609375 -2.828125 C 4.609375 -1.765625 4.09375 -1.171875 3.171875 -1.171875 C 2.5625 -1.171875 2.1875 -1.5 2.1875 -2.015625 C 2.1875 -2.5625 2.46875 -2.828125 3.21875 -2.984375 L 3.84375 -3.09375 C 4.328125 -3.1875 4.40625 -3.21875 4.609375 -3.3125 Z M 4.609375 -2.828125 "/>
+</g>
+<g id="eps-svg-1-glyph-0-3">
+<path d="M 6.5625 -4.765625 C 6.53125 -6.234375 5.390625 -7.140625 3.515625 -7.140625 C 1.734375 -7.140625 0.625 -6.234375 0.625 -4.796875 C 0.625 -4.328125 0.765625 -3.921875 1.015625 -3.65625 C 1.265625 -3.40625 1.484375 -3.28125 2.15625 -3.0625 L 4.328125 -2.390625 C 4.78125 -2.25 4.9375 -2.109375 4.9375 -1.8125 C 4.9375 -1.390625 4.4375 -1.125 3.59375 -1.125 C 3.109375 -1.125 2.75 -1.203125 2.515625 -1.375 C 2.3125 -1.515625 2.234375 -1.65625 2.15625 -2.046875 L 0.375 -2.046875 C 0.421875 -0.5 1.5625 0.296875 3.6875 0.296875 C 4.671875 0.296875 5.40625 0.09375 5.921875 -0.328125 C 6.453125 -0.734375 6.765625 -1.390625 6.765625 -2.078125 C 6.765625 -2.984375 6.3125 -3.578125 5.375 -3.84375 L 3.078125 -4.515625 C 2.578125 -4.671875 2.4375 -4.765625 2.4375 -5.0625 C 2.4375 -5.453125 2.859375 -5.703125 3.5 -5.703125 C 4.375 -5.703125 4.796875 -5.390625 4.8125 -4.765625 Z M 6.5625 -4.765625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-4">
+</g>
+<g id="eps-svg-1-glyph-0-5">
+<path d="M 3.90625 -6.875 L 2.90625 -6.875 L 2.90625 -8.765625 L 1.078125 -8.765625 L 1.078125 -6.875 L 0.1875 -6.875 L 0.1875 -5.671875 L 1.078125 -5.671875 L 1.078125 -1.359375 C 1.078125 -0.25 1.65625 0.296875 2.859375 0.296875 C 3.28125 0.296875 3.578125 0.265625 3.90625 0.15625 L 3.90625 -1.125 C 3.734375 -1.09375 3.640625 -1.078125 3.5 -1.078125 C 3.015625 -1.078125 2.90625 -1.21875 2.90625 -1.84375 L 2.90625 -5.671875 L 3.90625 -5.671875 Z M 3.90625 -6.875 "/>
+</g>
+<g id="eps-svg-1-glyph-0-6">
+<path d="M 9.25 -5.09375 L 5.453125 -5.09375 L 5.453125 -3.46875 L 7.609375 -3.46875 C 7.546875 -2.9375 7.421875 -2.609375 7.140625 -2.28125 C 6.671875 -1.703125 5.9375 -1.359375 5.203125 -1.359375 C 3.609375 -1.359375 2.5 -2.75 2.5 -4.6875 C 2.5 -6.734375 3.484375 -7.96875 5.140625 -7.96875 C 5.828125 -7.96875 6.390625 -7.78125 6.828125 -7.390625 C 7.09375 -7.15625 7.234375 -6.9375 7.40625 -6.453125 L 9.25 -6.453125 C 9.015625 -8.40625 7.421875 -9.640625 5.140625 -9.640625 C 2.40625 -9.640625 0.546875 -7.625 0.546875 -4.671875 C 0.546875 -1.796875 2.421875 0.296875 4.984375 0.296875 C 6.25 0.296875 7.109375 -0.15625 7.84375 -1.21875 L 8.078125 0.03125 L 9.25 0.03125 Z M 9.25 -5.09375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-7">
+<path d="M 0.8125 -7.015625 L 0.8125 0 L 2.640625 0 L 2.640625 -4.21875 C 2.640625 -5.046875 3.21875 -5.59375 4.109375 -5.59375 C 4.890625 -5.59375 5.28125 -5.15625 5.28125 -4.328125 L 5.28125 0 L 7.09375 0 L 7.09375 -4.703125 C 7.09375 -6.265625 6.25 -7.140625 4.75 -7.140625 C 3.796875 -7.140625 3.15625 -6.796875 2.640625 -6 L 2.640625 -7.015625 Z M 0.8125 -7.015625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-8">
+<path d="M 6.78125 -4.390625 C 6.65625 -6.109375 5.53125 -7.140625 3.75 -7.140625 C 1.65625 -7.140625 0.4375 -5.765625 0.4375 -3.359375 C 0.4375 -1.046875 1.65625 0.296875 3.734375 0.296875 C 5.4375 0.296875 6.609375 -0.75 6.78125 -2.4375 L 5.046875 -2.4375 C 4.828125 -1.515625 4.453125 -1.171875 3.734375 -1.171875 C 2.8125 -1.171875 2.265625 -1.984375 2.265625 -3.359375 C 2.265625 -4.046875 2.390625 -4.65625 2.609375 -5.0625 C 2.828125 -5.453125 3.21875 -5.671875 3.75 -5.671875 C 4.484375 -5.671875 4.84375 -5.3125 5.046875 -4.390625 Z M 6.78125 -4.390625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-9">
+<path d="M 6.8125 -2.9375 C 6.828125 -3.09375 6.828125 -3.15625 6.828125 -3.25 C 6.828125 -3.953125 6.71875 -4.609375 6.546875 -5.09375 C 6.078125 -6.375 4.953125 -7.140625 3.53125 -7.140625 C 1.515625 -7.140625 0.28125 -5.6875 0.28125 -3.328125 C 0.28125 -1.078125 1.515625 0.296875 3.5 0.296875 C 5.0625 0.296875 6.34375 -0.578125 6.75 -1.96875 L 4.953125 -1.96875 C 4.734375 -1.421875 4.21875 -1.09375 3.5625 -1.09375 C 3.046875 -1.09375 2.625 -1.3125 2.359375 -1.703125 C 2.203125 -1.96875 2.125 -2.28125 2.109375 -2.9375 Z M 2.125 -4.140625 C 2.25 -5.21875 2.703125 -5.75 3.515625 -5.75 C 4.34375 -5.75 4.84375 -5.1875 4.921875 -4.140625 Z M 2.125 -4.140625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-10">
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 594 21 L 594 1 L 48 1 L 48 21 L 594 21 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 685 195 L 5 195 " transform="matrix(0.1, 0, 0, -0.1, 0, 21)"/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-0" x="65.5" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="74.886" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="78.5" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="85.728" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="92.956" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="100.184" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="103.798" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-5" x="111.026" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="115.355" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="118.969" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="126.197" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-6" x="129.811" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="139.925" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="143.539" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-7" x="150.767" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-8" x="158.71" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-9" x="165.938" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-10" x="173.166" y="16.5"/>
+</g>
+</svg></b><b></b></p>
+<p class="p15"><b></b><br></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b>Purpose</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18">An NSColor object represents a color, which is defined in a <i>color space</i>, each point of which has a set of components (such as red, green, and blue) that uniquely define a color.</p>
+<p class="p19"><br></p>
+<p class="p20"><b>Principal Attributes</b></p>
+<p class="p18">•<span class="Apple-tab-span">	</span>Color space<span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Color components</p>
+<p class="p19"><br></p>
+<p class="p20"><b>Creation</b></p>
+<p class="p21">colorWith... methods</p>
+<p class="p21">Individual color methods</p>
+<p class="p22"><br></p>
+<p class="p20"><b>Commonly Used Methods</b></p>
+<p class="p23">colorSpaceName<span class="Apple-tab-span">	</span>Gets the NSColor's color space.</p>
+<p class="p23">set<span class="Apple-tab-span">	</span>Sets the drawing color.</p>
+<p class="p24"><br></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="595pt" height="9pt" viewBox="0 0 595 9" role="img" aria-labelledby="eps-svg-2-title" data-source="NSColor.rtfd/AtaGlanceClose1.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-2-title">AtaGlanceClose1.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 594 9 L 594 1.75 L 48 1.75 L 48 9 L 594 9 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 685 5 L 5 5 " transform="matrix(0.1, 0, 0, -0.1, 0, 9)"/>
+</svg></b><b></b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b>Class Description</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p18">An NSColor object represents a color. The color can be a grayscale value and can include alpha (opacity) information. By sending a <b>set</b> message to an NSColor instance, you set the color for the current PostScript drawing context. This causes subsequently drawn graphics to have the color represented by the NSColor instance.</p>
+<p class="p31"><br></p>
+<p class="p32"><br></p>
+<p class="p16"><b>Color Spaces</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p18">A color is defined in some particular <i>color space</i>. A color space consists of a set of dimensions—such as red, green, and blue in the case of RGB space. Each point in the space represents a unique color, and the point's location along each dimension is called a <i>component</i>. An individual color is usually specified by the numeric values of its components, which range from 0.0 to 1.0. For instance, a pure red is specified in RGB space by the component values 1.0, 0.0, and 0.0.<span class="Apple-converted-space"> </span></p>
+<p class="p31"><br></p>
+<p class="p18">Some color spaces include an alpha component, which defines the color's opacity. An alpha value of 1.0 means completely opaque, and 0.0 means completely transparent. The alpha component is ignored when the color is used on a device that doesn't support alpha, such as a printer.</p>
+<p class="p31"><br></p>
+<p class="p18">There are three kinds of color spaces in NEXTSTEP:</p>
+<p class="p31"><br></p>
+<p class="p34">•<span class="Apple-tab-span">	</span><i>Device-dependent</i>. This means that a given color might not look the same on different displays and printers.<span class="Apple-converted-space"> </span></p>
+<p class="p35"><br></p>
+<p class="p34">•<span class="Apple-tab-span">	</span><i>Device-independent</i>, also known as <i>calibrated</i>. With this sort of color space, a given color should look the same on all devices.</p>
+<p class="p35"><br></p>
+<p class="p34">•<span class="Apple-tab-span">	</span><i>Named</i>. The “named color space” has components that aren't numeric values, but simply names in various catalogs of colors. Named colors come with lookup tables that provide the ability to generate the correct color on a given device.</p>
+<p class="p35"><br></p>
+<p class="p18">NEXTSTEP includes seven different color spaces, referred to by these enumeration constants:</p>
+<p class="p31"><br></p>
+<p class="p36">NSDeviceCMYKColorSpace<span class="Apple-tab-span">	</span>Cyan, magenta, yellow, black, and alpha components</p>
+<p class="p37"><br></p>
+<p class="p36">NSDeviceWhiteColorSpace<span class="Apple-tab-span">	</span>White and alpha components</p>
+<p class="p37"><br></p>
+<p class="p36">NSDeviceRGBColorSpace<span class="Apple-tab-span">	</span>Red, green, blue, and alpha components<span class="Apple-tab-span">	</span></p>
+<p class="p36"><span class="Apple-tab-span">	</span>Hue, saturation, brightness, and alpha components</p>
+<p class="p37"><br></p>
+<p class="p36">NSCalibratedWhiteColorSpace<span class="Apple-tab-span">	</span>White and alpha components</p>
+<p class="p37"><br></p>
+<p class="p36">NSCalibratedRGBColorSpace<span class="Apple-tab-span">	</span>Red, green, blue, and alpha components</p>
+<p class="p36"><span class="Apple-tab-span">	</span>Hue, saturation, brightness, and alpha components</p>
+<p class="p37"><br></p>
+<p class="p36">NSNamedColorSpace<span class="Apple-tab-span">	</span>Catalog name and color name components</p>
+<p class="p37"><br></p>
+<p class="p36">NSDynamicSystemColorSpace<span class="Apple-tab-span">	</span>Colors that vary depending on the user's preferences.</p>
+<p class="p37"><br></p>
+<p class="p18">(Color spaces whose names start with “NSDevice” are device-dependent; those with “NSCalibrated” are device-independent.)<span class="Apple-converted-space"> </span></p>
+<p class="p31"><br></p>
+<p class="p32"><br></p>
+<p class="p16"><b>Color Components</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p18">There's usually no need to retrieve the individual components of a color, but when needed, you can either retrieve a set of components (using such methods as <b>getRed:green:blue:alpha:</b>) or an individual component (using such methods as <b>redComponent</b>). However, it's illegal to ask an NSColor for components that aren't defined for its color space. You can identify the color space by sending a <b>colorSpaceName</b> message to the NSColor object. If you need to ask an NSColor for components that aren't in its color space (for instance, when you've gotten the color from the color panel), first convert the color to the appropriate color space using the <b>colorUsingColorSpaceName:</b> method. If the color is already in the specified color space, you get the same color back; otherwise you get a conversion that's usually lossy or that's correct only for the current device. You get back <b>nil</b> if the specified conversion can't be done.</p>
+<p class="p31"><br></p>
+<p class="p32"><br></p>
+<p class="p16"><b>Creating Subclasses</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p18">Subclasses of NSColor need to implement the <b>colorSpaceName</b> and <b>set</b> methods, as well as the methods that return the components for that color space and the methods in the NSCoding protocol. Some other methods—such as <b>colorWithAlphaComponent:</b>, <b>isEqual:</b>, and <b>colorUsingColorSpaceName:device:</b>—may also be implemented if they make sense for the color space. Mutable subclasses (if any) should additionally implement <b>copyWithZone:</b> to provide a true copy.</p>
+<p class="p31"><br></p>
+<p class="p32"><br></p>
+<p class="p16"><b>System Colors</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p18">NSColor has a number of methods which return “system” colors; colors that are controlled by user preferences. These colors—including <b>controlColor</b>, <b>textColor</b>, and <b>selectedTextColor</b>—should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preferences. These colors belong to their own color space, NSDynamicSystemColorSpace. Since these colors may change dynamically, they do not respond to the component accessor methods declared in this class.<span class="Apple-converted-space">  </span>To extract the components of a system color, you must use NSColor's <b>colorUsingColorSpaceName:</b> method to convert the color to a color space known to respond to the component accessor methods you need.</p>
+<p class="p31"><br></p>
+<p class="p18">An NSSystemColorsDidChangeNotification is sent when the system colors have been changed (such as through a system control panel interface).</p>
+<p class="p31"><br></p>
+<p class="p38"><br></p>
+<p class="p39"><b>Adopted Protocols</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p40">NSCoding<span class="Apple-tab-span">	</span><span class="s4">-</span> encodeWithCoder:</p>
+<p class="p41"><span class="s4">-</span> initWithCoder:</p>
+<p class="p42"><br></p>
+<p class="p40">NSCopying<span class="Apple-tab-span">	</span><span class="s4">-</span> copyWithZone:</p>
+<p class="p43"><br></p>
+<p class="p39"><b>Method Types</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p40">Creating an NSColor object from Component Values</p>
+<p class="p41">+ colorWithCalibratedHue:saturation:brightness:alpha:</p>
+<p class="p41">+ colorWithCalibratedRed:green:blue:alpha:</p>
+<p class="p41">+ colorWithCalibratedWhite:alpha:alpha</p>
+<p class="p41">+ colorWithCatalogName:colorName:</p>
+<p class="p41">+ colorWithDeviceCyan:magenta:yellow:black:alpha:</p>
+<p class="p41">+ colorWithDeviceHue:saturation:brightness:alpha:</p>
+<p class="p41">+ colorWithDeviceRed:green:blue:alpha:</p>
+<p class="p41">+ colorWithDeviceWhite:alpha:</p>
+<p class="p42"><br></p>
+<p class="p40">Creating an NSColor With Preset Components</p>
+<p class="p41">+ blackColor</p>
+<p class="p41">+ blueColor</p>
+<p class="p41">+ brownColor</p>
+<p class="p41">+ clearColor</p>
+<p class="p41">+ cyanColor</p>
+<p class="p41">+ darkGrayColor</p>
+<p class="p41">+ grayColor</p>
+<p class="p41">+ greenColor</p>
+<p class="p41">+ lightGrayColor</p>
+<p class="p41">+ magentaColor</p>
+<p class="p41">+ orangeColor</p>
+<p class="p41">+ purpleColor</p>
+<p class="p41">+ redColor</p>
+<p class="p41">+ whiteColor</p>
+<p class="p41">+ yellowColor</p>
+<p class="p42"><br></p>
+<p class="p40">Creating an NSColor that honors the user's color preferences</p>
+<p class="p41">+ controlBackgroundColor</p>
+<p class="p41">+ controlColor</p>
+<p class="p41">+ controlDarkShadowColor</p>
+<p class="p41">+ controlHighlightColor</p>
+<p class="p41">+ controlLightHighlightColor</p>
+<p class="p41">+ controlShadowColor</p>
+<p class="p41">+ controlTextColor</p>
+<p class="p41">+ gridColor</p>
+<p class="p41">+ scrollBarColor</p>
+<p class="p41">+ selectedControlColor</p>
+<p class="p41">+ selectedControlTextColor</p>
+<p class="p41">+ selectedTextBackgroundColor</p>
+<p class="p41">+ selectedTextColor</p>
+<p class="p41">+ textBackgroundColor</p>
+<p class="p41">+ textColor</p>
+<p class="p42"><br></p>
+<p class="p40">Ignoring Alpha Components<span class="Apple-tab-span">	</span>+ ignoresAlpha</p>
+<p class="p41">+ setIgnoresAlpha:</p>
+<p class="p42"><br></p>
+<p class="p40">Copying and Pasting<span class="Apple-tab-span">	</span>+ colorFromPasteboard:</p>
+<p class="p41"><span class="s4">-</span> writeToPasteboard:</p>
+<p class="p42"><br></p>
+<p class="p40">Retrieving a Set of Components<span class="Apple-tab-span">	</span><span class="s4">-</span> getCyan:magenta:yellow:black:alpha:</p>
+<p class="p41"><span class="s4">-</span> getHue:saturation:brightness:alpha:</p>
+<p class="p41"><span class="s4">-</span> getRed:green:blue:alpha:</p>
+<p class="p41"><span class="s4">-</span> getWhite:alpha:</p>
+<p class="p42"><br></p>
+<p class="p40">Retrieving Individual Components<span class="Apple-tab-span">	</span><span class="s4">-</span> alphaComponent</p>
+<p class="p41"><span class="s4">-</span> blackComponent</p>
+<p class="p41"><span class="s4">-</span> blueComponent</p>
+<p class="p41"><span class="s4">-</span> brightnessComponent</p>
+<p class="p41"><span class="s4">-</span> catalogNameComponent</p>
+<p class="p41"><span class="s4">-</span> colorNameComponent</p>
+<p class="p41"><span class="s4">-</span> cyanComponent</p>
+<p class="p41"><span class="s4">-</span> greenComponent</p>
+<p class="p41"><span class="s4">-</span> hueComponent</p>
+<p class="p41"><span class="s4">-</span> localizedCatalogNameComponent</p>
+<p class="p41"><span class="s4">-</span> localizedColorNameComponent</p>
+<p class="p41"><span class="s4">-</span> magentaComponent</p>
+<p class="p41"><span class="s4">-</span> redComponent</p>
+<p class="p41"><span class="s4">-</span> saturationComponent</p>
+<p class="p41"><span class="s4">-</span> whiteComponent</p>
+<p class="p41"><span class="s4">-</span> yellowComponent</p>
+<p class="p42"><br></p>
+<p class="p40">Converting to Another Color Space<span class="Apple-tab-span">	</span><span class="s4">-</span> colorSpaceName</p>
+<p class="p41"><span class="s4">-</span> colorUsingColorSpaceName:</p>
+<p class="p41"><span class="s4">-</span> colorUsingColorSpaceName:device:</p>
+<p class="p42"><br></p>
+<p class="p40">Changing the Color<span class="Apple-tab-span">	</span><span class="s4">-</span> blendedColorWithFraction:ofColor:</p>
+<p class="p41"><span class="s4">-</span> colorWithAlphaComponent:</p>
+<p class="p42"><br></p>
+<p class="p40">Drawing<span class="Apple-tab-span">	</span><span class="s4">-</span> drawSwatchInRect:</p>
+<p class="p41"><span class="s4">-</span> set</p>
+<p class="p44"><br></p>
+<p class="p39"><b>Class Methods</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>blackColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>blackColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedWhiteColorSpace whose grayscale value is 0.0 and whose alpha value is 1.0.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> blackComponent</p>
+<p class="p48"><br></p>
+<p class="p49"><br></p>
+<p class="p16"><b></b><b>blueColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>blueColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedRGBColorSpace whose RGB value is 0.0, 0.0, 1.0 and whose alpha value is 1.0.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> blueComponent</p>
+<p class="p48"><br></p>
+<p class="p49"><br></p>
+<p class="p16"><b></b><b>brownColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>brownColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedRGBColorSpace whose RGB value is 0.6, 0.4, 0.2 and whose alpha value is 1.0.</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>clearColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>clearColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedWhiteColorSpace whose grayscale and alpha values are both 0.0.</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>colorFromPasteboard:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>colorFromPasteboard:</b>(NSPasteboard *)<i>pasteBoard</i></p>
+<p class="p46"><i></i><br></p>
+<p class="p18">Returns the NSColor currently on the pasteboard, or <b>nil </b>if the pasteboard doesn't contain color data. The returned color's alpha component is set to 1.0 if <b>ignoresAlpha</b> returns YES.</p>
+<p class="p31"><br></p>
+<p class="p18">This method invokes <b>colorWithAlphaComponent:</b>.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> writeToPasteboard:</p>
+<p class="p48"><br></p>
+<p class="p49"><br></p>
+<p class="p16"><b></b><b>colorWithCalibratedHue:saturation:brightness:alpha:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>colorWithCalibratedHue:</b>(float)<i>hue</i></p>
+<p class="p51"><b>saturation:</b>(float)<i>saturation</i></p>
+<p class="p51"><b>brightness:</b>(float)<i>brightness</i></p>
+<p class="p51"><b>alpha:</b>(float)<i>alpha</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Creates and returns a new NSColor whose color space is NSCalibratedRGBColorSpace, whose opacity value is <i>alpha</i>, and whose components in HSB space would be <i>hue</i>,<i> saturation</i>, and<i> brightness</i>. All values are not legal: Values less than 0.0 are set to 0.0, and values greater than 1.0 are set to 1.0.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ colorWithCalibratedRed:green:blue:alpha:</b>,<b> + colorWithDeviceHue:saturation:brightness:alpha:</b>,<b> </b><span class="s4">-</span><b> getHue:saturation:brightness:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>colorWithCalibratedRed:green:blue:alpha:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>colorWithCalibratedRed:</b>(float)<i>red</i></p>
+<p class="p51"><b>green:</b>(float)<i>green</i></p>
+<p class="p51"><b>blue:</b>(float)<i>blue</i></p>
+<p class="p51"><b>alpha:</b>(float)<i>alpha</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Creates and returns a new NSColor whose color space is NSCalibratedRGBColorSpace, whose opacity value is<i> alpha</i>, and whose RGB components are <i>red, green</i>, and<i> blue</i>. All values are not legal: Values less than 0.0 are set to 0.0, and values greater than 1.0 are set to 1.0.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ colorWithCalibratedHue:saturation:brightness:alpha:</b>,<b> + colorWithDeviceRed:green:blue:alpha:</b>,<b> </b><span class="s4">-</span><b> getRed:green:blue:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>colorWithCalibratedWhite:alpha:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>colorWithCalibratedWhite:</b>(float)<i>white</i></p>
+<p class="p51"><b>alpha:</b>(float)<i>alpha</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Creates and returns a new NSColor whose color space is NSCalibratedWhiteColorSpace, whose opacity value is <i>alpha</i>, and whose grayscale value is <i>white</i>. All values are not legal: Values less than 0.0 are set to 0.0, and values greater than 1.0 are set to 1.0.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ colorWithDeviceWhite:alpha:</b>,<b> </b><span class="s4">-</span><b> getWhite:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>colorWithCatalogName:colorName:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>colorWithCatalogName:</b>(NSString *)<i>listName</i></p>
+<p class="p51"><b><span class="Apple-converted-space"> </span>colorName:</b>(NSString *)<i>colorName</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Creates and returns a new NSColor whose color space is NSNamedColorSpace, by finding the color named <i>colorName</i> in the catalog named <i>listName</i>, which may be a standard catalog.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> catalogNameComponent</b>,<b> </b><span class="s4">-</span><b> colorNameComponent</b>,<b> </b><span class="s4">-</span><b> localizedCatalogNameComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>colorWithDeviceCyan:magenta:yellow:black:alpha:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>colorWithDeviceCyan:</b>(float)<i>cyan</i></p>
+<p class="p51"><b>magenta:</b>(float)<i>magenta</i></p>
+<p class="p51"><b>yellow:</b>(float)<i>yellow</i></p>
+<p class="p51"><b>black:</b>(float)<i>black</i></p>
+<p class="p51"><b>alpha:</b>(float)<i>alpha</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Creates and returns a new NSColor whose color space is NSDeviceCMYKColorSpace, whose opacity value is<i> alpha</i>, and whose CMYK components are <i>cyan</i>, <i>magenta</i>,<i> yellow</i>, and <i>black</i>. All values are not legal: Values less than 0.0 are set to 0.0, and values greater than 1.0 are set to 1.0. In PostScript, this colorspace corresponds directly to the device-dependent operator <i>setcmykcolor</i>.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>getCyan:magenta:yellow:black:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>colorWithDeviceHue:saturation:brightness:alpha:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>colorWithDeviceHue:</b>(float)<i>hue</i></p>
+<p class="p51"><b>saturation:</b>(float)<i>saturation</i></p>
+<p class="p51"><b>brightness:</b>(float)<i>brightness</i></p>
+<p class="p51"><b>alpha:</b>(float)<i>alpha</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Creates and returns a new NSColor whose color space is NSDeviceRGBColorSpace, whose opacity value is <i>alpha</i>, and whose components in HSB space would be <i>hue</i>,<i> saturation</i>, and<i> brightness</i>. All values are not legal: Values less than 0.0 are set to 0.0, and values greater than 1.0 are set to 1.0. In PostScript, this colorspace corresponds directly to the device-dependent operator <i>setrgbcolor</i>.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ colorWithCalibratedHue:saturation:brightness:alpha:</b>,<b> </b><span class="s4">-</span><b> colorWithDeviceRed:green:blue:alpha:</b>,<b> </b><span class="s4">-</span><b> getHue:saturation:brightness:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>colorWithDeviceRed:green:blue:alpha:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>colorWithDeviceRed:</b>(float)<i>red</i></p>
+<p class="p51"><b>green:</b>(float)<i>green</i></p>
+<p class="p51"><b>blue:</b>(float)<i>blue</i></p>
+<p class="p51"><b>alpha:</b>(float)<i>alpha</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Creates and returns a new NSColor whose color space is NSDeviceRGBColorSpace, whose opacity value is<i> alpha</i>, and whose RGB components are <i>red, green</i>, and<i> blue</i>. All values are not legal: Values less than 0.0 are set to 0.0, and values greater than 1.0 are set to 1.0. In PostScript, this colorspace corresponds directly to the device-dependent operator <i>setrgbcolor</i>.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ colorWithCalibratedRed:green:blue:alpha:</b>,<b> </b><span class="s4">-</span><b> colorWithDeviceHue:saturation:brightness:alpha:</b>,<b> </b><span class="s4">-</span><b> getRed:green:blue:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>colorWithDeviceWhite:alpha:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>colorWithDeviceWhite:</b>(float)<i>white</i></p>
+<p class="p51"><b>alpha:</b>(float)<i>alpha</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Creates and returns a new NSColor whose color space is NSDeviceWhiteColorSpace, whose opacity value is <i>alpha</i>, and whose grayscale value is <i>white</i>. All values are not legal: Values less than 0.0 are set to 0.0, and values greater than 1.0 are set to 1.0. In PostScript, this colorspace corresponds directly to the device-dependent operator <i>setgray</i>.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ colorWithCalibratedWhite:alpha:</b>,<b> </b><span class="s4">-</span><b> getWhite:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>controlBackgroundColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>controlBackgroundColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for the control background color. On OPENSTEP for Mach, this color is normally equivalent to <b>lightGrayColor</b>. On Windows NT, this color corresponds to COLOR_WINDOW. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>controlColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>controlColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for the control color. On OPENSTEP for Mach, this color is normally equivalent to <b>lightGrayColor</b>. On Windows NT, this color corresponds to COLOR_3DFACE. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>controlDarkShadowColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>controlDarkShadowColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for the control dark shadow color. On OPENSTEP for Mach, this color is normally equivalent to <b>blackColor</b>. On Windows NT, this color corresponds to COLOR_3DDKSHADOW. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>controlHighlightColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>controlHighlightColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for the control highlight color. On OPENSTEP for Mach, this color is normally equivalent to <b>lightGrayColor</b>. On Windows NT, this color corresponds to COLOR_3DLIGHT. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>controlLightHighlightColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>controlLightHighlightColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for the control light highlight color. On OPENSTEP for Mach, this color is normally equivalent to <b>whiteColor</b>. On Windows NT, this color corresponds to COLOR_3DHILIGHT. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>controlShadowColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>controlShadowColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for the control shadow color. On OPENSTEP for Mach, this color is normally equivalent to <b>darkGrayColor</b>. On Windows NT, this color corresponds to COLOR_3DSHADOW. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>controlTextColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>controlTextColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for the control text color. On OPENSTEP for Mach, this color is normally equivalent to <b>blackColor</b>. On Windows NT, this color corresponds to COLOR_BTNTEXT. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>cyanColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>cyanColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedRGBColorSpace whose RGB value is 0.0, 1.0, 1.0 and whose alpha value is 1.0.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>cyanComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>darkGrayColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>darkGrayColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedWhiteColorSpace whose grayscale value is 1/3 and whose alpha value is 1.0.</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>grayColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>grayColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedWhiteColorSpace whose grayscale value is 0.5 and whose alpha value is 1.0.</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>greenColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>greenColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedRGBColorSpace whose RGB value is 0.0, 1.0, 0.0 and whose alpha value is 1.0.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>greenComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>gridColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>gridColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for the grid color. On OPENSTEP for Mach, this color is normally equivalent to <b>grayColor</b>. On Windows NT, this color corresponds to COLOR_3DFACE. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>ignoresAlpha</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (BOOL)<b>ignoresAlpha</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns YES if the application doesn't support alpha. This value returned is consulted when an application imports alpha (through color dragging, for instance). The value determines whether the color panel has an opacity slider. This value is YES by default, indicating that the opacity components of imported colors will be set to 1.0. If an application wants alpha, it can invoke the <b>setIgnoresAlpha</b> method with a parameter of NO.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ setIgnoresAlpha</b>,<b> </b><span class="s4">-</span><b> alphaComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>lightGrayColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>lightGrayColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedWhiteColorSpace whose grayscale value is 2/3 and whose alpha value is 1.0.</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>magentaColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>magentaColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedRGBColorSpace whose RGB value is 1.0, 0.0, 1.0 and whose alpha value is 1.0.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>magentaComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>orangeColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>orangeColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedRGBColorSpace whose RGB value is 1.0, 0.5, 0.0 and whose alpha value is 1.0.</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>purpleColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>purpleColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedRGBColorSpace whose RGB value is 0.5, 0.0, 0.5 and whose alpha value is 1.0.</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>redColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>redColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedRGBColorSpace whose RGB value is 1.0, 0.0, 0.0 and whose alpha value is 1.0.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>redComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>scrollBarColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>scrollBarColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for the scroll bar color. On OPENSTEP for Mach, this color is normally equivalent to <b>grayColor</b>. On Windows NT, this color corresponds to COLOR_SCROLLBAR. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>selectedControlColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>selectedControlColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for the selected control color. On OPENSTEP for Mach, this color is normally equivalent to <b>whiteColor</b>. On Windows NT, this color corresponds to COLOR_HIGHLIGHT. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>selectedControlTextColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>selectedControlTextColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for the selected control text color. On OPENSTEP for Mach, this color is normally equivalent to <b>blackColor</b>. On Windows NT, this color corresponds to COLOR_HIGHLIGHTTEXT. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>selectedTextBackgroundColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>selectedTextBackgroundColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for theselected text background color. On OPENSTEP for Mach, this color is normally equivalent to <b>lightGrayColor</b>. On Windows NT, this color corresponds to COLOR_HIGHLIGHT. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>selectedTextColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>selectedTextColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for theselected text color. On OPENSTEP for Mach, this color is normally equivalent to <b>blackColor</b>. On Windows NT, this color corresponds to COLOR_HIGHLIGHTTEXT. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>setIgnoresAlpha:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (void)<b>setIgnoresAlpha:</b>(BOOL)<i>flag</i></p>
+<p class="p46"><i></i><br></p>
+<p class="p18">If <i>flag </i>is YES, The application won't support alpha. In this case, no opacity slider is displayed in the color panel, and colors dragged in or pasted have their alpha values set to 1.0. Applications which need to import alpha should invoke this method with <i>flag</i> set to NO and explicitly make colors opaque in cases where it matters to them.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ ignoresAlpha</b>,<b> </b><span class="s4">-</span><b> alphaComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>textBackgroundColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>textBackgroundColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for the text background color. On OPENSTEP for Mach, this color is normally equivalent to <b>whiteColor</b>. On Windows NT, this color corresponds to COLOR_WINDOW. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>textColor</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>textColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSDynamicSystemColorSpace that should be used by developers who want to create custom controls or subclass existing controls which honor the user's color preference for the text color. On OPENSTEP for Mach, this color is normally equivalent to <b>blackColor</b>. On Windows NT, this color corresponds to COLOR_WINDOWTEXT. Since this color may change dynamically, it does not respond to NSColor's component accessor methods</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>whiteColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>whiteColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedWhiteColorSpace whose grayscale and alpha values are both 1.0.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> whiteComponent</p>
+<p class="p48"><br></p>
+<p class="p49"><br></p>
+<p class="p16"><b></b><b>yellowColor</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45">+ (NSColor *)<b>yellowColor</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns an NSColor in NSCalibratedRGBColorSpace whose RGB value is 1.0, 1.0, 0.0 and whose alpha value is 1.0.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> yellowComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p55"><b></b><br></p>
+<p class="p39"><b>Instance Methods</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>alphaComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (float)<b>alphaComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the alpha (opacity) component. Returns 1.0 (opaque) for colors that do not have alpha components.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> getCyan:magenta:yellow:black:alpha:</b>,<b> </b><span class="s4">-</span><b> getHue:saturation:brightness:alpha:</b>,<b> </b><span class="s4">-</span><b> getRed:green:blue:alpha:</b>,<b> </b><span class="s4">-</span><b> getWhite:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>blackComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (float)<b>blackComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the black component. It's an error if the receiver isn't a CMYK color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ blackColor</b>,<b> </b><span class="s4">-</span><b> getCyan:magenta:yellow:black:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>blendedColorWithFraction:ofColor:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (NSColor *)<b>blendedColorWithFraction:</b>(float)<i>fraction</i></p>
+<p class="p51"><b>ofColor:</b>(NSColor *)<i>color</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Returns a newly created NSColor in NSCalibratedRGBColorSpace whose component values are a weighted sum of the receiver's and <i>color</i>'s. The method converts <i>color</i> and a copy of the receiver to RGB, and then sets each component of the returned color to <i>fraction</i> of <i>color</i>'s value plus 1 <span class="s4">-</span> <i>fraction</i> of the receiver's. If the colors can't be converted to NSCalibratedRGBColorSpace, <b>nil</b> is returned.</p>
+<p class="p31"><br></p>
+<p class="p18">This method invokes <b>colorUsingColorSpaceName:</b>.</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>blueComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (float)<b>blueComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the blue component. It's an error if the receiver isn't an RGB color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ blueColor</b>,<b> </b><span class="s4">-</span><b> getRed:green:blue:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>brightnessComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (float)<b>brightnessComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the brightness component of the HSB color equivalent to the receiver. It's an error if the receiver isn't an RGB color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>getHue:saturation:brightness:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>catalogNameComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (NSString *)<b>catalogNameComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the name of the catalog containing this color, or <b>nil</b> if the receiver's color space isn't NSNamedColorSpace.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ colorWithCatalogName:colorName:</b>,<b> </b><span class="s4">-</span><b> colorNameComponent</b>,<b> </b><span class="s4">-</span><b> localizedCatalogNameComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>colorNameComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (NSString *)<b>colorNameComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the name of this color, or <b>nil</b> if the receiver's color space isn't NSNamedColorSpace.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ colorWithCatalogName:colorName:</b>,<b> </b><span class="s4">-</span><b> catalogNameComponent</b>,<b> </b><span class="s4">-</span><b> localizedCatalogNameComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>colorSpaceName</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (NSString *)<b>colorSpaceName</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the name of the NSColor's color space. This method should be implemented in subclasses of NSColor.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> colorUsingColorSpaceName:</b>,<b> </b><span class="s4">-</span><b> colorUsingColorSpaceName:device:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>colorUsingColorSpaceName:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (NSColor *)<b>colorUsingColorSpaceName:</b>(NSString *)<i>colorSpace</i></p>
+<p class="p46"><i></i><br></p>
+<p class="p18">Returns a newly created NSColor whose color is the same as the receiver's, except that the new NSColor is in the color space named <i>colorSpace</i>. If <i>colorSpace</i> is <b>nil</b>, the most appropriate color space is used.</p>
+<p class="p31"><br></p>
+<p class="p18">This method invokes <b>colorUsingColorSpaceName:device:</b> with a <b>nil</b> device, indicating that the color is appropriate for the current device (the current window if drawing, or the current printer if printing).</p>
+<p class="p31"><br></p>
+<p class="p18">Returns <b>nil</b> if the specified conversion cannot be done.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>colorSpaceName:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>colorUsingColorSpaceName:device:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (NSColor *)<b>colorUsingColorSpaceName:</b>(NSString *)<i>colorSpace</i></p>
+<p class="p51"><b>device:</b>(NSDictionary *)<i>deviceDescription</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Returns a newly created NSColor whose color is the same as the receiver's, except that the new NSColor is in the color space named <i>colorSpace </i>and is specific to the device described by <i>deviceDescription.</i> Device descriptions can be obtained from windows, screens, and printers with the <b>deviceDescription</b> method. If <i>colorSpace</i> is <b>nil</b>, the most appropriate color space is used.</p>
+<p class="p31"><br></p>
+<p class="p18">If <i>deviceDescription</i> is <b>nil,</b> the current device (as obtained from the currently lockFocus'ed view's window or, if printing, the current printer) is used.</p>
+<p class="p31"><br></p>
+<p class="p18">This method invokes <b>colorSpaceName.</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p18">Returns <b>nil</b> if the specified conversion cannot be done.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> colorSpaceName:</b>,<b> </b><span class="s4">-</span><b> colorUsingColorSpaceName:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>colorWithAlphaComponent:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (NSColor *)<b>colorWithAlphaComponent:</b>(float)<i>alpha</i></p>
+<p class="p46"><i></i><br></p>
+<p class="p18">Returns a newly created NSColor that has the same color space and component values as the receiver, except that its alpha component is <i>alpha</i>. If the receiver's color space doesn't include an alpha component, the receiver is returned. A subclass which has explicit opacity components should override this method to return a color with the specified <i>alpha</i>.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> alphaComponent</b>,<b> </b><span class="s4">-</span><b> blendedColorWithFraction:ofColor:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>cyanComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (float)<b>cyanComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the cyan component. It's an error if the receiver isn't a CMYK color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ cyanColor</b>,<b> </b><span class="s4">-</span><b> getCyan:magenta:yellow:black:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>drawSwatchInRect:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (void)<b>drawSwatchInRect:</b>(NSRect)<i>rect</i></p>
+<p class="p46"><i></i><br></p>
+<p class="p18">Draws the current color in the rectangle <i>rect</i>. Subclasses adorn the rectangle in some manner to indicate the type of color. This method is invoked by color wells, swatches, and other user-interface objects that need to display colors.</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>getCyan:magenta:yellow:black:alpha:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (void)<b>getCyan:</b>(float *)<i>cyan</i></p>
+<p class="p51"><b>magenta:</b>(float *)<i>magenta</i></p>
+<p class="p51"><b>yellow:</b>(float *)<i>yellow</i></p>
+<p class="p51"><b>black:</b>(float *)<i>black</i></p>
+<p class="p51"><b>alpha:</b>(float *)<i>alpha</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Returns the CMYK and alpha values in the respective arguments. If<i> </i>NULL<b> </b>is passed in as an argument, the method doesn't set that value. It's an error if the receiver isn't a CMYK color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b> </b><span class="s4">-</span><b> alphaComponent</b>,<b> </b><span class="s4">-</span><b> blackComponent</b>,<b> </b><span class="s4">-</span><b> cyanComponent</b>,<b> </b><span class="s4">-</span><b> magentaComponent</b>,<b> </b><span class="s4">-</span><b> yellowComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>getHue:saturation:brightness:alpha:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (void)<b>getHue:</b>(float *)<i>hue</i></p>
+<p class="p51"><b>saturation:</b>(float *)<i>saturation</i></p>
+<p class="p51"><b>brightness:</b>(float *)<i>brightness</i></p>
+<p class="p51"><b>alpha:</b>(float *)<i>alpha</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Returns the HSB and alpha values in the respective arguments. If<i> </i>NULL is passed in as an argument, the method doesn't set that value. It's an error if the receiver isn't an RGB color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> alphaComponent</b>,<b> </b><span class="s4">-</span><b> brightnessComponent</b>,<b> </b><span class="s4">-</span><b> hueComponent</b>,<b> </b><span class="s4">-</span><b> saturationComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>getRed:green:blue:alpha:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (void)<b>getRed:</b>(float *)<i>red</i></p>
+<p class="p51"><b>green:</b>(float *)<i>green</i></p>
+<p class="p51"><b>blue:</b>(float *)<i>blue</i></p>
+<p class="p51"><b>alpha:</b>(float *)<i>alpha</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Returns the RGB and alpha values in the respective arguments. If<i> </i>NULL<b> </b>is passed in as an argument, the method doesn't set that value. It's an error if the receiver isn't an RGB color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> alphaComponent</b>,<b> </b><span class="s4">-</span><b> blueComponent</b>,<b> </b><span class="s4">-</span><b> greenComponent</b>,<b> </b><span class="s4">-</span><b> redComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>getWhite:alpha:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (void)<b>getWhite:</b>(float *)<i>white</i></p>
+<p class="p51"><b>alpha:</b>(float *)<i>alpha</i></p>
+<p class="p52"><i></i><br></p>
+<p class="p18">Returns the grayscale and alpha values in the respective arguments. If<i> </i>NULL is passed in as an argument, the method doesn't set that value. It's an error if the receiver isn't a grayscale color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b> </b><span class="s4">-</span><b> alphaComponent</b>,<b> </b><span class="s4">-</span><b> whiteComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>greenComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (float)<b>greenComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the green component. It's an error if the receiver isn't an RGB color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ greenColor</b>,<b> </b><span class="s4">-</span><b> getRed:green:blue:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>hueComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (float)<b>hueComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the hue component of the HSB color equivalent to the receiver. It's an error if the receiver isn't an RGB color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> getHue:saturation:brightness:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>localizedCatalogNameComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (NSString *)<b>localizedCatalogNameComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Like <b>catalogNameComponent</b>, but returns a localized string.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ colorWithCatalogName:colorName:</b>,<b> </b><span class="s4">-</span><b> colorNameComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>localizedColorNameComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (NSString *)<b>localizedColorNameComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Like <b>colorNameComponent</b>, but returns a localized string.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ colorWithCatalogName:colorName:</b>,<b> </b><span class="s4">-</span><b> catalogNameComponent</b>,<b> </b><span class="s4">-</span><b> colorNameComponent</b>,<b> </b><span class="s4">-</span><b> localizedCatalogNameComponent</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>magentaComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (float)<b>magentaComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the magenta component. It's an error if the receiver isn't a CMYK color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ magentaColor</b>,<b> </b><span class="s4">-</span><b> getCyan:magenta:yellow:black:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>redComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (float)<b>redComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the red component. It's an error if the receiver isn't an RGB color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ redColor</b>,<b> </b><span class="s4">-</span><b> getRed:green:blue:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>saturationComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (float)<b>saturationComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the saturation component of the HSB color equivalent to the receiver. It's an error if the receiver isn't an RGB color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>getHue:saturation:brightness:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>set</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (void)<b>set</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Sets the color of subsequent PostScript drawing to the color that the receiver represents. If the application is drawing to the screen rather than printing, this method also sets the current drawing context's alpha value to the value returned by <b>alphaComponent</b>; if the color doesn't know about alpha, it's set to 1.0. This method should be implemented in subclasses.</p>
+<p class="p31"><br></p>
+<p class="p50"><br></p>
+<p class="p16"><b></b><b>whiteComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (float)<b>whiteComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the white component. It's an error if the receiver isn't a grayscale color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ whiteColor</b>,<b> </b><span class="s4">-</span><b> getWhite:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>writeToPasteboard:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (void)<b>writeToPasteboard:</b>(NSPasteboard *)<i>pasteBoard</i></p>
+<p class="p46"><i></i><br></p>
+<p class="p18">Writes the receiver's data to the pasteboard, unless the pasteboard doesn't support color data (in which case the method does nothing).</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>colorFromPasteboard:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p16"><b></b><b>yellowComponent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p45"><span class="s4">-</span> (float)<b>yellowComponent</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p18">Returns the yellow component. It's an error if the receiver isn't a CMYK color.</p>
+<p class="p31"><br></p>
+<p class="p47"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ yellowColor</b>,<b> </b><span class="s4">-</span><b> getCyan:magenta:yellow:black:alpha:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p55"><b></b><br></p>
+<p class="p39"><b>Notifications</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p53"><span class="s5">p<span class="Apple-tab-span">	</span></span><b>NSSystemColorsDidChangeNotification</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p56"><b></b><br></p>
+<p class="p18">Sent when the system colors have been changed (such as through a system control panel interface).</p>
+<p class="p31"><br></p>
+<p class="p57"><b>Notification Object</b><span class="Apple-tab-span">	</span>The NSColor whose value changed.</p>
+<p class="p58"><br></p>
+<p class="p57"><b>Userinfo</b><span class="Apple-tab-span">	</span>None</p>
+<p class="p58"><br></p>
+<p class="p59"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+</body>
+</html>

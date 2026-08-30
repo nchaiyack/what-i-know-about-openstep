@@ -1,0 +1,12 @@
+"FirstResponder" = {ACTIONS = (); SUPERCLASS = NSObject; };
+"Controller" = {
+    ACTIONS = (
+	"showInfoPanel:", 
+	"showInspectorPanel:", 
+	"showPreferencesPanel:", 
+	"openDocument:", 
+	"setDocumentSizingPolicy:"
+    ); 
+    OUTLETS = (infoPanel, inspectorPanel, preferencesPanel, videoResizeMatrix); 
+    SUPERCLASS = NSObject; 
+};

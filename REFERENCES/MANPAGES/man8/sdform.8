@@ -1,0 +1,27 @@
+.TH SDFORM 8 "August 14, 1990" "NeXT Computer, Inc."
+.SH NAME
+sdform \- Format SCSI Disk
+.SH SYNOPSIS
+.B sdform 
+raw_device [
+.B \-n
+]
+.SH DESCRIPTION
+.I sdform 
+executes a Format Unit Command on 
+.I raw_device. raw_device 
+must be a SCSI disk.  This is normally invoked by the \fIdisk\fR(8) program when initializing a new floppy disk; however, it may be used to re-initialize a damaged floppy or hard disk. 
+.I sdform 
+should be used with extreme caution; all data on the disk being formatted is lost. 
+.SH OPTIONS
+.TP
+.B \-n
+Normally, 
+.I sdform 
+prompts the user with "Do you wish to proceed?". Specifying the 
+.B \-n 
+(no prompt) option avoids this prompt. 
+.SH "SEE ALSO"
+sd(4), disk(8) 
+.SH BUGS
+No provision is made for adding entries to the device's bad block list.

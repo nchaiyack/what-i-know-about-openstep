@@ -1,0 +1,4533 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fnil NeXTdoc;\f3\fswiss Helvetica;\f4\fmodern Courier;\f5\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1997 by Apple Computer, Inc.  All Rights Reserved.\
+\
+
+\pard\tx1460\f2\fs72\fi-760\li1460\fc0\cf0 c	
+\f3\b\fs56 NSString Class Cluster\
+
+\fs70 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li200\fc0\cf0 Class Cluster Description\
+
+\fs14 \
+
+\f0\b0\fs28\li1500 NSString objects represent character strings in OpenStep frameworks. Representing strings as objects allows you to use strings wherever you use other objects. It also provides the benefits of encapsulation, so that string objects can use whatever encoding and storage is needed for efficiency while simply appearing as arrays of characters. The cluster's two public classes, NSString and NSMutableString, declare the programmatic interface for noneditable and editable strings, respectively.\
+
+\fs14 \
+
+\fs28 The objects you create using these classes are referred to as 
+\i string objects
+\i0  (and when no confusion will result, merely as 
+\i strings
+\i0 ). The term 
+\i C string
+\i0  refers to the standard 
+\b char€*
+\b0  type. Because of the nature of class clusters, string objects aren't actual instances of the NSString or NSMutableString classes but of one of their private subclasses. Although a string object's class is private, its interface is public, as declared by these abstract superclasses, NSString and NSMutableString. (See ªClass Clustersº in the introduction to the Foundation Kit for more information on class clusters and on creating subclasses within a cluster.) The string classes adopt the NSCopying and NSMutableCopying protocols, making it convenient to convert a string of one type to the other.\
+
+\fs14 \
+
+\fs28 A string object presents itself as an array of Unicode
+\f1\fs24 â
+\f0\fs28  characters (Unicode is a registered trademark of Unicode, Inc.). You can determine how many characters it contains with the 
+\b length
+\b0  method and can retrieve a specific character with the 
+\b characterAtIndex:
+\b0  method. These two ªprimitiveº methods provide basic access to a string object. Most use of strings, however, is at a higher level, with the strings being treated as single entities: You compare strings against one another, search them for substrings, combine them into new strings, and so on. If you need to access string objects character-by-character, you must understand the Unicode character encoding, specifically issues related to composed character sequences. For details see:\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\i\fs28\li2320\fc0\cf0 The Unicode Standard:  Worldwide Character Encoding
+\i0 , Version 1.0, Volumes 1 and 2. The Unicode Consortium. Addison-Wesley. ISBN 0
+\f1 -
+\f0 201
+\f1 -
+\f0 56788
+\f1 -
+\f0 1 (Volume 1) and 0
+\f1 -
+\f0 201
+\f1 -
+\f0 60845
+\f1 -
+\f0 6 (Volume 2).\
+
+\fs14 \
+
+\fs28 Version 2.0, also published by Addison-Wesley, is forthcoming. ISBN 0
+\f1 -
+\f0 201
+\f1 -
+\f0 48345
+\f1 -
+\f0 9. \
+
+\fs14 \
+
+\fs26 \
+
+\pard\f3\b\fs28\li1500\fc0\cf0 Creating and Converting String Objects\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSString provides several means for creating instances, most based around the various character encodings it supports. Although string objects always present their own contents as Unicode characters, they can convert their contents to and from many other encodings, such as 7-bit ASCII, ISO Latin 1, EUC, and Shift-JIS. The 
+\b availableStringEncodings
+\b0  class method returns the encodings supported. You can specify an encoding explicitly when converting a C string to or from a string object, or use the 
+\i default C string encoding
+\i0 , which varies from platform to platform and is returned by the 
+\b defaultCStringEncoding
+\b0  class method.\
+
+\fs14 \
+
+\fs28 The simplest way to create a string object in source code is to use either the 
+\b stringWithCString:
+\b0  class method or the 
+\b initWithCString:
+\b0  instance method. Each takes a standard null-terminated C string in the default C string encoding and produces a string object. As a convenience, the Objective-C language also supports the 
+\b @"..."
+\b0  construct to create a string object constant from 7-bit ASCII encoding:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 NSString *temp = @"/tmp/scratch";\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 Such an object is created at compile time and exists throughout your program's execution. The compiler makes such object constants unique on a per-module basis, and they're never deallocated (though you can retain and release them as you do any other object).\
+
+\fs14 \
+
+\fs28 To get a C string from a string object, use the 
+\b cString
+\b0  message. This returns a 
+\b char€*
+\b0  in the system's default string encoding, or raises an exception if it can't convert its contents to that encoding. The C string you receive is owned by a temporary object, though, so it will become invalid when automatic deallocation takes place (see ªObject Ownership and Automatic Disposalº in the introduction to the Foundation Kit for further information). If you want to get a permanent C string, you must create a buffer and use one of the 
+\b getCString:...
+\b0  methods to fill it. You can find out how large the buffer needs to be with the 
+\b cStringLength
+\b0  method.\
+
+\fs14 \
+
+\fs28 Similar methods allow you to create string objects from characters in the Unicode encoding or an arbitrary encoding, and to extract data in these encodings. 
+\b initWithData:encoding:
+\b0  and 
+\b dataUsingEncoding:
+\b0  perform these conversions from and to NSData objects. You can also read a string directly from a file in the Unicode or default C string encoding using the 
+\b stringWithContentsOfFile:
+\b0  class method, and write a string using 
+\b writeToFile:atomically:
+\b0 .\
+
+\fs14 \
+
+\fs28 Finally, two types of method allow you to build a string from existing string objects. 
+\b localizedStringWithFormat:
+\b0  and its siblings use a format string as a template into which the values you provide (string and other objects, numerics values, and so on) are inserted. The methods 
+\b stringByAppendingString:
+\b0  and 
+\b stringByAppendingFormat:
+\b0  create a new string by adding one string after another, in the second case using a format string.\
+
+\fs14 \
+
+\fs28 In format strings, a `%' character announces a placeholder for a value, with the characters that follow determining the kind of value expected and how to format it. For example, a format string of ª%d housesº expects an integer value to be substituted for the format expression ª%dº. NSString supports the format characters defined for the ANSI C function 
+\b printf()
+\b0 , plus `@' for any object (the text representation is retrieved by sending the object a 
+\b description
+\b0  message).\
+
+\fs14 \
+
+\pard\tx2300\f3\b\fs24\fi-800\li2300\fc0\cf0 Note:	
+\f0\b0\fs28 Many compilers perform typecasting of arguments to 
+\b printf()
+\b0 , so that printing an integer into a 
+\b %f
+\b0  (floating-point) placeholder works as expected. This typecasting doesn't occur with NSString's formatted methods, so be sure to cast your values explicitly.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Value formatting is affected by the user's current locale, which is an NSDictionary specifying number, date, and other kinds of formats. NSString uses only the locale's definition for the decimal separator (given by the key named NSDecimalSeparator). If you use a method that doesn't specify a locale, the string assumes the default locale. See ªLocalesº in the ªOther Featuresº section of the Foundation Kit documentation for more information on locales.\
+
+\fs14 \
+
+\fs28 This table summarizes the most common means of creating and converting string objects:\
+
+\fs14 \
+
+\pard\tx6740\tx10780\f3\b\fs28\li1900\fc0\cf0 Source	Creation Method	Extraction Method\
+
+\fs6 \
+
+\f0\b0\fs28\fi-4840\li6740 Default C string encoding	stringWithCString:	getCString: (or cString)\
+
+\fs14 \
+
+\fs28 In code	@"..." compiler construct\
+
+\fs14 \
+
+\fs28 Unicode encoding	stringWithCharacters:length:	getCharacters:length:\
+
+\fs14 \
+
+\fs28 Arbitrary encoding	initWithData:encoding:	dataUsingEncoding:\
+
+\fs14 \
+
+\fs28 File contents	stringWithContentsOfFile:	writeToFile:atomically:\
+
+\fs14 \
+
+\fs28 Format string	localizedStringWithFormat:	initWithFormat:locale:\
+
+\fs14 \
+
+\fs28 Existing strings	stringByAppendingString:	stringByAppendingFormat:\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f3\b\fs28\li1500\fc0\cf0 Working with String Objects\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 The string classes provide methods for finding characters and substrings within strings and for comparing one string to another. These methods conform to the Unicode standard for determining whether two character sequences are equivalent. The string classes provide comparison methods that handle composed character sequences properly, though you do have the option of specifying a literal search when efficiency is important and you can guarantee some canonical form for composed character sequences.\
+
+\fs14 \
+
+\fs28 The search and comparison methods each come in three variants. The simplest version of each searches or compares entire strings. Other variants allow you to alter the way comparison of composed character sequences is performed and to specify a specific range of characters within a string to be searched or compared. You can specify these options (not all options are available for every method):\
+
+\fs14 \
+
+\pard\tx5740\tx9540\f3\b\fs28\fi-3840\li5740\fc0\cf0 Search Option	Effect\
+
+\pard\tx6740\tx10780\fs6\li1900\fc0\cf0 \
+
+\pard\tx5740\tx9540\f0\b0\fs28\fi-3840\li5740\fc0\cf0 NSCaseInsensitiveSearch	Ignores case distinctions among characters.\
+
+\fs14 \
+
+\fs28 NSLiteralSearch	Performs a byte-for-byte comparison. Differing literal sequences (such as composed character sequences) that would otherwise be considered equivalent are considered not to match. Using this option can speed some operations dramatically.\
+
+\fs14 \
+
+\fs28 NSBackwardsSearch	Performs searching from the end of the range toward the beginning.\
+
+\fs14 \
+
+\fs28 NSAnchoredSearch	Performs searching only on characters at the beginning or end of the range. No match at the beginning or end means nothing is found, even if a matching sequence of characters occurs elsewhere in the string.\
+
+\fs14 \
+
+\pard\tx2300\f3\b\fs24\fi-800\li2300\fc0\cf0 Note:	
+\f0\b0\fs28 Search and comparison are currently performed as if the NSLiteralSearch option were specified. As the Unicode encoding becomes more widely used, and the need for more flexible comparison increases, the default behavior will be changed accordingly.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Substrings are only found if completely contained within the specified range. If you specify a range for a search or comparison method and don't request NSLiteralSearch, the range must not break composed character sequences on either end; if it does you could get an incorrect result. (See the method description for 
+\b rangeOfComposedCharacterSequenceAtIndex:
+\b0  for a code sample that adjusts a range to lie on character sequence boundaries.)\
+
+\fs14 \
+
+\fs28 The basic search and comparison methods are these:\
+
+\fs14 \
+
+\pard\tx7500\fs28\li1900\fc0\cf0 rangeOfString:	compare:\
+rangeOfString:options:	compare:options:\
+rangeOfStrings:options:range:	compare:options:range:\
+
+\fs14 \
+
+\fs28 rangeOfCharacterFromSet:\
+rangeOfCharacterFromSet:options:\
+rangeOfCharacterFromSet:options:range:\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The 
+\b rangeOfString:...
+\b0  methods search for a substring within the receiver. The 
+\b rangeOfCharacterFromSet:...
+\b0  methods search for individual characters from a supplied set of characters. The 
+\b compare:...
+\b0  methods return the lexical ordering of the receiver and the supplied string. Several other methods allow you to determine whether two strings are equal or whether one is the prefix or suffix of another, but they don't have variants that allow you to specify search options or ranges.\
+
+\fs14 \
+
+\fs28 In addition to searching and comparing strings, you can combine and divide them in various ways. The simplest way to put two strings together is to append one to the other. The 
+\b stringByAppendingString:
+\b0  method returns a string object formed from the receiver and the argument supplied. You can also combine several strings according to a template with the 
+\b initWithFormat:
+\b0 , 
+\b stringWithFormat:
+\b0  and 
+\b stringByAppendingFormat:
+\b0  methods. See ªCreating and Converting String Objectsº for more information.\
+
+\fs14 \
+
+\fs28 You can extract substrings from the beginning or end of a string to a particular index, or from a specific range, with the 
+\b substringToIndex:
+\b0 , 
+\b substringFromIndex:
+\b0 , and 
+\b substringWithRange:
+\b0  methods. You can also split a string into substrings (based on a separator string) with the 
+\b componentsSeparatedByString:
+\b0  method.\
+
+\fs14 \
+
+\fs28 Most of the NSString classes' remaining methods are for conveniences such as changing case, quickly extracting numeric values, and working with encodings. There's also a set of methods for treating strings as file system paths, described below in ªManipulating Paths.º An additional class cluster, NSScanner, allows you to scan a string object for numeric and string values. Both the NSString and the NSScanner class clusters use the NSCharacterSet class cluster for search operations. See the appropriate class specifications for more information.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f3\b\fs28\li1500\fc0\cf0 Manipulating Paths\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 In addition to all the basic methods for working with character strings merely as strings, NSString also provides a rich set of methods for manipulating strings as file system paths. A string can extract a path's directory, file name, and extension, expand a tilde expression (such as ª~meº) or create one for the user's home directory, and clean up paths containing symbolic links, redundant slashes, and references to ª.º (current directory) and ª..º (parent directory). These methods are listed under ªWorking with pathsº in the ªMethodTypesº section.\
+
+\fs14 \
+
+\fs28 NSString represents paths generically with `/' as the path separator and `.' as the extension separator. Methods that accept strings as path arguments convert these generic representations to the proper system-specific form as needed. On systems with an implicit root directory, absolute paths begin with a path separator or with a tilde expression (ª~/...º or ª~
+\i user
+\i0 /...º). On systems that require explicit expression of root directories for different devices, such as Microsoft Windows 95, absolute paths begin with the name of the device (for example, ªC:/Documents/Paper.docº to represent the actual path ªC:\\Documents\\Paper.docº). Where a device must be specified, you can do that yourselfÐintroducing a system dependencyÐor allow the string object to add a default device.\
+
+\fs14 \
+
+\fs28 \
+
+\fs14 \
+
+\pard\tx1460\f2\fs72\fi-760\li1460\fc0\cf0 \
+i	
+{\f3\b\fs52{\NeXTHelpMarker12825 \markername NS_DEV_DOCFOR:objc_class:NSString;}
+¬}\pard\tx1460\f3\b\i0\ulnone\fs52\fi-760\li1460\fc0\cf0 NSString\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject\
+
+\fs20 \
+
+\f3\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding\
+
+\fi0 NSCopying\
+NSMutableCopying\
+NSObject€(NSObject)\
+
+\fs20 \
+
+\f3\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 Foundation/NSString.h\
+
+\fi0 Foundation/NSPathUtilities.h\
+
+\fs20 \
+\
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Class Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 The NSString class declares the programmatic interface for an object that manages an immutable array of Unicode characters (in other words, a text string). NSString's two primitive methodsÐ
+\b length
+\b0  and 
+\b characterAtIndex:
+\b0 Ðprovide the basis for all other methods in its interface. The 
+\b length
+\b0  method returns the total number of Unicode characters in the string. 
+\b characterAtIndex:
+\b0  gives access to each character in the string by index, with index values starting at 0.\
+
+\fs14 \
+
+\fs28 NSString declares methods for finding and comparing strings. It also declares methods for reading numeric values from strings, for combining strings in various ways, and for converting a string to different forms (such as encoding and case changes). General use of these methods is presented in the class cluster description under ªWorking with String Objects.º\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Adopted Protocols\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 NSCoding	
+\f1 -
+\f0 €encodeWithCoder:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €initWithCoder:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 NSCopying	
+\f1 -
+\f0 €copyWithZone:\
+
+\fs10 \
+
+\fs28 NSMutableCopying	
+\f1 -
+\f0 €mutableCopyWithZone:\
+
+\fs70 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Creating temporary strings	+€stringWithCString:\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€stringWithCString:length:\
++€stringWithFormat:\
++ localizedStringWithFormat:\
++ stringWithContentsOfFile:\
++€stringWithCharacters:length:\
++€string\
++€stringWithString:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Initializing newly allocated strings	
+\f1 -
+\f0 €initWithCharactersNoCopy:length:freeWhenDone:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €initWithCharacters:length:\
+
+\f1 -
+\f0 €initWithCStringNoCopy:length:freeWhenDone:\
+
+\f1 -
+\f0 €initWithCString:length:\
+
+\f1 -
+\f0 €initWithCString:\
+
+\f1 -
+\f0 €initWithString:\
+
+\f1 -
+\f0 €initWithFormat:\
+
+\f1 -
+\f0 €initWithFormat:arguments:\
+
+\f1 -
+\f0 €initWithFormat:locale:\
+
+\f1 -
+\f0 €initWithFormat:locale:arguments:\
+
+\f1 -
+\f0 €initWithData:encoding:\
+
+\f1 -
+\f0 €initWithContentsOfFile:\
+
+\f1 -
+\f0 €init\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting a string's length	
+\f1 -
+\f0 €length\
+
+\fs10 \
+
+\fs28 Accessing characters	
+\f1 -
+\f0 €characterAtIndex:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €getCharacters:\
+
+\f1 -
+\f0 €getCharacters:range:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Combining strings	
+\f1 -
+\f0 €stringByAppendingFormat:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €stringByAppendingString:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Dividing strings	
+\f1 -
+\f0 €componentsSeparatedByString:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €substringFromIndex:\
+
+\f1 -
+\f0 €substringWithRange:\
+
+\f1 -
+\f0 €substringToIndex:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Finding characters and substrings	
+\f1 -
+\f0 €rangeOfCharacterFromSet:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €rangeOfCharacterFromSet:options:\
+
+\f1 -
+\f0 €rangeOfCharacterFromSet:options:range:\
+
+\f1 -
+\f0 €rangeOfString:\
+
+\f1 -
+\f0 €rangeOfString:options:\
+
+\f1 -
+\f0 €rangeOfString:options:range:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Determining line ranges	
+\f1 -
+\f0 €getLineStart:end:contentsEnd:forRange:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €lineRangeForRange:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Determining composed character sequences\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €rangeOfComposedCharacterSequenceAtIndex:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Converting string contents into a property list\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  propertyList\
+
+\f1 -
+\f0  propertyListFromStringsFileFormat\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Identifying and comparing strings\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €caseInsensitiveCompare:\
+
+\f1 -
+\f0 €compare:\
+
+\f1 -
+\f0 €compare:options:\
+
+\f1 -
+\f0 €compare:options:range:\
+
+\f1 -
+\f0 €hasPrefix:\
+
+\f1 -
+\f0 €hasSuffix:\
+
+\f1 -
+\f0 €isEqualToString:\
+
+\f1 -
+\f0 €hash\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting a shared prefix	
+\f1 -
+\f0 €commonPrefixWithString:options:\
+
+\fs10 \
+
+\fs28 Changing case	
+\f1 -
+\f0 €capitalizedString\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €lowercaseString\
+
+\f1 -
+\f0 €uppercaseString\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting C strings	
+\f1 -
+\f0 €cString\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €lossyCString\
+
+\f1 -
+\f0 €cStringLength\
+
+\f1 -
+\f0 €getCString:\
+
+\f1 -
+\f0 €getCString:maxLength:\
+
+\f1 -
+\f0 €getCString:maxLength:range:remainingRange:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting numeric values	
+\f1 -
+\f0 €doubleValue\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €floatValue\
+
+\f1 -
+\f0 €intValue\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Working with encodings	+€availableStringEncodings\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€defaultCStringEncoding\
++ localizedNameOfStringEncoding:\
+
+\f1 -
+\f0 €canBeConvertedToEncoding:\
+
+\f1 -
+\f0 €dataUsingEncoding:\
+
+\f1 -
+\f0 €dataUsingEncoding:allowLossyConversion:\
+
+\f1 -
+\f0  description\
+
+\f1 -
+\f0 €fastestEncoding\
+
+\f1 -
+\f0 €smallestEncoding\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Working with paths	+€pathWithComponents:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €pathComponents\
+
+\f1 -
+\f0 €completePathIntoString:caseSensitive:\
+
+\fi0 matchesIntoArray:filterTypes:\
+
+\f1\fi-240 -
+\f0 €fileSystemRepresentation\
+
+\f1 -
+\f0 €getFileSystemRepresentation:maxLength:\
+
+\f1 -
+\f0 €isAbsolutePath\
+
+\f1 -
+\f0 €lastPathComponent\
+
+\f1 -
+\f0 €pathExtension\
+
+\f1 -
+\f0 €stringByAbbreviatingWithTildeInPath\
+
+\f1 -
+\f0 €stringByAppendingPathComponent:\
+
+\f1 -
+\f0 €stringByAppendingPathExtension:\
+
+\f1 -
+\f0 €stringByDeletingLastPathComponent\
+
+\f1 -
+\f0 €stringByDeletingPathExtension\
+
+\f1 -
+\f0 €stringByExpandingTildeInPath\
+
+\f1 -
+\f0 €stringByResolvingSymlinksInPath\
+
+\f1 -
+\f0 €stringByStandardizingPath\
+
+\f1 -
+\f0 €stringsByAppendingPaths:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Writing to a file	
+\f1 -
+\f0 €writeToFile:atomically:\
+
+\fs70 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker16736 \markername NS_DEV_DOCFOR:objc_method:[NSString-availableStringEncodings];}
+¬}\f3\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 availableStringEncodings\
+
+\fs6 \
+
+\f0\b0\fs28\fi-620\li2520 +€(const€NSStringEncoding€*)
+\b availableStringEncodings\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a zero-terminated list of the encodings that string objects support in the application's environment. Among the more commonly used are:\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\fs28\li2320\fc0\cf0 NSASCIIStringEncoding\
+NSNEXTSTEPStringEncoding\
+NSUnicodeStringEncoding\
+NSISOLatin1StringEncoding\
+NSISOLatin2StringEncoding\
+NSSymbolStringEncoding\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 See the ªTypes and Constantsº section of the Foundation Kit documentation for a complete list and descriptions of supported encodings.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b localizedNameOfStringEncoding:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker17290 \markername NS_DEV_DOCFOR:objc_method:[NSString-defaultCStringEncoding];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 defaultCStringEncoding\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSStringEncoding)
+\b defaultCStringEncoding\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the C string encoding assumed for any method accepting a C string as an argument (these methods use 
+\b CString
+\b0  in the keywords for such arguments; for example, 
+\b stringWithCString:
+\b0 ). The default C string encoding is determined from system information, and can't be changed programmatically for an individual process. See the description of NSStringEncoding in the ªTypes and Constantsº section for a full list of supported encodings.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker17798 \markername NS_DEV_DOCFOR:objc_method:[NSString-localizedNameOfStringEncoding:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 localizedNameOfStringEncoding:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSString€*)
+\b localizedNameOfStringEncoding:
+\b0 (NSStringEncoding)
+\i encoding\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a human-readable string giving the name of 
+\i encoding
+\i0  in the current locale's language. See ªLocalesº in the ªOther Featuresº section of the Foundation Kit documentation for more information on locales.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker18114 \markername NS_DEV_DOCFOR:objc_method:[NSString-localizedStringWithFormat:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 localizedStringWithFormat:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSString€*)
+\b localizedStringWithFormat:
+\b0 (NSString€*)
+\i format, ...\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a string created by using 
+\i format
+\i0  as a template into which the following argument values are substituted according to the formatting information of the current locale. For example, this code excerpt creates a string from another string and an 
+\b int
+\b0 :\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 NSString *myString = [NSString localizedStringWithFormat:@"%@: %d\\n",\
+    @"Cost", 32];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 The resulting string has the value ªCost: 32\\nº.\
+
+\fs14 \
+
+\fs28 See ªCreating and Converting String Objectsº in the class cluster description for more information.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker18707 \markername NS_DEV_DOCFOR:objc_method:[NSString-pathWithComponents:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 pathWithComponents:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSString€*)
+\b pathWithComponents:
+\b0 (NSArray€*)
+\i components\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a string built from the strings in 
+\i components
+\i0 , by concatenating them with a path separator between each pair. To create an absolute path, use an empty string or ª/º as the first component. To include a trailing path divider, use an empty string as the last component. This method doesn't clean up the path created; use 
+\b stringByStandardizingPath
+\b0  to resolve empty components, references to the parent directory, and so on.\
+
+\fs14 \
+
+\fs28 On systems that require an explicit root device for an absolute path, this method add a default device specifier (such as ªC:º on Windows systems).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b pathComponents\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker19395 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringWithCharacters:length:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 string\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(id)
+\b string\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns an empty string.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b init\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker19463 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringWithCharacters:length:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringWithCharacters:length:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(id)
+\b stringWithCharacters:
+\b0 (const unichar€*)
+\i chars
+\i0  
+\b length:
+\b0 (unsigned€int)
+\i length\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a string containing 
+\i length
+\i0  characters taken from 
+\i chars
+\i0 , which may not be NULL. This method doesn't stop short at a zero character.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b initWithCharacters:length:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker19754 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringWithContentsOfFile:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringWithContentsOfFile:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(id)
+\b stringWithContentsOfFile:
+\b0 (NSString€*)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a string created by reading characters from the file named by 
+\i path
+\i0 . If the contents begin with a byte-order mark (U+FEFF or U+FFFE), interprets the contents as Unicode characters; otherwise interprets the contents as characters in the default C string encoding. Returns 
+\b nil
+\b0  if the file can't be opened.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b initWithContentsOfFile:
+\b0 , +€
+\b defaultCStringEncoding\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker20208 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringWithCString:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringWithCString:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(id)
+\b stringWithCString:
+\b0 (const char€*)
+\i cString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a string containing derived from the characters in 
+\i cString
+\i0 , which must end with a zero character and which may not be NULL. 
+\i cString
+\i0  should contain characters in the default C string encoding.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b initWithCString:
+\b0 , +€
+\b defaultCStringEncoding\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker20534 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringWithCString:length:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringWithCString:length:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(id)
+\b stringWithCString:
+\b0 (const char€*)
+\i cString
+\i0  
+\b length:
+\b0 (unsigned€int)
+\i length\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a string containing characters derived from 
+\i cString
+\i0 , which may not be NULL. 
+\i cString
+\i0  should contain characters in the default C string encoding. This method converts 
+\i length
+\i0 €* 
+\b sizeof(char)
+\b0  bytes from 
+\i cString
+\i0 , and doesn't stop short at a zero character.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b initWithCString:length:
+\b0 , +€
+\b defaultCStringEncoding\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker20961 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringWithFormat:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringWithFormat:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(id)
+\b stringWithFormat:
+\b0 (NSString€*)
+\i format
+\i0 , 
+\i .
+\i0 ..\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a string created in the manner of 
+\b localizedStringWithFormat:
+\b0 , but using the default locale to format numbers. See ªCreating and Converting String Objectsº in the class cluster description for more information.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b initWithFormat:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker21280 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringWithCharacters:length:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 stringWithString:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(id)
+\b stringWithString:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a string created by copying the characters from 
+\i aString
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b initWithString:\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f3\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker21458 \markername NS_DEV_DOCFOR:objc_method:[NSString-canBeConvertedToEncoding:];}
+¬}\f3\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 canBeConvertedToEncoding:\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0 €(BOOL)
+\b canBeConvertedToEncoding:
+\b0 (NSStringEncoding)
+\i encoding\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns YES if the receiver can be converted to 
+\i encoding
+\i0  without loss of information. Returns NO if characters would have to be changed or deleted in the process of changing encodings.\
+
+\fs14 \
+
+\fs28 If you plan to actually convert a string, the 
+\b dataUsingEncoding:...
+\b0  methods simply return 
+\b nil
+\b0  on failure, so you can avoid the overhead of invoking this method yourself by simply trying to convert the string.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b dataUsingEncoding:allowLossyConversion:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker21997 \markername NS_DEV_DOCFOR:objc_method:[NSString-capitalizedString];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 capitalizedString\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b capitalizedString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a string with the first character from each word in the receiver changed to its corresponding uppercase value, and all remaining characters set to their corresponding lowercase values. A ªwordº here is any sequence of characters delimited by spaces, tabs, or line terminators (listed under 
+\b getLineStart:end:contentsEnd:forRange:
+\b0 ). Other common word delimiters such as hyphens and other punctuation aren't considered, so this method may not generally produce the desired results for multi-word strings.\
+
+\fs14 \
+
+\fs28 Case transformations aren't guaranteed to be symmetrical or to produce strings of the same lengths as the originals. See 
+\b lowercaseString
+\b0  for an example.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b lowercaseString
+\b0 , 
+\f1 -
+\f0 €
+\b uppercaseString\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker22764 \markername NS_DEV_DOCFOR:objc_method:[NSString-caseInsensitiveCompare:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 caseInsensitiveCompare:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSComparisonResult)
+\b caseInsensitiveCompare:
+\b0 (NSString *)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 This convenience method invokes 
+\b compare:options:
+\b0  with NSCaseInsensitiveSearch as the only option.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker22956 \markername NS_DEV_DOCFOR:objc_method:[NSString-characterAtIndex:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 characterAtIndex:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(unichar)
+\b characterAtIndex:
+\b0 (unsigned€int)
+\i index\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the character at the array position given by 
+\i index
+\i0 . Raises an NSRangeException if 
+\i index
+\i0  lies beyond the end of the string.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b getCharacters:
+\b0 , 
+\f1 -
+\f0 €
+\b getCharacters:range:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker23210 \markername NS_DEV_DOCFOR:objc_method:[NSString-commonPrefixWithString:options:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 commonPrefixWithString:options:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b commonPrefixWithString:
+\b0 (NSString€*)
+\i aString\
+
+\b\i0\fi0 options:
+\b0 (unsigned€int)
+\i mask\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a string containing characters that the receiver and 
+\i aString
+\i0  have in common, starting from the beginning of each up to the first characters that aren't equivalent. The returned string is based on the characters of the receiver. For example, if the receiver is ªMaÈdchenº and 
+\i aString
+\i0  is ªMÙdchenschuleº, the string returned is ªMaÈdchenº, not ªMÙdchenº. The following search options may be specified in 
+\i mask
+\i0  by combining them with the C bitwise OR operator:\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\fs28\li2320\fc0\cf0 NSCaseInsensitiveSearch\
+NSLiteralSearch\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 See ªWorking with String Objectsº in the class cluster description for details on these options.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b hasPrefix\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker23958 \markername NS_DEV_DOCFOR:objc_method:[NSString-compare:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 compare:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSComparisonResult)
+\b compare:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invokes 
+\b compare:options:
+\b0  with no options.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b compare:options:range:
+\b0 , 
+\f1 -
+\f0 €
+\b caseInsensitiveCompare:
+\b0 , 
+\f1 -
+\f0 €
+\b isEqualToString:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker24147 \markername NS_DEV_DOCFOR:objc_method:[NSString-compare:options:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 compare:options:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSComparisonResult)
+\b compare:
+\b0 (NSString€*)
+\i aString
+\i0  
+\b options:
+\b0 (unsigned€int)
+\i mask\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invokes 
+\b compare:options:range:
+\b0  with 
+\i mask
+\i0  as the options and the receiver's full extent as the range.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b caseInsensitiveCompare:
+\b0 , 
+\f1 -
+\f0 €
+\b isEqualToString:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker24404 \markername NS_DEV_DOCFOR:objc_method:[NSString-compare:options:range:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 compare:options:range:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSComparisonResult)
+\b compare:
+\b0 (NSString€*)
+\i aString\
+
+\b\i0\fi0 options:
+\b0 (unsigned€int)
+\i mask\
+
+\b\i0 range:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns NSOrderedAscending if the substring of the receiver given by 
+\i aRange
+\i0  precedes 
+\i aString
+\i0  in lexical ordering, NSOrderedSame if the substring of the receiver and 
+\i aString
+\i0  are equivalent in lexical value, and NSOrderedDescending if the substring of the receiver follows 
+\i aString
+\i0 . You can specify the following options in 
+\i mask
+\i0  by combining them with the C bitwise OR operator:\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\fs28\li2320\fc0\cf0 NSCaseInsensitiveSearch\
+NSLiteralSearch\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 See ªWorking with String Objectsº in the class cluster description for details on these options.\
+
+\fs14 \
+
+\fs28 Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the string.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b caseInsensitiveCompare:
+\b0 , 
+\f1 -
+\f0 €
+\b isEqualToString:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker25188 \markername NS_DEV_DOCFOR:objc_method:[NSString-completePathIntoString:caseSensitive:matchesIntoArray:filterTypes:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 completePathIntoString:caseSensitive:matchesIntoArray:filterTypes:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(unsigned€int)
+\b completePathIntoString:
+\b0 (NSString€**)
+\i outputName\
+
+\b\i0\fi0 caseSensitive:
+\b0 (BOOL)
+\i flag\
+
+\b\i0 matchesIntoArray:
+\b0 (NSArray€**)
+\i outputArray
+\i0  \
+
+\b filterTypes:
+\b0 (NSArray€*)
+\i filterTypes\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Attempts to perform file- name completion on the receiver, interpreting it as a path in the file system and returning by reference in 
+\i outputName
+\i0  the longest path that matches the receiver. Considers case if 
+\i flag
+\i0  is YES. If 
+\i outputArray
+\i0  is non-NULL, returns all matching file names in an NSArray given by 
+\i outputArray
+\i0 . If an array of strings is provided in 
+\i filterTypes
+\i0 , considers only paths whose extensions (not including the extension separator) match one of those strings.\
+
+\fs14 \
+
+\fs28 Returns 0 if no matches are found and 1 if exactly one match is found. In the case of multiple matches, returns the actual number of matching paths if 
+\i outputArray
+\i0  is provided, or simply a positive value if 
+\i outputArray
+\i0  is NULL. Hence, you can check for the existence of matches without retrieving by passing NULL as 
+\i outputArray
+\i0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker26227 \markername NS_DEV_DOCFOR:objc_method:[NSString-componentsSeparatedByString:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 componentsSeparatedByString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSArray€*)
+\b componentsSeparatedByString:
+\b0 (NSString€*)
+\i separator\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns an NSArray containing substrings from the receiver that have been divided by 
+\i separator
+\i0 . The substrings in the array appear in the order they did in the receiver. If the string begins or ends with the separator, the first or last substring, respectively, is empty. For example, this code excerpt:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 NSString *list = @"wrenches, hammers, saws";\
+NSArray *listItems = [list componentsSeparatedByString:@", "];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 produces an array with these contents:\
+
+\fs14 \
+
+\pard\tx6740\tx10780\f3\b\fs28\li1900\fc0\cf0 Index	Substring\
+
+\fs6 \
+
+\f0\b0\fs28\fi-4840\li6740 0	wrenches\
+
+\fs14 \
+
+\fs28 1	hammers\
+
+\fs14 \
+
+\fs28 2	saws\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If 
+\b list
+\b0  begins with a comma and spaceÐfor example, ª, wrenches, hammers, sawsºÐthe array has these contents:\
+
+\fs14 \
+
+\pard\tx6740\tx10780\f3\b\fs28\li1900\fc0\cf0 Index	Substring\
+
+\fs6 \
+
+\f0\b0\fs28\fi-4840\li6740 0	
+\i (empty string)
+\i0  \
+
+\fs14 \
+
+\fs28 1	wrenches\
+
+\fs14 \
+
+\fs28 2	hammers\
+
+\fs14 \
+
+\fs28 3	saws\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If 
+\b list
+\b0  has no separatorsÐfor example, ªwrenchesºÐthe array contains the string itself, in this case ªwrenchesº.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b componentsJoinedByString:
+\b0  (NSArray class cluster), 
+\f1 -
+\f0 €
+\b pathComponents\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker27197 \markername NS_DEV_DOCFOR:objc_method:[NSString-cString];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 cString\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(const char€*)
+\b cString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a representation of the receiver as a C string in the default C string encoding. The returned C string will be automatically freed just as a returned object would be released; your code should copy the C string or use 
+\b getCString:
+\b0  if it needs to store the C string outside of the autorelease context in which the C string is created.\
+
+\fs14 \
+
+\fs28 Raises an NSCharacterConversionException if the receiver can't be represented in the default C string encoding without loss of information. Use 
+\b canBeConvertedToEncoding:
+\b0  if necessary to check whether a string can be losslessly converted to the default C string encoding. If it can't, use 
+\b lossyCString
+\b0  or 
+\b dataUsingEncoding:allowLossyConversion:
+\b0  to get a C string representation with some loss of information.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b getCString:
+\b0 , 
+\f1 -
+\f0 €
+\b canBeConvertedToEncoding:
+\b0 , +€
+\b defaultCStringEncoding
+\b0 , 
+\f1 -
+\f0 €
+\b cStringLength
+\b0 , 
+\f1 -
+\f0 €
+\b getCharacters:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker28099 \markername NS_DEV_DOCFOR:objc_method:[NSString-cStringLength];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 cStringLength\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(unsigned€int)
+\b cStringLength\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the length in 
+\b char
+\b0 -sized units of the receiver's C string representation in the default C string encoding.\
+
+\fs14 \
+
+\fs28 Raises 0 if the receiver can't be represented in the default C string encoding without loss of information. You can also use 
+\b canBeConvertedToEncoding:
+\b0  to check whether a string can be losslessly converted to the default C string encoding. If it can't, use 
+\b lossyCString
+\b0  to get a C string representation with some loss of information, then check its length explicitly using the ANSI function 
+\b strlen()
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b cString
+\b0 , 
+\f1 -
+\f0 €
+\b canBeConvertedToEncoding:
+\b0 , +€
+\b defaultCStringEncoding
+\b0 , 
+\f1 -
+\f0 €
+\b length\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker28750 \markername NS_DEV_DOCFOR:objc_method:[NSString-dataUsingEncoding:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 dataUsingEncoding:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSData€*)
+\b dataUsingEncoding:
+\b0 (NSStringEncoding)
+\i encoding\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invokes 
+\b dataUsingEncoding:allowLossyConversion:
+\b0  with NO as the argument for allowing lossy conversion.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker28934 \markername NS_DEV_DOCFOR:objc_method:[NSString-dataUsingEncoding:allowLossyConversion:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 dataUsingEncoding:allowLossyConversion:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSData€*)
+\b dataUsingEncoding:
+\b0 (NSStringEncoding)
+\i encoding\
+
+\b\i0\fi0 allowLossyConversion:
+\b0 (BOOL)
+\i flag\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns an NSData object containing a representation of the receiver in 
+\i encoding
+\i0 . Returns 
+\b nil
+\b0  if 
+\i flag
+\i0  is NO and the receiver can't be converted without losing some information (such as accents or case). If 
+\i flag
+\i0  is YES and the receiver can't be converted without losing some information, some characters may be removed or altered in conversion. For example, in converting a character from NSUnicodeStringEncoding to NSASCIIStringEncoding, the character `‚' becomes `A', losing the accent.\
+
+\fs14 \
+
+\fs28 The result of this method, when lossless conversion is made, is the default ªplain textº format for 
+\i encoding
+\i0  and is the recommended way to save or transmit a string object.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b canBeConvertedToEncoding:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker29769 \markername NS_DEV_DOCFOR:objc_method:[NSString-description];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 description\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 @protocol NSObject\
+
+\f1 -
+\f0 €(NSString€*)
+\b description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker29845 \markername NS_DEV_DOCFOR:objc_method:[NSString-doubleValue];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 doubleValue\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(double)
+\b doubleValue\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the floating-point value of the receiver's text as a 
+\b double
+\b0 , skipping whitespace at the beginning of the string. Returns HUGE_VAL or 
+\f1 -
+\f0 HUGE_VAL on overflow, 0.0 on underflow. Also returns 0.0 if the receiver doesn't begin with a valid text representation of a floating-point number.\
+
+\fs14 \
+
+\fs28 This method uses formatting information stored in the default locale; use an NSScanner for localized scanning of numeric values from a string.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b intValue
+\b0 ,
+\b  
+\f1\b0 -
+\f0 €
+\b floatValue
+\b0 , 
+\f1 -
+\f0 €
+\b scanDouble:€
+\b0 (NSScanner)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker30381 \markername NS_DEV_DOCFOR:objc_method:[NSString-fastestEncoding];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 fastestEncoding\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSStringEncoding)
+\b fastestEncoding\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the fastest encoding to which the receiver may be converted without loss of information. ªFastestº applies to retrieval of characters from the string. This encoding may not be space efficient.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b smallestEncoding
+\b0 , 
+\f1 -
+\f0 €
+\b getCharacters:range:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker30693 \markername NS_DEV_DOCFOR:objc_method:[NSString-fileSystemRepresentation];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 fileSystemRepresentation\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(const€char€*)
+\b fileSystemRepresentation\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a file system specific representation of the receiver, as described for 
+\b getFileSystemRepresentation:maxLength:
+\b0 . The returned C string will be automatically freed just as a returned object would be released; your code should copy the representation or use 
+\b getFileSystemRepresentation:maxLength:
+\b0  if it needs to store the representation outside of the autorelease context in which the representation is created.\
+
+\fs14 \
+
+\fs28 Raises an NSCharacterConversionException if the receiver can't be represented in the file system's encoding.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker31291 \markername NS_DEV_DOCFOR:objc_method:[NSString-floatValue];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 floatValue\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(float)
+\b floatValue\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the floating-point value of the receiver's text as a 
+\b float
+\b0 , skipping whitespace at the beginning of the string. Returns HUGE_VAL or 
+\f1 -
+\f0 HUGE_VAL on overflow, 0.0 on underflow. Also returns 0.0 if the receiver doesn't begin with a valid text representation of a floating-point number.\
+
+\fs14 \
+
+\fs28 This method uses formatting information stored in the default locale; use an NSScanner for localized scanning of numeric values from a string.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b doubleValue
+\b0 ,
+\b  
+\f1\b0 -
+\f0 €
+\b intValue
+\b0 , 
+\f1 -
+\f0 €
+\b scanFloat:€
+\b0 (NSScanner)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker31823 \markername NS_DEV_DOCFOR:objc_method:[NSString-getCharacters:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 getCharacters:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b getCharacters:
+\b0 (unichar€*)
+\i buffer\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invokes 
+\b getCharacters:range:
+\b0  with 
+\i buffer
+\i0  and the entire extent of the receiver as the range. 
+\i buffer
+\i0  must be large enough to contain all the characters in the string.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b length\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker32069 \markername NS_DEV_DOCFOR:objc_method:[NSString-getCharacters:range:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 getCharacters:range:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b getCharacters:
+\b0 (unichar€*)
+\i buffer
+\i0  
+\b range:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Copies characters from 
+\i aRange
+\i0  in the receiver into 
+\i buffer
+\i0 , which must be large enough to contain them. Does 
+\i not
+\i0  add a zero character. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the string.\
+
+\fs14 \
+
+\fs28 The abstract implementation of this method uses 
+\b characterAtIndex:
+\b0  repeatedly, correctly extracting the characters, though very inefficiently. Subclasses should override it to provide a fast implementation.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker32582 \markername NS_DEV_DOCFOR:objc_method:[NSString-getCString:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 getCString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b getCString:
+\b0 (char€*)
+\i buffer\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invokes 
+\b getCString:maxLength:range:remainingRange:
+\b0  with NSMaximumStringLength as the maximum length, the receiver's entire extent as the range, and NULL for the remaining range. 
+\i buffer
+\i0  must be large enough to contain the resulting C string plus a terminating zero character (which this method adds).\
+
+\fs14 \
+
+\fs28 Raises an NSCharacterConversionException if the receiver can't be represented in the default C string encoding without loss of information. Use 
+\b canBeConvertedToEncoding:
+\b0  if necessary to check whether a string can be losslessly converted to the default C string encoding. If it can't, use 
+\b lossyCString
+\b0  or 
+\b dataUsingEncoding:allowLossyConversion:
+\b0  to get a C string representation with some loss of information.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b cStringLength
+\b0 , 
+\f1 -
+\f0 €
+\b canBeConvertedToEncoding:
+\b0 , +€
+\b defaultCStringEncoding
+\b0 , 
+\f1 -
+\f0 €
+\b getCharacters:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker33442 \markername NS_DEV_DOCFOR:objc_method:[NSString-getCString:maxLength:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 getCString:maxLength:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b getCString:
+\b0 (char€*)
+\i buffer
+\i0  
+\b maxLength:
+\b0 (unsigned€int)
+\i maxLength\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invokes 
+\b getCString:maxLength:range:remainingRange:
+\b0  with 
+\i maxLength
+\i0  as the maximum length in 
+\b char
+\b0 -sized units, the receiver's entire extent as the range, and NULL for the remaining range. 
+\i buffer
+\i0  must be large enough to contain 
+\i maxLength
+\i0  
+\b char
+\b0 s plus a terminating zero 
+\b char
+\b0  (which this method adds).\
+
+\fs14 \
+
+\fs28 Raises an NSCharacterConversionException if the receiver can't be represented in the default C string encoding without loss of information. Use 
+\b canBeConvertedToEncoding:
+\b0  if necessary to check whether a string can be losslessly converted to the default C string encoding. If it can't, use 
+\b lossyCString
+\b0  or 
+\b dataUsingEncoding:allowLossyConversion:
+\b0  to get a C string representation with some loss of information.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b cStringLength
+\b0 , 
+\f1 -
+\f0 €
+\b canBeConvertedToEncoding:
+\b0 , +€
+\b defaultCStringEncoding
+\b0 , 
+\f1 -
+\f0 €
+\b getCharacters:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker34342 \markername NS_DEV_DOCFOR:objc_method:[NSString-getCString:maxLength:range:remainingRange:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 getCString:maxLength:range:remainingRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b getCString:
+\b0 (char€*)
+\i buffer\
+
+\b\i0\fi0 maxLength:
+\b0 (unsigned€int)
+\i maxLength\
+
+\b\i0 range:
+\b0 (NSRange)
+\i aRange\
+
+\b\i0 remainingRange:
+\b0 (NSRange€*)
+\i leftoverRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Converts the receiver's characters to the default C string encoding and stores them in 
+\i buffer
+\i0 . 
+\i buffer
+\i0  must be large enough to contain 
+\i maxLength
+\i0  
+\b char
+\b0 s plus a terminating zero 
+\b char
+\b0  (which this method adds). Copies and converts as many character as possible from 
+\i aRange
+\i0 , and stores the range of those not converted in the NSRange given by 
+\i leftoverRange
+\i0  (if it's non-NULL). Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the string.\
+
+\fs14 \
+
+\fs28 Raises an NSCharacterConversionException if the receiver can't be represented in the default C string encoding without loss of information. Use 
+\b canBeConvertedToEncoding:
+\b0  if necessary to check whether a string can be losslessly converted to the default C string encoding. If it can't, use 
+\b lossyCString
+\b0  or 
+\b dataUsingEncoding:allowLossyConversion:
+\b0  to get a C string representation with some loss of information.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b cStringLength
+\b0 , 
+\f1 -
+\f0 €
+\b canBeConvertedToEncoding:
+\b0 , +€
+\b defaultCStringEncoding
+\b0 , 
+\f1 -
+\f0 €
+\b getCharacters:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker35483 \markername NS_DEV_DOCFOR:objc_method:[NSString-getFileSystemRepresentation:maxLength:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 getFileSystemRepresentation:maxLength:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b getFileSystemRepresentation:
+\b0 (char€*)
+\i buffer
+\i0  
+\b maxLength:
+\b0 (unsigned€int)
+\i maxLength\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Interprets the receiver as a system-independent path, filling 
+\i buffer
+\i0  with a C string in a format and encoding suitable for use with file system calls. This is done by replacing the abstract path and extension separator characters (`/' and `.' respectively) with their equivalents for the operating system. For example, on Microsoft Windows 95 the receiver ªC:/Working/Sample.tiffº is returned as the C string ªC:\\Working\\Sample.tiffº.\
+
+\fs14 \
+
+\i\fs28 buffer
+\i0  must be large enough to contain 
+\i maxLength
+\i0  
+\b char
+\b0 s plus a terminating zero 
+\b char
+\b0  (which this method adds). Returns YES if 
+\i buffer
+\i0  is successfully filled with a file system representation, NO if not (for example, if 
+\i maxLength
+\i0  would be exceeded). Also returns NO if the receiver can't be represented in the file system's encoding.\
+
+\fs14 \
+
+\fs28 If the system-specific path or extension separator appear in the abstract representation, the characters they're converted to depend on the system (unless they're identical to the abstract separators). On Windows 95, for example, a `\\' character is converted to `/'.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b fileSystemRepresentation\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker36687 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringWithCharacters:length:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 getLineStart:end:contentsEnd:forRange:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(void)
+\b getLineStart:
+\b0 (unsigned€int€*)
+\i startIndex\
+
+\b\i0\fi0 end:
+\b0 (unsigned€int€*)
+\i lineEndIndex\
+
+\b\i0 contentsEnd:
+\b0 (unsigned€int€*)
+\i contentsEndIndex\
+
+\b\i0 forRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns by reference the indexes of the smallest range of lines containing 
+\i aRange
+\i0 . A line is delimited by any of these characters, the longest possible sequence being preferred to any shorter:\
+
+\fs14 \
+
+\pard\tx6740\tx10780\fs28\fi-4840\li6740\fc0\cf0 U+000D (
+\b \\r
+\b0  or CR)	U+2028 (Unicode line separator)\
+
+\fs14 \
+
+\fs28 U+000A (
+\b \\n
+\b0  or LF)	U+2029 (Unicode paragraph separator)\
+
+\fs14 \
+
+\b\fs28 \\r\\n
+\b0 , in that order (also known as CRLF)\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 When this method returns, 
+\i startIndex
+\i0  contains the index of the first character of the line, which is at or before the location of 
+\i aRange;
+\i0  
+\i lineEndIndex
+\i0  contains the index of the first character past the line terminator; and 
+\i contentsEndIndex
+\i0  contains the index of the first character of the line terminator itself. You may pass a NULL pointer for any of these arguments, in which case the work to compute the value isn't performed.\
+
+\fs14 \
+
+\fs28 You can use the results of this method to construct ranges for lines by using the start index as the range's location and the difference between the end index and the start index as the range's length.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b lineRangeForRange:
+\b0 , 
+\f1 -
+\f0 €
+\b substringFromRange:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker37913 \markername NS_DEV_DOCFOR:objc_method:[NSString-hash];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 hash\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(unsigned€int)
+\b hash\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns an unsigned integer that can be used as a hash table address. If two string objects are equal (as determined by the 
+\b isEqualToString:
+\b0  method), they must have the same hash value. The abstract implementation of this method fulfills this requirement, so subclasses of NSString shouldn't override it.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker38249 \markername NS_DEV_DOCFOR:objc_method:[NSString-hasPrefix:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 hasPrefix:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b hasPrefix:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns YES if 
+\i aString
+\i0  matches the beginning characters of the receiver, NO otherwise. Returns NO if 
+\i aString
+\i0  is the null string. This method is a convenience for comparing strings using the NSAnchoredSearch option. See ªWorking with String Objectsº in the class cluster description for more information.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b hasSuffix:
+\b0 , 
+\f1 -
+\f0 €
+\b compare:options:range:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker38657 \markername NS_DEV_DOCFOR:objc_method:[NSString-hasSuffix:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 hasSuffix:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b hasSuffix:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns YES if 
+\i aString
+\i0  matches the ending characters of the receiver, NO otherwise. Returns NO if 
+\i aString
+\i0  is the null string. This method is a convenience for comparing strings using the NSAnchoredSearch and NSBackwardsSearch options. See ªWorking with String Objectsº in the class cluster description for more information.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b hasPrefix:
+\b0 , 
+\f1 -
+\f0 €
+\b compare:options:range:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker39085 \markername NS_DEV_DOCFOR:objc_method:[NSString-init];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 init\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b init\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Initializes the receiver, a newly allocated NSString, to contain no characters. Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b string\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker39220 \markername NS_DEV_DOCFOR:objc_method:[NSString-initWithCharacters:length:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithCharacters:length:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithCharacters:
+\b0 (const unichar€*)
+\i characters
+\i0  
+\b length:
+\b0 (unsigned€int)
+\i length\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes the receiver, a newly allocated NSString, by copying 
+\i length
+\i0  characters from 
+\i characters
+\i0 , which may not be NULL. This method doesn't stop short at a zero character. Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b stringWithCharacters:length:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker39564 \markername NS_DEV_DOCFOR:objc_method:[NSString-initWithCharactersNoCopy:length:freeWhenDone:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithCharactersNoCopy:length:freeWhenDone:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithCharactersNoCopy:
+\b0 (unichar€*)
+\i characters\
+
+\b\i0\fi0 length:
+\b0 (unsigned€int)
+\i length\
+
+\b\i0 freeWhenDone:
+\b0 (BOOL)
+\i flag\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes the receiver, a newly allocated NSString, to contain 
+\i length
+\i0  characters from 
+\i characters
+\i0 , which may not be NULL. This method doesn't stop short at a zero character. The receiver becomes the owner of 
+\i characters;
+\i0  if 
+\i flag
+\i0  is YES the receiver will free the memory when it no longer needs them, but if 
+\i flag
+\i0  is NO it won't. Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b stringWithCharacters:length:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker40104 \markername NS_DEV_DOCFOR:objc_method:[NSString-initWithContentsOfFile:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithContentsOfFile:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithContentsOfFile:
+\b0 (NSString€*)
+\i path\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes the receiver, a newly allocated NSString, by reading characters from the file named by 
+\i path
+\i0 . If the contents begin with a byte-order mark (U+FEFF or U+FFFE), interprets the contents as Unicode characters; otherwise interprets the contents as characters in the default C string encoding. Returns 
+\b self
+\b0 , or 
+\b nil
+\b0  if the file can't be opened.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b stringWithContentsOfFile:
+\b0 , +€
+\b defaultCStringEncoding\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker40593 \markername NS_DEV_DOCFOR:objc_method:[NSString-initWithCString:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithCString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithCString:
+\b0 (const char€*)
+\i cString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes the receiver, a newly allocated NSString, by converting the characters in 
+\i cString
+\i0  from the default C string encoding into the Unicode character encoding. 
+\i cString
+\i0  must be a zero-terminated C string in the default C string encoding, and may not be NULL. Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b stringWithCString:
+\b0 , +€
+\b defaultCStringEncoding\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker40995 \markername NS_DEV_DOCFOR:objc_method:[NSString-initWithCString:length:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithCString:length:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithCString:
+\b0 (const char€*)
+\i cString
+\i0  
+\b length:
+\b0 (unsigned€int)
+\i length\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes the receiver, a newly allocated NSString, by converting the characters of 
+\i cString
+\i0  from the default C string encoding into the Unicode character encoding. This method converts 
+\i length
+\i0 €* 
+\b sizeof(char)
+\b0  bytes from 
+\i cString
+\i0 , and doesn't stop short at a zero character. 
+\i cString
+\i0  must contain bytes in the default C string encoding, and may not be NULL. Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b stringWithCString:length:
+\b0 , +€
+\b defaultCStringEncoding\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker41530 \markername NS_DEV_DOCFOR:objc_method:[NSString-initWithCStringNoCopy:length:freeWhenDone:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithCStringNoCopy:length:freeWhenDone:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithCStringNoCopy:
+\b0 (char€*)
+\i cString\
+
+\b\i0\fi0 length:
+\b0 (unsigned€int)
+\i length\
+
+\b\i0 freeWhenDone:
+\b0 (BOOL)
+\i flag\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes the receiver, a newly allocated NSString, by converting the characters of 
+\i cString
+\i0  from the default C string encoding into the Unicode character encoding. This method converts 
+\i length
+\i0 €* 
+\b sizeof(char)
+\b0  bytes from 
+\i cString
+\i0 , and doesn't stop short at a zero character. 
+\i cString
+\i0  must be contain characters in the default C string encoding, and may not be NULL. The receiver becomes the owner of 
+\i cString;
+\i0  if 
+\i flag
+\i0  is YES it will free the memory when it no longer needs it, but if 
+\i flag
+\i0  is NO it won't. Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b stringWithCString:length:
+\b0 , +€
+\b defaultCStringEncoding\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker42254 \markername NS_DEV_DOCFOR:objc_method:[NSString-initWithData:encoding:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithData:encoding:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithData:
+\b0 (NSData€*)
+\i data
+\i0  
+\b encoding:
+\b0 (NSStringEncoding)
+\i encoding\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes the receiver, a newly allocated NSString, by converting the bytes in 
+\i data
+\i0  into Unicode characters. 
+\i data
+\i0  must be an NSData object containing bytes in 
+\i encoding
+\i0  and in the default plain text format (that is, pure content with no attribute or other markup) for that encoding. Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker42650 \markername NS_DEV_DOCFOR:objc_method:[NSString-initWithFormat:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithFormat:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithFormat:
+\b0 (NSString€*)
+\i format
+\i0 , ...\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Invokes 
+\b initWithFormat:locale:arguments:
+\b0  with 
+\b nil
+\b0  as the locale.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b stringWithFormat:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker42812 \markername NS_DEV_DOCFOR:objc_method:[NSString-initWithFormat:arguments:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithFormat:arguments:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithFormat:
+\b0 (NSString€*)
+\i format
+\i0  
+\b arguments:
+\b0 (va_list)
+\i argList\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invokes 
+\b initWithFormat:locale:arguments:
+\b0  with 
+\b nil
+\b0  as the locale.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b stringWithFormat:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker43006 \markername NS_DEV_DOCFOR:objc_method:[NSString-initWithFormat:locale:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithFormat:locale:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithFormat:
+\b0 (NSString€*)
+\i format
+\i0  \
+
+\b\fi0 locale:
+\b0 (NSDictionary *)
+\i dictionary,
+\i0  ...\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Invokes 
+\b initWithFormat:locale:arguments:
+\b0  with 
+\i dictionary
+\i0  as the locale.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b localizedStringWithFormat:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker43226 \markername NS_DEV_DOCFOR:objc_method:[NSString-initWithFormat:locale:arguments:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithFormat:locale:arguments:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithFormat:
+\b0 (NSString€*)
+\i format
+\i0  \
+
+\b\fi0 locale:
+\b0 (NSDictionary *)
+\i dictionary\
+
+\b\i0 arguments:
+\b0 (va_list)
+\i argList\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes a newly allocated string object, using 
+\i format
+\i0  as a template into which the following argument values are substituted according to the formatting information of the current locale. For example, this code excerpt creates a string from 
+\b myArgs
+\b0 , which is derived from a string object with the value ªCost:º and an 
+\b int
+\b0  with the value 32:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 va_list myArgs;\
+NSDictionary *myLocale;    /* Assume this exists. */\
+\
+NSString *myString = [[NSString alloc] initWithFormat:@"%@: %d\\n",\
+    locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]\
+    arguments:myArgs];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 (Note the message construct for retrieving the user's locale.). The resulting string has the value ªCost: 32\\nº.\
+
+\fs14 \
+
+\fs28 See ªCreating and Converting String Objectsº in the class cluster description for more information. Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b initWithFormat:arguments:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker44215 \markername NS_DEV_DOCFOR:objc_method:[NSString-initWithString:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithString:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\i0\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 Initializes the receiver, a newly allocated NSString, by copying the characters from 
+\i aString
+\i0 . Returns 
+\b self
+\b0 .+€
+\b stringWithString:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker44414 \markername NS_DEV_DOCFOR:objc_method:[NSString-intValue];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 intValue\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(int)
+\b intValue\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the integer value of the string's text, assuming a decimal representation and skipping whitespace at the beginning of the string. Returns INT_MAX or INT_MIN on overflow. Returns 0 if the receiver doesn't begin with a valid decimal text representation of a number.\
+
+\fs14 \
+
+\fs28 This method uses formatting information stored in the default locale; use an NSScanner for localized scanning of numeric values from a string.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b doubleValue
+\b0 ,
+\b  
+\f1\b0 -
+\f0 €
+\b floatValue
+\b0 , 
+\f1 -
+\f0 €
+\b scanInt:€
+\b0 (NSScanner)\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker44925 \markername NS_DEV_DOCFOR:objc_method:[NSString-isAbsolutePath];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 isAbsolutePath\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b isAbsolutePath\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Interprets the receiver as a path, returning YES if it represents an absolute path, NO if it represents a relative path. See ªManipulating Pathsº in the class description for more information on paths.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker45170 \markername NS_DEV_DOCFOR:objc_method:[NSString-isEqualToString:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 isEqualToString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b isEqualToString:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns YES if 
+\i aString
+\i0  is equivalent to the receiver (if they have the same 
+\b id
+\b0  or if they compare as NSOrderedSame), NO otherwise. When you know both objects are strings, this method is a faster way to check equality than 
+\b isEqual:
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b compare:options:range:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker45504 \markername NS_DEV_DOCFOR:objc_method:[NSString-lastPathComponent];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 lastPathComponent\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString *)
+\b lastPathComponent\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the last path component of the receiver. The following table illustrates the effect of 
+\b lastPathComponent
+\b0  on a variety of different paths:\
+
+\fs14 \
+
+\pard\tx6740\tx10780\f3\b\fs28\li1900\fc0\cf0 Receiver's String Value	String Returned\
+
+\fs6 \
+
+\f0\b0\fs28\fi-4840\li6740 ª/tmp/scratch.tiff
+\i º
+\i0 	ªscratch.tiff
+\i º\
+
+\fs14 \
+
+\i0\fs28 ª/tmp/scratch
+\i º
+\i0 	ªscratch
+\i º\
+
+\fs14 \
+
+\i0\fs28 ª/tmp/
+\i º
+\i0 	ªtmp
+\i º\
+
+\fs14 \
+
+\i0\fs28 ªscratch
+\i º
+\i0 	ªscratch
+\i º\
+
+\fs14 \
+
+\i0\fs28 ª/
+\i º
+\i0 	ª
+\i º (an empty string)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\i0\fs28\li1500\fc0\cf0{\NeXTHelpMarker45870 \markername NS_DEV_DOCFOR:objc_method:[NSString-length];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 length\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(unsigned int)
+\b length\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the number of Unicode characters in the receiver. This includes the individual characters of composed character sequences, so you can't use this method to determine if a string will be visible when printed, or how long it will appear.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b cStringLength
+\b0 , 
+\f1 -
+\f0 €
+\b sizeWithAttributes:
+\b0 €(NSString Additions in the Application Kit)\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker46244 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringWithCharacters:length:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 lineRangeForRange:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSRange)
+\b lineRangeForRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the smallest range of lines containing 
+\i aRange
+\i0 , including the characters that terminate the line.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b getLineStart:end:contentsEnd:forRange:
+\b0 , 
+\f1 -
+\f0 €
+\b substringFromRange:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker46493 \markername NS_DEV_DOCFOR:objc_method:[NSString-cString];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 lossyCString\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(const char€*)
+\b lossyCString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a representation of the receiver as a C string in the default C string encoding, possibly losing information in converting to that encoding (and not raising an exception as 
+\b cString
+\b0  does). The returned C string will be automatically freed just as a returned object would be released; your code should copy the C string or use 
+\b getCString:
+\b0  if it needs to store the C string outside of the autorelease context in which the C string is created.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b getCString:
+\b0 , 
+\f1 -
+\f0 €
+\b canBeConvertedToEncoding
+\b0 , +€
+\b defaultCStringEncoding
+\b0 , 
+\f1 -
+\f0 €
+\b cStringLength
+\b0 , 
+\f1 -
+\f0 €
+\b getCharacters:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker47102 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringWithCharacters:length:];}
+¬}{\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0{\NeXTHelpMarker47103 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringWithCharacters:length:];}
+¬}{\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0{\NeXTHelpMarker47104 \markername NS_DEV_DOCFOR:objc_method:[NSString-lowercaseString];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 lowercaseString\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b lowercaseString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a string with each character from the receiver changed to its corresponding lowercase value. Case transformations aren't guaranteed to be symmetrical or to produce strings of the same lengths as the originals. The result of this statement:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 lcString = [myString lowercaseString];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 might not be equal to this:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 lcString = [[myString uppercaseString] lowercaseString];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 For example, the uppercase form of ªûº in German is ªSSº, so converting ªeûenº to uppercase then lowercase produces this sequence of strings:\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\fs28\li2320\fc0\cf0 ªeûen
+\i º\
+
+\i0 ªESSEN
+\i º\
+
+\i0 ªessen
+\i º\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\i0\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b capitalizedString
+\b0 , 
+\f1 -
+\f0 €
+\b uppercaseString\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker47749 \markername NS_DEV_DOCFOR:objc_method:[NSString-pathComponents];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 pathComponents\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSArray€*)
+\b pathComponents\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Interprets the receiver as a path, returning an array of strings containing, in order, each path component of the receiver. The strings in the array appear in the order they did in the receiver. If the string begins or ends with the path separator then the first or last component, respectively, is empty. Empty components (caused by consecutive path separators) are deleted. For example, this code excerpt:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 NSString *path = @"tmp/scratch";\
+NSArray *pathComponents = [path componentsSeparatedByString:@"/"];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 produces an array with these contents:\
+
+\fs14 \
+
+\pard\tx6740\tx10780\f3\b\fs28\li1900\fc0\cf0 Index	Path Component\
+
+\fs6 \
+
+\f0\b0\fs28\fi-4840\li6740 0	tmp\
+
+\fs14 \
+
+\fs28 1	scratch\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If the receiver begins with a slashÐfor example, ª/tmp/scratchºÐthe array has these contents:\
+
+\fs14 \
+
+\pard\tx6740\tx10780\f3\b\fs28\li1900\fc0\cf0 Index	Path Component\
+
+\fs6 \
+
+\f0\b0\fs28\fi-4840\li6740 0	ª/º\
+
+\fs14 \
+
+\fs28 1	ªtmpº\
+
+\fs14 \
+
+\fs28 2	ªscratchº\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If the receiver has no separatorsÐfor example, ªscratchºÐthe array contains the string itself, in this case ªscratchº.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b pathWithComponents:
+\b0 , 
+\f1 -
+\f0 €
+\b stringByStandardizingPath:
+\b0 , 
+\f1 -
+\f0 €
+\b componentsSeparatedByString:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker48747 \markername NS_DEV_DOCFOR:objc_method:[NSString-pathExtension];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 pathExtension\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString *)
+\b pathExtension\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Interprets the receiver as a path, returning the receiver's extension, if any (not including the extension divider). The following table illustrates the effect of 
+\b pathExtension
+\b0  on a variety of different paths:\
+
+\fs14 \
+
+\pard\tx6740\tx10780\f3\b\fs28\li1900\fc0\cf0 Receiver's String Value	String Returned\
+
+\fs6 \
+
+\f0\b0\fs28\fi-4840\li6740 ª/tmp/scratch.tiffº	ªtiffº\
+
+\fs14 \
+
+\fs28 ª/tmp/scratchº	ªº
+\i  (an empty string)\
+
+\fs14 \
+
+\i0\fs28 ª/tmp/º	ªº
+\i  (an empty string)\
+
+\fs14 \
+
+\i0\fs28 ª/tmp/scratch..tiffº	ªtiffº\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker49169 \markername NS_DEV_DOCFOR:objc_method:[NSString-propertyList];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 propertyList\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b propertyList\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Parses the receiver as a text representation of a property list, returning an NSString, NSData, NSArray, or NSDictionary object according to the topmost element. Arrays are delimited by parentheses, with individual elements separated by commas and optional spaces. Dictionaries are delimited by curly braces, with key-value pairs separated by semicolons, the key and value separated by an equals sign. Strings appear as plain text if they contain no whitespace, or enclosed in straight quotation marks if they do. Data items are delimited by angle brackets and encoded as hexadecimal digits. Here's a short example of a text-format property list:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 \{\
+    Title = "Star Wars";\
+    Director = "Lucas, George";\
+    Cast = (\
+        "Hamill, Mark",\
+        "Fisher, Carrie",\
+        "Ford, Harrison"\
+    );\
+    "Thumbnail Image" = <040b7479 70656473 
+\i (many more sets of digits)
+\i0  8484074e>\
+\}\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b propertyListFromStringsFileFormat
+\b0 , +€
+\b stringWithContentsOfFile:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker50166 \markername NS_DEV_DOCFOR:objc_method:[NSString-propertyListFromStringsFileFormat];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 propertyListFromStringsFileFormat\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSDictionary *)
+\b propertyListFromStringsFileFormat\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a dictionary object initialized with the keys and values found in the receiver. The receiver must contain text in the format used for 
+\b .strings
+\b0  files. In this format, keys and values are separated by an equals sign, and each key-value pair is terminated with a semicolon. The value is optional, however; if not present, the equals sign is also omitted. The keys and values themselves are always strings enclosed in straight quotation marks. Comments may be included, delimited by 
+\b /*
+\b0  and 
+\b */
+\b0  as for ANSI C comments. Here's a short example of a strings file:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 /* Question in confirmation panel for quitting. */\
+"Confirm Quit" = "Are you sure you want to quit?";\
+\
+/* Message when user tries to close unsaved document */\
+"Close or Save" = "Save changes before closing?";\
+\
+/* Word for Cancel */\
+"Cancel";\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b propertyList
+\b0 , +€
+\b stringWithContentsOfFile:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker51118 \markername NS_DEV_DOCFOR:objc_method:[NSString-rangeOfCharacterFromSet:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 rangeOfCharacterFromSet:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSRange)
+\b rangeOfCharacterFromSet:
+\b0 (NSCharacterSet€*)
+\i aSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invokes 
+\b rangeOfCharacterFromSet:options:
+\b0  with no options.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker51264 \markername NS_DEV_DOCFOR:objc_method:[NSString-rangeOfCharacterFromSet:options:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 rangeOfCharacterFromSet:options:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSRange)
+\b rangeOfCharacterFromSet:
+\b0 (NSCharacterSet€*)
+\i aSet\
+
+\b\i0\fi0 options:
+\b0 (unsigned int)
+\i mask\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invokes 
+\b rangeOfCharacterFromSet:options:range:
+\b0  with 
+\i mask
+\i0  for the options and the entire extent of the receiver for the range.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker51513 \markername NS_DEV_DOCFOR:objc_method:[NSString-rangeOfCharacterFromSet:options:range:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 rangeOfCharacterFromSet:options:range:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSRange)
+\b rangeOfCharacterFromSet:
+\b0 (NSCharacterSet€*)
+\i aSet\
+
+\b\i0\fi0 options:
+\b0 (unsigned int)
+\i mask\
+
+\b\i0 range:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the range in the receiver of the first character found from 
+\i aSet
+\i0 . The search is restricted to characters in the receiver within 
+\i aRange
+\i0 . The following options may be specified in 
+\i mask
+\i0  by combining them with the C bitwise OR operator:\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\fs28\li2320\fc0\cf0 NSCaseInsensitiveSearch\
+NSLiteralSearch\
+NSBackwardsSearch\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 See ªWorking with String Objectsº in the class cluster description for details on these options. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the string.\
+
+\fs14 \
+
+\fs28 Since precomposed characters in 
+\i aSet
+\i0  can match composed characters sequences in the receiver, the length of the returned range can be greater than one. For example, if you search for ªöº in the string ªstruÈdelº, the returned range is \{3,2\}.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker52389 \markername NS_DEV_DOCFOR:objc_method:[NSString-rangeOfComposedCharacterSequenceAtIndex:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 rangeOfComposedCharacterSequenceAtIndex:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSRange)
+\b rangeOfComposedCharacterSequenceAtIndex:
+\b0 (unsigned€int)
+\i anIndex\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the range in the receiver of the composed character sequence located at 
+\i anIndex
+\i0 . The composed character sequence includes the first base character found at or before 
+\i anIndex
+\i0 , and its length includes the base character and all non-base
+\i  
+\i0 characters following the base character.\
+
+\fs14 \
+
+\fs28 Raises an NSRangeException if 
+\i anIndex
+\i0  lies beyond the end of the string.\
+
+\fs14 \
+
+\fs28 If you want to write a method to adjust an arbitrary range so that it includes the composed character sequences on its boundaries, you can create a method such as this: \
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 - (NSRange)adjustRange:(NSRange)aRange\
+\{\
+    unsigned int index, endIndex;\
+    NSRange newRange, endRange;\
+\
+    index = aRange.location;\
+    newRange = [self rangeOfComposedCharacterSequenceAtIndex:index];\
+\
+    index = aRange.location + aRange.length;\
+    endRange = [self rangeOfComposedCharacterSequenceAtIndex:index];\
+    endIndex = endRange.location + endRange.length;\
+\
+    newRange.length = endIndex - newRange.location;\
+\
+    return newRange;\
+\}\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b\fs28\li1500\fc0\cf0 adjustRange:
+\b0  begins by correcting the location for the beginning of 
+\i aRange
+\i0 , storing it in 
+\b newRange
+\b0 . It then works at the end of 
+\i aRange,
+\i0  correcting the location and storing it in 
+\b endIndex
+\b0 . Finally, it sets the length of 
+\b newRange
+\b0  to the difference between 
+\b endIndex
+\b0  and the new range's location.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker53782 \markername NS_DEV_DOCFOR:objc_method:[NSString-rangeOfString:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 rangeOfString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSRange)
+\b rangeOfString:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invokes 
+\b rangeOfString:options:
+\b0  with no options.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker53895 \markername NS_DEV_DOCFOR:objc_method:[NSString-rangeOfString:options:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 rangeOfString:options:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSRange)
+\b rangeOfString:
+\b0 (NSString€*)
+\i aString
+\i0  
+\b options:
+\b0 (unsigned€int)
+\i mask\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invokes 
+\b rangeOfString:options:range:
+\b0  with the options specified by 
+\i mask
+\i0  and the entire extent of the receiver as the range.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker54119 \markername NS_DEV_DOCFOR:objc_method:[NSString-rangeOfString:options:range:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 rangeOfString:options:range:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSRange)
+\b rangeOfString:
+\b0 (NSString€*)
+\i subString\
+
+\b\i0\fi0 options:
+\b0 (unsigned€int)
+\i mask\
+
+\b\i0 range:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns an NSRange giving the location and length of the first occurrence of 
+\i subString
+\i0  within 
+\i aRange
+\i0  in the receiver. If 
+\i subString
+\i0  isn't found, the length of the returned NSRange is zero. The length of the returned range and that of 
+\i subString
+\i0  may differ if equivalent composed character sequences are matched. The following options may be specified in 
+\i mask
+\i0  by combining them with the C bitwise OR operator:\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\fs28\li2320\fc0\cf0 NSCaseInsensitiveSearch\
+NSLiteralSearch\
+NSBackwardsSearch\
+NSAnchoredSearch\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 See ªWorking with String Objectsº in the class cluster description for details on these options. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the string. Returns a range of \{NSNotFound, 0\} if 
+\i subString
+\i0  is the null string.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker54982 \markername NS_DEV_DOCFOR:objc_method:[NSString-smallestEncoding];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 smallestEncoding\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSStringEncoding)
+\b smallestEncoding\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the smallest encoding to which the receiver can be converted without loss of information. This encoding may not be the fastest for accessing characters, but is very space-efficient. This method itself may take some time to execute.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b fastestEncoding
+\b0 , 
+\f1 -
+\f0 €
+\b getCharacters:range:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker55334 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringByAbbreviatingWithTildeInPath];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringByAbbreviatingWithTildeInPath\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString *)
+\b stringByAbbreviatingWithTildeInPath\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a string representing the receiver as a path, with a tilde, ª~º, substituted for the full path to the current user's home directory, or ª~
+\i user
+\i0 º for a user other than the current user. Returns the receiver unaltered if it doesn't begin with the user's home directory.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b stringByExpandingTildeInPath\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker55742 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringByAppendingFormat:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringByAppendingFormat:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b stringByAppendingFormat:
+\b0 (NSString€*)
+\i format
+\i0 , ...\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a string made by appending to the receiver a string constructed from 
+\i format
+\i0  and following arguments in the manner of 
+\b stringWithFormat:
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b stringByAppendingString:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker56016 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringByAppendingPathComponent:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringByAppendingPathComponent:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b stringByAppendingPathComponent:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a string made by appending 
+\i aString
+\i0 , preceded by if necessary by a path separator. The following table illustrates the effect of this method on a variety of different paths, assuming that 
+\i aString
+\i0  is supplied as ªscratch.tiffº:\
+
+\fs14 \
+
+\pard\tx6740\tx10780\f3\b\fs28\li1900\fc0\cf0 Receiver's String Value	Resulting String\
+
+\fs6 \
+
+\f0\b0\fs28\fi-4840\li6740 ª/tmpº	ª/tmp/scratch.tiffº\
+
+\fs14 \
+
+\fs28 ª/tmp/º	ª/tmp/scratch.tiffº\
+
+\fs14 \
+
+\fs28 ª/º	ª/scratch.tiffº\
+
+\fs14 \
+
+\fs28 ªº 
+\i (an empty string)
+\i0 	ªscratch.tiffº\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b stringsByAppendingPaths:
+\b0 , 
+\f1 -
+\f0 €
+\b stringByAppendingPathExtension:
+\b0 , 
+\f1 -
+\f0 €
+\b stringByDeletingLastPathComponent\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker56619 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringByAppendingPathExtension:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringByAppendingPathExtension:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b stringByAppendingPathExtension:
+\b0 (NSString€*)
+\i string\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a string made by appending to the receiver an extension separator followed by 
+\i aString
+\i0 . The following table illustrates the effect of this method on a variety of different paths, assuming that 
+\i aString
+\i0  is supplied as @ªtiffº:\
+
+\fs14 \
+
+\pard\tx6740\tx10780\f3\b\fs28\li1900\fc0\cf0 Receiver's String Value	Resulting String\
+
+\fs6 \
+
+\f0\b0\fs28\fi-4840\li6740 ª/tmp/scratch.oldº	ª/tmp/scratch.old.tiffº\
+
+\fs14 \
+
+\fs28 ª/tmp/scratch.º	ª/tmp/scratch..tiffº\
+
+\fs14 \
+
+\fs28 ª/tmp/º	ª/tmp/.tiffº\
+
+\fs14 \
+
+\fs28 ªscratchº	ªscratch.tiffº\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b stringByAppendingPathComponent:
+\b0 , 
+\f1 -
+\f0 €
+\b stringByDeletingPathExtension\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker57202 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringByAppendingString:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringByAppendingString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)s
+\b tringByAppendingString:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a string object made by appending 
+\i aString
+\i0  to the receiver. This code excerpt, for example:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 NSString *errorTag = @"Error: ";\
+NSString *errorString = @"premature end of file.";\
+NSString *errorMessage = [errorTag\
+    stringByAppendingString:errorString];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 produces the string ªError: premature end of file.º.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b stringByAppendingFormat:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker57643 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringByDeletingLastPathComponent];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringByDeletingLastPathComponent\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b stringByDeletingLastPathComponent\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a string made by deleting the last path component from the receiver, along with any final path separator. If the receiver represents the root path, however, it's returned unaltered. The following table illustrates the effect of this method on a variety of different paths:\
+
+\fs14 \
+
+\pard\tx6740\tx10780\f3\b\fs28\li1900\fc0\cf0 Receiver's String Value	Resulting String\
+
+\fs6 \
+
+\f0\b0\fs28\fi-4840\li6740 ª/tmp/scratch.tiffº	ª/tmpº\
+
+\fs14 \
+
+\fs28 ª/tmp/lock/º	ª/tmpº\
+
+\fs14 \
+
+\fs28 ª/tmp/º	ª/º\
+
+\fs14 \
+
+\fs28 ª/tmpº	ª/º\
+
+\fs14 \
+
+\fs28 ª/º	ª/º\
+
+\fs14 \
+
+\fs28 ªscratch.tiffº	ªº
+\i  (an empty string)\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\i0\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b stringByDeletingPathExtension
+\b0 , 
+\f1 -
+\f0 €
+\b stringByAppendingPathComponent:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker58251 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringByDeletingPathExtension];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringByDeletingPathExtension\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b stringByDeletingPathExtension\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a string made by deleting the extension (if any, and only the last) from the receiver. Strips any trailing path separator before checking for an extension. If the receiver represents the root path, however, it's returned unaltered. The following table illustrates the effect of this method on a variety of different paths:\
+
+\fs14 \
+
+\pard\tx6740\tx10780\f3\b\fs28\li1900\fc0\cf0 Receiver's String Value	Resulting String\
+
+\fs6 \
+
+\f0\b0\fs28\fi-4840\li6740 ª/tmp/scratch.tiffº	ª/tmp/scratchº\
+
+\fs14 \
+
+\fs28 ª/tmp/º	ª/tmpº\
+
+\fs14 \
+
+\fs28 ªscratch.bundle/º	ªscratchº\
+
+\fs14 \
+
+\fs28 ªscratch..tiffº	ªscratch.º\
+
+\fs14 \
+
+\fs28 ª.tiffº	ªº
+\i  (an empty string)\
+
+\fs14 \
+
+\i0\fs28 ª/º	ª/º\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b pathExtension
+\b0 , 
+\f1 -
+\f0 €
+\b stringByDeletingLastPathComponent\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker58915 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringByExpandingTildeInPath];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringByExpandingTildeInPath\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b stringByExpandingTildeInPath\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a string made by expanding the initial component, if it begins with ª~º or ª~
+\i user
+\i0 º, to its full path value. Returns the receiver unaltered if that component can't be expanded. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b stringByAbbreviatingWithTildeInPath\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker59226 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringByResolvingSymlinksInPath];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringByResolvingSymlinksInPath\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)stringByResolvingSymlinksInPath\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 On Microsoft Windows: Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\fs28 On UNIX platforms: Expands an initial tilde expression in the receiving path, then resolves all symbolic links and references to current or parent directories if possible, returning a standardized path. If the original path is absolute, all symbolic links are guaranteed to be removed; if it's a relative path, symbolic links that can't be resolved are left unresolved in the returned string. Returns 
+\b self
+\b0  if an error occurs.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b stringByStandardizingPath
+\b0 , 
+\f1 -
+\f0 €
+\b stringByExpandingTildeInPath\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker59843 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringByStandardizingPath];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringByStandardizingPath\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString *)stringByStandardizingPath\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a string representing the receiving path with extraneous path components removed, or self if an error is encountered (such as a path component not existing). Among the changes made are:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	An initial tilde expression is expanded using 
+\b stringByExpandingTildeInPath
+\b0 .\
+
+\fs14 \
+
+\fs28 ·	Empty components and references to the current directory (that is, the sequences ª//º and ª/./º) are reduced to single path separators.\
+
+\fs14 \
+
+\fs28 ·	In absolute paths only, references to the parent directory (that is, the component ª..º) are resolved to the real parent directory if possible using 
+\b stringByResolvingSymlinksInPath
+\b0 , which consults the file system to resolve each potential symbolic link.\
+
+\fs14 \
+
+\fs28 ·	In relative paths, because symbolic links can't be resolved, references to the parent directory are left in place.\
+
+\fs14 \
+
+\fs28 ·	On Mach, an initial component of ª/privateº is removed from the path if the result still indicates an existing file or directory (checked by consulting the file system).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b stringByExpandingTildeInPath
+\b0 , 
+\f1 -
+\f0 €
+\b stringByResolvingSymlinksInPath\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker60951 \markername NS_DEV_DOCFOR:objc_method:[NSString-stringsByAppendingPaths:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 stringsByAppendingPaths:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSArray€*)
+\b stringsByAppendingPaths:
+\b0 (NSArray€*)
+\i paths\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns an array of strings made by separately appending each string in 
+\i paths
+\i0  to the receiver, preceded by if necessary by a path separator. See 
+\b stringByAppendingPathComponent:
+\b0  for an individual example.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker61239 \markername NS_DEV_DOCFOR:objc_method:[NSString-substringFromIndex:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 substringFromIndex:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b substringFromIndex:
+\b0 (unsigned€int)
+\i anIndex\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a string object containing the characters of the receiver from the one at 
+\i anIndex
+\i0  to the end. Raises an NSRangeException if 
+\i anIndex
+\i0  lies beyond the end of the string.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b substringWithRange:
+\b0 , 
+\f1 -
+\f0 €
+\b substringToIndex:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker61548 \markername NS_DEV_DOCFOR:objc_method:[NSString-substringWithRange];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 substringWithRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b substringWithRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a string object containing the characters of the receiver that lie within 
+\i aRange
+\i0 . Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the string.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b substringFromIndex:
+\b0 , 
+\f1 -
+\f0 €
+\b substringToIndex:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker61850 \markername NS_DEV_DOCFOR:objc_method:[NSString-substringToIndex:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 substringToIndex:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b substringToIndex:
+\b0 (unsigned€int)
+\i anIndex
+\i0 	\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a string object containing the characters of the receiver up to, but not including, the one at 
+\i anIndex
+\i0 . Raises an NSRangeException if 
+\i anIndex
+\i0  lies beyond the end of the string.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b substringFromIndex:
+\b0 , 
+\f1 -
+\f0 €
+\b substringWithRange:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker62168 \markername NS_DEV_DOCFOR:objc_method:[NSString-uppercaseString];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 uppercaseString\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b uppercaseString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a string with each character from the receiver changed to its corresponding uppercase value. Case transformations aren't guaranteed to be symmetrical or to produce strings of the same lengths as the originals. See 
+\b lowercaseString
+\b0  for an example.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b capitalizedString
+\b0 , 
+\f1 -
+\f0 €
+\b lowercaseString\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker62523 \markername NS_DEV_DOCFOR:objc_method:[NSString-writeToFile:atomically:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 writeToFile:atomically:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b writeToFile:
+\b0 (NSString *)
+\i path
+\i0  
+\b atomically:
+\b0 (BOOL)
+\i flag\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Writes the string's characters to the file named by 
+\i path
+\i0 , returning YES on success and NO on failure. If 
+\i flag
+\i0  is YES, attempts to write the file safely so that an existing file named by 
+\i path
+\i0  is not overwritten, nor does a new file at 
+\i path
+\i0  actually get created, unless the write is successful. The string is written in the default C string encoding if possible (that is, if no information would be lost), in the Unicode encoding otherwise.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b defaultCStringEncoding\
+
+\fs14 \
+
+\pard\tx1460\f2\b0\fs72\fi-760\li1460\fc0\cf0 \
+\
+i	
+{\f3\b\fs52{\NeXTHelpMarker63089 \markername NS_DEV_DOCFOR:objc_class:NSMutableString;}
+¬}\pard\tx1460\f3\b\i0\ulnone\fs52\fi-760\li1460\fc0\cf0 NSMutableString\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSString€:€NSObject\
+
+\fs20 \
+
+\f3\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding€(NSString)\
+
+\fi0 NSCopying€(NSString)\
+NSMutableCopying€(NSString)\
+NSObject€(NSObject)\
+
+\fs20 \
+
+\f3\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 Foundation/NSString.h\
+
+\fs20 \
+\
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Class Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 The NSMutableString class declares the programmatic interface to objects that manage a modifiable array of Unicode characters (text strings). This class adds one primitive methodÐ
+\b replaceCharactersInRange:withString:
+\b0 Ðto the basic string-handling behavior inherited from NSString. All other methods that modify a string work through this method. For example, 
+\b insertString:atIndex:
+\b0  simply replaces the characters in a range of zero length, while 
+\b deleteCharactersInRange:
+\b0  replaces the characters in a given range with no characters.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Creating temporary strings	+€stringWithCapacity:\
+
+\fs10 \
+
+\fs28 Initializing an NSMutableString\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  initWithCapacity:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Modifying a string	
+\f1 -
+\f0 €appendFormat:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €appendString:\
+
+\f1 -
+\f0 €deleteCharactersInRange:\
+
+\f1 -
+\f0 €insertString:atIndex:\
+
+\f1 -
+\f0 €replaceCharactersInRange:withString:\
+
+\f1 -
+\f0 €setString:\
+
+\fs70 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker64120 \markername NS_DEV_DOCFOR:objc_method:[NSMutableString-stringWithCapacity:];}
+¬}\f3\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 stringWithCapacity:\
+
+\fs6 \
+
+\f0\b0\fs28\fi-620\li2520 +€(NSMutableString€*)
+\b stringWithCapacity:
+\b0 (unsigned€int)
+\i capacity\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns an empty mutable string, using 
+\i capacity
+\i0  as a hint for how much initial storage to reserve.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker64325 \markername NS_DEV_DOCFOR:objc_method:[NSMutableString-appendFormat:];}
+¬}\f3\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 appendFormat:\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0 €(void)
+\b appendFormat:
+\b0 (NSString€*)
+\i format
+\i0 , ...\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Adds a constructed string to the receiver. Creates the new string by using NSString's 
+\b stringWithFormat:
+\b0  method with the arguments listed.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b appendString:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker64554 \markername NS_DEV_DOCFOR:objc_method:[NSMutableString-appendString:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 appendString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b appendString:
+\b0 (NSString *)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Adds the characters of 
+\i aString
+\i0  to end of the receiver.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b appendFormat:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker64696 \markername NS_DEV_DOCFOR:objc_method:[NSMutableString-deleteCharactersInRange:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 deleteCharactersInRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b deleteCharactersInRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Removes the characters in 
+\i aRange
+\i0  from the receiver. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the string.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker64910 \markername NS_DEV_DOCFOR:objc_method:[NSMutableString-initWithCapacity:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithCapacity:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0\b  
+\b0 (id)
+\b initWithCapacity:
+\b0 (unsigned€int)
+\i capacity\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes a newly allocated NSMutableString, using 
+\i capacity
+\i0  as a hint for how much memory to allocate. Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker65098 \markername NS_DEV_DOCFOR:objc_method:[NSMutableString-insertString:atIndex:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 insertString:atIndex:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b insertString:
+\b0 (NSString *)
+\i aString
+\i0  
+\b atIndex:
+\b0 (unsigned€int)
+\i anIndex\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Inserts the characters of 
+\i aString
+\i0  into the receiver, so that the new characters begin at 
+\i anIndex
+\i0  and the existing characters from 
+\i anIndex
+\i0  to the end are shifted by the length of 
+\i aString
+\i0 . Raises an NSRangeException if 
+\i anIndex
+\i0  lies beyond the end of the string.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker65456 \markername NS_DEV_DOCFOR:objc_method:[NSMutableString-replaceCharactersInRange:withString:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 replaceCharactersInRange:withString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b replaceCharactersInRange:
+\b0 (NSRange)
+\i aRange\
+
+\b\i0\fi0 withString:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Replaces the characters from 
+\i aRange
+\i0  with those in 
+\i aString
+\i0 . Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the string.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker65721 \markername NS_DEV_DOCFOR:objc_method:[NSMutableString-setString:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 setString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b setString:
+\b0 (NSString *)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Replaces the characters of the receiver with those in 
+\i aString
+\i0 .\
+
+\fs14 \
+
+}

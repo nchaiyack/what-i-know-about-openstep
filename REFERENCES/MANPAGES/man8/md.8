@@ -1,0 +1,61 @@
+.TH MD 8 "March 24, 1989" "NeXT Computer, Inc."
+.SH NAME
+md \- create makefile dependencies from .d files created by -MD option to cc
+.SH SYNOPSIS
+md [-f][-D][-m \fImakefile\fR][-o \fIoutputfile\fR][-v] \fIfile\fR ...
+.SH DESCRIPTION
+\fImd\fR
+processes the raw dependency files produced by the
+.I cpp -MD
+option.  There is one line in the file for every #include
+encountered, but repeats and patterns
+like .../dir1/../dir2 appear which should reduce to .../dir2.
+.I Md
+canonicalizes and flushes repeats from the dependency
+list.  It also sorts the file names and "fills" them to a 78
+character line.
+.PP
+.I Md
+assumes that dependency
+information is sorted by .o file name and it
+proceeds to merge in (adding or replacing, as appropriate) the new
+dependency lines it has generated.  For efficiency,
+.I md 
+assumes that any .d files it is given that were created
+before the creation date of the "makefile" were processed
+already.
+.PP
+The options are:
+.TP
+-f
+force an update of the dependencies
+even though the dependency file is more recent than the .d file
+(This implies that 
+.I md 
+has been run already.)  This is the default.
+.TP
+-D
+subswitch for debugging. Expert mode.
+.TP
+-m \fImakefile\fR
+specifies the dependency file to be upgraded.  If -m is not explicitly
+specified then the dependencies are updated in either
+.I makefile
+or
+.I Makefile.
+.TP
+-o <\fIoutputfile\fR>
+specifies a dependency file to be updated.  If this file doesn't
+initially exist it is created.
+.TP
+-v
+set the verbose flag
+.i0
+.DT
+.PP
+.SH FILES
+Makefile, makefile
+.SH HISTORY
+.TP
+09-Oct-86  Robert Baron (rvb) at Carnegie-Mellon University
+Created.

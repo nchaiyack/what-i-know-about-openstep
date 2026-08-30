@@ -1,0 +1,20 @@
+.TH NPPOWER 8 "February 21, 1989" "NeXT Computer, Inc."
+.SH NAME
+nppower \- power on/off the NeXT Laser Printer
+.SH SYNOPSIS
+.B nppower on
+|
+.B off
+.SH DESCRIPTION
+The
+.I nppower
+command allows the NeXT Laser Printer to be powered on and off.  The
+.B on
+option turns the printer on, and the
+.B off
+option turns the printer off.
+.SH "SEE ALSO"
+np(4)
+.SH DIAGNOSTICS
+`?Could not open /dev/np0!' will be printed if no printer is
+connected to the printer port.

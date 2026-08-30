@@ -120,7 +120,7 @@ QUIT
 	
 ## Quick Unix shell workflow guide
 
-Refer to `GUEST-TOOLCHAIN.md` for detailed information on the Unix environment.
+Refer to the `UNIX-ENVIRONMENT` folder for detailed information on the Unix environment.
 
 In general, this is Unix, but very far removed from modern Unices:
 

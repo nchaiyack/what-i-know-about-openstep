@@ -1,0 +1,1145 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f3\fmodern Courier;\f5\fnil NeXTdoc;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 „
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\f2\b\fs52\li1460{\NeXTHelpMarker62 \markername NS_DEV_DOCFOR:objc_class:NSPrintOperation;}
+¨}\f2\b\i0\ulnone\ql\fs52\fi0\li1460\gray0\fc0\cf0\up0\dn0 NSPrintOperation\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSObject (NSObject)\
+
+\fs20 \
+
+\f2\b\fs24 Declared In:	
+\f0\b0\fs28 AppKit/NSPrintOperation.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 An NSPrintOperation object controls operations that generate Encapsulated PostScript (EPS) code or PostScript print jobs. Generally, EPS code is used to transfer images between applications, which happens when the user copies and pastes graphics, uses a Service, or uses ObjectLinks. PostScript is generated when the user prints and faxes documents. An NSPrintOperation object does not generate PostScript code itself; it just controls the overall process, relying on an NSView object to generate the actual code.\
+
+\fs14 \
+
+\fs28 NSPrintOperation works in conjunction with two other objects: an NSPrintInfo object, which specifies how the code should be generated, and an NSView object, which performs the actual code generation. You specify these two objects in the method you use to create an NSPrintOperation object. If no NSPrintInfo is specified, NSPrintOperation uses the shared NSPrintInfo, which contains default values. (A shared NSPrintInfo object is automatically created for an application.) The shared NSPrintInfo works well for applications that are not document-based. However, document-based applications should create an NSPrintInfo for each document that might be printed or copied and use that object instead. This will allow  users to set printing attributes on a per-document basis.\
+
+\fs14 \
+
+\fs28 You create NSPrintOperation objects in any method that is invoked when a user chooses a Print or Copy command. That method must also send 
+\b runOperation
+\b0  to the NSPrintOperation object to start the actual operation. For example, applications that are not document-based have a simple 
+\b print:
+\b0  method as in:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 - (void)print:sender \{\
+	[[NSPrintOperation printOperatationWithView:self] runOperation];\
+\}\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 However, document-based applications should use their own instances of NSPrintInfo as in:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 - (void)print:sender \{\
+	[[NSPrintOperation printOperationWithView:[self myView] printInfo:[document \
+		docPrintInfo]] runOperation];\
+\}\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 This method creates an NSPrintOperation for a print job that uses the document's NSPrintInfo object–not the shared NSPrintInfo object.\
+
+\fs14 \
+
+\fs28 In both examples, because this is a print job, the NSPrintOperation object will display an NSPrintPanel object allowing the user to select  printing options (i.e., number of pages to print and range of pages to print). The NSPrintOperation object copies the NSPrintInfo object, updates this copy with information from the NSPrintPanel object, and uses the specified NSView to perform the operation. Some of the information stored in an NSPrintInfo object is constant for a particular document, such as its page size. Other information that is likely to change between print operations is set to default values before the operation begins.  In this way, even though NSPrintOperation updates the NSPrintInfo with information from the NSPrintPanel for a specific print job, that information is reset back to the default values for each print job. Because NSPrintOperation keeps a copy of the NSPrintInfo it uses, you could duplicate a specific print job by storing and reusing that copy.\
+
+\fs14 \
+
+\fs28 When repeating a print job, you can suppress the display of the NSPrintPanel object by sending 
+\b setShowPanels:
+\b0 , passing NO as the argument, to the NSPrintOperation object before sending it 
+\b runOperation
+\b0 . However, make sure that any non-default settings in the NSPrintInfo object that would normally be selected from a NSPrintPanel object are set to reasonable values–a copy of an NSPrintInfo object used in a previous print job will have the correct values.\
+
+\fs14 \
+
+\fs28 You can also customize the NSPrintPanel object using the 
+\b setAccessoryView:
+\b0  method or specify your own NSPrintPanel object using 
+\b setPrintPanel:
+\b0  (an OpenStep addition).\
+
+\fs14 \
+
+\fs28 If you want the PostScript code generated for EPS and printing to be the same but different from the code generated for the screen, you can test for this case by sending 
+\b isDrawingToScreen
+\b0  to the current NSDPSContext as in:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 if (![[NSDPSContext currentContext] isDrawingToScreen])\{\
+	/* Insert EPS and printing code here */\
+\}\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 If you want to generate different PostScript code when printing vs. creating EPS, you can test for this case by sending  
+\b isEPSOperation
+\b0  to the current operation as follows:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 if ((![[NSDPSContext currentContext] isDrawingToScreen] && \
+		![[NSPrintOperation currentOperation] isEPSOperation]))\{\
+	/* Insert printing code here */\
+\}\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types \
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Creating an NSPrintOperation	+ EPSOperationWithView:insideRect:toData:\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 + EPSOperationWithView:insideRect:toData:printInfo:\
++ EPSOperationWithView:insideRect:toPath:printInfo:\
++ printOperationWithView:\
++ printOperationWithView:printInfo:\
+
+\f1 -
+\f0  initEPSOperationWithView:insideRect:toData:printInfo:\
+
+\f1 -
+\f0  initWithView:printInfo:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Setting the current NSPrintOperation for this thread\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 + currentOperation\
++ setCurrentOperation:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Determining the type of operation	
+\f1 -
+\f0  isEPSOperation\
+
+\fs10 \
+
+\fs28 Modifying the NSPrintInfo object	
+\f1 -
+\f0  printInfo\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  setPrintInfo:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting the NSView object	
+\f1 -
+\f0  view\
+
+\fs10 \
+
+\fs28 Running a print operation	
+\f1 -
+\f0  runOperation\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  cleanUpOperation\
+
+\f1 -
+\f0  deliverResult\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Modifying the user interface	
+\f1 -
+\f0  showPanels\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  setShowPanels:\
+
+\f1 -
+\f0  accessoryView\
+
+\f1 -
+\f0  setAccessoryView:\
+
+\f1 -
+\f0  printPanel\
+
+\f1 -
+\f0  setPrintPanel:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Managing the DPS context	
+\f1 -
+\f0  context\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  createContext\
+
+\f1 -
+\f0  destroyContext\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Modifying page information	
+\f1 -
+\f0  currentPage\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  pageOrder\
+
+\f1 -
+\f0  setpageOrder:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods \
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker5451 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-EPSOperationWithView:insideRect:toData:];}
+¨}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 EPSOperationWithView:insideRect:toData:\
+
+\fs6 \
+
+\f0\b0\fs28\fi-620\li2520 + (NSPrintOperation *)
+\b EPSOperationWithView:
+\b0 (NSView *)
+\i aView 
+\b\i0 insideRect:
+\b0 (NSRect)
+\i rect 
+\b\i0 toData:
+\b0 (NSMutableData *)
+\i data
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a new NSPrintOperation object that controls the copying of EPS graphics from the area specified by 
+\i rect
+\i0  in 
+\i aView
+\i0 . The new NSPrintOperation object will use the default NSPrintInfo object. The EPS code is written to 
+\i data
+\i0 . Raises an NSPrintOperationExistsException if there is already a print operation in progress, otherwise the returned object is made the current print operation for this thread.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +Ä
+\b EPSOperationWithView:insideRect:toData:printInfo:, +ÄEPSOperationWithView:insideRect:toPath:printInfo:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker6129 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-EPSOperationWithView:insideRect:toData:printInfo:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 EPSOperationWithView:insideRect:toData:printInfo:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSPrintOperation *)
+\b EPSOperationWithView:
+\b0 (NSView *)
+\i aView 
+\b\i0 insideRect:
+\b0 (NSRect)
+\i rect 
+\b\i0 toData:
+\b0 (NSMutableData *)
+\i data 
+\b\i0 printInfo:
+\b0 (NSPrintInfo *)
+\i aPrintInfo
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a new NSPrintOperation object that controls the copying of EPS graphics from the area specified by 
+\i rect 
+\i0 in 
+\i aView
+\i0 . The new NSPrintOperation object will use the settings stored in 
+\i aPrintInfo
+\i0 . The code is written to 
+\i data
+\i0 . Raises an NSPrintOperationExistsException if there is already a print operation in progress, otherwise the returned object is made the current print operation for this thread.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +Ä
+\b EPSOperationWithView:insideRect:toData:, +ÄEPSOperationWithView:insideRect:toPath:printInfo:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker6842 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-EPSOperationWithView:insideRect:toPath:printInfo:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 EPSOperationWithView:insideRect:toPath:printInfo:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSPrintOperation *)
+\b EPSOperationWithView:
+\b0 (NSView *)
+\i aView 
+\b\i0 insideRect:
+\b0 (NSRect)
+\i rect 
+\b\i0 toPath:
+\b0 (NSString *)
+\i path 
+\b\i0 printInfo:
+\b0 (NSPrintInfo *)
+\i aPrintInfo
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Creates and returns a new NSPrintOperation object that controls the copying of EPS graphics from the area specified by 
+\i rect 
+\i0 in 
+\i aView
+\i0 . The new NSPrintOperation object will use the settings stored in 
+\i aPrintInfo
+\i0 . The code is written to 
+\i path
+\i0 . Raises an NSPrintOperationExistsException if there is already a print operation in progress, otherwise the returned object is made the current print operation for this thread.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +Ä
+\b EPSOperationWithView:insideRect:toData:, +ÄEPSOperationWithView:insideRect:toData:printInfo:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker7562 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-currentOperation];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 currentOperation\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSPrintOperation *)
+\b currentOperation
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the current print operation for this thread. Returns 
+\b nil
+\b0  if there isn't a current operation.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 + 
+\b setCurrentOperation:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker7759 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-printOperationWithView:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 printOperationWithView:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSPrintOperation *)
+\b printOperationWithView:
+\b0 (NSView *)
+\i aView
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a new NSPrintOperation that
+\i  
+\i0 controls the printing of 
+\i aView
+\i0 . The new NSPrintOperation object will use the settings stored in the shared NSPrintInfo object. Raises an NSPrintOperationExistsException if there is already a print operation in progress, otherwise the returned object is made the current print operation for this thread.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 + 
+\b printOperationWithView:printInfo:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker8236 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-printOperationWithView:printInfo:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 printOperationWithView:printInfo:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSPrintOperation *)
+\b printOperationWithView:
+\b0 (NSView *)
+\i aView 
+\b\i0 printInfo:
+\b0 (NSPrintInfo *)
+\i aPrintInfo
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a new NSPrintOperation that controls the printing of 
+\i aView
+\i0 . The new NSPrintOperation object will use the settings stored  in 
+\i aPrintInfo
+\i0 . Raises an NSPrintOperationExistsException if there is already a print operation in progress, otherwise the returned object is made the current print operation for this thread.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 + 
+\b printOperationWithView:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker8731 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-setCurrentOperation:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setCurrentOperation:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (void)
+\b setCurrentOperation:
+\b0 (NSPrintOperation *)
+\i operation
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the current print operation for this thread to 
+\i operation
+\i0 . If operation is 
+\b nil
+\b0 , then there is no current print operation.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 + 
+\b currentOperation\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker8990 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-accessoryView];}
+¨}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 accessoryView\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0  (NSView *)accessoryView\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the accessory view used by the NSPrintPanel object. You use 
+\b setAccessoryView:
+\b0  to customize the default NSPrintPanel object without having to subclass NSPrintPanel or specify your own NSPrintPanel object.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0  
+\b printPanel
+\b0 , 
+\f1 -
+\f0  
+\b setPrintPanel:, 
+\f1\b0 -
+\f0\b  setShowPanels:, 
+\f1\b0 -
+\f0\b  showPanels\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker9322 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-cleanUpOperation];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 cleanUpOperation\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b cleanUpOperation
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Invoked by 
+\b runOperation
+\b0  at the end of an operation to remove the receiver as the current operation.
+\b  
+\b0 You typically do not invoke this method directly.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker9520 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-context];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 context\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSDPSContext *)
+\b context
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the receiver's  DPS context used for generating output.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b createContext
+\b0 , 
+\f1 -
+\f0  
+\b destroyContext\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker9669 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-createContext];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 createContext\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSDPSContext *)
+\b createContext
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Creates the DPS context for output generation, using the receiver's NSPrintInfo settings. Do not invoke this method directly–it's invoked before any output is generated.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b context
+\b0 , 
+\f1 -
+\f0  
+\b destroyContext\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker9930 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-currentPage];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 currentPage\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (int)
+\b currentPage
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the page number of the page that is currently being printed.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b pageOrder
+\b0 , 
+\f1 -
+\f0  
+\b setPageOrder:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker10076 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-deliverResult];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 deliverResult\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b deliverResult
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Delivers the results generated by 
+\b runOperation
+\b0  to the intended destination (i.e., the printer spool, or preview application). Returns YES if the operation was successful, otherwise NO. Do not invoke this method directly–it's invoked automatically when the operation is done generating the output.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker10415 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-destroyContext];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 destroyContext\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b destroyContext
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Destroys the receiver's DPS context. Do not invoke this method directly–it's invoked at the end of a print operation.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b context
+\b0 , 
+\f1 -
+\f0  
+\b createContext\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker10615 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-initEPSOperationWithView:insideRect:toData:printInfo:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 initEPSOperationWithView:insideRect:toData:printInfo:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b initEPSOperationWithView:
+\b0 (NSView *)
+\i aView 
+\b\i0 insideRect:
+\b0 (NSRect)
+\i rect 
+\b\i0 toData:
+\b0 (NSMutableData *)
+\i data 
+\b\i0 printInfo:
+\b0 (NSPrintInfo *)
+\i aPrintInfo
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Initializes and returns a newly allocated NSPrintOperation object to control the copying of EPS graphics from the area specified by 
+\i rect
+\i0  in 
+\i aView
+\i0 , using the settings stored in 
+\i aPrintInfo
+\i0 . This method makes a copy of 
+\i aPrintInfo
+\i0  –
+\i aPrintInfo
+\i0  is not used in the actual operation. The EPS code is written to 
+\i data
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b initWithView:printInfo:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker11157 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-initWithView:printInfo:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithView:printInfo:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b initWithView:
+\b0 (NSView *)
+\i aView 
+\b\i0 printInfo:
+\b0 (NSPrintInfo *)
+\i aPrintInfo
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Initializes and returns a newly allocated NSPrintOperation object to control the printing of 
+\i aView
+\i0 , using the settings stored in 
+\i aPrintInfo
+\i0 . This method makes a copy of 
+\i aPrintInfo
+\i0  –
+\i aPrintInfo
+\i0  is not used in the actual operation. This method is the designated initializer for this class.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b initEPSOperationWithView:insideRect:toData:printInfo:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker11612 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-isEPSOperation];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isEPSOperation\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isEPSOperation
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the receiver controls an EPS operation (initiated by a copy command), and NO if the receiver controls a printing operation (initiated by a print command).\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker11826 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-pageOrder];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 pageOrder\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSPrintingPageOrder)
+\b pageOrder
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the order in which pages will be printed. See 
+\b setPageOrder:
+\b0  for possible return values.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b currentPage\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker11996 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-printInfo];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 printInfo\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSPrintInfo *)
+\b printInfo
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the receiver's NSPrintInfo object.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b setPrintInfo:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker12111 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-printPanel];}
+¨}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 printPanel\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSPrintPanel *)
+\b printPanel
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the NSPrintPanel object used when running the operation.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0  
+\b accessoryView
+\b0 , 
+\f1 -
+\f0  
+\b setAccessoryView
+\b0 :, 
+\f1 -
+\f0  
+\b setPrintPanel:, 
+\f1\b0 -
+\f0\b  setShowPanels:, 
+\f1\b0 -
+\f0\b  showPanels\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12321 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-runOperation];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 runOperation\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b runOperation
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Runs the operation (i.e., copys an EPS graphic or prints a job). Returns YES if successful, otherwise NO.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b cleanUpOperation
+\b0 , 
+\f1 -
+\f0  
+\b deliverResult
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker12515 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-setAccessoryView:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setAccessoryView:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)setAccessoryView:(NSView *)
+\i aView\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Allows you to augment the NSPrintPanel object by adding a custom NSView (by using this method you do not need to subclass NSPrintPanel or specify your own NSPrintPanel object). The NSPrintPanel is automatically resized to accommodate the new accessory view 
+\i aView
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b accessoryView
+\b0 , 
+\f1 -
+\f0  
+\b printPanel
+\b0 , 
+\f1 -
+\f0  
+\b setPrintPanel:, 
+\f1\b0 -
+\f0\b  setShowPanels:, 
+\f1\b0 -
+\f0\b  showPanels\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12934 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-setPageOrder:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setPageOrder:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setPageOrder:
+\b0 (NSPrintingPageOrder)
+\i order
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the order in which pages will be printed to 
+\i order
+\i0  where 
+\i order
+\i0  is one of:\
+
+\fs14 \
+
+\pard\tx6740\tx9520\fs28\fi-4840\li6740\fc0\cf0 NSAscendingPageOrder	Ascending (back to front) page order.\
+
+\fs14 \
+
+\fs28 NSDescendingPageOrder	Descending (front to back) page order.\
+
+\fs14 \
+
+\fs28 NSSpecialPageOrder	The spooler will not rearrange pages–they are print in the order received by the spooler.\
+
+\fs14 \
+
+\fs28 NSUnknownPageOrder	No page order specified.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b currentPage
+\b0 , 
+\f1 -
+\f0  
+\b pageOrder\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker13395 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-setPrintInfo:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setPrintInfo:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setPrintInfo:
+\b0 (NSPrintInfo *)
+\i aPrintInfo
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the receiver's NSPrintInfo object to 
+\i aPrintInfo
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b printInfo\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker13541 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-setPrintPanel:];}
+¨}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 setPrintPanel:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setPrintPanel:
+\b0 (NSPrintPanel *)
+\i panel
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the receiver's NSPrintPanel used in the operation to 
+\i panel
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0  
+\b accessoryView
+\b0 , 
+\f1 -
+\f0  
+\b printPanel
+\b0 , 
+\f1 -
+\f0  
+\b setAccessoryView
+\b0 :
+\b , 
+\f1\b0 -
+\f0\b  setShowPanels:, 
+\f1\b0 -
+\f0\b  showPanels\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker13766 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-setShowPanels:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setShowPanels:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setShowPanels:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If 
+\i flag
+\i0  is YES then the NSPrintPanel will be used in the operation, otherwise it will not.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b accessoryView
+\b0 , 
+\f1 -
+\f0  
+\b printPanel
+\b0 , 
+\f1 -
+\f0  
+\b setAccessoryView
+\b0 :
+\b , 
+\f1\b0 -
+\f0\b  setPrintPanel:, 
+\f1\b0 -
+\f0\b  showPanels\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker14005 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-showPanels];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 showPanels\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b showPanels
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the NSPrintPanel will be used in the operation, otherwise NO.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0  
+\b accessoryView
+\b0 , 
+\f1 -
+\f0  
+\b printPanel
+\b0 , 
+\f1 -
+\f0  
+\b setAccessoryView
+\b0 :
+\b , 
+\f1\b0 -
+\f0\b  setPrintPanel:, 
+\f1\b0 -
+\f0\b  setShowPanels:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker14217 \markername NS_DEV_DOCFOR:objc_method:[NSPrintOperation-view];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 view\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSView *)
+\b view
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the NSView object that generates the actual EPS or PostScript code controlled by the receiver.\
+
+\fs14 \
+
+}

@@ -1,0 +1,231 @@
+.TH GNUTAR 1 "August 10, 1993" "Free Software Foundation, Inc."
+.SH NAME
+gnutar \- GNU tape archiver
+.SH SYNOPSIS
+.B tar
+[ \fIoptions\fR ] [ \fIname\fR ... ]
+.SH DESCRIPTION
+.PP
+.I gnutar
+saves and restores multiple files in a single archive (usually a magnetic
+tape).  It was created by John Gilmore for the GNU Project and distributed by the Free Software Foundation. For complete documentation of \fIgnutar\fR, see the \fIGNU Tape Archiver Manual\fR in \fB/usr/lib/emacs/info/gnutar\fR.
+.PP
+You can use \fIgnutar\fR in the same way as the UNIX \fBtar\fR command. You specify a single-letter option to perform the following functions: create an archive, extract files from an archive, modify an archive, or list the contents of an archive. The other argument to \fIgnutar\fR is one or more file or directory names specifying which files to dump or restore. In all cases, a directory name refers to the files and (recursively) subdirectories of that directory.
+
+\fIgnutar\fR does not require that you precede an option with a dash (\fB-\fR).  This means that the commands \fBgnutar c\fR and \fBgnutar -c\fR both create an archive. \fIgnutar\fR also provides named options that can be used with a single-letter options or instead of a single-letter option.  A named option is preceded with two dashes (\fB--\fR). Other advantages of \fIgnutar\fR include: path names up to 1024 characters long, archival of device files, and built-in file compression\/decompression.
+
+.PP
+Here are the common single-letter options for \fIgnutar\fR and the UNIX
+\fBtar\fR command (with the equivalent named options for \fIgnutar\fR also listed):
+.TP 24
+.B c  --create
+Create a new tape; writing begins on the beginning of the tape
+instead of after the last file.  
+.TP 24
+.B r  --append
+The named files are written on the end of the tape.  The
+.B c
+function implies this.
+.TP 24
+.B t  --list
+The names of the specified files are listed each time they occur on
+the tape.  If no file argument is given, all of the names on the tape
+are listed.
+.TP 24
+.B u  --update
+The named files are added to the tape if either they are not
+already there or have been modified since last put on the tape.
+.TP 24
+.B x  --extract  --get
+The named files are extracted from the tape.  If the named file
+matches a directory whose contents had been written onto the tape,  this
+directory is (recursively) extracted.  The owner, modification time, and mode
+are restored (if possible).  If no file argument is given, the entire content
+of the tape is extracted.  Note that if multiple entries specifying the same
+file are on the tape, the last one overwrites all earlier.
+.PP
+Here are the options that only \fIgnutar\fR supports:
+.TP 24
+.B -A  --catenate  --concatenate
+Append tar files to an archive.  
+.TP 24
+.B -d  --diff  --compare
+Find differences between the archive and the file system.  
+.TP 24
+.B --delete
+Delete files from the archive (not used on magnetic tapes).  
+.TP 24
+.B --help  
+Display a list of \fIgnutar\fR options.  
+.PP
+You can specify one or more single-letter modifiers (as well as named modifiers) to the options already listed. Here are the common single-letter option modifiers for \fIgnutar\fR and the UNIX \fBtar\fR command (with the equivalent named modifiers for \fIgnutar\fR also listed):  
+.TP 24
+.B b  --block-size
+.I gnutar
+uses the next argument as the blocking factor for tape records. 
+.TP 24
+.B B  --read-full-blocks
+Forces input and output blocking so that 
+.I gnutar
+can work across a communications channel where the blocking may not
+be maintained.
+.TP 24
+.B C  --directory
+Allow multiple directories not related by a close common parent to be archived using short relative path names.  
+.TP 24
+.B f  --file 
+.I gnutar
+uses the next argument as the name of the archive instead of
+a default archive name. If the name of the file is `-', \fIgnutar\fR writes to standard output or
+reads from standard input, whichever is appropriate. 
+.TP 24
+.B h  --dereference
+Force 
+.I gnutar
+to follow symbolic links as if they were normal files or
+directories.  Normally, 
+.I gnutar
+does not follow symbolic links.
+.TP 24
+.B l  --one-file-system
+Force
+.I gnutar
+will complain if it cannot resolve all of the links to the
+files dumped.  If this is not specified, no error messages are printed.
+.TP 24
+.B m  --modification-time
+Force 
+.I gnutar
+to not restore the modification times.  The modification time
+will be the time of extraction.
+.TP 24
+.B o  --old-archive  --portability
+On output, \fIgnutar\fR normally places information specifying owner and modes
+of directories in the archive.
+.TP 24
+.B p  --same-permissions  --preserve-permissions
+This modifier says to restore files to their original modes,
+ignoring the present
+.IR umask (2).
+Setuid and sticky information
+will also be restored to the super-user.
+.TP  24
+.B v  --verbose 
+Normally
+.I gnutar
+does its work silently.  The verbose option makes
+.I gnutar
+print the name of each file it treats preceded by the function
+letter.  With the
+.B t
+function, the verbose option
+gives more information about the tape entries than just their names.
+.TP 24
+.B w  --interactive  --confirmation
+.I gnutar
+prints the action to be taken followed by file name, then
+wait for user confirmation. If a word beginning with `y'
+is given, the action is done. Any other input means don't do it.
+.TP 24
+.B 0\, ... \,7
+Specify the drive where the magnetic tape is mounted.  
+.PP
+Here are modifiers that only \fIgnutar\fR supports:
+.TP 24
+.B --atime-preserve	
+Do not change access times on dumped files.
+.TP 24
+.B --block-compress
+Block the output of compression program for tapes.
+.TP 24
+.B --checkpoint		
+Print directory names while reading the archive.
+.TP 24
+.B --exclude \fIfile\fR		
+Exclude \fIfile\fR.
+.TP 24
+.B --force-local		
+Force the archive file to be local.
+.TP 24
+.B -F  --info-script  --new-volume-script  
+Invoke the script \fIscript\fR at end of each tape (implies \fB-M\fR).
+.TP 24
+.B -G  --incremental	
+Create, list, or extract an old GNU-format incremental backup.
+.TP 24
+.B -g  --listed-incremental \fIfile\fR 
+Create, list, or extract a new GNU-format incremental backup.
+.TP 24
+.B -i  --ignore-zeros	
+Ignore blocks of zeros in the archive (normally means EOF).
+.TP 24
+.B --ignore-failed-read	
+Do not exit with non-zero status on unreadable files.
+.TP 24
+.B -k  --keep-old-files	
+Don't overwrite existing files in the archive.
+.TP 24
+.B -K  --starting-file \fIfile	
+Begin at \fIfile\fR in the archive.
+.TP 24
+.B -L  --tape-length \fIN\fR	
+Change tapes after writing \fIN\fR*1024 bytes.
+.TP 24
+.B -M  --multi-volume
+Create, list, or extract a multi-volume archive.
+.TP 24
+.B -N  --after-date  --newer 
+Store only files newer than \fIdate\fR.
+.TP 24
+.B -O  --to-stdout
+Extract files to standard output.
+.TP 24
+.B -P  --absolute-paths	
+Do not strip leading slash marks (\fB//\fR) from file names
+.TP 24
+.B --preserve		
+Preserve permissions and file order (like \fB-p -s\fR).
+.TP 24
+.B -R  --record-number	
+Show record number within archive with each message.
+.TP 24
+.B --remove-files		
+Remove files after adding them to the archive.
+.TP 24
+.B -s  --same-order  --preserve-order	
+Sort the list of names to extract to match the archive.
+.TP 24
+.B --same-owner		
+Create extracted files with the same ownership. 
+.TP 24
+.B -S  --sparse
+Handle sparse files efficiently.
+.TP 24
+.B --totals		
+Print total bytes written with \fB--create\fR.
+.TP 24
+.B -T  --files-from \fIfile	
+Get names to extract, or create from \fIfile.
+.TP 24
+.B --use-compress-program \fIprogram\fR
+Filter the archive through \fIprogram\fR (which must accept \fB-d\fR).
+.TP 24
+.B -V  --label \fIname
+Create an archive with volume name \fIname\fR.
+.TP 24
+.B --version		
+Print the \fIgnutar\fR version number
+.TP 24
+.B -W  --verify		
+Attempt to verify the archive after writing it.
+.TP 24
+.B -X  --exclude-from \fIfile\fR	
+Exclude files listed in \fIfile\fR.
+.TP 24
+.B -Z  --compress  --uncompress      	
+Filter the archive through \fBcompress\fR.
+.TP 24
+.B -z  --gzip  --ungzip		
+Filter the archive through \fBgzip\fR.
+.SH "SEE ALSO"
+tar(1)

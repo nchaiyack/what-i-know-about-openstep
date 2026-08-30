@@ -1,0 +1,583 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.2px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.2px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 12.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.7px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 90.5px; text-indent: -14.9px; font: 14.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 90.5px; text-indent: -14.9px; font: 7.0px Times; min-height: 8.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 75.6px; font: 13.0px Times; min-height: 16.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Helvetica}
+    p.p20 {margin: 0.0px 0.0px 0.0px 75.6px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 75.6px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 115.5px; text-indent: -39.9px; font: 14.0px Times}
+    p.p23 {margin: 0.0px 0.0px 0.0px 115.5px; text-indent: -39.9px; font: 7.0px Times; min-height: 8.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 75.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 14.0px Times}
+    p.p26 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 14.0px Times}
+    p.p27 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 5.0px Times; min-height: 6.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 35.0px Times; min-height: 42.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 316.7px; font: 14.0px Times}
+    p.p30 {margin: 0.0px 0.0px 0.0px 316.7px; font: 5.0px Times; min-height: 6.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p32 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p33 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 116.9px; font: 14.0px Times}
+    p.p35 {margin: 0.0px 0.0px 0.0px 116.9px; font: 7.0px Times; min-height: 8.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 14.0px Times}
+    p.p37 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 75.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 140.2px; font: 14.0px Times}
+    p.p43 {margin: 0.0px 0.0px 0.0px 140.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 140.2px; font: 23.0px Times; min-height: 28.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 12.0px Helvetica}
+    p.p46 {margin: 0.0px 0.0px 0.0px 116.9px; font: 23.0px Times; min-height: 28.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 337.6px; text-indent: -241.9px; font: 14.0px Times}
+    p.p48 {margin: 0.0px 0.0px 0.0px 337.6px; text-indent: -241.9px; font: 7.0px Times; min-height: 8.0px}
+    p.p49 {margin: 0.0px 0.0px 0.0px 337.6px; text-indent: -241.9px; font: 23.0px Times; min-height: 28.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSEvent</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s2">NSObject</span></p>
+<p class="p6"><br></p>
+<p class="p7"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s2">NSCoding</span></p>
+<p class="p8">NSCopying</p>
+<p class="p8">NSObject (NSObject)</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSEvent.h</p>
+<p class="p11"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><b>Class Description</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14">An NSEvent object, or simply an <i>event</i>, contains information about an input action such as a mouse click or a key down. The Application Kit associates each such user action with a window, reporting the event to the application that created the window. The NSEvent object contains pertinent information about each event, such as where the mouse was located or which character was typed. As the application receives events, it temporarily places them in a buffer called the <i>event queue</i>. When the application is ready to process an event, it takes one from the queue.</p>
+<p class="p15"><br></p>
+<p class="p14">NSEvents are typically passed up the application's <i>responder chain</i>, a series of objects that stand in line for event messages and untargeted action messages, as described in the NSResponder class specification. When the NSApplication object retrieves an event from the event queue, it dispatches the event to the appropriate NSWindow by invoking <b>sendEvent:</b>. The NSWindow then passes the event to its first responder in an event message such as <b>mouseDown:</b> or <b>keyDown:</b>, and the event gets passed on up the responder chain until some object handles it. In the case of a mouse-down event, a <b>mouseDown:</b> message is sent to the NSView where the user clicked the mouse; if it doesn't handle the event itself, the NSView relays the message to its next responder.</p>
+<p class="p15"><br></p>
+<p class="p14">Most events follow this same path: from the windowing system to the application's event queue, and from there to the appropriate objects in the application. Though it rarely need do so, an application can also create an event from scratch and insert it into the event queue for distribution, or send it directly to its destination in an event message. The newly created events can be added to the event queue by invoking NSWindow's (or NSApplication's) <b>postEvent:atStart:</b> method.</p>
+<p class="p15"><br></p>
+<p class="p14">While most events are distributed automatically through the responder chain, sometimes an object needs to retrieve events explicitly—for example, while handling mouse-dragged events. NSWindow and NSApplication define the method <b>nextEventMatchingMask:untilDate:inMode:dequeue:</b>, which allows an object to retrieve events of specific types. The nature of the retrieved event can then be ascertained by invoking NSEvent instance methods—<b>type</b>, <b>window</b>, and so on. All types of events are associated with an NSWindow; the <b>window</b> method returns this object. The location of a mouse event within the window's coordinate system is given by <b>locationInWindow</b>, and the time of the event by <b>timestamp</b>. The <b>modifierFlags</b> method returns an indication of which modifier keys (Command, Control, Shift, and so on) the user held down while the event occurred.</p>
+<p class="p15"><br></p>
+<p class="p14">The <b>type</b> method returns an NSEventType value that identifies the sort of event. The different types of events fall into five groups:</p>
+<p class="p15"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Keyboard events</p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Mouse events</p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Tracking-rectangle and cursor-update events</p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Periodic events</p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Other events</p>
+<p class="p17"><br></p>
+<p class="p14">Some of these groups comprise several NSEventType constants, others only one. The following sections discuss the groups, along with the corresponding NSEventType constants.</p>
+<p class="p15"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><b>Keyboard Events</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p14">Among the most common events sent to an application are direct reports of the user's keyboard actions, identified by these NSEventType constants:</p>
+<p class="p15"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>NSKeyDown. The user generated a character or characters by pressing a key.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>NSKeyUp. The key was released.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>NSFlagsChanged. The user pressed or released a modifier key, or turned Alpha Lock on or off.</p>
+<p class="p17"><br></p>
+<p class="p14">Of these, key-down events are the most useful to an application. When a <b>type</b> message returns NSKeyDown, the next step is typically to get the characters generated by the key-down using the <b>characters</b> method.</p>
+<p class="p15"><br></p>
+<p class="p14">Key-up events are used less frequently since they follow almost automatically when there's been a key-down event. And because NSEvent's <b>modifierFlags</b> method returns the state of the modifier keys regardless of the type of event, applications normally don't need to receive flags-changed events; they're useful only for applications that have to keep track of the state of these keys at all times.</p>
+<p class="p15"><br></p>
+<p class="p14">For more information on keyboard events, see “Key Events” under the Class Description in the NSResponder class specification.</p>
+<p class="p15"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><b>Mouse Events</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p14">Mouse events are generated by changes in the state of the mouse buttons and by changes in the position of the mouse cursor on the screen. This category consists of:</p>
+<p class="p15"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>NSLeftMouseDown, NSLeftMouseUp, NSRightMouseDown, NSRightMouseUp. “Mouse-down” means the user pressed the button; “mouse-up” means the user released it. If the mouse has just one button, only left mouse events are generated. By sending a <b>clickCount</b> message to the event, you can determine whether the mouse event was a single click, double click, and so on.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>NSLeftMouseDragged, NSRightMouseDragged. The user moved the mouse with one or more buttons down. NSLeftMouseDragged events are generated when the mouse is moved with its left mouse button down or with both buttons down, and NSRightMouseDragged when it's moved with just the right button down. A mouse with a single button generates only left mouse-dragged events. A series of mouse-dragged events is always preceded by a mouse-down event and followed by a mouse-up event.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>NSMouseMoved. The user moved the mouse without holding down either mouse button. Mouse-moved events are normally not tracked, as they quickly flood the event queue; use NSWindow's <b>setAcceptsMouseMovedEvents:</b> to turn on tracking of mouse movements.</p>
+<p class="p17"><br></p>
+<p class="p14">Mouse-dragged and mouse-moved events are generated repeatedly as long as the user keeps moving the mouse. If the mouse is stationary, neither type of event is generated until the mouse moves again.</p>
+<p class="p15"><br></p>
+<p class="p22"><span class="s3"><b>Note:<span class="Apple-tab-span">	</span></b></span>Neither the OpenStep specification nor NeXT's OPENSTEP implementation specifies facilities for the third button of a three-button mouse.</p>
+<p class="p23"><br></p>
+<p class="p14">See “Mouse Events” under “Event Handling” in the NSView class specification for more information on mouse events.</p>
+<p class="p15"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><b>Tracking-Rectangle and Cursor-Update Events</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p14">Because following the mouse's movements precisely is an expensive operation, the Application Kit provides a less intensive mechanism for tracking the location of the mouse. It does this by allowing the application to define regions of the screen, called <i>tracking rectangles</i>, that generate events when the cursor enters or leaves them. The event types are NSMouseEntered and NSMouseExited, and they're generated when the application has asked the Window Server to set a tracking rectangle in a window, typically by using NSView's <b>addTrackingRect:owner:userData:assumeInside:</b> method. A window can have any number of tracking rectangles; NSEvent's <b>trackingNumber</b> method identifies the rectangle that triggered the event.</p>
+<p class="p15"><br></p>
+<p class="p14">A special kind of tracking event is the NSCursorUpdate event. This type is used to implement NSView's cursor-rectangle mechanism. An NSCursorUpdate event is generated when the cursor has crossed the boundary of a predefined rectangular area. Applications rarely use NSCursorUpdate events directly, instead using NSView's far more convenient methods.</p>
+<p class="p15"><br></p>
+<p class="p14">See “Tracking Rectangles and Cursor Rectangles” under “Event Handling” in the NSView class specification for more information.</p>
+<p class="p15"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><b>Periodic Events</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p14">An event of type NSPeriodic simply notifies an application that a certain time interval has elapsed. By using the NSEvent class method <b>startPeriodicEventsAfterDelay:withPeriod:</b>, an application can register to receive periodic events and have them placed in its event queue at a certain frequency. When the application no longer needs them, the flow of periodic events can be turned off by invoking <b>stopPeriodicEvents</b>. An application can have only one stream of periodic events active for each thread. Unlike keyboard and mouse events, periodic events aren't dispatched to an NSWindow. The application must retrieve them explicitly using <b>nextEventMatchingMask:untilDate:inMode:dequeue:</b>, typically in a modal loop.</p>
+<p class="p15"><br></p>
+<p class="p14">Periodic events are particularly useful in situations where input events aren't generated. For example, when the user holds the mouse down over a scroll button but doesn't move it, no events are generated after the mouse-down event. The scrolling mechanism then has to start and use a stream of periodic events to keep the document scrolling at a reasonable pace until the user releases the mouse. When a mouse-up event occurs, the scrolling mechanism terminates the periodic event stream.</p>
+<p class="p15"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><b>Other Events</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p14">The remaining event types—NSAppKitDefined, NSSystemDefined, and NSApplicationDefined—are less structured, containing only generic subtype and data fields. These three types are extensions to the OpenStep specification, so you shouldn't use them in portable code (periodic events are also implemented in this manner, but are in the specification). Of the three miscellaneous event types, only NSApplicationDefined is of real use to application programs. It allows the application to generate totally custom events and insert them into the event queue. Each such event can have a subtype and two additional codes to different it from others. <b>otherEventWithType:...</b> creates one of these events, and the <b>subtype</b>, <b>data1</b>, and <b>data2</b> methods return the information specific to these events.</p>
+<p class="p15"><br></p>
+<p class="p24"><br></p>
+<p class="p12"><b>Adopted Protocols</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p25">NSCoding<span class="Apple-tab-span">	</span><span class="s4">-</span> encodeWithCoder:</p>
+<p class="p26"><span class="s4">-</span> initWithCoder:</p>
+<p class="p27"><br></p>
+<p class="p25">NSCopying<span class="Apple-tab-span">	</span><span class="s4">-</span> copyWithZone:</p>
+<p class="p26"><span class="s4">-</span> copy</p>
+<p class="p28"><br></p>
+<p class="p12"><b>Method Types</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p25">Creating events<span class="Apple-tab-span">	</span>+ keyEventWithType:location:modifierFlags:timestamp:</p>
+<p class="p29">windowNumber:context:characters:</p>
+<p class="p29">charactersIgnoringModifier:isARepeat:keyCode:<span class="Apple-tab-span">	</span></p>
+<p class="p26">+ mouseEventWithType:location:modifierFlags:</p>
+<p class="p29">timestamp:windowNumber:context:eventNumber:</p>
+<p class="p29">clickCount:pressure:</p>
+<p class="p26">+ enterExitEventWithType:location:modifierFlags:</p>
+<p class="p29">timestamp:windowNumber:context:eventNumber:</p>
+<p class="p29">trackingNumber:userData:</p>
+<p class="p26">+ otherEventWithType:location:modifierFlags:</p>
+<p class="p29">timestamp:windowNumber:context:subtype:data1:</p>
+<p class="p29">data2:</p>
+<p class="p30"><br></p>
+<p class="p25">Requesting and stopping periodic events<span class="Apple-tab-span">	</span></p>
+<p class="p26">+ startPeriodicEventsAfterDelay:withPeriod:</p>
+<p class="p26">+ stopPeriodicEvents</p>
+<p class="p27"><br></p>
+<p class="p25">Getting general event information<span class="Apple-tab-span">	</span><span class="s4">-</span> context</p>
+<p class="p26"><span class="s4">-</span> locationInWindow</p>
+<p class="p26"><span class="s4">-</span> modifierFlags</p>
+<p class="p26"><span class="s4">-</span> timestamp</p>
+<p class="p26"><span class="s4">-</span> type</p>
+<p class="p26"><span class="s4">-</span> window</p>
+<p class="p26"><span class="s4">-</span> windowNumber</p>
+<p class="p27"><br></p>
+<p class="p25">Getting key event information<span class="Apple-tab-span">	</span><span class="s4">-</span> characters</p>
+<p class="p26"><span class="s4">-</span> charactersIgnoringModifiers</p>
+<p class="p26"><span class="s4">-</span> isARepeat</p>
+<p class="p26"><span class="s4">-</span> keyCode</p>
+<p class="p27"><br></p>
+<p class="p25">Getting mouse event information<span class="Apple-tab-span">	</span><span class="s4">-</span> clickCount</p>
+<p class="p26"><span class="s4">-</span> eventNumber</p>
+<p class="p26"><span class="s4">-</span> pressure</p>
+<p class="p27"><br></p>
+<p class="p25">Getting tracking-rectangle event information</p>
+<p class="p26"><span class="s4">-</span> eventNumber</p>
+<p class="p26"><span class="s4">-</span> trackingNumber</p>
+<p class="p26"><span class="s4">-</span> userData</p>
+<p class="p27"><br></p>
+<p class="p25">Getting custom event information<span class="Apple-tab-span">	</span><span class="s4">-</span> data1</p>
+<p class="p26"><span class="s4">-</span> data2</p>
+<p class="p26"><span class="s4">-</span> subtype</p>
+<p class="p28"><br></p>
+<p class="p12"><b>Class Methods</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p19"><b></b><b>enterExitEventWithType:location:modifierFlags:timestamp:</b></p>
+<p class="p19"><b>windowNumber:context:eventNumber:trackingNumber:userData:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31">+ (NSEvent *)<b>enterExitEventWithType:</b>(NSEventType)<i>type</i></p>
+<p class="p32"><b>location:</b>(NSPoint)<i>location</i></p>
+<p class="p32"><b>modifierFlags:</b>(unsigned int)<i>flags</i></p>
+<p class="p32"><b>timestamp:</b>(NSTimeInterval)<i>time</i></p>
+<p class="p32"><b>windowNumber:</b>(int)<i>windowNumber</i></p>
+<p class="p32"><b>context:</b>(NSDPSContext *)<i>context</i></p>
+<p class="p32"><b>eventNumber:</b>(int)<i>eventNumber</i></p>
+<p class="p32"><b>trackingNumber:</b>(int)<i>trackingNumber</i></p>
+<p class="p32"><b>userData:</b>(void *)<i>userData</i></p>
+<p class="p33"><i></i><br></p>
+<p class="p14">Returns a new NSEvent object describing a tracking-rectangle or cursor-update event.<i> type</i> must be one of the following, else an NSInvalidArgumentException is raised:</p>
+<p class="p15"><br></p>
+<p class="p34">NSMouseEntered</p>
+<p class="p34">NSMouseExited</p>
+<p class="p34">NSCursorUpdate</p>
+<p class="p35"><br></p>
+<p class="p14"><i>location</i>, <i>flags</i>, <i>time</i>, <i>windowNumber</i>, and <i>context</i> are as described under <b>keyEventWithType:...</b>. Arguments specific to mouse tracking events are:</p>
+<p class="p15"><br></p>
+<p class="p14"><i>eventNumber</i> is an identifier for the new event. It's normally taken from a counter for mouse events, which continually increases as the application runs.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>trackingNumber</i> is the number that identifies the tracking rectangle. This identifier is the same returned by NSView's <b>addTrackingRect:owner:userData:assumeInside:</b>.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>userData</i> is data arbitrarily associated with the tracking rectangle when it was set up using NSView's <b>addTrackingRect:owner:userData:assumeInside:</b>.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>eventNumber</b>, <span class="s4">-</span> <b>trackingNumber</b>, <span class="s4">-</span> <b>userData</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>keyEventWithType:location:modifierFlags:timestamp:windowNumber:</b></p>
+<p class="p19"><b>context:characters:charactersIgnoringModifier:isARepeat:keyCode:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31">+ (NSEvent *)<b>keyEventWithType:</b>(NSEventType)<i>type</i></p>
+<p class="p32"><b>location:</b>(NSPoint)<i>location</i></p>
+<p class="p32"><b>modifierFlags:</b>(unsigned int)<i>flags</i></p>
+<p class="p32"><b>timestamp:</b>(NSTimeInterval)<i>time</i></p>
+<p class="p32"><b>windowNumber:</b>(int)<i>windowNum</i></p>
+<p class="p32"><b>context:</b>(NSDPSContext *)<i>context</i></p>
+<p class="p32"><b>characters:</b>(NSString *)<i>characters</i></p>
+<p class="p32"><b>charactersIgnoringModifiers:</b>(NSString *)<i>unmodCharacters</i></p>
+<p class="p32"><b>isARepeat:</b>(BOOL)<i>repeatKey</i></p>
+<p class="p32"><b>keyCode:</b>(unsigned short int)<i>code</i></p>
+<p class="p33"><i></i><br></p>
+<p class="p14">Returns a new NSEvent object describing a key event. <i>type</i> must be one of the following, else an NSInvalidArgumentException is raised:</p>
+<p class="p15"><br></p>
+<p class="p34">NSKeyDown</p>
+<p class="p34">NSKeyUp</p>
+<p class="p34">NSFlagsChanged</p>
+<p class="p35"><br></p>
+<p class="p14"><i>location</i> is the mouse location in the base coordinate system of the window specified by <i>windowNumber</i>.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>flags</i> is an integer bit field containing any of these modifier key masks, combined using the C bitwise OR operator:</p>
+<p class="p15"><br></p>
+<p class="p34">NSAlphaShiftKeyMask</p>
+<p class="p34">NSShiftKeyMask</p>
+<p class="p34">NSControlKeyMask</p>
+<p class="p34">NSAlternateKeyMask</p>
+<p class="p34">NSCommandKeyMask</p>
+<p class="p34">NSNumericPadKeyMask</p>
+<p class="p34">NSHelpKeyMask</p>
+<p class="p34">NSFunctionKeyMask</p>
+<p class="p35"><br></p>
+<p class="p14"><i>time</i> is the time the event occurred in seconds since system startup. How to get this value varies with the platform.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>windowNumber</i> identifies the PostScript window device associated with the event, which is associated with the NSWindow that will receive the event.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>context</i> is the Display PostScript context of the event.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>characters</i> is a string of characters associated with the key event. Though most key events contain only one character, it is possible for a single keypress to generate a series of characters.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>unmodCharacters</i> is the string of characters generated by the key event as if no modifier key had been pressed (except for Shift). This is useful for getting the “basic” key value in a hardware-independent manner.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>repeatKey</i> is YES if the key event is a repeat caused by the user holding the key down, NO if the key event is new.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>code</i> identifies the keyboard key associated with the key event. Its value is hardware-dependent.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>characters</b>, <span class="s4">-</span> <b>charactersIgnoringModifiers</b>, <span class="s4">-</span> <b>isARepeat</b>, <span class="s4">-</span> <b>keyCode</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>mouseEventWithType:location:modifierFlags:timestamp:</b></p>
+<p class="p19"><b>windowNumber:context:eventNumber:clickCount:pressure:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31">+ (NSEvent *)<b>mouseEventWithType:</b>(NSEventType)<i>type</i></p>
+<p class="p32"><b>location:</b>(NSPoint)<i>location</i></p>
+<p class="p32"><b>modifierFlags:</b>(unsigned int)<i>flags</i></p>
+<p class="p32"><b>timestamp:</b>(NSTimeInterval)<i>time</i></p>
+<p class="p32"><b>windowNumber:</b>(int)<i>windowNum</i></p>
+<p class="p32"><b>context:</b>(NSDPSContext *)<i>context</i></p>
+<p class="p32"><b>eventNumber:</b>(int)<i>eventNumber</i></p>
+<p class="p32"><b>clickCount:</b>(int)<i>clickNumber</i></p>
+<p class="p32"><b>pressure:</b>(float)<i>pressure</i></p>
+<p class="p33"><i></i><br></p>
+<p class="p14">Returns a new NSEvent object describing a mouse-down, -up, -moved, or -dragged event. <i>type</i> must be one of the following, else an NSInvalidArgumentException is raised:</p>
+<p class="p15"><br></p>
+<p class="p34">NSLeftMouseDown</p>
+<p class="p34">NSLeftMouseUp</p>
+<p class="p34">NSRightMouseDown</p>
+<p class="p34">NSRightMouseUp</p>
+<p class="p34">NSMouseMoved</p>
+<p class="p34">NSLeftMouseDragged</p>
+<p class="p34">NSRightMouseDragged</p>
+<p class="p35"><br></p>
+<p class="p14"><i>location</i>, <i>flags</i>, <i>time</i>, <i>windowNumber</i>, and <i>context</i> are as described under <b>keyEventWithType:...</b>.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>eventNumber</i> is an identifier for the new event. It's normally taken from a counter for mouse events, which continually increases as the application runs.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>clickNumber</i> is the number of mouse clicks associated with the mouse event.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>pressure</i> is a value from 0.0 to 1.0 indicating the pressure applied to the input device on a mouse event, used for an appropriate device such as a graphics tablet. For devices that aren't pressure-sensitive, the value should be either 0.0 or 1.0. How to determine whether the input device is pressure-sensitive depends on the platform.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>clickCount</b>, <span class="s4">-</span> <b>eventNumber</b>, <span class="s4">-</span> <b>pressure</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>otherEventWithType:location:modifierFlags:timestamp:</b></p>
+<p class="p19"><b>windowNumber:context:subtype:data1:data2:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31">+ (NSEvent *)<b>otherEventWithType:</b>(NSEventType)<i>type</i></p>
+<p class="p32"><b>location:</b>(NSPoint)<i>location</i></p>
+<p class="p32"><b>modifierFlags:</b>(unsigned int)<i>flags</i></p>
+<p class="p32"><b>timestamp:</b>(NSTimeInterval)<i>time</i></p>
+<p class="p32"><b>windowNumber:</b>(int)<i>windowNum</i></p>
+<p class="p32"><b>context:</b>(NSDPSContext *)<i>context</i></p>
+<p class="p32"><b>subtype:</b>(short int)<i>subtype</i></p>
+<p class="p32"><b>data1:</b>(int)<i>data1</i></p>
+<p class="p32"><b>data2:</b>(int)<i>data2</i></p>
+<p class="p33"><i></i><br></p>
+<p class="p14">Returns a new NSEvent object describing a custom event. <i>type</i> must be one of the values below, else an NSInvalidArgumentException is raised. Your code should only create events of type NSApplicationDefined.</p>
+<p class="p15"><br></p>
+<p class="p34">NSAppKitDefined (NeXT extension to the OpenStep specification)</p>
+<p class="p34">NSSystemDefined (NeXT extension to the OpenStep specification)</p>
+<p class="p34">NSApplicationDefined (NeXT extension to the OpenStep specification)</p>
+<p class="p34">NSPeriodic</p>
+<p class="p35"><br></p>
+<p class="p14"><i>location</i>, <i>flags</i>, <i>time</i>, <i>windowNumber</i>, and <i>context</i> are as described under <b>keyEventWithType:...</b>. Arguments specific to mouse tracking events are:</p>
+<p class="p15"><br></p>
+<p class="p14"><i>subtype</i> further differentiates custom events of type NSAppKitDefined, NSSystemDefined, and NSApplicationDefined. NSPeriodic events don't use this attribute.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>data1</i> and<i> data2</i> contain additional data associated with the event. NSPeriodic events don't use these attributes.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>subtype</b>, <span class="s4">-</span> <b>data1</b>, <span class="s4">-</span> <b>data2</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>startPeriodicEventsAfterDelay:withPeriod:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31">+ (void)<b>startPeriodicEventsAfterDelay:</b>(NSTimeInterval)<i>delaySeconds</i></p>
+<p class="p32"><b>withPeriod:</b>(NSTimeInterval)<i>periodSeconds</i></p>
+<p class="p33"><i></i><br></p>
+<p class="p14">Begins generating periodic events for the current thread every <i>periodSeconds</i>, after a delay of<i> delaySeconds</i>. Raises an NSInternalInconsistencyException if periodic events are already being generated for the current thread. This method is typically used in a modal loop while tracking mouse-dragged events.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>stopPeriodicEvents</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>stopPeriodicEvents</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31">+ (void)<b>stopPeriodicEvents</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Stops generating periodic events for the current thread and discards any periodic events remaining in the queue. This message is ignored if periodic events aren't currently being generated.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>startPeriodicEventsAfterDelay:withPeriod:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p40"><b></b><br></p>
+<p class="p12"><b>Instance Methods</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p19"><b></b><b>characters</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSString *)<b>characters</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns the characters associated with the receiving key-up or key-down event. These characters are derived from a keyboard mapping that associates various key combinations with Unicode characters. Raises an NSInternalInconsistencyException if sent to any other kind of event.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>charactersIgnoringModifiers</b>, + <b>keyEventWithType:...</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>charactersIgnoringModifiers</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSString *)<b>charactersIgnoringModifiers</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns the characters generated by the receiving key event as if no modifier key (except for Shift) applies. Raises an NSInternalInconsistencyException if sent to a non-key event. The return value of this method is meaningless for an NSFlagsChanged event.</p>
+<p class="p15"><br></p>
+<p class="p14">This method is useful for determining “basic” key values in a hardware-independent manner, enabling such features as keyboard equivalents and mnemonics defined in terms of modifier keys plus character keys. For example, to determine if the user typed Alt-s, you don't have to know whether Alt-s generates a German double ess, an integral sign, or a section symbol. You simply examine the string returned by this method along with the event's modifier flags, checking for “s” and NSAlternateKeyMask.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>characters</b>, <span class="s4">-</span> <b>modifierFlags</b>, + <b>keyEventWithType:...</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>clickCount</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (int)<b>clickCount</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns the number of mouse clicks associated with the receiver, a mouse-down or -up event. Raises an NSInternalInconsistencyException if sent to a non-mouse event.</p>
+<p class="p15"><br></p>
+<p class="p14">The return value of this method is meaningless for events other than mouse-down or -up events.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>mouseEventWithType:...</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>context</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSDPSContext *)<b>context</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns the Display PostScript context of the receiving event.</p>
+<p class="p15"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>data1</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (int)<b>data1</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns additional data associated with the receiving event. Raises an NSInternalInconsistencyException if sent to an event not of type NSAppKitDefined, NSSystemDefined, NSApplicationDefined, or NSPeriodic.</p>
+<p class="p15"><br></p>
+<p class="p14">NSPeriodic events don't use this attribute.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>data2</b>, <span class="s4">-</span> <b>subtype</b>, + <b>otherEventWithType:...</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>data2</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (int)<b>data2</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns additional data associated with the receiving event. Raises an NSInternalInconsistencyException if sent to an event not of type NSAppKitDefined, NSSystemDefined, NSApplicationDefined, or NSPeriodic.</p>
+<p class="p15"><br></p>
+<p class="p14">NSPeriodic events don't use this attribute.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>data1</b>, <span class="s4">-</span> <b>subtype</b>, + <b>otherEventWithType:...</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>eventNumber</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (int)<b>eventNumber</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns the counter value of the latest mouse or tracking-rectangle event; every system-generated mouse and tracking-rectangle event increments this counter. Raises an NSInternalInconsistencyException if sent to any other type of event.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>enterExitEventWithType:...</b>,<span class="Apple-converted-space"> </span></p>
+<p class="p42">+ <b>mouseEventWithType:...</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p19"><b></b><b>isARepeat</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (BOOL)<b>isARepeat</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns YES if the receiving key event is a repeat caused by the user holding the key down, NO if the key event is new. Raises an NSInternalInconsistencyException if sent to a non-key event.</p>
+<p class="p15"><br></p>
+<p class="p14">The return value of this method is meaningless for NSFlagsChanged events.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>keyEventWithType:...</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>keyCode</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (unsigned short int)<b>keyCode</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns the code for the keyboard key associated with the receiving key event. Its value is hardware-dependent. Raises an NSInternalInconsistencyException if sent to a non-key event.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>keyEventWithType:...</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>locationInWindow</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSPoint)<b>locationInWindow</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns the receiving event's location in the base coordinate system of the associated window.</p>
+<p class="p15"><br></p>
+<p class="p45"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> <b>window</b></span></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>modifierFlags</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (unsigned int)<b>modifierFlags</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns an integer bit field indicating the modifier keys in effect for the receiving event. You can examine individual flag settings using the C bitwise AND operator with these predefined masks:</p>
+<p class="p15"><br></p>
+<p class="p34">NSAlphaShiftKeyMask</p>
+<p class="p34">NSShiftKeyMask</p>
+<p class="p34">NSControlKeyMask</p>
+<p class="p34">NSAlternateKeyMask</p>
+<p class="p34">NSCommandKeyMask<span class="Apple-converted-space"> </span></p>
+<p class="p34">NSNumericPadKeyMask</p>
+<p class="p34">NSHelpKeyMask</p>
+<p class="p34">NSFunctionKeyMask</p>
+<p class="p35"><br></p>
+<p class="p46"><br></p>
+<p class="p19"><b></b><b>pressure</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (float)<b>pressure</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns a value between 0.0 and 1.0 indicating the pressure applied to the input device (used for appropriate devices). For devices that aren't pressure-sensitive, the value is either 0.0 or 1.0. How to determine whether the input device is pressure-sensitive depends on the platform. Raises an NSInternalInconsistencyException if sent to a non-mouse event.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>mouseEventWithType:...</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>subtype</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (short int)<b>subtype</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns the subtype of the receiving custom event. Raises an NSInternalInconsistencyException if sent to an event not of type NSAppKitDefined, NSSystemDefined, NSApplicationDefined, or NSPeriodic.</p>
+<p class="p15"><br></p>
+<p class="p14">NSPeriodic events don't use this attribute.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>data1</b>, <span class="s4">-</span> <b>data2</b>, + <b>otherEventWithType:...</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>timestamp</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSTimeInterval)<b>timestamp</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns the time the event occurred in seconds since system startup.</p>
+<p class="p15"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>trackingNumber</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (int)<b>trackingNumber</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns the identifier of the tracking rectangle for a tracking-rectangle event. Raises an NSInternalInconsistencyException if sent to any other type of event.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>enterExitEventWithType:...</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>type</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSEventType)<b>type</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns the type of the receiving event, one of:</p>
+<p class="p15"><br></p>
+<p class="p47">NSLeftMouseDown<span class="Apple-tab-span">	</span>NSKeyDown</p>
+<p class="p48"><br></p>
+<p class="p47">NSLeftMouseUp<span class="Apple-tab-span">	</span>NSKeyUp</p>
+<p class="p48"><br></p>
+<p class="p47">NSRightMouseDown<span class="Apple-tab-span">	</span>NSFlagsChanged</p>
+<p class="p48"><br></p>
+<p class="p47">NSRightMouseUp<span class="Apple-tab-span">	</span>NSAppKitDefined (NeXT extension to the OpenStep specification)</p>
+<p class="p48"><br></p>
+<p class="p47">NSMouseMoved<span class="Apple-tab-span">	</span>NSSystemDefined (NeXT extension to the OpenStep specification)</p>
+<p class="p48"><br></p>
+<p class="p47">NSLeftMouseDragged<span class="Apple-tab-span">	</span>NSApplicationDefined (NeXT extension to the OpenStep specification)</p>
+<p class="p48"><br></p>
+<p class="p47">NSRightMouseDragged<span class="Apple-tab-span">	</span>NSPeriodic</p>
+<p class="p48"><br></p>
+<p class="p47">NSMouseEntered<span class="Apple-tab-span">	</span>NSCursorUpdate</p>
+<p class="p48"><br></p>
+<p class="p47">NSMouseExited</p>
+<p class="p48"><br></p>
+<p class="p49"><br></p>
+<p class="p19"><b></b><b>userData</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (void *)<b>userData</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns data associated with a tracking-rectangle event, assigned to the tracking rectangle when it was set up using NSView's <b>addTrackingRect:owner:userData:assumeInside:</b>. Raises an NSInternalInconsistencyException if sent to any other type of event.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>enterExitEventWithType:...</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>window</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSWindow *)<b>window</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns the window object associated with the event. A periodic event, however, has no window; in this case the return value is undefined.</p>
+<p class="p15"><br></p>
+<p class="p36"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>windowNumber</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p19"><b></b><b>windowNumber</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (int)<b>windowNumber</b></p>
+<p class="p39"><b></b><br></p>
+<p class="p14">Returns the identifier for the PostScript window device associated with the event. A periodic event, however, has no window; in this case the return value is undefined.</p>
+<p class="p15"><br></p>
+<p class="p45"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> <b>window</b></span></p>
+<p class="p37"><b></b><br></p>
+</body>
+</html>

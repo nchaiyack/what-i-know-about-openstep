@@ -1,0 +1,77 @@
+.TH ALIASDB 3  "June 21, 1989"
+.AT 3
+.SH NAME
+alias_setent, alias_getent, alias_getbyname, alias_end \- get mail alias database entries
+.SH SYNOPSIS
+.nf
+.B #include <aliasdb.h>
+.PP
+.B alias_ent *alias_getbyname(char *name);
+.PP
+.B void alias_setent(void)
+.PP
+.B alias_ent *alias_getent(void);
+.PP
+.B void alias_endent(void);
+.PP
+.SH DESCRIPTION
+These routines retrieve information from the mail alias database. 
+.I alias_getbyname
+is useful for looking up a single mail alias.
+The other routines are used for getting all of the aliases. 
+.I alias_setent
+initializes the library to point to the beginning of the mail alias
+list. 
+.I alias_getent
+(currently disabled) returns the next alias entry, or NULL for end of list.
+.I alias_endent
+is called to free up any resources that may have been allocated during
+lookups. The following example illustrates how these latter three routines
+are typically used:
+.PP
+.RS
+.nf
+aliasent *alias;
+alias_setent();
+while (alias = alias_getent()) {
+	handle(alias);
+}
+alias_endent();
+.fi
+.RE
+.PP
+The structure returned by 
+.I alias_getbyname
+and
+.I alias_getent
+is defined as follows:
+.PP
+.RS
+.nf
+typedef struct aliasent {
+	char *alias_name;
+	unsigned alias_members_len;
+	char **alias_members;
+	int alias_local;
+} aliasent;
+.fi
+.RE
+.PP
+.I alias_name
+the name of the mail alias.
+.I alias_members_len
+is the number of members of this alias.
+.I alias_members
+is an array of strings containing the names of each of the members.
+.I alias_local
+indicates whether or not this is a local alias.
+.SH "SEE ALSO"
+.I aliases(5)
+.SH BUGS
+The 
+.I alias_getent
+function is disabled.
+.PP
+Currently, these routines only retrieve information from NetInfo and
+cannot locate alias entries in /etc/sendmail/aliases or Yellow Pages, even 
+though sendmail(8) may be able to find them.

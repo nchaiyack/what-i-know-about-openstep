@@ -1,0 +1,13 @@
+"ToDoCell" = {OUTLETS = (myOutlet); SUPERCLASS = NSActionCell; };
+"SelectionNotifMatrix" = {SUPERCLASS = NSMatrix; };
+"ToDoDoc" = {
+    ACTIONS = ("choseDay:", "itemChecked:", "itemEntered:", "nextMonth:", "prevMonth:"); 
+    OUTLETS = (calendar, controller, dayLabel, itemMatrix, markMatrix, monthForm, monthName); 
+    SUPERCLASS = NSObject; 
+};
+"CalendarMatrix" = {
+    ACTIONS = ("choseDay:", "monthChanged:"); 
+    OUTLETS = (leftButton, monthName, rightButton); 
+    SUPERCLASS = NSMatrix; 
+};
+"FirstResponder" = {CATEGORY = LocalActions; };

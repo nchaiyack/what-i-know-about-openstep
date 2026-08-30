@@ -1,0 +1,41 @@
+.TH MACH_SWAPON 2 "March 1, 1989" "NeXT Computer, Inc."
+.SH NAME
+mach_swapon \- add a file for system paging/swapping.
+.SH SYNOPSIS
+.nf
+.B #include <sys/mach_swapon.h>
+
+.B mach_swapon(file, flags, lowat, hiwat)
+.B char *file;
+.B unsigned int flags;
+.B int lowat;
+.B int hiwat;
+.fi
+.SH DESCRIPTION
+.I Mach_swapon
+makes
+.I file
+available to the system for paging and swapping.  The available
+.I flags
+are:
+.TP 15
+.B MF_PREFER
+This is a "preferred" paging file which means that space will
+be allocated out of it before non-preferred paging files until
+it is full.
+.PP
+.I Lowat
+specifies the low water mark for the file's size.  If it is non-zero,
+pager will attempt to shrink the size of the file down to the
+low water mark as it frees paging resources.  If it is zero, the file
+will never shrink.
+.I Hiwat
+specifies the high water mark for the file's size.  If it is non-zero,
+the pager will not allow the paging file to grow above the high
+water mark.  If it is zero, the file will grow as large as need be.
+.SH "RETURN VALUE
+If an error has occured,
+.I mach_swapon
+will return the error number, otherwise it will return 0.
+.SH "SEE ALSO"
+.BR mach_swapon (8)

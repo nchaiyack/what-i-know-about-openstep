@@ -1,0 +1,59 @@
+.\" Copyright (c) 1993 NeXT Computer, Inc.
+.\" All rights reserved.
+.\"
+.\"	@(#)fastcp.1
+.\"
+.TH FASTCP 1 "July 26, 1993" "NeXT, Inc."
+.SH NAME
+fastcp \- copy optimally (only if destination is missing or different)
+.SH SYNOPSIS
+.B /usr/lib/fastcp 
+.IR file " ... " directory
+.SH DESCRIPTION
+One or more files, as specified by the
+.I file
+argument(s), are copied into the
+.IR directory .
+Any of the
+.I files
+may be directories and are copied recursively as necessary.
+A file is not copied if a file by its name exists in
+.I directory
+and has the same size and modification time as the source file.  For each 
+file copied, the name, mode, owner, and modification times of  
+the file are always preserved.  Files that are not copied are also set to the
+same mode as the source file.
+.PP
+This command is intended only for use by the ProjectBuilder makefiles in
+/NextDeveloper/Makefiles/app.  It is used in copying
+resources such as .tiff files and .nib directories into the destination
+wrapper directory (e.g., MissionCritical.app).  The files are copied
+so the entire wrapper can be tar'ed away for deployment (using 
+.IR ln (1) 
+would be
+insufficient for some situations).  The 
+.IR fastcp (1)
+command is used, because it would be too costly to make copies of all files on 
+every invocation of make (just in case some file might have changed).  
+.PP
+.SH FILES
+/usr/lib/fastcp   The command - not intended for public use.
+.SH "SEE ALSO"
+cp(1), ln(1), make(1)
+.SH BUGS
+.I fastcp 
+reports some errors in non-intuitive
+ways.  Counter-intuitive error messages are usually due to permission 
+problems in the source or destination areas.
+.PP
+.I fastcp
+does not optimize copying of symbolically linked source files.  
+Linked source files will always be copied.
+.PP
+.I fastcp
+always checks write permission on the destination directory, even when
+there is nothing to copy.  This can turn out to be a problem when different
+users are sharing the same development area.  
+
+
+

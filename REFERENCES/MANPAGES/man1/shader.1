@@ -1,0 +1,174 @@
+.\"     @(#)shader.1	1.17 (Pixar) 8/14, 1991
+.\"
+.\"---------------------------------------------------------------------
+.\"                 Copyright (c) 1989 Pixar
+.\"
+.\"   These coded statements,  instructions,  computer programs, and
+.\"   listings are protected by Federal copyright law and are not to
+.\"   be disclosed to unauthorized  persons without the written con-
+.\"   sent of Pixar.
+.\"---------------------------------------------------------------------
+.\"
+.if '\nO'0' .nr O 1
+.if '\nO'1' .TH SHADER 1 "August 14, 1991" "Release 3.\nv" "\fIPhotoRealistic RenderMan\fP (\s-1NEXTSTEP\s+1)"
+.if '\nO'2' .TH SHADER 1 "August 14, 1991" "Release 3.\nv" "\fIPhotoRealistic RenderMan\fP (\s-1MS-DOS\s+1)"
+.if '\nO'3' .TH SHADER 1 "August 14, 1991" "Release 3.\nv" "\fIPhotoRealistic RenderMan\fP (Macintosh)"
+.SH NAME
+.ta 1.5i
+shader - compile shading language source into run-time shaders
+.SH SYNOPSIS
+.B /usr/prman/shader
+[\ \fB\-I\fP\fIincdir\fP\ ]
+[\ \fB\-o\fP \fIoutputfile\fP\ ]
+[\ \fB\-s\fP \fIsrcfilename\fP\ ]
+[\ \fB\-v\fP\ ]
+[\ \fB\-q\fP\ ]
+[\ \fB\-U\fIname\|\fP\ ]
+[\ \fB\-D\fIname\|\fP\ ]
+[\ \fB\-D\fIname\fB=\fIdef\|\fP\ ]
+\fIfiles ... \fP
+.SH DESCRIPTION
+.I shader
+translates shading language source statements into modules
+suitable for execution in the \fBRenderMan\fP run-time environment.
+.if '\nO'1' \{If the \fIfiles\fP specification is missing, \fIshader\fP
+looks for input on \fIstdin\fP.\}
+Unless overridden with the \fB\-q\fP
+option, the compiler prints the name of each shader module
+as it is compiled.
+.LP
+.SH OPTIONS
+.LP
+The following options are supported by \fIshader\fP.
+.TP
+.ie !'\nO'3' .B \-I\fIincdir\fP
+.el .B \-I \fIincdir\fP
+This option is actually passed to and interpreted by \fIcpp\fP,
+the C pre-processor.
+It specifies the directory in which to search for
+\fI#include\fP files.
+Several such options may be given to \fIshader\fP and directories
+are searched in the order specified.
+'ie !'\nO'3' The default directory, \fI/usr/prman/lib/shaders\fP will be
+'el The default directory, \fI{PRMan}Shaders:\fP will be
+searched last.
+.TP
+.BI \-U \ name\|
+This option is passed to and interpreted by \fIcpp\fP.
+It removes any initial definition of
+.IR name ,
+where
+.I name\|
+is a reserved symbol that is predefined by the particular version of
+.IR cpp (1).
+See
+.IR cpp (1)
+for the implementation-dependent
+list of these possibly reserved symbols.
+.TP
+.BI \-D \ name\|
+This option is passed to and interpreted by \fIcpp\fP.
+It defines
+.I name\|
+as 1 (one). This is the same as if a
+.BI \-D name=1
+option appeared on the 
+.I shader
+command line, or as if a
+\fB#define\fP   \fIname\fP  \fB1\fP
+line appeared in the source file that 
+.I shader
+is processing.
+.TP
+.BI \-D \ name=def\|
+This option is passed to and interpreted by \fIcpp\fP.
+It defines
+.I name\|
+as if by a
+.B #define
+directive. This is the same as if a
+\fB#define\fP   \fIname\fP  \fIdef\fP
+line appeared in the source file that 
+.I shader
+is processing.
+The
+.B \-D
+option has lower precedence than the
+.B \-U
+option.
+That is, if the same name is used in both a
+.B \-U
+option and a
+.B \-D
+option, the name will be undefined regardless of the order of the options.
+.TP
+.BI \-o " outputfile"
+By default, \fIshader\fP places its output in a file named
+"\fIshader_name.slo\fP" where \fIshader_name\fP is the name
+of the shader as specified in the shader definition statement
+in the source file.
+Note that this is not necessarily the same as the source
+file name.
+The \fI-o\fP option allows the user to override this default
+naming convention.
+It should be used with care since the run-time system looks
+for shader executables according to the default naming convention.
+The \fIoutputfile\fP specification may be either a file name,
+in which case output is written to the specified file, or one
+of the following special names:
+.RS
+.TP 10n
+.B \-
+Write the output to \fIstdout\fP
+.TP 10n
+.B \-src
+Derive an output filename from the source filename by
+removing any directory prefix and a \fI.sl\fP suffix
+and appending a \fI.slo\fP suffix.
+.TP 10n
+.B \-shader
+Derive the output filename from the name of the shader
+and the \fI.slo\fP suffix.
+This is the default.
+.RE
+.TP
+.BI \-s " srcfilename"
+This allows specification of the original source file
+name in those cases where it may be difficult or impossible
+to infer it otherwise
+.if '\nO'1' \{(e.g., when the source file is being \fIcat\fPed to \fIstdin\fP).\}
+.TP
+.B \-v
+The \fIverbose\fP option produces more output from
+the compiler.
+.TP
+.B \-q
+The \fIquiet\fP option suppresses the normal
+printing of the shader module names as they are compiled.
+.LP
+.if '\nO'1' \{.SH FILES
+.ta \w'/usr/prman/lib/shadecom  'u+4n
+/lib/cpp	pre-processor
+.br
+/NextLibrary/Shaders	default include directory
+.br
+/usr/prman/shader	shell front end
+.br
+/usr/prman/lib/shadecom	compiler executable
+.br
+.if '\nO'2' \{.SH FILES
+.ta \w'\eRMAN\eBIN\eSHADECOM  'u+4n
+.br
+\eRMAN\eLIB\eSHADERS	default include directory
+.br
+\eRMAN\eBIN\eSHADER	shader front end
+.br
+\eRMAN\eLIB\eSHADECOM	compiler executable\}
+.if '\nO'3' \{.SH FILES
+.ta \w'/usr/prman/lib/shadecom  'u+4n
+{PRMan}Shaders	default include directory
+.br
+{PRMAN}Tools:shader	shell front end
+.br
+{PRMAN}Tools:shadecom	compiler executable\}
+.xx

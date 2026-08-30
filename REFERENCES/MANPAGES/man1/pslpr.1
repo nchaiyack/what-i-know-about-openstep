@@ -1,0 +1,264 @@
+.TH PSLPR  1 "5 March 1991" "Adobe Systems"
+\" Copyright (c) 1985,1987,1991 Adobe Systems Incorporated. All Rights Reserved.
+\" ATTN GOVERNMENT END USERS: See notice of rights in file /usr/lib/transcript/Notice
+\" RCSID: $Header: /disks/hobo/vp6/snichols/rel3.0/transcript/man/RCS/pslpr.1p,v 3.0 1991/06/17 17:24:02 snichols Exp $
+.ds PS P\s-2OST\s+2S\s-2CRIPT\s+2
+.SH NAME
+pslpr \- select or reverse page order of a P\s-2OST\s+2S\s-2CRIPT\s+2 file
+.SH SYNOPSIS
+.B pslpr
+[ 
+.B \-\s-1LRfGaz
+] [
+.BI \-i pagerange
+] [
+.BI \-S feature=value
+] [
+.BI \-I resourcepath
+] [
+.BI \-p filename
+] [
+.I spoolopts
+] [
+.I files
+]
+.SH DESCRIPTION
+.I pslpr
+reads in the specified \*(PS 
+.I file
+(or the standard input if no file is named), and if the
+input conforms to the \*(PS file structuring conventions,
+provides page order reversal, landscape orientation 
+and selection of specified pages for printing.
+Font and other resource downloading is supported as well as 
+inclusion of printer-specific features, such as manual feed.
+.I pslpr
+also supports ASCII85 encoding and lzw compression for Level 2 printers.
+.I pslpr
+sends output to 
+.I
+filename
+if the 
+.B \-p
+option is used; otherwise the output is printed on the printer 
+specified by either the
+.BI \-P printer 
+option for BSD or the 
+.BI \-d dest
+option of System V. If none of these options is used, 
+.I
+pslpr
+prints on the printer specified by the PRINTER environment variable,
+if present, or to a printer named "\*(PS".
+.sp
+The possible options are:
+.TP
+.BI \-i " pagerange "
+.I Pagerange
+may be a single page number or a range 
+of the form ``N-M'' which means print pages N through M.
+Multiple instances of
+.I pagerange
+may be specified by repetitive use of this option.
+.TP
+.B \-R
+reverse the page order.
+.TP
+.B \-L
+print the document in landscape format.
+Use of this option when processing a \*(PS that describes a page which
+is longer than the width of the paper being used will result in truncation
+at the top of the printed page.
+When using the n-up capabilitiy of psnup, it is preferable 
+to also use the rotate option of psnup rather than
+the landscape option of pslpr because the rotation of the page
+is taken into account by psnup when laying out multiple pages 
+on a sheet of paper.
+.TP
+.BI \-l " resourcepath "
+specifies the pathname for a printer resource.  If the resource is not
+available in the printer, as defined in the printer's \*(PS Printer
+Description (PPD), pslpr will download the resource to the printer.
+.TP
+.BI \-p " filename "
+Send the document to the specified file, instead of printing it. If
+-p- is specified, output is directed to stdout.
+.TP
+.BI \-f
+Force pslpr to proceed despite errors.
+.TP
+.BI \-F 
+Don't perform any maipulation of the document - no page reversal, font
+downloading, etc.
+.TP
+.BI \-G 
+norearrange.
+pslpr will attempt to rearrange downloaded fonts 
+to minimize transmission
+time if enough memory is present in the printer. the  -G option 
+disables this feature.
+.TP
+.BI \-a 
+Strip comments.
+Strip out all lines that begin with %.  This should not be used if later
+processing of this document is expected.
+.TP
+.BI \-z 
+Perform LZW compression and ASCII85 encoding of the document.  This
+feature is available only in Level 2 printers.
+.TP
+.BI \-S " feature = value " 
+Set printer-specific feature, such as Manual Feed.  If no value is
+specified, a value of "TRUE" is assumed.  Any feature named in the
+target printer's PPD file can be used here.
+.PP
+In 4.3bsd UNIX systems, the following spooler options are passed on to
+.IR lpr .
+.TP
+.BI \-P " printer "
+causes the output to be sent to the named printer, unless 
+.I
+filename
+is specified; in which case, the printer name is used to access the 
+printer's PPD file for information, and the output is written to
+the specified file instead of being spooled for printing.
+.TP
+.BI \-# " n "
+causes 
+.I n 
+copies of the output to be produced.  The default is one.
+.TP
+.B \-h
+suppress the printing of the job burst page.
+.TP
+.BI \-C " class"
+set the job classification for use on the burst page.
+.TP
+.BI \-J " name"
+set the job name for use on the burst page.  Otherwise, the name of the
+first input file will be used.
+.TP
+.BI \-m
+send mail after files have been printed.
+.TP
+.BI \-r
+rename file after printing.
+.PP
+In System V UNIX systems, the following spooler options are passed on to
+.IR lp .
+See the man page for LP(C) and LPR(W) for more complete descriptions.
+.TP
+.BI \-d " dest "
+causes the output to be sent to the named printer, unless file
+is specified; in which case, the printer name is used to access the 
+printer's PPD file for information, and the output is written to
+the specified file instead of being spooled for printing.
+.TP
+.BI \-c
+Immediately make a copy of the file to be printed.
+.TP
+.BI \-n " n "
+causes 
+.I n 
+copies of the output to be produced.  The default is one.
+.TP
+.B \-h
+suppress the printing of the job burst page.
+.TP
+.B \-r
+don't page-reverse the output.
+.TP
+.BI \-s
+suppress messages from 
+.IR lp .
+.TP
+.BI \-m
+send mail after files have been printed.
+.TP
+.BI \-t " title "
+specify the title.
+.TP
+.BI \-w
+write to user's terminal after files have been printed.
+.TP
+.BI \-o " option "
+send printer-dependent or class dependent option to print spooler.
+
+.SH EXAMPLES
+The following command reads a \*(PS file called printfile.ps
+and prints pages 3 through 19, 37
+through 60 and page 90, in landscape format.  The -d option (System
+V only; for BSD use -P option) directs
+the output to the printer called ps, and is required when using the
+-L option.
+
+.RS
+pslpr -i3-19 -i37-60 -i90 -L -d ps  printfile.ps
+
+.RE
+In the next example a textfile is processed by enscript, creating a \*(PS
+file, which is piped to pslpr and printed page-reversed on the printer
+named LaserBlaster. The first line
+in the example is for BSD, the second for System V.
+
+.RS
+enscript -p- textfile | pslpr -R -P LaserBlaster
+
+enscript -p- textfile | pslpr -R -d LaserBlaster
+
+.RE
+In this example, a \*(PS file is prepared for printing on a specific 
+printer (LaserBlaster), but is saved in a file (LBprintfile), 
+instead of being spooled for printing.  Again, the first line
+in the example is for BSD, the second for System V.
+
+.RS
+pslpr -p LBprintfile -P LaserBlaster doc.ps
+
+pslpr -p LBprintfile -d LaserBlaster doc.ps
+
+.RE
+.SH ENVIRONMENT
+.IP PSRESOURCEPATH
+path name to use for accessing printer resource information
+for downloadable resources.
+.IP PSTEMPDIR
+path name of temporary directory to use instead of /tmp 
+for spooled temporary files.
+.IP "PRINTER (4.3bsd)"
+the name of a printer (as in the 
+.B \-P
+option) for 
+.I lpr
+to use.  If no 
+.B \-P 
+option is specified, 
+.I lpr
+will use this printer.  If neither 
+.B \-P 
+nor PRINTER is set,
+.I pslpr
+will spool to a printer named ``PostScript''.
+.IP "LPDEST (System V)"
+the name of a printer (as in the 
+.B \-d
+option) for 
+.I lp
+to use.  If no 
+.B \-d
+option is specified,
+.I lp
+will use this printer.  If neither 
+.B \-d 
+nor LPDEST is set,
+.I pslpr
+will spool to a printer class named ``PostScript''.
+.br
+.SH "SEE ALSO"
+transcript(1), enscript(1), psnup(1), postscript(7).
+.SH "DIAGNOSTICS"
+Should be self explanatory.
+.SH AUTHOR
+Adobe Systems Incorporated
+.SH "NOTES"
+\*(PS is a registered trademark of Adobe Systems Incorporated.

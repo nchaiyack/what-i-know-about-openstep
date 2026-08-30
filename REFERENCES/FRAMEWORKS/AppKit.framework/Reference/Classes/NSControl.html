@@ -1,0 +1,847 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p20 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p23 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p25 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p28 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p30 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p34 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p37 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 12.0px Helvetica}
+    p.p39 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 75.0px; font: 2.0px Helvetica; min-height: 2.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 305.0px; text-indent: -231.0px; font: 14.0px Times}
+    p.p42 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Helvetica}
+    p.p43 {margin: 0.0px 0.0px 0.0px 95.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Times}
+    p.p45 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Times; min-height: 8.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Helvetica}
+    span.s3 {font: 14.0px Symbol}
+    span.s4 {font: 26.0px Helvetica}
+    span.s5 {font: 14.0px Times}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSControl</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><span class="s2"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSView : NSResponder : NSObject</p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s2"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSCoding (NSResponder)</p>
+<p class="p8">NSObject (NSObject)</p>
+<p class="p9"><br></p>
+<p class="p7"><span class="s2"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>&lt;AppKit/NSControl.h&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p13">NSControl is an abstract superclass that provides three fundamental features for implementing user-interface devices. First, as a subclass of NSView, NSControl draws, or coordinates the drawing of, the on-screen representation of the device. Second, it receives and responds to user-generated events within its bounds by overriding NSResponder's <b>mouseDown:</b> method and providing a position in the responder chain. Third, it implements the <b>sendAction:to:</b> method to send an action message to the NSControl's target object. Subclasses of NSControl defined in the Application Kit are NSBrowser, NSButton (and its subclass NSPopUpButton), NSColorWell, NSImageView, NSMatrix (and its subclass NSForm), NSScroller, NSSlider, NSTableView, and NSTextField. Instances of concrete NSControl subclasses are often referred to as, simply, <i>controls</i>.</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Controls and Cells</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">Controls are usually associated with one or more cells—instances of a subclass of the abstract class NSCell. A control's cell (or cells) usually fit just inside the bounds of the control. Cells are objects that can draw themselves and respond to events, but they can do so only indirectly, upon instruction from their control, which acts as a kind of coordinating backdrop.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">Controls manage the behavior of their cells. By inheritance from NSView, controls derive the ability for responding to user actions and rendering their on-screen representation. When users click on a control, it responds in part by sending <b>trackMouse:inRect:ofView:untilMouseUp:</b> to the cell that was clicked; upon receiving this message, the cell tracks the mouse and may have the control send the cell's action message to its target (either upon mouse-up or continuously, depending on the cell's attributes). When controls receive a display request, they, in turn, send their cell (or cells) a <b>drawWithFrame:inView:</b> message to have the cells draw themselves.</p>
+<p class="p14"><br></p>
+<p class="p13">This relationship of control and cell makes two things possible: A control can manage cells of different types and with different targets and actions (see below); and a single control can manage muliple cells. Most Application Kit controls, like NSButtons and NSTextFields, manage only a single cell. But some controls, notably NSMatrix and NSForm, manage multiple cells (usually of the same size and attributes, and arranged in a regular pattern). Because cells are lighter-weight than controls, in terms of inherited data and behavior, it is more efficient to use a multi-cell control rather than multiple controls. <span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">Many methods of NSControl—particularly methods that set or obtain values and attributes—have corresponding methods in NSCell. Sending a message to the control causes it to be forwarded to the control's cell <i>or</i> (if a multi-cell control) its selected cell. However, many NSControl methods are effective only in controls with single cells (these are noted in the method descriptions).</p>
+<p class="p14"><br></p>
+<p class="p13">An NSControl subclass doesn't have to use an NSCell subclass to implement itself; NSScroller and NSColorWell are examples of NSControls that don't. However, such subclasses have to take care of details that NSCell would otherwise handle. Specifically, they have to override methods designed to work with a cell. What's more, the lack of a cell means you can't make use of NSMatrix capability for managing multi-cell arrays such as radio buttons.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Target and Action</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">Target objects and action methods (or messages) are part of the mechanism by which controls respond to user actions and enable users to communicate their intentions to an application. A target is an object that a control uses as the receiver of action messages. The target's class defines an action method to enable its instances to respond to these messages, which are sent as users click or otherwise manipulate the control. NSControl's <b>sendAction:to:</b> asks the NSApplication object, NSApp, to send an action message to the control's target object.</p>
+<p class="p14"><br></p>
+<p class="p13">NSControl provides methods for setting and obtaining the target object and the action method. However, these methods require that an NSControl's cell (or cells) be cells that inherit from NSActionCell or custom cells that hold action and target as instance variables and can respond to the NSControl methods.</p>
+<p class="p14"><br></p>
+<p class="p13">See the NSActionCell class specification for more on the implementation of target and action behavior, particularly how action messages with <b>nil</b> targets travel up the responder chain.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Field Validation and Entry Error-Handling</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">NSControl provides the delegation method <b>control:isValidObject:</b> for validating the contents of cells embedded in controls (instances of NSTextField and NSMatrix in particular). In validating you check for values that are permissible as objects, but that are undesirable in a given context, such as a date field in which dates should never be in the future, or zip codes that are valid for a certain state.</p>
+<p class="p14"><br></p>
+<p class="p13">The method <b>control:isValidObject:</b> is invoked when the cursor leaves a cell (that is, the associated control relinquishes first-responder status) but before the string value of the cell's object is displayed. Return YES to allow display of the string and NO to reject display and return the cursor to the cell. The following example evaluates an object (an NSDate) and rejects it if the date is in the future:</p>
+<p class="p14"><br></p>
+<p class="p19">- (BOOL)control:(NSControl *)control isValidObject:(id)obj</p>
+<p class="p19">{</p>
+<p class="p19"><span class="Apple-tab-span">	</span>if (control == contactsForm) {</p>
+<p class="p19"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>if (![obj isKindOfClass:[NSDate class]]) return NO;</p>
+<p class="p19"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>if ([[obj laterDate:[NSDate date]] isEqual:obj]) {<span class="Apple-tab-span">	</span></p>
+<p class="p19"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSRunAlertPanel(@"Date not valid",<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>@"Reason: date in future", NULL, NULL, NULL);<span class="Apple-tab-span">	</span></p>
+<p class="p19"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>return NO;</p>
+<p class="p19"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>}</p>
+<p class="p19"><span class="Apple-tab-span">	</span>}</p>
+<p class="p19"><span class="Apple-tab-span">	</span>return YES; <span class="Apple-converted-space">     </span></p>
+<p class="p19">}</p>
+<p class="p20"><br></p>
+<p class="p13">NSControl also provides delegation methods that are invoked when formatters for a control's cells cannot format a string <b>(control:didFailToFormatString:errorDescription:</b>) or reject a partial string entry (<b>control:didFailToValidatePartialString:errorDescription:</b>). It also provides<span class="Apple-converted-space">  </span><b>control:textView:doCommandBySelector:</b>, which allows delegates the opportunity to detect and respond to key bindings, such as <b>complete:</b> (name completion).</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Changing the NSCell Class</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">Since NSControl uses objects derived from the NSCell class to implement most of its actual functionality, you can usually implement a unique user interface device by creating a subclass of NSCell rather than NSControl. As an example, let's say you want all your application's NSSliders to have a type of cell other than the generic NSSliderCell. First, you create a subclass of NSCell, NSActionCell, or NSSliderCell. (Let's call it MyCellSubclass.) Then, you can simply invoke NSSlider's <b>setCellClass:</b> class method:</p>
+<p class="p14"><br></p>
+<p class="p19">[NSSlider setCellClass:[MyCellSubclass class]];</p>
+<p class="p20"><br></p>
+<p class="p13">All NSSliders created thereafter will use MyCellSubclass, until you call <b>setCellClass:</b> again.</p>
+<p class="p14"><br></p>
+<p class="p13">If you want to create generic NSSliders (ones that use NSSliderCell) in the same application as the customized NSSliders that use MyCellSubclass, there are two possible approaches. One is to invoke <b>setCellClass: </b>as above whenever you're about to create a custom NSSlider, resetting the cell class to NSSliderCell afterwards. The other approach is to create a custom subclass of NSSlider that automatically uses MyCellSubclass, as explained below.</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Creating New NSControls</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">If you create a custom NSControl subclass that uses a custom subclass of NSCell, you should override NSControl<b>'s cellClass </b>method:</p>
+<p class="p14"><br></p>
+<p class="p19">+ (Class) cellClass</p>
+<p class="p19">{</p>
+<p class="p19"><span class="Apple-converted-space">    </span>return [MyCellSubclass class];</p>
+<p class="p19">}</p>
+<p class="p20"><br></p>
+<p class="p13">NSControl's <b>initWithFrame:</b> method will use the return value of <b>cellClass</b> to allocate and initialize an NSCell of the correct type.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">Override the designated initializer (<b>initWithFrame:</b>) if you create a subclass of NSControl that performs its own initialization.</p>
+<p class="p14"><br></p>
+<p class="p21"><br></p>
+<p class="p11"><b>Method Types<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p22">Initializing an NSControl<span class="Apple-tab-span">	</span><span class="s3">-</span> initWithFrame:</p>
+<p class="p23"><br></p>
+<p class="p22">Setting the control's cell<span class="Apple-tab-span">	</span>+ cellClass</p>
+<p class="p24">+ setCellClass:</p>
+<p class="p24"><span class="s3">-</span> cell</p>
+<p class="p24"><span class="s3">-</span> setCell:</p>
+<p class="p25"><br></p>
+<p class="p22">Enabling and disabling the control<span class="Apple-tab-span">	</span><span class="s3">-</span> isEnabled</p>
+<p class="p24"><span class="s3">-</span> setEnabled:</p>
+<p class="p25"><br></p>
+<p class="p22">Identifying the selected cell<span class="Apple-tab-span">	</span><span class="s3">-</span> selectedCell</p>
+<p class="p24"><span class="s3">-</span> selectedTag</p>
+<p class="p25"><br></p>
+<p class="p22">Setting the control's value<span class="Apple-tab-span">	</span><span class="s3">-</span> doubleValue</p>
+<p class="p24"><span class="s3">-</span> setDoubleValue:</p>
+<p class="p24"><span class="s3">-</span> floatValue</p>
+<p class="p24"><span class="s3">-</span> setFloatValue:</p>
+<p class="p24"><span class="s3">-</span> intValue</p>
+<p class="p24"><span class="s3">-</span> setIntValue:</p>
+<p class="p24"><span class="s3">-</span> objectValue</p>
+<p class="p24"><span class="s3">-</span> setObjectValue:</p>
+<p class="p24"><span class="s3">-</span> stringValue</p>
+<p class="p24"><span class="s3">-</span> setStringValue:</p>
+<p class="p24"><span class="s3">-</span> setNeedsDisplay</p>
+<p class="p25"><br></p>
+<p class="p22">Interacting with other controls<span class="Apple-tab-span">	</span><span class="s3">-</span> takeDoubleValueFrom:</p>
+<p class="p24"><span class="s3">-</span> takeFloatValueFrom:</p>
+<p class="p24"><span class="s3">-</span> takeIntValueFrom:</p>
+<p class="p24"><span class="s3">-</span> takeObjectValueFrom:</p>
+<p class="p24"><span class="s3">-</span> takeStringValueFrom:</p>
+<p class="p25"><br></p>
+<p class="p22">Formating text<span class="Apple-tab-span">	</span><span class="s3">-</span> alignment</p>
+<p class="p24"><span class="s3">-</span> setAlignment:</p>
+<p class="p24"><span class="s3">-</span> font</p>
+<p class="p24"><span class="s3">-</span> setFont:</p>
+<p class="p24"><span class="s3">-</span> setFloatingPointFormat:left:right:</p>
+<p class="p25"><br></p>
+<p class="p22">Managing the field editor<span class="Apple-tab-span">	</span><span class="s3">-</span> abortEditing</p>
+<p class="p24"><span class="s3">-</span> currentEditor</p>
+<p class="p24"><span class="s3">-</span> validateEditing</p>
+<p class="p25"><br></p>
+<p class="p22">Resizing the control<span class="Apple-tab-span">	</span><span class="s3">-</span> calcSize</p>
+<p class="p24"><span class="s3">-</span> sizeToFit</p>
+<p class="p25"><br></p>
+<p class="p22">Displaying a cell<span class="Apple-tab-span">	</span><span class="s3">-</span> selectCell:</p>
+<p class="p24"><span class="s3">-</span> drawCell:</p>
+<p class="p24"><span class="s3">-</span> drawCellInside:</p>
+<p class="p24"><span class="s3">-</span> updateCell:</p>
+<p class="p24"><span class="s3">-</span> updateCellInside:</p>
+<p class="p25"><br></p>
+<p class="p22">Implementing the target/action mechanism</p>
+<p class="p24"><span class="s3">-</span> action</p>
+<p class="p24"><span class="s3">-</span> setAction:</p>
+<p class="p24"><span class="s3">-</span> target</p>
+<p class="p24"><span class="s3">-</span> setTarget:</p>
+<p class="p24"><span class="s3">-</span> isContinuous</p>
+<p class="p24"><span class="s3">-</span> setContinuous:</p>
+<p class="p24"><span class="s3">-</span> sendAction:to:</p>
+<p class="p24"><span class="s3">-</span> sendActionOn:</p>
+<p class="p25"><br></p>
+<p class="p22">Getting and setting attributed-string values</p>
+<p class="p24"><span class="s3">-</span> attributedStringValue</p>
+<p class="p24"><span class="s3">-</span> setAttributedStringValue:</p>
+<p class="p25"><br></p>
+<p class="p22">Getting and setting tags<span class="Apple-tab-span">	</span><span class="s3">-</span> tag</p>
+<p class="p24"><span class="s3">-</span> setTag:</p>
+<p class="p25"><br></p>
+<p class="p22">Simulating mouse clicks<span class="Apple-tab-span">	</span><span class="s3">-</span> performClick:sender:</p>
+<p class="p23"><br></p>
+<p class="p22">Tracking the mouse<span class="Apple-tab-span">	</span><span class="s3">-</span> mouseDown:</p>
+<p class="p24"><span class="s3">-</span> ignoresMultiClick</p>
+<p class="p24"><span class="s3">-</span> setIgnoresMultiClick:</p>
+<p class="p26"><br></p>
+<p class="p11"><b>Class Methods<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p16"><b></b><b>cellClass</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27">+ (Class)<b>cellClass</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the class of cells used by the receiving class (which must be NSControl or one of its subclasses). Returns <b>nil</b> if no cell class has been specified for the receiving class or any of its superclasses (up to NSControl).</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s3">-</span> <b>cell</b>, <span class="s3">-</span> <b>setCell:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>setCellClass:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27">+ (void)<b>setCellClass:</b>(Class)<i>class</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the class of cells used by instances of the receiver, which must be the NSControl class or one of its subclasses. <span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>cell</b>, <span class="s3">-</span> <b>setCell:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p11"><b>Instance Methods</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p16"><b></b><b>abortEditing</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (BOOL)<b>abortEditing</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Terminates and discards any editing of text displayed by the receiving control and removes the field editor's delegate. Returns YES if there was a field editor associated with the control, NO otherwise.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>currentEditor</b>, <span class="s3">-</span> <b>validateEditing</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>action</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (SEL)<b>action</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the action-message selector of the receiver's cell (the default NSControl behavior), or the default action-message selector for a control with multiple cells (such as an NSMatrix or an NSForm). <span class="Apple-converted-space">  </span>For controls with multiple cells, it's better to get the action-message selector for a particular cell, for instance:</p>
+<p class="p14"><br></p>
+<p class="p19">someAction = [[theControl selectedCell] action];</p>
+<p class="p20"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setAction:</b>, <span class="s3">-</span> <b>setTarget:</b>, <span class="s3">-</span> <b>target</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>alignment</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (NSTextAlignment)<b>alignment</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p13">Returns the alignment mode of the text in the receiver's cell.<span class="Apple-converted-space">  </span>The return value can be one of these constants:<span class="Apple-converted-space">  </span>NSLeftTextAlignment, NSRightTextAlignment, NSCenterTextAlignment, NSJustifiedTextAlignment, or NSNaturalTextAlignment (the default alignment).</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span><i> </i><b>setAlignment:<span class="Apple-converted-space"> </span></b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p33"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>attributedStringValue</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (NSAttributedString *)<b>attributedStringValue</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the object value of the receiver's cell (or selected cell) as an attributed string after validating any editing currently being done. If no cell is associated with the receiver, returns an empty attributed string.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s3">-</span> <b>setAttributedStringValue:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>calcSize</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>calcSize</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Recomputes any internal sizing information for the NSControl, if necessary, by invoking its NSCell's <b>calcDrawInfo:</b> method. Most NSControls maintain a flag that informs them if any of their cells have been modified in such a way that the location or size of the cell should be recomputed. If this happens, <b>calcSize</b> is automatically invoked whenever the NSControl is displayed; you never need to invoke it yourself.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>calcSize</b> (NSMatrix, NSForm), <span class="s3">-</span> <b>sizeToFit</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>cell</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (id)<b>cell</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the receiver's cell. In NSControls with multiple cells (such as NSMatrix or NSForm), use <b>selectedCell</b> or a similar method for finding a particular cell.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>cellClass</b>, <span class="s3">-</span> <b>setCell:</b>,<span class="Apple-converted-space">  </span>+ <b>setCellClass:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>currentEditor</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (NSText *)<b>currentEditor</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">If the receiving NSControl is being edited—that is, it has an NSText object acting as its field editor, and is the first responder of its NSWindow—this method returns the NSText editor; otherwise, it returns <b>nil</b>.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>abortEditing</b>, <span class="s3">-</span> <b>validateEditing</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>doubleValue</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (double)<b>doubleValue</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the value of the receiver's cell as a double-precision floating point number.<span class="Apple-converted-space">  </span>If the NSControl contains many cells (for example, NSMatrix), then the value of the currently <b>selectedCell</b> is returned.<span class="Apple-converted-space">  </span>If the NSControl is in the process of editing the affected Cell, then <b>validateEditing</b> is invoked before the value is extracted and returned.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>floatValue</b>, <span class="s3">-</span> <b>intValue</b>, <span class="s3">-</span> <b>objectValue</b>, <span class="s3">-</span> <b>setDoubleValue:</b>, <span class="s3">-</span> <b>stringValue</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>drawCell:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>drawCell:</b>(NSCell *)<i>aCell</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">If <i>aCell</i> is the cell used to implement this NSControl, then the NSControl is displayed.<span class="Apple-converted-space">  </span>This method is provided primarily to support a consistent set of methods between NSControls with single and multiple cells, since a NSControl with multiple cells needs to be able to draw a single cell at a time.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>selectCell:</b>, <span class="s3">-</span> <b>updateCell:</b>, <span class="s3">-</span> <b>updateCellInside:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>drawCellInside:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>drawCellInside:</b>(NSCell *)<i>aCell</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Draws the inside of the receiver's cell (the area within a bezel or border). If the NSControl is transparent, the method causes the superview to draw itself.<span class="Apple-converted-space">  </span>This method invokes NSCell's <b>drawInteriorWithFrame:inView:</b> method.<span class="Apple-converted-space">  </span>This method has no effect on NSControls (such as NSMatrix and NSForm) that have multiple cells.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>selectCell:</b>, <span class="s3">-</span> <b>updateCell:</b>, <span class="s3">-</span> <b>updateCellInside:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>floatValue</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (float)<b>floatValue</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the value of the receiver's cell (or selected cell, if a multiple-cell NSControl) as a single-precision floating point number.<span class="Apple-converted-space">  </span>See <b>doubleValue</b> for more details.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>doubleValue</b>, <span class="s3">-</span> <b>intValue</b>, <span class="s3">-</span> <b>objectValue</b>,<span class="Apple-converted-space">  </span><span class="s3">-</span> <b>setFloatValue:</b>, <span class="s3">-</span> <b>stringValue</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>font</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (NSFont *)<b>font</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the NSFont used to draw text in the receiver's cell.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><i> </i><span class="s3">-</span><b> setFont:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>ignoresMultiClick</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (BOOL)<b>ignoresMultiClick</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns whether the receiving NSControl ignores multiple clicks made in rapid succession. See <b>setIgnoresMultiClick:</b> for details.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>initWithFrame:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (id)<b>initWithFrame:</b>(NSRect)<i>frameRect</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Initializes and returns a new NSControl object in <i>frameRect</i>, and creates a cell for it if the cell's class has been specified for controls of this type with <b>setCellClass:</b>. Because NSControl is an abstract class, invocations of this method should appear only in the designated initializers of sublcasses; that is, there should always be a more specific designated initializer for the subclass, as this <b>initWithFrame:</b> is the designated initializer for NSControl.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>intValue</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (int)<b>intValue</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the value of the receiver's cell (or selected cell, if a multiple-cell NSControl) as an integer.<span class="Apple-converted-space">  </span>See <b>doubleValue</b> for more details.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>floatValue</b>, <span class="s3">-</span> <b>doubleValue</b>,<span class="Apple-converted-space">  </span><span class="s3">-</span> <b>objectValue</b>, <span class="s3">-</span> <b>setIntValue:</b>, <span class="s3">-</span> <b>stringValue</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>isContinuous</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (BOOL)<b>isContinuous</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns whether the control's NSCell continuously sends its action message to its target during mouse tracking.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setContinous:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>isEnabled</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (BOOL)<b>isEnabled</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns whether the receiver reacts to mouse events.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s3">-</span> <b>setEnabled:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>mouseDown:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>mouseDown:</b>(NSEvent *)<i>theEvent</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Invoked when the mouse button is pressed while the cursor is within the bounds of the NSControl. This method highlights the NSControl's NSCell and sends it a <b>trackMouse:inRect:ofView:untilMouseUp:</b> message. Whenever the NSCell finishes tracking the mouse (for example, because the cursor has left the cell's bounds), the cell is unhighlighted. If the mouse button is still down and the cursor reenters the bounds, the cell is again highlighted and a new <b>trackMouse:inRect:ofView:untilMouseUp:</b> message is sent. This behavior repeats until the mouse button goes up. If it goes up with the cursor in the control, the state of the control is changed, and the action message is sent to the target. If the mouse button goes up when the cursor is outside the control, no action message is sent.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><i> </i><span class="s3">-</span> <b>ignoresMultiClick</b>, <span class="s3">-</span><b> trackMouse:inRect:ofView:untilMouseUp:</b>(NSCell)</p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p33"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>objectValue</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (id)<b>objectValue</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the value of the receiver's cell (or selected cell, if a multiple-cell NSControl) as an Objective-C object.<span class="Apple-converted-space">  </span>See <b>doubleValue</b> for more details.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>floatValue</b>, <span class="s3">-</span> <b>doubleValue</b>,<span class="Apple-converted-space">  </span><span class="s3">-</span> <b>intValue</b>, <span class="s3">-</span> <b>setObjectValue:</b>, <span class="s3">-</span> <b>stringValue</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p33"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>performClick:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>performClick:</b><i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Programmatically simulates a mouse click on the receiver's cell, including the invocation of the action method in the target object. Raises an exception if the action message cannot be successfully sent.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>selectCell:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>selectCell:</b>(NSCell *)<i>aCell</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">If <i>aCell</i> is a cell of the receiving NSControl and is unselected, this method selects <i>aCell</i> (by setting its state to YES) and redraws the NSControl.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>selectedCell</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>selectedCell</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (id)<b>selectedCell</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the receiver's selected cell. The default implementation for NSControl simply returns the associated cell (or <b>nil</b> if no cell has been set). Subclasses of NSControl that manage multiple cells (such as NSMatrix and NSForm) override this method to return the cell selected by users.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><i> <span class="Apple-converted-space"> </span></i> <span class="s3">-</span> <b>cell</b>, <span class="s3">-</span> <b>setCell:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>selectedTag</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (int)<b>selectedTag</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the tag integer of the receiver's selected cell (see <b>selectedCell</b>) or -1 if there is no selected cell. When you set the tag of an control with a single cell in Interface Builder, it sets the tags of both the control and the cell with the same value as a convenience.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setTag:</b>, <span class="s3">-</span> <b>tag</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>sendAction:to:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (BOOL)<b>sendAction:</b>(SEL)<i>theAction </i><b>to:</b>(id)<i>theTarget</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sends <b>sendAction:to:from:</b> to NXApp, which in turn sends a message to <i>theTarget</i> to perform <i>theAction</i>, adding the receiver as the argument to the <b>from:</b> keyword. <b>sendAction:to:</b> is invoked primarily by NSCell's <b>trackMouse:inRect:ofView:untilMouseUp:</b>.</p>
+<p class="p14"><br></p>
+<p class="p13">If <i>theAction</i> is <b>nil</b>, no message is sent. If <i>theTarget</i> is <b>nil</b>, NXApp looks for an object that can respond to the message by following the responder chain (see the class description for NSActionCell). This method returns <b>nil</b> if no object that responds to <i>theAction</i> could be found.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>action</b>, <span class="s3">-</span> <b>target</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>sendActionOn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (int)<b>sendActionOn:</b>(int)<i>mask</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the conditions on which the receiver sends action messages to its target (continuously, mouse up, and others) and returns a bit mask with which to detect the previous settings. NSControl's default implementation simply invokes the <b>sendActionOn:</b> method of its associated cell</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>sendAction:to:</b>,<b> </b><span class="s3">-</span> <b>sendActionOn:</b>(NSCell)</p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>setAction:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setAction:</b>(SEL)<i>aSelector</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the NSControl's action method to <i>aSelector</i>. If <i>aSelector</i> is <b>nil</b>, then no action messages will be sent from the NSControl.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>action</b>, <span class="s3">-</span><b> setTarget:</b>, <span class="s3">-</span><b> target</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>setAlignment:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setAlignment:</b>(NSTextAlignment)<i>mode</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the alignment of text in the receiver's cell and, if the cell is being edited, aborts editing and updates the cell. <i>mode</i> is one of five constants: NSLeftTextAlignment, NSRightTextAlignment, NSCenterTextAlignment, NSJustifiedTextAlignment, NSNaturalTextAlignment (the default alignment for the text).</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>alignment</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p33"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>setAttributedStringValue:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setAttributedStringValue:</b>(NSAttributedString *)<i>object</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the value of the receiver's cell (or selected cell) as an attributed string. If the cell is being edited, it aborts all editing before setting the value; if the cell doesn't inherit from NSActionCell, it marks it for automatic redisplay (NSActionCell performs its own updating of cells).</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> attributedStringValue</p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>setCell:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setCell:</b>(NSCell *)<i>aCell</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the receiver's cell to <i>aCell</i>. Use this method with great care as it can irrevocably damage the affected control; specifically, you should only use this method in initializers for subclasses of NSControl.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>cell</b>, <span class="s3">-</span><b> selectedCell</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>setContinuous:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setContinuous:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets whether the receiver's cell continuously sends its action message to its target as it tracks the mouse.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>isContinuous</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>setDoubleValue:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setDoubleValue:</b>(double)<i>aDouble</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the value of the receiver's cell (or selected cell) as aDouble (a double-precision floating point number). If the cell is being edited, it aborts all editing before setting the value; if the cell doesn't inherit from NSActionCell, it marks the cell's interior for automatic redisplay (NSActionCell performs its own updating of cells).</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>doubleValue</b>,<span class="s3">-</span> <b>setFloatValue:</b>, <span class="s3">-</span> <b>setIntValue:</b>, <span class="s3">-</span> <b>setObjectValue:</b>,<span class="Apple-converted-space">  </span><span class="s3">-</span> <b>setStringValue:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>setEnabled:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setEnabled:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets whether the receiving NSControl's cell—or if there is no associated cell, the NSControl itself—is active (that is, whether it tracks the mouse and sends its action to its target). If flag is NO, any editing is aborted. Redraws the entire Control if autodisplay is enabled. Subclasses may want to override this method to redraw only a portion of the control when the enabled state changes, as do NSButton and NSSlider.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><i> </i><span class="s3">-</span><i> </i><b>isEnabled</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>setFloatValue:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setFloatValue:</b>(float)<i>aFloat</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the value of the receiver's cell (or selected cell) as <i>aFloat</i> (a single-precision floating point number). If the cell is being edited, it aborts all editing before setting the value; if the cell doesn't inherit from NSActionCell, it marks the cell's interior for automatic redisplay (NSActionCell performs its own updating of cells).</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>floatValue</b>, <span class="s3">-</span> <b>setDoubleValue:</b>, <span class="s3">-</span> <b>setIntValue:</b>, <span class="s3">-</span> <b>setObjectValue:</b>,<span class="Apple-converted-space">  </span><span class="s3">-</span> <b>setStringValue:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>setFloatingPointFormat:left:right:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setFloatingPointFormat:</b>(BOOL)<i>autoRange<span class="Apple-converted-space"> </span></i></p>
+<p class="p36"><b>left:</b>(unsigned)<i>leftDigits<span class="Apple-converted-space"> </span></i></p>
+<p class="p36"><b>right:</b>(unsigned)<i>rightDigits</i><span class="Apple-converted-space"> </span></p>
+<p class="p37"><br></p>
+<p class="p13">Sets the autoranging and floating point number format of the receiver's cell, so that at most <i>leftDigits</i> are displayed to the left of the decimal point, and <i>rightDigits</i> to the right. See the description of this method in the NSCell class specification for details.<span class="Apple-converted-space">  </span>If the cell is being edited, what's typed is discarded and the cell's interior is redrawn.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setFloatingPointFormat:left:right:</b>(NSCell)</p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>setFont:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setFont:</b>(NSFont *)<i>fontObject</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the font used to draw text in the receiver's cell to <i>fontObject</i>. If the cell is being edited, the text in the cell is redrawn in the new font and the cell's editor (the NSText object used globally for editing) is updated with the new NSFont.</p>
+<p class="p14"><br></p>
+<p class="p38"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s3">-</span><span class="s5"> setFont:</span></p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>setIgnoresMultiClick:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setIgnoresMultiClick:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets whether the receiving NSControl ignores multiple clicks made in rapid succession. By default, controls treat double-clicks as two distinct clicks, triple-clicks as three distinct clicks, and so on. However, when an NSControl returning YES to this method receives multiple clicks (within a predetermined interval), each <b>mouseDown</b> event after the first is passed on to <b>super</b>.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>ignoresMultiClick</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>setIntValue:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setIntValue:</b>(int)<i>anInt</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the value of the receiver's cell (or selected cell) as an integer (<i>anInt</i>). If the cell is being edited, it aborts all editing before setting the value; if the cell doesn't inherit from NSActionCell, it marks the cell's interior for automatic redisplay (NSActionCell performs its own updating of cells).</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>intValue</b>,<span class="s3">-</span> <b>setDoubleValue:</b>, <span class="s3">-</span> <b>setFloatValue:</b>, <span class="s3">-</span> <b>setObjectValue:</b>,<span class="Apple-converted-space">  </span><span class="s3">-</span> <b>setStringValue:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>setNeedsDisplay</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setNeedsDisplay</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Marks the receiving NSControl as needing redisplay (assuming automatic display is enabled) after recalculation of its dimensions.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setsNeedsDisplay:</b>(NSView)</p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p33"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>setObjectValue:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setObjectValue:</b>(id)<i>object</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the value of the receiver's cell (or selected cell) as an Objective-C object. If the cell is being edited, it aborts all editing before setting the value; if the cell doesn't inherit from NSActionCell, it marks the cell's interior for automatic redisplay (NSActionCell performs its own updating of cells).</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>objectValue</b>, <span class="s3">-</span> <b>setDoubleValue:</b>, <span class="s3">-</span> <b>setFloatValue:</b>, <span class="s3">-</span> <b>setIntValue:</b>,<span class="Apple-converted-space">  </span><span class="s3">-</span> <b>setStringValue:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>setStringValue:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setStringValue:</b>(NSString *)<i>aString</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the value of the receiver's cell (or selected cell) as an NSString object (<i>aString</i>). If the cell is being edited, it aborts all editing before setting the value; if the cell doesn't inherit from NSActionCell, it marks the cell's interior for automatic redisplay (NSActionCell performs its own updating of cells).</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setDoubleValue:</b>, <span class="s3">-</span> <b>setFloatValue:</b>, <span class="s3">-</span> <b>setIntValue:</b>,<span class="Apple-converted-space">  </span><span class="s3">-</span> <b>setObjectValue:</b>, <span class="s3">-</span> <b>stringValue</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>setTag:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setTag:</b>(int)<i>anInt</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the tag of the receiving NSControl to <i>anInt</i>. It doesn't affect the tag of the receiver's cell.</p>
+<p class="p14"><br></p>
+<p class="p38"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s3">-</span><span class="s5"> <b>tag</b></span></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>setTarget:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>setTarget:</b>(id)<i>anObject</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the target object for the action message of the receiver's cell; NSCell's <b>setTarget:</b> is used instead of any subclass override of this method. If <i>anObject</i> is <b>nil</b> and the control sends an action message, the application looks for an object that can respond to the message by following the responder chain (see description of the NSActionCell class for details).</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>action</b>, <span class="s3">-</span> <b>setAction:</b>, <span class="s3">-</span> <b>target</b>, <span class="s3">-</span><b> setTarget:</b>(NSCell)</p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>sizeToFit</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>sizeToFit</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Changes the width and the height of the receiver's frame so that they are the minimum needed to contain its cell.<span class="Apple-converted-space">  </span>If you want a multiple-cell custom subclass of NSControl to size itself to fit its cells, you must override this method. <span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><i> </i><span class="s3">-</span> <b>calcSize</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>stringValue</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (NSString *)<b>stringValue</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the value of the receiver's cell (or selected cell, if a multiple-cell NSControl) as an NSString object.<span class="Apple-converted-space">  </span>See <b>doubleValue</b> for details.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>floatValue</b>, <span class="s3">-</span> <b>doubleValue</b>,<span class="Apple-converted-space">  </span><span class="s3">-</span> <b>intValue</b>, <span class="s3">-</span> <b>objectValue</b>, <span class="s3">-</span> <b>setStringValue:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>tag</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (int)<b>tag</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the tag identifying the receiving control (not the tag of the receiver's cell).</p>
+<p class="p14"><br></p>
+<p class="p38"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s3">-</span><span class="s5"> <b>setTag:</b></span></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>takeDoubleValueFrom:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>takeDoubleValueFrom:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the double-precision floating-point value of the receiving control's cell (or selected cell) to the value obtained by sending a <b>doubleValue</b> message to <i>sender</i>. You can use this method to link action messages between controls.<span class="Apple-converted-space">  </span>It permits one control or cell (<i>sender</i>) to affect the value of another control (the receiver) by invoking this method in an action message to the receiver.<span class="Apple-converted-space">  </span>For example, a text field can be made the target of a slider.<span class="Apple-converted-space">  </span>Whenever the slider is moved, it will send a <b>takeDoubleValueFrom:</b> message to the text field.<span class="Apple-converted-space">  </span>The text field will then get the slider's floating-point value, turn it into a text string, and display it, thus tracking the value of the slider.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>takeFloatValueFrom:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>takeFloatValueFrom:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the receiving NSControl's selected cell to the value obtained by sending a <b>floatValue</b> message to another control or cell (<i>sender</i>). See <b>takeDoubleValueFrom:</b> for more information.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>takeIntValueFrom:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>takeIntValueFrom:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the receiving NSControl's selected cell to the value obtained by sending a <b>intValue</b> message to another control or cell (<i>sender</i>). See <b>takeDoubleValueFrom:</b> for more information.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p33"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>takeObjectValueFrom:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>takeObjectValueFrom:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the receiving NSControl's selected cell to the value obtained by sending a <b>objectValue</b> message to another control or cell (<i>sender</i>). See <b>takeDoubleValueFrom:</b> for more information.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>takeStringValueFrom:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>takeStringValueFrom:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Sets the receiving NSControl's selected cell to the value obtained by sending a <b>stringValue</b> message to another control or cell (<i>sender</i>). See <b>takeDoubleValueFrom:</b> for more information.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>target</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (id)<b>target</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Returns the target object of the receiver's cell.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>action</b>, <span class="s3">-</span> <b>setAction:</b>, <span class="s3">-</span> <b>setTarget:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p16"><b></b><b>updateCell:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>updateCell:</b>(NSCell *)<i>aCell</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Redisplays <i>aCell</i> or marks it for redisplay.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>updateCellInside:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>updateCellInside:</b>(NSCell *)<i>aCell</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Redisplays the inside of <i>aCell</i> or marks it for redisplay.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>validateEditing</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>validateEditing</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p13">Validates the user's changes to text in a cell of the receiving control. Validation sets the object value of the cell to the current contents of the cell's editor (the NSText object used for editing), storing its a simple NSString or an attributed string object based on the attributes of the editor.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s3">-</span> <b>abortEditing</b>, <span class="s3">-</span> <b>currentEditor</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p11"><b>Methods Implemented By the Delegate</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p33"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>control:didFailToFormatString:errorDescription:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (BOOL)<b>control:</b>(NSControl *)<i>control</i><span class="Apple-converted-space"> </span></p>
+<p class="p36"><b>didFailToFormatString:</b>(NSString *)<i>string</i></p>
+<p class="p36"><b>errorDescription:</b>(NSString *)<i>error</i></p>
+<p class="p37"><i></i><br></p>
+<p class="p13">Invoked when the formatter for <i>control</i>'s cell (or selected cell) cannot convert an NSString (<i>string)</i> to an underlying object. <i>error</i> is a localized user-presentable NSString that explains why the conversion failed. Evaluate the error or query the user and return YES if <i>string</i> should be accepted as-is, or NO if <i>string</i> should be rejected.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>getObjectValue:forString:errorDescription:</b>(NSFormatter)</p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p33"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>control:didFailToValidatePartialString:errorDescription:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>control:</b>(NSControl *)<i>control</i><span class="Apple-converted-space"> </span></p>
+<p class="p36"><b>didFailToValidatePartialString:</b>(NSString *)<i>string</i></p>
+<p class="p36"><b>errorDescription:</b>(NSString *)<i>error</i></p>
+<p class="p37"><i></i><br></p>
+<p class="p13">Invoked when the formatter for <i>control</i>'s cell (or selected cell) rejects a partial string a user is typing into the cell. This NSString (<i>string</i>) includes the character that caused the rejection.<i> error</i> is a localized user-presentable NSString that explains why the validation failed. Evaluate the error or query the user and return YES if <i>string</i> should be accepted as-is, or NO if <i>string</i> should be rejected.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>isPartialStringValid:newEditingString:errorDescription:</b>(NSFormatter)</p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p33"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>control:isValidObject:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (BOOL)<b>control:</b>(NSControl *)<i>control</i> <b>isValidObject:</b>(id)<i>object</i></p>
+<p class="p28"><i></i><br></p>
+<p class="p13">Invoked when the cursor leaves a cell but before the string value of the cell's object is displayed. Return YES to allow display of the string and NO to reject display and return the cursor to the cell. This method gives the delegate the opportunity to validate the contents of <i>control</i>'s cell (or selected cell). In validating, the delegate checks <i>object</i> to determine if it falls within a permissible range, has required attributes, accords with a given context, and so on. An example of an object subject to such and evaluation is an NSDate object which should not represent a future date, or a monetary amount (represented by an NSNumber) that exceeds a predetermined limit.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>control:textShouldBeginEditing:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (BOOL)<b>control:</b>(NSControl *)<i>control</i> <b>textShouldBeginEditing:</b>(NSText *)<i>fieldEditor</i></p>
+<p class="p28"><i></i><br></p>
+<p class="p13">Sent directly by <i>control</i> to the delegate when the cursor tries to enter a cell of the control that allows editing of text (such as a text field or form field). Return YES if the NSControl's <i>fieldEditor</i> should be allowed to start editing the text, NO otherwise.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>control:textShouldEndEditing:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (BOOL)<b>control:</b>(NSControl *)<i>control</i> <b>textShouldEndEditing:</b>(NSText *)<i>fieldEditor</i></p>
+<p class="p28"><i></i><br></p>
+<p class="p13">Sent directly by <i>control</i> to the delegate when the cursor tries to leave a a cell of the control that allows editing of text (such as a text field or a form field). Return YES if the control's <i>fieldEditor</i> should be allowed to end its edit session, NO otherwise.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p33"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>control:textView:doCommandBySelector:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (BOOL)<b>control:</b>(NSControl *)<i>control</i><span class="Apple-converted-space"> </span></p>
+<p class="p36"><b>textView:</b>(NSTextView *)<i>textView</i></p>
+<p class="p36"><b>doCommandBySelector:</b>(SEL)<i>command</i></p>
+<p class="p37"><i></i><br></p>
+<p class="p13">Invoked when users press keys with predefined bindings in <i>control</i>'s cell or selected cell, as communicated to the control by the cell's field editor (<i>textView</i>). The delegate returns YES if it handles the key binding, and NO otherwise. These bindings are usually implemented as methods (<i>command</i>) defined in NSResponder; examples of such key bindings are arrow keys (for directional movement) and the Escape key (for name completion). By implementing this method, the delegate can override the default implementation of <i>command</i> and supply its own behavior.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">For example, the default method for completing partially typed pathnames or symbols (usually when users press the Escape key) is <b>complete:</b>. The default implementation of <b>complete:</b> (in NSResponder) does nothing. The delegate could evaluate <i>command</i> and, if it's <b>complete:</b>, get the current string from <i>textView</i> and then expand it, or display a list of potential completions, or do whatever else is appropriate.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>controlTextDidBeginEditing:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>controlTextDidBeginEditing:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p28"><i></i><br></p>
+<p class="p13">Sent by the default notification center to the delegate and all observers of the notification when a control with editable cells (such as a text field, form field, or an NSMatrix) begins editing text.<span class="Apple-converted-space">  </span>The name of the notification (<i>aNotification</i>) is always NSControlTextDidBeginEditingNotification. Use the key @"NSFieldEditor" to obtain the field editor from <i>aNotification</i>'s <b>userInfo</b> dictionary. If the delegate implements this method, it's automatically registered to receive this notification.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>controlTextDidEndEditing:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>controlTextDidEndEditing:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p28"><i></i><br></p>
+<p class="p13">Sent by the default notification center to the delegate and all observers of the notification when a control with editable cells (such as a text field, form field, or an NSMatrix) ends editing text.<span class="Apple-converted-space">  </span>The name of the notification (<i>aNotification</i>) is always NSControlTextDidEndEditingNotification. Use the key @"NSFieldEditor" to obtain the field editor from <i>aNotification</i>'s <b>userInfo</b> dictionary. If the delegate implements this method, it's automatically registered to receive this notification.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b></b><b>controlTextDidChange:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p27"><span class="s3">-</span> (void)<b>controlTextDidChange:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p28"><i></i><br></p>
+<p class="p13">Sent by the default notification center to the delegate when the text in the receiving control (usually a text field, form, or NSMatrix with editable cells) changes. The name of the notification <i>aNotification</i> is always NSControlTextDidChangeNotification. Use the key @"NSFieldEditor" to obtain the field editor from <i>aNotification</i>'s <b>userInfo</b> dictionary. If the delegate implements this method, it's automatically registered to receive this notification.</p>
+<p class="p14"><br></p>
+<p class="p21"><br></p>
+<p class="p11"><b>Notifications<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p22">NSControl posts the following notifications to interested observers and its delegate.</p>
+<p class="p39"><br></p>
+<p class="p16"><b>NSControlTextDidBeginEditingNotification</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b>Notification Object</b><span class="Apple-tab-span">	</span>The NSControl posting the notification. The field editor of the edited cell originally sends a NSTextDidBeginEditingNotification to the control, which passes it on in this form to its delegate.</p>
+<p class="p23"><br></p>
+<p class="p22"><b>User Info</b><span class="Apple-tab-span">	</span></p>
+<p class="p39"><br></p>
+<p class="p42"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">@"NSFieldEditor"<span class="Apple-tab-span">	</span>The edited cell's field editor</p>
+<p class="p45"><br></p>
+<p class="p13">See description of <b>controlTextDidBeginEditing:</b>, above, for details.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b>NSControlTextDidChangeNotification</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b>Notification Object</b><span class="Apple-tab-span">	</span>The NSControl posting the notification. The field editor of the edited cell originally sends a NSTextDidChangeNotification to the control, which passes it on in this form to its delegate.</p>
+<p class="p23"><br></p>
+<p class="p22"><b>User Info</b><span class="Apple-tab-span">	</span></p>
+<p class="p39"><br></p>
+<p class="p42"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">@"NSFieldEditor"<span class="Apple-tab-span">	</span>The edited cell's field editor</p>
+<p class="p45"><br></p>
+<p class="p13">See description of <b>controlTextDidChange:</b>, above, for details.</p>
+<p class="p14"><br></p>
+<p class="p35"><br></p>
+<p class="p16"><b>NSControlTextDidEndEditingNotification</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b>Notification Object</b><span class="Apple-tab-span">	</span>The NSControl posting the notification. The field editor of the edited cell originally sends a NSTextDidEndEditingNotification to the control, which passes it on in this form to its delegate.</p>
+<p class="p23"><br></p>
+<p class="p22"><b>User Info</b><span class="Apple-tab-span">	</span></p>
+<p class="p39"><br></p>
+<p class="p42"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">@"NSFieldEditor"<span class="Apple-tab-span">	</span>The edited cell's field editor</p>
+<p class="p45"><br></p>
+<p class="p13">See description of <b>controlTextDidEndEditing:</b>, above.</p>
+<p class="p14"><br></p>
+</body>
+</html>

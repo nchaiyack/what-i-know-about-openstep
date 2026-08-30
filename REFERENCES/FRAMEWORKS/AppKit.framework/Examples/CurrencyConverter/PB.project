@@ -1,0 +1,33 @@
+{
+    APPCLASS = Application; 
+    DYNAMIC_CODE_GEN = YES; 
+    FILESTABLE = {
+        CLASSES = (Converter.m, ConverterController.m); 
+        FRAMEWORKS = (AppKit.framework, Foundation.framework); 
+        H_FILES = (Converter.h, ConverterController.h); 
+        IMAGES = (application.tiff); 
+        INTERFACES = (CurrencyConverter.nib); 
+        M_FILES = (); 
+        OTHER_LIBS = (); 
+        OTHER_LINKED = (CurrencyConverter_main.m); 
+        OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble, m.template, h.template); 
+    }; 
+    GENERATEMAIN = YES; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {CurrencyConverter.nib = CurrencyConverter.nib; }; 
+    MAKEFILEDIR = "$(NEXT_ROOT)/NextDeveloper/Makefiles/pb_makefiles"; 
+    NEXTSTEP_APPICON = application.tiff; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    NEXTSTEP_DOCUMENTEXTENSIONS = (); 
+    NEXTSTEP_INSTALLDIR = "$(HOME)/Apps"; 
+    NEXTSTEP_MAINNIB = CurrencyConverter; 
+    PDO_UNIX_BUILDTOOL = $NEXT_ROOT/NextDeveloper/bin/make; 
+    PDO_UNIX_MAINNIB = CurrencyConverter; 
+    PROJECTNAME = CurrencyConverter; 
+    PROJECTTYPE = Application; 
+    PROJECTVERSION = 2.6; 
+    SYSTEMEXTENSIONS = (); 
+    WINDOWS_BUILDTOOL = $NEXT_ROOT/NextDeveloper/Executables/make; 
+    WINDOWS_INSTALLDIR = "$(HOME)/Apps"; 
+    WINDOWS_MAINNIB = CurrencyConverter; 
+}

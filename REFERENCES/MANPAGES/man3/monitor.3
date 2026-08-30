@@ -1,0 +1,207 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)monitor.3	6.1 (Berkeley) 5/15/85
+.\"
+.TH MONITOR 3  "July 29, 1993" "NeXT, Inc."
+.SH NAME
+monitor, monstartup, moncontrol, moninit, monreset, monoutput, monaddition, moncount \- prepare execution profile
+.SH SYNOPSIS
+.nf
+extern void monstartup(
+	char *lowpc,
+	char *highpc);
+.sp .5
+extern void monitor(
+	char *lowpc,
+	char *highpc,
+	char *buf,
+	int bufsiz,
+	int nfunc);
+.sp .5
+extern void moncontrol(
+	int mode);
+.sp .5
+extern void moninit(void);
+.sp .5
+extern void moninitshlibs(void);
+.sp .5
+extern void monreset(void);
+.sp .5
+extern void monoutput(
+	const char *filename);
+.sp .5
+extern void monaddition(
+	char *lowpc,
+	char *highpc);
+.sp .5
+extern void moncount(
+	char *frompc,
+	char *selfpc)
+.fi
+.SH DESCRIPTION
+These functions support execution profiling.  An executable program created with the profiling option
+.B \-pg
+of
+.IR cc (1)
+automatically includes calls for the
+.IR gprof (1)
+monitor, which displays execution times and statistics for the functions in the program.  The functions described here provide different sorts of control
+over the profiling.
+.PP
+.I Monstartup
+is a high-level interface to
+.IR profil (2).
+.I Lowpc
+and
+.I highpc
+specify the address range that is to be sampled; the lowest address sampled
+is that of
+.I lowpc
+and the highest is just below
+.IR highpc .
+.I Monstartup
+allocates a buffer
+and passes it to
+.I monitor
+(see below), 
+which records into it a histogram of periodically sampled values of the program counter, 
+as well as counts of calls to certain functions.
+Only calls to functions compiled with the profiling option
+.B \-pg
+of
+.IR cc (1)
+are recorded.
+.PP
+To profile the entire program, it is sufficient to include the line:
+.PP
+.nf
+	moninit();
+.fi
+.PP
+in the source code.  This routine is invoked just before main() is called, if the program is linked with the
+profiling run-time start-off 
+(\fI/lib/gcrt0.o\fR).  
+The profiling run-time start-off is
+used instead of the standard run-time start-off when the program is linked with
+.IR cc (1)
+and the profiling option
+.B \-pg
+is specified on the link line.
+.PP
+To stop execution monitoring and write the results on the file
+.I gmon.out,
+use
+.PP
+	monitor(0);
+.LP
+Again, this happens automatically in the profiling run-time startoff, 
+which defines a version of
+.IR exit (2)
+that makes this call to monitor.
+After the file
+.I gmon.out 
+is written, the program
+.IR gprof (1)
+can be used to examine the results.
+.PP
+.I Moncontrol
+is used to selectively control profiling within a program.
+When the program starts, profiling begins.
+To stop the collection of histogram ticks and call counts, use
+.PP
+	moncontrol (0);
+.LP
+and to resume the collection of histogram ticks and call counts, use
+.PP
+	moncontrol (1);
+.LP
+This allows the cost of particular operations to be measured.
+Note that an output file will be produced upon program exit,
+regardless of the state of 
+.I moncontrol.
+.PP
+.I Monitor
+is a low-level interface to
+.IR profil (2).
+.I Lowpc
+and
+.I highpc
+are the addresses of two functions;
+.I buffer
+is the address of a user-supplied array of
+.I bufsize
+short integers.  The parameter
+.I nfunc
+is ignored and exists only for historical reasons.
+For the results to be significant, especially where there are small, heavily
+used routines, it is suggested that the buffer be no more
+than a few times smaller than the range of locations sampled.
+.I Monitor
+divides the buffer into space to record the histogram
+of program counter samples over the range
+.I lowpc
+to
+.IR highpc .
+The space to record call counts of functions compiled with the 
+.B \-pg
+option to
+.IR cc (1)
+is allocated by
+.I moncount.
+.PP
+.I Moninit
+is invoked just before main() is called in the profiling run-time start-off
+(\fI/lib/gcrt0.o\fR).  
+It sets up the entire program to be profiled.
+This includes a call to
+.IR moninitshlibs ,
+which causes entry points in any shared libraries used to have their call counts
+and histogram ticks of the shared libraries' code to be recorded.
+Recording for shared libraries can be disabled by linking in a version of
+.I moninitshlibs
+that does nothing.
+.I Moninit
+also causes the Objective-C run-time system 
+to record counts for Objective-C messages
+that are sent.
+.I Moninit
+also sets up profiling for any code that will be loaded with 
+.IR rld (3).
+For call counts of the code loaded with 
+.IR rld (3)
+to be recorded, the code must have been compiled with the profiling option
+.B \-pg
+of
+.IR cc (1).
+.PP
+.I Monreset
+resets all the histogram ticks and call counts to zero.
+.PP
+.I Monoutput
+writes the profiling information into the specified output file.
+.PP
+To the existing set
+of regions,
+.I monaddition
+adds a region to record histogram ticks and call counts.  
+This function is used to add regions for shared libraries and code loaded
+with 
+.IR rld (3).
+.PP
+.I Moncount
+is the routine that increments the call counts for the call site
+.I frompc
+which is calling the routine at
+.IR selfpc .
+.I Moncount
+gets called at the beginning of each routine compiled
+with the profiling option
+.B \-pg
+to
+.IR cc (1).
+.SH FILES
+gmon.out
+.SH "SEE ALSO"
+cc(1), gprof(1), profil(2)

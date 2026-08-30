@@ -1,0 +1,33 @@
+{\rtf0\ansi{\fonttbl\f0\fswiss Helvetica;}
+\paperw9520\paperh10700
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\ql\qnatural
+
+\f0\b\fs36 \cf0 CompositeLab
+\b0\fs24 \
+\
+CompositeLab is a simple application useful for interactively demonstrating OPENSTEP compositing modes. Two separate images, source and destination, whose colors (and opacity) are chosen through the use of NSColorWells & the NSColorPanel, are composited together using a compositing mode specified by the user. The images are kept instances of NSImage. One subclass of NSView, CompositeView, manages all target/action methods and drawing.\
+\
+User can select three colors: background, source, and destination. Background color is the color painted in the view in all three panes. The source image is first cleared to transparent, then painted using the source color (unless the source image comes from an image file, in which case the source color is ignored).  The destination image is created the same way, by first clearing the image and then painting in the destination color. Then the destination is composited to the result image using the Copy mode, and the source is composited on top using the user-specified compositing mode.  Finally all three images are displayed in the view using the Sover mode. Thus you get to see the three images as seen above the specified background color.\
+\
+NSImages are used with the 
+\b drawMethod:inObject:
+\b0  method.  Three methods (
+\b drawSource:
+\b0 , 
+\b drawDestination:
+\b0 , and 
+\b drawResult:
+\b0 ) provide the PostScript to draw the three images.  The NSImages call these methods and cache the drawing whenever they need to; this happens when they are composited the first time and whenever they are composited after the contents change (indicated by a call to the 
+\b recache
+\b0  method).  If CompositeLab allowed printing, these methods would also be called during printing, to produce the image at the full resolution of the printer rather than at the resolution they were cached at in the window server.\
+\
+CompositeLab also demonstrates how to accept colors and images dragged in through the use of interapplication drag mechanism. In addition to the minimally required methods (
+\b draggingEntered:
+\b0  and 
+\b performDragOperation:
+\b0 ), CompositeView overrides 
+\b draggingUpdated:
+\b0  and 
+\b draggingExited:
+\b0  to give the user feedback as he or she drags a color over the view without dropping it.\
+}

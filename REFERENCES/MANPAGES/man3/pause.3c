@@ -1,0 +1,35 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)pause.3c	6.1 (Berkeley) 5/9/85
+.\"
+.TH PAUSE 3C "August 1, 1992"
+.UC 4
+.SH NAME
+pause \- stop until signal
+.SH SYNOPSIS
+.B int pause(void);
+.SH DESCRIPTION
+.I Pause
+suspends the calling process until delivery of a signal whose action
+is either to execute a signal-catching function or to terminate the
+process.
+.PP
+If the action is to terminate the process, 
+.I pause
+never returns.
+.PP
+If the action is to execute a signal-catching function, 
+.I pause
+returns after the signal-catching function returns.
+.SH "RETURN VALUE
+Always returns \-1.
+.SH ERRORS
+.I Pause
+always returns:
+.TP 15
+[EINTR]
+The call was interrupted.
+.SH "SEE ALSO
+alarm(2), kill(2), select(2), setitimer(2), sigpause(2), wait(2)

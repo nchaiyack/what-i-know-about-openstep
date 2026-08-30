@@ -1,0 +1,216 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f3\fmodern Courier;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh12580
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\f2\b\fs52\li1460{\NeXTHelpMarker62 \markername NS_DEV_DOCFOR:objc_protocol:NSLocking;}
+¬}\f2\b\i0\ulnone\ql\fs52\fi0\li1460\gray0\fc0\cf0\up0\dn0 NSLocking \
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2740\li4220\fc0\cf0 Adopted By:	
+\f0\b0\fs28 NSConditionLock\
+
+\fi0 NSLock\
+NSRecursiveLock \
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 Foundation/NSLock.h \
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Protocol Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 The NSLocking protocol declares the elementary methods adopted by classes that define lock objects. A lock object is used to coordinate the actions of multiple threads of execution within a single application. By using a lock object, an application can protect critical sections of code from being executed simultaneously by separate threads, thus protecting shared data and other shared resources from corruption.\
+
+\fs14 \
+
+\fs28 For example, consider a multithreaded application in which each thread updates a shared counter. If two threads simultaneously fetch the current value into local storage, increment it, and then write the value back, the counter will be incremented only once, losing one thread's contribution. However, if the code that manipulates the shared data (the 
+\i critical section
+\i0  of code) must be locked before being executed, only one thread at a time can perform the updating operation, and collisions are prevented.\
+
+\fs14 \
+
+\fs28 A lock object is either locked or unlocked. You 
+\i acquire
+\i0  a lock by sending the object a 
+\b lock
+\b0  message, thus putting the object in the locked state. You 
+\i relinquish
+\i0  a lock by sending an 
+\b unlock
+\b0  message, and thus putting the object in the unlocked state. (The NEXTSTEP classes that adopt this protocol define additional ways to acquire and relinquish locks.)\
+
+\fs14 \
+
+\fs28 The 
+\b lock
+\b0  method as declared in this protocol is 
+\i blocking
+\i0 . That is, the thread that sends a 
+\b lock
+\b0  message is blocked from further execution until the lock is acquired (presumably because some other thread relinquishes its lock). Classes that adopt this protocol typically add methods that offer nonblocking alternatives.\
+
+\fs14 \
+
+\fs28 These NEXTSTEP classes conform to the NSLocking protocol: \
+
+\fs14 \
+
+\pard\tx6740\tx9540\f2\b\fs28\li1900\fc0\cf0 Class	Adds these features to the basic protocol\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 NSLock	A nonblocking lock method; the ability to limit the duration of a locking attempt.\
+
+\fs14 \
+
+\fs28 NSConditionLock	The ability to postpone entry to a critical section until a condition is met.\
+
+\fs14 \
+
+\fs28 NSRecursiveLock	The ability for a single thread to acquire a lock more than once without deadlocking.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The locking mechanism that these classes use causes a thread to sleep while waiting to acquire a lock rather than to poll the system constantly. Thus, lock objects can be used to lock time-consuming operations without causing system performance to degrade. See the class specifications for these classes for further information on their behavior and usage.\
+
+\fs14 \
+
+\fs28 There is some performance cost in acquiring a lock, so it's best to avoid the overhead if possible. An application developer has control over whether the application will execute with multiple threads, so it's clear when locking is appropriate. A library developer doesn't necessarily know whether library code will execute in a multithreaded environment. In this case, it's best to test whether the code is executing in a multithreaded environment before attempting to acquire a lock. The following example illustrates how this is done.\
+
+\fs14 \
+
+\fs28 Assume your application uses a Counter object to record various operations. Here's one design that lets the Counter know whether it is multithreaded:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 + (void)initialize \
+\{\
+    if ([NSThread isMultiThreaded]) \{\
+		[self taskNowMultiThreaded:nil];\
+	\} else \{\
+		[[NSNotificationCenter defaultCenter] addObserver:self\
+			selector:@selector(taskNowMultiThreaded:)\
+			name:NSBecomingMultiThreaded object:nil];\
+	\}\
+\}\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 In the initialize method (which, by definition, is invoked before any Counter objects are created), the Counter class object first checks whether the application has already become multithreaded and if so invokes its own 
+\b taskNowMultiThreaded:
+\b0  method. Otherwise, it registers as an observer of the NSBecomingMultiThreaded notification so that 
+\b taskNowMultiThreaded:
+\b0  will be invoked when the application becomes multithreaded. \
+
+\fs14 \
+
+\fs28 Counter's 
+\b taskNowMultiThreaded:
+\b0  method creates a lock object that the threads use to coordinate their activities:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 + (void)taskNowMultiThreaded:(NSNotification *)event \
+\{\
+	if (!theLock)\
+		theLock = [[NSLock alloc] init];\
+\}\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b\fs28\li1500\fc0\cf0 theLock
+\b0 , a static variable declared in the class implementation file, is assigned a value of 
+\b nil
+\b0  until 
+\b taskNowMultiThreaded:
+\b0  is invoked. Since messages sent to 
+\b nil
+\b0  are permitted and have no effect, code within Counter that acts on shared data can be written like this:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 [theLock lock];\
+/* Operate on shared data */\
+[theLock unlock];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 With this approach, the overhead associated with lock operations is only incurred if the application is multithreaded. This code, however, raises another issue. What happens if one of the statements between the 
+\b lock
+\b0  and 
+\b unlock
+\b0  messages cause the application to become multithreaded? Then the 
+\b unlock
+\b0  message wouldn't be paired with the preceding 
+\b lock
+\b0 .\
+
+\fs14 \
+
+\fs28 In normal usage, locking and unlocking messages are paired. However, as in the example above, it might be convenient to unlock a lock object that hasn't yet been locked. This is permitted with two restrictions. First, you can send an unpaired unlocking message to a lock object as long as the object has never before been locked. Second, of the NEXTSTEP classes that conform to the NSLocking protocol, only NSConditionLock and NSLock allow an unpaired unlocking message. NSRecursiveLock requires locking and unlocking messages to be paired.\
+
+\fs14 \
+
+\fs28 NEXTSTEP's locking classes are designed to work in a well-behaved, multithreaded environment: The protection they offer can be subverted by the use of signal handlers. A signal handler can interrupt a thread, execute code that affects shared data, and then let the thread resume without alerting the thread that the application has, in effect, become multithreaded. For this reason, it's recommended that you don't use signal handlers in multithreaded NEXTSTEP applications.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker5862 \markername NS_DEV_DOCFOR:objc_method:[NSLocking-lock];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 lock\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0  (void)
+\b lock
+\b0 	\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Attempts to acquire a lock. This method blocks a thread's execution until the lock can be acquired.\
+
+\fs14 \
+
+\fs28 An application protects a critical section of code by requiring a thread to acquire a lock before executing the code. Once the critical section is past, the thread relinquishes the lock by invoking 
+\b unlock
+\b0 .\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker6193 \markername NS_DEV_DOCFOR:objc_method:[NSLocking-unlock];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 unlock\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b unlock
+\b0 	\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Relinquishes a previously acquired lock. \
+
+\fs14 \
+
+}

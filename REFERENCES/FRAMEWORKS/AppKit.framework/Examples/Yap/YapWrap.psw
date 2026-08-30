@@ -1,0 +1,44 @@
+/*
+ *  The following pswrap functions are used by YapOutput in the Yap program...
+ *  By: Ali Ozer
+ *
+ *  You may freely copy, distribute and reuse the code in this example.
+ *  NeXT disclaims any warranty of any kind, expressed or implied,
+ *  as to its fitness for any particular use.
+ */
+
+defineps GetUserTime (| int *utime)
+  yaptime utime
+endps
+
+/* GetFocus gets the bbox of the current clippath, the ctm, and current win number. ReFocus focuses given these values.
+*/
+defineps GetFocus(|float *llx; float *lly, *urx, *ury, ctm[6]; int *win)
+    gsave clippath pathbbox ury urx lly llx grestore
+    matrix currentmatrix {ctm} forall
+    currentwindow win
+endps
+
+defineps ReFocus(int win; float ctm[6]; float llx, lly, urx, ury)
+    win windowdeviceround	% focus on this window
+    ctm setmatrix		% set up the matrix
+    newpath			% reestablish the clip path
+	llx lly moveto
+	llx ury lineto
+	urx ury lineto
+	urx lly lineto
+    closepath clip
+    newpath
+endps
+
+/* Draw gridlines "every" apart from 0,0 to width,height
+*/
+defineps DrawGrid(float width, height, every)
+    5 6 div setgray
+    0 every width {
+        0 moveto 0 height rlineto stroke
+    } for
+    0 every height {
+        0 exch moveto width 0 rlineto stroke
+   } for
+endps

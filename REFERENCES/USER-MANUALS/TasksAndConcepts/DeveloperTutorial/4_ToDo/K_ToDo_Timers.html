@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 20.0px; font: 14.0px Times}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px Helvetica; color: #0000ff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Helvetica; min-height: 11.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 20.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 32.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #0000ff}
+    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 5.0px Helvetica; color: #0000ff; min-height: 6.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #260075}
+    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 3.0px Helvetica; color: #260075; min-height: 4.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 3.0px Helvetica; color: #ff00ff; min-height: 4.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 2.0px Helvetica; color: #ff00ff; min-height: 2.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 32.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; text-indent: 36.0px; font: 12.0px Courier}
+    p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; text-indent: 36.0px; font: 2.0px Courier; min-height: 2.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 0.0px; font: 2.0px Courier; min-height: 2.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -16.0px; font: 14.0px Times}
+    p.p21 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -16.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; text-indent: 36.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -16.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 20.0px; font: 5.0px Times; min-height: 6.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Times}
+    span.s3 {color: #ff00ff}
+    span.s4 {color: #0000ff}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"> Previous Section<span class="Apple-converted-space">  </span> Next Section</p>
+<p class="p2"><br></p>
+<p class="p4"><b>4. To Do Tutorial</b><b></b></p>
+<p class="p5"><b>Setting Up Timers for Notification Messages</b><b></b></p>
+<p class="p6"><b></b><br></p>
+<p class="p3">The To Do application includes as a feature the capability for notifying users of items with impending due times. Users can specify various intervals before the due time for these notifications, which take the form of a message in an attention panel. In this section you will implement the notification feature of To Do. In the process you'll learn the basics of creating, setting, and responding to timers.<span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p3">Here's how it works: Each ToDoItem with a “When to Notify” switch (other than “Do not notify”) selected in the inspector panel—and hence has a positive <span class="s2"><b>secsUntilNotif</b></span> value—has a timer set for it. If a user cancels a notification by selecting “Do not notify,” the document controller invalidates the timer. When a timer fires, it invokes a method that displays the attention panel, selects the “Do not notify” switch, and sets <span class="s2"><b>secsUntilNotif</b></span> to zero.<span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p3">Implementing the timer feature takes place entirely in Project Builder, but extends across several classes.</p>
+<p class="p8"><br></p>
+<p class="p9"><b>1<span class="Apple-tab-span">	</span>Add the timer as an instance variable to ToDoItem.</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><span class="s3"><span class="Apple-tab-span">	</span></span>Open <b>ToDoItem.h</b>.</p>
+<p class="p12"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span>Add the instance variable itemTimer of class NSTimer.</p>
+<p class="p12"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span>Write accessor methods to get and set this instance variable.</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><b>2<span class="Apple-tab-span">	</span>Create and set the timer, or invalidate it.</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><span class="s3"><span class="Apple-tab-span">	</span></span>Open <b>ToDoDoc.m</b>.</p>
+<p class="p12"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span>Implement the s<b>etTimerForItem:</b> method, which is shown below.</p>
+<p class="p13"><br></p>
+<p class="p15"><br></p>
+<p class="p16">- (void)setTimerForItem:(ToDoItem *)anItem</p>
+<p class="p17"><br></p>
+<p class="p16">{</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">    </span>NSDate *notifDate;</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">    </span>NSTimer *aTimer;</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">    </span>if ([anItem secsUntilNotif]) { <span class="Apple-converted-space">                        </span>/* 1 */</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">        </span>notifDate = [[anItem day] addTimeInterval:[anItem</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">            </span>secsUntilNotif]];</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">        </span>aTimer = [NSTimer scheduledTimerWithTimeInterval:<span class="Apple-converted-space">  </span>/* 2 */</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">                   </span>[notifDate timeIntervalSinceNow]</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">            </span>target:self</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">          </span>selector:@selector(itemTimerFired:)</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">          </span>userInfo:anItem</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">           </span>repeats:NO];</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">        </span>[anItem setItemTimer:aTimer];</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">    </span>} else <span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">        </span>[[anItem itemTimer] invalidate];<span class="Apple-converted-space">                  </span>/* 3 */</p>
+<p class="p17"><br></p>
+<p class="p16">}</p>
+<p class="p18"><br></p>
+<p class="p19"><br></p>
+<p class="p3">This method sets or invalidates a timer, depending on whether the ToDoItem passed in has a positive <span class="s2"><b>secsUntilNotif</b></span> value.<span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p20">1.<span class="Apple-tab-span">	</span>Tests the ToDoItem to see if it has a positive <span class="s2"><b>secsUntilNotif</b></span> value and, if it has, composes the time the notification should be sent.</p>
+<p class="p21"><br></p>
+<p class="p20">2.<span class="Apple-tab-span">	</span>Creates a timer and schedules it to fire at the notification time, and instructs it to invoke <span class="s2"><b>itemTimerFired:</b></span> when it fires. It also sets the timer in the ToDoItem.</p>
+<p class="p21"><br></p>
+<p class="p20">3.<span class="Apple-tab-span">	</span>If the <span class="s2"><b>secsUntilNotif</b></span> variable is zero, invalidates the item's timer.</p>
+<p class="p21"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>3<span class="Apple-tab-span">	</span>Respond to timers firing.</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><span class="s3"><span class="Apple-tab-span">	</span></span>Implement <b>itemTimerFired:</b> as shown at right.</p>
+<p class="p13"><br></p>
+<p class="p15"><br></p>
+<p class="p16">- (void)itemTimerFired:(id)timer</p>
+<p class="p17"><br></p>
+<p class="p16">{</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">    </span>id anItem = [timer userInfo];</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">    </span>ToDoInspector *inspController = [[[NSApp delegate] <span class="Apple-converted-space">    </span>/* 1 */</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">        </span>inspector] delegate];</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">    </span>NSDate *dueDate = [[anItem day] addTimeInterval: <span class="Apple-converted-space">      </span>/* 2 */</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">        </span>[anItem secsUntilDue]];</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">    </span>NSBeep();</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">    </span>NSRunAlertPanel(@"To Do", @"%@ on %@", nil, nil, nil,<span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">        </span>[anItem itemName], [dueDate<span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">        </span>descriptionWithCalendarFormat:@"%b %d, %Y at %I:%M %p"<span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">        </span>timeZone:[NSTimeZone defaultTimeZone] locale:nil]);</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">    </span>[anItem setSecsUntilNotif:0];</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">    </span>[inspController resetNotifSwitch];</p>
+<p class="p17"><br></p>
+<p class="p16">}</p>
+<p class="p17"><br></p>
+<p class="p22"><br></p>
+<p class="p3">When a ToDoItem's timer goes off, it invokes the <span class="s2"><b>itemTimerFired:</b></span> method (remember, you designated this method when you scheduled the timer).<span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p20">1.<span class="Apple-tab-span">	</span>This method communicates with ToDoInspector in a more direct manner than notification. It gets the ToDoInspector object through this chain of association: the delegate of the application object is ToDoController, which holds the <span class="s2"><b>id</b></span> of the inspector panel as an instance variable, and the delegate of the inspector panel is ToDoInspector.</p>
+<p class="p21"><br></p>
+<p class="p20">2.<span class="Apple-tab-span">	</span>Composes the notification time (as an NSDate), beeps, and displays an attention panel specifying the name of a ToDoItem and the time it is due. It then sets the ToDoItem's <span class="s2"><b>secsUntilNotif</b></span> instance variable to zero, and sends <span class="s2"><b>resetNotifSwitch</b></span> to ToDoInspector to have it reset the “When to Notify” switches to “Do not Notify.”</p>
+<p class="p21"><br></p>
+<p class="p23"><br></p>
+<p class="p3"><b><i><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-1-title" data-source="K_ToDo_Timers.rtfd/TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-1-title">TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></i></b><b><i>Before You Go On<span class="Apple-converted-space"> </span></i></b></p>
+<p class="p24"><b><i></i></b><br></p>
+<p class="p3"><span class="s2"><b>Implement resetNotifSwitch</b></span>: You haven't written ToDoInspector's <span class="s2"><b>resetNotifSwitch</b></span> method yet, so do it now as an exercise. It should select the “Do not Notify” switch after turning off all switches in the matrix, and then force a redisplay of the switch matrix.</p>
+<p class="p3"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-2-title" data-source="K_ToDo_Timers.rtfd/758816_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-2-title">758816_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p3">Next you must send <span class="s2"><b>setTimerForItem:</b></span> at the right place and time, which is ToDoInspector, when the user alters a “When to Notify” value.</p>
+<p class="p7"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>4<span class="Apple-tab-span">	</span>Send the message that sets the timer at the right times</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><span class="s3"><span class="Apple-tab-span">	</span></span>Open <b>ToDoInspector.m</b>.</p>
+<p class="p12"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span>In <b>switchChecked:</b>, insert the <b>setTimerForItem:</b> message below <i>after</i> the<span class="Apple-converted-space"> </span></p>
+<p class="p11"><span class="Apple-tab-span">	</span>switch statement evaluating which “When to Notify” switch was checked.</p>
+<p class="p12"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span>In <b>controlTextDidEndEditing:</b>, insert the same message at the end of the block<span class="Apple-converted-space"> </span></p>
+<p class="p11"><span class="Apple-tab-span">	</span>related to the <b>inspNotifOtherHours</b> variable.</p>
+<p class="p22"><br></p>
+<p class="p16">[[[NSApp mainWindow] delegate] setTimerForItem:currentItem];</p>
+<p class="p18"><br></p>
+<p class="p13"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p3">Instead of archiving an item's NSTimer, To Do re-creates and resets it when the application is launched.</p>
+<p class="p7"><br></p>
+<p class="p7"><br></p>
+<p class="p9"><b>5<span class="Apple-tab-span">	</span>When the application is launched, reset item timers.</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><span class="s3"><span class="Apple-tab-span">	</span></span>Add the code below to ToDoDoc's <b>initWithFile:</b> method.</p>
+<p class="p15"><br></p>
+<p class="p16"><span class="Apple-converted-space">   </span>if ([self activeDays]) {</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">        </span>dayenum = [[self activeDays] keyEnumerator];</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">        </span>while (itemDate = [dayenum nextObject]) {</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">            </span>NSEnumerator *itemenum;</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">            </span>ToDoItem *anItem=nil;</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">            </span>NSArray *itemArray = [[self activeDays]</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">               </span>objectForKey:itemDate];</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">            </span>itemenum = [itemArray objectEnumerator];</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">            </span>while ((anItem = [itemenum nextObject]) &amp;&amp;</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">                   </span>[anItem isKindOfClass:[ToDoItem class]] &amp;&amp;</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">                   </span>[anItem secsUntilNotif]) {</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">                </span>[self setTimerForItem:anItem];</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">            </span>}</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">        </span>}</p>
+<p class="p17"><br></p>
+<p class="p16"><span class="Apple-converted-space">    </span>}<span class="Apple-converted-space">   </span></p>
+<p class="p18"><br></p>
+<p class="p19"><br></p>
+<p class="p18"><br></p>
+<p class="p3">This block of code traverses the <span class="s2"><b>activeDays</b></span> dictionary, evaluating each ToDoItem within the dictionary. If the ToDoItem has a positive <span class="s2"><b>secsUntilNotif</b></span> value, it invokes <span class="s2"><b>setTimerForItem:</b></span> to have a timer set for it.</p>
+<p class="p7"><br></p>
+<p class="p7"><br></p>
+<p class="p3"><span class="s4"><b>Related Concept:<span class="Apple-converted-space"> </span></b></span> <span class="Apple-converted-space">  </span>Tick Tock Brrrring: Run Loops and Timers</p>
+<p class="p7"><br></p>
+</body>
+</html>

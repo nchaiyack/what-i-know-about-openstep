@@ -1,0 +1,1227 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f3\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+{\colortbl;\red0\green0\blue0;}
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+\fs100 \
+
+\f2\b\fs56\li3220 Defined Types\
+
+\fs80 \
+
+\fs28\li2460 \
+NXSoundDeviceError\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	SoundKit/NXSoundDevice.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef enum _NXSoundDeviceError \{\
+
+\pard\tx3220\tx3980\tx4720\b\li2460\fc0\cf0 	NX_SoundDeviceErrorNone
+\b0 ,\
+
+\b 	NX_SoundDeviceErrorKernel
+\b0 ,\
+
+\b 	NX_SoundDeviceErrorTimeout
+\b0 ,\
+	
+\b NX_SoundDeviceErrorLookUp
+\b0 ,\
+
+\b 	NX_SoundDeviceErrorHost
+\b0 ,\
+
+\b 	NX_SoundDeviceErrorNoDevice
+\b0 ,\
+
+\b 	NX_SoundDeviceErrorNotActive
+\b0 ,\
+	
+\b NX_SoundDeviceErrorTag
+\b0 ,\
+
+\b   	NX_SoundDeviceErrorParameter
+\b0 ,\
+
+\b 	NX_SoundDeviceErrorMax\
+
+\b0 \} 
+\b NXSoundDeviceError\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\b0\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	Error codes returned by Sound Kit methods that access the sound driver. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+NXSoundParameterTag (Sound Device Keys)\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	SoundKit/NXSoundParameterTags.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef enum _NXSoundParameterTag  \{\
+
+\pard\tx3220\tx3980\tx4720\b\li2460\fc0\cf0 	NX_SoundDeviceBufferSize,\
+	NX_SoundDeviceBufferCount,\
+	NX_SoundDeviceDetectPeaks,\
+	NX_SoundDeviceRampUp,\
+	NX_SoundDeviceRampDown,\
+	NX_SoundDeviceInsertZeros,\
+	NX_SoundDeviceDeemphasize,\
+	NX_SoundDeviceMuteSpeaker,\
+	NX_SoundDeviceMuteHeadphone,\
+	NX_SoundDeviceMuteLineOut,\
+	NX_SoundDeviceOutputLoudness,\
+	NX_SoundDeviceOutputAttenuationStereo,\
+	NX_SoundDeviceOutputAttenuationLeft,\
+	NX_SoundDeviceOutputAttenuationRight,\
+	NX_SoundDeviceAnalogInputSource,\
+	NX_SoundDeviceMonitorAttenuation,\
+	NX_SoundDeviceInputGainStereo,\
+	NX_SoundDeviceInputGainLeft,\
+	NX_SoundDeviceInputGainRight,\
+
+\b0 	... 
+\i (continued under the next heading)\
+
+\i0 \} 
+\b NXSoundParameterTag\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\b0\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	Sound parameter key tags that apply to NXSoundDevice objects. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+NXSoundParameterTag (Sound Device Values)\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	SoundKit/NXSoundParameterTags.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef enum _NXSoundParameterTag  \{\
+
+\pard\tx3220\tx3980\tx4720\li2460\fc0\cf0 	... 
+\i (continued from the previous heading)\
+
+\b\i0 	NX_SoundDeviceAnalogInputSource_Microphone,\
+	NX_SoundDeviceAnalogInputSource_LineIn,\
+
+\b0 	... 
+\i (continued under the next heading)\
+
+\i0 \} 
+\b NXSoundParameterTag\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\b0\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	Sound parameter value tags that apply to NXSoundDevice objects.  These are acceptable values for the NX_SoundDeviceAnalogInputSource parameter.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+NXSoundParameterTag (Sound Stream Keys)\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	SoundKit/NXSoundParameterTags.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef enum _NXSoundParameterTag  \{\
+
+\pard\tx3220\tx3980\tx4720\li2460\fc0\cf0 	... 
+\i (continued from the previous heading)\
+
+\b\i0 	NX_SoundStreamDataEncoding,\
+ 	NX_SoundStreamSamplingRate,\
+ 	NX_SoundStreamChannelCount,\
+    	NX_SoundStreamHighWaterMark,\
+    	NX_SoundStreamLowWaterMark,\
+    	NX_SoundStreamSource,\
+    	NX_SoundStreamSink,\
+    	NX_SoundStreamDetectPeaks,\
+    	NX_SoundStreamGainStereo,\
+    	NX_SoundStreamGainLeft,\
+    	NX_SoundStreamGainRight,\
+
+\b0 	... 
+\i (continued under the next heading)\
+
+\i0 \} 
+\b NXSoundParameterTag\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\b0\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	Sound parameter key tags that apply to NXSoundStream objects.  \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+NXSoundParameterTag (Sound Stream Values)\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	SoundKit/NXSoundParameterTags.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef enum _NXSoundParameterTag  \{\
+
+\pard\tx3220\tx3980\tx4720\li2460\fc0\cf0 	... 
+\i (continued from the previous heading)\
+
+\b\i0 	NX_SoundStreamDataEncoding_Linear16,\
+ 	NX_SoundStreamDataEncoding_Linear8,\
+
+\b0     
+\b      	NX_SoundStreamDataEncoding_Mulaw8,\
+
+\b0     
+\b 	NX_SoundStreamDataEncoding_Alaw8,\
+    	NX_SoundStreamDataEncoding_AES,\
+    	NX_SoundStreamSource_Analog,\
+    	NX_SoundStreamSource_AES,\
+    	NX_SoundStreamSink_Analog,\
+    	NX_SoundStreamSink_AES\
+
+\b0 \} 
+\b NXSoundParameterTag\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\b0\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	Sound parameter value tags that apply to NXSoundStream objects.  The first five are values for the NX_SoundStreamDataEncoding parameter; the next two are for the NX_SoundStreamSource parameter; the last two are for the NX_SoundStreamSink parameter.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+NXSoundStatus\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	SoundKit/Sound.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	typedef enum \{\
+
+\pard\tx3220\tx3980\tx4720\li2460\fc0\cf0 	
+\b NX_SoundStopped
+\b0 ,\
+	
+\b NX_SoundRecording
+\b0 ,\
+	
+\b NX_SoundPlaying
+\b0 ,\
+	
+\b NX_SoundInitialized
+\b0 ,\
+	
+\b NX_SoundRecordingPaused
+\b0 ,\
+	
+\b NX_SoundPlayingPaused
+\b0 ,\
+	
+\b NX_SoundRecordingPending
+\b0 ,\
+	
+\b NX_SoundPlayingPending
+\b0 ,\
+	
+\b NX_SoundFreed
+\b0 ,\
+\} 
+\b NXSoundStatus
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	These represent the activities of a Sound object, as returned by Sound's
+\b  status
+\b0  method.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+SNDCompressionSubheader\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/soundstruct.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef struct \{\
+
+\pard\tx3220\tx3980\tx4720\li2460\fc0\cf0 	int 
+\b originalSize\
+
+\b0 	int 
+\b method
+\b0 ;\
+	int 
+\b numDropped
+\b0 ;\
+	int 
+\b encodeLength
+\b0 ;\
+\} 
+\b SNDCompressionSubheader
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	This structure describes the attributes of a compressed sound.  It immediately follows the general SNDSoundStruct header.  If the sound data isn't compressed, this subheader is absent.  The structure's fields are\
+
+\fs20 \
+
+\pard\tx5480\tx8500\fs28\li2840\fc0\cf0 originalSize	The size of the uncompressed data, in bytes\
+method	The compression format (see ªCompression Formats,º below)\
+numDropped	The number of dropped bits, if applicable\
+encodeLength	The number of samples represented by an encoded block\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+SNDError\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/sounderror.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef enum \{\
+
+\pard\tx3220\tx3980\tx4720\li2460\fc0\cf0 	
+\b SND_ERR_NONE
+\b0 ,\
+
+\b 	SND_ERR_NOT_SOUND
+\b0 ,\
+	
+\b SND_ERR_BAD_FORMAT
+\b0 ,\
+
+\b 	SND_ERR_BAD_RATE
+\b0 ,\
+
+\b 	SND_ERR_BAD_CHANNEL
+\b0 ,\
+
+\b 	SND_ERR_BAD_SIZE
+\b0 ,\
+
+\b 	SND_ERR_BAD_FILENAME
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_OPEN
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_WRITE
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_READ
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_ALLOC
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_FREE
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_COPY
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_RESERVE
+\b0 ,\
+
+\b 	SND_ERR_NOT_RESERVED
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_RECORD
+\b0 ,\
+
+\b 	SND_ERR_ALREADY_RECORDING
+\b0 ,\
+
+\b 	SND_ERR_NOT_RECORDING
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_PLAY
+\b0 ,\
+
+\b 	SND_ERR_ALREADY_PLAYING
+\b0 ,\
+
+\b 	SND_ERR_NOT_IMPLEMENTED
+\b0 ,\
+
+\b 	SND_ERR_NOT_PLAYING
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_FIND
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_EDIT
+\b0 ,\
+
+\b 	SND_ERR_BAD_SPACE
+\b0 ,\
+
+\b 	SND_ERR_KERNEL
+\b0 ,\
+
+\b 	SND_ERR_BAD_CONFIGURATION
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_CONFIGURE
+\b0 ,\
+
+\b 	SND_ERR_UNDERRUN
+\b0 ,\
+
+\b 	SND_ERR_ABORTED
+\b0 ,\
+
+\b 	SND_ERR_BAD_TAG
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_ACCESS
+\b0 ,\
+
+\b 	SND_ERR_TIMEOUT
+\b0 ,\
+
+\b 	SND_ERR_BUSY
+\b0 ,\
+
+\b 	SND_ERR_CANNOT_ABORT
+\b0 ,\
+
+\b 	SND_ERR_INFO_TOO_BIG
+\b0 ,\
+
+\b 	SND_ERR_UNKNOWN
+\b0 ,\
+\} 
+\b SNDError
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	These are the sound error codes returned by many sound functions.  The
+\b  SNDSoundError() 
+\b0 function returns a pointer to a string that describes the error given one of these codes as an argument.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+SNDNotificationFun\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/performsound.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef int (*
+\b SNDNotificationFun
+\b0 )\
+
+\pard\tx3220\tx3980\tx4720\li2460\fc0\cf0 	(SNDSoundStruct *
+\i s
+\i0 , \
+	int 
+\i tag
+\i0 , \
+	int 
+\i err
+\i0 );\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	This is the notification function required as an argument to methods such as 
+\b SNDStartPlaying()
+\b0  and 
+\b SNDStartRecording()
+\b0 .\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+SNDSoundStruct\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/performsound.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef struct \{\
+
+\pard\tx3220\tx3980\tx4720\li2460\fc0\cf0     	int 
+\b magic
+\b0 ;      \
+    	int 
+\b dataLocation
+\b0 ;  \
+    	int 
+\b dataSize
+\b0 ;       \
+    	int 
+\b dataFormat
+\b0 ;    \
+    	int 
+\b samplingRate
+\b0 ;   \
+    	int 
+\b channelCount
+\b0 ;  \
+    	char 
+\b info
+\b0 [4];      \
+\} 
+\b SNDSoundStruct
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	This structure defines the header for sound data.  It's thoroughly explained in the description of the
+\b  SNDAlloc()
+\b0  function.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+snddriver_handlers\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/sounddriver.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef struct snddriver_handlers \{\
+
+\pard\tx3220\tx3980\tx4720\li2460\fc0\cf0 	void *
+\b arg
+\b0 ;\
+	int 
+\b timeout
+\b0 ;\
+	sndreply_tagged_t 
+\b started
+\b0 ;\
+    	sndreply_tagged_t 
+\b completed
+\b0 ;\
+    	sndreply_tagged_t 
+\b aborted
+\b0 ;\
+    	sndreply_tagged_t 
+\b paused
+\b0 ;\
+    	sndreply_tagged_t 
+\b resumed
+\b0 ;\
+    	sndreply_tagged_t 
+\b overflow
+\b0 ;\
+    	sndreply_recorded_data_t 
+\b recorded_data
+\b0 ;\
+	sndreply_dsp_cond_true_t 
+\b condition_true
+\b0 ;\
+	sndreply_dsp_msg_t 
+\b dsp_message
+\b0 ;\
+    	sndreply_dsp_msg_t 
+\b dsp_error
+\b0 ;\
+ \} 
+\b snddriver_handlers_t
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	This structure is required as an argument by the 
+\b snddriver_reply_handler()
+\b0  function.  It declares, primarily, a series of call-back functions that are used by the sound driver to communicate with your program.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+sndreply_dsp_cond_true_t\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/sounddriver.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef void (*
+\b sndreply_dsp_cond_true_t
+\b0 )\
+
+\pard\tx3220\tx3980\tx4720\li2460\fc0\cf0 	(void *
+\i arg
+\i0 , \
+	unsigned int 
+\i mask
+\i0 ,\
+	unsigned int 
+\i flags
+\i0 ,\
+	unsigned int 
+\i regs
+\i0 );\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	Function type used by the sound driver's reply handler.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+sndreply_dsp_msg_t\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/sounddriver.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef void (*
+\b sndreply_dsp_msg_t
+\b0 )\
+
+\pard\tx3220\tx3980\tx4720\li2460\fc0\cf0 	(void *
+\i arg
+\i0 , \
+	int 
+\i data,\
+	
+\i0 int 
+\i size
+\i0 );\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	Function type used by the sound driver's reply handler.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+sndreply_recorded_data_t\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/sounddriver.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef void (*
+\b sndreply_recorded_data_t
+\b0 )\
+
+\pard\tx3220\tx3980\tx4720\li2460\fc0\cf0 	(void *
+\i arg
+\i0 , \
+	int 
+\i tag,\
+	
+\i0 void 
+\i *data,\
+
+\i0 	int 
+\i size
+\i0 );\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	Function type used by the sound driver's reply handler.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+sndreply_tagged_t\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/sounddriver.h\
+
+\fs30 \
+
+\pard\tx2460\tx3220\tx5740\tx8000\fs28\fi-1560\li2460\fc0\cf0 SYNOPSIS	typedef void (*
+\b sndreply_tagged_t
+\b0 )\
+
+\pard\tx3220\tx3980\tx4720\li2460\fc0\cf0 	(void *
+\i arg
+\i0 , \
+	int 
+\i tag
+\i0 );\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	Function type used by the sound driver's reply handler.\
+
+\fs20 \
+
+\fs80 \
+
+\pard\f2\b\fs56\li3220\fc0\cf0 Symbolic Constants\
+
+\fs80 \
+
+\fs28\li2460 \
+ATC Frame Size\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/soundstruct.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	ATC_FRAME_SIZE  \
+
+\fs30 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	This constant represents the size of a single ATC (Audio Transform Compression) frame. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+Compression Formats\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/soundstruct.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	SND_CFORMAT_BITS_DROPPED\
+
+\pard\tx6500\tx10520\li2460\fc0\cf0 SND_CFORMAT_BIT_FAITHFUL\
+SND_CFORMAT_ATC  \
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	These constants represent the three types of sound data compression. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+DSP Host Commands\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/sounddriver.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	SNDDRIVER_DSP_HC_HOST_RD\
+
+\pard\tx6500\tx10520\li2460\fc0\cf0 SNDDRIVER_DSP_HC_HOST_WD\
+SNDDRIVER_DSP_HC_SYS_CALL  \
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	These constants represent the DSP host commands that can be passed as an argument to 
+\b snddriver_dsp_host_cmd()
+\b0 . \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+DSP Protocol Options\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/sounddriver.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	SNDDRIVER_DSP_PROTO_DSPERR\
+
+\pard\tx6500\tx10520\li2460\fc0\cf0 SNDDRIVER_DSP_PROTO_C_DMA\
+SNDDRIVER_DSP_PROTO_S_DMA \
+SNDDRIVER_DSP_PROTO_HFABORT\
+SNDDRIVER_DSP_PROTO_DSPMSG \
+SNDDRIVER_DSP_PROTO_RAW   \
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	These constants represent the DSP protocols that can be passed as an argument to 
+\b snddriver_dsp_protocol()
+\b0 . \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+Executable File Segment Name\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	SoundKit/Sound.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	NX_SOUND_SEGMENT_NAME\
+
+\fs30 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	This represents the segment of an executable file in which sounds are stored. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+Null Notification Function\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/performsound.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	SND_NULL_FUN\
+
+\fs30 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	Used to pass a null 
+\b SNDNotificationFun()
+\b0  function as an argument to functions such as 
+\b SNDStartPlaying()
+\b0  and 
+\b SNDStartRecording()
+\b0 . \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+Sampling Rates\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/soundstruct.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\tx10580\fs28\fi100\li800\fc1\cf1 SYNOPSIS	Code	Rate\
+
+\f2\b\fs6\fc0\cf0 \
+
+\pard\tx6500\tx10520\f0\b0\fs28\li2460\fc0\cf0 SND_RATE_CODEC 	8012.8210513 Hz\
+SND_RATE_LOW	22050.0 Hz\
+SND_RATE_HIGH	44100.0 Hz\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	These constants represent the three sampling rates that are directly supported by the sound software and hardware. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+Sound Device Access Codes\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/accesssound.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\tx10580\fs28\fi100\li800\fc1\cf1 SYNOPSIS	Code	Device\
+
+\f2\b\fs6\fc0\cf0 \
+
+\pard\tx6500\tx10520\f0\b0\fs28\li2460\fc0\cf0 SND_ACCESS_IN
+\b  
+\b0 	Sound-in\
+SND_ACCESS_DSP	DSP\
+SND_ACCESS_OUT	Sound-out\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	Used by the sound device access methods, such as 
+\b SNDAcquire()
+\b0  and 
+\b SNDReserve()
+\b0 , to represent specific devices. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+Sound Device Timeout Limit\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	SoundKit/NXSoundDevice.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	NX_SOUNDDEVICE_TIMEOUT_MAX	\
+
+\fs30 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	The default timeout limit for communication with the sound driver.  The value is, essentially, infinity.  You can reset the timeout limit through NXSoundDriver's 
+\b setTimeout:
+\b0  method. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+Sound Device Error Code Limits\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	SoundKit/NXSoundDevice.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	NX_SOUNDDEVICE_ERROR_MIN\
+
+\pard\tx6500\tx10520\li2460\fc0\cf0 NX_SOUNDDEVICE_ERROR_MAX \
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	The minimum and maximum NXSoundDeviceError values.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+Sound Parameter Tag Bases\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	SoundKit/NXSoundParameterTags.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	NX_SoundDeviceParameterKeyBase\
+
+\pard\tx6500\tx10520\li2460\fc0\cf0 NX_SoundDeviceParameterValueBase\
+NX_SoundStreamParameterKeyBase\
+NX_SoundStreamParameterValueBase\
+NX_SoundParameterTagMax\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	Lowest tag values for the four sets of parameter tags.  The parameter tag values start at 0; NX_SoundParmaeterTagMax is the highest parameter tag value reserved by the Sound Kit.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+Sound Stream Control Codes\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/sounddriver.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	SNDDRIVER_AWAIT_STREAM \
+
+\pard\tx6500\tx10520\li2460\fc0\cf0 SNDDRIVER_ABORT_STREAM\
+SNDDRIVER_PAUSE_STREAM \
+SNDDRIVER_RESUME_STREAM\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	These constants represent the controlling operations that are specified as an argument to 
+\b snddriver_stream_control()
+\b0 .\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+Sound Stream Null Time\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	SoundKit/NXSoundStream.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	NX_SOUNDSTREAM_TIME_NULL\
+
+\fs30 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	Provides a 
+\b timeval
+\b0  value (as defined in 
+\b sys/time.h
+\b0 ) that indicates the present time.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+Sound Stream Path Codes\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/sounddriver.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	SNDDRIVER_STREAM_FROM_SNDIN \
+
+\pard\tx6500\tx10520\li2460\fc0\cf0 SNDDRIVER_STREAM_TO_SNDOUT_22\
+SNDDRIVER_STREAM_TO_SNDOUT_44 \
+SNDDRIVER_STREAM_FROM_DSP\
+SNDDRIVER_STREAM_TO_DSP\
+SNDDRIVER_STREAM_DSP_TO_SNDOUT_22 \
+SNDDRIVER_STREAM_DSP_TO_SNDOUT_44\
+SNDDRIVER_STREAM_THROUGH_DSP_TO_SNDOUT_22\
+SNDDRIVER_STREAM_THROUGH_DSP_TO_SNDOUT_44\
+SNDDRIVER_DMA_STREAM_TO_DSP\
+SNDDRIVER_DMA_STREAM_FROM_DSP\
+SNDDRIVER_DMA_STREAM_THROUGH_DSP_TO_SNDOUT_22\
+SNDDRIVER_DMA_STREAM_THROUGH_DSP_TO_SNDOUT_44 \
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	These constants represent the sound stream paths that can be specified as an argument to the 
+\b snddriver_stream_setup()
+\b0  function.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+Sound Structure Formats\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/soundstruct.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	SND_FORMAT_UNSPECIFIED \
+
+\pard\tx6500\tx10520\li2460\fc0\cf0 SND_FORMAT_MULAW_8\
+SND_FORMAT_LINEAR_8 \
+SND_FORMAT_LINEAR_16 \
+SND_FORMAT_LINEAR_24 \
+SND_FORMAT_LINEAR_32 \
+SND_FORMAT_FLOAT\
+SND_FORMAT_DOUBLE \
+SND_FORMAT_INDIRECT \
+SND_FORMAT_DSP_CORE   \
+SND_FORMAT_DSP_DATA_8  \
+SND_FORMAT_DSP_DATA_16 \
+SND_FORMAT_DSP_DATA_24   \
+SND_FORMAT_DSP_DATA_32  \
+SND_FORMAT_DISPLAY \
+SND_FORMAT_MULAW_SQUELCH  \
+SND_FORMAT_EMPHASIZED\
+SND_FORMAT_COMPRESSED  \
+SND_FORMAT_COMPRESSED_EMPHASIZED \
+SND_FORMAT_DSP_COMMANDS \
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	These constants represent the various sound formats in which sound data can be stored.  Note that not all formats are playable without conversion.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+Sound Structure Magic Number\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	sound/soundstruct.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	SND_MAGIC\
+
+\fs30 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	This constant is used to identify a sound structure.  It's the value of the 
+\b magic
+\b0  field of all valid SNDSoundStruct structures.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2460\fc0\cf0 \
+SoundView Display Modes\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	SoundKit/SoundView.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	NX_SOUNDVIEW_MINMAX\
+
+\pard\tx6500\tx10520\li2460\fc0\cf0 NX_SOUNDVIEW_WAVE\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	These constants represent the two display modes offered by the SoundView class.  See the SoundView class specification for details.\
+
+\fs20 \
+
+\fs80 \
+
+\pard\f2\b\fs56\li3220\fc0\cf0 Global Variables\
+
+\fs80 \
+
+\fs28\li2460 \
+NXSoundPboardType\
+
+\fs30 \
+
+\pard\tx2460\f0\b0\fs28\fi-2000\li2460\fc0\cf0 DECLARED IN	SoundKit/Sound.h\
+
+\fs30 \
+
+\pard\tx2460\tx6500\fs28\fi100\li800\fc0\cf0 SYNOPSIS	extern NXAtom 
+\b NXSoundPboardType
+\b0 ;\
+
+\fs30 \
+
+\pard\tx2460\fs28\fi-2000\li2460\fc0\cf0 DESCRIPTION	This is the sound pasteboard type.\
+
+\fs20 \
+
+\pard\tx2840\tx3220\tx4000\fs28\li2460\fc0\cf0 \
+
+\fs20 \
+
+}

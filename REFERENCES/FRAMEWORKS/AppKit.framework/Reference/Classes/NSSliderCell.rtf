@@ -1,0 +1,804 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh12580
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 „
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\f2\b\fs52\li1460{\NeXTHelpMarker62 \markername NS_DEV_DOCFOR:objc_class:NSSliderCell;}
+¨}\f2\b\i0\ulnone\ql\fs52\fi0\li1460\gray0\fc0\cf0\up0\dn0 NSSliderCell\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSActionCell : NSCell : NSObject\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding, NSCopying (from NSCell)\
+
+\fi0 NSObject (from NSObject)\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 AppKit/NSSliderCell.h \
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 An NSSliderCell controls the appearance and behavior of an NSSlider, or of a single slider in an NSMatrix.\
+
+\fs14 \
+
+\fs28 You can customize an NSSliderCell to a certain degree, using its 
+\b set...
+\b0  methods. If these do not allow you sufficient flexibility, you can create a subclass. In that subclass, you can override any of the following methods:
+\b  knobRectFlipped:
+\b0 , 
+\b drawBarInside:flipped:
+\b0 , 
+\b drawKnob:
+\b0 , or 
+\b prefersTrackingUntilMouseUp
+\b0 .\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Asking about the cell's behavior 	
+\f1 -
+\f0  altIncrementValue\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 + prefersTrackingUntilMouseUp \
+
+\f1 -
+\f0 ÄtrackRect\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Changing the cell's behavior	
+\f1 -
+\f0  setAltIncrementValue:\
+
+\fs10 \
+
+\fs28 Displaying the cell	
+\f1 -
+\f0  knobRectFlipped:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  drawBarInside:flipped:\
+
+\f1 -
+\f0  drawKnob \
+
+\f1 -
+\f0  drawKnob: \
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Asking about the cell's appearance	
+\f1 -
+\f0  knobThickness\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  isVertical\
+
+\f1 -
+\f0  title\
+
+\f1 -
+\f0  titleCell \
+
+\f1 -
+\f0  titleFont\
+
+\f1 -
+\f0  titleColor \
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Changing the cell's appearance	
+\f1 -
+\f0  setKnobThickness:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  setTitle:\
+
+\f1 -
+\f0  setTitleCell:\
+
+\f1 -
+\f0  setTitleColor:\
+
+\f1 -
+\f0  setTitleFont: \
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Asking about the value limits	
+\f1 -
+\f0 ÄmaxValue\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 ÄminValue\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Changing the value limits	
+\f1 -
+\f0 ÄsetMaxValue\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 ÄsetMinValue\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker1280 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-prefersTrackingUntilMouseUp];}
+¨}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 prefersTrackingUntilMouseUp\
+
+\fs6 \
+
+\f0\b0\fs28\fi-620\li2520 + (BOOL)
+\b prefersTrackingUntilMouseUp
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 By default, this method returns YES, so that an NSSliderCell continues to track the mouse even after the mouse leaves the cell's tracking rectangle. This means that, once you take hold of a slider's knob (by putting the mouse inside the cell's frame rectangle and pressing the mouse button), you retain control of the knob until you release the mouse button, even if you drag the mouse clear to the other side of the screen.\
+
+\fs14 \
+
+\fs28 Never call this method explicitly. Override it if you create a subclass of NSSliderCell that you want to track the mouse differently.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker1928 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-altIncrementValue];}
+¨}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 altIncrementValue\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0  (double)
+\b altIncrementValue
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the amount that the slider will change its value when the user drags the knob with the Alt key held down. \
+
+\fs14 \
+
+\fs28 Unless you call 
+\b setAltIncrementValue
+\b0 , 
+\b altIncrementValue
+\b0  returns 
+\f1 -
+\f0 1.0, and the slider behaves no differently with the Alt key down than with it up.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0\b ÄsetAltIncrementValue:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker2279 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-drawBarInside:flipped:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 drawBarInside:flipped:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b drawBarInside:
+\b0 (NSRect)
+\i aRect 
+\b\i0 flipped:
+\b0 (BOOL)
+\i flipped
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Draws the slider's bar–but not its bezel or knob–in 
+\i aRect
+\i0 . \
+
+\fs14 \
+
+\i\fs28 flipped
+\i0  indicates whether the cell's control view–that is, the NSSlider or NSMatrix associated with the NSSliderCell–has a flipped coordinate system.\
+
+\fs14 \
+
+\fs28 You should never invoke this method explicitly. It's included so that you can override it in a subclass.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\f1\i0 -
+\f0\i Ä
+\b\i0 drawKnob:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker2707 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-drawKnob];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 drawKnob\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b drawKnob
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Calculates the rectangle in which the knob should be drawn, then invokes 
+\b drawKnob:
+\b0  to actually draw the knob. Before this message is sent, a 
+\b lockFocus
+\b0  method must be sent to the cell's control view.\
+
+\fs14 \
+
+\fs28 You might invoke this method if you override one of the display methods belonging to NSControl or NSCell.\
+
+\fs14 \
+
+\fs28 If you create a subclass of NSSliderCell, don't override this method. Override 
+\b drawKnob:
+\b0  instead.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker3144 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-drawKnob:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 drawKnob:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b drawKnob:
+\b0 (NSRect)
+\i knobRect
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Draws the knob in 
+\i knobRect
+\i0 . Before this message is sent, a 
+\b lockFocus
+\b0  message must be sent to the cell's control view. \
+
+\fs14 \
+
+\fs28 You should never invoke this method explicitly. It's included so that you can override it in a subclass.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker3419 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-isVertical];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isVertical\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (int)
+\b isVertical
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns 1 if the slider is vertical, 0 if it's horizontal, and 
+\f1 -
+\f0 1 if the orientation can't be determined (for example, if the slider hasn't been displayed yet). A slider is defined as vertical if its height is greater than its width.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker3688 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-knobRectFlipped:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 knobRectFlipped:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSRect)
+\b knobRectFlipped:
+\b0 (BOOL)
+\i flipped
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the rectangle in which the knob will be drawn, specified in the coordinate system of the NSSlider or NSMatrix with which the NSSliderCell is associated. 
+\i flipped
+\i0  indicates whether that coordinate system is flipped, a question you can answer by sending NSView's 
+\b isFlipped
+\b0  message to the NSMatrix or NSSlider.\
+
+\fs14 \
+
+\fs28 The knob rectangle depends on where in the slider the knob belongs–that is, it depends on the SliderCell's minimum and maximum values, and on the value which the position of the knob will represent.\
+
+\fs14 \
+
+\fs28 You should never invoke this method explicitly. It's included so that you can override it in a subclass.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker4372 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-knobThickness];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 knobThickness\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (float)
+\b knobThickness
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the knob's thickness, in pixels. The thickness is defined to be the extent of the knob along the long dimension of the bar. In a vertical slider, then, a knob's thickness is its height; in a horizontal slider, its thickness is its width. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b setKnobThickness:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker4693 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-maxValue];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 maxValue\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (double)
+\b maxValue
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns
+\i  
+\i0 the maximum value that the slider can send to its target. A horizontal slider sends its maximum value when the knob is at the right end of the slider; a vertical slider sends it when the knob is at the top.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\f1\i0 -
+\f0 Ä
+\b setMaxValue:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker4969 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-minValue];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 minValue\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (double)
+\b minValue
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns
+\i  
+\i0 the minimum value that the slider can send to its target. A vertical slider sends this value when its knob is at the bottom; a horizontal slider sends it when its knob is all the way to the left.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5207 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-setAltIncrementValue:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setAltIncrementValue:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setAltIncrementValue:
+\b0 (double)
+\i increment
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the amount by which the NSSliderCell modifies its value when the knob is Alt-dragged. 
+\i increment
+\i0  should fit the range of values that the slider can represent–for example, if the slider has a minimum value of 5 and a maximum value of 10, 
+\i increment
+\i0  should be between 0 and 5.\
+
+\fs14 \
+
+\fs28 If you don't call this method, the slider behaves the same with the Alt key down as with it up. This is also the result when you call 
+\b setAltIncrementValue:
+\b0  with an 
+\i increment
+\i0  of -1.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0 Ä
+\b maxValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b minValue\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker5777 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-setKnobThickness:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setKnobThickness:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setKnobThickness:
+\b0 (float)
+\i thickness
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Lets you set the knob's thickness, measured in pixels. The thickness is defined to be the extent of the knob along the long dimension of the bar. In a vertical slider, then, a knob's thickness is its height; in a horizontal slider, its thickness is its width. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b knobThickness\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker6131 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-setMaxValue:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setMaxValue:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setMaxValue:
+\b0 (double)
+\i aDouble
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the maximum value that the slider can send to its target–the value that a horizontal slider will send when its knob is all the way to the right, or that a vertical slider will send when its knob is at the top.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\f1\i0 -
+\f0 Ä
+\b maxValue\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker6424 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-setMinValue:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setMinValue:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setMinValue:
+\b0 (double)
+\i aDouble
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the minimum value that the slider can send to its target. A horizontal slider sends its minimum value when its knob is all the way to the left; a vertical slider sends its minimum value when its knob is at the bottom.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b minValue\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker6724 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-setTitle:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setTitle:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setTitle:
+\b0 (NSString *)
+\i title
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the title in the bar behind the slider's knob to 
+\i title
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\f1\i0 -
+\f0\i Ä
+\b\i0 title\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker6856 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-setTitleCell:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setTitleCell:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setTitleCell:
+\b0 (NSCell *)
+\i aCell
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the cell used to draw the slider's title
+\i . 
+\i0 You only need to invoke this method if the default title cell, NSTextFieldCell, doesn't suit your needs–that is, if you want to display the title in a manner that NSTextFieldCell doesn't permit. When you do choose to override the default, 
+\i aCell
+\i0  should be an instance of a subclass of TextFieldCell. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b titleCell\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker7283 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-setTitleColor:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setTitleColor:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setTitleColor:
+\b0 (NSColor *)
+\i color
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the color used to draw the slider's title.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\f1\i0 -
+\f0 Ä
+\b titleColor\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker7416 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-setTitleFont:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setTitleFont:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setTitleFont:
+\b0 (NSFont *)
+\i font
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the font used to draw the slider's title. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\f1\i0 -
+\f0 Ä
+\b titleFont\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker7544 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-title];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 title\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b title
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the slider's title. The default title is the empty string (™∫).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\f1\i0 -
+\f0 Ä
+\b setTitle:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker7672 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-titleCell];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 titleCell\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b titleCell
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the cell used to draw the title. The default is an NSTextFieldCell.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b setTitleCell:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker7807 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-titleColor];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 titleColor\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSColor *)
+\b titleColor
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the color used to draw the slider's title. The default color is NSColor's 
+\b controlTextColor
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b setTitleColor:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker7976 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-titleFont];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 titleFont\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSFont *)
+\b titleFont
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the font used to draw the slider's title.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b setTitleFont:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker8091 \markername NS_DEV_DOCFOR:objc_method:[NSSliderCell-trackRect];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 trackRect\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSRect)
+\b trackRect
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the rectangle within which the cell tracks the mouse while the mouse button is down. This rectangle includes the slider bar, but not the bezel.\
+
+\fs14 \
+
+}

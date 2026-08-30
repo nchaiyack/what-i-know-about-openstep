@@ -1,0 +1,442 @@
+.rn '' }`
+''' $RCSfile$$Revision$$Date$
+''' 
+''' $Log$
+''' 
+.de Sh
+.br
+.if t .Sp
+.ne 5
+.PP
+\fB\\$1\fR
+.PP
+..
+.de Sp
+.if t .sp .5v
+.if n .sp
+..
+.de Ip
+.br
+.ie \\n(.$>=3 .ne \\$3
+.el .ne 3
+.IP "\\$1" \\$2
+..
+.de Vb
+.ft CW
+.nf
+.ne \\$1
+..
+.de Ve
+.ft R
+
+.fi
+..
+'''
+'''
+'''     Set up \*(-- to give an unbreakable dash;
+'''     string Tr holds user defined translation string.
+'''     Bell System Logo is used as a dummy character.
+'''
+.tr \(*W-|\(bv\*(Tr
+.ie n \{\
+.ds -- \(*W-
+.if (\n(.H=4u)&(1m=24u) .ds -- \(*W\h'-12u'\(*W\h'-12u'-\" diablo 10 pitch
+.if (\n(.H=4u)&(1m=20u) .ds -- \(*W\h'-12u'\(*W\h'-8u'-\" diablo 12 pitch
+.ds L" ""
+.ds R" ""
+.ds L' '
+.ds R' '
+'br\}
+.el\{\
+.ds -- \(em\|
+.tr \*(Tr
+.ds L" ``
+.ds R" ''
+.ds L' `
+.ds R' '
+.if t .ds PI \(*p
+.if n .ds PI PI
+'br\}
+.TH PERLOVL 1 "\*(RP"
+.UC
+.if n .hy 0 
+.if n .na
+.ds C+ C\v'-.1v'\h'-1p'\s-2+\h'-1p'+\s0\v'.1v'\h'-1p'
+.de CQ          \" put $1 in typewriter font
+.ft CW
+'if n "\c
+'if t \\&\\$1\c
+'if n \\&\\$1\c
+'if n \&"
+\\&\\$2 \\$3 \\$4 \\$5 \\$6 \\$7
+'.ft R
+..
+.\" @(#)ms.acc 1.5 88/02/08 SMI; from UCB 4.2
+.	\" AM - accent mark definitions
+.bd S B 3
+.	\" fudge factors for nroff and troff
+.if n \{\
+.	ds #H 0
+.	ds #V .8m
+.	ds #F .3m
+.	ds #[ \f1
+.	ds #] \fP
+.\}
+.if t \{\
+.	ds #H ((1u-(\\\\n(.fu%2u))*.13m)
+.	ds #V .6m
+.	ds #F 0
+.	ds #[ \&
+.	ds #] \&
+.\}
+.	\" simple accents for nroff and troff
+.if n \{\
+.	ds ' \&
+.	ds ` \&
+.	ds ^ \&
+.	ds , \&
+.	ds ~ ~
+.	ds ? ?
+.	ds ! !
+.	ds / 
+.	ds q 
+.\}
+.if t \{\
+.	ds ' \\k:\h'-(\\n(.wu*8/10-\*(#H)'\'\h"|\\n:u"
+.	ds ` \\k:\h'-(\\n(.wu*8/10-\*(#H)'\`\h'|\\n:u'
+.	ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'^\h'|\\n:u'
+.	ds , \\k:\h'-(\\n(.wu*8/10)',\h'|\\n:u'
+.	ds ~ \\k:\h'-(\\n(.wu-\*(#H-.1m)'~\h'|\\n:u'
+.	ds ? \s-2c\h'-\w'c'u*7/10'\u\h'\*(#H'\zi\d\s+2\h'\w'c'u*8/10'
+.	ds ! \s-2\(or\s+2\h'-\w'\(or'u'\v'-.8m'.\v'.8m'
+.	ds / \\k:\h'-(\\n(.wu*8/10-\*(#H)'\z\(sl\h'|\\n:u'
+.	ds q o\h'-\w'o'u*8/10'\s-4\v'.4m'\z\(*i\v'-.4m'\s+4\h'\w'o'u*8/10'
+.\}
+.	\" troff and (daisy-wheel) nroff accents
+.ds : \\k:\h'-(\\n(.wu*8/10-\*(#H+.1m+\*(#F)'\v'-\*(#V'\z.\h'.2m+\*(#F'.\h'|\\n:u'\v'\*(#V'
+.ds 8 \h'\*(#H'\(*b\h'-\*(#H'
+.ds v \\k:\h'-(\\n(.wu*9/10-\*(#H)'\v'-\*(#V'\*(#[\s-4v\s0\v'\*(#V'\h'|\\n:u'\*(#]
+.ds _ \\k:\h'-(\\n(.wu*9/10-\*(#H+(\*(#F*2/3))'\v'-.4m'\z\(hy\v'.4m'\h'|\\n:u'
+.ds . \\k:\h'-(\\n(.wu*8/10)'\v'\*(#V*4/10'\z.\v'-\*(#V*4/10'\h'|\\n:u'
+.ds 3 \*(#[\v'.2m'\s-2\&3\s0\v'-.2m'\*(#]
+.ds o \\k:\h'-(\\n(.wu+\w'\(de'u-\*(#H)/2u'\v'-.3n'\*(#[\z\(de\v'.3n'\h'|\\n:u'\*(#]
+.ds d- \h'\*(#H'\(pd\h'-\w'~'u'\v'-.25m'\f2\(hy\fP\v'.25m'\h'-\*(#H'
+.ds D- D\\k:\h'-\w'D'u'\v'-.11m'\z\(hy\v'.11m'\h'|\\n:u'
+.ds th \*(#[\v'.3m'\s+1I\s-1\v'-.3m'\h'-(\w'I'u*2/3)'\s-1o\s+1\*(#]
+.ds Th \*(#[\s+2I\s-2\h'-\w'I'u*3/5'\v'-.3m'o\v'.3m'\*(#]
+.ds ae a\h'-(\w'a'u*4/10)'e
+.ds Ae A\h'-(\w'A'u*4/10)'E
+.ds oe o\h'-(\w'o'u*4/10)'e
+.ds Oe O\h'-(\w'O'u*4/10)'E
+.	\" corrections for vroff
+.if v .ds ~ \\k:\h'-(\\n(.wu*9/10-\*(#H)'\s-2\u~\d\s+2\h'|\\n:u'
+.if v .ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'\v'-.4m'^\v'.4m'\h'|\\n:u'
+.	\" for low resolution devices (crt and lpr)
+.if \n(.H>23 .if \n(.V>19 \
+\{\
+.	ds : e
+.	ds 8 ss
+.	ds v \h'-1'\o'\(aa\(ga'
+.	ds _ \h'-1'^
+.	ds . \h'-1'.
+.	ds 3 3
+.	ds o a
+.	ds d- d\h'-1'\(ga
+.	ds D- D\h'-1'\(hy
+.	ds th \o'bp'
+.	ds Th \o'LP'
+.	ds ae ae
+.	ds Ae AE
+.	ds oe oe
+.	ds Oe OE
+.\}
+.rm #[ #] #H #V #F C
+.SH "NAME "
+perlovl \- perl overloading semantics
+.SH "SYNOPSIS"
+.PP
+.Vb 1
+\&    package SomeThing;
+.Ve
+.Vb 6
+\&    %OVERLOAD = (
+\&        '+' => \e&myadd,
+\&        '-' => \e&mysub,
+\&        # etc
+\&    );
+\&    ...
+.Ve
+.Vb 3
+\&    package main;
+\&    $a = new SomeThing 57;
+\&    $b=5+$a;
+.Ve
+.SH "CAVEAT SCRIPTOR"
+Overloading of operators is a subject not to be taken lightly.
+Neither its precise implementation, syntax, nor semantics are
+100% endorsed by Larry Wall.  So any of these may be changed 
+at some point in the future.
+.SH "DESCRIPTION"
+.Sh "Declaration of overloaded functions"
+.PP
+.Vb 5
+\&    package Number;
+\&    %OVERLOAD = ( 
+\&        "+" => \e&add, 
+\&        "*=" => "muas"
+\&    );
+.Ve
+declares function \fINumber::add()\fR for addition, and method \fImuas()\fR in
+the \*(L"class\*(R" \f(CWNumber\fR (or one of its base classes)
+for the assignment form \f(CW*=\fR of multiplication.  Legal values of this
+hash array are values legal inside \f(CW&{ ... }\fR call, so the name of a
+subroutine, a reference to a subroutine, or an anonymous subroutine 
+will all work.
+.PP
+The subroutine \f(CW$OVERLOAD{"+"}\fR will be called to execute \f(CW$a+$b\fR if \f(CW$a\fR
+is a reference to an object blessed into the package \f(CWNumber\fR, or \f(CW$a\fR is
+not an object from a package with defined mathemagic addition, but \f(CW$b\fR is a
+reference to a \f(CWNumber\fR.  It can be called also in other situations, like
+\f(CW$a+=7\fR, or \f(CW$a++\fR.  See the section on \fI\s-1MAGIC\s0 \s-1AUTOGENERATION\s0\fR.  (Mathemagical
+methods refer to methods triggered by an overloaded mathematical
+operator.)
+.Sh "Calling Conventions for Binary Operations"
+The functions in \f(CWvalues %OVERLOAD\fR are called with three (in one
+particular case with four, see the section on \fILast Resort\fR) arguments.  If the
+corresponding operation is binary, then the first two arguments are the
+two arguments of the operation.  However, due to general object calling
+conventions, the first argument should be always an object in the package,
+so in the situation of \f(CW7+$a\fR, the order of arguments is interchanged.
+Most probably it does not matter for implementation of the addition
+method, but whether the arguments are reversed is vital for the
+subtraction method.  The subroutine can query this information by
+examining the third argument, which can take three different values:
+.Ip "\s-1FALSE\s0" 7
+the order of arguments is as in the current operation.
+.Ip "\s-1TRUE\s0" 7
+the arguments are reversed.
+.Ip "\f(CWundef\fR" 7
+the current operation is an assignment variant (as in
+\f(CW$a+=7\fR), but the usual function is called instead.  This additional
+information can be used to generate some optimizations.
+.Sh "Calling Conventions for Unary Operations"
+Unary operation are considered binary operations with the second
+argument being \f(CWundef\fR.  Thus \f(CW$OVERLOAD{"++"}\fR is called with
+arguments \f(CW($a,undef,'')\fR when \f(CW$a\fR++ is executed.
+.Sh "Overloadable Operations"
+The following keys of \f(CW%OVERLOAD\fR are recognized:
+.Ip "\(bu \fIArithmetic operations\fR" 5
+.Sp
+.Vb 2
+\&    "+", "+=", "-", "-=", "*", "*=", "/", "/=", "%", "%=",
+\&    "**", "**=", "<<", "<<=", ">>", ">>=", "x", "x=", ".", ".=",
+.Ve
+For these operations a substituted non-assignment variant can be called if
+the assignment variant is not available.  Methods for operations \*(L"\f(CW+\fR\*(R",
+\*(L"\f(CW-\fR\*(R", \*(L"\f(CW+=\fR\*(R", and \*(L"\f(CW-=\fR\*(R" can be called to automatically generate
+increment and decrement methods.  The operations \*(L"\f(CW-\fR\*(R" can be used to
+autogenerate missing methods for unary minus or \f(CWabs\fR.
+.Ip "\(bu \fIComparison operations\fR" 5
+.Sp
+.Vb 2
+\&    "<",  "<=", ">",  ">=", "==", "!=", "<=>",
+\&    "lt", "le", "gt", "ge", "eq", "ne", "cmp",
+.Ve
+If the corresponding \*(L"spaceship\*(R" variant is available, it can be
+used to substitute for the missing operation.  During \f(CWsort\fRing
+arrays, \f(CWcmp\fR is used to compare values subject to \f(CW%OVERLOAD\fR.
+.Ip "\(bu \fIBit operations\fR" 5
+.Sp
+.Vb 1
+\&    "&", "^", "|", "&=", "^=", "|=", "neg", "!", "~",
+.Ve
+\*(L"\f(CWneg\fR\*(R" stands for unary minus.  If the method for \f(CWneg\fR is not
+specified, it can be autogenerated using on the method for subtraction.
+.Ip "\(bu \fIIncrement and decrement\fR" 5
+.Sp
+.Vb 1
+\&    "++", "--",
+.Ve
+If undefined, addition and subtraction methods can be
+used instead.  These operations are called both in prefix and
+postfix form.
+.Ip "\(bu \fITranscendental functions\fR" 5
+.Sp
+.Vb 1
+\&    "atan2", "cos", "sin", "exp", "abs", "log", "sqrt",
+.Ve
+If \f(CWabs\fR is unavailable, it can be autogenerated using methods
+for \*(L"<\*(R" or \*(L"<=>\*(R" combined with either unary minus or subtraction.
+.Ip "\(bu \fIBoolean, string and numeric conversion\fR" 5
+.Sp
+.Vb 1
+\&    "bool", "\e"\e"", "0+",
+.Ve
+If one or two of these operations are unavailable, the remaining ones can
+be used instead.  \f(CWbool\fR is used in the flow control operators
+(like \f(CWwhile\fR) and for the ternary \*(L"\f(CW?:\fR\*(R" operation.  These functions can
+return any arbitrary Perl value.  If the corresponding operation for this value
+is overloaded too, that operation will be called again with this value.
+.Ip "\(bu \fISpecial\fR" 5
+.Sp
+.Vb 1
+\&    "nomethod", "fallback", "=",
+.Ve
+see the section on \fI\s-1SPECIAL\s0 \s-1KEYS\s0 \s-1OF\s0 %\s-1OVERLOAD\s0\fR.
+.PP
+See the section on \fIFallback\fR for an explanation of when a missing method can be autogenerated.
+.SH "SPECIAL KEYS OF \f(CW%OVERLOAD\fR"
+Three keys are recognized by Perl that are not covered by the above
+description.
+.Sh "Last Resort"
+\f(CW$OVERLOAD{"nomethod"}\fR is a reference to a function of four parameters.
+If defined, it is called when the overloading mechanism cannot find a
+method for some operation.  The first three arguments of this function
+coincide with arguments for the corresponding method if it were found, the
+fourth argument is the key of \f(CW%OVERLOAD\fR corresponding to the missing
+method.  If several methods are tried, the last one is used.  Say, \f(CW1-$a\fR
+can be equivalent to
+.PP
+.Vb 1
+\&        &{ $Pack::OVERLOAD{"nomethod"} }($a,1,1,"-").
+.Ve
+If some operation cannot be resolved, and there is no
+\f(CW$OVERLOAD{"nomethod"}\fR, then an exception will be raised 
+via \fIdie()\fR -- unless \f(CW$OVERLOAD{"fallback"}\fR is true. 
+.Sh "Fallback "
+\f(CW$OVERLOAD{"fallback"}\fR governs what to do if a method for a particular
+operation is not found.  Three different cases are possible depending on
+value of \f(CW$OVERLOAD{"fallback"}\fR:
+.Ip "\(bu \f(CWundef\fR" 16
+Perl tries to use a
+substituted method (see the section on \fI\s-1MAGIC\s0 \s-1AUTOGENERATION\s0\fR).  If this fails, it
+then tries to calls \f(CW$OVERLOAD{"nomethod"}\fR; if missing, an exception
+will be raised.
+.Ip "\(bu \s-1TRUE\s0" 16
+The same as for the \f(CWundef\fR value, but no exception is raised.  Instead,
+it silently reverts to what it would have done were there no \f(CW%OVERLOAD\fR is
+present.
+.Ip "\(bu defined, but \s-1FALSE\s0" 16
+No autogeneration is tried.  Perl tries to call
+\f(CW$OVERLOAD{"nomethod"}\fR, and if this is missing, raises an exception. 
+.Sh "Copy Constructor"
+\f(CW$OVERLOAD{"="}\fR is a reference to a function with three arguments,
+i.e., it looks like a usual value of \f(CW%OVERLOAD\fR.  This operation
+is called in the situations when a mutator is applied to a reference
+that shares its object with some other reference, such as
+.PP
+.Vb 2
+\&        $a=$b; 
+\&        $a++;
+.Ve
+To make this change to \f(CW$a\fR and not to change \f(CW$b\fR, a freshly made copy of
+\f(CW$$a\fR is made, and \f(CW$a\fR is assigned a reference to this object.  This
+operation is executed during \f(CW$a++\fR, (so before this \f(CW$$a\fR coincides
+with \f(CW$$b\fR), and only if \f(CW++\fR is expressed via  \f(CW$OPERATOR{'++'}\fR or
+\f(CW$OPERATOR{'+='}\fR.  Note that if this operation is expressed via \*(L'\f(CW+\fR\*(R',
+i.e., as
+.PP
+.Vb 2
+\&        $a=$b; 
+\&        $a=$a+1;
+.Ve
+then \f(CW$$a\fR and \f(CW$$b\fR do not appear as lvalues.
+.PP
+If the copy constructor is required during execution of some mutator, but
+\f(CW$OPERATOR{'='}\fR is missing, it can be autogenerated as a string
+copy if an object of
+the package is a plain scalar.
+.SH "MAGIC AUTOGENERATION"
+If a method for an operation is not found, and \f(CW$OVERLOAD{"fallback"}\fR is
+TRUE or undefined, Perl tries to to autogenerate a substitute method for
+the missing operation based on defined operations.  Autogenerated method
+substitutions are possible for the following operations:
+.Ip "\fIAssignment forms of arithmetic operations\fR" 16
+\f(CW$a=+$b\fR can use the \f(CW$OVERLOAD{"+"}\fR method if \f(CW$OVERLOAD{"+="}\fR
+is not defined.
+.Ip "\fIConversion operations\fR " 16
+String, numeric, and boolean conversion are calculated in terms of one
+another if not all of them are defined.
+.Ip "\fIIncrement and decrement\fR" 16
+The \f(CW++$a\fR operation can be expressed in terms of \f(CW$a+=1\fR or \f(CW$a+1\fR,
+and \f(CW$a--\fR in terms of \f(CW$a-=1\fR and \f(CW$a-1\fR.
+.Ip "\f(CWabs($a)\fR" 16
+can be expressed in terms of \f(CW$a<0\fR and \f(CW-$a\fR (or \f(CW0-$a\fR).
+.Ip "\fIUnary minus\fR" 16
+can be expressed in terms of subtraction.
+.Ip "\fIConcatenation\fR" 16
+can be expressed in terms of string conversion.
+.Ip "\fIComparison operations\fR " 16
+can be expressed in terms of its \*(L"spaceship\*(R" counterpart: either
+\f(CW<=>\fR or \f(CWcmp\fR:
+ 
+    <, >, <=, >=, ==, != 	in terms of <=>
+    lt, gt, le, ge, eq, ne 	in terms of cmp
+.Ip "\fICopy operator\fR" 16
+can be expressed in terms of assignment to the dereferenced value, if this
+value is scalar but not a reference.
+.SH "WARNING"
+The restriction for the comparison operation is that even if, for example,
+`\f(CWcmp\fR\*(R' should return a reference to a blessed object, the
+autogenerated `\f(CWlt\fR\*(R'
+function will produce only a standard logical value based on the
+numerical value of the result of `\f(CWcmp\fR\*(R'.  In particular, a working
+numeric conversion is needed in this case (possibly expressed in terms of
+other conversions).
+.PP
+Similarly, \f(CW.=\fR  and \f(CWx=\fR operators lose their mathemagical properties
+if the string conversion substitution is applied.
+.PP
+When you \fIchop()\fR a mathemagical object, it becomes promoted to a string
+first, and its mathemagical qualities is lost.  The same can happen with other
+operations as well.
+.SH "IMPLEMENTATION"
+The table of methods for all operations is cached as a magic for the
+symbol table hash of the package.  It is rechecked for changes of
+\f(CW%OVERLOAD\fR and \f(CW@ISA\fR only during \f(CWbless\fRing; so if it is changed
+dynamically, you'll need an additional fake \f(CWbless\fRing to update the
+table.
+.PP
+(Every SVish thing has a magic queue, and a magic is an entry in that queue.
+This is how a single variable may participate in multiple forms of magic
+simultaneously.  For instance, environment variables regularly have two
+forms at once: their \f(CW%ENV\fR magic and their taint magic.)
+.PP
+If an object belongs to a package with \f(CW%OVERLOAD\fR, it carries a special
+flag.  Thus the only speed penalty during arithmetic operations without
+overload is the check of this flag.
+.PP
+In fact, if no \f(CW%OVERLOAD\fR is ever accessed, there is almost no overhead for
+overloadable operations, so most programs should not suffer measurable
+performance penalties.  Considerable effort was made minimize overhead
+when \f(CW%OVERLOAD\fR is accessed and the current operation is overloadable but
+the arguments in question do not belong to packages with \f(CW%OVERLOAD\fR.  When
+in doubt, test your speed with \f(CW%OVERLOAD\fR and without it.  So far there
+have been no reports of substantial speed degradation if Perl is compiled
+with optimization turned on.
+.PP
+There is no size penalty for data if there is no \f(CW%OVERLOAD\fR. 
+.PP
+The copying like \f(CW$a=$b\fR is shallow; however, a one-level-deep
+copying is 
+carried out before any operation that can imply an assignment to the
+object \f(CW$b\fR (or \f(CW$a\fR) refers to, like \f(CW$b++\fR.  You can override this
+behavior by defining your copy constructor (see the section on \fICopy Constructor\fR).
+.PP
+It is expected that arguments to methods that are not explicitly supposed
+to be changed are constant (but this is not enforced).
+.SH "AUTHOR"
+Ilya Zakharevich <\fIilya@math.mps.ohio-state.edu\fR>.
+.SH "DIAGNOSTICS"
+When Perl is run with the \fB\-Do\fR switch or its equivalent, overloading
+induces diagnostic messages.
+.SH "BUGS"
+Because it's used for overloading, the per-package associative array
+\f(CW%OVERLOAD\fR now has a special meaning in Perl.
+.PP
+As shipped, \f(CW%OVERLOAD\fR is not inherited via the \f(CW@ISA\fR tree.  A patch for
+this is available from the author.
+.PP
+This document is confusing.
+
+.rn }` ''

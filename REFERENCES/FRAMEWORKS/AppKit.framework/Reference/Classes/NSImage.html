@@ -1,0 +1,831 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 12.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p20 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p23 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 75.0px; font: 1.0px Times; min-height: 1.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 117.0px; text-indent: -19.0px; font: 14.0px Times}
+    p.p27 {margin: 0.0px 0.0px 0.0px 117.0px; text-indent: -19.0px; font: 8.0px Times; min-height: 10.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 116.0px; font: 14.0px Times}
+    p.p29 {margin: 0.0px 0.0px 0.0px 116.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 116.0px; font: 1.0px Times; min-height: 1.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p33 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p34 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p38 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p40 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p45 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 12.0px Helvetica}
+    p.p47 {margin: 0.0px 0.0px 0.0px 110.0px; text-indent: -46.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p48 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.s5 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSImage</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s2">NSObject</span></p>
+<p class="p6"><br></p>
+<p class="p7"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s2">NSCoding</span></p>
+<p class="p8">NSCopying</p>
+<p class="p8">NSObject (from NSObject)</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSImage.h</p>
+<p class="p11"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14">An NSImage object contains an image that can be composited anywhere without first being drawn in any particular view. It manages the image by:</p>
+<p class="p15"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Reading image data from the application bundle, from an NSPasteboard, or from an NSData object.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Keeping multiple representations of the same image.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Choosing the representation that's appropriate for a particular data type.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Choosing the representation that's appropriate for any given display device.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Caching the representations it uses by rendering them in off-screen windows.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Optionally retaining the data used to draw the representations, so that they can be reproduced when needed.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Compositing the image from the off-screen cache to where it's needed on-screen.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Reproducing the image for the printer so that it matches what's displayed on-screen, yet is the best representation possible for the printed page.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Automatically using any filtering services installed by the user to convert image data from unsupported formats to supported formats.<span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><b>Defining an Image</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p14">An image can be created from various types of data:</p>
+<p class="p15"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Encapsulated PostScript code (EPS)</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Bitmap data in Tag Image File Format (TIFF)</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Bitmap data in Windows Bitmap format (BMP)</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Untagged (raw) bitmap data<span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Other image data supported by an NSImageRep subclass registered with the NSImage class</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Data that can be filtered to a supported type by a user-installed filter service</p>
+<p class="p17"><br></p>
+<p class="p14">If data is placed in a file (for example, in an application bundle), the NSImage object can access the data whenever it's needed to create the image. If data is read from an NSData object, the NSImage object may need to store the data itself.</p>
+<p class="p15"><br></p>
+<p class="p14">Images can also be defined by the program, in two ways:</p>
+<p class="p15"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>By drawing the image in an off-screen window maintained by the NSImage object. In this case, the NSImage maintains only the cached image.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>By defining a method that can be used to draw the image when needed. This allows the NSImage to delegate responsibility for producing the image to some other object.</p>
+<p class="p17"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><b>Image Representations</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p14">An NSImage object can keep more than one representation of an image. Multiple representations permit the image to be customized for the display device. For example, different hand-tuned TIFF images can be provided for monochrome and color screens, and an EPS representation or a custom method might be used for printing. All representations are versions of the same image.</p>
+<p class="p15"><br></p>
+<p class="p14">An NSImage returns an NSArray of its representations in response to a <b>representations</b> message. Each representation is a kind of NSImageRep object:</p>
+<p class="p15"><br></p>
+<p class="p22">NSEPSImageRep<span class="Apple-tab-span">	</span>An image that can be recreated from EPS data that's either stored by the object or at a known location in the file system.</p>
+<p class="p23"><br></p>
+<p class="p22">NSBitmapImageRep<span class="Apple-tab-span">	</span>An image that can be recreated from bitmap or TIFF data.</p>
+<p class="p23"><br></p>
+<p class="p22">NSCustomImageRep<span class="Apple-tab-span">	</span>An image that can be redrawn by a method defined in the application.</p>
+<p class="p23"><br></p>
+<p class="p22">NSCachedImageRep<span class="Apple-tab-span">	</span>An image that has been rendered in an off-screen cache from data or instructions that are no longer available. The image in the cache provides the only data from which the image can be reproduced.</p>
+<p class="p23"><br></p>
+<p class="p14">You can define other NSImageRep subclasses for objects that render images from other types of source data. To make these new subclasses available to an NSImage object, they need to be added to the NSImageRep class registry by invoking the <b>registerImageRepClass:</b> class method. NSImage determines the data types that each subclass can support by invoking its <b>imageUnfilteredFileTypes</b> and <b>imageUnfilteredPasteboardTypes</b> methods.</p>
+<p class="p15"><br></p>
+<p class="p24"><br></p>
+<p class="p19"><b>Choosing Representations</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p14">The NSImage object will choose the representation that best matches the rendering device. By default, the choice is made according to the following set of ordered rules. Each rule is applied in turn until the choice of representation is narrowed to one.</p>
+<p class="p15"><br></p>
+<p class="p25"><br></p>
+<p class="p26">1.<span class="Apple-tab-span">	</span>Choose a color representation for a color device, and a gray-scale representation for a monochrome device.</p>
+<p class="p27"><br></p>
+<p class="p26">2.<span class="Apple-tab-span">	</span>Choose a representation with a resolution that matches the resolution of the device, or if no representation matches, choose the one with the highest resolution.</p>
+<p class="p27"><br></p>
+<p class="p28">By default, any image representation with a resolution that's an integer multiple of the device resolution is considered to match. If more than one representation matches, the NSImage will choose the one that's closest to the device resolution. However, you can force resolution matches to be exact by passing NO to the <b>setMatchesOnMultipleResolution:</b> method.</p>
+<p class="p29"><br></p>
+<p class="p28">Rule 2 prefers TIFF and bitmap representations, which have a defined resolution, over EPS representations, which don't. However, you can use the <b>setUsesEPSOnResolutionMismatch:</b> method to have the NSImage choose an EPS representation in case a resolution match isn't possible.</p>
+<p class="p29"><br></p>
+<p class="p30"><br></p>
+<p class="p26">3.<span class="Apple-tab-span">	</span>If all else fails, choose the representation with a specified bits per sample that matches the depth of the device. If no representation matches, choose the one with the highest bits per sample.</p>
+<p class="p27"><br></p>
+<p class="p14">By passing NO to the <b>setPrefersColorMatch:</b> method, you can have the NSImage try for a resolution match before a color match. This essentially inverts the first and second rules above.</p>
+<p class="p15"><br></p>
+<p class="p14">If these rules fail to narrow the choice to a single representation—for example, if the NSImage has two color TIFF representations with the same resolution and depth—the one that will be chosen is system dependent.</p>
+<p class="p15"><br></p>
+<p class="p24"><br></p>
+<p class="p19"><b>Caching Representations</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p14">When first asked to composite the image, the NSImage object chooses the representation that's best for the destination display device, as outlined above. It renders the representation in an off-screen window on the same device, then composites it from this cache to the desired location. Subsequent requests to composite the image use the same cache. Representations aren't cached until they're needed for compositing.</p>
+<p class="p15"><br></p>
+<p class="p14">When printing, the NSImage tries not to use the cached image. Instead, it attempts to render on the printer—using the appropriate image data, or a delegated method—the best version of the image that it can. Only as a last resort will it image the cached bitmap.</p>
+<p class="p15"><br></p>
+<p class="p24"><br></p>
+<p class="p19"><b>Image Size</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p14">Before an NSImage can be used, the size of the image must be set, in units of the base coordinate system. If a representation is smaller or larger than the specified size, it can be scaled to fit.</p>
+<p class="p15"><br></p>
+<p class="p14">If the size of the image hasn't already been set when the NSImage is provided with a representation, the size will be set from the data. The bounding box is used to determine the size of an NSEPSImageRep. The TIFF fields “ImageLength” and “ImageWidth” are used to determine the size of an NSBitmapImageRep.</p>
+<p class="p15"><br></p>
+<p class="p24"><br></p>
+<p class="p19"><b>Coordinate Systems</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p14">Images have the horizontal orientation of the base coordinate system; they can't be rotated or horizontally flipped. When composited, an image maintains this orientation, no matter what coordinate system it's composited to. (The destination coordinate system is used only to determine the location of a composited image, not its size or orientation.) Images can be flipped in the vertical direction by using <b>setFlipped:</b>.</p>
+<p class="p15"><br></p>
+<p class="p14">It's possible to refer to portions of an image when compositing by specifying a rectangle in the image's coordinate system, which is identical to the base coordinate system, except that the origin is at the lower left corner of the image.</p>
+<p class="p15"><br></p>
+<p class="p24"><br></p>
+<p class="p19"><b>Named Images</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p14">An NSImage object can be identified either by its <b>id</b> or by a name. Assigning an NSImage a name adds it to a table kept by the class object; each name in the database identifies one and only one instance of the class. When you ask for an NSImage object by name (with the <b>imageNamed:</b> method), the class object returns the one from its database, which also includes all the system bitmaps provided by the Application Kit. If there's no object in the database for the specified name, the class object tries to create one by checking for a system bitmap of the same name, checking the name of the application's own image, and then checking for the image in the application's main bundle.</p>
+<p class="p15"><br></p>
+<p class="p14">If a file matches the name, an NSImage is created from the data stored there. You can therefore create NSImage objects simply by including EPS, BMP, or TIFF data for them within the executable file, or in files inside the application's file package.</p>
+<p class="p15"><br></p>
+<p class="p24"><br></p>
+<p class="p19"><b>Image Filtering Services</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p14">NSImage is designed to automatically take advantage of user-installed filter services for converting unsupported image file types to supported image file types. The class method <b>imageFileTypes</b> returns an array of all file types from which NSImage can create an instance of itself. This list includes all file types supported by registered subclasses of NSImageRep, and those types that can be converted to supported file types through a user-installed filter service.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p12"><b>Adopted Protocols<span class="Apple-converted-space"> </span></b></p>
+<p class="p13"><b></b><br></p>
+<p class="p32">NSCoding<span class="Apple-tab-span">	</span><span class="s4">-</span> encodeWithCoder:</p>
+<p class="p33"><span class="s4">-</span> initWithCoder:</p>
+<p class="p34"><br></p>
+<p class="p32">NSCopying<span class="Apple-tab-span">	</span><span class="s4">-</span> copyWithZone:</p>
+<p class="p35"><br></p>
+<p class="p12"><b>Method Types<span class="Apple-converted-space"> </span></b></p>
+<p class="p13"><b></b><br></p>
+<p class="p32"><span class="Apple-converted-space"> </span>Initializing a new NSImage instance</p>
+<p class="p33"><span class="s4">-</span> initByReferencingFile:</p>
+<p class="p33"><span class="s4">-</span> initWithBitmapHandle:</p>
+<p class="p33"><span class="s4">-</span> initWithContentsOfFile:</p>
+<p class="p33"><span class="s4">-</span> initWithData:</p>
+<p class="p33"><span class="s4">-</span> initWithIconHandle:</p>
+<p class="p33"><span class="s4">-</span> initWithPasteboard:</p>
+<p class="p33"><span class="s4">-</span> initWithSize:</p>
+<p class="p34"><br></p>
+<p class="p32">Setting the size of the image<span class="Apple-tab-span">	</span><span class="s4">-</span> setSize:</p>
+<p class="p33"><span class="s4">-</span> size</p>
+<p class="p34"><br></p>
+<p class="p32">Referring to images by name<span class="Apple-tab-span">	</span>+ imageNamed:</p>
+<p class="p33"><span class="s4">-</span> setName:</p>
+<p class="p33"><span class="s4">-</span> name</p>
+<p class="p34"><br></p>
+<p class="p32">Specifying the image<span class="Apple-tab-span">	</span><span class="s4">-</span> addRepresentation:</p>
+<p class="p33"><span class="s4">-</span> addRepresentations:</p>
+<p class="p33"><span class="s4">-</span> lockFocus</p>
+<p class="p33"><span class="s4">-</span> lockFocusOnRepresentation:</p>
+<p class="p33"><span class="s4">-</span> unlockFocus</p>
+<p class="p34"><br></p>
+<p class="p32">Using the image<span class="Apple-tab-span">	</span><span class="s4">-</span> compositeToPoint:operation:</p>
+<p class="p33"><span class="s4">-</span> compositeToPoint:fromRect:operation:</p>
+<p class="p33"><span class="s4">-</span> dissolveToPoint:fraction:</p>
+<p class="p33"><span class="s4">-</span> dissolveToPoint:fromRect:fraction:</p>
+<p class="p34"><br></p>
+<p class="p32">Choosing which image representation to use</p>
+<p class="p33"><span class="s4">-</span> setPrefersColorMatch:</p>
+<p class="p33"><span class="s4">-</span> prefersColorMatch</p>
+<p class="p33"><span class="s4">-</span> setUsesEPSOnResolutionMismatch:</p>
+<p class="p33"><span class="s4">-</span> usesEPSOnResolutionMismatch</p>
+<p class="p33"><span class="s4">-</span> setMatchesOnMultipleResolution:</p>
+<p class="p33"><span class="s4">-</span> matchesOnMultipleResolution</p>
+<p class="p34"><br></p>
+<p class="p32">Getting the representations<span class="Apple-tab-span">	</span><span class="s4">-</span> bestRepresentationForDevice:</p>
+<p class="p33"><span class="s4">-</span> representations</p>
+<p class="p33"><span class="s4">-</span> removeRepresentation:</p>
+<p class="p34"><br></p>
+<p class="p32">Determining how the image is stored</p>
+<p class="p33"><span class="s4">-</span> setCachedSeparately:</p>
+<p class="p33"><span class="s4">-</span> isCachedSeparately</p>
+<p class="p33"><span class="s4">-</span> setDataRetained:</p>
+<p class="p33"><span class="s4">-</span> isDataRetained</p>
+<p class="p33"><span class="s4">-</span> setCacheDepthMatchesImageDepth:</p>
+<p class="p33"><span class="s4">-</span> cacheDepthMatchesImageDepth</p>
+<p class="p34"><br></p>
+<p class="p32">Determining how the image is drawn</p>
+<p class="p33"><span class="s4">-</span> isValid</p>
+<p class="p33"><span class="s4">-</span> setScalesWhenResized:</p>
+<p class="p33"><span class="s4">-</span> scalesWhenResized</p>
+<p class="p33"><span class="s4">-</span> setBackgroundColor:</p>
+<p class="p33"><span class="s4">-</span> backgroundColor</p>
+<p class="p33"><span class="s4">-</span> setFlipped:</p>
+<p class="p33"><span class="s4">-</span> isFlipped</p>
+<p class="p33"><span class="s4">-</span> drawRepresentation:inRect:</p>
+<p class="p33"><span class="s4">-</span> recache</p>
+<p class="p34"><br></p>
+<p class="p32">Assigning a delegate<span class="Apple-tab-span">	</span><span class="s4">-</span> setDelegate:</p>
+<p class="p33"><span class="s4">-</span> delegate</p>
+<p class="p34"><br></p>
+<p class="p32">Producing TIFF data for the image<span class="Apple-tab-span">	</span><span class="s4">-</span> TIFFRepresentation</p>
+<p class="p33"><span class="s4">-</span> TIFFRepresentationUsingCompression:factor:</p>
+<p class="p34"><br></p>
+<p class="p32">Managing NSImageRep subclasses<span class="Apple-tab-span">	</span>+ imageUnfilteredFileTypes</p>
+<p class="p33">+ imageUnfilteredPasteboardTypes</p>
+<p class="p34"><br></p>
+<p class="p32">Testing image data sources<span class="Apple-tab-span">	</span>+ canInitWithPasteboard:</p>
+<p class="p33">+ imageFileTypes</p>
+<p class="p33">+ imagePasteboardTypes</p>
+<p class="p36"><br></p>
+<p class="p12"><b>Class Methods<span class="Apple-converted-space"> </span></b></p>
+<p class="p13"><b></b><br></p>
+<p class="p19"><b></b><b>canInitWithPasteboard:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37">+ (BOOL)<b>canInitWithPasteboard:</b>(NSPasteboard *)<i>pasteboard</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Tests whether the receiver can create an instance of itself from the data represented by pasteboard. Returns YES if the receiver's list of registered NSImageReps includes a class that can handle the data represented by pasteboard.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p14">NSImage uses the NSImageRep class method <b>imageUnfilteredPasteboardTypes</b> to find a class that can handle the data in <i>pasteboard</i>. When creating a subclass of NSImageRep that accepts image data from a non-default pasteboard type, override the <b>imageUnfilteredPasteboardTypes</b> method to notify NSImage of the pasteboard types your class supports.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><i> </i><b>+ imagePasteboardTypes</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p19"><b></b><b>imageFileTypes</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37">+ (NSArray *)<b>imageFileTypes</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns an array of strings representing those file types for which a registered NSImageRep exists. This list includes all file types supported by registered subclasses of NSImageRep, plus those types that can be converted to supported file types through a user-installed filter service. The array returned by this method may be passed directly to the NSOpenPanel's <b>runModalForTypes:</b> method.</p>
+<p class="p15"><br></p>
+<p class="p14">File types are identified by extension. By default, the list returned by this method contains “tiff”, “tif”, “bmp”, and “eps”.</p>
+<p class="p15"><br></p>
+<p class="p14">When creating a subclass of NSImageRep that accepts image data from non-default file types, override NSImageRep's <b>imageUnfilteredFileTypes</b> method to notify NSImage of the file types your class supports.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><i> </i>+ <b>imageUnfilteredFileTypes</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p19"><b></b><b>imageNamed:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37">+ (id)<b>imageNamed:</b>(NSString *)<i>name</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns the NSImage instance associated with <i>name</i>. The returned object can be:</p>
+<p class="p15"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>One that's been assigned a name with the <b>setName:</b> method</p>
+<p class="p16">•<span class="Apple-tab-span">	</span>One of the named system bitmaps provided by the Application Kit</p>
+<p class="p17"><br></p>
+<p class="p14">If there's no known NSImage with <i>name</i>, this method tries to create one by searching for image data in the application's executable file and in the main bundle (see NSBundle's class description for a description of how the bundle's contents are searched). If a file contains data for more than one image, a separate representation is created for each. If an image representation can't be found for <i>name</i>, no object is created and <b>nil</b> is returned.</p>
+<p class="p15"><br></p>
+<p class="p14">The preferred way to name an image is to ask for a <i>name</i> without the extension, but to include the extension for a file name.</p>
+<p class="p15"><br></p>
+<p class="p14">One particularly useful image is referenced by the string “NSApplicationIcon”. If you supply this string to <b>imageNamed:</b>, the returned image will be the application's own icon. Icons for other applications can be obtained through the use of methods declared in the NSWorkspace class.</p>
+<p class="p15"><br></p>
+<p class="p14">The image returned by this method should not be freed, unless it's certain that no other objects reference it.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s1">- </span><b>setName:</b>, <span class="s1">- </span><b>name</b>, <span class="s4">-</span><b> iconForFile: </b>(NSWorkspace), <b>+ imageFileTypes</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p19"><b></b><b>imagePasteboardTypes</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37">+ (NSArray *)<b>imagePasteboardTypes</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns a null-terminated list of pasteboard types for which a registered NSImageRep exists. This list includes all pasteboard types supported by registered subclasses of NSImageRep, and those that can be converted to supported pasteboard types through a user-installed filter service.</p>
+<p class="p15"><br></p>
+<p class="p14">By default, the list returned by this method contains “NSPostScriptPboardType” and “NSTIFFPboardType”.</p>
+<p class="p15"><br></p>
+<p class="p14">When creating a subclass of NSImageRep that accepts image data from non-default pasteboard types, override NSImageRep's <b>imageUnfilteredPasteboardTypes</b> method to notify NSImage of the pasteboard types your class supports.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>imageUnfilteredPasteboardTypes</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p19"><b></b><b>imageUnfilteredFileTypes</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37">+ (NSArray *)<b>imageUnfilteredFileTypes</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns a null-terminated array of strings representing those file types for which a registered NSImageRep exists. This list consists of all file types supported by registered subclasses of NSImageRep, and doesn't include those types that can be converted to supported file types through a user-installed filter service. The array returned by this method may be passed directly to the NSOpenPanel's <b>runModalForTypes:</b> method.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>imageFileTypes</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p19"><b></b><b>imageUnfilteredPasteboardTypes</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37">+ (NSArray *)<b>imageUnfilteredPasteboardTypes</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns a null-terminated list of pasteboard types for which a registered NSImageRep exists. This list consists of all pasteboard types supported by registered subclasses of NSImageRep, and doesn't include those that can be converted to supported pasteboard types through a user-installed filter service.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>imagePasteboardTypes</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p42"><b></b><br></p>
+<p class="p12"><b>Instance Methods</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p19"><b></b><b>addRepresentation:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>addRepresentation:</b>(NSImageRep *)<i>imageRep</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Adds <i>imageRep</i> to the receiver's list of representations. After invoking this method, you may need to explicitly set features of the new representation, such as size, number of colors, and so on. This is true in particular if the NSImage has multiple image representations to choose from. See NSImageRep and its subclasses for the methods you use to complete initialization.</p>
+<p class="p15"><br></p>
+<p class="p14">Any representation that's added by this method is retained by the NSImage. Note that representations can't be shared among NSImages.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> representations</b>, <span class="s4">-</span><b> removeRepresentation:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p19"><b></b><b>addRepresentations:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>addRepresentations:</b>(NSArray *)<i>imageReps</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Adds each of the representations in <i>imageReps</i> to the receiver's list of representations. After invoking this method, you may need to explicitly set features of the new representations, such as size, number of colors, and so on. This is true in particular if the NSImage has multiple image representations to choose from. See NSImageRep and its subclasses for the methods you use to complete initialization.</p>
+<p class="p15"><br></p>
+<p class="p14">Representations added by this method are retained by the NSImage. Note that representations can't be shared among NSImages.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> representations</b>, <span class="s4">-</span><b> removeRepresentation:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p19"><b></b><b>backgroundColor</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (NSColor *)<b>backgroundColor</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns the background color of the rectangle where the image is cached. If no background color has been specified, NSColor's <b>clearColor</b> is returned, indicating a transparent background.</p>
+<p class="p15"><br></p>
+<p class="p14">The background color will be visible when the image is composited only if the image doesn't completely cover all the pixels within the area specified for its size.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>bestRepresentationForDevice:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (NSImageRep *)<b>bestRepresentationForDevice:</b>(NSDictionary *)<i>deviceDescription</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns the best representation for the device described by <i>deviceDescription</i>. If <i>deviceDescription</i> is <b>nil</b>, the current device is assumed. “Choosing Representations” in the class introduction outlines the process NSImage goes through in order to determine the “best” representation for a given device. For a list of dictionary keys and values appropriate to display and print devices, see NSGraphics.h.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> representations</b>, <span class="s4">-</span><b> prefersColorMatch</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p19"><b></b><b>cacheDepthMatchesImageDepth</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (BOOL)<b>cacheDepthMatchesImageDepth</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns NO if the application's default depth limit applies to the off-screen windows where the NSImage's representations are cached. If window depths are instead determined by the specifications of the representations, <b>cacheDepthMatchesImageDepth</b> returns YES.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>compositeToPoint:fromRect:operation:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>compositeToPoint:</b>(NSPoint)<i>aPoint </i><b>fromRect:</b>(NSRect)<i>aRect </i><b>operation:</b>(NSCompositingOperation)<i>op</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Composites the portion of the image enclosed by the <i>aRect</i> rectangle to the location specified by <i>aPoint</i> in the current coordinate system. <i>aRect</i> must be a valid (non-null) rectangle. The <i>aPoint</i> argument is the same as for <b>compositeToPoint:operation:</b>. <i>op</i> should be one of the compositing operations as defined in <b>dpsOpenStep.h</b>.</p>
+<p class="p15"><br></p>
+<p class="p14">The source rectangle is specified relative to a coordinate system that has its origin at the lower left corner of the image, but is otherwise the same as the base coordinate system.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p14">This method doesn't check to be sure that the rectangle encloses only portions of the image. Therefore, it can conceivably composite areas that don't properly belong to the image, if the <i>aRect</i> rectangle happens to include them. If this turns out to be a problem, you can prevent it from happening by having the NSImage cache its representations in their own individual windows (with the <b>setCachedSeparately:</b> method). In this case, the window's clipping path will prevent anything but the image from being composited.</p>
+<p class="p15"><br></p>
+<p class="p14">Compositing part of an image is as efficient as compositing the whole image, but printing just part of an image is not. When printing, it's necessary to draw the whole image and rely on a clipping path to be sure that only the desired portion appears.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> dissolveToPoint:fromRect:fraction:</p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>compositeToPoint:operation:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>compositeToPoint:</b>(NSPoint)<i>aPoint </i><b>operation:</b>(NSCompositingOperation)<i>op</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Composites the image to the location specified by <i>aPoint</i> using the specified compositing operation, <i>op</i>.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>aPoint</i> is specified in the current coordinate system—the coordinate system of the currently focused NSView—and designates where the lower left corner of the image will appear. The image will have the orientation of the base coordinate system, regardless of the destination coordinates. <i>op</i> should be one of the compositing operations as defined in <b>dpsOpenStep.h</b>.</p>
+<p class="p15"><br></p>
+<p class="p14">The image is composited from its off-screen window cache. Since the cache isn't created until the image representation is first used, this method may need to render the image before compositing.</p>
+<p class="p15"><br></p>
+<p class="p14">When printing, the compositing methods do not composite, but attempt to render the same image on the page that compositing would render on the screen, choosing the best available representation for the printer. The <i>op</i> argument is ignored.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> dissolveToPoint:fraction:</p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>delegate</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (id)<b>delegate</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns the delegate of the NSImage object, or <b>nil</b> if no delegate has been set.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>dissolveToPoint:fraction:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>dissolveToPoint:</b>(NSPoint)<i>aPoint </i><b>fraction:</b>(float)<i>aFloat</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Composites the image to the location specified by <i>aPoint</i>, just as <b>compositeToPoint:operation:</b> does, but uses the <b>dissolve</b> operator rather than <b>composite</b>. <i>aFloat</i> is a fraction between 0.0 and 1.0 that specifies how much of the resulting composite will come from the NSImage. If the source image contains alpha, this operation may promote the destination NSWindow to contain alpha.</p>
+<p class="p15"><br></p>
+<p class="p14">To slowly dissolve one image into another, this method (or <b>dissolveToPoint:fromRect:fraction:</b>) needs to be invoked repeatedly with an ever-increasing <i>aFloat</i>. Since <i>aFloat</i> refers to the fraction of the source image that's combined with the original destination (not the destination image after some of the source has been dissolved into it), the destination image should be replaced with the original destination before each invocation. This is best done in a buffered window before the results of the composite are flushed to the screen.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p14">When printing, this method is identical to <b>compositeToPoint:operation:</b>. The <i>delta</i> argument is ignored.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>dissolveToPoint:fromRect:fraction:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>dissolveToPoint:</b>(NSPoint)<i>aPoint </i><b>fromRect:</b>(NSRect)<i>aRect </i><b>fraction:</b>(float)<i>aFloat</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Composites the <i>aRect</i> portion of the image to the location specified by <i>aPoint</i>, just as <b>compositeToPoint:fromRect:operation:</b> does, but uses the <b>dissolve</b> operator rather than <b>composite</b>. <i>aFloat</i> is a fraction between 0.0 and 1.0 that specifies how much of the resulting composite will come from the NSImage. If the source image contains alpha, this operation may promote the destination NSWindow.</p>
+<p class="p15"><br></p>
+<p class="p14">When printing, this method is identical to <b>compositeToPoint:fromRect:operation:</b>. The <i>aFloat</i> argument is ignored.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>drawRepresentation:inRect:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (BOOL)<b>drawRepresentation:</b>(NSImageRep *)<i>imageRep </i><b>inRect:</b>(NSRect)<i>rect</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Fills the specified rectangle with the background color, then sends the<i> imageRep</i> a <b>drawInRect:</b><i> </i>message to draw itself inside the rectangle (if the NSImage is scalable), or a<i> </i><b>drawAtPoint:</b><i> </i>message to draw itself at the location of the rectangle (if the NSImage is not scalable). The rectangle is located in the current window and is specified in the current coordinate system. This method returns the value returned by the <b>drawInRect:</b> or <b>drawAtPoint:</b> method, which indicates whether or not the representation was successfully drawn.</p>
+<p class="p15"><br></p>
+<p class="p14">This method shouldn't be called directly; the NSImage uses it to cache and print its representations. By overriding it in a subclass, you can change how representations appear in the cache, and thus how they'll appear when composited. For example, your version of the method could scale or rotate the coordinate system, then send a message to <b>super</b> to perform this version.</p>
+<p class="p15"><br></p>
+<p class="p14">If the background color is fully transparent and the image isn't being cached by the NSImage, the rectangle won't be filled before the representation draws.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>initByReferencingFile:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (id)<b>initByReferencingFile:</b>(NSString *)<i>filename</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Initializes the receiver, a newly allocated NSImage instance, for the file <i>filename</i>. This method initializes lazily: the NSImage doesn't actually open <i>filename</i> or create image representations from its data until an application attempts to composite or requests information about the NSImage.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>filename</i> may be a full or relative pathname, and should include an extension that identifies the data type in the file. The mechanism that actually creates the image representation for <i>filename</i> will look for an NSImageRep subclass that handles that data type from among those registered with NSImage. By default, the files handled are those with the extensions “tiff”, “tif”, “bmp”, and “eps”.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p14">After finishing the initialization, this method returns <b>self</b>. However, if the new instance can't be initialized, it's freed and <b>nil</b> is returned. Since this method doesn't actually create image representations for the data, your application should do error checking before attempting to use the image; one way to do so is by invoking the <b>isValid</b> method to check whether the image can be drawn.</p>
+<p class="p15"><br></p>
+<p class="p14">This method invokes <b>setDataRetained:</b>YES, thus enabling it to hold onto its file name. Note that if an image created with this method is archived, only the file name will be saved.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p44"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>initWithBitmapHandle:</b></p>
+<p class="p45"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (id)<b>initWithBitmapHandle:</b>(void *)<i>bitmap</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">On Microsoft Windows platforms, <b>initWithBitmapHandle:</b> initializes the receiver, a newly allocated NSImage instance, with the contents of the Windows bitmap indicated by <i>bitmap</i>. If <b>initWithBitmapHandle:</b> is able to create one or more image representations, it returns <b>self</b>. Otherwise, the receiver is freed and <b>nil</b> is returned.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>initWithContentsOfFile:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (id)<b>initWithContentsOfFile:</b>(NSString *)<i>filename</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Initializes the receiver, a newly allocated NSImage instance, with the contents of the file <i>filename</i>. Unlike <b>initByReferencingFile:</b>, this method opens <i>filename</i> and creates one or more image representations from its data.</p>
+<p class="p15"><br></p>
+<p class="p14"><i>filename</i> may be a full or relative pathname, and should include an extension that identifies the data type in the file. <b>initWithContentsOfFile: </b>will look for an NSImageRep subclass that handles that data type from among those registered with NSImage. By default, the files handled are those with the extensions “tiff”, “tif”, “bmp”, and “eps”.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p14">After finishing the initialization, this method returns <b>self</b>. However, if at least one image representation can't be created from the contents of the specified file, the receiver is freed and <b>nil</b> is returned.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>initWithData:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (id)<b>initWithData:</b>(NSData *)<i>data</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Initializes the receiver, a newly allocated NSImage instance, with the contents of the data object <i>data</i>. If <b>initWithData:</b> is able to create one or more image representations, it returns <b>self</b>. Otherwise, the receiver is freed and <b>nil</b> is returned.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p44"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>initWithIconHandle:</b></p>
+<p class="p45"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (id)<b>initWithIconHandle:</b>(void *)<i>icon</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">On Microsoft Windows platforms, <b>initWithIconHandle:</b> initializes the receiver, a newly allocated NSImage instance, with the contents of the Windows icon indicated by <i>icon</i>. If <b>initWithIconHandle:</b> is able to create one or more image representations, it returns <b>self</b>. Otherwise, the receiver is freed and <b>nil</b> is returned.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>initWithPasteboard:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (id)<b>initWithPasteboard:</b>(NSPasteboard *)<i>pasteboard</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Initializes and returns the receiver, a newly allocated NSImage instance, from <i>pasteboard</i>. <i>pasteboard</i> should contain a type returned by one of the registered NSImageRep's <b>imageUnfilteredPasteboardTypes</b> methods; the default types supported are NSPostscriptPboardType (NSEPSImageRep) and NSTIFFPboardType (NSBitmapImageRep). If <i>pasteboard</i> contains an NSFilenamesPboardType, the file name should have an extension returned by one of the registered NSImageRep's <b>imageUnfilteredFileTypes</b> methods; the default types supported are “tiff”, “tif”, “bmp”, (all in NSBitmapImageRep) and “eps” (NSEPSImageRep).<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p14">If <b>initWithPasteboard:</b> is able to create one or more image representations, it returns <b>self</b>. Otherwise, the receiver is freed and <b>nil</b> is returned.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>initWithSize:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (id)<b>initWithSize:</b>(NSSize)<i>aSize</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Initializes the receiver, a newly allocated NSImage instance, to <i>aSize</i> and returns <b>self</b>. The size should be specified in units of the base coordinate system. Although you can initialize the receiver without specifying a size by passing a size of (0.0, 0.0) to <b>initWithSize:</b>, the receiver's size must be set before the NSImage can be used.</p>
+<p class="p15"><br></p>
+<p class="p46"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> setSize:</span></p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>isCachedSeparately</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (BOOL)<b>isCachedSeparately</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns YES if each representation of the image is cached separately in an off-screen window of its own, and NO if they can be cached in off-screen windows together with other images. A return of NO doesn't mean that the windows are, in fact, shared, just that they can be. The default is NO.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>isDataRetained</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (BOOL)<b>isDataRetained</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns YES if the NSImage retains the data needed to render the image, and NO if it doesn't. The default is NO, except for images created with <b>initByReferencingFile:</b>, which should hold onto their file names. If the data is available in a file that won't be moved or deleted, or if responsibility for drawing the image is delegated to another object with a custom method, there's no reason for the NSImage to retain the data. However, if the NSImage reads image data from a file created with <b>initWithContentsOfFile:</b>, you may want to have it keep the data itself; for example, to render the same image on another device at a different resolution.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>isFlipped</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (BOOL)<b>isFlipped</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns YES if a vertically flipped coordinate system is used when locating the image, and NO if it isn't. The default is NO.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>isValid</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (BOOL)<b>isValid</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns YES if a representation for the receiver can drawn in the cache, and NO if it can't; for example, because the file from which it was initialized is non-existent, or the data in that file is invalid.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p14">If no representations exist for the receiver, <b>isValid</b> first creates a cache with the default depth.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> initByReferencingFile:</p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>lockFocus</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>lockFocus</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Prepares for drawing of the best representation of the NSImage for the current device by making the off-screen window where the representation will be cached the current window and a coordinate system specific to the area where the image will be drawn the current coordinate system. If the receiver has no representations, <b>lockFocus</b> first creates one with the default depth. See “Choosing Representations” in the class description for information on how the “best” representation is chosen.</p>
+<p class="p15"><br></p>
+<p class="p14">A successful <b>lockFocus</b> message must be balanced by a subsequent <b>unlockFocus</b> message to the same NSImage. These messages bracket the code that draws the image.</p>
+<p class="p15"><br></p>
+<p class="p14">If <b>lockFocus</b> is unable to focus on the representation, it raises an NSImageCacheException.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> bestRepresentationForDevice:</b>, <span class="s4">-</span><b> isValid</b>, <span class="s4">-</span><b> prefersColorMatch</b>, <span class="s4">-</span><b> representations</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p19"><b></b><b>lockFocusOnRepresentation:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>lockFocusOnRepresentation:</b>(NSImageRep *)<i>imageRepresentation</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Prepares for drawing of the <i>imageRepresentation</i> representation by making the off-screen window where it will be cached the current window and a coordinate system specific to the area where the image will be drawn the current coordinate system. If <i>imageRepresentation</i> is <b>nil</b>, <b>lockFocusOnRepresentation:</b> acts like <b>lockFocus</b>, setting focus to the best representation for the NSImage. Otherwise, <i>imageRepresentation</i> must be one of the representations in the NSImage.</p>
+<p class="p15"><br></p>
+<p class="p14">A successful <b>lockFocusOnRepresentation:</b> message must be balanced by a subsequent <b>unlockFocus</b> message to the same NSImage. These messages bracket the code that draws the image.</p>
+<p class="p15"><br></p>
+<p class="p14">If <b>lockFocusOnRepresentation:</b> is unable to focus on the representation, it raises an NSImageCacheException.</p>
+<p class="p15"><br></p>
+<p class="p46"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> isValid</span></p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>matchesOnMultipleResolution</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (BOOL)<b>matchesOnMultipleResolution</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns YES if the resolution of the device and the resolution specified for the image are considered to match if one is an integer multiple of the other, and NO if device and image resolutions are considered to match only if they are exactly the same. The default is YES.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>name</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (NSString *)<b>name</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns the name assigned to the receiver, or <b>nil</b> if no name has been assigned.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>prefersColorMatch</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (BOOL)<b>prefersColorMatch</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns YES if, when selecting the representation it will use, the NSImage first looks for one that matches the color capability of the rendering device (choosing a gray-scale representation for a monochrome device and a color representation for a color device), then if necessary narrows the selection by looking for one that matches the resolution of the device. If the return is NO, the NSImage first looks for a representation that matches the resolution of the device, then tries to match the representation to the color capability of the device. The default is YES.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>recache</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>recache</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Invalidates the off-screen caches of all representations and frees them. The next time any representation is composited, it will first be asked to redraw itself in the cache. NSCachedImageReps aren't destroyed by this method.</p>
+<p class="p15"><br></p>
+<p class="p14">If an image is likely not to be used again, it's a good idea to free its caches, since that will reduce that amount of memory consumed by your program and therefore improve performance.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>removeRepresentation:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>removeRepresentation:</b>(NSImageRep *)<i>imageRep</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Removes and releases the <i>imageRep</i> representation from the NSImage's list of representations.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> representations</p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>representations</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (NSArray *)<b>representations</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns an array containing all of the representations of the receiver.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>scalesWhenResized</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (BOOL)<b>scalesWhenResized</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns YES if image representations are scaled to fit the size specified for the NSImage. If representations are not scalable, this method returns NO. The default is NO.</p>
+<p class="p15"><br></p>
+<p class="p14">Representations created from data that specifies a size (for example, the “ImageLength” and “ImageWidth” fields of a TIFF representation or the bounding box of an EPS representation) will have the size the data specifies, which may differ from the size of the NSImage.</p>
+<p class="p15"><br></p>
+<p class="p46"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> setSize:</span></p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>setBackgroundColor:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>setBackgroundColor:</b>(NSColor *)<i>aColor</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Sets the background color of the image. The default is NSColor's <b>clearColor</b>, indicating a transparent background. The background color will be visible only for representations that don't completely cover all the pixels within the image when drawing. This method doesn't cause the receiver to recache itself.</p>
+<p class="p15"><br></p>
+<p class="p46"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> recache</span></p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>setCacheDepthMatchesImageDepth:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>setCacheDepthMatchesImageDepth:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Sets whether the application's default depth limit applies to the off-screen windows where the NSImage's representations are cached. If <i>flag</i> is NO (the default), window depths are instead determined by the specifications of the representations. This method doesn't cause the receiver to recache itself.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> lockFocus</b>, <span class="s4">-</span><b> recache</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p19"><b></b><b>setCachedSeparately:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>setCachedSeparately:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Sets whether each image representation will be cached in its own off-screen window or in a window shared with other images. If <i>flag</i> is YES, each representation is guaranteed to be in a separate window. If <i>flag</i> is NO (the default), a representation can be cached together with other images, though in practice it might not be.</p>
+<p class="p15"><br></p>
+<p class="p14">If an NSImage is to be resized frequently, it's more efficient to cache its representations separately.</p>
+<p class="p15"><br></p>
+<p class="p14">This method doesn't invalidate any existing caches.</p>
+<p class="p15"><br></p>
+<p class="p46"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> recache</span></p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>setDataRetained:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>setDataRetained:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Sets whether the NSImage retains the data needed to render the image. The default is NO. If the data is available in a file that won't be moved or deleted, or if responsibility for drawing the image is delegated to another object with a custom method, there's no reason for the NSImage to retain the data. However, if the NSImage reads image data from a file that could change, you may want to have it keep the data itself. Generally, this is useful to redraw the image to a device of different resolution.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p14">If an image representation is created using <b>initByReferencingFile:</b>, the only data retained is the name of the source file.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>setDelegate:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>setDelegate:</b>(id)<i>anObject</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Makes <i>anObject</i> the delegate of the receiver.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>setFlipped:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>setFlipped:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Determines whether the polarity of the y-axis is inverted when drawing an image. If <i>flag</i> is YES, the image will have its coordinate origin in the upper left corner and the positive y-axis will extend downward. This method affects only the coordinate system used to draw the image; it doesn't affect the coordinate system for specifying portions of the image for methods like <b>compositeToPoint:fromRect:operation:</b> or <b>dissolveToPoint:fromRect:fraction:</b>.This method doesn't cause the receiver to recache itself.</p>
+<p class="p15"><br></p>
+<p class="p46"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> recache</span></p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>setMatchesOnMultipleResolution:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>setMatchesOnMultipleResolution:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Sets whether image representations with resolutions that are integral multiples of the resolution of the device are considered to match the device. The default is YES.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>setName:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (BOOL)<b>setName:</b>(NSString *)<i>aString</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p14">Registers the receiver under the name specified by <i>aString</i>, provided that no other NSImage is registered using that name. If the receiver is already registered under another name, <b>setName:</b> first unregisters the prior name. <b>setName:</b> returns YES unless another NSImage is registered using the name specified by <i>aString</i>, in which case <b>setName: </b>simply returns NO.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ imageNamed:</p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>setPrefersColorMatch:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>setPrefersColorMatch:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Sets whether color matches are preferred over resolution matches when determining which representation to use. If <i>flag</i> is YES, the NSImage first tries to match the representation to the color capability of the rendering device (choosing a color representation for a color device and a gray-scale representation for a monochrome device), and then if necessary narrows the selection by trying to match the resolution of the representation to the resolution of the device. If <i>flag</i> is NO, the NsImage first tries to match the representation to the resolution of the device, and then tries to match it to the color capability of the device. The default is YES.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>setScalesWhenResized:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>setScalesWhenResized:</b>(BOOL)<i>flag</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p14">Sets whether representations with sizes that differ from the size of the NSImage will be scaled to fit. If flag is YES, representations are scaled to fit. The default is NO.</p>
+<p class="p15"><br></p>
+<p class="p14">Generally, representations that are created through NSImage methods (such as <b>initByReferencingFile:</b>) have the same size as the NSImage. However, a representation that's added with either <b>addRepresentation:</b> or <b>addRepresentations:</b> may have a different size, and representations created from data that specifies a size (for example, the “ImageLength” and “ImageWidth” fields of a TIFF representation or the bounding box of an EPS representation) will have the size specified.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p14">This method doesn't cause the receiving NSImage to recache itself when it is next composited.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p46"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> setSize:</span></p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>setSize:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>setSize:</b>(NSSize)<i>aSize</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p14">Sets the width and height of the image. The size referred to by <i>aSize</i> should be in units of the base coordinate system.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p14">The size of an NSImage must be set before it can be used. You can change the size of an NSImage after it has been used, but changing it invalidates all its caches and frees them. When the image is next composited, the selected representation will draw itself in an off-screen window to recreate the cache.</p>
+<p class="p15"><br></p>
+<p class="p14">If the size of the image hasn't already been set when the NSImage is provided with a representation, the size will be set from the data. The bounding box is used to determine the size of an NSEPSImageRep. The TIFF fields “ImageLength” and “ImageWidth” are used to determine the size of an NSBitmapImageRep.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> initWithSize:</b>, <span class="s4">-</span><b> setScalesWhenResized:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p19"><b></b><b>setUsesEPSOnResolutionMismatch:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>setUsesEPSOnResolutionMismatch:</b>(BOOL)<i>flag</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p14">Sets whether EPS representations are preferred when there are no representations that match the resolution of the device. The default is NO.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> setMatchesOnMultipleResolution:</p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>size</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (NSSize)<b>size</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns the size of the image. If no size has been set, and no size can be determined from any of the NSImage's representations, the returned NSSize will have a width and height of 0.0.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>TIFFRepresentation</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (NSData *)<b>TIFFRepresentation</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p14">Returns a data object containing TIFF for all representations, using their default compressions.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>TIFFRepresentationUsingCompression:factor:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (NSData *)<b>TIFFRepresentationUsingCompression:</b>(NSTIFFCompression)<i>comp </i><b>factor:</b>(float)<i>aFloat</i><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns a data object containing TIFF for all representations, using the specified compression type and compression factor. Legal values for <i>comp</i> can be found in <b>NSBitmapImageRep.h</b>, and are described in “Tiff Compression” in NSBitmapImageRep's class description. <i>aFloat</i> provides a hint for those compression types that implement variable compression ratios; currently only JPEG compression uses a compression factor.</p>
+<p class="p15"><br></p>
+<p class="p14">If the specified compression isn't applicable, no compression is used. If a problem is encountered during generation of the TIFF, <b>TIFFRepresentationUsingCompression:factor:</b> raises an exception.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> TIFFRepresentationUsingCompression:factor:</b> (NSBitmapImageRep)</p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p19"><b></b><b>unlockFocus</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (void)<b>unlockFocus</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Balances a previous <b>lockFocus</b> or <b>lockFocusOnRepresentation:</b> message. All successful <b>lockFocus</b> and <b>lockFocusOnRepresentation:</b> messages (those that don't raise an NSImageCacheException) must be followed by a subsequent <b>unlockFocus</b> message. Those that raise should never be followed by <b>unlockFocus</b>.</p>
+<p class="p15"><br></p>
+<p class="p43"><br></p>
+<p class="p19"><b></b><b>usesEPSOnResolutionMismatch</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (BOOL)<b>usesEPSOnResolutionMismatch</b><span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p14">Returns whether EPS representations are preferred when there are no representations that match the resolution of the device. The default is NO.</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> matchesOnMultipleResolution:</p>
+<p class="p40"><br></p>
+<p class="p42"><br></p>
+<p class="p12"><b>Methods Implemented by the Delegate</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p19"><b></b><b>imageDidNotDraw:inRect:</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p37"><span class="s4">-</span> (NSImage *)<b>imageDidNotDraw:</b>(id)<i>sender</i> <b>inRect:</b>(NSRect)<i>aRect</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p14">Implemented by the delegate to respond to a message sent by the <i>sender</i> (an NSImage) when the <i>sender</i> was unable, for whatever reason, to composite or lock focus on its image. The delegate can:</p>
+<p class="p15"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>return another NSImage to draw in the <i>sender</i>'s place,</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>draw the image itself and return <b>nil</b>, or</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>simply return <b>nil</b> to indicate that <i>sender</i> should give up the attempt at drawing the image.</p>
+<p class="p17"><br></p>
+<p class="p48"><br></p>
+<p class="p15"><br></p>
+</body>
+</html>

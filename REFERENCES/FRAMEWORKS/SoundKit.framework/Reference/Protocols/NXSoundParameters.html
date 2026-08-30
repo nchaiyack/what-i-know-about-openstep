@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 75.5px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 75.5px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.7px; font: 14.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; font: 10.0px Times; min-height: 13.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.5px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.5px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.5px; font: 13.0px Times; min-height: 16.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.5px; font: 14.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.5px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.5px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 95.8px; font: 14.0px Helvetica}
+    p.p18 {margin: 0.0px 0.0px 0.0px 95.8px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 95.8px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 95.8px; font: 7.0px Times; min-height: 8.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 75.5px; font: 28.0px Times; min-height: 34.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 14.0px Times}
+    p.p23 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 14.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 5.0px Times; min-height: 6.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 35.0px Times; min-height: 42.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p27 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 75.5px; font: 23.0px Times; min-height: 28.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 75.5px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NXSoundParameters</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5">Adopted By:<span class="Apple-tab-span">	</span>NXSoundParameters</p>
+<p class="p6">NXSoundDevice</p>
+<p class="p7"><br></p>
+<p class="p5">Declared In:<span class="Apple-tab-span">	</span>SoundKit/NXSoundParameters.h</p>
+<p class="p8"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Protocol Description</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">The NXSoundParameters protocol defines methods that set and retrieve the values of particular sound attribute, or “parameters”.<span class="Apple-converted-space">  </span>Each parameter is identified by an integer constant called a <i>parameter key</i>.<span class="Apple-converted-space">  </span>Parameters always take numeric values; some of these values are represented by integer constants called <i>parameter values</i>.<span class="Apple-converted-space">  </span>Cumulatively, the constants that represent parameter keys and parameter values are called <i>parameter tags</i>; the list of parameter tags, divided into keys and values, that are defined by the Sound Kit is given in the section “Types and Constants.”<span class="Apple-converted-space">  </span>(To avoid confusion, the parameter tags that represent parameter values are referred to as<i> parameter value tags</i>.)</p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><b>Hardware and Software Parameters</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p11">A parameter key corresponds either to a hardware or a software sound attribute.<span class="Apple-converted-space">  </span>Hardware parameter keys take the form “NX_SoundDevice<i>Attribute</i>”; for example, NX_SoundDeviceMuteSpeaker.<span class="Apple-converted-space">  </span>Software parameter keys take the form “NX_SoundStream<i>Attribute</i>”, as in NX_SoundStreamGainStereo.</p>
+<p class="p12"><br></p>
+<p class="p11">Software parameter keys are guaranteed to be applicable to any computer.<span class="Apple-converted-space">  </span>A similar assurance can't be made for the hardware parameter keys.<span class="Apple-converted-space">  </span>For example, the NX_SoundDeviceMuteSpeaker parameter key only makes sense for computers that have a built-in speaker.<span class="Apple-converted-space">  </span>The <b>getParameters:count:</b> is useful in determining which parameter keys are used on a particular hardware platform, as explained in the method descriptions below.</p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><b>Parameter Values</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p11">To set a parameter's value, you use one of the <b>setParameter:to</b><i>Type</i><b>: </b>methods, passing a parameter key as the first argument, and a value of type <i>Type</i> as the second.<span class="Apple-converted-space">  </span>Parameters only accept numeric values; the value-setting methods that are defined here let you set a parameter as an <b>int</b>, a <b>float</b>, or a <b>BOOL</b>. <span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11"><span class="Apple-converted-space"> </span>Some parameters take discrete values that are represented by parameter value tags.<span class="Apple-converted-space">  </span>For example, the NX_SoundDeviceAnalogInput parameter key accepts two values, NX_SoundDeviceAnalogInputSource_Microphone and NX_SoundDeviceAnalogInputSource_LineIn.<span class="Apple-converted-space">  </span>The list of parameters keys that take parameter value tags is given below:</p>
+<p class="p12"><br></p>
+<p class="p17"><b>NX_SoundDeviceAnlogInputSource</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19">NX_SoundDeviceAnalogInputSource_Microphone</p>
+<p class="p19">NX_SoundDeviceAnalogInputSource_LineIn</p>
+<p class="p20"><br></p>
+<p class="p17"><b>NX_SoundStreamDataEncoding</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19">NX_SoundStreamDataEncoding_Linear16</p>
+<p class="p19">NX_SoundStreamDataEncoding_Linear8</p>
+<p class="p19">NX_SoundStreamDataEncoding_Mulaw8</p>
+<p class="p19">NX_SoundStreamDataEncoding_Alaw8</p>
+<p class="p19">NX_SoundStreamDataEncoding_AES</p>
+<p class="p20"><br></p>
+<p class="p17"><b>NX_SoundStreamSource</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19">NX_SoundStreamSource_Analog</p>
+<p class="p19">NX_SoundStreamSource_AES</p>
+<p class="p20"><br></p>
+<p class="p17"><b>NX_SoundStreamSink</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19">NX_SoundStreamSink_Analog</p>
+<p class="p19">NX_SoundStreamSink_AES</p>
+<p class="p20"><br></p>
+<p class="p11">The <b>getValues:count:forParameter:</b> method returns the parameter value tags for the given (last argument) parameter key.<span class="Apple-converted-space">  </span>Since not all parameter keys take parameter value tags, this method isn't meaningful for all parameter key arguments. <span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><b>Applying NXSoundParameters Objects</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p11">A single NXSoundParameters object can hold key/value pairs for any number of parameters.<span class="Apple-converted-space">  </span>You can apply these settings to an NXSoundDevice or NXSoundStream object through methods defined in those classes.<span class="Apple-converted-space">  </span>The object takes and applies the parameters that are meaningful to it; in other words, NXSoundDevice objects set hardware parameters, NXSoundStream objects set software parameters.</p>
+<p class="p12"><br></p>
+<p class="p11">The Sound Kit provides the NXSoundParameters class as a convenient cover for this protocol.<span class="Apple-converted-space">  </span>Instances of the class implement the methods found here so you can encapsulate and “pass around” your favorite sound parameter settings. <span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">In addition, the NXSoundDevice class conforms to the protocol, allowing you to set hardware parameters directly in an NXSoundDevice object.<span class="Apple-converted-space">  </span>When you create an NXSoundDevice object, the parameter keys that represent the supported (hardware) parameters are automatically set to default values.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p21"><br></p>
+<p class="p9"><b>Method Types</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p22">Getting parameter values<span class="Apple-tab-span">	</span><span class="s2">-</span> boolValueForParameter:</p>
+<p class="p23"><span class="s2">-</span> floatValueForParameter:</p>
+<p class="p23"><span class="s2">-</span> intValueForParameter:</p>
+<p class="p24"><br></p>
+<p class="p22">Setting parameter values<span class="Apple-tab-span">	</span><span class="s2">-</span> setParameter:toBool:</p>
+<p class="p23"><span class="s2">-</span> setParameter:toFloat:</p>
+<p class="p23"><span class="s2">-</span> setParameter:toInt:</p>
+<p class="p24"><br></p>
+<p class="p22">Querying parameters<span class="Apple-tab-span">	</span><span class="s2">-</span> getParameters:count:</p>
+<p class="p23"><span class="s2">-</span> getValues:count:forParameter:</p>
+<p class="p23"><span class="s2">-</span> isParameterPresent:</p>
+<p class="p23"><span class="s2">-</span> removeParameter:</p>
+<p class="p25"><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p14"><b></b><b>boolValueForParameter:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p26"><span class="s2">-</span> (BOOL)<b>boolValueForParameter:</b>(NXSoundParameterTag)<i>tag<span class="Apple-converted-space"> </span></i></p>
+<p class="p27"><i></i><br></p>
+<p class="p11">Returns the value of the parameter represented by <i>tag</i> as a boolean, converting the value if necessary.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p14"><b></b><b>floatValueForParameter:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p26"><span class="s2">-</span> (float)<b>floatValueForParameter:</b>(NXSoundParameterTag)<i>tag<span class="Apple-converted-space"> </span></i></p>
+<p class="p27"><i></i><br></p>
+<p class="p11">Returns the value of the parameter represented by <i>tag</i> as a <b>float</b>, converting the value if necessary.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p14"><b></b><b>getParameters:count:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p26"><span class="s2">-</span> (void)<b>getParameters:</b>(const NXSoundParameterTag **)<i>tagList </i><b>count:</b>(unsigned int *)<i>tagCount<span class="Apple-converted-space"> </span></i></p>
+<p class="p27"><i></i><br></p>
+<p class="p11">Returns, in <i>tagList</i>, an array of the parameter keys that are present in the NXSoundParameters object.<span class="Apple-converted-space">  </span>The number of elements in the list is returned in <i>count</i>.<span class="Apple-converted-space">  </span>Note that if the receiver is a newly-initialized NXSoundDevice object, then the keys in the list represent the hardware parameters that are supported by the hardware.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p14"><b></b><b>getValues:count:forParameter:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p26"><span class="s2">-</span> (void)<b>getValues:</b>(const NXSoundParameterTag **)<i>valueTagList </i><b>count:</b>(unsigned int *)<i>numValues </i><b>forParameter:</b>(NXSoundParameterTag)<i>tag<span class="Apple-converted-space"> </span></i></p>
+<p class="p27"><i></i><br></p>
+<p class="p11">Returns, in <i>valueTagList</i>, a list of the parameter values tags that are accepted by the parameter key <i>tag. <span class="Apple-converted-space"> </span></i> If the parameter key doesn't accept parameter value tags, then the list will be empty.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p14"><b></b><b>intValueForParameter:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p26"><span class="s2">-</span> (int)<b>intValueForParameter:</b>(NXSoundParameterTag)<i>ptag<span class="Apple-converted-space"> </span></i></p>
+<p class="p27"><i></i><br></p>
+<p class="p11">Returns the value of the parameter represented by <i>tag</i> as an <b>int</b>, converting the value if necessary.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p14"><b></b><b>isParameterPresent:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p26"><span class="s2">-</span> (BOOL)<b>isParameterPresent:</b>(NXSoundParameterTag)<i>tag<span class="Apple-converted-space"> </span></i></p>
+<p class="p27"><i></i><br></p>
+<p class="p11">Returns YES if the parameter represented by <i>tag</i> is present (has been set) in the object.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p14"><b></b><b>removeParameter:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p26"><span class="s2">-</span> (void)<b>removeParameter:</b>(NXSoundParameterTag)<i>tag<span class="Apple-converted-space"> </span></i></p>
+<p class="p27"><i></i><br></p>
+<p class="p11">Removes the parameter represented by <i>tag</i> from the object.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p14"><b></b><b>setParameter:toBool:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p26"><span class="s2">-</span> (void)<b>setParameter:</b>(NXSoundParameterTag)<i>tag </i><b>toBool:</b>(BOOL)<i>flag<span class="Apple-converted-space"> </span></i></p>
+<p class="p27"><i></i><br></p>
+<p class="p11">Sets the parameter represented by <i>tag</i> to the boolean value given by <i>flag</i>.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p14"><b></b><b>setParameter:toFloat:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p26"><span class="s2">-</span> (void)<b>setParameter:</b>(NXSoundParameterTag)<i>ptag </i><b>toFloat:</b>(float)<i>aFloat<span class="Apple-converted-space"> </span></i></p>
+<p class="p27"><i></i><br></p>
+<p class="p11">Sets the parameter represented by <i>tag</i> to the floating-point value given by <i>aFloat</i>.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p14"><b></b><b>setParameter:toInt:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p26"><span class="s2">-</span> (void)<b>setParameter:</b>(NXSoundParameterTag)<i>tag </i><b>toInt:</b>(int)<i>anInt<span class="Apple-converted-space"> </span></i></p>
+<p class="p27"><i></i><br></p>
+<p class="p11">Sets the parameter represented by <i>tag</i> to the integer value given by <i>anInt</i>.</p>
+<p class="p12"><br></p>
+<p class="p29"><br></p>
+<p class="p12"><br></p>
+</body>
+</html>

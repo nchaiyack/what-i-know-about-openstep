@@ -1,0 +1,331 @@
+.TH FCNTL 2 "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+fcntl \- file control
+.SH SYNOPSIS
+.nf
+.ft B
+#include <sys/types.h>
+.br
+.ft R
+/* POSIX applications \fB#include <unistd.h>\fP */
+.br
+.ft B
+#include <fcntl.h>
+.sp
+int fcntl(int \fIfd\fP, int \fIcmd\fP, ...);
+.br
+int fcntl(int \fIfd\fP, int \fIcmd\fP, int \fIarg\fP);
+.br
+int fcntl(int \fIfd\fP, int \fIcmd\fP, struct flock *\fIarg\fP);
+.SH DESCRIPTION
+The
+.I fcntl
+function performs a variety of functions
+on open descriptors.
+The argument
+.I fd
+is an open descriptor
+to be operated on by
+.I cmd
+as follows:
+.TP 15
+F_DUPFD
+Return a new descriptor as follows:
+.IP
+Lowest numbered available descriptor greater than or equal to
+.I arg.
+.IP
+References the same object as the original descriptor.
+.IP
+New descriptor shares the same file pointer if the object
+was a file.
+.IP
+Same access mode (read, write or read/write).
+.IP
+Same file status flags
+(that is, both descriptors
+share the same file status flags).
+.IP
+The close-on-exec flag
+associated with the new descriptor
+is cleared to keep the file open across
+.IR execve (2)
+system calls.
+.TP 15
+F_GETFD
+Get the close-on-exec flag
+associated with the descriptor 
+.IR fd .
+If the low-order bit of this flag
+is clear (that is, if it's zero),
+then the file will remain open
+across an
+.IR exec (2)
+system call.
+Otherwise the file will be closed
+upon execution of
+.IR exec (2).
+POSIX applications refer to this flag
+with the constant FD_CLOEXEC.
+.TP 15
+F_SETFD
+Set the close-on-exec flag associated with
+.I fd
+to the low-order bit of the third argument,
+.IR arg .
+POSIX applications use the constant FD_CLOEXEC
+to set this flag and 0 to clear it.
+.TP 15
+F_GETFL
+Get the file status flags
+and file access modes
+for the open file descriptor
+associated with
+.IR fd .
+.IP
+POSIX applications can
+extract the file access modes
+from the return value
+using the mask O_ACCMODE (see
+.IR <fcntl.h> ).
+The file status flags are
+O_APPEND (set append mode)
+and O_NONBLOCK (no delay).
+The file access modes are
+O_RDONLY (open for reading only), 
+O_RDWR (open for reading and writing) and
+O_WRONLY (open for writing only).
+.TP 15
+F_SETFL
+Set the file status flags
+for the open file descriptor
+associated with
+.I fd
+from the corresponding bits
+in the third argument,
+.IR arg .
+Bits corresponding to
+the file access modes and the 
+.I oflag
+values that are set in
+.I arg
+are ignored.
+.TP 15
+F_GETOWN
+Get the process ID or process group
+currently receiving SIGIO and SIGURG
+signals; process groups are returned
+as negative values.
+.TP
+F_SETOWN
+Set the process or process group
+to receive SIGIO and SIGURG signals;
+process groups are specified by supplying
+.I arg
+as negative, otherwise 
+.I arg
+is interpreted as a process ID.
+.LP
+The SIGIO facilities are enabled by setting the FASYNC
+flag with F_SETFL.
+.PP
+The following commands are POSIX-specific:
+.TP 15
+F_GETLK
+Get a description of the first lock which would block the lock specified in the
+\fIflock\fP structure pointed to by \fIarg\fP.  The information retrieved
+overwrites the information in the \fIflock\fP structure.  If no lock is found
+that would prevent this lock from being created, then the structure is passed
+back unchanged except for the lock type which will be set to F_UNLCK.
+.TP 15
+F_SETLK
+Set or clear an advisory record lock according to the
+\fIflock\fP structure pointed to by \fIarg\fP.
+F_SETLK is used to establish shared (F_RDLCK) and
+exclusive (F_WRLCK) locks, or to remove either type of lock
+(F_UNLCK).  If the specified lock cannot be applied, \fIfcntl()\fP will
+return with an error value of \-1.
+.TP 15
+F_SETLKW
+This \fIcmd\fP is the same as F_SETLK except that if a shared or exclusive
+lock is blocked by other locks, the requesting process will sleep
+until the lock may be applied.
+.SH "NOTES ON FILE-LOCKING FOR POSIX APPLICATIONS
+Advisory locks allow cooperating processes to perform
+consistent operations on files, but do not guarantee
+exclusive access (i.e., processes may still access files
+without using advisory locks, possibly resulting in
+inconsistencies).
+.LP
+The record locking mechanism allows two types of locks:
+shared locks (F_RDLCK) and exclusive locks (F_WRLCK).
+More than one process may hold a shared lock for a particular
+segment of a file at any given time,
+but multiple exclusive, or both shared and exclusive,
+locks may not exist simultaneously on any segment.
+.LP
+In order to claim a shared lock, the
+descriptor must have been opened with read access.  The
+descriptor on which an exclusive lock is being placed must have been
+opened with write access.
+.LP
+A shared lock may be upgraded
+to an exclusive lock, and vice versa, simply by specifying
+the appropriate lock type with a \fIcmd\fP of F_SETLK or F_SETLKW;
+the previous lock will be released and the new lock applied (possibly
+after other processes have gained and released the lock).
+.LP
+If the \fIcmd\fP is F_SETLKW and the requested lock cannot be
+claimed immediately (e.g., another process holds an exclusive lock
+that partially or completely overlaps the current request) then the
+calling process will block until the lock may be acquired.
+Processes blocked awaiting a lock may be awakened by signals.
+.LP
+Care should be taken to avoid deadlock situations in applications
+in which multiple processes perform blocking locks on a set of common
+records.
+.LP
+The record that is to be locked or unlocked is described by the
+\fIflock\fP structure, which is defined in
+.I <fcntl.h>
+as follows:
+.LP
+.nf
+.RS
+.DT
+struct flock {
+	short	l_type;	/* F_RDLCK, F_WRLCK, or F_UNLCK */
+	short	l_whence;	/* flag to choose starting offset */
+	off_t	l_start;	/* relative offset, in bytes */
+	off_t	l_len;	/* length, in bytes;  0 means lock to EOF */
+	pid_t	l_pid;	/* returned with F_GETLK */
+};
+.RE
+.fi
+.LP
+The \fIflock\fP structure describes the type (\fIl_type\fP),
+starting offset (\fIl_whence\fP), relative offset (\fIl_start\fP),
+and size (\fIl_len\fP) of the segment of the file to be affected.
+\fIL_whence\fP must be set to 0, 1, or 2 to indicate that the
+relative offset will be measured from the start of the file,
+current position, or end-of-file, respectively.
+The process id field
+(\fIl_pid\fP) is only used with the F_GETLK \fIcmd\fP to return
+the description of a lock held by another process.
+.LP
+Locks may start and extend beyond the current end-of-file,
+but may not be negative relative to the beginning of the file.
+A lock may be set to always extend to the end-of-file by setting
+\fIl_len\fP to zero (0).  If such a lock also has \fIl_whence\fP
+and \fIl_start\fP set to zero (0), the entire file will be locked.
+Changing or unlocking a segment from the middle of a larger locked
+segment leaves two smaller segments at either end.  Locking a
+segment that is already locked by the calling process causes the
+old lock type to be removed and the new lock type to take affect.
+All locks associated with a file for a given process are removed
+when the file is closed or the process terminates.  Locks are not
+inherited by the child process in a \fIfork\fP(2) system call.
+.\" .LP
+.\" In order to maintain consistency in the network case, data must not
+.\" be cached on client machines.  For this reason, file buffering for
+.\" an NFS file is turned off when the first lock is attempted on the file.
+.\" Buffering will remain off as long as the file is open.
+.\" Programs that do I/O buffering in the
+.\" user address space, however, may have inconsistent results (the standard
+.\" I/O package, for instance, is a common source of unexpected buffering).
+.\" .LP
+.\" The advisory record locking capabilities of \fIfcntl\fP
+.\" are implemented throughout the network by the
+.\" \fBnetwork lock daemon\fP;  see \fIlockd\fP(8C).
+.\" If the file server crashes and is rebooted, the lock daemon will attempt to
+.\" recover all locks that were associated with that server.  If a lock
+.\" cannot be reclaimed, the process that held the lock will be issued a SIGLOST
+.\" signal.
+.SH "RETURN VALUE
+Upon successful completion, the value returned depends on
+.I cmd
+as follows:
+.sp .5v
+.nf
+.ta .25i 1.25i
+	F_DUPFD	A new descriptor.
+	F_GETFD	Value of flag (only the low-order bit is defined).
+	F_GETFL	Value of flags.
+	F_GETOWN	Value of descriptor owner.
+	other	Value other than \-1.
+.fi
+.sp .5v
+Otherwise, a value of \-1 is returned and
+.I errno
+is set to indicate the error.
+.SH ERRORS
+The
+.I fcntl
+function will fail if one or more of the following are true:
+.TP 15
+[EAGAIN]
+.I cmd
+is F_SETLK, the lock type (\fIl_type\fP) is F_RDLCK (shared lock), and
+the segment of the file to be locked already has an exclusive lock
+held by another process.  This error will also be returned if the lock
+type is F_WRLCK (exclusive lock) and another process already has the
+segment locked with either a shared or exclusive lock.
+.TP 15
+[EBADF]
+.I cmd
+is F_SETLK or F_SETLKW and the process does not have the appropriate
+read or write permissions on the file.
+.TP 15
+[EBADF]
+\fIfd\fP is not a valid open descriptor.
+.TP 15
+[EFAULT]
+.I cmd
+is F_GETLK, F_SETLK, or F_SETLKW and
+.I arg
+points to an invalid address.
+.TP 15
+[EINTR]
+.I cmd
+is F_SETLKW and a signal interrupted the process while it was waiting
+for the lock to be granted.
+.TP 15
+[EINVAL]
+.I cmd
+is F_GETLK, F_SETLK, or F_SETLKW and the data
+.I arg
+points to is not valid; or, either 
+.I cmd
+is invalid, or
+.I cmd
+is F_DUPFD and
+.I arg
+is negative or greater than the maximum allowable number
+(OPEN_MAX for POSIX applications, or the return value of
+.IR getdtablesize (2)
+for non-POSIX applications).
+.TP 15
+[EMFILE]
+.I cmd
+is F_DUPFD and the maximum allowed number of descriptors are currently
+open.
+.TP 15
+[ENOLCK]
+.I cmd
+is F_SETLK or F_SETLKW and there are no more file lock entries available.
+.SH "SEE ALSO
+close(2), execve(2), getdtablesize(2), open(2), sigvec(2)
+.\" , lockd(8C)
+.SH "BUGS (POSIX-SPECIFIC)
+File locks obtained through the \fIfcntl\fP mechanism do not interact
+in any way with those acquired by using
+.IR flock (2).
+.LP
+F_GETLK returns F_UNLCK if the requesting process holds the specified lock.
+Thus, there is no way for a process to determine if it is still holding a
+specific lock after catching a SIGLOST signal.
+.LP
+.\" In a network environment, the value of \fIl_pid\fP returned by F_GETLK
+.\" is next to useless.
+.\"

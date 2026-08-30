@@ -1,0 +1,39 @@
+.TH TMPFILE 3S "August 1, 1992"
+.ds ]W ANSI C
+.SH NAME
+tmpfile \- create a file to hold data temporarily
+.SH SYNOPSIS
+.B #include <stdio.h>
+.PP
+.B FILE *tmpfile(void);
+.SH DESCRIPTION
+.I Tmpfile
+creates a new file and opens it for output
+using binary update mode \*(lqwb+\*(rq.
+There is no way to access the temporary file by name.
+The file is intended to be used only during the current program's
+execution;
+it is automatically deleted upon program termination.
+.SH "RETURN VALUE"
+.I Tmpfile
+returns a pointer to the stream of the file that it created.
+If the file cannot be created,
+.I tmpfile
+returns a null pointer.
+.PP
+If it fails,
+.I errno
+is set to indicate the cause of the failure.
+.SH ERRORS
+.I Tmpfile
+will fail if one of the following conditions occur:
+.TP 15
+[EMFILE]
+An attempt was made to open more than the maximum number of
+file descriptors allowed in this process.
+.TP 15
+[ENFILE]
+Too many files are currently open in the system.
+.SH "SEE ALSO"
+fopen(3S), tmpnam(3S)
+

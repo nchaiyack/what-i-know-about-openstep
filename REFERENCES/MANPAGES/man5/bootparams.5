@@ -1,0 +1,43 @@
+.\" @(#)bootparams.5 1.4 88/03/01 D/NFS
+.\" @(#)bootparams.5 1.7 88/02/25 SMI;
+.TH BOOTPARAMS 5 "16 February 1988"
+.SH NAME
+bootparams \- boot parameter data base
+.SH SYNOPSIS
+.B /etc/bootparams
+.SH DESCRIPTION
+.LP
+The
+.B bootparams
+file contains the list of client entries that diskless clients use for booting.
+For each diskless client the entry should contain the following information:
+.LP
+.nf
+	name of client
+	a list of keys, names of servers, and pathnames.
+.fi
+.LP
+The first item of each entry is the name of the diskless client. The
+subsequent item is a list of keys, names of servers, and pathnames.
+.LP
+Items are separated by
+.SM TAB
+characters.
+.SH EXAMPLE
+.LP
+Here is an example of the
+\fB/etc/bootparams\fR file:
+.sp
+.ft B
+.nf
+myclient	root=myserver:/nfsroot/myclient \e
+	swap=myserver:/nfsswap/myclient \e
+	dump=myserver:/nfsdump/myclient
+.fi
+.SH FILES
+.PD 0
+.TP 20
+.B /etc/bootparams
+.PD
+.SH "SEE ALSO"
+.BR bootparamd (8)

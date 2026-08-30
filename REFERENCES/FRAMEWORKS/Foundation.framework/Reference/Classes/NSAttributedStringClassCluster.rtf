@@ -1,0 +1,1210 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f5\fnil NeXTdoc;\f2\fswiss Helvetica;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+\pard\tx820\tx1460\f5\fs72\fi-1260\li1460\fc0\cf0 p	c 
+{\f2\b\fs56{\NeXTHelpMarker66 \markername NS_DEV_DOCFOR:objc_class:NSAttributedString;}
+¬}\pard\tx820\tx1460\f2\b\i0\ulnone\fs56\fi-1260\li1460\fc0\cf0 NSAttributedString Class Cluster\
+
+\fs70 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li200\fc0\cf0 Class Cluster Description\
+
+\fs14 \
+
+\f0\b0\fs28\li1500 NSAttributedString
+\i  
+\i0 objects manage character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an 
+\i attributed string
+\i0 . The cluster's two public classes, NSAttributedString and NSMutableAttributedString, declare the programmatic interface for read-only attributed strings and modifiable attributed strings, respectively. The Foundation Kit defines only the basic functionality for attributed strings; the remainder of the classes' interfaces is actually defined by the Application Kit. The Application Kit also uses a subclass of NSMutableAttributedString, called NSTextStorage, to provide the storage for NeXT's extended text-handling system.\
+
+\fs14 \
+
+\pard\tx2300\f2\b\fs24\fi-800\li2300\fc0\cf0 Note:	
+\f0\b0\fs28 NSAttributedString is 
+\i not
+\i0  a subclass of NSString. It contains a string object to which it applies attributes. This protects users of attributed strings from ambiguities caused by the semantic differences between simple and attributed string. For example, equality can't be simply defined between an NSString and an attributed string.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Because of the nature of class clusters, attributed string objects are not actual instances of the NSAttributedString or NSMutableAttributedString classes, but are instances of one of their private concrete subclasses. Although an attributed string object's class is private, its interface is public, as declared by these abstract superclasses, NSAttributedString and NSMutableAttributedString. The attributed string classes adopt the NSCopying and NSMutableCopying protocols, making it convenient to convert an attributed string from one type to the other.\
+
+\fs14 \
+
+\fs28 You create an NSAttributedString object by using one of 
+\b initWithString:
+\b0 , 
+\b initWithString:attributes:
+\b0 , or 
+\b initWithAttributedString:
+\b0 . These methods initialize an attributed string with data you provide. The Application Kit also provides methods for creating attributed strings from RTF data.\
+
+\fs14 \
+
+\fs28 An attributed string provides basic access to its contents with the 
+\b string
+\b0  and 
+\b attributesAtIndex:effectiveRange:
+\b0  methods, which yield characters and attributes, respectively. These two primitive methods are used by the other access methods to retrieve attributes individually by name, by functional group (font or ruler attributes, for example), and so on.\
+
+\fs14 \
+
+\fs28 The attribute values assigned to an attributed string become the property of that string, and shouldn't be modified in any way by other objects. Doing so can render inconsistent the attributed string's internal state. Always use NSMutableAttributedString's 
+\b setAttributes:range:
+\b0  and related methods to change attribute values.\
+
+\fs14 \
+
+\fs28 For more information on using attributed strings, see the Application Kit's specification for this class cluster.\
+
+\fs14 \
+
+\pard\tx820\tx1460\f5\fs72\fi-1280\li1460\fc0\cf0 p	i 
+\f2\b\fs52 NSAttributedString\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding\
+
+\fi0 NSCopying\
+NSMutableCopying\
+NSObject€(NSObject)\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 Foundation/NSAttributedString.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 The
+\i  
+\i0 NSAttributedString
+\i  
+\i0 class declares the programmatic interface to an object that manages an immutable attributed string. NSAttributedString's two primitive methods provide the basis for all the other methods in the class. The primitive 
+\b string
+\b0  method returns the NSString object to which attributes are applied. The primitive 
+\b attributesAtIndex:effectiveRange:
+\b0  method returns an NSDictionary containing the attribute names and values for characters around a specified index.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Adopted Protocols\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 NSCoding	
+\f1 -
+\f0 €encodeWithCoder:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €initWithCoder:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 NSCopying	
+\f1 -
+\f0 €copyWithZone:\
+
+\fs10 \
+
+\fs28 NSMutableCopying	
+\f1 -
+\f0 €mutableCopyWithZone:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Creating an NSAttributedString	
+\f1 -
+\f0 €initWithString:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €initWithAttributedString:\
+
+\f1 -
+\f0 €initWithString:attributes:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Retrieving character information	
+\f1 -
+\f0 €string\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €length\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Retrieving attribute information	
+\f1 -
+\f0 €attributesAtIndex:effectiveRange:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €attributesAtIndex:longestEffectiveRange:inRange:\
+
+\f1 -
+\f0 €attribute:atIndex:effectiveRange:\
+
+\f1 -
+\f0 €attribute:atIndex:longestEffectiveRange:inRange:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Comparing attributed strings	
+\f1 -
+\f0 €isEqualToAttributedString:\
+
+\fs10 \
+
+\fs28 Extracting a substring	
+\f1 -
+\f0 €attributedSubstringFromRange:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+\pard\tx1500\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker4229 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-attribute:atIndex:effectiveRange:];}
+¬}\pard\tx1500\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 attribute:atIndex:effectiveRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b attribute:
+\b0 (NSString€*)
+\i attributeName\
+
+\b\i0\fi0 atIndex:
+\b0 (unsigned€int)
+\i index\
+
+\b\i0 effectiveRange:
+\b0 (NSRange€*)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the value for the attribute named 
+\i attributeName
+\i0  of the character at 
+\i index
+\i0 , or 
+\b nil
+\b0  if there is no such attribute. If the named attribute exists at 
+\i index
+\i0  and 
+\i aRange
+\i0  is non-NULL, it's filled with a range over which the named attribute's value applies. If the named attribute doesn't exist at 
+\i index
+\i0  and 
+\i aRange
+\i0  is non-NULL, 
+\i aRange
+\i0  is filled instead with the range over which the attribute doesn't exist. This range isn't necessarily the maximum range covered by 
+\i attributeName
+\i0 , and its extent is implementation-dependent. If you need the maximum range, use 
+\b attribute:atIndex:longestEffectiveRange:inRange:
+\b0 .\
+
+\fs14 \
+
+\fs28 Raises an NSRangeException if 
+\i index
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b attributesAtIndex:effectiveRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker5116 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-attribute:atIndex:longestEffectiveRange:inRange:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 attribute:atIndex:longestEffectiveRange:inRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b attribute:
+\b0 (NSString€*)
+\i attributeName\
+
+\b\i0\fi0 atIndex:
+\b0 (unsigned€int)
+\i index\
+
+\b\i0 longestEffectiveRange:
+\b0 (NSRange€*)
+\i aRange\
+
+\b\i0 inRange:
+\b0 (NSRange)
+\i rangeLimit\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the value for the attribute named 
+\i attributeName
+\i0  of the character at 
+\i index
+\i0 , or 
+\b nil
+\b0  if there is no such attribute. If the named attribute exists at 
+\i index
+\i0  and 
+\i aRange
+\i0  is non-NULL, it's filled with the full range over which the value of the named attribute is the same as that at 
+\i index
+\i0 , clipped to 
+\i rangeLimit
+\i0 . If the named attribute doesn't exist at 
+\i index
+\i0  and 
+\i aRange
+\i0  is non-NULL, 
+\i aRange
+\i0  is filled instead with the full range over which the attribute doesn't exist, clipped to 
+\i rangeLimit
+\i0 .\
+
+\fs14 \
+
+\fs28 Raises an NSRangeException if 
+\i index
+\i0  or any part of 
+\i rangeLimit
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\fs28 If you don't need the longest effective range, it's far more efficient to use the 
+\b attribute:atIndex:effectiveRange:
+\b0  method to retrieve the attribute value.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b attributesAtIndex:longestEffectiveRange:inRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker6133 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-attributedSubstringFromRange:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 attributedSubstringFromRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSAttributedString€*)
+\b attributedSubstringFromRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns an NSAttributedString object consisting of the characters and attributes within 
+\i aRange
+\i0  in the receiver. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker6450 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-attributesAtIndex:effectiveRange:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 attributesAtIndex:effectiveRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSDictionary *)
+\b attributesAtIndex:
+\b0 (unsigned€int)
+\i index
+\i0  
+\b effectiveRange:
+\b0 (NSRange€*)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the attributes for the character at 
+\i index
+\i0 . If 
+\i aRange
+\i0  is non-NULL it's filled with the range over which the attributes and values apply. This range isn't necessarily the maximum range covered, and its extent is implementation-dependent. If you need the maximum range, use 
+\b attributesAtIndex:longestEffectiveRange:inRange:
+\b0 .\
+
+\fs14 \
+
+\fs28 Raises an NSRangeException if 
+\i index
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b attribute:atIndex:effectiveRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker7043 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-attributesAtIndex:longestEffectiveRange:inRange:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 attributesAtIndex:longestEffectiveRange:inRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSDictionary *)
+\b attributesAtIndex:
+\b0 (unsigned€int)
+\i index\
+
+\b\i0\fi0 longestEffectiveRange:
+\b0 (NSRange€*)
+\i aRange\
+
+\b\i0 inRange:
+\b0 (NSRange)
+\i rangeLimit\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the attributes for the character at 
+\i index
+\i0 . If 
+\i aRange
+\i0  is non-NULL, it's filled with the maximum range over which the attributes and values are the same as those at 
+\i index
+\i0 , clipped to 
+\i rangeLimit
+\i0 .\
+
+\fs14 \
+
+\fs28 Raises an NSRangeException if 
+\i index
+\i0  or any part of 
+\i rangeLimit
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\fs28 If you don't need the range information, it's far more efficient to use the 
+\b attributesAtIndex:effectiveRange:
+\b0  method to retrieve the attribute value.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b attribute:atIndex:longestEffectiveRange:inRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker7750 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-initWithAttributedString:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 initWithAttributedString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithAttributedString:
+\b0 (NSAttributedString€*)
+\i attributedString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes a newly allocated NSAttributedString object with the characters and attributes of 
+\i attributedString
+\i0 . Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b initWithRTF:documentAttributes:
+\b0 €(NSAttributedString Additions, Application Kit)\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker8072 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-initWithString:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 initWithString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithString:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes a newly allocated NSAttributedString object with the characters of 
+\i aString
+\i0  and with no attribute information. Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b initWithRTF:documentAttributes:
+\b0 €(NSAttributedString Additions, Application Kit)\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker8365 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-initWithString:attributes:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 initWithString:attributes:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithString:
+\b0 (NSString€*)
+\i aString 
+\b\i0 attributes:
+\b0 (NSDictionary€*)
+\i attributes\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes a newly allocated NSAttributedString object with the characters of 
+\i aString
+\i0  and the attributes of 
+\i attributes
+\i0 . Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b initWithRTF:documentAttributes:
+\b0 €(NSAttributedString Additions, Application Kit)\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker8706 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-isEqualToAttributedString:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 isEqualToAttributedString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b isEqualToAttributedString:
+\b0 (NSAttributedString€*)
+\i otherString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns YES if the receiver is equal to 
+\i otherString
+\i0 . Attributed strings must match in both characters and attributes to be equal.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker8938 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-length];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 length\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(unsigned€int)
+\b length\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the length of the receiver's string object.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b length
+\b0 €(NSString), 
+\f1 -
+\f0 €
+\b size\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker9066 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-string];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 string\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b string\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the character contents of the receiver as an NSString object. This method doesn't strip out attachment characters; use NSText's 
+\b string
+\b0  method to extract just the linguistically significant characters.\
+
+\fs14 \
+
+\fs28 This primitive method must guarantee efficient access to an attributed string's characters; subclasses should implement it to execute in O(1) time.\
+\
+\
+\
+
+\fs14 \
+
+\pard\tx820\tx1460\f5\fs72\fi-1280\li1460\fc0\cf0 p	i 
+{\f2\b\fs52{\NeXTHelpMarker9463 \markername NS_DEV_DOCFOR:objc_class:NSMutableAttributedString;}
+¬}\pard\tx820\tx1460\f2\b\i0\ulnone\fs52\fi-1280\li1460\fc0\cf0 NSMutableAttributedString\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSAttributedString€:€NSObject\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding€(NSAttributedString)\
+
+\fi0 NSCopying€(NSAttributedString)\
+NSMutableCopying€(NSAttributedString)\
+NSObject€(NSObject)\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 Foundation/NSAttributedString.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSMutableAttributedString declares the programmatic interface to objects that manage mutable attributed strings. You can add and remove characters (raw strings) and attributes separately, or together as attributed strings. When working with the Application Kit, you must also clean up changed attributes using the various 
+\b fix...
+\b0  methods. See the Application Kit's specification for this class cluster for more information on fixing attributes.\
+
+\fs14 \
+
+\fs28 NSMutableAttributedString adds two primitive methods to those of NSAttributedString. These primitive methods provide the basis for all the other methods in its class. The primitive 
+\b replaceCharactersInRange:withString:
+\b0  method replaces a range of characters with those from a string, leaving all attribute information outside that range intact. The primitive 
+\b setAttributes:range:
+\b0  method sets attributes and values for a given range of characters, replacing any previous attributes and values for that range.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Retrieving character information	
+\f1 -
+\f0 €mutableString\
+
+\fs10 \
+
+\fs28 Changing characters	
+\f1 -
+\f0 €replaceCharactersInRange:withString:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €deleteCharactersInRange:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Changing attributes	
+\f1 -
+\f0 €setAttributes:range:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €addAttribute:value:range:\
+
+\f1 -
+\f0 €addAttributes:range:\
+
+\f1 -
+\f0 €removeAttribute:range:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Changing characters and attributes	
+\f1 -
+\f0 €appendAttributedString:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €insertAttributedString:atIndex:\
+
+\f1 -
+\f0 €replaceCharactersInRange:withAttributedString:\
+
+\f1 -
+\f0 €setAttributedString:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Grouping changes	
+\f1 -
+\f0 €beginEditing\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €endEditing\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+\pard\tx1500\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker11194 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-addAttribute:value:range:];}
+¬}\pard\tx1500\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 addAttribute:value:range:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b addAttribute:
+\b0 (NSString€*)
+\i name\
+
+\b\i0\fi0 value:
+\b0 (id)
+\i value\
+
+\b\i0 range:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Adds an attribute with the given 
+\i name
+\i0  and 
+\i value
+\i0  to the characters in 
+\i aRange
+\i0 . Raises an NSInvalidArgumentException if 
+\i name
+\i0  or 
+\i value
+\i0  is 
+\b nil
+\b0 , and an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b addAttributes:range:
+\b0 , 
+\f1 -
+\f0 €
+\b removeAttribute:range:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker11598 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-addAttributes:range:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 addAttributes:range:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b addAttributes:
+\b0 (NSDictionary€*)
+\i attributes 
+\b\i0 range:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Adds the collection of attributes in 
+\i attributes
+\i0  to the characters in 
+\i aRange
+\i0 . Raises an NSInvalidArgumentException if 
+\i attributes
+\i0  is 
+\b nil
+\b0  and an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b addAttribute:value:range:
+\b0 , 
+\f1 -
+\f0 €
+\b removeAttribute:range:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker11993 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-appendAttributedString:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 appendAttributedString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b appendAttributedString:
+\b0 (NSAttributedString€*)
+\i attributedString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Adds the characters and attributes of 
+\i attributedString
+\i0  to the end of the receiver.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b insertAttributedString:atIndex:
+\b0 , +€
+\b attributedStringWithAttachment:
+\b0 €(NSAttributedString Additions, Application Kit)
+\b \
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker12305 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-beginEditing];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 beginEditing\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b beginEditing\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Overridden by subclasses to buffer or optimize a series of changes to the receiver's characters or attributes, until it receives a matching 
+\b endEditing
+\b0  message, upon which it can consolidate changes and notify any observers that it has changed. You can nest pairs of 
+\b beginEditing
+\b0  and 
+\b endEditing
+\b0  messages.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker12650 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-deleteCharactersInRange:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 deleteCharactersInRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b deleteCharactersInRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Deletes the characters in 
+\i aRange
+\i0  along with their associated attributes. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b replaceCharactersInRange:withAttributedString:
+\b0 , 
+\f1 -
+\f0\b €replaceCharactersInRange:withString:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker13002 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-endEditing];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 endEditing\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b endEditing\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Overridden by subclasses to consolidate changes made since a previous 
+\b beginEditing
+\b0  message and to notify any observers of the changes. NSMutableAttributedString's implementation does nothing. NSTextStorage, for example, overrides this method to invoke 
+\b fixAttributesInRange:
+\b0  and to inform its NSLayoutManagers that they need to re-lay the text.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b processEditing
+\b0 €(NSTextStorage class of the Application Kit)\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker13456 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-insertAttributedString:atIndex:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 insertAttributedString:atIndex:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b insertAttributedString:
+\b0 (NSAttributedString€*)
+\i attributedString 
+\b\i0 atIndex:
+\b0 (unsigned€int)
+\i index\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Inserts the characters and attributes of 
+\i attributedString
+\i0  into the receiver, so that the new characters and attributes begin at 
+\i index
+\i0  and the existing characters and attributes from 
+\i index
+\i0  to the end are shifted by the length of 
+\i attributedString
+\i0 . Raises an NSRangeException if 
+\i index
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €appendAttributedString:
+\b0 , +€
+\b attributedStringWithAttachment:
+\b0 €(NSAttributedString Additions, Application Kit)
+\b \
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker14045 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-mutableString];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 mutableString\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSMutableString€*)
+\b mutableString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the character contents of the receiver as an NSMutableString object. The receiver tracks changes to this string and keeps its attribute mappings up to date.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b replaceCharactersInRange:withString:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker14316 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-removeAttribute:range:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 removeAttribute:range:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b removeAttribute:
+\b0 (NSString€*)
+\i name 
+\b\i0 range:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Removes the attribute named 
+\i name
+\i0  from the characters in 
+\i aRange
+\i0 . Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €addAttribute:value:range:
+\b0 , 
+\f1 -
+\f0\b €addAttributes:range:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker14635 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-replaceCharactersInRange:withAttributedString:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 replaceCharactersInRange:withAttributedString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b replaceCharactersInRange:
+\b0 (NSRange)
+\i aRange 
+\b\i0 withAttributedString:
+\b0 (NSAttributedString€*)
+\i attributedString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Replaces the characters and attributes in 
+\i aRange
+\i0  with the characters and attributes of 
+\i attributedString
+\i0 . Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €insertAttributedString:atIndex:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker15047 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-replaceCharactersInRange:withString:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 replaceCharactersInRange:withString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b replaceCharactersInRange:
+\b0 (NSRange)
+\i aRange 
+\b\i0 withString:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Replaces the characters in 
+\i aRange
+\i0  with the characters of 
+\i aString
+\i0 . The new characters inherit the attributes of the first replaced character from 
+\i aRange
+\i0 . Where the length of 
+\i aRange
+\i0  is zero, the new characters inherit the attributes of the character preceding 
+\i aRange
+\i0  if it has any, otherwise of the character following 
+\i aRange
+\i0 .\
+
+\fs14 \
+
+\fs28 Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €deleteCharactersInRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker15634 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-setAttributedString:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 setAttributedString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b setAttributedString:
+\b0 (NSAttributedString€*)
+\i attributedString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Replaces the receiver's entire contents with the characters and attributes of 
+\i attributedString
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €appendAttributedString:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker15862 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-setAttributes:range:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 setAttributes:range:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b setAttributes:
+\b0 (NSDictionary€*)
+\i attributes 
+\b\i0 range:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sets the attributes for the characters in 
+\i aRange
+\i0  to 
+\i attributes
+\i0 . These new attributes replace any attributes previously associated with the characters in 
+\i aRange
+\i0 . Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €addAtributes:range:
+\b0 , 
+\f1 -
+\f0\b €removeAttributes:range:
+\b0 \
+
+\fs14 \
+
+}

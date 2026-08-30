@@ -1,0 +1,1150 @@
+.rn '' }`
+''' $RCSfile$$Revision$$Date$
+''' 
+''' $Log$
+''' 
+.de Sh
+.br
+.if t .Sp
+.ne 5
+.PP
+\fB\\$1\fR
+.PP
+..
+.de Sp
+.if t .sp .5v
+.if n .sp
+..
+.de Ip
+.br
+.ie \\n(.$>=3 .ne \\$3
+.el .ne 3
+.IP "\\$1" \\$2
+..
+.de Vb
+.ft CW
+.nf
+.ne \\$1
+..
+.de Ve
+.ft R
+
+.fi
+..
+'''
+'''
+'''     Set up \*(-- to give an unbreakable dash;
+'''     string Tr holds user defined translation string.
+'''     Bell System Logo is used as a dummy character.
+'''
+.tr \(*W-|\(bv\*(Tr
+.ie n \{\
+.ds -- \(*W-
+.if (\n(.H=4u)&(1m=24u) .ds -- \(*W\h'-12u'\(*W\h'-12u'-\" diablo 10 pitch
+.if (\n(.H=4u)&(1m=20u) .ds -- \(*W\h'-12u'\(*W\h'-8u'-\" diablo 12 pitch
+.ds L" ""
+.ds R" ""
+.ds L' '
+.ds R' '
+'br\}
+.el\{\
+.ds -- \(em\|
+.tr \*(Tr
+.ds L" ``
+.ds R" ''
+.ds L' `
+.ds R' '
+.if t .ds PI \(*p
+.if n .ds PI PI
+'br\}
+.TH PERLAPI 1 "\*(RP"
+.UC
+.if n .hy 0 
+.if n .na
+.ds C+ C\v'-.1v'\h'-1p'\s-2+\h'-1p'+\s0\v'.1v'\h'-1p'
+.de CQ          \" put $1 in typewriter font
+.ft CW
+'if n "\c
+'if t \\&\\$1\c
+'if n \\&\\$1\c
+'if n \&"
+\\&\\$2 \\$3 \\$4 \\$5 \\$6 \\$7
+'.ft R
+..
+.\" @(#)ms.acc 1.5 88/02/08 SMI; from UCB 4.2
+.	\" AM - accent mark definitions
+.bd S B 3
+.	\" fudge factors for nroff and troff
+.if n \{\
+.	ds #H 0
+.	ds #V .8m
+.	ds #F .3m
+.	ds #[ \f1
+.	ds #] \fP
+.\}
+.if t \{\
+.	ds #H ((1u-(\\\\n(.fu%2u))*.13m)
+.	ds #V .6m
+.	ds #F 0
+.	ds #[ \&
+.	ds #] \&
+.\}
+.	\" simple accents for nroff and troff
+.if n \{\
+.	ds ' \&
+.	ds ` \&
+.	ds ^ \&
+.	ds , \&
+.	ds ~ ~
+.	ds ? ?
+.	ds ! !
+.	ds / 
+.	ds q 
+.\}
+.if t \{\
+.	ds ' \\k:\h'-(\\n(.wu*8/10-\*(#H)'\'\h"|\\n:u"
+.	ds ` \\k:\h'-(\\n(.wu*8/10-\*(#H)'\`\h'|\\n:u'
+.	ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'^\h'|\\n:u'
+.	ds , \\k:\h'-(\\n(.wu*8/10)',\h'|\\n:u'
+.	ds ~ \\k:\h'-(\\n(.wu-\*(#H-.1m)'~\h'|\\n:u'
+.	ds ? \s-2c\h'-\w'c'u*7/10'\u\h'\*(#H'\zi\d\s+2\h'\w'c'u*8/10'
+.	ds ! \s-2\(or\s+2\h'-\w'\(or'u'\v'-.8m'.\v'.8m'
+.	ds / \\k:\h'-(\\n(.wu*8/10-\*(#H)'\z\(sl\h'|\\n:u'
+.	ds q o\h'-\w'o'u*8/10'\s-4\v'.4m'\z\(*i\v'-.4m'\s+4\h'\w'o'u*8/10'
+.\}
+.	\" troff and (daisy-wheel) nroff accents
+.ds : \\k:\h'-(\\n(.wu*8/10-\*(#H+.1m+\*(#F)'\v'-\*(#V'\z.\h'.2m+\*(#F'.\h'|\\n:u'\v'\*(#V'
+.ds 8 \h'\*(#H'\(*b\h'-\*(#H'
+.ds v \\k:\h'-(\\n(.wu*9/10-\*(#H)'\v'-\*(#V'\*(#[\s-4v\s0\v'\*(#V'\h'|\\n:u'\*(#]
+.ds _ \\k:\h'-(\\n(.wu*9/10-\*(#H+(\*(#F*2/3))'\v'-.4m'\z\(hy\v'.4m'\h'|\\n:u'
+.ds . \\k:\h'-(\\n(.wu*8/10)'\v'\*(#V*4/10'\z.\v'-\*(#V*4/10'\h'|\\n:u'
+.ds 3 \*(#[\v'.2m'\s-2\&3\s0\v'-.2m'\*(#]
+.ds o \\k:\h'-(\\n(.wu+\w'\(de'u-\*(#H)/2u'\v'-.3n'\*(#[\z\(de\v'.3n'\h'|\\n:u'\*(#]
+.ds d- \h'\*(#H'\(pd\h'-\w'~'u'\v'-.25m'\f2\(hy\fP\v'.25m'\h'-\*(#H'
+.ds D- D\\k:\h'-\w'D'u'\v'-.11m'\z\(hy\v'.11m'\h'|\\n:u'
+.ds th \*(#[\v'.3m'\s+1I\s-1\v'-.3m'\h'-(\w'I'u*2/3)'\s-1o\s+1\*(#]
+.ds Th \*(#[\s+2I\s-2\h'-\w'I'u*3/5'\v'-.3m'o\v'.3m'\*(#]
+.ds ae a\h'-(\w'a'u*4/10)'e
+.ds Ae A\h'-(\w'A'u*4/10)'E
+.ds oe o\h'-(\w'o'u*4/10)'e
+.ds Oe O\h'-(\w'O'u*4/10)'E
+.	\" corrections for vroff
+.if v .ds ~ \\k:\h'-(\\n(.wu*9/10-\*(#H)'\s-2\u~\d\s+2\h'|\\n:u'
+.if v .ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'\v'-.4m'^\v'.4m'\h'|\\n:u'
+.	\" for low resolution devices (crt and lpr)
+.if \n(.H>23 .if \n(.V>19 \
+\{\
+.	ds : e
+.	ds 8 ss
+.	ds v \h'-1'\o'\(aa\(ga'
+.	ds _ \h'-1'^
+.	ds . \h'-1'.
+.	ds 3 3
+.	ds o a
+.	ds d- d\h'-1'\(ga
+.	ds D- D\h'-1'\(hy
+.	ds th \o'bp'
+.	ds Th \o'LP'
+.	ds ae ae
+.	ds Ae AE
+.	ds oe oe
+.	ds Oe OE
+.\}
+.rm #[ #] #H #V #F C
+.SH "NAME"
+perlapi \- Perl 5 application programming interface for C extensions
+.SH "DESCRIPTION"
+.Sh "Introduction"
+\s-1XS\s0 is a language used to create an extension interface
+between Perl and some C library which one wishes to use with
+Perl.  The \s-1XS\s0 interface is combined with the library to
+create a new library which can be linked to Perl.  An \fB\s-1XSUB\s0\fR
+is a function in the \s-1XS\s0 language and is the core component
+of the Perl application interface.
+.PP
+The \s-1XS\s0 compiler is called \fBxsubpp\fR.  This compiler will embed
+the constructs necessary to let an \s-1XSUB\s0, which is really a C
+function in disguise, manipulate Perl values and creates the
+glue necessary to let Perl access the \s-1XSUB\s0.  The compiler
+uses \fBtypemaps\fR to determine how to map C function parameters
+and variables to Perl values.  The default typemap handles
+many common C types.  A supplement typemap must be created
+to handle special structures and types for the library being
+linked.
+.PP
+Many of the examples which follow will concentrate on creating an
+interface between Perl and the \s-1ONC+RPC\s0 bind library functions.
+Specifically, the \fIrpcb_gettime()\fR function will be used to demonstrate many
+features of the \s-1XS\s0 language.  This function has two parameters; the first
+is an input parameter and the second is an output parameter.  The function
+also returns a status value.
+.PP
+.Vb 1
+\&        bool_t rpcb_gettime(const char *host, time_t *timep);
+.Ve
+From C this function will be called with the following
+statements.
+.PP
+.Vb 4
+\&     #include <rpc/rpc.h>
+\&     bool_t status;
+\&     time_t timep;
+\&     status = rpcb_gettime( "localhost", &timep );
+.Ve
+If an \s-1XSUB\s0 is created to offer a direct translation between this function
+and Perl, then this \s-1XSUB\s0 will be used from Perl with the following code.
+The \f(CW$status\fR and \f(CW$timep\fR variables will contain the output of the function.
+.PP
+.Vb 2
+\&     use RPC;
+\&     $status = rpcb_gettime( "localhost", $timep );
+.Ve
+The following \s-1XS\s0 file shows an \s-1XS\s0 subroutine, or \s-1XSUB\s0, which
+demonstrates one possible interface to the \fIrpcb_gettime()\fR
+function.  This \s-1XSUB\s0 represents a direct translation between
+C and Perl and so preserves the interface even from Perl.
+This \s-1XSUB\s0 will be invoked from Perl with the usage shown
+above.  Note that the first three #include statements, for
+\f(CWEXTERN.h\fR, \f(CWperl.h\fR, and \f(CWXSUB.h\fR, will always be present at the
+beginning of an \s-1XS\s0 file.  This approach and others will be
+expanded later in this document.
+.PP
+.Vb 4
+\&     #include "EXTERN.h"
+\&     #include "perl.h"
+\&     #include "XSUB.h"
+\&     #include <rpc/rpc.h>
+.Ve
+.Vb 1
+\&     MODULE = RPC  PACKAGE = RPC
+.Ve
+.Vb 6
+\&     bool_t
+\&     rpcb_gettime(host,timep)
+\&          char *  host
+\&          time_t  &timep
+\&          OUTPUT:
+\&          timep
+.Ve
+Any extension to Perl, including those containing XSUBs,
+should have a Perl module to serve as the bootstrap which
+pulls the extension into Perl.  This module will export the
+extension's functions and variables to the Perl program and
+will cause the extension's XSUBs to be linked into Perl.
+The following module will be used for most of the examples
+in this document and should be used from Perl with the \f(CWuse\fR
+command as shown earlier.  Perl modules are explained in
+more detail later in this document.
+.PP
+.Vb 1
+\&     package RPC;
+.Ve
+.Vb 4
+\&     require Exporter;
+\&     require DynaLoader;
+\&     @ISA = qw(Exporter DynaLoader);
+\&     @EXPORT = qw( rpcb_gettime );
+.Ve
+.Vb 2
+\&     bootstrap RPC;
+\&     1;
+.Ve
+Throughout this document a variety of interfaces to the \fIrpcb_gettime()\fR
+\s-1XSUB\s0 will be explored.  The XSUBs will take their parameters in different
+orders or will take different numbers of parameters.  In each case the
+\s-1XSUB\s0 is an abstraction between Perl and the real C \fIrpcb_gettime()\fR
+function, and the \s-1XSUB\s0 must always ensure that the real \fIrpcb_gettime()\fR
+function is called with the correct parameters.  This abstraction will
+allow the programmer to create a more Perl-like interface to the C
+function.
+.PP
+It is recommended that the \fBh2xs\fR tool be used when creating new
+extensions.  This tool will generate template source files and Makefiles.
+This is discussed in more detail in the section titled \*(L"Creating A New
+Extension\*(R" and in the \fBh2xs\fR manpage.
+.Sh "The Anatomy of an \s-1XSUB\s0"
+The following \s-1XSUB\s0 allows a Perl program to access a  C  library  function  called  \fIsin()\fR.  The \s-1XSUB\s0 will imitate the C
+function which takes a single argument and returns a  single
+value.
+.PP
+.Vb 3
+\&     double
+\&     sin(x)
+\&       double<tab>x
+.Ve
+The compiler expects a tab between the parameter name and its type, and
+any or no whitespace before the type.  When using C pointers the
+indirection operator \f(CW*\fR should be considered part of the type and the
+address operator \f(CW&\fR should be considered part of the variable, as is
+demonstrated in the \fIrpcb_gettime()\fR function above.  See the section on
+typemaps for more about handling qualifiers and unary operators in C
+types.
+.PP
+The parameter list of a function must not have whitespace
+after the open-parenthesis or before the close-parenthesis.
+.PP
+.Vb 1
+\&   INCORRECT                      CORRECT
+.Ve
+.Vb 3
+\&   double                         double
+\&   sin( x )                       sin(x)
+\&     double  x                      double  x
+.Ve
+The function name and the return type must be placed on
+separate lines.
+.PP
+.Vb 1
+\&  INCORRECT                        CORRECT
+.Ve
+.Vb 3
+\&  double sin(x)                    double
+\&    double  x                      sin(x)
+\&                                     double  x
+.Ve
+.Sh "The Argument Stack"
+The argument stack is used to store the values which are
+sent as parameters to the \s-1XSUB\s0 and to store the \s-1XSUB\s0's
+return value.  In reality all Perl functions keep their
+values on this stack at the same time, each limited to its
+own range of positions on the stack.  In this document the
+first position on that stack which belongs to the active
+function will be referred to as position 0 for that function.
+.PP
+XSUBs refer to their stack arguments with the macro \fB\s-1ST\s0(x)\fR, where \fIx\fR refers
+to a position in this \s-1XSUB\s0's part of the stack.  Position 0 for that
+function would be known to the \s-1XSUB\s0 as \fI\s-1ST\s0\fR\|(0).  The \s-1XSUB\s0's incoming
+parameters and outgoing return values always begin at \fI\s-1ST\s0\fR\|(0).  For many
+simple cases the \fBxsubpp\fR compiler will generate the code necessary to
+handle the argument stack by embedding code fragments found in the
+typemaps.  In more complex cases the programmer must supply the code.
+.Sh "The \s-1RETVAL\s0 Variable"
+The \s-1RETVAL\s0 variable is a magic variable which always matches
+the return type of the C library function.  The \fBxsubpp\fR compiler will
+supply this variable in each \s-1XSUB\s0 and by default will use it to hold the
+return value of the C library function being called.  In simple cases the
+value of \s-1RETVAL\s0 will be placed in \fI\s-1ST\s0\fR\|(0) of the argument stack where it can
+be received by Perl as the return value of the \s-1XSUB\s0.
+.PP
+If the \s-1XSUB\s0 has a return type of \f(CWvoid\fR then the compiler will
+not supply a \s-1RETVAL\s0 variable for that function.  When using
+the \s-1PPCODE\s0: directive the \s-1RETVAL\s0 variable may not be needed.
+.Sh "The \s-1MODULE\s0 Keyword"
+The \s-1MODULE\s0 keyword is used to start the \s-1XS\s0 code and to
+specify the package of the functions which are being
+defined.  All text preceding the first \s-1MODULE\s0 keyword is
+considered C code and is passed through to the output
+untouched.  Every \s-1XS\s0 module will have a bootstrap function
+which is used to hook the XSUBs into Perl.  The package name
+of this bootstrap function will match the value of the last
+\s-1MODULE\s0 statement in the \s-1XS\s0 source files.  The value of
+\s-1MODULE\s0 should always remain constant within the same \s-1XS\s0
+file, though this is not required.
+.PP
+The following example will start the \s-1XS\s0 code and will place
+all functions in a package named \s-1RPC\s0.
+.PP
+.Vb 1
+\&     MODULE = RPC
+.Ve
+.Sh "The \s-1PACKAGE\s0 Keyword"
+When functions within an \s-1XS\s0 source file must be separated into packages
+the \s-1PACKAGE\s0 keyword should be used.  This keyword is used with the \s-1MODULE\s0
+keyword and must follow immediately after it when used.
+.PP
+.Vb 1
+\&     MODULE = RPC  PACKAGE = RPC
+.Ve
+.Vb 1
+\&     [ XS code in package RPC ]
+.Ve
+.Vb 1
+\&     MODULE = RPC  PACKAGE = RPCB
+.Ve
+.Vb 1
+\&     [ XS code in package RPCB ]
+.Ve
+.Vb 1
+\&     MODULE = RPC  PACKAGE = RPC
+.Ve
+.Vb 1
+\&     [ XS code in package RPC ]
+.Ve
+Although this keyword is optional and in some cases provides redundant
+information it should always be used.  This keyword will ensure that the
+XSUBs appear in the desired package.
+.Sh "The \s-1PREFIX\s0 Keyword"
+The \s-1PREFIX\s0 keyword designates prefixes which should be
+removed from the Perl function names.  If the C function is
+\f(CWrpcb_gettime()\fR and the \s-1PREFIX\s0 value is \f(CWrpcb_\fR then Perl will
+see this function as \f(CWgettime()\fR.
+.PP
+This keyword should follow the \s-1PACKAGE\s0 keyword when used.
+If \s-1PACKAGE\s0 is not used then \s-1PREFIX\s0 should follow the \s-1MODULE\s0
+keyword.
+.PP
+.Vb 1
+\&     MODULE = RPC  PREFIX = rpc_
+.Ve
+.Vb 1
+\&     MODULE = RPC  PACKAGE = RPCB  PREFIX = rpcb_
+.Ve
+.Sh "The \s-1OUTPUT\s0: Keyword"
+The \s-1OUTPUT\s0: keyword indicates that certain function parameters should be
+updated (new values made visible to Perl) when the \s-1XSUB\s0 terminates or that
+certain values should be returned to the calling Perl function.  For
+simple functions, such as the \fIsin()\fR function above, the \s-1RETVAL\s0 variable is
+automatically designated as an output value.  In more complex functions
+the \fBxsubpp\fR compiler will need help to determine which variables are output
+variables.
+.PP
+This keyword will normally be used to complement the \s-1CODE\s0:  keyword.
+The \s-1RETVAL\s0 variable is not recognized as an output variable when the
+\s-1CODE\s0: keyword is present.  The \s-1OUTPUT\s0:  keyword is used in this
+situation to tell the compiler that \s-1RETVAL\s0 really is an output
+variable.
+.PP
+The \s-1OUTPUT\s0: keyword can also be used to indicate that function parameters
+are output variables.  This may be necessary when a parameter has been
+modified within the function and the programmer would like the update to
+be seen by Perl.  If function parameters are listed under \s-1OUTPUT\s0: along
+with the \s-1RETVAL\s0 variable then the \s-1RETVAL\s0 variable must be the last one
+listed.
+.PP
+.Vb 6
+\&     bool_t
+\&     rpcb_gettime(host,timep)
+\&          char *  host
+\&          time_t  &timep
+\&          OUTPUT:
+\&          timep
+.Ve
+The \s-1OUTPUT\s0: keyword will also allow an output parameter to
+be mapped to a matching piece of code rather than to a
+typemap.
+.PP
+.Vb 6
+\&     bool_t
+\&     rpcb_gettime(host,timep)
+\&          char *  host
+\&          time_t  &timep
+\&          OUTPUT:
+\&          timep<tab>sv_setnv(ST(1), (double)timep);
+.Ve
+.Sh "The \s-1CODE\s0: Keyword"
+This keyword is used in more complicated XSUBs which require
+special handling for the C function.  The \s-1RETVAL\s0 variable is
+available but will not be returned unless it is specified
+under the \s-1OUTPUT\s0: keyword.
+.PP
+The following \s-1XSUB\s0 is for a C function which requires special handling of
+its parameters.  The Perl usage is given first.
+.PP
+.Vb 1
+\&     $status = rpcb_gettime( "localhost", $timep );
+.Ve
+The \s-1XSUB\s0 follows. 
+.PP
+.Vb 9
+\&     bool_t
+\&     rpcb_gettime(host,timep)
+\&          char *  host
+\&          time_t  timep
+\&          CODE:
+\&               RETVAL = rpcb_gettime( host, &timep );
+\&          OUTPUT:
+\&          timep
+\&          RETVAL
+.Ve
+In many of the examples shown here the \s-1CODE\s0: block (and
+other blocks) will often be contained within braces ( \f(CW{\fR and
+\f(CW}\fR ).  This protects the \s-1CODE\s0: block from complex \s-1INPUT\s0
+typemaps and ensures the resulting C code is legal.
+.Sh "The \s-1NO_INIT\s0 Keyword"
+The \s-1NO_INIT\s0 keyword is used to indicate that a function
+parameter is being used as only an output value.  The \fBxsubpp\fR
+compiler will normally generate code to read the values of
+all function parameters from the argument stack and assign
+them to C variables upon entry to the function.  \s-1NO_INIT\s0
+will tell the compiler that some parameters will be used for
+output rather than for input and that they will be handled
+before the function terminates.
+.PP
+The following example shows a variation of the \fIrpcb_gettime()\fR function.
+This function uses the timep variable as only an output variable and does
+not care about its initial contents.
+.PP
+.Vb 6
+\&     bool_t
+\&     rpcb_gettime(host,timep)
+\&          char *  host
+\&          time_t  &timep = NO_INIT
+\&          OUTPUT:
+\&          timep
+.Ve
+.Sh "Initializing Function Parameters"
+Function parameters are normally initialized with their
+values from the argument stack.  The typemaps contain the
+code segments which are used to transfer the Perl values to
+the C parameters.  The programmer, however, is allowed to
+override the typemaps and supply alternate initialization
+code.
+.PP
+The following code demonstrates how to supply initialization code for
+function parameters.  The initialization code is eval'd by the compiler
+before it is added to the output so anything which should be interpreted
+literally, such as double quotes, must be protected with backslashes.
+.PP
+.Vb 6
+\&     bool_t
+\&     rpcb_gettime(host,timep)
+\&          char *  host = (char *)SvPV(ST(0),na);
+\&          time_t  &timep = 0;
+\&          OUTPUT:
+\&          timep
+.Ve
+This should not be used to supply default values for parameters.  One
+would normally use this when a function parameter must be processed by
+another library function before it can be used.  Default parameters are
+covered in the next section.
+.Sh "Default Parameter Values"
+Default values can be specified for function parameters by
+placing an assignment statement in the parameter list.  The
+default value may be a number or a string.  Defaults should
+always be used on the right-most parameters only.
+.PP
+To allow the \s-1XSUB\s0 for \fIrpcb_gettime()\fR to have a default host
+value the parameters to the \s-1XSUB\s0 could be rearranged.  The
+\s-1XSUB\s0 will then call the real \fIrpcb_gettime()\fR function with
+the parameters in the correct order.  Perl will call this
+\s-1XSUB\s0 with either of the following statements.
+.PP
+.Vb 1
+\&     $status = rpcb_gettime( $timep, $host );
+.Ve
+.Vb 1
+\&     $status = rpcb_gettime( $timep );
+.Ve
+The \s-1XSUB\s0 will look like the code  which  follows.   A  \s-1CODE\s0:
+block  is used to call the real \fIrpcb_gettime()\fR function with
+the parameters in the correct order for that function.
+.PP
+.Vb 9
+\&     bool_t
+\&     rpcb_gettime(timep,host="localhost")
+\&          char *  host
+\&          time_t  timep = NO_INIT
+\&          CODE:
+\&               RETVAL = rpcb_gettime( host, &timep );
+\&          OUTPUT:
+\&          timep
+\&          RETVAL
+.Ve
+.Sh "Variable-length Parameter Lists"
+XSUBs can have variable-length parameter lists by specifying an ellipsis
+\f(CW(...)\fR in the parameter list.  This use of the ellipsis is similar to that
+found in \s-1ANSI\s0 C.  The programmer is able to determine the number of
+arguments passed to the \s-1XSUB\s0 by examining the \f(CWitems\fR variable which the
+\fBxsubpp\fR compiler supplies for all XSUBs.  By using this mechanism one can
+create an \s-1XSUB\s0 which accepts a list of parameters of unknown length.
+.PP
+The \fIhost\fR parameter for the \fIrpcb_gettime()\fR \s-1XSUB\s0 can be
+optional so the ellipsis can be used to indicate that the
+\s-1XSUB\s0 will take a variable number of parameters.  Perl should
+be able to call this \s-1XSUB\s0 with either of the following statements.
+.PP
+.Vb 1
+\&     $status = rpcb_gettime( $timep, $host );
+.Ve
+.Vb 1
+\&     $status = rpcb_gettime( $timep );
+.Ve
+The \s-1XS\s0 code, with ellipsis, follows.
+.PP
+.Vb 6
+\&     bool_t
+\&     rpcb_gettime(timep, ...)
+\&          time_t  timep = NO_INIT
+\&          CODE:
+\&          {
+\&          char *host = "localhost";
+.Ve
+.Vb 7
+\&          if( items > 1 )
+\&               host = (char *)SvPV(ST(1), na);
+\&          RETVAL = rpcb_gettime( host, &timep );
+\&          }
+\&          OUTPUT:
+\&          timep
+\&          RETVAL
+.Ve
+.Sh "The \s-1PPCODE\s0: Keyword"
+The \s-1PPCODE\s0: keyword is an alternate form of the \s-1CODE\s0: keyword and is used
+to tell the \fBxsubpp\fR compiler that the programmer is supplying the code to
+control the argument stack for the XSUBs return values.  Occasionally one
+will want an \s-1XSUB\s0 to return a list of values rather than a single value.
+In these cases one must use \s-1PPCODE\s0: and then explicitly push the list of
+values on the stack.  The \s-1PPCODE\s0: and \s-1CODE\s0:  keywords are not used
+together within the same \s-1XSUB\s0.
+.PP
+The following \s-1XSUB\s0 will call the C \fIrpcb_gettime()\fR function
+and will return its two output values, timep and status, to
+Perl as a single list.
+.PP
+.Vb 12
+\&     void
+\&     rpcb_gettime(host)
+\&          char *  host
+\&          PPCODE:
+\&          {
+\&          time_t  timep;
+\&          bool_t  status;
+\&          status = rpcb_gettime( host, &timep );
+\&          EXTEND(sp, 2);
+\&          PUSHs(sv_2mortal(newSVnv(status)));
+\&          PUSHs(sv_2mortal(newSVnv(timep)));
+\&          }
+.Ve
+Notice that the programmer must supply the C code necessary
+to have the real \fIrpcb_gettime()\fR function called and to have
+the return values properly placed on the argument stack.
+.PP
+The \f(CWvoid\fR return type for this function tells the \fBxsubpp\fR compiler that
+the \s-1RETVAL\s0 variable is not needed or used and that it should not be created.
+In most scenarios the void return type should be used with the \s-1PPCODE\s0:
+directive.
+.PP
+The \fI\s-1EXTEND\s0()\fR macro is used to make room on the argument
+stack for 2 return values.  The \s-1PPCODE\s0: directive causes the
+\fBxsubpp\fR compiler to create a stack pointer called \f(CWsp\fR, and it
+is this pointer which is being used in the \fI\s-1EXTEND\s0()\fR macro.
+The values are then pushed onto the stack with the \fIPUSHs()\fR
+macro.
+.PP
+Now the \fIrpcb_gettime()\fR function can be used from Perl with
+the following statement.
+.PP
+.Vb 1
+\&     ($status, $timep) = rpcb_gettime("localhost");
+.Ve
+.Sh "Returning Undef And Empty Lists"
+Occasionally the programmer will want to simply return
+\f(CWundef\fR or an empty list if a function fails rather than a
+separate status value.  The \fIrpcb_gettime()\fR function offers
+just this situation.  If the function succeeds we would like
+to have it return the time and if it fails we would like to
+have undef returned.  In the following Perl code the value
+of \f(CW$timep\fR will either be undef or it will be a valid time.
+.PP
+.Vb 1
+\&     $timep = rpcb_gettime( "localhost" );
+.Ve
+The following \s-1XSUB\s0 uses the \f(CWvoid\fR return type to disable the generation of
+the \s-1RETVAL\s0 variable and uses a \s-1CODE\s0: block to indicate to the compiler
+that the programmer has supplied all the necessary code.  The
+\fIsv_newmortal()\fR call will initialize the return value to undef, making that
+the default return value.
+.PP
+.Vb 11
+\&     void
+\&     rpcb_gettime(host)
+\&          char *  host
+\&          CODE:
+\&          {
+\&          time_t  timep;
+\&          bool_t x;
+\&          ST(0) = sv_newmortal();
+\&          if( rpcb_gettime( host, &timep ) )
+\&               sv_setnv( ST(0), (double)timep);
+\&          }
+.Ve
+The next example demonstrates how one would place an explicit undef in the
+return value, should the need arise.
+.PP
+.Vb 15
+\&     void
+\&     rpcb_gettime(host)
+\&          char *  host
+\&          CODE:
+\&          {
+\&          time_t  timep;
+\&          bool_t x;
+\&          ST(0) = sv_newmortal();
+\&          if( rpcb_gettime( host, &timep ) ){
+\&               sv_setnv( ST(0), (double)timep);
+\&          }
+\&          else{
+\&               ST(0) = &sv_undef;
+\&          }
+\&          }
+.Ve
+To return an empty list one must use a \s-1PPCODE\s0: block and
+then not push return values on the stack.
+.PP
+.Vb 13
+\&     void
+\&     rpcb_gettime(host)
+\&          char *  host
+\&          PPCODE:
+\&          {
+\&          time_t  timep;
+\&          if( rpcb_gettime( host, &timep ) )
+\&               PUSHs(sv_2mortal(newSVnv(timep)));
+\&          else{
+\&          /* Nothing pushed on stack, so an empty */
+\&          /* list is implicitly returned. */
+\&          }
+\&          }
+.Ve
+.Sh "The \s-1CLEANUP\s0: Keyword"
+This keyword can be used when an \s-1XSUB\s0 requires special cleanup procedures
+before it terminates.  When the \s-1CLEANUP\s0:  keyword is used it must follow
+any \s-1CODE\s0:, \s-1PPCODE\s0:, or \s-1OUTPUT\s0: blocks which are present in the \s-1XSUB\s0.  The
+code specified for the cleanup block will be added as the last statements
+in the \s-1XSUB\s0.
+.Sh "The \s-1BOOT\s0: Keyword"
+The \s-1BOOT\s0: keyword is used to add code to the extension's bootstrap
+function.  The bootstrap function is generated by the \fBxsubpp\fR compiler and
+normally holds the statements necessary to register any XSUBs with Perl.
+With the \s-1BOOT\s0: keyword the programmer can tell the compiler to add extra
+statements to the bootstrap function.
+.PP
+This keyword may be used any time after the first \s-1MODULE\s0 keyword and should
+appear on a line by itself.  The first blank line after the keyword will
+terminate the code block.
+.PP
+.Vb 4
+\&     BOOT:
+\&     # The following message will be printed when the
+\&     # bootstrap function executes.
+\&     printf("Hello from the bootstrap!\en");
+.Ve
+.Sh "Inserting Comments and C Preprocessor Directives"
+Comments and C preprocessor directives are allowed within
+\s-1CODE\s0:, \s-1PPCODE\s0:, \s-1BOOT\s0:, and \s-1CLEANUP\s0: blocks.  The compiler
+will pass the preprocessor directives through untouched and
+will remove the commented lines.  Comments can be added to
+XSUBs by placing a \f(CW#\fR at the beginning of the line.  Care
+should be taken to avoid making the comment look like a C
+preprocessor directive, lest it be interpreted as such.
+.Sh "Using \s-1XS\s0 With \*(C+"
+If a function is defined as a \*(C+ method then it will assume
+its first argument is an object pointer.  The object pointer
+will be stored in a variable called \s-1THIS\s0.  The object should
+have been created by \*(C+ with the \fInew()\fR function and should
+be blessed by Perl with the \fIsv_setptrobj()\fR macro.  The
+blessing of the object by Perl can be handled by the
+T_PTROBJ typemap.
+.PP
+If the method is defined as static it will call the \*(C+
+function using the \fIclass::method()\fR syntax.  If the method is not static
+the function will be called using the \s-1THIS\s0\->\fImethod()\fR syntax.
+.Sh "Perl Variables"
+The following demonstrates how the Perl variable \f(CW$host\fR can
+be accessed from an \s-1XSUB\s0.  The function \fBperl_get_sv()\fR is
+used to obtain a pointer to the variable, known as an \fB\s-1SV\s0\fR
+(Scalar Variable) internally.  The package name \f(CWRPC\fR will be
+added to the name of the variable so \fIperl_get_sv()\fR will know
+in which package \f(CW$host\fR can be found.  If the package name is
+not supplied then \fIperl_get_sv()\fR will search package \f(CWmain\fR for
+the variable.  The macro \fBSvPVX()\fR is then used to dereference
+the \s-1SV\s0 to obtain a \f(CWchar*\fR pointer to its contents.
+.PP
+.Vb 7
+\&     void
+\&     rpcb_gettime()
+\&          PPCODE:
+\&          {
+\&          char *host;
+\&          SV *hostsv;
+\&          time_t timep;
+.Ve
+.Vb 7
+\&          hostsv = perl_get_sv( "RPC::host", FALSE );
+\&          if( hostsv != NULL ){
+\&               host = SvPVX( hostsv );
+\&               if( rpcb_gettime( host, &timep ) )
+\&                    PUSHs(sv_2mortal(newSVnv(timep)));
+\&          }
+\&          }
+.Ve
+This Perl code can be used to call that \s-1XSUB\s0.
+.PP
+.Vb 2
+\&     $RPC::host = "localhost";
+\&     $timep = rpcb_gettime();
+.Ve
+In the above example the \s-1SV\s0 contained a C \f(CWchar*\fR but a Perl
+scalar variable may also contain numbers and references.  If
+the \s-1SV\s0 is expected to have a C \f(CWint\fR then the macro \fBSvIVX()\fR
+should be used to dereference the \s-1SV\s0.  When the \s-1SV\s0 contains
+a C double then \fBSvNVX()\fR should be used.
+.PP
+The macro \fBSvRV()\fR can be used to dereference an \s-1SV\s0 when it is a Perl
+reference.  The result will be another \s-1SV\s0 which points to the actual Perl
+variable.  This can then be dereferenced with \fISvPVX()\fR, \fISvNVX()\fR, or
+\fISvIVX()\fR.  The following \s-1XSUB\s0 will use \fISvRV()\fR.
+.PP
+.Vb 8
+\&     void
+\&     rpcb_gettime()
+\&          PPCODE:
+\&          {
+\&          char *host;
+\&          SV *rv;
+\&          SV *hostsv;
+\&          time_t timep;
+.Ve
+.Vb 8
+\&          rv = perl_get_sv( "RPC::host", FALSE );
+\&          if( rv != NULL ){
+\&               hostsv = SvRV( rv );
+\&               host = SvPVX( hostsv );
+\&               if( rpcb_gettime( host, &timep ) )
+\&                    PUSHs(sv_2mortal(newSVnv(timep)));
+\&          }
+\&          }
+.Ve
+This Perl code will create a variable \f(CW$RPC::host\fR which is a
+reference to \f(CW$MY::host\fR.  The variable \f(CW$MY::host\fR contains the
+hostname which will be used.
+.PP
+.Vb 3
+\&     $MY::host = "localhost";
+\&     $RPC::host = \e$MY::host;
+\&     $timep = rpcb_gettime();
+.Ve
+The second argument to \fIperl_get_sv()\fR will normally be \fB\s-1FALSE\s0\fR
+as shown in the above examples.  An argument of \fB\s-1TRUE\s0\fR will
+cause variables to be created if they do not already exist.
+One should not use \s-1TRUE\s0 unless steps are taken to deal with
+a possibly empty \s-1SV\s0.
+.PP
+XSUBs may use \fBperl_get_av()\fR, \fBperl_get_hv()\fR, and \fBperl_get_cv()\fR to
+access Perl arrays, hashes, and code values.
+.Sh "Interface Strategy"
+When designing an interface between Perl and a C library a straight
+translation from C to \s-1XS\s0 is often sufficient.  The interface will often be
+very C\-like and occasionally nonintuitive, especially when the C function
+modifies one of its parameters.  In cases where the programmer wishes to
+create a more Perl-like interface the following strategy may help to
+identify the more critical parts of the interface.
+.PP
+Identify the C functions which modify their parameters.  The XSUBs for
+these functions may be able to return lists to Perl, or may be
+candidates to return undef or an empty list in case of failure.
+.PP
+Identify which values are used by only the C and \s-1XSUB\s0 functions
+themselves.  If Perl does not need to access the contents of the value
+then it may not be necessary to provide a translation for that value
+from C to Perl.
+.PP
+Identify the pointers in the C function parameter lists and return
+values.  Some pointers can be handled in \s-1XS\s0 with the & unary operator on
+the variable name while others will require the use of the * operator on
+the type name.  In general it is easier to work with the & operator.
+.PP
+Identify the structures used by the C functions.  In many
+cases it may be helpful to use the T_PTROBJ typemap for
+these structures so they can be manipulated by Perl as
+blessed objects.
+.Sh "The Perl Module"
+The Perl module is the link between the extension library,
+which was generated from \s-1XS\s0 code, and the Perl interpreter.
+The module is used to tell Perl what the extension library
+contains.  The name and package of the module should match
+the name of the library.
+.PP
+The following is a Perl module for an extension containing
+some \s-1ONC\s0+ \s-1RPC\s0 bind library functions.
+.PP
+.Vb 1
+\&     package RPC;
+.Ve
+.Vb 5
+\&     require Exporter;
+\&     require DynaLoader;
+\&     @ISA = qw(Exporter DynaLoader);
+\&     @EXPORT = qw( rpcb_gettime rpcb_getmaps rpcb_getaddr
+\&                     rpcb_rmtcall rpcb_set rpcb_unset );
+.Ve
+.Vb 2
+\&     bootstrap RPC;
+\&     1;
+.Ve
+The \s-1RPC\s0 extension contains the functions found in the
+\f(CW@EXPORT\fR list.  By using the \f(CWExporter\fR module the \s-1RPC\s0 module
+can make these function names visible to the rest of the
+Perl program.  The \f(CWDynaLoader\fR module will allow the \s-1RPC\s0
+module to bootstrap the extension library.  To load this
+extension and make the functions available, the following
+Perl statement should be used.
+.PP
+.Vb 1
+\&     use RPC;
+.Ve
+For more information about the DynaLoader consult its documentation in the
+ext/DynaLoader directory in the Perl source.
+.Sh "Perl Objects And C Structures"
+When dealing with C structures one should select either
+\fBT_PTROBJ\fR or \fBT_PTRREF\fR for the \s-1XS\s0 type.  Both types are
+designed to handle pointers to complex objects.  The
+T_PTRREF type will allow the Perl object to be unblessed
+while the T_PTROBJ type requires that the object be blessed.
+By using T_PTROBJ one can achieve a form of type-checking
+because the \s-1XSUB\s0 will attempt to verify that the Perl object
+is of the expected type.
+.PP
+The following \s-1XS\s0 code shows the \fIgetnetconfigent()\fR function which is used
+with \s-1ONC\s0 \s-1TIRPC\s0.  The \fIgetnetconfigent()\fR function will return a pointer to a
+C structure and has the C prototype shown below.  The example will
+demonstrate how the C pointer will become a Perl reference.  Perl will
+consider this reference to be a pointer to a blessed object and will
+attempt to call a destructor for the object.  A destructor will be
+provided in the \s-1XS\s0 source to free the memory used by \fIgetnetconfigent()\fR.
+Destructors in \s-1XS\s0 can be created by specifying an \s-1XSUB\s0 function whose name
+ends with the word \fB\s-1DESTROY\s0\fR.  \s-1XS\s0 destructors can be used to free memory
+which may have been malloc'd by another \s-1XSUB\s0.
+.PP
+.Vb 1
+\&     struct netconfig *getnetconfigent(const char *netid);
+.Ve
+A \f(CWtypedef\fR will be created for \f(CWstruct netconfig\fR.  The Perl
+object will be blessed in a class matching the name of the C
+type, with the tag \f(CWPtr\fR appended, and the name should not
+have embedded spaces if it will be a Perl package name.  The
+destructor will be placed in a class corresponding to the
+class of the object and the \s-1PREFIX\s0 keyword will be used to
+trim the name to the word \s-1DESTROY\s0 as Perl will expect.
+.PP
+.Vb 1
+\&     typedef struct netconfig Netconfig;
+.Ve
+.Vb 1
+\&     MODULE = RPC  PACKAGE = RPC
+.Ve
+.Vb 3
+\&     Netconfig *
+\&     getnetconfigent(netid)
+\&          char *  netid
+.Ve
+.Vb 1
+\&     MODULE = RPC  PACKAGE = NetconfigPtr  PREFIX = rpcb_
+.Ve
+.Vb 6
+\&     void
+\&     rpcb_DESTROY(netconf)
+\&          Netconfig *  netconf
+\&          CODE:
+\&          printf("Now in NetconfigPtr::DESTROY\en");
+\&          free( netconf );
+.Ve
+This example requires the following typemap entry.  Consult the typemap
+section for more information about adding new typemaps for an extension.
+.PP
+.Vb 2
+\&     TYPEMAP
+\&     Netconfig *  T_PTROBJ
+.Ve
+This example will be used with the following Perl statements.
+.PP
+.Vb 2
+\&     use RPC;
+\&     $netconf = getnetconfigent("udp");
+.Ve
+When Perl destroys the object referenced by \f(CW$netconf\fR it will send the
+object to the supplied \s-1XSUB\s0 \s-1DESTROY\s0 function.  Perl cannot determine, and
+does not care, that this object is a C struct and not a Perl object.  In
+this sense, there is no difference between the object created by the
+\fIgetnetconfigent()\fR \s-1XSUB\s0 and an object created by a normal Perl subroutine.
+.Sh "C Headers and Perl"
+The \fBh2xs\fR compiler is designed to convert C header files in
+/usr/include into Perl extensions.  This compiler will
+create a directory under the \f(CWext\fR directory of the Perl
+source and will populate it with a Makefile, a Perl Module,
+an \s-1XS\s0 source file, and a \s-1MANIFEST\s0 file.
+.PP
+The following command will create an extension called \f(CWRusers\fR
+from the <rpcsvc/rusers.h> header.
+.PP
+.Vb 1
+\&     h2xs rpcsvc/rusers
+.Ve
+When the Rusers extension has been compiled and installed
+Perl can use it to retrieve any \f(CW#define\fR statements which
+were in the C header.
+.PP
+.Vb 3
+\&     use Rusers;
+\&     print "RPC program number for rusers service: ";
+\&     print &RUSERSPROG, "\en";
+.Ve
+.Sh "Creating A New Extension"
+The \fBh2xs\fR compiler can generate template source files and
+Makefiles.  These templates offer a suitable starting point
+for most extensions.  The following example demonstrates how
+one might use \fBh2xs\fR to create an extension containing the \s-1RPC\s0
+functions in this document.
+.PP
+The extension will not use autoloaded functions and will not define
+constants, so the \fB\-A\fR option will be given to \fBh2xs\fR.  When run from the
+Perl source directory, the \fBh2xs\fR compiler will create the directory
+ext/\s-1RPC\s0 and will populate it with files called \s-1RPC\s0.xs, \s-1RPC\s0.pm, Makefile.\s-1PL\s0,
+and \s-1MANIFEST\s0.  The \s-1XS\s0 code for the \s-1RPC\s0 functions should be added to the
+\s-1RPC\s0.xs file.  The \f(CW@EXPORT\fR list in \s-1RPC\s0.pm should be updated to include the
+functions from \s-1RPC\s0.xs.
+.PP
+.Vb 1
+\&     h2xs -An RPC
+.Ve
+To compile the extension for dynamic loading the following
+command should be executed from the ext/\s-1RPC\s0 directory.
+.PP
+.Vb 1
+\&     make dynamic
+.Ve
+If the extension will be statically linked into the Perl
+binary then the makefile (use \f(CWmakefile\fR, not \f(CWMakefile\fR) in the
+Perl source directory should be edited to add \f(CWext/RPC/RPC.a\fR
+to the \f(CWstatic_ext\fR variable.  Before making this change Perl
+should have already been built.  After the makefile has been
+updated the following command should be executed from the
+Perl source directory.
+.PP
+.Vb 1
+\&     make
+.Ve
+Perl's \fBConfigure\fR script can also be used to add extensions.  The extension
+should be placed in the \f(CWext\fR directory under the Perl source before Perl
+has been built and prior to running Configure.  When Configure is run it
+will find the extension along with the other extensions in the \f(CWext\fR
+directory and will add it to the list of extensions to be built.  When make
+is run the extension will be built along with the other extensions.
+.PP
+Configure recognizes extensions if they have an \s-1XS\s0 source
+file which matches the name of the extension directory.  If
+the extension directory includes a \s-1MANIFEST\s0 file Configure
+will search that file for any \fB.\s-1SH\s0\fR files and extract them
+after it extracts all the other .\s-1SH\s0 files listed in the main
+\s-1MANIFEST\s0.  The main Perl Makefile will then run \fBmake\fR in the
+extension's directory if it finds an \s-1XS\s0 file matching the
+name of the extension's directory.
+.Sh "The Typemap"
+The typemap is a collection of code fragments which are used by the \fBxsubpp\fR
+compiler to map C function parameters and values to Perl values.  The
+typemap file may consist of three sections labeled \f(CWTYPEMAP\fR, \f(CWINPUT\fR, and
+\f(CWOUTPUT\fR.  The \s-1INPUT\s0 section tells the compiler how to translate Perl values
+into variables of certain C types.  The \s-1OUTPUT\s0 section tells the compiler
+how to translate the values from certain C types into values Perl can
+understand.  The \s-1TYPEMAP\s0 section tells the compiler which of the \s-1INPUT\s0 and
+\s-1OUTPUT\s0 code fragments should be used to map a given C type to a Perl value.
+Each of the sections of the typemap must be preceded by one of the \s-1TYPEMAP\s0,
+\s-1INPUT\s0, or \s-1OUTPUT\s0 keywords.
+.PP
+The default typemap in the \f(CWext\fR directory of the Perl source contains many
+useful types which can be used by Perl extensions.  Some extensions define
+additional typemaps which they keep in their own directory.  These
+additional typemaps may reference \s-1INPUT\s0 and \s-1OUTPUT\s0 maps in the main
+typemap.  The \fBxsubpp\fR compiler will allow the extension's own typemap to
+override any mappings which are in the default typemap.
+.PP
+Most extensions which require a custom typemap will need only the \s-1TYPEMAP\s0
+section of the typemap file.  The custom typemap used in the
+\fIgetnetconfigent()\fR example shown earlier demonstrates what may be the typical
+use of extension typemaps.  That typemap is used to equate a C structure
+with the T_PTROBJ typemap.  The typemap used by \fIgetnetconfigent()\fR is shown
+here.  Note that the C type is separated from the \s-1XS\s0 type with a tab and
+that the C unary operator \f(CW*\fR is considered to be a part of the C type name.
+.PP
+.Vb 2
+\&     TYPEMAP
+\&     Netconfig *<tab>T_PTROBJ
+.Ve
+.SH "EXAMPLES"
+File \f(CWRPC.xs\fR: Interface to some ONC+ RPC bind library functions.
+.PP
+.Vb 3
+\&     #include "EXTERN.h"
+\&     #include "perl.h"
+\&     #include "XSUB.h"
+.Ve
+.Vb 1
+\&     #include <rpc/rpc.h>
+.Ve
+.Vb 1
+\&     typedef struct netconfig Netconfig;
+.Ve
+.Vb 1
+\&     MODULE = RPC  PACKAGE = RPC
+.Ve
+.Vb 10
+\&     void
+\&     rpcb_gettime(host="localhost")
+\&          char *  host
+\&          CODE:
+\&          {
+\&          time_t  timep;
+\&          ST(0) = sv_newmortal();
+\&          if( rpcb_gettime( host, &timep ) )
+\&               sv_setnv( ST(0), (double)timep );
+\&          }
+.Ve
+.Vb 3
+\&     Netconfig *
+\&     getnetconfigent(netid="udp")
+\&          char *  netid
+.Ve
+.Vb 1
+\&     MODULE = RPC  PACKAGE = NetconfigPtr  PREFIX = rpcb_
+.Ve
+.Vb 6
+\&     void
+\&     rpcb_DESTROY(netconf)
+\&          Netconfig *  netconf
+\&          CODE:
+\&          printf("NetconfigPtr::DESTROY\en");
+\&          free( netconf );
+.Ve
+File \f(CWtypemap\fR: Custom typemap for RPC.xs.
+.PP
+.Vb 2
+\&     TYPEMAP
+\&     Netconfig *  T_PTROBJ
+.Ve
+File \f(CWRPC.pm\fR: Perl module for the RPC extension.
+.PP
+.Vb 1
+\&     package RPC;
+.Ve
+.Vb 4
+\&     require Exporter;
+\&     require DynaLoader;
+\&     @ISA = qw(Exporter DynaLoader);
+\&     @EXPORT = qw(rpcb_gettime getnetconfigent);
+.Ve
+.Vb 2
+\&     bootstrap RPC;
+\&     1;
+.Ve
+File \f(CWrpctest.pl\fR: Perl test program for the RPC extension.
+.PP
+.Vb 1
+\&     use RPC;
+.Ve
+.Vb 4
+\&     $netconf = getnetconfigent();
+\&     $a = rpcb_gettime();
+\&     print "time = $a\en";
+\&     print "netconf = $netconf\en";
+.Ve
+.Vb 4
+\&     $netconf = getnetconfigent("tcp");
+\&     $a = rpcb_gettime("poplar");
+\&     print "time = $a\en";
+\&     print "netconf = $netconf\en";
+.Ve
+.SH "AUTHOR"
+Dean Roehrich \fI<roehrich@cray.com>\fR
+May 3, 1995
+
+.rn }` ''

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 163.8px; font: 28.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 302.4px; text-indent: -138.6px; font: 40.0px Times; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 302.4px; text-indent: -138.6px; font: 14.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 302.4px; text-indent: -138.6px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 302.4px; text-indent: -138.6px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 126.0px; font: 26.0px Helvetica; min-height: 31.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 126.0px; font: 18.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 163.8px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 126.0px; font: 28.0px Helvetica; min-height: 34.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 163.8px; font: 2.0px Times; min-height: 4.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 365.4px; text-indent: -201.6px; font: 24.0px Times; min-height: 29.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 365.4px; text-indent: -201.6px; font: 14.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 365.4px; text-indent: -201.6px; font: 5.0px Times; min-height: 6.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 126.0px; font: 35.0px Helvetica; min-height: 42.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 390.6px; text-indent: -25.1px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 365.4px; font: 14.0px Times}
+    p.p21 {margin: 0.0px 0.0px 0.0px 182.7px; text-indent: -18.9px; font: 14.0px Helvetica}
+    p.p22 {margin: 0.0px 0.0px 0.0px 182.7px; text-indent: -18.9px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 220.5px; text-indent: -37.8px; font: 14.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 182.7px; font: 12.0px Courier}
+    p.p25 {margin: 0.0px 0.0px 0.0px 182.7px; font: 12.0px Courier; min-height: 14.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 182.7px; text-indent: -18.9px; font: 26.0px Helvetica; min-height: 31.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Helvetica}
+    p.p28 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 14.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b>WMInspector</b></p>
+<p class="p4"><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s2">Object</span></p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>apps/Workspace.h</p>
+<p class="p6"><br></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b>Class Description</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">The WMInspector class defines the link between the Workspace Manager application and the module that's loaded into the application.<span class="Apple-converted-space">  </span>When you build a new inspector for the Workspace Manager, you must create a subclass of WMInspector.<span class="Apple-converted-space">  </span>The inspector you define must load its interface (that is, the nib file containing the interface) in its <b>new</b> method.<span class="Apple-converted-space">  </span>It must also override the inherited <b>revert:</b> method to load information about the selection into its display.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">Your inspector can query the Workspace Manager for information on the selection in the File Viewer by sending itself <b>selectionCount</b> and <b>selectionPathInto:separator:</b> messages.<span class="Apple-converted-space">  </span>It can send itself <b>okButton</b>, <b>revertButton</b>, and <b>window</b> messages to gain access to those features of the Inspector panel.</p>
+<p class="p12"><br></p>
+<p class="p11">Although the Contents inspector's principal role is to let the user view the contents of a File Viewer entry, it can also let the user edit the displayed data.<span class="Apple-converted-space">  </span>It's best not to overuse this capability, however, since the Contents inspector wasn't designed to substitute for normal applications.</p>
+<p class="p12"><br></p>
+<p class="p11">An inspector that permits editing should send itself a <b>touch:</b> message when the user begins modifying the data.<span class="Apple-converted-space">  </span>This message enables the inspector's OK and Revert buttons and displays a broken “X” in the panel's close box.<span class="Apple-converted-space">  </span>(See <b>textDidChange:</b> for an alternate way to achieve this result.)<span class="Apple-converted-space">  </span>The inspector should implement the <b>ok:</b> method to commit the modifications the user has made.</p>
+<p class="p12"><br></p>
+<p class="p13"><b></b><br></p>
+<p class="p9"><b>Instance Variables</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">id <b>window</b>;</p>
+<p class="p14"><br></p>
+<p class="p11">id <b>okButton</b>;</p>
+<p class="p14"><br></p>
+<p class="p11">id <b>revertButton</b>;</p>
+<p class="p14"><br></p>
+<p class="p11">id <b>dirNameField</b>;</p>
+<p class="p14"><br></p>
+<p class="p11">id <b>dirTitleField</b>;</p>
+<p class="p14"><br></p>
+<p class="p11">id <b>fileNameField</b>;</p>
+<p class="p14"><br></p>
+<p class="p11">id <b>fileIconButton</b>;</p>
+<p class="p15"><br></p>
+<p class="p16">window <span class="Apple-tab-span">	</span>The Inspector window.</p>
+<p class="p17"><br></p>
+<p class="p16">okButton <span class="Apple-tab-span">	</span>The Inspector's OK button.</p>
+<p class="p17"><br></p>
+<p class="p16">revertButton <span class="Apple-tab-span">	</span>The Inspector's Revert button.</p>
+<p class="p17"><br></p>
+<p class="p16">dirNameField <span class="Apple-tab-span">	</span>The TextField that holds the current directory.</p>
+<p class="p17"><br></p>
+<p class="p16">dirTitleField <span class="Apple-tab-span">	</span>The TextField that titles <b>dirNameField.</b></p>
+<p class="p17"><br></p>
+<p class="p16">fileNameField <span class="Apple-tab-span">	</span>The TextField that displays the file name.</p>
+<p class="p17"><br></p>
+<p class="p16">fileIconButton <span class="Apple-tab-span">	</span>The Button that displays the file's icon.</p>
+<p class="p18"><b></b><br></p>
+<p class="p9"><b>Method Types</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p16">Accessing the inspector object<span class="Apple-tab-span">	</span>+ new</p>
+<p class="p17"><br></p>
+<p class="p16">Accessing panel controls<span class="Apple-tab-span">	</span><span class="s4">-</span> okButton</p>
+<p class="p19"><span class="s4">-</span> revertButton</p>
+<p class="p19"><span class="s4">-</span> window</p>
+<p class="p17"><br></p>
+<p class="p16">Accessing Workspace selection</p>
+<p class="p20"><span class="s4">-</span> selectionCount</p>
+<p class="p19"><span class="s4">-</span> selectionPathsInto:separator:</p>
+<p class="p17"><br></p>
+<p class="p16">Managing changes<span class="Apple-tab-span">	</span><span class="s4">-</span> ok:</p>
+<p class="p19"><span class="s4">-</span> revert:</p>
+<p class="p19"><span class="s4">-</span> textDidChange:</p>
+<p class="p19"><span class="s4">-</span> touch:</p>
+<p class="p18"><b></b><br></p>
+<p class="p9"><b>Class Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p21"><b>new</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23">+ <b>new</b></p>
+<p class="p12"><br></p>
+<p class="p11">Creates a new WMInspector if none exists, or returns the existing one.<span class="Apple-converted-space">  </span>When the object is created, it must load the nib file that contains the inspector's display. <span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">The Workspace Manager sends a <b>new</b> message whenever it needs to access the inspector object.<span class="Apple-converted-space">  </span>Thus, your subclass of WMInspector should ensure that no more than one instance of its class is created:</p>
+<p class="p12"><br></p>
+<p class="p24">static id ribInspector = nil;</p>
+<p class="p25"><br></p>
+<p class="p24">+ new</p>
+<p class="p24">{</p>
+<p class="p24"><span class="Apple-converted-space">    </span>if (ribInspector == nil) {</p>
+<p class="p24"><span class="Apple-converted-space">        </span>char path[MAXPATHLEN+1];</p>
+<p class="p24"><span class="Apple-converted-space">        </span>NXBundle *bundle = [NXBundle bundleForClass:self];</p>
+<p class="p25"><span class="Apple-converted-space">      </span></p>
+<p class="p24"><span class="Apple-converted-space">        </span>self = ribInspector = [super new];</p>
+<p class="p24"><span class="Apple-converted-space">        </span>if ([bundle getPath:path<span class="Apple-converted-space"> </span></p>
+<p class="p24"><span class="Apple-converted-space">                </span>forResource:"RIBInspector"</p>
+<p class="p24"><span class="Apple-converted-space">                </span>ofType:"nib"]) {</p>
+<p class="p24"><span class="Apple-converted-space">            </span>[NXApp loadNibFile:path owner:ribInspector];</p>
+<p class="p24"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p24"><span class="Apple-converted-space">            </span>fprintf (stderr, "Couldn't load RIBInspector.nib\n");</p>
+<p class="p24"><span class="Apple-converted-space">            </span>ribInspector = nil;</p>
+<p class="p24"><span class="Apple-converted-space">        </span>}</p>
+<p class="p24"><span class="Apple-converted-space">    </span>}</p>
+<p class="p24"><span class="Apple-converted-space">    </span>return ribInspector;</p>
+<p class="p24">}</p>
+<p class="p18"><b></b><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p21"><b>ok:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s4">-</span> <b>ok:</b><i>sender</i></p>
+<p class="p12"><br></p>
+<p class="p11">Implement in your subclass to commit the changes that the user has made to the selected item.<span class="Apple-converted-space">  </span>The OK button in the Inspector panel sends an <b>ok:</b> message when the user clicks it.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is optional, but if you implement it, you must send the same message to <b>super</b> as part of your implementation:</p>
+<p class="p12"><br></p>
+<p class="p24">ok:sender</p>
+<p class="p24">{</p>
+<p class="p24"><span class="Apple-converted-space">    </span>/* your code to commit changes */</p>
+<p class="p24"><span class="Apple-converted-space">    </span>[super ok:sender];</p>
+<p class="p24"><span class="Apple-converted-space">    </span>return self;</p>
+<p class="p24">}</p>
+<p class="p12"><br></p>
+<p class="p11">This message to <b>super</b> replaces the broken “X” in the panel's close box with the standard “X”, indicating that the changes have been saved.</p>
+<p class="p12"><br></p>
+<p class="p11"><span class="s3"><b>See also:<span class="Apple-converted-space">  </span></b></span><span class="s4">-</span> <b>revert:</b>, <span class="s4">-</span> <b>touch:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p21"><b>okButton</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s4">-</span> <b>okButton</b></p>
+<p class="p12"><br></p>
+<p class="p11">Returns the <b>id</b> of the Inspector's OK button.<span class="Apple-converted-space">  </span>This can be useful if you want to alter its title, for example.</p>
+<p class="p12"><br></p>
+<p class="p11"><span class="s3"><b>See also:<span class="Apple-converted-space">  </span></b></span><span class="s4">-</span> <b>revertButton:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p21"><b>revert:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s4">-</span> <b>revert:</b><i>sender</i></p>
+<p class="p12"><br></p>
+<p class="p11">Implement in your subclass to load data into the inspector's display.<span class="Apple-converted-space">  </span>The Workspace Manager sends this message to the inspector object whenever the inspector's display might need to be updated; for example, when the Inspector panel is opened or when the selection changes in the File Viewer.</p>
+<p class="p12"><br></p>
+<p class="p11">Your subclass must implement this method, and it must send the same message to <b>super</b> as part of its implementation:</p>
+<p class="p12"><br></p>
+<p class="p24">revert:sender</p>
+<p class="p24">{</p>
+<p class="p24"><span class="Apple-converted-space">    </span>/* your code to show contents of selected item(s) */</p>
+<p class="p24"><span class="Apple-converted-space">    </span>[super revert:sender];</p>
+<p class="p24"><span class="Apple-converted-space">    </span>return self;</p>
+<p class="p24">}</p>
+<p class="p12"><br></p>
+<p class="p11">This message to <b>super</b> replaces the broken “X” in the panel's close box with the standard “X”, indicating that the changes have been discarded.</p>
+<p class="p12"><br></p>
+<p class="p11"><span class="s3"><b>See also:<span class="Apple-converted-space">  </span></b></span><span class="s4">-</span> <b>ok:</b>, <span class="s4">-</span> <b>touch:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p21"><b>revertButton</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s4">-</span> <b>revertButton</b></p>
+<p class="p12"><br></p>
+<p class="p11">Returns the <b>id</b> of the Inspector's Revert button.<span class="Apple-converted-space">  </span>This can be useful if you want to alter its title, for example.</p>
+<p class="p12"><br></p>
+<p class="p27"><b>See also:<span class="Apple-converted-space">  </span></b><span class="s4">-</span><span class="s2"> <b>okButton:</b></span></p>
+<p class="p12"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p21"><b>selectionCount</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s4">-</span> (unsigned)<b>selectionCount</b></p>
+<p class="p12"><br></p>
+<p class="p11">Returns the number of items selected in the File Viewer.<span class="Apple-converted-space">  </span>You can use this information to determine whether your inspector should be displayed.<span class="Apple-converted-space">  </span>For example, most inspectors can give information on only one file at a time, so within their <b>revert:</b> methods, they would have this test:</p>
+<p class="p12"><br></p>
+<p class="p24">if ([self selectionCount] != 1) {</p>
+<p class="p24"><span class="Apple-converted-space">    </span>return nil;</p>
+<p class="p24">} else {</p>
+<p class="p24"><span class="Apple-converted-space">    </span>/* get the path and display the file's contents */</p>
+<p class="p24">}</p>
+<p class="p12"><br></p>
+<p class="p11"><span class="s3"><b>See also:<span class="Apple-converted-space">  </span></b></span><span class="s4">-</span> <b>selectionPathsInto:separator:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p21"><b>selectionPathsInto:separator:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s4">-</span> <b>selectionPathsInto:</b>(char *)<i>pathString </i><b>separator:</b>(char)<i>character</i></p>
+<p class="p12"><br></p>
+<p class="p11">Returns the paths of the files selected in the File Viewer.<span class="Apple-converted-space">  </span>The paths are place in the string <i>pathString</i>; each path is separated from the previous one by <i>character</i>. <span class="Apple-converted-space">  </span>For example, if <i>character</i> is `:', <i>pathString</i> could contain “/me/test1:/me/test2:/me/test3”.</p>
+<p class="p12"><br></p>
+<p class="p11">If your inspector acts on only one file at a time (see <b>selectionCount</b>), the file's path can be identified using this message:</p>
+<p class="p12"><br></p>
+<p class="p24">char fullPath[MAXPATHLEN+1];</p>
+<p class="p24">[self selectionPathsInto:fullPath separator:'\0'];</p>
+<p class="p12"><br></p>
+<p class="p11"><span class="s3"><b>See also:<span class="Apple-converted-space">  </span></b></span><span class="s4">-</span> <b>selectionCount</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p21"><b>textDidChange:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s4">-</span> <b>textDidChange:</b><i>sender</i></p>
+<p class="p12"><br></p>
+<p class="p11">Sends the WMInspector a <b>touch:</b> message on behalf of some Text object in the Inspector panel. <span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">By making your inspector object the delegate of any Text object in your inspector's display, the Inspector panel will be updated appropriately as the user alters the panel's contents. <span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p27"><b>See also:<span class="Apple-converted-space">  </span></b><span class="s4">-</span><span class="s2"> <b>touch:</b></span></p>
+<p class="p12"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p21"><b>touch:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s4">-</span> <b>touch:</b><i>sender</i></p>
+<p class="p12"><br></p>
+<p class="p11">Changes the image in the Inspector panel's close box to a broken “X” to indicate that the contents has been edited.<span class="Apple-converted-space">  </span>Also, enables the OK and Revert buttons.</p>
+<p class="p12"><br></p>
+<p class="p11"><span class="s3"><b>See also:<span class="Apple-converted-space">  </span></b></span><span class="s4">-</span> <b>textDidChange:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p21"><b>window</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s4">-</span> <b>window</b></p>
+<p class="p12"><br></p>
+<p class="p11">Returns the <b>id</b> of the window that contains the user interface for the inspector.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p12"><br></p>
+</body>
+</html>

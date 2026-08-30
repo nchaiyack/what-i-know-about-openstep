@@ -1,0 +1,52 @@
+.\"	@(#)puts.3s	6.1 (Berkeley) 5/15/85
+.\"
+.TH PUTS 3S  "August 1, 1992"
+.ds ]W ANSI C
+.SH NAME
+puts, fputs \- put a string on a stream
+.SH SYNOPSIS
+.B #include <stdio.h>
+.PP
+.B int puts(const char *\fIs\fR);
+.PP
+.B int fputs(const char *\fIs\fP, FILE *\fIstream\fR);
+.SH DESCRIPTION
+.I Puts
+copies the null-terminated string
+.I s
+to the standard output stream
+.B stdout
+and appends a
+newline character.
+.PP
+.I Fputs
+copies the null-terminated string
+.I s
+to the named output
+.IR stream .
+No newline character is appended.
+.PP
+Neither routine copies the terminal null character.
+.SH "RETURN VALUE"
+.I Puts
+and
+.I fputs
+returns EOF for unsuccessful calls and stores an error code in
+\fIerrno\fR, otherwise it returns zero.
+.SH "ERRORS"
+The underlying function of
+.I puts
+and
+.I fputs
+is \fIwrite\fR(2).
+The error conditions specified for \fIwrite\fR(2)
+apply to
+.I puts
+and
+.I fputs.
+.SH "SEE ALSO"
+write(2)
+fopen(3S),
+gets(3S),
+putc(3S),
+printf(3S)

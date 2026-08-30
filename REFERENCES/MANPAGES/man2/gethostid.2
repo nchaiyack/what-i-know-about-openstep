@@ -1,0 +1,26 @@
+.\" Copyright (c) 1983 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)gethostid.2	6.3 (Berkeley) 11/28/85
+.\"
+.TH GETHOSTID 2 "June 27, 1989"
+.UC 5
+.SH NAME
+gethostid \- get unique identifier of current host
+.SH SYNOPSIS
+.nf
+.ft B
+hostid = gethostid()
+long hostid;
+.fi
+.SH DESCRIPTION
+.I Gethostid
+returns a CPU identification number which is guaranteed to be
+unique for each CPU.  This allows third-party software vendors to use
+the hostid for copy protection.  The hostid is a four byte number with
+the first byte being the CPU version (only version 1 exists today) and
+the last three bytes are the last three bytes in the ethernet address
+(which are guaranteed to be unique).
+.SH SEE ALSO
+hostid(1), gethostname(2)

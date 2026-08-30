@@ -1,0 +1,186 @@
+.TH PATHCONF 2P "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+pathconf, fpathconf \- (POSIX only) get configurable pathname variables
+.SH SYNOPSIS
+.nf
+.ft B
+#include <unistd.h>
+.PP
+.ft B
+long pathconf(const char *\fIpath\fP, int \fIname\fP);
+.PP
+.ft B
+long fpathconf(int \fIfildes\fP, int \fIname\fP);
+.ft R
+.fi
+.SH DESCRIPTION
+The information in this specification applies
+only to POSIX applications.
+.PP
+The
+.IR pathconf 
+and
+.IR fpathconf 
+functions allow an application to query the current value of a
+configurable limit or option (variable) associated with a file or directory.
+.PP
+The
+.IR pathconf 
+function takes the name of a file or directory whose pathname is pointed to
+by the \fIpath\fP argument.
+The
+.IR fpathconf 
+function, on the other hand, takes an open file descriptor as given by the
+\fIfildes\fP argument.
+.PP
+The \fIname\fP argument represents the variable to be determined relative
+to the file.
+The variables that may be queried by
+.IR pathconf 
+or
+.IR fpathconf 
+and the corresponding values for the \fIname\fP argument are listed below:
+.PP
+.bd I 3
+.RS
+.TP 35
+\fBVariable\fP
+\fIname\fP \fBValue\fP			\fBNotes\fP
+.TP 35
+{LINK_MAX}
+{_PC_LINK_MAX}		(1)
+.TP 35
+{MAX_CANON}
+{_PC_MAX_CANON}		(2)
+.TP 35
+{MAX_INPUT}
+{_PC_MAX_INPUT}		(2)
+.TP 35
+{NAME_MAX}
+{_PC_NAME_MAX}		(3)
+.TP 35
+{PATH_MAX}
+{_PC_PATH_MAX}		(4)
+.TP 35
+{PIPE_BUF}
+{_PC_PIPE_BUF}		(5)
+.TP 35
+{_POSIX_CHOWN_RESTRICTED}
+{_PC_CHOWN_RESTRICTED}	(6)
+.TP 35
+{_POSIX_NO_TRUNC}
+{_PC_NO_TRUNC}		(3)
+.TP 35
+{_POSIX_VDISABLE}
+{_PC_VDISABLE}		(2)
+.bd I
+.IP
+.PP
+NOTES:
+.RS
+.TP 5
+(1)
+If \fIpath\fP or \fIfildes\fP refers to a directory, the value returned
+applies to the directory itself.
+.TP 5
+(2)
+The value returned only applies to terminal files.
+.TP 5
+(3)
+If \fIpath\fP or \fIfildes\fP refers to a directory, the value returned
+applies to the filenames within the directory.
+.TP 5
+(4)
+If \fIpath\fP or \fIfildes\fP refers to a directory, the value returned
+is the maximum length of a relative pathname when the specified directory
+is the current working directory.
+.TP 5
+(5)
+If \fIpath\fP refers to a FIFO, or \fIfildes\fP refers to a pipe or a FIFO,
+then the value returned applies to the referenced object itself.
+If \fIpath\fP or \fIfildes\fP refers to a directory, then the value returned
+applies to any FIFOs that exist or can be created within the specified
+directory.
+.TP 5
+(6)
+If \fIpath\fP or \fIfildes\fP refers to a directory, then the value returned
+applies to terminal files that exist or can be created within the specified
+directory.
+.RE
+.RE
+.PP
+The meaning of each variable is as follows:
+.PP
+.RS
+.sp
+.TP 35
+\fBVariable\fP
+\fBDescription\fP
+.TP 35
+{LINK_MAX}
+Maximum value of a file's link count.
+.TP 35
+{MAX_CANON}
+Maximum number of bytes in a terminal canonical input line.
+.TP 35
+{MAX_INPUT}
+Minimum number of bytes for which space will be available
+in a terminal input queue; therefore, the maximum number of bytes a
+portable application may require to be typed as input before reading them.
+.TP 35
+{NAME_MAX}
+Maximum number of bytes in a file name, excluding the terminating null.
+.TP 35
+{PATH_MAX}
+Maximum number of bytes in a pathname, excluding the terminating null.
+.TP 35
+{PIPE_BUF}
+Maximum number of bytes that can written atomically when writing
+to a pipe or FIFO.
+.TP 35
+{_POSIX_CHOWN_RESTRICTED}
+The use of
+.IR chown 
+is restricted to super-user, and
+to changing the group ID of a file only to the effective group ID
+of the process or to one of its supplementary group IDs.
+.TP 35
+{_POSIX_NO_TRUNC}
+Pathname components longer that {NAME_MAX} generate an error.
+.TP 35
+{_POSIX_VDISABLE}
+Terminal special characters can be disabled using
+this character value, if it is defined.  See
+.IR tcgetattr (2P)
+and
+.IR tcsetattr (2P).
+.RE
+.PP
+The values for the variables above are given in the header <limits.h>.
+The symbolic constants used as values for \fIname\fP are given in
+<unistd.h>.
+.SH "RETURN VALUE"
+Upon successful completion, both
+.IR pathconf 
+and
+.IR fpathconf 
+return the current variable value for the file or directory without
+changing \fIerrno\fP.
+If the variable corresponding to \fIname\fP has no limit for the file
+or directory, then
+.IR pathconf 
+and
+.IR fpathconf 
+return \-1 without changing \fIerrno\fP.
+Otherwise, if an error condition occurs, then both functions return \-1 and
+change the value of \fIerrno\fP to indicate the error.
+.SH "ERRORS"
+If any of the following conditions occur, the
+.IR pathconf 
+and
+.IR fpathconf 
+functions return \-1 and set \fIerrno\fP to the corresponding value:
+.TP 15
+[EINVAL]
+The value of \fIname\fP is invalid.

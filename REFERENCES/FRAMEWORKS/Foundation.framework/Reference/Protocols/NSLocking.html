@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Helvetica}
+    p.p14 {margin: 0.0px 0.0px 0.0px 95.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p18 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p21 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p23 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Helvetica}
+    span.s3 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSLocking<span class="Apple-converted-space"> </span></b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><span class="s2"><b>Adopted By:<span class="Apple-tab-span">	</span></b></span>NSConditionLock</p>
+<p class="p6">NSLock</p>
+<p class="p6">NSRecursiveLock<span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p5"><span class="s2"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSLock.h<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Protocol Description</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">The NSLocking protocol declares the elementary methods adopted by classes that define lock objects. A lock object is used to coordinate the actions of multiple threads of execution within a single application. By using a lock object, an application can protect critical sections of code from being executed simultaneously by separate threads, thus protecting shared data and other shared resources from corruption.</p>
+<p class="p12"><br></p>
+<p class="p11">For example, consider a multithreaded application in which each thread updates a shared counter. If two threads simultaneously fetch the current value into local storage, increment it, and then write the value back, the counter will be incremented only once, losing one thread's contribution. However, if the code that manipulates the shared data (the <i>critical section</i> of code) must be locked before being executed, only one thread at a time can perform the updating operation, and collisions are prevented.</p>
+<p class="p12"><br></p>
+<p class="p11">A lock object is either locked or unlocked. You <i>acquire</i> a lock by sending the object a <b>lock</b> message, thus putting the object in the locked state. You <i>relinquish</i> a lock by sending an <b>unlock</b> message, and thus putting the object in the unlocked state. (The NEXTSTEP classes that adopt this protocol define additional ways to acquire and relinquish locks.)</p>
+<p class="p12"><br></p>
+<p class="p11">The <b>lock</b> method as declared in this protocol is <i>blocking</i>. That is, the thread that sends a <b>lock</b> message is blocked from further execution until the lock is acquired (presumably because some other thread relinquishes its lock). Classes that adopt this protocol typically add methods that offer nonblocking alternatives.</p>
+<p class="p12"><br></p>
+<p class="p11">These NEXTSTEP classes conform to the NSLocking protocol:<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p13"><b>Class<span class="Apple-tab-span">	</span>Adds these features to the basic protocol</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15">NSLock<span class="Apple-tab-span">	</span>A nonblocking lock method; the ability to limit the duration of a locking attempt.</p>
+<p class="p16"><br></p>
+<p class="p15">NSConditionLock<span class="Apple-tab-span">	</span>The ability to postpone entry to a critical section until a condition is met.</p>
+<p class="p16"><br></p>
+<p class="p15">NSRecursiveLock<span class="Apple-tab-span">	</span>The ability for a single thread to acquire a lock more than once without deadlocking.</p>
+<p class="p16"><br></p>
+<p class="p11">The locking mechanism that these classes use causes a thread to sleep while waiting to acquire a lock rather than to poll the system constantly. Thus, lock objects can be used to lock time-consuming operations without causing system performance to degrade. See the class specifications for these classes for further information on their behavior and usage.</p>
+<p class="p12"><br></p>
+<p class="p11">There is some performance cost in acquiring a lock, so it's best to avoid the overhead if possible. An application developer has control over whether the application will execute with multiple threads, so it's clear when locking is appropriate. A library developer doesn't necessarily know whether library code will execute in a multithreaded environment. In this case, it's best to test whether the code is executing in a multithreaded environment before attempting to acquire a lock. The following example illustrates how this is done.</p>
+<p class="p12"><br></p>
+<p class="p11">Assume your application uses a Counter object to record various operations. Here's one design that lets the Counter know whether it is multithreaded:</p>
+<p class="p12"><br></p>
+<p class="p17">+ (void)initialize<span class="Apple-converted-space"> </span></p>
+<p class="p17">{</p>
+<p class="p17"><span class="Apple-converted-space">    </span>if ([NSThread isMultiThreaded]) {</p>
+<p class="p17"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>[self taskNowMultiThreaded:nil];</p>
+<p class="p17"><span class="Apple-tab-span">	</span>} else {</p>
+<p class="p17"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>[[NSNotificationCenter defaultCenter] addObserver:self</p>
+<p class="p17"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>selector:@selector(taskNowMultiThreaded:)</p>
+<p class="p17"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>name:NSBecomingMultiThreaded object:nil];</p>
+<p class="p17"><span class="Apple-tab-span">	</span>}</p>
+<p class="p17">}</p>
+<p class="p18"><br></p>
+<p class="p11">In the initialize method (which, by definition, is invoked before any Counter objects are created), the Counter class object first checks whether the application has already become multithreaded and if so invokes its own <b>taskNowMultiThreaded:</b> method. Otherwise, it registers as an observer of the NSBecomingMultiThreaded notification so that <b>taskNowMultiThreaded:</b> will be invoked when the application becomes multithreaded.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">Counter's <b>taskNowMultiThreaded:</b> method creates a lock object that the threads use to coordinate their activities:</p>
+<p class="p12"><br></p>
+<p class="p17">+ (void)taskNowMultiThreaded:(NSNotification *)event<span class="Apple-converted-space"> </span></p>
+<p class="p17">{</p>
+<p class="p17"><span class="Apple-tab-span">	</span>if (!theLock)</p>
+<p class="p17"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>theLock = [[NSLock alloc] init];</p>
+<p class="p17">}</p>
+<p class="p18"><br></p>
+<p class="p11"><b>theLock</b>, a static variable declared in the class implementation file, is assigned a value of <b>nil</b> until <b>taskNowMultiThreaded:</b> is invoked. Since messages sent to <b>nil</b> are permitted and have no effect, code within Counter that acts on shared data can be written like this:</p>
+<p class="p12"><br></p>
+<p class="p17">[theLock lock];</p>
+<p class="p17">/* Operate on shared data */</p>
+<p class="p17">[theLock unlock];</p>
+<p class="p18"><br></p>
+<p class="p11">With this approach, the overhead associated with lock operations is only incurred if the application is multithreaded. This code, however, raises another issue. What happens if one of the statements between the <b>lock</b> and <b>unlock</b> messages cause the application to become multithreaded? Then the <b>unlock</b> message wouldn't be paired with the preceding <b>lock</b>.</p>
+<p class="p12"><br></p>
+<p class="p11">In normal usage, locking and unlocking messages are paired. However, as in the example above, it might be convenient to unlock a lock object that hasn't yet been locked. This is permitted with two restrictions. First, you can send an unpaired unlocking message to a lock object as long as the object has never before been locked. Second, of the NEXTSTEP classes that conform to the NSLocking protocol, only NSConditionLock and NSLock allow an unpaired unlocking message. NSRecursiveLock requires locking and unlocking messages to be paired.</p>
+<p class="p12"><br></p>
+<p class="p11">NEXTSTEP's locking classes are designed to work in a well-behaved, multithreaded environment: The protection they offer can be subverted by the use of signal handlers. A signal handler can interrupt a thread, execute code that affects shared data, and then let the thread resume without alerting the thread that the application has, in effect, become multithreaded. For this reason, it's recommended that you don't use signal handlers in multithreaded NEXTSTEP applications.</p>
+<p class="p12"><br></p>
+<p class="p19"><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p20"><b></b><b>lock</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p22"><span class="s3">-</span> (void)<b>lock</b><span class="Apple-tab-span">	</span></p>
+<p class="p23"><br></p>
+<p class="p11">Attempts to acquire a lock. This method blocks a thread's execution until the lock can be acquired.</p>
+<p class="p12"><br></p>
+<p class="p11">An application protects a critical section of code by requiring a thread to acquire a lock before executing the code. Once the critical section is past, the thread relinquishes the lock by invoking <b>unlock</b>.</p>
+<p class="p12"><br></p>
+<p class="p24"><br></p>
+<p class="p20"><b></b><b>unlock</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p22"><span class="s3">-</span> (void)<b>unlock</b><span class="Apple-tab-span">	</span></p>
+<p class="p23"><br></p>
+<p class="p11">Relinquishes a previously acquired lock.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+</body>
+</html>

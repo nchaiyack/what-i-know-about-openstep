@@ -1,0 +1,61 @@
+.\" Copyright (c) 1989 NeXT Computer, Inc.
+.\" All rights reserved.
+.\"
+.\"	@(#)copy.8	1.0 (NeXT) 06/09/89
+.\"
+.TH PBCOPY 1 "June 9, 1989" "NeXT Computer, Inc."
+.SH NAME
+pbcopy, pbpaste \- provide copying and pasting from command line
+.SH SYNOPSIS
+.B /usr/bin/pbcopy
+.PP
+.B /usr/bin/pbpaste
+[
+.B \-Prefer {ascii | rtf | ps}
+]
+.SH DESCRIPTION
+.B pbcopy
+takes the standard input and places it in the OPENSTEP
+pasteboard.
+The input is placed in the pasteboard as
+ASCII data unless it begins with the 
+Adobe Systems Encapsulated PostScript 
+file header or the Microsoft Rich Text Format
+file header, in which case it is placed
+in the pasteboard as one of those data types.
+.PP
+.B pbpaste
+removes the data from the pasteboard and writes it to
+the standard output.  It normally looks first for ASCII
+data in the pasteboard and writes that to the standard output;
+if no ASCII data is in the pasteboard it looks for 
+Encapsulated PostScript; if no EPS if present it looks
+for Rich Text.  If none of those types is present in the
+pasteboard, \fBpaste\fR produces no output.
+.SH OPTIONS
+.TP
+.B \-Prefer {ascii | rtf | ps}
+tells
+.B pbpaste
+what type of data to look for in the pasteboard first.
+As stated above, 
+.B pbpaste
+normally looks first for ASCII data; however, by 
+specifying
+.B -Prefer ps
+you can tell 
+.B pbpaste 
+to look first for Encapsulated
+PostScript.  If you specify
+\fB-Prefer rtf\fR,
+.B pbpaste 
+looks first for Rich Text format.  In any case,
+.B pbpaste
+looks for the other formats if the preferred one is not
+found.
+.SH BUGS
+There is no way to tell
+.B pbpaste
+to get 
+.I only
+a specified data type.

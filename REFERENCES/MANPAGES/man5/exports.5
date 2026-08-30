@@ -1,0 +1,180 @@
+.\" @(#)exports.5          92/04/28 JJ
+.\" @(#)exports.5 1.5 88/03/01 D/NFS
+.\" @(#)exports.5 1.22 88/02/29 SMI;
+.TH EXPORTS 5 "19 October 1987"
+.SH NAME
+exports, xtab \- lists of directories to export to NFS clients
+.SH SYNOPSIS
+.B /etc/exports
+.LP
+.B /etc/xtab
+.SH DESCRIPTION
+NOTE:
+If NetInfo is running, this information is derived from the
+.B /exports
+directory in NetInfo,
+instead of the
+.B /etc/exports 
+file.
+.LP
+The
+.B /etc/exports
+file contains entries for directories that can be exported to
+.SM NFS
+clients.
+.\" This file is read automatically by the
+.\" .BR exportfs (8)
+.\" command.
+Changes to
+.B /etc/exports
+require running
+.BR exportfs (8)
+for the changes to affect the daemon's operation.
+Entries added by the NFSManager application
+automatically result in
+.B exportfs
+being run.
+Manually done changes
+require rerunning
+.BR exportfs (8).
+.LP
+Only when this file is present at boot time,
+or entries exist in the local netinfo
+.B /exports
+directory,
+does the
+.B rc.local
+script 
+execute
+.BR exportfs (8)
+and start the NFS filesystem daemons
+.BR nfsd (8)
+and
+.BR rpc.mountd (8).
+.LP
+The
+.B /etc/xtab
+file contains entries for directories that are
+.I currently
+exported.
+This file should only be accessed by programs using
+.B getexportent
+(see
+.BR exportent (3)).
+(Use the
+.B \-u
+option of
+.B exportfs
+to remove entries from this file).
+.LP
+An entry for a directory consists of a line of the following form:
+.IP
+.B directory\ \ \ \fB\-\fIoption\fR[\fB,\|\fIoption\fR ]\|.\|.\|.
+.TP 20
+.B directory
+is the pathname of a directory (or file).
+.TP
+.I option
+is one of
+.RS
+.TP
+.B ro
+Export the directory read-only.
+If not specified, the directory is
+exported read-write.
+.TP
+.BI rw= hostnames [: hostname ]\|.\|.\|.
+Export the directory read-mostly.
+Read-mostly means read-only to most
+machines, but read-write to those specified.
+If not specified, the directory is
+exported read-write to all.
+.TP
+.BI anon=\fP uid
+If a request comes from an unknown user, use
+.I uid
+as the effective user
+.SM ID\s0.
+Note: root users (uid 0) are always
+considered \(lqunknown\(rq by the
+.SM NFS
+server, unless they are included in
+the \(lqroot\(rq option below.
+The default value for this option is \-2.
+Setting \(lqanon\(rq
+to \-1 disables anonymous access.
+.TP
+.BI root= hostnames [: hostname ]\|.\|.\|.
+Give root access only to the root users from a specified
+.IR hostname .
+The default is for no hosts to be granted root access.
+.TP
+.BI access= client [: client ]\|.\|.\|.
+Give mount access to each
+.I client
+listed.
+A
+.I client
+can either be a hostname, or a netgroup (see
+.BR netgroup (5)).
+Each
+.I client
+in the list is first checked for in the netgroup
+database, and then the hosts database.
+Simple hostnames for machines in the server's domain
+should be used.
+The default value allows any
+machine to mount the given directory.
+.RE
+.LP
+A
+.RB `` # ''
+anywhere in the file
+indicates a comment
+that extends to the end of the line.
+.SH EXAMPLE
+.LP
+.ft B
+.ta 1i 3i
+.nf
+/usr	\-access=clients	# export to my clients
+/usr/local		# export to the world
+/usr2	\-access=hermes:zip:tutorial	# export to only these machines
+/usr/sun	\-root=hermes:zip	# give root access only to these
+/usr/new	\-anon=0	# give all machines root access
+/usr/bin	\-ro	# export read-only to everyone
+/usr/stuff	\-access=zip,anon=\-3,ro	# several options on one line
+.fi
+.ft R
+.br
+.ne 6
+.SH FILES
+.PD 0
+.TP 20
+.B /etc/exports
+.TP
+.B /etc/xtab
+.TP
+.B /etc/hosts
+.TP
+.B /etc/netgroup
+.TP
+.B rc.local
+.PD
+.SH SEE ALSO
+.BR exportent (3),
+.BR hosts (5),
+.BR netgroup (5),
+.BR exportfs (8),
+.BR nfsd (8)
+.SH WARNINGS
+.LP
+You cannot export either a parent directory or a subdirectory
+of an exported directory that is
+.IR "within the same filesystem" .
+It would be illegal, for instance, to export both
+.B /usr
+and
+.B /usr/local
+if both directories resided on the same
+disk partition.

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 50.4px; font: 10.0px Helvetica; color: #ff00ff; min-height: 12.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 50.4px; font: 42.0px Helvetica; color: #ff00ff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 50.4px; font: 24.0px Helvetica; color: #ff00ff; min-height: 29.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 12.6px; font: 44.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 12.6px; font: 60.0px Times; min-height: 72.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 151.2px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 151.2px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 50.4px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 50.4px; font: 26.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 50.4px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 170.1px; text-indent: -18.9px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 170.1px; text-indent: -18.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 170.0px; text-indent: -18.8px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 170.0px; font: 2.0px Helvetica; min-height: 2.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 170.0px; font: 14.0px Helvetica}
+    p.p18 {margin: 0.0px 0.0px 0.0px 170.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 264.6px; text-indent: -94.6px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 264.6px; text-indent: -94.6px; font: 5.0px Times; min-height: 6.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 151.2px; font: 5.0px Times; min-height: 6.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 151.2px; font: 26.0px Helvetica; min-height: 31.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 151.2px; font: 24.0px Helvetica}
+    p.p24 {margin: 0.0px 0.0px 0.0px 151.2px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 170.1px; font: 14.0px Times}
+    p.p26 {margin: 0.0px 0.0px 0.0px 170.1px; font: 10.0px Times; min-height: 13.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 9.0px Symbol; vertical-align: 3.0px}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><br></p>
+<p class="p4"><b>5</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><i>Overview of Loadable Kernel Servers</i></p>
+<p class="p7"><i></i><br></p>
+<p class="p8">This chapter should help you decide whether you need to write a loadable kernel server, as well as give you the background information you need to begin writing one.<span class="Apple-converted-space">  </span>A <i>loadable kernel server</i> is any code that's added to the NeXT<span class="s2">î</span>Mach kernel after the system has been booted.<span class="Apple-converted-space">  </span>Loadable kernel servers are the only way to make third-party code execute within the kernel, as opposed to executing at <i>user level</i>.</p>
+<p class="p9"><br></p>
+<p class="p8">This chapter first discusses the advantages and disadvantages of loadable kernel servers, and then describes the types of loadable kernel servers that you can write.<span class="Apple-converted-space">  </span>So that you don't unnecessarily write a loadable kernel server, a list of existing NeXT device drivers is presented.<span class="Apple-converted-space">  </span>Next, this chapter describes in general how loadable kernel servers work.<span class="Apple-converted-space">  </span>Finally, it describes the hardware and documentation that you'll need if you write a server.</p>
+<p class="p9"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b>Advantages and Disadvantages of Loadable Kernel Servers</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p8">Most of the code that runs on a NeXT computer executes at user level.<span class="Apple-converted-space">  </span>For example, all NEXTSTEP<span class="s2">î</span>applications, such as Edit and Digital Librarian<span class="s2">î</span>, execute at user level, although they occasionally request services from the kernel.<span class="Apple-converted-space">  </span>Command-line utilities, such as <b>make</b>, also execute at user level.<span class="Apple-converted-space">  </span>Even system-wide resources such as the Window Server, with its Display PostScript<span class="s2">í</span>interpreter, run at user level.<i><span class="Apple-converted-space">  </span></i>User-level programs have several advantages over kernel code:</p>
+<p class="p9"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Debugging them is much easier than debugging kernel code.<span class="Apple-converted-space">  </span>For example, running a debugger on kernel code requires two computers and frequently freezes the operating system of the computer that's being debugged.</p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Errors in user-level code, unlike those in kernel code, don't cause the computer to <i>panic</i> (a state in which the operating system stops running; it can cause data loss and can be corrected only by rebooting).</p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>User-level programs usually don't decrease the overall performance of the system as much as if they were executed in the kernel.<span class="Apple-converted-space">  </span>For example, code executed in the kernel causes the kernel to reserve more physical memory, reducing the memory that can be used for user-level programs.</p>
+<p class="p14"><br></p>
+<p class="p8">However, sometimes it's necessary to execute code in the kernel, especially when:</p>
+<p class="p9"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>User-level code just can't do the job.<span class="Apple-converted-space">  </span>For example, the NeXT networking architecture currently requires that network protocols be executed inside the kernel.</p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>User-level code can't do the job quickly enough.<span class="Apple-converted-space">  </span>For example, if you have a NeXTbus<span class="s2">î</span>device, you can either write a user-level program that calls the slot driver (a driver provided in the NeXTbus Development Kit, NeXT product number N7002) or write your own loadable kernel server to control the device.<span class="Apple-converted-space">  </span>The performance requirements of the device determine whether it's necessary to write your own loadable kernel server. <span class="Apple-converted-space">  </span>The NeXTbus interface bus is discussed in Chapter 7, “NeXTbus Device Drivers.”</p>
+<p class="p14"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b>Supported Types of Loadable Kernel Servers</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p8">Currently, third parties can't write device drivers for non-NeXTbus interfaces, such as SCSI and serial ports.<span class="Apple-converted-space">  </span>Third parties can write three types of loadable kernel servers:</p>
+<p class="p9"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Device drivers for NeXTbus boards</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Network protocols</p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Network packet sniffers</p>
+<p class="p9"><br></p>
+<p class="p8">NeXT computers have several drivers that take care of most interface needs:</p>
+<p class="p9"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b>Driver<span class="Apple-tab-span">	</span>Interface</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19">audio<span class="Apple-tab-span">	</span>Sound input and output</p>
+<p class="p20"><br></p>
+<p class="p19">fd<span class="Apple-tab-span">	</span>Internal floppy disk drive</p>
+<p class="p20"><br></p>
+<p class="p19">MIDI<span class="Apple-tab-span">	</span>Serial interfaces to MIDI devices</p>
+<p class="p20"><br></p>
+<p class="p19">np<span class="Apple-tab-span">	</span>NeXT laser printer</p>
+<p class="p20"><br></p>
+<p class="p19">od<span class="Apple-tab-span">	</span>Internal optical disk</p>
+<p class="p20"><br></p>
+<p class="p19">sd<span class="Apple-tab-span">	</span>SCSI disk drives of all kinds, including hard disks, floppy disks, and CD-ROMs</p>
+<p class="p20"><br></p>
+<p class="p19">sg<span class="Apple-tab-span">	</span>Concurrent access to up to four SCSI devices of any kind</p>
+<p class="p20"><br></p>
+<p class="p19">slot<span class="Apple-tab-span">	</span>NeXTbus devices (this driver is provided in the NeXTbus Development Kit)</p>
+<p class="p20"><br></p>
+<p class="p19">sound/DSP<span class="Apple-tab-span">	</span>DSP56001 digital signal processor</p>
+<p class="p20"><br></p>
+<p class="p19">st<span class="Apple-tab-span">	</span>SCSI tape drives</p>
+<p class="p20"><br></p>
+<p class="p19">zs<span class="Apple-tab-span">	</span>Serial port devices</p>
+<p class="p20"><br></p>
+<p class="p21"><br></p>
+<p class="p8">The fd, np, od, sd, sg, st, and zs drivers are described in the UNIX manual pages, which are available through Digital Librarian.<span class="Apple-converted-space">  </span>The MIDI and sound/DSP drivers are described in the <i>NEXTSTEP General Reference</i>, which is also available through Digital Librarian.<span class="Apple-converted-space">  </span>The audio driver is accessible only indirectly, through Sound Kit<span class="s2">î</span>objects; these objects are described in the <i>General Reference</i>.</p>
+<p class="p9"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b>How Loadable Kernel Servers Work</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p8">One of the main features of loadable kernel servers is that they can be loaded into the kernel at any time after the computer has booted.<span class="Apple-converted-space">  </span>This has several benefits.<span class="Apple-converted-space">  </span>One is that you can add a server without recompiling the kernel.<span class="Apple-converted-space">  </span>Another is that a server can be unloaded when it's no longer required, saving memory and other resources.<span class="Apple-converted-space">  </span>You can also unload and reload a server, which speeds up development because you don't have to reboot every time you change the server.</p>
+<p class="p9"><br></p>
+<p class="p8">The <i>kernel-server loader</i> (<b>kern_loader</b>) is the task that loads and unloads loadable kernel servers.<span class="Apple-converted-space">  </span>You can communicate with <b>kern_loader</b> either with the <i>kernel-server utility</i> (<b>kl_util</b>, which is described later), or by using the kernel-server loader functions, a group of user-level functions that are described in Chapter 3, “Using Loadable Kernel Servers.”</p>
+<p class="p9"><br></p>
+<p class="p8">Loadable kernel servers have three states: <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Allocated—<b>kern_loader</b> has allocated space and resources for the loadable kernel server and is listening for messages to its ports.<span class="Apple-converted-space">  </span>However, the server isn't currently running. <span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Loaded—The loadable kernel server is running.<span class="Apple-converted-space">  </span>It runs as a thread in a non-kernel task, but with the kernel's address map.</p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Unallocated—<b>kern_loader </b>has no space or other resources allocated for the loadable kernel server.</p>
+<p class="p14"><br></p>
+<p class="p8">Loadable kernel servers can be built with or without Mach messages.<span class="Apple-converted-space">  </span>A server that's based on messages has the advantage that it's easily loaded at the moment it's needed.<span class="Apple-converted-space">  </span>This works because <b>kern_loader</b>, when it allocates resources for a server, creates the server's ports and advertises them with the Network Name Server.<span class="Apple-converted-space">  </span>When a message is received on one of these advertised ports, <b>kern_loader</b> loads the allocated server into the kernel and forwards the advertised ports along with the received message to the now loaded and running server.</p>
+<p class="p9"><br></p>
+<p class="p8">Loadable kernel servers that don't use messages must be loaded into the system as soon as they're allocated in <b>kern_loader</b>.<span class="Apple-converted-space">  </span>Like other loadable kernel servers, though, they can be allocated at any time and unloaded when they're no longer needed.<span class="Apple-converted-space">  </span>Since newly loaded servers aren't known to the kernel, those that aren't message-based must add their entry points to the kernel.<span class="Apple-converted-space">  </span>For example, a UNIX-style server (a server accessed with UNIX system calls) must insert pointers to its entry points into device switch tables. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">A loadable kernel server doesn't have to use messages if it's accessed only by table lookups.<span class="Apple-converted-space">  </span>For example, UNIX-style servers and networking protocols can be implemented without messages.</p>
+<p class="p9"><br></p>
+<p class="p8">When started, <b>kern_loader</b> reads a configuration file (<b>/etc/kern_loader.conf</b>) and allocates the listed kernel servers.<span class="Apple-converted-space">  </span>(Servers can also be allocated later, using <b>kl_util</b> or the kernel-server loader functions.)<span class="Apple-converted-space">  </span>During allocation, <b>kern_loader</b> extracts the following information from the server's object file:</p>
+<p class="p9"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>The name of the loadable kernel server</p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>The names of its ports, and whether they should be advertised with the Network Name Server</p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Which function should be called when a message is received on a particular port</p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Whether the server should be loaded into the kernel immediately or wait for a received message</p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Whether the server should be <i>wired down</i> (made memory-resident in kernel virtual memory)</p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Initialization functions to call when the server is loaded</p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Shutdown functions to call when the server is unloaded</p>
+<p class="p14"><br></p>
+<p class="p8">You specify some or all the information listed above to command scripts that are read by the kernel-server linker, <b>kl_ld</b>.<span class="Apple-converted-space">  </span>Chapter 9, “Building, Loading, and Debugging Loadable Kernel Servers,” discusses how to compile and link loadable kernel servers; Appendix A, “Utilities for Loadable Kernel Servers,” gives details on <b>kl_ld</b> and the format of command scripts.</p>
+<p class="p9"><br></p>
+<p class="p8">When <b>kern_loader</b> allocates a server, it allocates memory within the Mach kernel and relocates the file against the running kernel's symbol table at the allocated address.<span class="Apple-converted-space">  </span>The resulting code and data are directly copied into the kernel virtual address space when the server is loaded.<span class="Apple-converted-space">  </span>While you're debugging your server, you need to specify that <b>kern_loader</b> should also save the relocated code and data into a <i>loadable object file</i>, which is used by the debugger.<span class="Apple-converted-space">  </span>(The original object file—the one that <b>kern_loader</b> uses to create the loadable object file—is called the <i>relocatable object file</i>.)</p>
+<p class="p9"><br></p>
+<p class="p8">During the loading process, <b>kern_loader</b> not only loads the server but also initializes it.<span class="Apple-converted-space">  </span>Initialization includes associating ports with functions and calling any initialization functions.<span class="Apple-converted-space">  </span>The server is also wired down if requested. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">Before <b>kern_loader</b> deallocates a server, it calls the server's shutdown functions. The server is responsible for making sure that it has freed all the kernel resources that it requested (such as dynamically allocated memory). <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b>Before You Start<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p8">To write a loadable kernel server, you must be able to program in C.<span class="Apple-converted-space">  </span>Depending on the kind of loadable kernel server you're writing, you probably don't need to be familiar with UNIX<span class="s2">í</span>internals.<span class="Apple-converted-space">  </span>However, a general background in writing interrupt-driven device drivers or networking protocols is useful.</p>
+<p class="p9"><br></p>
+<p class="p8">If you've determined that you need to write a loadable kernel server, you'll need to gather some equipment and documentation.</p>
+<p class="p9"><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><b>Hardware You'll Need</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p8">To write a server, you'll need the following equipment: <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Two NeXT computers that are running the same major release of NEXTSTEP (for example, NEXTSTEP Release 3).</p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>A working network connection for both computers.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>A NeXTbus Interface Chip (NBIC) on the CPU board of the test computer (only if you're writing a driver for a NeXTbus device).<span class="Apple-converted-space">  </span>The NBIC is already installed in every NeXTcube<span class="s2">î</span>computer and 68040 Upgrade Board.</p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>The hardware (if any) your server will control, installed in or connected to one of the computers.</p>
+<p class="p14"><br></p>
+<p class="p8">See Chapter 9 for more information on setting up the two computers. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><b>Documentation You'll Need</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p8">Depending on the type of server you're writing, you'll need some or all of the documentation listed in this section.<span class="Apple-converted-space">  </span>You'll also need the server examples that are under <b>/NextLibrary/Documentation/NextDev/Examples/ServerVsHandler</b>.</p>
+<p class="p9"><br></p>
+<p class="p8">Part 1 of this manual, “The Mach Operating System,” is useful for its description of the NeXT Mach operating system and of Mach messaging, as well as documentation of Mach functions.</p>
+<p class="p9"><br></p>
+<p class="p8">You should also have <i>NEXTSTEP Development Tools</i>, which is part of the<i> NEXTSTEP Developer's Library</i>.<span class="Apple-converted-space">  </span>It describes the compiler and debugger that you'll use.</p>
+<p class="p9"><br></p>
+<p class="p8">You might need to have the <i>NEXTSTEP Network and System Administration</i> manual on hand, especially when you're setting up your computers.<span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">If you're writing a driver for a NeXTbus board, you'll need the hardware specifications and installation guide.<span class="Apple-converted-space">  </span>These are all part of the NeXTbus Development Kit.</p>
+<p class="p9"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>NeXTbus Interface Chip Specification</i></p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>NeXTbus Specification</i></p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>NeXTbus Development Kit Installation Guide</i></p>
+<p class="p9"><br></p>
+<p class="p8">The following book has good information for any driver writer.<span class="Apple-converted-space">  </span>It also has specific information on UNIX drivers.</p>
+<p class="p9"><br></p>
+<p class="p25"><i>Writing a UNIX Device Driver</i>.<span class="Apple-converted-space">  </span>Janet I. Egan and Thomas J. Teixeira. John Wiley &amp; Sons, Inc., 1988.</p>
+<p class="p26"><br></p>
+<p class="p8">If you're writing a server with a UNIX-style interface, you might need the information in the following book.</p>
+<p class="p9"><br></p>
+<p class="p25"><i>The Design and Implementation of the 4.3BSD UNIX Operating System</i>.<span class="Apple-converted-space">  </span>Samuel J. Leffler, Marshall Kirk McKusick, Michael J. Karels, and John S. Quarterman.<span class="Apple-converted-space">  </span>Addison-Wesley, 1989.</p>
+<p class="p26"><br></p>
+</body>
+</html>

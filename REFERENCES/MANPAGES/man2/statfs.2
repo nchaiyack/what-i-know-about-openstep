@@ -1,0 +1,120 @@
+.\" @(#)statfs.2	1.3 87/07/29 3.2/4.3NFSSRC
+.TH STATFS 2 "16 July 1986"
+.SH NAME
+statfs \- get file system statistics
+.SH SYNOPSIS
+.nf
+.ft B
+#include <sys/vfs.h>
+.LP
+.ft B
+statfs(path, buf)
+char *path;
+struct statfs *buf;
+.LP
+.ft B
+fstatfs(fd, buf)
+int fd;
+struct statfs *buf;
+.fi
+.ft R
+.SH DESCRIPTION
+.I statfs
+returns information about a mounted file system.
+.IX  "statfs"  ""  "\fLstatfs\fP \(em obtain file system statistics"
+.IX  "file system" "statistics \(em \fLstatfs\fP"
+.IX  statistics "of file system \(em \fLstatfs\fP"
+.I path
+is the path name of any file within the mounted filesystem.
+.I Buf
+is a pointer to a
+.I statfs
+structure defined as follows:
+.IP
+.ta \w'#define'u +\w'fsid_t\0\0'u +\w'f_spare[7]\0\0'u
+.nf
+typedef struct {
+	long	val[2];
+} fsid_t;
+.sp.5
+struct statfs {
+	long	f_type; 	/* type of info, zero for now */
+	long	f_bsize;	/* fundamental file system block size */
+	long	f_blocks;	/* total blocks in file system */
+	long	f_bfree;	/* free blocks */
+	long	f_bavail;	/* free blocks available to non-superuser */
+	long	f_files;	/* total file nodes in file system */
+	long	f_ffree;	/* free file nodes in fs */
+	fsid_t	f_fsid; 	/* file system id */
+	long	f_spare[7];	/* spare for later */
+};
+.fi
+.LP
+Fields that are undefined for a particular file system are set to \-1.
+.I fstatfs
+returns the same information about an open file referenced by descriptor
+.IR fd .
+.IX  "fstatfs"  ""  "\fLfstatfs\fP \(em obtain file system statistics"
+.IX  "file system" "statistics \(em \fLfstatfs\fP"
+.IX  statistics "of file system \(em \fLfstatfs\fP"
+.SH RETURN VALUE
+Upon successful completion, a value of 0 is returned.
+Otherwise, \-1 is returned and the global variable
+.I errno
+is set to indicate the error.
+.SH ERRORS
+.I statfs
+fails if one or more of the following are true:
+.TP 15
+ENOTDIR
+A component of the path prefix of
+.I path
+is not a directory.
+.TP 15
+EINVAL
+.I path
+contains a character with the high-order bit set.
+.TP 15
+ENAMETOOLONG
+The length of a component of
+.I path
+exceeds 255 characters,
+or the length of
+.I path
+exceeds 1023 characters.
+.TP 15
+ENOENT
+The file referred to by
+.I path
+does not exist.
+.TP 15
+EACCES
+Search permission is denied for a component of the path prefix of
+.IR path .
+.TP 15
+ELOOP
+Too many symbolic links were encountered in translating
+.IR path .
+.TP 15
+EFAULT
+.I buf
+or
+.I path
+points to an invalid address.
+.TP 15
+EIO
+An I/O error occurred while reading from or writing to the file system.
+.LP
+.I fstatfs
+fails if one or both of the following are true:
+.TP 15
+EBADF
+.I fd
+is not a valid open file descriptor.
+.TP 15
+EFAULT
+.I buf
+points to an invalid address.
+.TP 15
+EIO
+An I/O error occurred while reading from or writing to the file system.

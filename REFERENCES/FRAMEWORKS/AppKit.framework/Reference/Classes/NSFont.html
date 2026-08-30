@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.2px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.2px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 12.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.7px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.6px; font: 13.0px Times; min-height: 16.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Helvetica}
+    p.p18 {margin: 0.0px 0.0px 0.0px 75.6px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 75.6px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 75.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 14.0px Times}
+    p.p23 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 5.0px Times; min-height: 6.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 35.0px Times; min-height: 42.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 5.0px Times; min-height: 6.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 316.7px; font: 14.0px Times}
+    p.p27 {margin: 0.0px 0.0px 0.0px 316.7px; font: 5.0px Times; min-height: 6.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 35.0px Times; min-height: 42.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p30 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 14.0px Times}
+    p.p32 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 75.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 75.6px; text-indent: -25.1px; font: 14.0px Helvetica}
+    p.p36 {margin: 0.0px 0.0px 0.0px 75.6px; text-indent: -25.1px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 95.8px; font: 14.0px Times}
+    p.p39 {margin: 0.0px 0.0px 0.0px 95.8px; font: 7.0px Times; min-height: 8.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 12.0px Helvetica}
+    p.p41 {margin: 0.0px 0.0px 0.0px 115.5px; text-indent: -39.9px; font: 14.0px Times}
+    p.p42 {margin: 0.0px 0.0px 0.0px 115.5px; text-indent: -39.9px; font: 7.0px Times; min-height: 8.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p44 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times; min-height: 18.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 75.6px; font: 10.0px Times; min-height: 13.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 115.5px; text-indent: -39.9px; font: 30.0px Times; min-height: 37.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.s5 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSFont</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s2">NSObject</span></p>
+<p class="p6"><br></p>
+<p class="p7"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s2">NSCoding</span></p>
+<p class="p8">NSCopying</p>
+<p class="p8">NSObject (NSObject)</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSFont.h</p>
+<p class="p11"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><b>Class Description</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14">NSFont objects represent PostScript fonts to an application, providing access to characteristics of the font and assistance in laying out glyphs relative to one another. Font objects are also used to establish the current font when drawing in an NSView, using the <b>set</b> method.</p>
+<p class="p15"><br></p>
+<p class="p14">You don't create Font objects using the <b>alloc</b> and <b>init</b> methods. Instead, you use one of the <b>fontWithName:...</b> methods to look up an available font and alter its size or matrix to your needs. These methods check for an existing font object with the specified characteristics, returning it if there is one. Otherwise, they look up the font data requested and create the appropriate object. NSFont also defines a number of methods for getting standard system fonts, such as <b>systemFontOfSize:</b>, <b>userFontOfSize:</b>, and <b>messageFontOfSize:</b>.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><b>Drawing Text with NSFonts</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><b></b><br></p>
+<p class="p14">In most cases you draw text using an NSTextView object. You can also draw an NSString directly in an NSView using the methods <b>drawAtPoint:withAttributes:</b> and <b>drawInRect:withAttributes:</b>, which the Application Kit adds to NSString. These methods take an NSDictionary of attributes, as used by the NSAttributedString class, and apply them when drawing the string.</p>
+<p class="p15"><br></p>
+<p class="p14">If you need to draw text using PostScript operators such as <b>show</b>, it's recommended that you set the current font using NSFont's <b>set</b> method, rather than the PostScript operators <b>setfont</b> or <b>selectfont</b>. This allows the Application Kit printing mechanism to record the fonts used in the PostScript output. If you absolutely must set the font using a PostScript operator, you can record the font with the Application Kit using the class method <b>useFont:</b>. See the description of that method for more information.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><b>Getting Font Metrics</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><b></b><br></p>
+<p class="p14">NSFont defines a number of methods for accessing a font's metrics information, when that information is available. Methods such as <b>boundingRectForGlyph:</b>, <b>boundingRectForFont</b>, <b>xHeight</b>, and so on, all correspond to standard font metrics information. See the various method descriptions for specific information. You can also get a complete dictionary of font metrics using the <b>afmDictionary</b> method, or retrieve the original contents of the metrics file using <b>afmFileContents</b>.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><b>Calculating Glyph Layout</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><b></b><br></p>
+<p class="p14">The OPENSTEP extended text system handles many complex aspects of laying glyphs out. If you need to calculate layout for your own purposes, you can use several methods defined by NSFont. There are three basic kinds of glyph layout: sequential, for running text; overstruck, for diacritics and other non-spacing marks; and stacked, for scripts such as Indic and Tibetan.</p>
+<p class="p15"><br></p>
+<p class="p14">The first kind of layout is supported by the method <b>positionOfGlyph:precededByGlyph:isNominal:</b>. This method calculates the position of a glyph relative to glyph preceding it, using font metrics if they're available. This is the most straightforward kind of glyph layout.</p>
+<p class="p15"><br></p>
+<p class="p14">Layout of overstruck glyphs is potentially the most complex, as it requires detailed information about placement of many kinds of modifying marks. When you know both the base glyph and the non-spacing mark being struck over it, you first use the method <b>positionOfGlyph:struckOverGlyph:metricsExist:</b> to calculate the location of the non-spacing mark. This method also indicates whether metrics are available for the two glyphs. If they're not, you must fall back to calculating the layout based on the bounding rectangle of the base glyph (which you can get using <b>boundingRectForGlyph:</b>). There are two methods for doing this. The first, <b>positionOfGlyph:struckOverRect:metricsExist:</b>, attempts to use metrics to place the non-spacing mark in a reasonable fashion relative to the base glyph's bounding box. If this method indicates that metrics aren't available (which NSFont's implementation always does, because current fonts don't provide for metrics relative to bare rectangles), you must resort to the last method, <b>positionOfGlyph:forCharacter:struckOverRect:</b>. This method attempts to place the non-spacing mark in a legible if not pleasing manner, treating it as a well-known character such as an acute accent, tilde, or other modifier.</p>
+<p class="p15"><br></p>
+<p class="p14">An additional method for laying out a series of overstruck glyphs is <b>positionsForCompositeSequence:numberOfGlyphs:pointArray:</b>. This method accepts a C array containing the base glyph followed by all of its non-spacing marks, and calculates the positions for as many as it can. For those that it can't determine, you must resort to the individual methods described immediately above.</p>
+<p class="p15"><br></p>
+<p class="p14">The final kind of layout, of stacked glyphs, is supported by the method <b>positionOfGlyph:withRelation:toBaseGlyph:totalAdvancement:metricsExist:</b>. Stacked glyphs often have special compressed forms, which standard font metrics don't account for. NSFont's implementation of this method simply abuts the bounding boxes of the two glyphs for approximate layout of the individual glyphs. Subclasses of NSFont can override this method to access any extra metrics information in order to provide more sophisticated layout of stacked glyphs.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><b>Special Glyphs</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><b></b><br></p>
+<p class="p14">NSFont defines two special glyphs. NSNullGlyph indicates no glyph at all, and is useful in some layout methods for calculating information that isn't relative to another glyph. For example, with <b>positionOfGlyph:precededByGlyph:isNominal:</b>, you can specify NSNullGlyph as the first glyph to get the nominal advancement of the preceding glyph.</p>
+<p class="p15"><br></p>
+<p class="p14">The other special glyph is NSControlGlyph, which the text system maps onto control characters such as linefeed and tab. This glyph has no graphic representation and has no inherent advancement of its own. Instead, the text system examines the control character underlying the glyph to determine what kind of special layout it needs to perform.</p>
+<p class="p15"><br></p>
+<p class="p20"><br></p>
+<p class="p12"><b>Adopted Protocols</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p21">NSCoding<span class="Apple-tab-span">	</span><span class="s4">-</span> encodeWithCoder:</p>
+<p class="p22"><span class="s4">-</span> initWithCoder:</p>
+<p class="p23"><br></p>
+<p class="p21">NSCopying<span class="Apple-tab-span">	</span><span class="s4">-</span> copyWithZone:</p>
+<p class="p24"><br></p>
+<p class="p12"><b>Method Types</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p21">Creating arbitrary fonts<span class="Apple-tab-span">	</span>+ fontWithName:size:</p>
+<p class="p22">+ fontWithName:matrix:</p>
+<p class="p23"><br></p>
+<p class="p21">Creating user fonts<span class="Apple-tab-span">	</span>+ userFontOfSize:</p>
+<p class="p22">+ userFixedPitchFontOfSize:</p>
+<p class="p23"><br></p>
+<p class="p21">Creating system fonts<span class="Apple-tab-span">	</span>+ boldSystemFontOfSize:</p>
+<p class="p22">+ menuFontOfSize:</p>
+<p class="p22">+ messageFontOfSize:</p>
+<p class="p22">+ paletteFontOfSize:</p>
+<p class="p22">+ systemFontOfSize:</p>
+<p class="p22">+ titleBarFontOfSize:</p>
+<p class="p22">+ toolTipsFontOfSize:</p>
+<p class="p23"><br></p>
+<p class="p21">Getting preferred fonts<span class="Apple-tab-span">	</span>+ setPreferredFontNames:</p>
+<p class="p22">+ preferredFontNames</p>
+<p class="p23"><br></p>
+<p class="p21">Using a font to draw<span class="Apple-tab-span">	</span><span class="s4">-</span> set</p>
+<p class="p25"><br></p>
+<p class="p21">Adding fonts to print operations<span class="Apple-tab-span">	</span>+ useFont:</p>
+<p class="p25"><br></p>
+<p class="p21">Getting general font information<span class="Apple-tab-span">	</span><span class="s4">-</span> encodingScheme</p>
+<p class="p22"><span class="s4">-</span> isBaseFont</p>
+<p class="p22"><span class="s4">-</span> isFixedPitch</p>
+<p class="p22"><span class="s4">-</span> mostCompatibleStringEncoding</p>
+<p class="p23"><br></p>
+<p class="p21">Getting information about glyphs<span class="Apple-tab-span">	</span><span class="s4">-</span> glyphIsEncoded:</p>
+<p class="p22"><span class="s4">-</span> glyphWithName:</p>
+<p class="p23"><br></p>
+<p class="p21">Getting metrics information<span class="Apple-tab-span">	</span><span class="s4">-</span> advancementForGlyph:</p>
+<p class="p22"><span class="s4">-</span> afmDictionary</p>
+<p class="p22"><span class="s4">-</span> afmFileContents</p>
+<p class="p22"><span class="s4">-</span> ascender</p>
+<p class="p22"><span class="s4">-</span> boundingRectForFont</p>
+<p class="p22"><span class="s4">-</span> boundingRectForGlyph:</p>
+<p class="p22"><span class="s4">-</span> capHeight</p>
+<p class="p22"><span class="s4">-</span> descender</p>
+<p class="p22"><span class="s4">-</span> italicAngle</p>
+<p class="p22"><span class="s4">-</span> matrix</p>
+<p class="p22"><span class="s4">-</span> maximumAdvancement</p>
+<p class="p22"><span class="s4">-</span> pointSize</p>
+<p class="p22"><span class="s4">-</span> underlinePosition</p>
+<p class="p22"><span class="s4">-</span> underlineThickness</p>
+<p class="p22"><span class="s4">-</span> widthOfString:</p>
+<p class="p22"><span class="s4">-</span> widths</p>
+<p class="p22"><span class="s4">-</span> xHeight</p>
+<p class="p23"><br></p>
+<p class="p21">Getting font names<span class="Apple-tab-span">	</span><span class="s4">-</span> displayName</p>
+<p class="p22"><span class="s4">-</span> familyName</p>
+<p class="p22"><span class="s4">-</span> fontName</p>
+<p class="p23"><br></p>
+<p class="p21">Laying out sequential glyphs<span class="Apple-tab-span">	</span><span class="s4">-</span> positionOfGlyph:precededByGlyph:isNominal:</p>
+<p class="p22"><span class="s4">-</span> positionsForCompositeSequence:numberOfGlyphs:pointArray:</p>
+<p class="p23"><br></p>
+<p class="p21">Laying out overstruck glyphs<span class="Apple-tab-span">	</span><span class="s4">-</span> positionOfGlyph:forCharacter:struckOverRect:</p>
+<p class="p22"><span class="s4">-</span> positionOfGlyph:struckOverGlyph:metricsExist:</p>
+<p class="p22"><span class="s4">-</span> positionOfGlyph:struckOverRect:metricsExist:</p>
+<p class="p23"><br></p>
+<p class="p21">Laying out stacked glyphs<span class="Apple-tab-span">	</span><span class="s4">-</span> positionOfGlyph:withRelation:toBaseGlyph:totalAdvancement:</p>
+<p class="p26">metricsExist:</p>
+<p class="p27"><br></p>
+<p class="p21">Setting user fonts<span class="Apple-tab-span">	</span>+ setUserFont:</p>
+<p class="p22">+ setUserFixedPitchFont:</p>
+<p class="p23"><br></p>
+<p class="p21">Getting corresponding device fonts<span class="Apple-tab-span">	</span><span class="s4">-</span> printerFont</p>
+<p class="p22"><span class="s4">-</span> screenFont</p>
+<p class="p28"><br></p>
+<p class="p12"><b>Class Methods</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p17"><b></b><b>boldSystemFontOfSize:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29">+ (NSFont *)<b>boldSystemFontOfSize:</b>(float)<i>fontSize</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns the font used for standard interface items that are rendered in boldface type, in <i>fontSize</i>. This is equivalent to <b>titleBarFontOfSize:</b>.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>fontWithName:size:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>fontWithName:matrix:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29">+ (NSFont *)<b>fontWithName:</b>(NSString *)<i>typeface</i> <b>matrix:</b>(const float *)<i>fontMatrix</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns a font object for <i>typeface</i> and <i>fontMatrix</i>. A typeface is a fully specified family-face name, such as Helvetica-BoldOblique or Times-Roman (not a name as shown in the Font Panel). <i>fontMatrix</i> is a standard 6-element transformation matrix as used in the PostScript language, specifically with the <b>makefont</b> operator. In most cases, you can simply use <b>fontWithName:size:</b> to create standard scaled fonts.</p>
+<p class="p15"><br></p>
+<p class="p14">You can use the defined value NSFontIdentityMatrix for [1 0 0 1 0 0]. Fonts created with a matrix other than NSFontIdentityMatrix <i>don't</i> automatically flip themselves in flipped views.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>isFlipped</b> (NSView)</p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p17"><b></b><b>fontWithName:size:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29">+ (NSFont *)<b>fontWithName:</b>(NSString *)<i>fontName</i> <b>size:</b>(float)<i>fontSize</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns a font object for <i>typeface</i> and <i>fontSize</i>. A typeface is a fully specified family-face name, such as Helvetica-BoldOblique or Times-Roman. <i>fontSize</i> is used to scale the font, and is equivalent to using a font matrix of [<i>fontSize</i> 0 0 <i>fontSize</i> 0 0] with <b>fontWithName:matrix:</b>. Fonts created with this method automatically flip themselves in flipped views. This method is the preferred means for creating fonts.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>menuFontOfSize:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29">+ (NSFont *)<b>menuFontOfSize:</b>(float)<i>fontSize</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns the font used for menu items in <i>fontSize</i>.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>fontWithName:size:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>messageFontOfSize:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29">+ (NSFont *)<b>messageFontOfSize:</b>(float)<i>fontSize</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns the font used for standard interface items, such as button labels, menu items, and so on, in <i>fontSize</i>. This is equivalent to <b>systemFontOfSize:</b>.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>fontWithName:size:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>paletteFontOfSize:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29">+ (NSFont *)<b>paletteFontOfSize:</b>(float)<i>fontSize</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns the font used for palette window title bars.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>fontWithName:size:</b>, + <b>titleBarFontOfSize:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>preferredFontNames</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29">+ (NSArray *)<b>preferredFontNames</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the names of fonts that the Application Kit tries first when a character has no font specified, or when the font specified doesn't have a glyph for that character. If none of these fonts provides a glyph, the remaining fonts on the system are searched for a glyph.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>setPreferredFontNames:</b>, <span class="s4">-</span> <b>glyphIsEncoded:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setPreferredFontNames:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29">+ (void)<b>setPreferredFontNames:</b>(NSArray *)<i>fontNames</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Sets the list of preferred font names to <i>fontNames</i>, and records them in the user defaults database for all applications. The Application Kit tries these fonts first when a character has no font specified, or when the font specified doesn't have a glyph for that character. If none of these fonts provides a glyph, the remaining fonts on the system are searched for a glyph.</p>
+<p class="p15"><br></p>
+<p class="p14">This method is useful for optimizing glyph rendering for uncommon scripts, by guaranteeing that appropriate fonts are searched first.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>preferredFontNames</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>setUserFixedPitchFont:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29">+ (void)<b>setUserFixedPitchFont:</b>(NSFont *)<i>aFont</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Sets the font used by default for documents and other text under the user's control, when that font should be fixed-pitch, to <i>aFont</i>, and records the font in the user defaults database for all applications.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>setUserFont:</b>, + <b>userFixedPitchFontOfSize:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>setUserFont:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29">+ (void)<b>setUserFont:</b>(NSFont *)<i>aFont</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Sets the font used by default for documents and other text under the user's control to <i>aFont</i>, and records the font in the user defaults database for all applications.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>setUserFixedPitchFont:</b>, + <b>userFontOfSize:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>systemFontOfSize:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29">+ (NSFont *)<b>systemFontOfSize:</b>(float)<i>fontSize</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns the font used for standard interface items, such as button labels, menu items, and so on, in <i>fontSize</i>. This is equivalent to <b>messageFontOfSize:</b>.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>boldSystemFontOfSize:</b>, + <b>userFontOfSize:</b>, + <b>userFixedPitchFontOfSize:</b>, + <b>fontWithName:size:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>titleBarFontOfSize:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29">+ (NSFont *)<b>titleBarFontOfSize:</b>(float)<i>fontSize</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns the font used for window title bars, in <i>fontSize</i>. This is equivalent to <b>boldSystemFontOfSize:</b>.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>paletteFontOfSize:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>toolTipsFontOfSize:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29">+ (NSFont *)<b>toolTipsFontOfSize:</b>(float)<i>fontSize</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns the font used for tool-tips labels, in <i>fontSize</i>.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>fontWithName:size:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>useFont:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29">+ (void)<b>useFont:</b>(NSString *)<i>fontName</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Records <i>fontName</i> as one used in the current print operation.</p>
+<p class="p15"><br></p>
+<p class="p14">The NSFont class object keeps track of the fonts used in an NSView by recording each one that receives a <b>set</b> message. When the view is called upon to generate conforming PostScript language output (such as during printing), the NSFont class provides the list of fonts required for the <b>%%DocumentFonts</b> comment, as required by Adobe's Document Structuring Conventions.</p>
+<p class="p15"><br></p>
+<p class="p14"><b>useFont:</b> augments this system by providing a way to register fonts that are included in the document but not set using NSFont's <b>set</b> method. For example, you might set a font by executing the <b>setfont</b> operator within a function created by the <b>pswrap</b> utility. In such a case, be sure to pair the use of the font with a <b>useFont:</b> message to register the font for listing in the document comments.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p17"><b></b><b>userFixedPitchFontOfSize:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29">+ (NSFont *)<b>userFixedPitchFontOfSize:</b>(float)<i>fontSize</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns the font used by default for documents and other text under the user's control (that is, text whose font the user can normally change), when that font should be fixed-pitch.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>userFontOfSize:</b>, + <b>fontWithName:size:</b>, + <b>setUserFixedPitchFont:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>userFontOfSize:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29">+ (NSFont *)<b>userFontOfSize:</b>(float)<i>fontSize</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns the font used by default for documents and other text under the user's control (that is, text whose font the user can normally change).</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>userFixedPitchFontOfSize:</b>, + <b>fontWithName:size:</b>, + <b>setUserFont:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p12"><b>Instance Methods</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p17"><b></b><b>advancementForGlyph:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSSize)<b>advancementForGlyph:</b>(NSGlyph)<i>aGlyph</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns the nominal spacing for <i>aGlyph</i>—the distance that the current point moves after showing the glyph—accounting for the receiving font's size. This spacing is given according to the glyph's movement direction, which is either strictly horizontal or strictly vertical.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>boundingRectForGlyph</b>, <span class="s4">-</span> <b>maximumAdvancement</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>afmDictionary</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSDictionary *)<b>afmDictionary</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the receiving font's AFM information in dictionary form. It contains the following information under these keys, with all values as strings:</p>
+<p class="p15"><br></p>
+<p class="p38">NSAFMFamilyName<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSAFMCapHeight</p>
+<p class="p38">NSAFMFontName<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSAFMXHeight</p>
+<p class="p38">NSAFMFormatVersion<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSAFMAscender</p>
+<p class="p38">NSAFMFullName<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSAFMDescender</p>
+<p class="p38">NSAFMNotice<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSAFMUnderlinePosition</p>
+<p class="p38">NSAFMVersion<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSAFMUnderlineThickness</p>
+<p class="p38">NSAFMWeight<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSAFMItalicAngle</p>
+<p class="p38">NSAFMEncodingScheme<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSAFMMappingScheme</p>
+<p class="p38">NSAFMCharacterSet</p>
+<p class="p39"><br></p>
+<p class="p14">For any other items, use the AFM file contents, as returned by <b>afmFileContents</b>.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p17"><b></b><b>afmFileContents</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSString *)<b>afmFileContents</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the receiving font's AFM file as a string object.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p17"><b></b><b>ascender</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (float)<b>ascender</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the top y coordinate of the receiving font's longest ascender.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>descender</b>, <span class="s4">-</span> <b>capHeight</b>, <span class="s4">-</span> <b>xHeight</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>boundingRectForFont</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSRect)<b>boundingRectForFont</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the receiving font's bounding rectangle, scaled to the font's size. The bounding rectangle is the union of the bounding rectangles of every glyph in the font.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>boundingRectForGlyph:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>boundingRectForGlyph:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSRect)<b>boundingRectForGlyph:</b>(NSGlyph)<i>aGlyph</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns the bounding rectangle for <i>aGlyph</i>, scaled to the receiving font's size.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>boundingRectForFont</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>capHeight</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (float)<b>capHeight</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the receiving font's cap height.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>ascender</b>, <span class="s4">-</span> <b>descender</b>, <span class="s4">-</span> <b>xHeight</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>descender</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (float)<b>descender</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the bottom y coordinate of the receiving font's longest descender.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p17"><b></b><b>displayName</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSString *)<b>displayName</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the name used to represent the receiving font in the user interface, typically localized for the user's<span class="Apple-converted-space">  </span>language.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p17"><b></b><b>encodingScheme</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSString *)<b>encodingScheme</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the name of the receiving font's encoding scheme, such as “AdobeStandardEncoding”, “ISOLatin1Encoding”, “FontSpecific”, and so on.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p17"><b></b><b>familyName</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSString *)<b>familyName</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the receiving font's family name; for example, “Times” or “Helvetica”.</p>
+<p class="p15"><br></p>
+<p class="p40"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> <b>fontName</b></span></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>fontName</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSString *)<b>fontName</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the receiver's full font name, as used in PostScript language code; for example, “Times-Roman” or “Helvetica-Oblique”.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>familyName</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>glyphIsEncoded:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (BOOL)<b>glyphIsEncoded:</b>(NSGlyph)<i>aGlyph</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns YES if the receiving font encodes <i>aGlyph</i>, NO if it doesn't contain it.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p17"><b></b><b>glyphWithName:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSGlyph)<b>glyphWithName:</b>(NSString *)<i>glyphName</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns the encoded glyph named <i>glyphName</i>, or <span class="s4">-</span>1 if the receiving font contains no such glyph. Also returns <span class="s4">-</span>1 if the glyph named <i>glyphName</i> isn't encoded.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p17"><b></b><b>isBaseFont</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (BOOL)<b>isBaseFont</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns YES if the receiver is a PostScript base font, NO if it's a PostScript composite font composed of other base fonts.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p17"><b></b><b>isFixedPitch</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (BOOL)<b>isFixedPitch</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns YES if all glyphs in the receiving font have the same advancement, NO if any advancements differ.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>advancementForGlyph:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>italicAngle</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (float)<b>italicAngle</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the receiving font's italic angle, as read from its AFM file.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p17"><b></b><b>matrix</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (const float *)<b>matrix</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the receiver's font matrix, a standard 6-element transformation matrix as used in the PostScript language, specifically with the <b>makefont</b> operator. In most cases, with a font of <i>fontSize</i>, this matrix is [<i>fontSize</i> 0 0 <i>fontSize</i> 0 0].</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>fontWithName:matrix:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>maximumAdvancement</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSSize)<b>maximumAdvancement</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the greatest advancement of any of the receiving font's glyphs. This is always either strictly horizontal or strictly vertical.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>advancementForGlyph:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>mostCompatibleStringEncoding</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSStringEncoding)<b>mostCompatibleStringEncoding</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the string encoding that works best with the receiving font, where there are the fewest possible unmatched characters in the string encoding and glyphs in the font. You can use NSString's <b>dataUsingEncoding:</b> or <b>dataUsingEncoding:allowLossyConversion:</b> method to convert the string to this encoding.</p>
+<p class="p15"><br></p>
+<p class="p41"><span class="s3"><b>Note:<span class="Apple-tab-span">	</span></b></span>This method works heuristically using well-known font encodings, so for nonstandard encodings it may not in fact return the optimal string encoding.</p>
+<p class="p42"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>widthOfString:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>pointSize</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (float)<b>pointSize</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the receiving font's point size, or the vertical point size for a font with a nonstandard matrix.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>positionOfGlyph:forCharacter:struckOverRect:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSPoint)<b>positionOfGlyph:</b>(NSGlyph)<i>aGlyph</i></p>
+<p class="p43"><b>forCharacter:</b>(unichar)<i>aChar</i></p>
+<p class="p43"><b>struckOverRect:</b>(NSRect)<i>aRect</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p14">Calculates and returns a suitable location for <i>aGlyph</i> to be drawn as a diacritic or non-spacing mark relative to <i>aRect</i>, assuming that <i>aGlyph</i> represents <i>aChar</i>. Returns NSZeroPoint if the location can't be calculated. The nature of <i>aChar</i> as one appearing above or below its base character determines the location returned. For example, in the first figure below, the gray tilde and box represent <i>aGlyph</i> and <i>aRect</i>, and the black dot is the point returned (defined relative to the origin of the <i>aRect</i>).</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p14"><span class="Apple-tab-span">	</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="123pt" height="55pt" viewBox="0 0 123 55" role="img" aria-labelledby="eps-svg-1-title" data-source="NSFont.rtfd/NSFont-GlyphOverRect.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">NSFont-GlyphOverRect.eps</title><defs>
+<g>
+<g id="eps-svg-1-glyph-0-0">
+<path d="M 6.265625 -17.203125 C 6.078125 -16.609375 5.8125 -16.34375 5.375 -16.34375 C 5.09375 -16.34375 4.46875 -16.515625 3.859375 -16.75 C 2.859375 -17.15625 2.6875 -17.203125 2.1875 -17.203125 C 1.125 -17.203125 0.390625 -16.3125 0.125 -14.734375 L 1.515625 -14.734375 C 1.65625 -15.28125 1.9375 -15.59375 2.296875 -15.59375 C 2.5625 -15.59375 2.875 -15.53125 3.484375 -15.28125 C 4.875 -14.765625 5.0625 -14.71875 5.515625 -14.71875 C 6.703125 -14.71875 7.421875 -15.546875 7.65625 -17.203125 Z M 6.265625 -17.203125 "/>
+</g>
+<g id="eps-svg-1-glyph-0-1">
+</g>
+<g id="eps-svg-1-glyph-0-2">
+<path d="M 4.515625 -17.765625 L 2.203125 -14.203125 L 3.640625 -14.203125 L 7.21875 -17.765625 Z M 4.515625 -17.765625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-3">
+<path d="M 3.953125 0 L 2.953125 2.203125 L 3.234375 2.375 C 3.53125 2.234375 3.703125 2.1875 3.984375 2.1875 C 4.6875 2.1875 5.09375 2.515625 5.09375 3.078125 C 5.09375 3.703125 4.53125 4.15625 3.796875 4.15625 C 3.171875 4.15625 2.734375 4.015625 1.65625 3.453125 L 1.4375 3.359375 L 0.9375 4.3125 C 2.421875 4.984375 3 5.140625 3.9375 5.140625 C 5.765625 5.140625 6.890625 4.296875 6.890625 2.90625 C 6.890625 1.875 6.1875 1.296875 4.96875 1.296875 C 4.75 1.296875 4.625 1.296875 4.3125 1.34375 L 4.875 0 Z M 3.953125 0 "/>
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 111 54.550781 L 111 3.601562 L 12 3.601562 L 12 54.550781 L 111 54.550781 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(50%, 50%, 50%)" stroke-opacity="1" stroke-dasharray="10 10" stroke-miterlimit="4" d="M 780 461.015625 L 1110 461.015625 " transform="matrix(0.1, 0, 0, -0.1, 0, 55)"/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(50%, 50%, 50%)" stroke-opacity="1" stroke-dasharray="10 10" stroke-miterlimit="4" d="M 785 466.015625 L 785 431.992188 " transform="matrix(0.1, 0, 0, -0.1, 0, 55)"/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(50%, 50%, 50%)" stroke-opacity="1" stroke-dasharray="10 10" stroke-miterlimit="4" d="M 1105 466.015625 L 1105 431.015625 " transform="matrix(0.1, 0, 0, -0.1, 0, 55)"/>
+<path fill="none" stroke-width="20" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(50%, 50%, 50%)" stroke-opacity="1" stroke-miterlimit="4" d="M 1100 70 L 1100 415 L 790 415 L 790 70 Z M 1100 70 " transform="matrix(0.1, 0, 0, -0.1, 0, 55)"/>
+<path fill="none" stroke-width="20" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(50%, 50%, 50%)" stroke-opacity="1" stroke-miterlimit="4" d="M 440 70 L 440 415 L 130 415 L 130 70 Z M 440 70 " transform="matrix(0.1, 0, 0, -0.1, 0, 55)"/>
+<g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-0" x="24.5625" y="25.7187"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="32.5545" y="25.7187"/>
+</g>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 25.5625 24.71875 L 25.5625 26.71875 L 23.5625 26.71875 L 23.5625 24.71875 L 25.5625 24.71875 "/>
+<g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-2" x="89.75" y="21.375"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="97.742" y="21.375"/>
+</g>
+<g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-0" x="90.5625" y="25.71875"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="98.5545" y="25.71875"/>
+</g>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 91.5625 24.71875 L 91.5625 26.71875 L 89.5625 26.71875 L 89.5625 24.71875 L 91.5625 24.71875 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 90.75 20.375 L 90.75 22.375 L 88.75 22.375 L 88.75 20.375 L 90.75 20.375 "/>
+<g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-3" x="91" y="49"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="98.992" y="49"/>
+</g>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 92 48 L 92 50 L 90 50 L 90 48 L 92 48 "/>
+</svg></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p14">To place multiple glyphs over a rectangle, work from the innermost ones to the outermost. As you calculate the position of each glyph, enlarge the rectangle to include the bounding rectangle of the glyph in preparation for the next glyph. The second figure shows a tilde, acute accent, and cedilla all placed over a rectangle, with the acute accent placed relative to bounding box of the base rectangle and the tilde.</p>
+<p class="p15"><br></p>
+<p class="p14">This method is the last fallback mechanism for performining minimally legible typography when metrics aren't available, and should be used when <b>positionOfGlyph:struckOverGlyph:metricsExist:</b> indicates that metrics don't exist for the base glyph specified. It can account for the layout and placement of most Latin, Greek, and Cyrillic non-spacing marks. You should draw the glyph at the returned location, even if it's NSZeroRect.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p17"><b></b><b>positionOfGlyph:precededByGlyph:isNominal:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSPoint)<b>positionOfGlyph:</b>(NSGlyph)<i>aGlyph</i></p>
+<p class="p43"><b>precededByGlyph:</b>(NSGlyph)<i>prevGlyph</i></p>
+<p class="p43"><b>isNominal:</b>(BOOL *)<i>flag</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p14">Calculates and returns the location of <i>aGlyph</i> relative to <i>prevGlyph</i>, assuming that <i>prevGlyph</i> precedes it in the layout (<i>not</i> necessarily in the character stream). The point returned should be used relative to whatever location is used for <i>prevGlyph</i>. If <i>flag</i> is non-NULL, it's filled with NO if font metrics are available and were used in the calculation, YES if the default spacing for the glyphs was used.</p>
+<p class="p15"><br></p>
+<p class="p14">Returns NSZeroPoint is either <i>aGlyph</i> or <i>prevGlyph</i> is NSControlGlyph or is invalid. Returns the nominal advancement of <i>prevGlyph</i> if <i>aGlyph</i> is NSNullGlyph.</p>
+<p class="p15"><br></p>
+<p class="p14">This method is useful for sequential glyph placement when glyphs aren't drawn with a single PostScript operation.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>positionOfGlyph:struckOverGlyph:metricsExist:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSPoint)<b>positionOfGlyph:</b>(NSGlyph)<i>aGlyph</i></p>
+<p class="p43"><b>struckOverGlyph:</b>(NSGlyph)<i>baseGlyph</i></p>
+<p class="p43"><b>metricsExist:</b>(BOOL *)<i>flag</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p14">Calculates and returns a suitable location for <i>aGlyph</i> to be drawn as a diacritic or non-spacing mark relative to <i>baseGlyph</i>. The point returned should be used relative to whatever location is used for <i>baseGlyph</i>. If <i>flag</i> is non-NULL it's filled with YES if font metrics are available, NO if they're not. If <i>flag</i> is returned as NO, the result isn't valid and shouldn't be used. In that case, use <b>positionOfGlyph:struckOverRect:metricsExist:</b> or <b>positionOfGlyph:forCharacter:struckOverRect:</b> to calculate a reasonable offset.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>positionsForCompositeSequence:numberOfGlyphs:pointArray:</b>, <span class="s4">-</span> <b>positionOfGlyph:structOverRect:metricsExist:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>positionOfGlyph:struckOverRect:metricsExist:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSPoint)<b>positionOfGlyph:</b>(NSGlyph)<i>aGlyph</i></p>
+<p class="p43"><b>struckOverRect:</b>(NSRect)<i>aRect</i></p>
+<p class="p43"><b>metricsExist:</b>(BOOL *)<i>flag</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p14">Overridden by subclasses to calculate and return a suitable location for <i>aGlyph</i> to be drawn as a diacritic or non-spacing mark relative to <i>aRect</i>, provided metrics exist. Returns NSZeroRect if the location can't be determined. If <i>flag</i> is non-NULL it's filled with YES if font metrics are available, NO if they're not. If <i>flag</i> is returned as NO, the result isn't valid and shouldn't be used. In that case, use <b>positionOfGlyph:forCharacter:struckOverRect:</b> to calculate a reasonable offset.</p>
+<p class="p15"><br></p>
+<p class="p14">Because current font metrics don't include support for generic placement relative to rectangles, NSFont's implementation of this method always returns NSZeroPoint and returns <i>flag</i> as NO.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>positionOfGlyph:withRelation:toBaseGlyph:totalAdvancement:metricsExist:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSPoint)<b>positionOfGlyph:</b>(NSGlyph)<i>aGlyph</i></p>
+<p class="p43"><b>withRelation:</b>(NSGlyphRelation)<i>relation</i></p>
+<p class="p43"><b>toBaseGlyph:</b>(NSGlyph)<i>baseGlyph</i></p>
+<p class="p43"><b>totalAdvancement:</b>(NSSize *)<i>offset</i></p>
+<p class="p43"><b>metricsExist:</b>(BOOL *)<i>flag</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p14">Calculates and returns a suitable location for <i>aGlyph</i> to be drawn relative to <i>baseGlyph</i>, where <i>relation</i> is NSGlyphBelow or NSGlyphAbove. The point returned should be used relative to whatever location is used for <i>baseGlyph</i>. This method is useful for calculating the layout of stacked glyphs, such as those in Indic and Tibetan scripts.</p>
+<p class="p15"><br></p>
+<p class="p14">If <i>offset</i> is non-NULL, it's filled with the larger of the two glyphs' advancements, allowing for reasonable layout of following glyphs.</p>
+<p class="p15"><br></p>
+<p class="p14">If <i>flag</i> is non-NULL it's filled with YES if font metrics are available, NO if they're not. If metrics aren't available, the location is calculated as a simple stacking with no gap between <i>baseGlyph</i> and <i>aGlyph</i>.</p>
+<p class="p15"><br></p>
+<p class="p41"><span class="s3"><b>Note:<span class="Apple-tab-span">	</span></b></span><i>This method only supports horizontally laid-out base glyp</i>hs.</p>
+<p class="p47"><br></p>
+<p class="p35"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>positionsForCompositeSequence:numberOfGlyphs:pointArray:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (int)<b>positionsForCompositeSequence:</b>(NSGlyph *)<i>glyphs</i></p>
+<p class="p43"><b>numberOfGlyphs:</b>(int)<i>numGlyphs</i></p>
+<p class="p43"><b>pointArray:</b>(NSPoint *)<i>points</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p14">Calculates and fills <i>points</i> with the locations for <i>glyphs</i>, assuming that the first glyph is a base character and those following are non-spacing marks. These points should all be interpreted as relative to the location of the first glyph in <i>glyphs</i>. Returns the number of points that could be calculated.</p>
+<p class="p15"><br></p>
+<p class="p14">If the number of points calculated is less than <i>numGlyphs</i>, the number of glyphs provided, you can use <b>positionOfGlyph:structOverRect:metricsExist:</b> to determine the positions for the remaining glyphs. When using that method, calculate the base rectangle for each glyph from the bounding rectangles and positions of all preceding glyphs.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p17"><b></b><b>printerFont</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSFont *)<b>printerFont</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">When sent to a font object representing a scalable PostScript font, returns <b>self</b>. When sent to a font object representing a bitmapped screen font, returns its corresponding scalable PostScript font.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>screenFont</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>screenFont</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSFont *)<b>screenFont</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">When sent to a font object representing a bitmapped screen font, returns <b>self</b>. When sent to a font object representing a scalable PostScript font, returns a bitmapped screen font matching the receiver in typeface and matrix (or size), or <b>nil</b> if such a font can't be found.</p>
+<p class="p15"><br></p>
+<p class="p41"><span class="s3"><b>Note:<span class="Apple-tab-span">	</span></b></span>Screen fonts are for direct use with the Window Server only. Never use them with Application Kit objects, such as in <b>setFont:</b> methods.</p>
+<p class="p42"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>printerFont</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>set</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>set</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Establishes the receiving font as the current font for PostScript <b>show</b> and other text-drawing operators. During a print operation, also records the font as used in the PostScript code emitted.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>useFont:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>underlinePosition</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (float)<b>underlinePosition</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the baseline offset that should be used when drawing underlines with the receiving font, as determined by the font's AFM file. This value is usually negative, which must be considered when drawing in a flipped coordinate system.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>underlineThickness</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>underlineThickness</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (float)<b>underlineThickness</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the thickness that should be used when drawing underlines with the receiving font, as determined by the font's AFM file.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>underlinePosition</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>widthOfString:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (float)<b>widthOfString:</b>(NSString *)<i>aString</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p14">Returns the <i>x</i> axis offset of the current point when <i>aString</i> is drawn with a PostScript <b>show</b> operator in the receiving font. This method performs lossy conversion of <i>aString</i> to the most compatible encoding for the receiving font.</p>
+<p class="p15"><br></p>
+<p class="p14">Use this method only when you're sure all of <i>aString</i> can be rendered with the receiving font. In general, it's better to use the Application Kit's string-drawing methods, as described under NSString Additions.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>mostCompatibleStringEncoding</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p17"><b></b><b>widths</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (float *)<b>widths</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns a C array of 256 <b>float</b>s, giving the unscaled width of each glyph in the font. This data is useful only for simple fonts without non-spacing marks, and doesn't account for Unicode-related issues at all. You should avoid using this method wherever possible; use <b>advancementForGlyph:</b> instead.</p>
+<p class="p15"><br></p>
+<p class="p34"><br></p>
+<p class="p17"><b></b><b>xHeight</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (float)<b>xHeight</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p14">Returns the x-height of the receiving font.</p>
+<p class="p15"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>ascender</b>, <span class="s4">-</span> <b>descender</b></p>
+<p class="p32"><b></b><br></p>
+</body>
+</html>

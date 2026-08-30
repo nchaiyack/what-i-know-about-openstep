@@ -1,0 +1,47 @@
+.TH CFGETISPEED 3P  "August 1, 1992"
+.UC 4
+.SH NAME
+cfgetispeed, cfgetospeed, cfsetispeed, cfsetospeed - (POSIX only) get and set input
+and output baud rates
+.SH SYNOPSIS
+.nf
+.B #include <termios.h>
+.PP
+.B speed_t cfgetispeed(const struct termios *\fItermios_p\fP);
+.PP
+.B speed_t cfgetospeed(const struct termios *\fItermios_p\fP);
+.PP
+.B int cfsetispeed(struct termios *\fItermios_p\fP, speed_t \fIspeed\fP);
+.PP
+.B int cfsetospeed(struct termios *\fItermios_p\fP, speed_t \fIspeed\fP);
+.fi
+.fi
+.SH DESCRIPTION
+The information in this specification applies
+only to POSIX applications.
+.PP
+These interfaces are used for getting and setting the values of the
+input and output baud rates in the \fItermios\fR structure.  The effects
+on the terminal device do not become effective until the \fItcsetattr\fR
+function is successfully called.  
+.PP
+The \fIcfgetispeed\fR function returns the input baud rate stored in
+the \fItermios\fR structure to which \fItermios_p\fR points.
+.PP
+The \fIcfgetospeed\fR function returns the output baud rate stored in
+the \fItermios\fR structure to which \fItermios_p\fR points.
+.PP
+The \fIcfsetispeed\fR function sets the input baud rate stored in
+the \fItermios\fR structure to which \fItermios_p\fR points.
+.PP
+The \fIcfsetospeed\fR function sets the output baud rate stored in
+the \fItermios\fR structure to which \fItermios_p\fR points.
+.SH "RETURN VALUE"
+The \fIcfgetispeed\fR and \fIcfgetospeed\fR functions return 
+exactly the value found in the \fItermios\fR data structure without
+interpretation.
+.PP
+The \fIcfsetispeed\fR and \fIcfsetospeed\fR functions return 
+a value of zero if successful and -1 otherwise.
+.SH "SEE ALSO"
+tcsetattr(3P), termios(4P)

@@ -1,0 +1,201 @@
+.\" @(#)inetd.8	1.2 87/08/28 3.2/4.3NFSSRC
+.\" Copyright (c) 1985 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)inetd.8	6.4 (Berkeley) 5/26/86
+.\"
+.TH INETD 8 "May 26, 1986"
+.UC 6
+.SH NAME
+inetd \- internet ``super\-server''
+.SH SYNOPSIS
+.B /usr/etc/inetd
+[
+.B \-d
+] [ configuration file ]
+.SH DESCRIPTION
+.I Inetd
+should be run at boot time by
+.IR /etc/rc .
+It then listens for connections on certain
+internet sockets.  When a connection is found on one
+of its sockets, it decides what service the socket
+corresponds to, and invokes a program to service the request.
+After the program is
+finished, it continues to listen on the socket (except in some cases which
+will be described below).  Essentially,
+.I inetd
+allows running one daemon to invoke several others,
+reducing load on the system.
+.PP
+An rpc server can be started from inetd.  The only differences
+from the usual code are that svcudp_create should be called as:
+.IP " "
+transp = svcudp_create(0)
+.PP
+since inet passes a socket file as descriptor 0, and
+svc_register should be called as:
+.IP " "
+svc_register(transp, PROGNUM, VERSNUM, dispatch, 0)
+.PP
+with the final flag as 0, since the program will already have
+been registered by inetd.  If you want to exit from the server
+process and return control to inet, you must explicitly exit
+since  svc_run never returns.
+.PP
+Upon execution,
+.I inetd
+reads its configuration information from a configuration
+file which, by default, is
+.IR /etc/inetd.conf .
+There must be an entry for each field in the configuration
+file, with entries for each field separated by a tab or
+a space.  Comments are denoted by a ``#'' at the beginning
+of a line.  The fields of the configuration file are as follows:
+.br
+	service name
+.br
+	socket type
+.br
+	protocol
+.br
+	wait/nowait
+.br
+	user
+.br
+	server program
+.br
+	server program arguments
+.br
+.PP
+For rpc services:
+.br
+	service name/version
+.br
+	socket type
+.br
+	protocol
+.br
+	wait/nowait
+.br
+	user
+.br
+	server program
+.br
+	server program arguments
+.PP
+The
+.I service name
+entry is the name of a valid service in
+the file
+.IR /etc/services/ .
+For ``internal'' services (discussed below), the service
+name
+.I must
+be the official name of the service (that is, the first entry in
+.IR /etc/services ).
+.PP
+For
+.I RPC services
+the entry is the name of a valid service in
+the file
+.IR /etc/rpc
+with version = 1-x.
+An example might be ``mountd/1-2''
+.PP
+The
+.I socket type
+should be one of ``stream'', ``dgram'', ``raw'', ``rdm'', or ``seqpacket'',
+depending on whether the socket is a stream, datagram, raw,
+reliably delivered message, or sequenced packet socket.
+.PP
+The
+.I protocol
+must be a valid protocol as given in
+.IR /etc/protocols .
+Examples might be ``tcp'' or ``udp''.
+.PP
+For 
+.I RPC services 
+the 
+.I protocol
+is of the form rcp/protocol.
+Examples might be ``rpc/tcp'' or ``rpc/udp''.
+.PP
+The
+.I wait/nowait
+entry is applicable to datagram (and rpc) sockets only (other sockets should
+have a ``nowait'' entry in this space).  If a datagram server connects
+to its peer, freeing the socket so
+.I inetd
+can received further messages on the socket, it is said to be
+a ``multi-threaded'' server, and should use the ``nowait''
+entry.  For datagram servers which process all incoming datagrams
+on a socket and eventually time out, the server is said to be
+``single-threaded'' and should use a ``wait'' entry.  ``Comsat'' (``biff'')
+and ``talk'' are both examples of the latter type of
+datagram server.
+.I Tftpd
+is an exception; it is a datagram server that establishes pseudo-connections.
+It must be listed as ``wait'' in order to avoid a race;
+the server reads the first packet, creates a new socket,
+and then forks and exits to allow
+.I inetd
+to check for new service requests to spawn new servers.
+.PP
+The
+.I user
+entry should contain the user name of the user as whom the server
+should run.  This allows for servers to be given less permission
+than root.
+.PP
+The
+.I server program
+entry should contain the pathname of the program which is to be
+executed by
+.I inetd
+when a request is found on its socket.  If
+.I inetd
+provides this service internally, this entry should
+be ``internal''.
+.PP
+The 
+.I arguments 
+to the server program should be just as they
+normally are, starting with argv[0], which is the name of
+the program.  If the service is provided internally, the
+word ``internal'' should take the place of this entry.
+.PP
+.I Inetd
+provides several ``trivial'' services internally by use of
+routines within itself.  These services are ``echo'',
+``discard'', ``chargen'' (character generator), ``daytime''
+(human readable time), and ``time'' (machine readable time,
+in the form of the number of seconds since midnight, January
+1, 1900).  All of these services are tcp based.  For
+details of these services, consult the appropriate RFC
+from the Network Information Center.
+.PP
+.I Inetd
+rereads its configuration file when it receives a hangup signal, SIGHUP.
+Services may be added, deleted or modified when the configuration file
+is reread.
+.SH "EXAMPLES"
+.br 
+#
+.br 
+# Standard inetd.conf entries
+.br 
+ftp	stream 	tcp	nowait root	/etc/ftpd  ftpd
+.br 
+talk	dgram	udp	wait   root	/etc/talkd talkd
+.br 
+#
+.br 
+# RPC services entries
+.br 
+rexd/1 stream rpc/tcp wait root /usr/etc/rpc.rexd rpc.rexd
+.SH "SEE ALSO"
+comsat(8C), ftpd(8C), rexecd(8C), rlogind(8C), rshd(8C),
+telnetd(8C), tftpd(8C)

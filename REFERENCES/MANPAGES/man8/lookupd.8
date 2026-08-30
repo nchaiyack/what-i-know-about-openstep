@@ -1,0 +1,23 @@
+.\" @(#)lookupd.8      95/12/12 rev majka for 4.0
+.TH LOOKUPD 8 "December 12, 1995" "NeXT Software, Inc."
+.SH NAME
+lookupd \- lookup daemon
+.SH SYNOPSIS
+.B lookupd
+.SH DESCRIPTION
+The
+.B lookupd
+daemon
+is used in conjunction with NetInfo to speed up system lookups.
+.PP
+.B lookupd
+is normally started by the \fB/etc/rc\fR file.  All lookupd configuration options are read from NetInfo.  See the on-line release notes for details.
+.PP
+.B lookupd
+writes a file with its process ID number (pid file) in \fB/etc\/lookupd.pid\fR.  Note that it is not possible to restart 
+.B lookupd
+without rebooting the system.
+.SH FILES
+/etc/lookupd.pid
+.SH "SEE ALSO"
+netinfod(8), syslog(5)

@@ -1,0 +1,1605 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f3\fmodern Courier;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\f2\b\fs52\li1460{\NeXTHelpMarker62 \markername NS_DEV_DOCFOR:objc_class:NSWorkspace;}
+¬}\f2\b\i0\ulnone\ql\fs52\fi0\li1460\gray0\fc0\cf0\up0\dn0 NSWorkspace\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSObject (NSObject)\
+
+\fs20 \
+
+\f2\b\fs24 Declared In:	
+\f0\b0\fs28 AppKit/NSWorkspace.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 An NSWorkspace object responds to application requests to perform a variety of services:\
+
+\fs14 \
+
+\pard\tx1800\tx3360\tx3740\fs28\fi-300\li1800\fc0\cf0 ·	opening, manipulating, and obtaining information about files and devices\
+·	tracking changes to the file system, devices, and the user database\
+·	launching applications\
+·	miscellaneous services such as animating an image and requesting additional time before power off\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 There is one shared NSWorkspace object per application. You use the class method 
+\b sharedWorkspace
+\b0  to access it. For example, the following statement uses an NSWorkspace object to request that a file be opened in the Edit application:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 [[NSWorkspace sharedWorkspace] openFile:@"/Myfiles/README" \
+	withApplication:@"Edit"];\
+\
+
+\pard\tx2300\f2\b\fi-800\li2300\fc0\cf0 Note:	
+\f0\b0\fs28 On the Microsoft Windows platform, some of the methods in this class have no effect. Refer to the method descriptions below.\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types \
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Accessing the shared NSWorkspace	+€sharedWorkspace\
+
+\fs10 \
+
+\fs28 Accessing the NSWorkspace notification center\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €notificationCenter\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Opening files	
+\f1 -
+\f0 €openFile:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €openFile:withApplication:\
+
+\f1 -
+\f0 €openFile:fromImage:at:inView:\
+
+\f1 -
+\f0 €openFile:withApplication:andDeactivate:\
+
+\f1 -
+\f0 €openTempFile:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Manipulating applications	
+\f1 -
+\f0 €launchApplication:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €launchApplication:showIcon:autolaunch:\
+
+\f1 -
+\f0 €hideOtherApplications\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Manipulating files	
+\f1 -
+\f0 €performFileOperation:source:destination:files:tag:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €selectFile:inFileViewerRootedAtPath:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Requesting information about files\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €iconForFile:\
+
+\f1 -
+\f0 €iconForFileType:\
+
+\f1 -
+\f0 €iconForFiles:\
+
+\f1 -
+\f0 €getInfoForFile:application:type:\
+
+\f1 -
+\f0 €fullPathForApplication:\
+
+\f1 -
+\f0 €getFileSystemInfoForPath:isRemovable:isWritable:\
+
+\fi0 isUnmountable:description:type:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Requesting additional time before logout\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €extendPowerOffBy:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Tracking changes to the file system\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €noteFileSystemChanged\
+
+\f1 -
+\f0 €fileSystemChanged\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Updating registered services and file types\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €findApplications\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Tracking changes to the defaults database\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €noteUserDefaultsChanged\
+
+\f1 -
+\f0 €userDefaultsChanged\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Tracking status changes for applications and devices\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €mountedRemovableMedia\
+
+\f1 -
+\f0 €mountNewRemovableMedia\
+
+\f1 -
+\f0 €checkForRemovableMedia\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Animating an image	
+\f1 -
+\f0 €slideImage:from:to:\
+
+\fs10 \
+
+\fs28 Unmounting a device	
+\f1 -
+\f0 €unmountAndEjectDeviceAtPath:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods \
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker2277 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-sharedWorkspace];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 sharedWorkspace\
+
+\fs6 \
+
+\f0\b0\fs28\fi-620\li2520 +€(NSWorkspace€*)
+\b sharedWorkspace
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the shared NSWorkspace instance.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker2391 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-checkForRemovableMedia];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 checkForRemovableMedia\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0 €(void)
+\b checkForRemovableMedia
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 On the Mach platform, polls the system's drives for any disks that have been inserted but not yet mounted. 
+\b checkForRemovableMedia
+\b0  doesn't wait until such disks are mounted; instead, it requests that the disk be mounted asynchronously and returns immediately. \
+
+\fs14 \
+
+\fs28  This method has no effect on the Microsoft Windows platform.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b mountNewRemovableMedia
+\b0 , 
+\f1 -
+\f0 €
+\b mountedRemovableMedia
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker2836 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-extendPowerOffBy:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 extendPowerOffBy:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(int)
+\b extendPowerOffBy:
+\b0 (int)
+\i requested
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Requests 
+\i requested
+\i0  milliseconds more time before the power goes off or the user logs out. Returns the number of additional milliseconds granted. On some platforms you might not be able to extend the time. \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker3105 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-fileSystemChanged];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 fileSystemChanged\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b fileSystemChanged
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 On the Mach platform, returns YES if a change to the file system has been registered with a 
+\b noteFileSystemChanged
+\b0  message since the last 
+\b fileSystemChanged
+\b0  message; NO otherwise.\
+
+\fs14 \
+
+\fs28 This method is not implemented on the Microsoft Windows platform. If you try to use it, it raises an NSInvalidArgumentException.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker3463 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-findApplications];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 findApplications\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b findApplications
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 On the Mach platform, examines all applications in the normal places (
+\b /LocalApps
+\b0 , 
+\b /NextApps
+\b0 , 
+\b /NextDeveloper/Apps
+\b0 ) and updates the records of registered services and file types. \
+
+\fs14 \
+
+\fs28  This method has no effect on the Microsoft Windows platform.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker3752 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-fullPathForApplication:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 fullPathForApplication:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b fullPathForApplication:
+\b0 (NSString€*)
+\i appName
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the full path for the application 
+\i appName
+\i0 , or 
+\b nil
+\b0  if 
+\i appName
+\i0  isn't in one of the normal places. \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker3944 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-getFileSystemInfoForPath:isRemovable:isWritable:isUnmountable:description:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 getFileSystemInfoForPath:isRemovable:isWritable:isUnmountable:\
+description:type:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b getFileSystemInfoForPath:
+\b0 (NSString€*)
+\i fullPath \
+
+\b\i0\fi0 isRemovable:
+\b0 (BOOL€*)
+\i removableFlag \
+
+\b\i0 isWritable:
+\b0 (BOOL€*)
+\i writableFlag \
+
+\b\i0 isUnmountable:
+\b0 (BOOL€*)
+\i unmountableFlag \
+
+\b\i0 description:
+\b0 (NSString€**)
+\i description \
+
+\b\i0 type:
+\b0 (NSString€**)
+\i fileSystemType
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 On the Mach platform, describes the file system at 
+\i fullPath
+\i0 . This method has no effect on the Microsoft Windows platform. \
+
+\fs14 \
+
+\fs28 Returns YES if 
+\i fullPath
+\i0  is a file system mount point, NO otherwise. If the return value is YES, 
+\i description
+\i0  describes the file system; this value can be used in strings, but it shouldn't be depended upon by program logic. Example values for description are ªhardº, ªnfsº, and ªforeignº. 
+\i fileSystemType
+\i0  indicates the file system type; values could be ªNeXTº, ªDOSº, or other values. 
+\i removableFlag
+\i0  is YES if the file system is on removable media, NO otherwise. 
+\i writableFlag
+\i0  is YES if the file system's media is writable, NO otherwise. 
+\i unmountableFlag
+\i0  returns YES if the file system is unmountable, NO otherwise.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker4998 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-getInfoForFile:application:type:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 getInfoForFile:application:type:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b getInfoForFile:
+\b0 (NSString€*)
+\i fullPath \
+
+\b\i0\fi0 application:
+\b0 (NSString€**)
+\i appName \
+
+\b\i0 type:
+\b0 (NSString€**)
+\i type
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Retrieves information about the file specified by 
+\i fullPath
+\i0 . If this method returns YES, the NSString pointed to by 
+\i appName
+\i0  is set to the application the system would use to open 
+\i fullPath
+\i0 . The NSString pointed to by 
+\i type
+\i0  contains one of the following values or a file name extension such as ªrtfº indicating the file's type:\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f2\b\fs28\li1900\fc0\cf0 Value	Type of File\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 NSPlainFileType	Plain (untyped) file\
+
+\fs14 \
+
+\fs28 NSDirectoryFileType	Directory\
+
+\fs14 \
+
+\fs28 NSApplicationFileType	OpenStep application\
+
+\fs14 \
+
+\fs28 NSFilesystemFileType	File system mount point\
+
+\fs14 \
+
+\fs28 NSShellCommandFileType	Executable shell command\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 This method returns NO if it could not find 
+\i fullPath
+\i0 . \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b iconForFile:
+\b0 , 
+\f1 -
+\f0 €
+\b iconForFiles:
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5791 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-hideOtherApplications];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 hideOtherApplications\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b hideOtherApplications
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Hides all applications other than the sender. This method has no effect on the Microsoft Windows platform. On the Mach platform, the user can hide all applications except the current one by Command-double-clicking an application's tile, so programmatic invocation of this method is usually unnecessary.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker6152 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-iconForFile:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 iconForFile:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSImage€*)
+\b iconForFile:
+\b0 (NSString€*)
+\i fullPath
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an NSImage with the icon for the single file specified by 
+\i fullPath
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b getInfoForFile:application:type:
+\b0 , 
+\f1 -
+\f0 €
+\b iconForFileType:
+\b0 , 
+\f1 -
+\f0 €
+\b iconForFiles:
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker6377 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-iconForFileType:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 iconForFileType:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSImage€*)
+\b iconForFileType:
+\b0 (NSString€*)
+\i fileType
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an NSImage the icon for the file type specified by 
+\i fileType
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b iconForFile:
+\b0 , 
+\f1 -
+\f0 €
+\b iconForFiles:
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker6563 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-iconForFiles:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 iconForFiles:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSImage€*)
+\b iconForFiles:
+\b0 (NSArray€*)
+\i fullPaths
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an NSImage with the icon for the files specified in 
+\i fullPaths
+\i0 , an array of NSStrings. If 
+\i fullPaths
+\i0  specifies one file, its icon is returned. If 
+\i fullPaths
+\i0  specifies more than one file, an icon representing the multiple selection is returned.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b iconForFile:
+\b0 , 
+\f1 -
+\f0 €
+\b iconForFileType:
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker6926 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-launchApplication:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 launchApplication:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b launchApplication:
+\b0 (NSString€*)
+\i appName
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Launches the application 
+\i appName
+\i0 . 
+\i appName
+\i0  need not be specified with a full path and, in the case of an application wrapper, can be specified with or without the 
+\b .app
+\b0  extension. Returns YES if the application is successfully launched or already running, NO if it can't be launched.\
+
+\fs14 \
+
+\fs28 Before this method begins, it posts an NSWorkspaceWillLaunchApplicationNotification to the NSWorkspace's notification center. When the operation is complete, it posts an NSWorkspaceDidLaunchApplicationNotification. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b launchApplication:showIcon:autolaunch:
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker7549 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-launchApplication:showIcon:autolaunch:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 launchApplication:showIcon:autolaunch:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b launchApplication:
+\b0 (NSString€*)
+\i appName \
+
+\b\i0\fi0 showIcon:
+\b0 (BOOL)
+\i showIcon \
+
+\b\i0 autolaunch:
+\b0 (BOOL)
+\i autolaunch
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Launches the application 
+\i appName
+\i0 . If 
+\i showIcon
+\i0  is NO, the application's icon won't be placed on the screen. (The icon still exists, though.) If 
+\i autolaunch
+\i0  is YES, the autolaunch default will be set as though the application were autolaunched at startup. This method is provided to enable daemon-like applications that lack a normal user interface and for use by alternative dock programs.  Its use is not generally encouraged.\
+
+\fs14 \
+
+\fs28 Returns YES if the application is successfully launched or already running, and NO if it can't be launched.\
+
+\fs14 \
+
+\fs28 Before this method begins, it posts an NSWorkspaceWillLaunchApplicationNotification to the NSWorkspace's notification center. When the operation is complete, it posts an NSWorkspaceDidLaunchApplicationNotification. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b launchApplication:
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker8479 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-mountNewRemovableMedia];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 mountNewRemovableMedia\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSArray€*)
+\b mountNewRemovableMedia
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 On the Mach platform, polls the system's drives for any disks that have been inserted but not yet mounted, waits until the new disks have been mounted, and returns an NSArray of NSStrings containing full pathnames to all newly mounted disks. This method posts an NSWorkspaceDidMountNotification to the NSWorkspace's notification center when it is finished.\
+
+\fs14 \
+
+\fs28 This method is not implemented on the Microsoft Windows platform. If you try to use it, it raises an NSInvalidArgumentException.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b checkForRemovableMedia
+\b0 , 
+\f1 -
+\f0 €
+\b mountedRemovableMedia
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker9093 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-mountedRemovableMedia];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 mountedRemovableMedia\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSArray€*)
+\b mountedRemovableMedia
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an NSArray of NSStrings containing the full pathnames of all currently mounted removable disks. This method is not implemented on the Microsoft Windows platform. If you try to use it, it raises an NSInvalidArgumentException.\
+
+\fs14 \
+
+\fs28 On the Mach platform, if the computer provides an interrupt or other notification when the user inserts a disk into a drive, the Workspace Manager will mount the disk immediately. However, if no notification is given, the Workspace Manager won't be aware that a disk needs to be mounted. On such systems, an application should invoke either 
+\b mountNewRemovableMedia:
+\b0  or 
+\b checkForRemovableMedia
+\b0  before invoking 
+\b mountedRemovableMedia:
+\b0 . Either of these methods cause the Workspace Manager to poll the drives to see if a disk is present. If a disk has been inserted but not yet mounted, these methods will cause the Workspace Manager to mount it.\
+
+\fs14 \
+
+\fs28 The Disk button in an Open or Save panel invokes 
+\b mountedRemovableMedia:
+\b0  and 
+\b mountNewRemovableMedia:
+\b0  as part of its operation, so most applications won't need to invoke these methods directly.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b checkForRemovableMedia
+\b0 , 
+\f1 -
+\f0 €
+\b mountNewRemovableMedia
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker10286 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-noteFileSystemChanged];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 noteFileSystemChanged\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b noteFileSystemChanged
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 On the Mach platform, informs NSWorkspace that the file system has changed. NSWorkspace then gets the status of all the files and directories it is interested in and updates itself appropriately. This method is used by many objects that write or delete files. \
+
+\fs14 \
+
+\fs28 This method has no effect on the Microsoft Windows platform. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b fileSystemChanged
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker10700 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-noteUserDefaultsChanged];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 noteUserDefaultsChanged\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b noteUserDefaultsChanged
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 On the Mach platform, informs NSWorkspace that the defaults database has changed. NSWorkspace then reads all the defaults it is interested in and reconfigures itself appropriately. For example, on Mach platforms, this method is used by the Preferences application to notify Workspace Manager whether the user prefers to see hidden files.\
+
+\fs14 \
+
+\fs28 This method has no effect on the Microsoft Windows platform. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b userDefaultsChanged
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker11197 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-notificationCenter];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 notificationCenter\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSNotificationCenter€*)
+\b notificationCenter
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the notification center for workspace notifications.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker11328 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-openFile:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 openFile:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b openFile:
+\b0 (NSString€*)
+\i fullPath
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Opens the file specified by 
+\i fullPath
+\i0  using the default application for its type; returns YES if file was successfully opened, NO otherwise. The sending application is deactivated before the request is sent.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b openFile:fromImage:at:inView:
+\b0 , 
+\f1 -
+\f0 €
+\b openFile:withApplication:
+\b0 , 
+\f1 -
+\f0 €
+\b openFile:withApplication:andDeactivate:
+\b0 , 
+\f1 -
+\f0 €
+\b openTempFile:
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker11722 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-openFile:fromImage:at:inView:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 openFile:fromImage:at:inView:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b openFile:
+\b0 (NSString€*)
+\i fullPath \
+
+\b\i0\fi0 fromImage:
+\b0 (NSImage€*)
+\i anImage \
+
+\b\i0 at:
+\b0 (NSPoint)
+\i point \
+
+\b\i0 inView:
+\b0 (NSView€*)
+\i aView
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Opens the file specified by 
+\i fullPath
+\i0  using the default application for its type. On the Mach platform, Workspace Manager provides animation before opening the file to give the user feedback that the file is to be opened. To provide this animation, 
+\i anImage
+\i0  should contain an icon for the file, and its image should be displayed at 
+\i point
+\i0 , specified in 
+\i aView
+\i0 's coordinates. On the Microsoft Windows platform, this method is the same as the 
+\b openFile:
+\b0  method. \
+
+\fs14 \
+
+\fs28 The sending application is deactivated before the request is sent. Returns YES if the file is successfully opened, NO otherwise.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b openFile:
+\b0 , 
+\f1 -
+\f0 €
+\b openFile:withApplication:
+\b0 , 
+\f1 -
+\f0 €
+\b openFile:withApplication:andDeactivate:
+\b0 , 
+\f1 -
+\f0 €
+\b openTempFile:
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker12568 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-openFile:withApplication:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 openFile:withApplication:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b openFile:
+\b0 (NSString€*)
+\i fullPath 
+\b\i0 withApplication:
+\b0 (NSString€*)
+\i appName
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Opens the file specified by 
+\i fullPath
+\i0  using the 
+\i appName
+\i0  application. 
+\i appName
+\i0  need not be specified with a full path and, in the case of an application wrapper, can be specified with or without the 
+\b .app
+\b0  extension. The sending application is deactivated before the request is sent. Returns YES if the file is successfully opened, NO otherwise.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b openFile:
+\b0 , 
+\f1 -
+\f0 €
+\b openFile:withApplication:andDeactivate:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker13081 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-openFile:withApplication:andDeactivate:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 openFile:withApplication:andDeactivate:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b openFile:
+\b0 (NSString€*)
+\i fullPath \
+
+\b\i0\fi0 withApplication:
+\b0 (NSString€*)
+\i appName \
+
+\b\i0 andDeactivate:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Opens the file specified by 
+\i fullPath
+\i0  using the 
+\i appName
+\i0  application. 
+\i appName
+\i0  need not be specified with a full path and, in the case of an application wrapper, can be specified with or without the 
+\b .app
+\b0  extension. If 
+\i appName
+\i0  is 
+\b nil
+\b0 , the default application for the file's type is used. If 
+\i flag
+\i0  is YES, the sending application is deactivated before the request is sent, allowing the opening application to become the active application. Returns YES if the file is successfully opened, NO otherwise.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b openFile:
+\b0 , 
+\f1 -
+\f0 €
+\b openFile:withApplication:
+\b0 , 
+\f1 -
+\f0 €
+\b application:openFile:
+\b0 €(NSApplication delegate method) \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker13834 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-openTempFile:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 openTempFile:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b openTempFile:
+\b0 (NSString€*)
+\i fullPath
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Opens the temporary file specified by 
+\i fullPath
+\i0  using the default application for its type. The sending application is deactivated before the request is sent. Using this method instead of one of the 
+\b openFile:...
+\b0  methods lets the receiving application know that it should delete the file when it no longer needs it. Returns YES if the file is successfully opened, NO otherwise.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b openFile:
+\b0 , 
+\f1 -
+\f0 €
+\b openFile:fromImage:at:inView:
+\b0 , 
+\f1 -
+\f0 €
+\b openFile:withApplication:
+\b0 , 
+\f1 -
+\f0 €
+\b openFile:withApplication:andDeactivate:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker14400 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-performFileOperation:source:destination:files:tag:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 performFileOperation:source:destination:files:tag:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b performFileOperation:
+\b0 (NSString€*)
+\i operation \
+
+\b\i0\fi0 source:
+\b0 (NSString€*)
+\i source \
+
+\b\i0 destination:
+\b0 (NSString€*)
+\i destination \
+
+\b\i0 files:
+\b0 (NSArray€*)
+\i files \
+
+\b\i0 tag:
+\b0 (int€*)
+\i tag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Performs a file operation on a set of files in a particular directory. 
+\i operation
+\i0  is some file operation, such as compressing or moving files. 
+\i files
+\i0  contains NSString specifying the names of the files to be manipulated. The file names are given relative to the 
+\i source
+\i0  directory. The list can contain both files and directories; all of them must be located directly within source (not in one of its subdirectories). \
+
+\fs14 \
+
+\fs28 Some operationsÐsuch as moving, copying, and linking filesÐrequire a destination directory to be specified. If not, 
+\i destination
+\i0  should be the empty string (@"").\
+
+\fs14 \
+
+\fs28 The possible values for 
+\i operation
+\i0  are:\
+
+\fs14 \
+
+\pard\tx5740\tx6480\tx7240\tx9540\tx10280\tx11020\f2\b\fs28\li1900\fc0\cf0 Operation			Meaning\
+
+\fs6 \
+
+\f0\b0\fs28 NSWorkspaceMoveOperation			Move file to destination\
+
+\fs14 \
+
+\fs28 NSWorkspaceCopyOperation			Copy file to destination\
+
+\fs14 \
+
+\fs28 NSWorkspaceLinkOperation			Create link to file in destination\
+
+\fs14 \
+
+\fs28 NSWorkspaceCompressOperation		Compress file\
+
+\fs14 \
+
+\fs28 NSWorkspaceDecompressOperation		Decompress file\
+
+\fs14 \
+
+\fs28 NSWorkspaceEncryptOperation			Encrypt file\
+
+\fs14 \
+
+\fs28 NSWorkspaceDecryptOperation			Decrypt file\
+
+\fs14 \
+
+\fs28 NSWorkspaceDestroyOperation			Destroy file\
+
+\fs14 \
+
+\fs28 NSWorkspaceRecycleOperation			Move file to recycler\
+
+\fs14 \
+
+\fs28 NSWorkspaceDuplicateOperation		Duplicate file in source directory\
+
+\fs14 \
+
+\pard\tx2300\f2\b\fs24\fi-800\li2300\fc0\cf0 Note:	
+\f0\b0\fs28 NSWorkspaceCompressOperation, NSWorkspaceDecompressOperation, NSWorkspaceEncryptOperation, and NSWorkspaceDecryptOperation are not available on the Microsoft Windows platform.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 This method returns YES if the operation succeeded, NO otherwise, In 
+\i tag
+\i0 , the method returns a negative integer if the operation fails, 0 if the operation is performed synchronously and succeeds, and a positive integer if the operation is performed asynchronously. The positive integer is a tag that identifies the requested file operation. Before this method returns, it posts an NSWorkspaceDidPerformFileOperationNotification to NSWorkspace's notification center.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker16416 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-selectFile:inFileViewerRootedAtPath:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 selectFile:inFileViewerRootedAtPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b selectFile:
+\b0 (NSString€*)
+\i fullPath 
+\b\i0 inFileViewerRootedAtPath:
+\b0 (NSString€*)
+\i rootFullPath
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Selects the file specified by 
+\i fullPath
+\i0 . If a path is specified by 
+\i rootFullPath
+\i0 , a new file viewer is opened. If 
+\i rootFullPath
+\i0  is an empty string (@""), the file is selected in the main viewer. Returns YES if the file is successfully selected, NO otherwise.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker16805 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-slideImage:from:to:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 slideImage:from:to:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b slideImage:
+\b0 (NSImage€*)
+\i image \
+
+\b\i0\fi0 from:
+\b0 (NSPoint)
+\i fromPoint \
+
+\b\i0 to:
+\b0 (NSPoint)
+\i toPoint
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 On Mach platforms, animates a sliding image of 
+\i image
+\i0  from 
+\i fromPoint
+\i0  to 
+\i toPoint
+\i0 , specified in screen coordinates. This method has no effect on the Microsoft Windows platform. \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker17088 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-unmountAndEjectDeviceAtPath:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 unmountAndEjectDeviceAtPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b unmountAndEjectDeviceAtPath:
+\b0 (NSString€*)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Unmounts and ejects the device at path. Returns YES if unmount succeeded and NO otherwise. When this method begins, it posts an NSWorkspaceWillUnmountNotification to NSWorkspace's notification center. When it is finished, it posts an NSWorkspaceDidUnmountNotification.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker17445 \markername NS_DEV_DOCFOR:objc_method:[NSWorkspace-userDefaultsChanged];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 userDefaultsChanged\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b userDefaultsChanged
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 On the Mach platform, returns whether a change to the defaults database has been registered with a 
+\b noteUserDefaultsChanged
+\b0  message since the last 
+\b userDefaultsChanged
+\b0  message.\
+
+\fs14 \
+
+\fs28 This method has no effect on the Microsoft Windows platform. \
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Notifications\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 All NSWorkspace notifications are posted to NSWorkspace's own notification center, not the application's default notification center. Access this center using the 
+\b notificationCenter
+\b0  method.\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 NSNotificationCenter *workspaceCenter = [[NSWorkspace sharedWorkspace] \
+									notificationCenter];\
+
+\fs60 \
+
+\pard\tx8260\f2\b\fs28\li1500\fc0\cf0 NSWorkspaceDidLaunchApplicationNotification\
+
+\fs6 \
+
+\fs8 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Posted when a new application has started up. \
+
+\fs14 \
+
+\fs28 The notification object contains:\
+
+\fs14 \
+
+\pard\tx6740\tx9520\b\fs28\fi-4840\li6740\fc0\cf0 Notification Object
+\b0 	the shared NSWorkspace instance\
+
+\fs14 \
+
+\b\fs28 Userinfo
+\b0 	\
+
+\fs14 \
+
+\pard\tx6740\tx11280\f2\b\fs28\li1900\fc0\cf0 Key	Value\
+
+\fs6 \
+
+\pard\tx6740\tx11540\f0\b0\fs28\li1900\fc0\cf0 NSApplicationName	The application being terminated\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx8260\f2\b\fs28\li1500\fc0\cf0 NSWorkspaceDidMountNotification\
+
+\fs6 \
+
+\fs8 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Posted when a new device has been mounted. \
+
+\fs14 \
+
+\fs28 The notification object contains:\
+
+\fs14 \
+
+\pard\tx6740\tx9520\b\fs28\fi-4840\li6740\fc0\cf0 Notification Object
+\b0 	the shared NSWorkspace instance\
+
+\fs14 \
+
+\b\fs28 Userinfo
+\b0 	\
+
+\fs14 \
+
+\pard\tx6740\tx11280\f2\b\fs28\li1900\fc0\cf0 Key	Value\
+
+\fs6 \
+
+\pard\tx6740\tx11540\f0\b0\fs28\li1900\fc0\cf0 NSDevicePath	The path where the device was mounted\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx8260\f2\b\fs28\li1500\fc0\cf0 NSWorkspaceDidPerformFileOperationNotification\
+
+\fs6 \
+
+\fs8 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Posted when a file operation has been performed.\
+
+\fs14 \
+
+\pard\tx6740\tx9520\b\fs28\fi-4840\li6740\fc0\cf0 Notification Object
+\b0 	the shared NSWorkspace instance\
+
+\fs14 \
+
+\b\fs28 Userinfo
+\b0 	\
+
+\fs14 \
+
+\pard\tx6740\tx11280\f2\b\fs28\li1900\fc0\cf0 Key	Value\
+
+\fs6 \
+
+\pard\tx6740\tx11540\f0\b0\fs28\li1900\fc0\cf0 NSOperationNumber	A number indicating the type of file operation completed\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx8260\f2\b\fs28\li1500\fc0\cf0 NSWorkspaceDidTerminateApplicationNotification\
+
+\fs6 \
+
+\fs8 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Posted when an application finishes executing. \
+
+\fs14 \
+
+\fs28 The notification object contains:\
+
+\fs14 \
+
+\pard\tx6740\tx9520\b\fs28\fi-4840\li6740\fc0\cf0 Notification Object
+\b0 	the shared NSWorkspace instance\
+
+\fs14 \
+
+\b\fs28 Userinfo
+\b0 	\
+
+\fs14 \
+
+\pard\tx6740\tx11280\f2\b\fs28\li1900\fc0\cf0 Key	Value\
+
+\fs6 \
+
+\pard\tx6740\tx11540\f0\b0\fs28\li1900\fc0\cf0 NSApplicationName	The application that terminated\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx8260\f2\b\fs28\li1500\fc0\cf0 NSWorkspaceDidUnmountNotification\
+
+\fs6 \
+
+\fs8 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Posted when the workspace has unmounted a device. \
+
+\fs14 \
+
+\pard\tx6740\tx9520\b\fs28\fi-4840\li6740\fc0\cf0 Notification Object
+\b0 	the shared NSWorkspace instance\
+
+\fs14 \
+
+\b\fs28 Userinfo
+\b0 	\
+
+\fs14 \
+
+\pard\tx6740\tx11280\f2\b\fs28\li1900\fc0\cf0 Key	Value\
+
+\fs6 \
+
+\pard\tx6740\tx11540\f0\b0\fs28\li1900\fc0\cf0 NSDevicePath	The path where the device was previously mounted\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx8260\f2\b\fs28\li1500\fc0\cf0 NSWorkspaceWillLaunchApplicationNotification\
+
+\fs6 \
+
+\fs8 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Posted when the workspace is about to launch an application. \
+
+\fs14 \
+
+\pard\tx6740\tx9520\b\fs28\fi-4840\li6740\fc0\cf0 Notification Object
+\b0 	the shared NSWorkspace instance\
+
+\fs14 \
+
+\b\fs28 Userinfo
+\b0 	\
+
+\fs14 \
+
+\pard\tx6740\tx11280\f2\b\fs28\li1900\fc0\cf0 Key	Value\
+
+\fs6 \
+
+\pard\tx6740\tx11540\f0\b0\fs28\li1900\fc0\cf0 NSApplicationName	The application about to be launched\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx8260\f2\b\fs28\li1500\fc0\cf0 NSWorkspaceWillPowerOffNotification\
+
+\fs6 \
+
+\fs8 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Posted when the user has requested that the machine be powered off. \
+
+\fs14 \
+
+\pard\tx6740\tx9520\b\fs28\fi-4840\li6740\fc0\cf0 Notification Object
+\b0 	the shared NSWorkspace instance\
+
+\fs14 \
+
+\b\fs28 Userinfo
+\b0 	None\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx8260\f2\b\fs28\li1500\fc0\cf0 NSWorkspaceWillUnmountNotification\
+
+\fs6 \
+
+\fs8 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Posted when the workspace is about to unmount a device. \
+
+\fs14 \
+
+\pard\tx6740\tx9520\b\fs28\fi-4840\li6740\fc0\cf0 Notification Object
+\b0 	the shared NSWorkspace instance\
+
+\fs14 \
+
+\b\fs28 Userinfo
+\b0 	\
+
+\fs14 \
+
+\pard\tx6740\tx11280\f2\b\fs28\li1900\fc0\cf0 Key	Value\
+
+\fs6 \
+
+\pard\tx6740\tx11540\f0\b0\fs28\li1900\fc0\cf0 NSDevicePath	The path where the device is mounted\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 \
+
+\fs14 \
+
+}

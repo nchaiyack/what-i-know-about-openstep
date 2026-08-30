@@ -1,0 +1,40 @@
+.\"
+.TH BSEARCH 3 "August 1, 1992"
+.AT 3
+.SH NAME
+bsearch \- perform a binary search
+.SH SYNOPSIS
+.nf
+.B #include <stdlib.h>
+.PP
+.B void bsearch(const void *\fIkey\fP,
+.B "		const void *\fIbase\fP,"
+.B "            size_t \fInmemb\fP,"
+.B "		size_t \fIsize\fP, "
+.B "		int (*\fIcompar\fP)\fR(const void *, const void *)\fP);"
+.fi
+.SH DESCRIPTION
+The \fIbsearch\fP function searches an array of \fInmemb\fP objects,
+the initial member of which is pointed to by \fIbase\fP, for an element
+that matches the object pointed to by \fIkey\fP.  The size of each
+element of the array is specified by \fIsize\fP.  
+.PP
+The comparison function pointed to by \fIcompar\fP is called with two
+arguments that point to the \fIkey\fP object and to an array element,
+in that order.  \fIBsearch\fP returns an integer less than, equal to,
+or greater than zero if the \fIkey\fP object is considered, respectively,
+to be less than, to match, or to be greater than the array element.  The
+array shall consist of: all the elements that compare less than, all 
+the objects that compare equal to and all the objects that compare greater 
+than the \fIkey\fP object, in that order.
+.SH "RETURN VALUE"
+\fIBsearch\fP returns a pointer to a matching element of the array, or 
+a null pointer if no match is found.  If two elements compare as equal,
+it is indeterminate which element will be matched.
+.SH SEE ALSO
+qsort(3)
+.SH STANDARDS
+The
+.I bsearch
+function conforms to
+ANSI-C.

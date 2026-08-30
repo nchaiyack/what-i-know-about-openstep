@@ -1,0 +1,151 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)chmod.2	6.5 (Berkeley) 5/13/86
+.\"
+.TH CHMOD 2 "August 1, 1992"
+.UC 4
+.SH NAME
+chmod \- change mode of file
+.SH SYNOPSIS
+.nf
+.ft B
+int chmod(const char *\fIpath\fP, mode_t \fImode\fP);
+.pp
+int fchmod(int \fIfd\fP, int \fImode\fP);
+.ft R
+.fi
+.SH DESCRIPTION
+The
+.IR chmod
+function changes the mode of the file whose pathname is given by
+.I path
+according to the value of
+.IR mode .
+The
+.IR fchmod
+function changes the mode of the open file
+given by file descriptor
+.IR fd.
+Only a process whose effective user ID
+matches the file owner or
+is that of the super-user
+can change the mode of a file.
+The
+.I mode
+argument is
+a bitwise inclusive OR combination
+of the values described in
+.IR stat (2)
+or
+.IR stat (2P).
+Writing to a file always turns off the 
+set-user-id and set-group-id bits.
+.PP
+If an executable file is set up for sharing (this is the default)
+then mode S_ISVTX (the `sticky bit') prevents the system from
+abandoning the swap-space image of the program-text portion
+of the file when its last user terminates.
+Ability to set this bit on executable files is restricted to the super-user.
+.PP
+If mode S_ISVTX (the `sticky bit') is set on a directory,
+an unprivileged user may not delete or rename
+files of other users in that directory.
+For more details of the properties of the sticky bit, see
+.IR sticky (8).
+.PP
+.\" THE FOLLOWING PARAGRAPH COMMENTED OUT, AS NeXT's SYSTEM
+.\" DOESN"T DO THIS:
+.\" Writing or changing the owner of a file
+.\" turns off both the set-user-id (S_ISUID) and
+.\" set-group-id (S_ISGID) bits
+.\" unless the user is the super-user.
+.\" This makes the system somewhat more secure
+.\" by protecting set-user-id (or set-group-id) files
+.\" from remaining set-user-id (or set-group-id) if they are modified,
+.\" at the expense of a degree of compatibility.
+.\" .PP
+Upon successful completion,
+.IR chmod
+marks for update the
+.I st_ctime
+field of the file.
+.SH "RETURN VALUE"
+Upon successful completion,
+.IR chmod
+returns a value of zero.
+Otherwise, a value of \-1 is returned and
+.I errno
+is set to indicate the error.
+.SH "ERRORS"
+If any of the following conditions occurs,
+.IR chmod
+returns -1 and sets
+.I errno
+to the corresponding value:
+.TP 15
+[EACCES]
+Search permission is denied for a component of the path prefix.
+.TP 15
+[EFAULT]
+The
+.I path
+argument points outside the process's allocated address space.
+.TP 15
+[EINVAL]
+The pathname contains a character with the high-order bit set.
+.TP 15
+[EIO]
+An I/O error occurred while reading from or writing to the file system.
+.TP 15
+[ELOOP]
+Too many symbolic links were encountered in translating the pathname.
+.TP 15
+[ENAMETOOLONG]
+A component of
+.I path
+exceeds 255 characters,
+or the entire pathname exceeds 1023 characters.
+For POSIX applications these values are given
+by the constants {NAME_MAX} and {PATH_MAX}, respectively.
+.TP 15
+[ENOTDIR]
+A component of the path prefix is not a directory.
+.TP 15
+[ENOENT]
+The named file does not exist or
+.I path
+points to an empty string.
+.TP 15
+[EPERM]
+The effective user ID does not match the owner of the file and
+the effective user ID is not the super-user.
+.TP 15
+[EROFS]
+The named file resides on a read-only file system.
+.PP
+The following errors cause
+.I Fchmod
+to fail and return \-1:
+.TP 15
+[EBADF]
+The descriptor is not valid.
+.TP 15
+[EINVAL]
+.I Fd
+refers to a socket, not to a file.
+.TP 15
+[EIO]
+An I/O error occurred while reading from or writing to the file system.
+.TP 15
+[EROFS]
+The file resides on a read-only file system.
+.SH "SEE ALSO"
+chmod(1),
+chown(2),
+mkdir(2),
+mkfifo(2P),
+open(2),
+stat(2) or stat(2P),
+sticky(8)

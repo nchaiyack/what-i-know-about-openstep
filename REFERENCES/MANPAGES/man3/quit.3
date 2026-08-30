@@ -1,0 +1,55 @@
+.TH QUIT 3 3/20/81
+.CM 2
+.SH "NAME"
+quit \- print message and exit
+.SH "SYNOPSIS"
+.B
+quit (status, format
+[, arg ] ...
+.B
+)
+.br
+.B
+int status;
+.br
+.B
+char *format;
+.SH "DESCRIPTION"
+.I
+quit
+is a means of terminating a process with an error message.
+.sp
+This call should never return.
+.sp
+.I
+quit
+prints on standard error the message specified by the
+.IR printf (3)
+argument list
+.I
+format [, arg]...
+then exits.
+.sp
+The first argument,
+.IR status ,
+will be the argument passed to
+.IR exit (2)
+and this is the process's return code.
+All of the process's files will be closed.
+.SH "SEE ALSO"
+.IR printf (3), 
+.IR exit (2), 
+.IR wait (2)
+.SH "HISTORY"
+.TP
+13-Nov-86  Andi Swimmer (andi) at Carnegie-Mellon University
+Revised for 4.3.
+.TP
+20-Mar-81  Dale Moore (dwm) at Carnegie-Mellon University
+Changed to call 
+.I _doprnt 
+instead of 
+.IR fprintf .
+.TP
+06-Dec-79  Steven Shafer (sas) at Carnegie-Mellon University
+Created.

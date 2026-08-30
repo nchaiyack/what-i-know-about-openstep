@@ -1,0 +1,599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 10.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 12.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 10.0px; font: 9.0px Helvetica; min-height: 11.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 10.0px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 10.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 12.0px Helvetica}
+    p.p24 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p28 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p32 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p33 {margin: 0.0px 0.0px 0.0px 316.0px; font: 14.0px Times}
+    p.p34 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p35 {margin: 0.0px 0.0px 0.0px 316.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p40 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p41 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p43 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p46 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p48 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 14.0px Times}
+    p.p49 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p50 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p51 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p52 {margin: 0.0px 0.0px 0.0px 116.0px; font: 14.0px Times}
+    p.p53 {margin: 0.0px 0.0px 0.0px 116.0px; font: 7.0px Times; min-height: 8.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Helvetica}
+    span.s3 {font: 14.0px Symbol}
+    span.s4 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSScrollView</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><span class="s2"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSView : NSResponder : NSObject</p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s2"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSCoding (NSResponder)</p>
+<p class="p8">NSObject (NSObject)</p>
+<p class="p9"><br></p>
+<p class="p7"><span class="s2"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSScrollView.h</p>
+<p class="p10"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b>Purpose</b></p>
+<p class="p15">An NSScrollView allows the user to scroll a document view that's too large to display in its entirety. In addition to the document view, it displays horizontal and vertical scrollers and rulers (depending on which it's configured to have).</p>
+<p class="p16"><br></p>
+<p class="p14"><b>Principal Attributes</b></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Configurable scrollers<span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Small and large increment scrolling</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Configurable rulers<span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Dynamic (continuous) scrolling</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Displays a special cursor over its document view</p>
+<p class="p16"><br></p>
+<p class="p14"><b>Creation</b></p>
+<p class="p17">Interface Builder</p>
+<p class="p17"><span class="s3">-</span> initWithFrame:<span class="Apple-tab-span">	</span>Designated initializer.<span class="Apple-converted-space"> </span></p>
+<p class="p18"><br></p>
+<p class="p14"><b>Commonly Used Methods</b></p>
+<p class="p17"><span class="s3">-</span> setDocumentView:<span class="Apple-tab-span">	</span>Sets the cursor used over the document view.</p>
+<p class="p17"><span class="s3">-</span> setLineScroll:<span class="Apple-tab-span">	</span>Sets the amount by which the document view moves during scrolling.</p>
+<p class="p17"><span class="s3">-</span> setRulersVisible:<span class="Apple-tab-span">	</span>Displays or hides rulers.</p>
+<p class="p19"><br></p>
+<p class="p20"><b></b><br></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><b>Class Description</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p15">The NSScrollView class is the central coordinator for the Application Kit's scrolling machinery, composed of this class, NSClipView, and NSScroller. An NSScrollView displays a portion of a <i>document view</i> that's too large to be displayed whole, and provides NSScrollers that allow the user to move the document view within the NSScrollView. An NSScrollView can be configured with a vertical scroller, a horizontal scroller, or both. In addition to the basic accoutrements, an NSScrollView keeps a cursor that it sets whenever the mouse is over its document view, and maintains both horizontal and vertical ruler objects that can be hidden and displayed.</p>
+<p class="p25"><br></p>
+<p class="p15">An NSScrollView encloses its document view within an NSClipView, using this view to actually position and monitor the document view. Because the NSClipView manages the content of the NSScrollView, it's also called the <i>content view</i>. The content view positions the document view by altering its bounds rectangle, which determines where the document view's frame lies. The content view also monitors changes in the document view's size and notifies the NSScrollView so that the scrollers can be updated to reflect the new size. The <b>documentView</b> and <b>contentView</b> methods return an NSScrollView's major component views.</p>
+<p class="p25"><br></p>
+<p class="p15">NSScrollView defines three levels of scrolling: by line, by page, and direct. Scrolling by line moves the document view by a small amount, typically when the user clicks the scroll buttons of a scroller. Scrolling by page moves the document view by a larger amount, typically near the size of the content view, when the user Alternate-clicks the scroll buttons, and on some platforms in the slot of the scroller. You set these amounts using <b>setLineScroll:</b> and <b>setPageScroll:</b>, respectively (Interface Builder also lets you set these directly). Direct scrolling moves the document view to the position of the scroller's knob as the user drags it. This either displays the document view continuously as it scrolls or displays it only when the user releases the mouse, as configured with the <b>setScrollsDynamically:</b> method.</p>
+<p class="p25"><br></p>
+<p class="p15">When created programmatically, an NSScrollView has no scrollers. You can set them up using the <b>setHasVerticalScroller:</b> and <b>setHasHorizontalScroller:</b> methods with an argument of YES, which cause the NSScrollView to allocate and maintain instances of the NSScroller class. You can substitute specialized scrollers using the <b>setVerticalScroller:</b> and <b>setHorizontalScroller:</b> methods. Note that in any case you must use the <b>setHas...</b> methods to make sure the NSScrollView displays its scrollers.</p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p27"><b>Rulers</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b></b><br></p>
+<p class="p15">An NSScrollView can be set to hold both horizontal and vertical rulers using the <b>setHasHorizontalRuler:</b> and <b>setHasVerticalRuler:</b> methods. These allocate instances of the NSRulerView class, but unlike with scrollers don't immediately display the rulers. To do this, use the <b>setRulersVisible:</b> method. You can substitute custom ruler objects using <b>setHorizontalRuler:</b> and <b>setVerticalRuler:</b>, and to customize the rulers for all instances of NSScrollView you can set the class used with <b>setRulerViewClass:</b>. This causes all subsequent rulers created by NSScrollViews to be of the class you specify.</p>
+<p class="p25"><br></p>
+<p class="p15">An NSScrollView's rulers don't automatically establish the document view as their client. The document view itself (or a subview) is responsible, as its selection and other state changes, for retrieving the rulers using NSScrollView's <b>horizontalRuler</b> and <b>verticalRuler</b> methods and for establishing itself as the client using NSRulerView's <b>setClientView:</b> method.</p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p27"><b>How Scrolling Works</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b></b><br></p>
+<p class="p15">As indicated above, an NSScrollView's document view is actually positioned by the content view, which sets its bounds rectangle in such a way that the document view's frame moves relative to it. However, the action sequence between the scrollers and the NSScrollView and the manner in which scrolling is performed involve a bit more detail than this.</p>
+<p class="p25"><br></p>
+<p class="p15">Scrolling typically occurs because of user actions on an NSScroller object, which sends the NSScrollView a private action message telling it to scroll based on the NSScroller's state. This process is described in the class description for the NSScroller class under “Interaction with a Container View.” If you plan to implement your own kind of scrolling view or scroller object, you should read that section.</p>
+<p class="p25"><br></p>
+<p class="p15">NSClipView's <b>scrollToPoint:</b> is the method that actually scrolls the document view. It essentially translates the origin of the content view's bounds rectangle, but it also optimizes redisplay by copying as much of the rendered document view as remains visible, and only asking the document view to draw newly exposed regions. This usually improves scrolling performance, but may not always be appropriate behavior. You can turn it off using NSClipView's <b>setCopiesOnScroll:</b> method. If you do leave copy-on-scroll active, be sure to scroll the document view programmatically using <b>scrollToPoint:</b> rather than <b>translateOriginToPoint:</b>.</p>
+<p class="p25"><br></p>
+<p class="p15">Whether the document view scrolls explicitly through a user action or an NSClipView message, or implicitly through a <b>setFrame:</b> or other such message, the content view monitors it closely. Whenever the document view's frame or bounds rectangle changes, it informs the NSScrollView of the change with a <b>reflectScrolledClipView:</b> message. This method updates the NSScroller objects to reflect the position and size of the visible portion of the document view. You may find on occasion that you need to invoke this method explicitly when manipulating the document view directly.</p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p27"><b>Autoscrolling</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b></b><br></p>
+<p class="p15">In addition to user-driven and programmatic scrolling, you can program any NSView to automatically scroll when the user drags the mouse outside the enclosing NSClipView. This allows the user to drag an item in order to move it, and have the document view automatically shift itself in the appropriate direction when the user drags the item past the visible area. NSClipView's <b>autoscroll:</b> method takes an NSEvent object of the mouse-dragged type and scrolls its document view in the opposite direction from the mouse location, making the portion of the document view that would be under the mouse become visible. NSView also implements <b>autoscroll:</b> to forward the message to its superview. This allows any NSView to simply send the message to itself during a mouse-dragging loop without checking whether it's contained in an NSClipView (though it does need to check whether the mouse is outside of its visible portion, as returned by <b>visibleRect</b>).</p>
+<p class="p25"><br></p>
+<p class="p30"><br></p>
+<p class="p31"><b>Method Types</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p32">Calculating layout<span class="Apple-tab-span">	</span>+ contentSizeForFrameSize:hasHorizontalScroller:</p>
+<p class="p33">hasVerticalScroller:borderType:</p>
+<p class="p34">+ frameSizeForContentSize:hasHorizontalScroller:</p>
+<p class="p33">hasVerticalScroller:borderType:</p>
+<p class="p35"><br></p>
+<p class="p32">Determining component sizes<span class="Apple-tab-span">	</span><span class="s3">-</span> contentSize</p>
+<p class="p34"><span class="s3">-</span> documentVisibleRect</p>
+<p class="p36"><br></p>
+<p class="p32">Managing graphic attributes<span class="Apple-tab-span">	</span><span class="s3">-</span> setBackgroundColor:</p>
+<p class="p34"><span class="s3">-</span> backgroundColor</p>
+<p class="p34"><span class="s3">-</span> setBorderType:</p>
+<p class="p34"><span class="s3">-</span> borderType</p>
+<p class="p36"><br></p>
+<p class="p32">Managing the scrolled views<span class="Apple-tab-span">	</span><span class="s3">-</span> setContentView:</p>
+<p class="p34"><span class="s3">-</span> contentView</p>
+<p class="p34"><span class="s3">-</span> setDocumentView:</p>
+<p class="p34"><span class="s3">-</span> documentView</p>
+<p class="p34"><span class="s3">-</span> setDocumentCursor:</p>
+<p class="p36"><br></p>
+<p class="p32">Managing scrollers<span class="Apple-tab-span">	</span><span class="s3">-</span> setHorizontalScroller:</p>
+<p class="p34"><span class="s3">-</span> horizontalScroller</p>
+<p class="p34"><span class="s3">-</span> setHasHorizontalScroller:</p>
+<p class="p34"><span class="s3">-</span> hasHorizontalScroller</p>
+<p class="p34"><span class="s3">-</span> setVerticalScroller:</p>
+<p class="p34"><span class="s3">-</span> verticalScroller</p>
+<p class="p34"><span class="s3">-</span> setHasVerticalScroller:</p>
+<p class="p34"><span class="s3">-</span> hasVerticalScroller</p>
+<p class="p36"><br></p>
+<p class="p32">Managing rulers<span class="Apple-tab-span">	</span>+ setRulerViewClass:</p>
+<p class="p34">+ rulerViewClass</p>
+<p class="p34"><span class="s3">-</span> setHasHorizontalRuler:</p>
+<p class="p34"><span class="s3">-</span> hasHorizontalRuler</p>
+<p class="p34"><span class="s3">-</span> setHorizontalRulerView:</p>
+<p class="p34"><span class="s3">-</span> horizontalRulerView</p>
+<p class="p34"><span class="s3">-</span> setHasVerticalRuler:</p>
+<p class="p34"><span class="s3">-</span> hasVerticalRuler</p>
+<p class="p34"><span class="s3">-</span> setVerticalRulerView:</p>
+<p class="p34"><span class="s3">-</span> verticalRulerView</p>
+<p class="p34"><span class="s3">-</span> setRulersVisible:</p>
+<p class="p34"><span class="s3">-</span> rulersVisible</p>
+<p class="p36"><br></p>
+<p class="p32">Setting scrolling behavior<span class="Apple-tab-span">	</span><span class="s3">-</span> setLineScroll:</p>
+<p class="p34"><span class="s3">-</span> lineScroll</p>
+<p class="p34"><span class="s3">-</span> setPageScroll:</p>
+<p class="p34"><span class="s3">-</span> pageScroll</p>
+<p class="p34"><span class="s3">-</span> setScrollsDynamically:</p>
+<p class="p34"><span class="s3">-</span> scrollsDynamically</p>
+<p class="p36"><br></p>
+<p class="p32">Updating display after scrolling<span class="Apple-tab-span">	</span><span class="s3">-</span> reflectScrolledClipView:</p>
+<p class="p37"><br></p>
+<p class="p32">Arranging components<span class="Apple-tab-span">	</span><span class="s3">-</span> tile</p>
+<p class="p38"><br></p>
+<p class="p31"><b>Class Methods</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p27"><b></b><b>contentSizeForFrameSize:hasHorizontalScroller:hasVerticalScroller:borderType:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39">+ (NSSize)<b>contentSizeForFrameSize:</b>(NSSize)<i>frameSize</i></p>
+<p class="p40"><b>hasHorizontalScroller:</b>(BOOL)<i>hFlag</i></p>
+<p class="p40"><b>hasVerticalScroller:</b>(BOOL)<i>vFlag</i></p>
+<p class="p40"><b>borderType:</b>(NSBorderType)<i>borderType</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p15">Returns the size of a content view for an NSScrollView whose frame size is <i>frameSize</i>. <i>hFlag</i> and <i>vFlag</i> indicate whether a horizontal or vertical scroller, respectively, is present. If the flag is YES then the content size is reduced in the appropriate dimension by the width of an NSScroller. <i>borderType</i> indicates the appearance of the NSScrollView's edge, which also affects the content size; see the description of <b>setBorderType:</b> for a list of possible values.</p>
+<p class="p25"><br></p>
+<p class="p15">For an existing NSScrollView, you can simply use the <b>contentSize</b> method.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>frameSizeForContentSize:hasHorizontalScroller:hasVerticalScroller:borderType:</b>, + <b>scrollerWidth</b> (NSScroller)</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p27"><b></b><b>frameSizeForContentSize:hasHorizontalScroller:hasVerticalScroller:borderType:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39">+ (NSSize)<b>frameSizeForContentSize:</b>(NSSize)<i>contentSize</i></p>
+<p class="p40"><b>hasHorizontalScroller:</b>(BOOL)<i>hFlag</i></p>
+<p class="p40"><b>hasVerticalScroller:</b>(BOOL)<i>vFlag</i></p>
+<p class="p40"><b>borderType:</b>(NSBorderType)<i>borderType</i></p>
+<p class="p41"><i></i><br></p>
+<p class="p15">Returns the frame size of an NSScrollView that contains a content view whose size is <i>contentSize</i>. <i>hFlag</i> and <i>vFlag</i> indicate whether a horizontal or vertical scroller, respectively, is present. If the flag is YES then the frame size is increased in the appropriate dimension by the width of an NSScroller. <i>borderType</i> indicates the appearance of the NSScrollView's edge, which also affects the frame size; see the description of <b>setBorderType:</b> for a list of possible values.</p>
+<p class="p25"><br></p>
+<p class="p15">For an existing NSScrollView, you can simply use the <b>frame</b> method and extract its size.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>contentSizeForFrameSize:hasHorizontalScroller:hasVerticalScroller:borderType:</b>, + <b>scrollerWidth</b> (NSScroller)</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p45"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerViewClass</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p39">+ (Class)<b>rulerViewClass</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns the default class to be used for ruler objects in NSScrollViews. This is normally NSRulerView.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>setRulerViewClass:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>setRulerViewClass:</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p39">+ (void)<b>setRulerViewClass:</b>(Class)<i>aClass</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Sets the default class to be used for ruler objects in NSScrollViews to <i>aClass</i>. This is normally NSRulerView, but you can use this method to set it to a custom subclass of NSRulerView.</p>
+<p class="p25"><br></p>
+<p class="p48"><span class="s2"><b>Note:<span class="Apple-tab-span">	</span></b></span>This method simply sets a global variable private to NSScrollView.Subclasses of NSScrollView should override both this method and <b>rulerViewClass</b> to store their ruler view classes in private variables.</p>
+<p class="p49"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>rulerViewClass</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p31"><b>Instance Methods</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p27"><b></b><b>backgroundColor</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (NSColor *)<b>backgroundColor</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns the content view's background color.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setBackgroundColor:</b>, <span class="s3">-</span> <b>backgroundColor </b>(NSClipView)</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p27"><b></b><b>borderType</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (NSBorderType)<b>borderType</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns a value that represents the type of border surrounding the receiver; see the description of <b>setBorderType:</b> for a list of possible values.</p>
+<p class="p25"><br></p>
+<p class="p51"><br></p>
+<p class="p27"><b></b><b>contentSize</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (NSSize)<b>contentSize</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns the size of the receiver's content view.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>contentSizeForFrameSize:hasHorizontalScroller:hasVerticalScroller:borderType:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>contentView</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (NSClipView *)<b>contentView</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns the receiver's content view, the view that clips the document view.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setContentView:</b>, <span class="s3">-</span> <b>documentView</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>documentCursor</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (NSCursor *)<b>documentCursor</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns the content view's document cursor.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setDocumentCursor:</b>, <span class="s3">-</span> <b>documentCursor</b> (NSClipView)</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p27"><b></b><b>documentView</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (id)<b>documentView</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns the view that the receiver scrolls within its content view.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setDocumentView:</b>, <span class="s3">-</span> <b>documentView </b>(NSClipView)</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p27"><b></b><b>documentVisibleRect</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (NSRect)<b>documentVisibleRect</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns the portion of the document view, in its own coordinate system, that's visible through the receiver's content view.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>documentVisibleRect </b>(NSClipView), <span class="s3">-</span> <b>visibleRect </b>(NSView)</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p45"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>hasHorizontalRuler</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (BOOL)<b>hasHorizontalRuler</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns YES if the receiver maintains a horizontal ruler view, NO if it doesn't. Display of rulers is controlled using the <b>setRulersVisible:</b> method.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>horizontalRulerView</b>, <span class="s3">-</span> <b>setHasHorizontalRuler:</b>, <span class="s3">-</span> <b>hasVerticalRuler</b>, + <b>rulerClass:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>hasHorizontalScroller</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (BOOL)<b>hasHorizontalScroller</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns YES if the receiver displays a horizontal scroller, NO if it doesn't.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>horizontalScroller</b>, <span class="s3">-</span> <b>setHasHorizontalScroller:</b>, <span class="s3">-</span> <b>hasVerticalScroller</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>hasVerticalRuler</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (BOOL)<b>hasVerticalRuler</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns YES if the receiver maintains a vertical ruler view, NO if it doesn't. Display of rulers is controlled using the <b>setRulersVisible:</b> method.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>verticalRulerView</b>, <span class="s3">-</span> <b>setHasVerticalRuler:</b>, <span class="s3">-</span> <b>hasHorizontalRuler</b>, + <b>rulerClass:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>hasVerticalScroller</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (BOOL)<b>hasVerticalScroller</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns YES if the receiver displays a vertical scroller, NO if it doesn't.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>verticalScroller</b>, <span class="s3">-</span> <b>setHasVerticalScroller:</b>, <span class="s3">-</span> <b>hasHorizontalScroller</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>horizontalRulerView</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (NSRulerView *)<b>horizontalRulerView</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns the receiver's horizontal ruler view, whether or not the receiver is currently displaying it, or <b>nil</b> if the receiver has none. If the receiver is set to display a horizontal ruler view and doesn't yet have one, this method creates an instance of the ruler view class set using the class method <b>setRulerViewClass:</b>. Display of rulers is controlled using the <b>setRulersVisible:</b> method.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hasHorizontalRulerView</b>, <span class="s3">-</span> <b>verticalRulerView</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>horizontalScroller</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (NSScroller *)<b>horizontalScroller</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns the receiver's horizontal scroller, whether or not the receiver is currently displaying it, or <b>nil</b> if the receiver has none.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hasHorizontalScroller</b>, <span class="s3">-</span> <b>setHorizontalScroller:</b>, <span class="s3">-</span> <b>verticalScroller</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>lineScroll</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (float)<b>lineScroll</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns the amount by which the receiver scrolls itself when scrolling line-by-line, expressed in the content view's coordinate system. This amount is used when the user clicks the scroll arrows without holding a modifier key.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setLineScroll:</b>, <span class="s3">-</span> <b>pageScroll</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>pageScroll</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (float)<b>pageScroll</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns the amount of the document view kept visible when scrolling page-by-page, expressed in the content view's coordinate system. This amount is used when the user clicks the scroll arrows while holding the Alternate key.</p>
+<p class="p25"><br></p>
+<p class="p48"><span class="s2"><b>Note:<span class="Apple-tab-span">	</span></b></span>This amount expresses the context that remains when the receiver scrolls by one page, allowing the user to orient himself to the new display. It differs from the line scroll amount, which indicates how far the document view moves.<i> </i>The page scroll amount is the amount <i>common to</i> the content view before and after the document view is scrolled by one page.</p>
+<p class="p49"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setLineScroll:</b>, <span class="s3">-</span> <b>pageScroll</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>reflectScrolledClipView:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>reflectScrolledClipView:</b>(NSClipView *)<i>aClipView</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">If <i>aClipView</i> is the receiver's content view, adjusts the receiver's scrollers to reflect the size and positioning of its document view. Does nothing if <i>aClipView</i> is any other view object (in particular, if it's an NSClipView that isn't the content view).</p>
+<p class="p25"><br></p>
+<p class="p15">This method is invoked automatically during scrolling and when an NSClipView's relationship to its document view changes; you should rarely need to invoke it yourself, but may wish to override it for custom updating or other behavior.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>contentView</b>, <span class="s3">-</span> <b>documentView</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>rulersVisible</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (BOOL)<b>rulersVisible</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns YES if the receiver was set to show rulers using <b>setRulersVisible:</b> (whether or not it has rulers at all), NO if it was set to hide them.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hasHorizontalRuler</b>, <span class="s3">-</span> <b>hasVerticalRuler</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>scrollsDynamically</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (BOOL)<b>scrollsDynamically</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns YES if the receiver redraws its document view while tracking the knob, NO if it redraws only when the scroller knob is released. NSScrollView scrolls dynamically by default.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setScrollsDynamically:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>setBackgroundColor:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setBackgroundColor:</b>(NSColor *)<i>aColor</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Sets the color of the content view's background to <i>aColor</i>. This color is used to paint areas inside the content view that aren't covered by the document view.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>backgroundColor</b>, <span class="s3">-</span> <b>setBackgroundColor: </b>(NSClipView)</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p27"><b></b><b>setBorderType:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setBorderType:</b>(NSBorderType)<i>borderType</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Sets the border type of the receiver to <i>borderType</i>, which may be one of:</p>
+<p class="p25"><br></p>
+<p class="p52">NSNoBorder</p>
+<p class="p52">NSLineBorder</p>
+<p class="p52">NSBezelBorder</p>
+<p class="p52">NSGrooveBorder</p>
+<p class="p53"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>borderType</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>setContentView:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setContentView:</b>(NSClipView *)<i>aView</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Sets the receiver's content view, the view that clips the document view, to <i>aView</i>. <i>aView</i>'s document view, if any, also becomes the receiver's document view, while the original content view's document view remains with it.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>contentView</b>, <span class="s3">-</span> <b>setDocumentView:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>setDocumentCursor:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setDocumentCursor:</b>(NSCursor *)<i>aCursor</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Sets the cursor used when the mouse is over the content view to <i>aCursor</i>, by sending <b>setDocumentCursor:</b> to the content view.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>documentCursor</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>setDocumentView:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setDocumentView:</b>(NSView *)<i>aView</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Sets the receiver's document view to <i>aView</i>.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>documentView</b>, <span class="s3">-</span> <b>setDocumentView: </b>(NSClipView)</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p45"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>setHasHorizontalRuler:</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setHasHorizontalRuler:</b>(BOOL)<i>flag</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Determines whether the receiver keeps a horizontal ruler object. If <i>flag</i> is YES, the receiver allocates a horizontal ruler the first time it's needed. Display of rulers is handled independently with the <b>setRulersVisible:</b> method.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hasHorizontalRuler</b>, <span class="s3">-</span> <b>horizontalRuler</b>, <span class="s3">-</span> <b>setHasVerticalRuler:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>setHasHorizontalScroller:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setHasHorizontalScroller:</b>(BOOL)<i>flag</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Determines whether the receiver keeps a horizontal scroller. If <i>flag</i> is YES, the receiver allocates and displays a horizontal scroller as needed. An NSScrollView by default has neither a horizontal nor a vertical scroller.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hasHorizontalScroller</b>, <span class="s3">-</span> <b>horizontalScroller</b>, <span class="s3">-</span> <b>setHasVerticalScroller:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>setHasVerticalRuler:</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setHasVerticalRuler:</b>(BOOL)<i>flag</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Determines whether the receiver keeps a vertical ruler object. If <i>flag</i> is YES, the receiver allocates a vertical ruler the first time it's needed. Display of rulers is handled independently with the <b>setRulersVisible:</b> method.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hasVerticalRuler</b>, <span class="s3">-</span> <b>verticalRuler</b>, <span class="s3">-</span> <b>setHasHorizontalRuler:</b>, <span class="s3">-</span> <b>setRulersVisible:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>setHasVerticalScroller:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setHasVerticalScroller:</b>(BOOL)<i>flag</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Determines whether the receiver keeps a vertical scroller. If <i>flag</i> is YES, the receiver allocates and displays a vertical scroller as needed. An NSScrollView by default has neither a vertical nor a horizontal scroller.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hasVerticalScroller</b>, <span class="s3">-</span> <b>verticalScroller</b>, <span class="s3">-</span> <b>setHasHorizontalScroller:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>setHorizontalRulerView:</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setHorizontalRulerView:</b>(NSRulerView *)<i>aRulerView</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Sets the receiver's horizontal ruler view to <i>aRulerView</i>. You can use this method to override the default ruler class set using the class method <b>setRulerClass:</b>. Display of rulers is controlled using the <b>setRulersVisible:</b> method.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>horizontalRulerView:</b>,<span class="s3">-</span> <b>setHasHorizontalRuler:</b>, <span class="s3">-</span> <b>setVerticalRulerView:</b>, <span class="s3">-</span> <b>setRulersVisible:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>setHorizontalScroller:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setHorizontalScroller:</b>(NSScroller *)<i>aScroller</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Sets the receiver's horizontal scroller to <i>aScroller</i>, establishing the appropriate target-action relationships between them. To make sure the scroller is visible, invoke the <b>setHasHorizontalScroller:</b> method with an argument of YES.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>horizontalScroller</b>, <span class="s3">-</span> <b>setVerticalScroller:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>setLineScroll:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setLineScroll:</b>(float)<i>aFloat</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Sets the amount by which the receiver scrolls itself when scrolling line-by-line to <i>aFloat</i>, expressed in the content view's coordinate system. This is the amount used when the user clicks the scroll arrows without holding a modifier key. When displaying text in an NSScrollView, for example, you might set this to the height of a single line of text in the default font.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>lineScroll</b>, <span class="s3">-</span> <b>setPageScroll:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>setPageScroll:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setPageScroll:</b>(float)<i>aFloat</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Sets the amount of the document view kept visible when scrolling page-by-page to <i>aFloat</i>, expressed in the content view's coordinate system. This amount is used when the user clicks the scroll arrows while holding the Alternate key.</p>
+<p class="p25"><br></p>
+<p class="p48"><span class="s2"><b>Note:<span class="Apple-tab-span">	</span></b></span>This amount expresses the context that remains when the receiver scrolls by one page, allowing the user to orient himself to the new display. It differs from the line scroll amount, which indicates how far the document view moves.<i> </i>The page scroll amount is the amount <i>common to</i> the content view before and after the document view is scrolled by one page. Thus, setting the page scroll amount to 0.0 implies that the entire visible portion of the document view is replaced when a page scroll occurs.</p>
+<p class="p49"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>pageScroll</b>, <span class="s3">-</span> <b>setLineScroll:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>setRulersVisible:</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setRulersVisible:</b>(BOOL)<i>flag</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Determines whether the receiver displays its rulers. If <i>flag</i> is YES, the receiver displays its rulers (creating them if needed). If <i>flag</i> is NO, the receiver doesn't display its rulers.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>rulersVisible</b>, <span class="s3">-</span> <b>hasHorizontalRuler</b>, <span class="s3">-</span> <b>hasVerticalRuler</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>setScrollsDynamically:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setScrollsDynamically:</b>(BOOL)<i>flag</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Determines whether the receiver redraws its document view while scrolling continuously. If <i>flag</i> is YES it does, if <i>flag</i> is NO it redraws only when the scroller knob is released. NSScrollView scrolls dynamically by default.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>scrollsDynamically</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>setVerticalRulerView:</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setVerticalRulerView:</b>(NSRulerView *)<i>aRulerView</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Sets the receiver's vertical ruler view to <i>aRulerView</i>. You can use this method to override the default ruler class set using the class method <b>setRulerClass:</b>. Display of rulers is controlled using the <b>setRulersVisible:</b> method.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>verticalRulerView:</b>, <span class="s3">-</span> <b>setHasVerticalRuler:</b>, <span class="s3">-</span> <b>setHorizontalRulerView:</b>, <span class="s3">-</span> <b>setRulersVisible:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>setVerticalScroller:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>setVerticalScroller:</b>(NSScroller *)<i>aScroller</i></p>
+<p class="p47"><i></i><br></p>
+<p class="p15">Sets the receiver's vertical scroller to <i>aScroller</i>, establishing the appropriate target-action relationships between them. To make sure the scroller is visible, invoke the <b>setHasVerticalScroller:</b> method with an argument of YES.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>verticalScroller</b>, <span class="s3">-</span> <b>setHorizontalScroller:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>tile</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (void)<b>tile</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Lays out the components of the receiver: the content view, the scrollers, and the ruler views. You rarely need to invoke this method, but subclasses may override it to manage additional components.</p>
+<p class="p25"><br></p>
+<p class="p51"><br></p>
+<p class="p45"><span class="s4">p<span class="Apple-tab-span">	</span></span><b></b><b>verticalRulerView</b></p>
+<p class="p46"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (NSRulerView *)<b>verticalRulerView</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns the receiver's vertical ruler view, whether or not the receiver is currently displaying it, or <b>nil</b> if the receiver has none. If the receiver is set to display a vertical ruler view and doesn't yet have one, this method creates an instance of the ruler view class set using the class method <b>setRulerViewClass:</b>. Display of rulers is controlled using the <b>setRulersVisible:</b> method.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hasVerticalRulerView</b>, <span class="s3">-</span> <b>horizontalRulerView</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p27"><b></b><b>verticalScroller</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p39"><span class="s3">-</span> (NSScroller *)<b>verticalScroller</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p15">Returns the receiver's vertical scroller, whether or not the receiver is currently displaying it, or <b>nil</b> if the receiver has none.</p>
+<p class="p25"><br></p>
+<p class="p42"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hasVerticalScroller</b>, <span class="s3">-</span> <b>setVerticalScroller:</b>, <span class="s3">-</span> <b>horizontalScroller</b></p>
+<p class="p43"><b></b><br></p>
+</body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 50.0px Times; min-height: 61.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 161.0px; font: 28.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 161.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 123.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 123.0px; font: 14.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 123.0px; font: 15.0px Helvetica; min-height: 18.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 123.0px; text-indent: -100.0px; font: 14.0px Times}
+    p.p10 {margin: 0.0px 0.0px 0.0px 123.0px; text-indent: -100.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 123.0px; text-indent: -78.0px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 123.0px; font: 14.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 123.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 123.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 123.0px; text-indent: -100.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 123.0px; text-indent: -100.0px; font: 30.0px Times; min-height: 37.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: 5.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 142.0px; font: 14.0px Times}
+    p.p19 {margin: 0.0px 0.0px 0.0px 142.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 142.0px; font: 30.0px Times; min-height: 37.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 123.0px; text-indent: -100.0px; font: 40.0px Times; min-height: 48.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: 5.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: 5.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 123.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><b>Defined Types</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>NXSoundDeviceError</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/NXSoundDevice.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef enum _NXSoundDeviceError {</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceErrorNone</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceErrorKernel</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceErrorTimeout</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>NX_SoundDeviceErrorLookUp</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceErrorHost</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceErrorNoDevice</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceErrorNotActive</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>NX_SoundDeviceErrorTag</b>,</p>
+<p class="p12"><b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>NX_SoundDeviceErrorParameter</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceErrorMax</b></p>
+<p class="p12">} <b>NXSoundDeviceError</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>Error codes returned by Sound Kit methods that access the sound driver.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>NXSoundParameterTag (Sound Device Keys)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/NXSoundParameterTags.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef enum _NXSoundParameterTag<span class="Apple-converted-space">  </span>{</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceBufferSize,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceBufferCount,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceDetectPeaks,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceRampUp,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceRampDown,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceInsertZeros,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceDeemphasize,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceMuteSpeaker,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceMuteHeadphone,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceMuteLineOut,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceOutputLoudness,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceOutputAttenuationStereo,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceOutputAttenuationLeft,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceOutputAttenuationRight,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceAnalogInputSource,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceMonitorAttenuation,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceInputGainStereo,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceInputGainLeft,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceInputGainRight,</b></p>
+<p class="p12"><span class="Apple-tab-span">	</span>... <i>(continued under the next heading)</i></p>
+<p class="p12">} <b>NXSoundParameterTag</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>Sound parameter key tags that apply to NXSoundDevice objects.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>NXSoundParameterTag (Sound Device Values)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/NXSoundParameterTags.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef enum _NXSoundParameterTag<span class="Apple-converted-space">  </span>{</p>
+<p class="p12"><span class="Apple-tab-span">	</span>... <i>(continued from the previous heading)</i></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceAnalogInputSource_Microphone,</b></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundDeviceAnalogInputSource_LineIn,</b></p>
+<p class="p12"><span class="Apple-tab-span">	</span>... <i>(continued under the next heading)</i></p>
+<p class="p12">} <b>NXSoundParameterTag</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>Sound parameter value tags that apply to NXSoundDevice objects.<span class="Apple-converted-space">  </span>These are acceptable values for the NX_SoundDeviceAnalogInputSource parameter.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>NXSoundParameterTag (Sound Stream Keys)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/NXSoundParameterTags.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef enum _NXSoundParameterTag<span class="Apple-converted-space">  </span>{</p>
+<p class="p12"><span class="Apple-tab-span">	</span>... <i>(continued from the previous heading)</i></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundStreamDataEncoding,</b></p>
+<p class="p12"><b><span class="Apple-converted-space"> <span class="Apple-tab-span">	</span></span>NX_SoundStreamSamplingRate,</b></p>
+<p class="p12"><b><span class="Apple-converted-space"> <span class="Apple-tab-span">	</span></span>NX_SoundStreamChannelCount,</b></p>
+<p class="p12"><b><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamHighWaterMark,</b></p>
+<p class="p12"><b><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamLowWaterMark,</b></p>
+<p class="p12"><b><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamSource,</b></p>
+<p class="p12"><b><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamSink,</b></p>
+<p class="p12"><b><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamDetectPeaks,</b></p>
+<p class="p12"><b><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamGainStereo,</b></p>
+<p class="p12"><b><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamGainLeft,</b></p>
+<p class="p12"><b><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamGainRight,</b></p>
+<p class="p12"><span class="Apple-tab-span">	</span>... <i>(continued under the next heading)</i></p>
+<p class="p12">} <b>NXSoundParameterTag</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>Sound parameter key tags that apply to NXSoundStream objects. <span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>NXSoundParameterTag (Sound Stream Values)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/NXSoundParameterTags.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef enum _NXSoundParameterTag<span class="Apple-converted-space">  </span>{</p>
+<p class="p12"><span class="Apple-tab-span">	</span>... <i>(continued from the previous heading)</i></p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>NX_SoundStreamDataEncoding_Linear16,</b></p>
+<p class="p12"><b><span class="Apple-converted-space"> <span class="Apple-tab-span">	</span></span>NX_SoundStreamDataEncoding_Linear8,</b></p>
+<p class="p12"><span class="Apple-converted-space">    </span><b> <span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamDataEncoding_Mulaw8,</b></p>
+<p class="p12"><span class="Apple-converted-space">    </span><b><span class="Apple-tab-span">	</span>NX_SoundStreamDataEncoding_Alaw8,</b></p>
+<p class="p12"><b><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamDataEncoding_AES,</b></p>
+<p class="p12"><b><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamSource_Analog,</b></p>
+<p class="p12"><b><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamSource_AES,</b></p>
+<p class="p12"><b><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamSink_Analog,</b></p>
+<p class="p12"><b><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>NX_SoundStreamSink_AES</b></p>
+<p class="p12">} <b>NXSoundParameterTag</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>Sound parameter value tags that apply to NXSoundStream objects.<span class="Apple-converted-space">  </span>The first five are values for the NX_SoundStreamDataEncoding parameter; the next two are for the NX_SoundStreamSource parameter; the last two are for the NX_SoundStreamSink parameter.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>NXSoundStatus</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/Sound.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>typedef enum {</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>NX_SoundStopped</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>NX_SoundRecording</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>NX_SoundPlaying</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>NX_SoundInitialized</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>NX_SoundRecordingPaused</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>NX_SoundPlayingPaused</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>NX_SoundRecordingPending</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>NX_SoundPlayingPending</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>NX_SoundFreed</b>,</p>
+<p class="p12">} <b>NXSoundStatus</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>These represent the activities of a Sound object, as returned by Sound's<b> status</b> method.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>SNDCompressionSubheader</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/soundstruct.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef struct {</p>
+<p class="p12"><span class="Apple-tab-span">	</span>int <b>originalSize</b></p>
+<p class="p12"><span class="Apple-tab-span">	</span>int <b>method</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>int <b>numDropped</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>int <b>encodeLength</b>;</p>
+<p class="p12">} <b>SNDCompressionSubheader</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>This structure describes the attributes of a compressed sound.<span class="Apple-converted-space">  </span>It immediately follows the general SNDSoundStruct header.<span class="Apple-converted-space">  </span>If the sound data isn't compressed, this subheader is absent.<span class="Apple-converted-space">  </span>The structure's fields are</p>
+<p class="p15"><br></p>
+<p class="p18">originalSize<span class="Apple-tab-span">	</span>The size of the uncompressed data, in bytes</p>
+<p class="p18">method<span class="Apple-tab-span">	</span>The compression format (see “Compression Formats,” below)</p>
+<p class="p18">numDropped<span class="Apple-tab-span">	</span>The number of dropped bits, if applicable</p>
+<p class="p18">encodeLength<span class="Apple-tab-span">	</span>The number of samples represented by an encoded block</p>
+<p class="p19"><br></p>
+<p class="p20"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>SNDError</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/sounderror.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef enum {</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>SND_ERR_NONE</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_NOT_SOUND</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>SND_ERR_BAD_FORMAT</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_BAD_RATE</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_BAD_CHANNEL</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_BAD_SIZE</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_BAD_FILENAME</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_OPEN</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_WRITE</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_READ</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_ALLOC</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_FREE</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_COPY</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_RESERVE</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_NOT_RESERVED</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_RECORD</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_ALREADY_RECORDING</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_NOT_RECORDING</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_PLAY</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_ALREADY_PLAYING</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_NOT_IMPLEMENTED</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_NOT_PLAYING</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_FIND</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_EDIT</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_BAD_SPACE</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_KERNEL</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_BAD_CONFIGURATION</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_CONFIGURE</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_UNDERRUN</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_ABORTED</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_BAD_TAG</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_ACCESS</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_TIMEOUT</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_BUSY</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_CANNOT_ABORT</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_INFO_TOO_BIG</b>,</p>
+<p class="p12"><b><span class="Apple-tab-span">	</span>SND_ERR_UNKNOWN</b>,</p>
+<p class="p12">} <b>SNDError</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>These are the sound error codes returned by many sound functions.<span class="Apple-converted-space">  </span>The<b> SNDSoundError() </b>function returns a pointer to a string that describes the error given one of these codes as an argument.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>SNDNotificationFun</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/performsound.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef int (*<b>SNDNotificationFun</b>)</p>
+<p class="p12"><span class="Apple-tab-span">	</span>(SNDSoundStruct *<i>s</i>,<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>int <i>tag</i>,<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>int <i>err</i>);</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>This is the notification function required as an argument to methods such as <b>SNDStartPlaying()</b> and <b>SNDStartRecording()</b>.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>SNDSoundStruct</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/performsound.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef struct {</p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>int <b>magic</b>; <span class="Apple-converted-space">     </span></p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>int <b>dataLocation</b>; <span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>int <b>dataSize</b>;<span class="Apple-converted-space">       </span></p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>int <b>dataFormat</b>; <span class="Apple-converted-space">   </span></p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>int <b>samplingRate</b>;<span class="Apple-converted-space">   </span></p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>int <b>channelCount</b>; <span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>char <b>info</b>[4]; <span class="Apple-converted-space">     </span></p>
+<p class="p12">} <b>SNDSoundStruct</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>This structure defines the header for sound data.<span class="Apple-converted-space">  </span>It's thoroughly explained in the description of the<b> SNDAlloc()</b> function.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>snddriver_handlers</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/sounddriver.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef struct snddriver_handlers {</p>
+<p class="p12"><span class="Apple-tab-span">	</span>void *<b>arg</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>int <b>timeout</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>sndreply_tagged_t <b>started</b>;</p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>sndreply_tagged_t <b>completed</b>;</p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>sndreply_tagged_t <b>aborted</b>;</p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>sndreply_tagged_t <b>paused</b>;</p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>sndreply_tagged_t <b>resumed</b>;</p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>sndreply_tagged_t <b>overflow</b>;</p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>sndreply_recorded_data_t <b>recorded_data</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>sndreply_dsp_cond_true_t <b>condition_true</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>sndreply_dsp_msg_t <b>dsp_message</b>;</p>
+<p class="p12"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>sndreply_dsp_msg_t <b>dsp_error</b>;</p>
+<p class="p12"><span class="Apple-converted-space"> </span>} <b>snddriver_handlers_t</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>This structure is required as an argument by the <b>snddriver_reply_handler()</b> function.<span class="Apple-converted-space">  </span>It declares, primarily, a series of call-back functions that are used by the sound driver to communicate with your program.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>sndreply_dsp_cond_true_t</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/sounddriver.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef void (*<b>sndreply_dsp_cond_true_t</b>)</p>
+<p class="p12"><span class="Apple-tab-span">	</span>(void *<i>arg</i>,<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>unsigned int <i>mask</i>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span>unsigned int <i>flags</i>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span>unsigned int <i>regs</i>);</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>Function type used by the sound driver's reply handler.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>sndreply_dsp_msg_t</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/sounddriver.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef void (*<b>sndreply_dsp_msg_t</b>)</p>
+<p class="p12"><span class="Apple-tab-span">	</span>(void *<i>arg</i>,<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>int <i>data,</i></p>
+<p class="p12"><i><span class="Apple-tab-span">	</span></i>int <i>size</i>);</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>Function type used by the sound driver's reply handler.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>sndreply_recorded_data_t</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/sounddriver.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef void (*<b>sndreply_recorded_data_t</b>)</p>
+<p class="p12"><span class="Apple-tab-span">	</span>(void *<i>arg</i>,<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>int <i>tag,</i></p>
+<p class="p12"><i><span class="Apple-tab-span">	</span></i>void <i>*data,</i></p>
+<p class="p12"><span class="Apple-tab-span">	</span>int <i>size</i>);</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>Function type used by the sound driver's reply handler.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>sndreply_tagged_t</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/sounddriver.h</p>
+<p class="p10"><br></p>
+<p class="p11">SYNOPSIS<span class="Apple-tab-span">	</span>typedef void (*<b>sndreply_tagged_t</b>)</p>
+<p class="p12"><span class="Apple-tab-span">	</span>(void *<i>arg</i>,<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>int <i>tag</i>);</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>Function type used by the sound driver's reply handler.</p>
+<p class="p15"><br></p>
+<p class="p21"><br></p>
+<p class="p4"><b>Symbolic Constants</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>ATC Frame Size</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/soundstruct.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>ATC_FRAME_SIZE <span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>This constant represents the size of a single ATC (Audio Transform Compression) frame.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Compression Formats</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/soundstruct.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>SND_CFORMAT_BITS_DROPPED</p>
+<p class="p12">SND_CFORMAT_BIT_FAITHFUL</p>
+<p class="p12">SND_CFORMAT_ATC <span class="Apple-converted-space"> </span></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>These constants represent the three types of sound data compression.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DSP Host Commands</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/sounddriver.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>SNDDRIVER_DSP_HC_HOST_RD</p>
+<p class="p12">SNDDRIVER_DSP_HC_HOST_WD</p>
+<p class="p12">SNDDRIVER_DSP_HC_SYS_CALL <span class="Apple-converted-space"> </span></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>These constants represent the DSP host commands that can be passed as an argument to <b>snddriver_dsp_host_cmd()</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DSP Protocol Options</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/sounddriver.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>SNDDRIVER_DSP_PROTO_DSPERR</p>
+<p class="p12">SNDDRIVER_DSP_PROTO_C_DMA</p>
+<p class="p12">SNDDRIVER_DSP_PROTO_S_DMA<span class="Apple-converted-space"> </span></p>
+<p class="p12">SNDDRIVER_DSP_PROTO_HFABORT</p>
+<p class="p12">SNDDRIVER_DSP_PROTO_DSPMSG<span class="Apple-converted-space"> </span></p>
+<p class="p12">SNDDRIVER_DSP_PROTO_RAW<span class="Apple-converted-space">   </span></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>These constants represent the DSP protocols that can be passed as an argument to <b>snddriver_dsp_protocol()</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Executable File Segment Name</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/Sound.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>NX_SOUND_SEGMENT_NAME</p>
+<p class="p22"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>This represents the segment of an executable file in which sounds are stored.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Null Notification Function</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/performsound.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>SND_NULL_FUN</p>
+<p class="p22"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>Used to pass a null <b>SNDNotificationFun()</b> function as an argument to functions such as <b>SNDStartPlaying()</b> and <b>SNDStartRecording()</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Sampling Rates</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/soundstruct.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>Code<span class="Apple-tab-span">	</span>Rate</p>
+<p class="p23"><b></b><br></p>
+<p class="p12">SND_RATE_CODEC <span class="Apple-tab-span">	</span>8012.8210513 Hz</p>
+<p class="p12">SND_RATE_LOW<span class="Apple-tab-span">	</span>22050.0 Hz</p>
+<p class="p12">SND_RATE_HIGH<span class="Apple-tab-span">	</span>44100.0 Hz</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>These constants represent the three sampling rates that are directly supported by the sound software and hardware.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Sound Device Access Codes</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/accesssound.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>Code<span class="Apple-tab-span">	</span>Device</p>
+<p class="p23"><b></b><br></p>
+<p class="p12">SND_ACCESS_IN<b> </b><span class="Apple-tab-span">	</span>Sound-in</p>
+<p class="p12">SND_ACCESS_DSP<span class="Apple-tab-span">	</span>DSP</p>
+<p class="p12">SND_ACCESS_OUT<span class="Apple-tab-span">	</span>Sound-out</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>Used by the sound device access methods, such as <b>SNDAcquire()</b> and <b>SNDReserve()</b>, to represent specific devices.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Sound Device Timeout Limit</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/NXSoundDevice.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>NX_SOUNDDEVICE_TIMEOUT_MAX<span class="Apple-tab-span">	</span></p>
+<p class="p22"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>The default timeout limit for communication with the sound driver.<span class="Apple-converted-space">  </span>The value is, essentially, infinity.<span class="Apple-converted-space">  </span>You can reset the timeout limit through NXSoundDriver's <b>setTimeout:</b> method.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Sound Device Error Code Limits</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/NXSoundDevice.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>NX_SOUNDDEVICE_ERROR_MIN</p>
+<p class="p12">NX_SOUNDDEVICE_ERROR_MAX<span class="Apple-converted-space"> </span></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>The minimum and maximum NXSoundDeviceError values.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Sound Parameter Tag Bases</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/NXSoundParameterTags.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>NX_SoundDeviceParameterKeyBase</p>
+<p class="p12">NX_SoundDeviceParameterValueBase</p>
+<p class="p12">NX_SoundStreamParameterKeyBase</p>
+<p class="p12">NX_SoundStreamParameterValueBase</p>
+<p class="p12">NX_SoundParameterTagMax</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>Lowest tag values for the four sets of parameter tags.<span class="Apple-converted-space">  </span>The parameter tag values start at 0; NX_SoundParmaeterTagMax is the highest parameter tag value reserved by the Sound Kit.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Sound Stream Control Codes</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/sounddriver.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>SNDDRIVER_AWAIT_STREAM<span class="Apple-converted-space"> </span></p>
+<p class="p12">SNDDRIVER_ABORT_STREAM</p>
+<p class="p12">SNDDRIVER_PAUSE_STREAM<span class="Apple-converted-space"> </span></p>
+<p class="p12">SNDDRIVER_RESUME_STREAM</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>These constants represent the controlling operations that are specified as an argument to <b>snddriver_stream_control()</b>.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Sound Stream Null Time</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/NXSoundStream.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>NX_SOUNDSTREAM_TIME_NULL</p>
+<p class="p22"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>Provides a <b>timeval</b> value (as defined in <b>sys/time.h</b>) that indicates the present time.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Sound Stream Path Codes</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/sounddriver.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>SNDDRIVER_STREAM_FROM_SNDIN<span class="Apple-converted-space"> </span></p>
+<p class="p12">SNDDRIVER_STREAM_TO_SNDOUT_22</p>
+<p class="p12">SNDDRIVER_STREAM_TO_SNDOUT_44<span class="Apple-converted-space"> </span></p>
+<p class="p12">SNDDRIVER_STREAM_FROM_DSP</p>
+<p class="p12">SNDDRIVER_STREAM_TO_DSP</p>
+<p class="p12">SNDDRIVER_STREAM_DSP_TO_SNDOUT_22<span class="Apple-converted-space"> </span></p>
+<p class="p12">SNDDRIVER_STREAM_DSP_TO_SNDOUT_44</p>
+<p class="p12">SNDDRIVER_STREAM_THROUGH_DSP_TO_SNDOUT_22</p>
+<p class="p12">SNDDRIVER_STREAM_THROUGH_DSP_TO_SNDOUT_44</p>
+<p class="p12">SNDDRIVER_DMA_STREAM_TO_DSP</p>
+<p class="p12">SNDDRIVER_DMA_STREAM_FROM_DSP</p>
+<p class="p12">SNDDRIVER_DMA_STREAM_THROUGH_DSP_TO_SNDOUT_22</p>
+<p class="p12">SNDDRIVER_DMA_STREAM_THROUGH_DSP_TO_SNDOUT_44<span class="Apple-converted-space"> </span></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>These constants represent the sound stream paths that can be specified as an argument to the <b>snddriver_stream_setup()</b> function.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Sound Structure Formats</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/soundstruct.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>SND_FORMAT_UNSPECIFIED<span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_MULAW_8</p>
+<p class="p12">SND_FORMAT_LINEAR_8<span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_LINEAR_16<span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_LINEAR_24<span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_LINEAR_32<span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_FLOAT</p>
+<p class="p12">SND_FORMAT_DOUBLE<span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_INDIRECT<span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_DSP_CORE<span class="Apple-converted-space">   </span></p>
+<p class="p12">SND_FORMAT_DSP_DATA_8 <span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_DSP_DATA_16<span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_DSP_DATA_24<span class="Apple-converted-space">   </span></p>
+<p class="p12">SND_FORMAT_DSP_DATA_32 <span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_DISPLAY<span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_MULAW_SQUELCH <span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_EMPHASIZED</p>
+<p class="p12">SND_FORMAT_COMPRESSED <span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_COMPRESSED_EMPHASIZED<span class="Apple-converted-space"> </span></p>
+<p class="p12">SND_FORMAT_DSP_COMMANDS<span class="Apple-converted-space"> </span></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>These constants represent the various sound formats in which sound data can be stored.<span class="Apple-converted-space">  </span>Note that not all formats are playable without conversion.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Sound Structure Magic Number</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>sound/soundstruct.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>SND_MAGIC</p>
+<p class="p22"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>This constant is used to identify a sound structure.<span class="Apple-converted-space">  </span>It's the value of the <b>magic</b> field of all valid SNDSoundStruct structures.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>SoundView Display Modes</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/SoundView.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>NX_SOUNDVIEW_MINMAX</p>
+<p class="p12">NX_SOUNDVIEW_WAVE</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>These constants represent the two display modes offered by the SoundView class.<span class="Apple-converted-space">  </span>See the SoundView class specification for details.</p>
+<p class="p15"><br></p>
+<p class="p21"><br></p>
+<p class="p4"><b>Global Variables</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>NXSoundPboardType</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/Sound.h</p>
+<p class="p10"><br></p>
+<p class="p17">SYNOPSIS<span class="Apple-tab-span">	</span>extern NXAtom <b>NXSoundPboardType</b>;</p>
+<p class="p22"><br></p>
+<p class="p9">DESCRIPTION<span class="Apple-tab-span">	</span>This is the sound pasteboard type.</p>
+<p class="p15"><br></p>
+<p class="p24"><br></p>
+<p class="p14"><br></p>
+</body>
+</html>

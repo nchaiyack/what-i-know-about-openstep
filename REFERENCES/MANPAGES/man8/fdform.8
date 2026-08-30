@@ -1,0 +1,43 @@
+.TH FDFORM 8 "August 14, 1990" "NeXT Computer, Inc."
+.SH NAME
+fdform \- Format Floppy Disk
+.SH SYNOPSIS
+.B fdform raw_device
+[
+\fBb=\fRblocksize ] [
+\fBd=\fRdensity ] [
+\fBg=\fRgap3_length ]
+.SH DESCRIPTION
+.I fdform
+performs a full surface disk format on a floppy disk. 
+.I fdform
+is not used for SCSI floppy disks; these must be formatted with \fIsdform\fR(8).  
+.I fdform
+is normally invoked by the \fIdisk\fR(8) program when initializing a new floppy disk; however, it may be used to re-initialize a damaged floppy. 
+.I fdform
+should be used with extreme caution; all data on the disk being formatted is lost. 
+.PP
+The floppy disk is formatted one track at a time; each track is read after it is formatted.  Any error on the read operation results in 
+.I fdform
+aborting the format operation.
+.SH OPTIONS
+.TP
+\fBb=\fIblocksize\fR
+.I blocksize 
+is in bytes; it must be either 512 or 1024.  The default is 512.
+.TP
+\fBd=\fIdensity\fR
+.I density 
+is the capacity of the disk in KBytes; legal values are 720, 1440, and 2880.  The default value is the value intended to be used with the floppy disk being formatted; the \fIfd\fR(4) driver can determine this value.  Specifying a density larger than 
+the disk's capacity is an error.  Specifying a capacity smaller than the disk's capacity is legal but is not recommended.
+.TP
+\fBg=\fIgap3_length\fR
+.I gap3_length 
+is the length of the write splice at the end of each sector, in bytes.  The default is a value chosen by the \fIfd\fR(4) driver for a particular sector size and density.
+.TP
+\fBn=\fInum_cylinders\fR
+.I num_cylinders 
+specifies the number of cylinders to format.  The default is the entire disk.
+.SH "SEE ALSO"
+fd(4), disk(8) 
+.SH BUGS

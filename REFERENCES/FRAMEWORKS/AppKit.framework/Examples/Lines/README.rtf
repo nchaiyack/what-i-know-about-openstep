@@ -1,0 +1,38 @@
+{\rtf0\ansi{\fonttbl\f0\fswiss Helvetica;\f1\fmodern Courier;}
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\ql\qnatural
+
+\f0\b\fs36 \cf0 Lines
+\b0\fs24 \
+By Ali Ozer\
+Updated for 2.0 by Jayson Adams\
+Updated for 3.0 by Ali Ozer\
+Converted to OPENSTEP (for 4.2) by Trey Matteson\
+\
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\ql\qnatural
+
+\b \cf0 Overview\
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\ql\qnatural
+
+\b0 \cf0 \
+Lines draws a number of connected lines whose endpoints bounce around randomly within a view.  The slider regulates the number of endpoints (you can select from 2 to 20).  Lines uses PostScript user paths to speed its drawing. Note that Lines isn't the best example of how to write a fast animation program in OpenStep; it simply shows off the use of user paths and some techniques for speeding up drawing.\
+\
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\ql\qnatural
+
+\b \cf0 Theory of Operation\
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\ql\qnatural
+
+\b0 \cf0 \
+The LinesView maintains an array of points and their velocities.  When you press the ªGoº button, the LinesView starts an NSTimer which calls the 
+\f1 animate:
+\f0  method as fast as possible.  The 
+\f1 animate:
+\f0  method repeatedly takes each point and moves it according to its velocity (changing its velocity if it hits a side).  It then uses PostScript user paths (via a UserPath object;  see below) to draw lines between the points.\
+\
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\ql\qnatural
+
+\b \cf0 UserPaths Made Simpler\
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\ql\qnatural
+
+\b0 \cf0 \
+The code in UserPath.[hm] makes user paths easier to use.  Instead of having to allocate space for the points and operators, maintain the bounding box, etc., you create a UserPath, add points to it, and send it to the window server.  The UserPath methods construct the userpath, allocate more memory for a UserPath based on how many points you've asked it to contain, adjust the bounding box to encompass all points, etc. \
+}

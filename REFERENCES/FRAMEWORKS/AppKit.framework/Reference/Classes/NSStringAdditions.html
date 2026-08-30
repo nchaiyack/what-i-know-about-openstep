@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.2px; text-indent: -37.9px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.2px; text-indent: -37.9px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 35.0px Times; min-height: 42.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 75.6px; text-indent: -25.1px; font: 14.0px Helvetica}
+    p.p18 {margin: 0.0px 0.0px 0.0px 75.6px; text-indent: -25.1px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.5px Helvetica}
+    span.s3 {font: 14.0px Times}
+    span.s4 {font: 12.0px Helvetica}
+    span.s5 {font: 14.0px Symbol}
+    span.s6 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">p<span class="Apple-tab-span">	</span></span><b>NSString Additions</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s3">NSObject</span></p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSStringDrawing.h</p>
+<p class="p8"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Class Description</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">The Application Kit adds three methods to support drawing string objects directly in an NSView. These methods, <b>drawAtPoint:withAttributes:</b>, <b>drawInRect:withAttributes:</b>, and <b>sizeWithAttributes:</b>, parallel similar methods defined by NSAttributedString methods. The <b>draw...</b> methods draw a string object with a single set of attributes that apply to the entire string. To draw a string using multiple fonts and other attributes, you must use an NSAttributedString.</p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p9"><b>Method Types</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p14">Drawing an NSString<span class="Apple-tab-span">	</span><span class="s5">-</span> drawAtPoint:withAttributes:</p>
+<p class="p15"><span class="s5">-</span> drawInRect:withAttributes:</p>
+<p class="p15"><span class="s5">-</span> sizeWithAttributes:</p>
+<p class="p16"><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p17"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>drawAtPoint:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><span class="s5">-</span> (void)<b>drawAtPoint:</b>(NSPoint)<i>aPoint</i> <b>withAttributes:</b>(NSDictionary *)<i>attributes</i></p>
+<p class="p20"><i></i><br></p>
+<p class="p11">Draws the receiver with the font and other display attributes of <i>attributes</i>, at <i>aPoint</i> in the currently focused NSView. Don't invoke this method while no NSView is focused.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p21"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>lockFocus</b> (NSView)</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p17"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>drawInRect:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><span class="s5">-</span> (void)<b>drawInRect:</b>(NSRect)<i>aRect</i> <b>withAttributes:</b>(NSDictionary *)<i>attributes</i></p>
+<p class="p20"><i></i><br></p>
+<p class="p11">Draws the receiver with the font and other display attributes of <i>attributes</i>, within <i>aRect</i> in the currently focused NSView. Don't invoke this method while no NSView is focused.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p21"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>lockFocus</b> (NSView)</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p17"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>size</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><span class="s5">-</span> (NSSize)<b>sizeWithAttributes:</b>(NSDictionary *)<i>attributes</i></p>
+<p class="p20"><i></i><br></p>
+<p class="p11">Returns the bounding box size that the receiver occupies when drawn with <i>attributes</i>.</p>
+<p class="p12"><br></p>
+<p class="p24"><span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+</body>
+</html>

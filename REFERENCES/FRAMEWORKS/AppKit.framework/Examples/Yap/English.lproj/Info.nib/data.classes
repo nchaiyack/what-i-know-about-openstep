@@ -1,0 +1,2 @@
+"Controller" = {OUTLETS = (infoPanel, versionField); SUPERCLASS = NSObject; };
+"FirstResponder" = {CATEGORY = LocalActions; };

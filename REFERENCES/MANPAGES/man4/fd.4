@@ -1,0 +1,320 @@
+.TH FD 4 "August 30, 1990" "NeXT Computer, Inc."
+.SH NAME
+fd \- Floppy disk device driver
+.SH SYNOPSIS
+device_name as fd[0-7] at fc0
+.SH DESCRIPTION
+This driver allows access to a number of Sony MPX-111N floppy disk drives.
+The driver has both block and character oriented interfaces.
+The form of the block device is
+.RS
+.nf
+.sp
+/dev/fd<unit>a
+.sp
+.fi
+.RE
+where <unit> is a digit from 0 to 7,
+and the ``a'' indicates the ``a'' partition.
+The floppy device only has one partition per disk.
+For example,
+/dev/fd1a refers to
+unit 1.
+Similarly,
+a character device is accessed by
+.RS
+.nf
+.sp
+/dev/rfd<unit><partition>
+.sp
+.fi
+.RE
+.PP 
+where <partition> is either ``a'' or ``b.''
+Partition b of the character device,
+such as fd0b,
+is a special device called the
+.IR "live partition" .
+I/O to/from the live partition is used to access disks
+that do not have a valid label,
+and to access portions of disks
+normally inaccessible to the read() and write() calls
+\(em for example,
+the front porch.
+(Reading and writing the ``a'' partition
+of the character or block device
+requires a valid label on the disk.)
+I/O using the live partition has the following restrictions:
+.IP \(bu 3
+Reads and writes must start on a sector boundary.
+.IP \(bu 3
+The length of
+.BR read s
+and
+.BR write s
+must be an integral multiple of the sector size.
+.SH
+Multiple Disk Format Support
+.PP
+The fd driver is capable of dealing with disks of 3 capacities:
+720 KByte,
+1.4 MByte,
+and 2.8 MByte
+(all sizes formatted).
+The driver determines the capacity of a disk
+when it is inserted (or at boot time)
+by attempting to read headers and data at all densities
+until headers and data are read successfully.
+The sector size of the disk is also determined in this manner;
+legal sector sizes are 512 and 1024 bytes per sector.
+The capacity of a disk,
+along with other format parameters,
+can be determined at the user level
+by executing a FDIOCGFORM ioctl (see below).
+.SH
+Multiple Volume Support (M68K only)
+.PP
+The fd driver supports drives with removable media;
+therefore,
+in a manner 
+similar to the sd(4) and od(4) drivers,
+the devices in /dev/*fd* 
+refer to volumes,
+not to drives.
+One physical drive can have multiple volumes
+associated with it any any given time.
+Each drive has associated 
+with it at most one volume at boot time
+\(em
+drive 0 is associated with volume 0 (/dev/rfd0? and /dev/fd0a)
+if a disk is present at boot time, 
+drive 1 with volume 1, etc.
+Henceforth,
+volumes can be assigned to a drive
+if one of the following occurs:
+.IP \(bu 3
+A DKIOCEJECT ioctl is executed on a volume,
+but the device remains open.
+Then a new volume (removable disk) is inserted in the empty drive.
+This new disk will be assigned to the next available volume number,
+and will henceforth be associated with this drive.
+.IP \(bu 3
+An open() call is executed on a volume not currently assigned to a drive.
+(See the DKIOCFREEVOL ioctl, below.)
+.PP
+In both of these cases,
+the following occurs when an I/O is attempted on a volume
+not currently present in a drive:
+.IP 1. 3
+The volume currently present in the desired drive is ejected.
+(If any references still remain to this device,
+the volume will be ``remembered,''
+and will not be reassigned;
+otherwise the volume information is discarded,
+and the volume may be reassigned at a later time.)
+.IP 2. 3
+An alert panel is displayed,
+asking for the desired volume (by name, if known).
+.IP 3. 3
+The user takes one of two actions:
+.RS
+.IP \(bu 3 
+The desired volume is inserted;
+the alert panel is then removed.
+.IP \(bu 3 
+The user clicks on the ``Cancel'' button in the alert panel.
+This causes the I/O to the missing volume to be aborted
+with a status of ENODEV.
+.RE
+.PP
+Another feature of removable media support
+is automatic mounting of newly inserted volumes.
+If a disk is inserted in an empty drive, 
+the disk will be mounted if it has a valid label
+and is in a consistent (``clean'') state.
+If it does not have a valid label,
+or has a file system in an inconsistent state,
+the user will be asked by the Workspace Manager 
+(via an alert panel)
+if he/she wants to initialize it
+(or repair it, if ``unclean'').
+Answering in the affirmative
+ultimately results in the disk being mounted in the root directory.
+.PP
+The following operations are allowed by the Floppy disk driver:
+.TP
+open()
+See open(2).
+.TP
+close() 
+See close(2).
+.TP
+read()
+See read(2).
+.TP
+write()
+See write(2).
+.TP	 
+strategy()
+This is the standard block device entry point
+used by the UNIX file system,
+and is only valid for a block disk device.
+.TP	 	 
+ioctl()
+The general form of an ioctl() call is 
+.RS
+.nf
+ioctl(int d, u_int request, char *argp)
+.fi
+.RE
+.PP
+The following ioctl requests are currently defined
+(see /NextDeveloper/Headers/bsd/dev/disk.h
+and 
+/NextDeveloper/Headers/bsd/dev/fd_extern.h):
+.TP	
+DKIOCGLABEL
+Get disk label;
+argp points to a pointer to a struct disk_label
+(see /NextDeveloper/Headers/bsd/dev/disk.h).
+Copies the label of the current disk into user address space.
+.TP
+DKIOCSLABEL
+Write disk label;
+argp points to a pointer to a struct disk_label.
+(Must be superuser to execute this call.)
+.TP
+DKIOCINFO
+Get drive info;
+argp points to a struct drive_info
+(see
+/NextDeveloper/Headers/bsd/dev/disk.h).
+.TP
+FDIOCGFORM
+Get disk format parameters;
+argp points to a struct fd_format_info
+(see /NextDeveloper/Headers/bsd/dev/fd_extern.h).
+.TP
+DKIOCEJECT
+Eject the disk.
+Only valid for drives with removable media.
+See ``Multiple Volume Support.''
+.TP
+FDIOCSDENS
+Set disk density;
+argp points to an int,
+with legal values of *argp being as follows:
+.sp
+.KS
+.TS 
+l l l l .
+.B
+value	unformatted capacity	formatted capacity
+FD_DENS_NONE	unformatted	0 
+FD_DENS_1	1 MByte	720 KBytes
+FD_DENS_2	2 MByte	1.4 MBytes
+FD_DENS_4	4 MByte	2.8 MBytes
+.TE
+.KE
+.PP
+These constants are defined in
+/NextDeveloper/Headers/bsd/dev/fd_extern.h.
+.TP
+FDIOCSSIZE
+Set Sector size (in bytes);
+argp points to an int,
+with legal values being 512 and 1024.
+.TP
+FDIOCSGAPL
+Set Gap3 length (in bytes);
+argp points to an int.
+Gap3 is the length of the write splice at the end of a sector.
+.TP
+FDIOCSIRETRY
+Set inner_retry_count;
+argp points to an int.
+Upon detection of a media error, 
+the fd driver will attempt inner_retry_count retries;
+if these fail,
+a recalibrate is performed
+and another inner_retry_count retries attempted.
+This loop (inner_retry_count attempts followed by a recalibrate) 
+will be repeated up to outer_retry_count times.
+If none of the retries succeed,
+the I/O is aborted.
+.TP
+FDIOCGIRETRY
+Get inner_retry_count;
+argp points to an int.
+.TP
+FDIOCSOETRY
+Get outer_retry_count;
+argp points to an int.
+.TP
+FDIOCGORETRY
+Get outer_retry_count;
+argp points to an int.
+.TP
+DKIOCGFREEVOL
+Get the number of the next free volume;
+argp points to an int.
+This ioctl is 
+normally executed on the Floppy Disk Controller device,
+/dev/fdc0.
+It is used when
+an application wants to determine the volume number
+not currently in use.
+if this ioctl returns a value of 3,
+for example,
+a subsequent open of /dev/rfd3a
+will result in an alert panel
+requesting a new disk for volume 3.
+.TP
+FDIOCREQ
+Execute an arbitrary command
+on the Intel 82077 Floppy Disk Controller 
+using the fd_ioreq mechanism.
+(You must be superuser to execute this call.)
+.PP				
+For FDIOCREQ,
+argp points to a struct fd_ioreq,
+which is defined in
+/NextDeveloper/Headers/bsd/dev/fd_extern.h,
+as are all other constants used with this mechanism.
+This struct contains
+both the input to the fd driver
+required for execution of a command
+as well as the status block upon return.
+The following status is provided:
+.TP			    
+fd_ioreq.status
+Indicates success, I/O timeout, Media Error, DMA overrun, etc.
+.TP
+fd_ioreq.cmd_bytes_xfr
+Number of command bytes actually
+transferred to the 82077.
+.TP
+fd_ioreq.bytes_xfr
+Number of data bytes actually
+transferred via the 82077.
+.TP
+fd_ioreq.stat_bytes_xfr
+Number of status bytes actually
+transferred from the 82077.
+.TP
+fd_ioreq.drive_stat
+This is a struct fd_drive_stat.
+It contains Media ID,
+Write protect status,
+the state of the motor,
+and a bit indicating the presence of the drive.
+.SH FILES
+.nf
+/NextDeveloper/Headers/bsd/dev/fd_extern.h
+/NextDeveloper/Headers/bsd/dev/disk.h
+/dev/rfd??
+/dev/fd?a
+/dev/fdc0
+.fi
+.SH "SEE ALSO"
+open(2), read(2), write(2), ioctl(2), close(2)

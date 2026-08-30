@@ -1,0 +1,240 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 „
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\f2\b\fs52\li1500{\NeXTHelpMarker62 \markername NS_DEV_DOCFOR:objc_protocol:NSDraggingSource;}
+¨}\f2\b\i0\ulnone\ql\fs52\fi0\li1500\gray0\fc0\cf0\up0\dn0 NSDraggingSource\
+
+\fs28\fi-20\li1520 (informal protocol)\
+
+\fs20 \
+
+\pard\tx4220\fs24\fi-2740\li4220\fc0\cf0 Category Of:	
+\f0\b0\fs28 NSObject\
+
+\fs20 \
+
+\f2\b\fs24 Declared In:	
+\f0\b0\fs28 AppKit/NSDragging.h\
+
+\fs20 \
+
+\fs50 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 The NSDraggingSource informal protocol declares methods that are implemented by the source object in a dragging session (see the NSDraggingDestination protocol for definitions of dragging terms). The 
+\i dragging source 
+\i0 is specified as an argument to the 
+\b dragImage:at:offset:event:pasteboard:source:slideBack: 
+\b0 message, sent to a window or view object to initiate the dragging session. \
+
+\fs14 \
+
+\fs28 See the documentation of the 
+\b dragImage:...
+\b0  method in NSView for a warning regarding the mouse-down event that initiates a dragging session.\
+
+\fs14 \
+
+\fs28 Of the methods declared below, only 
+\b draggingSourceOperationMaskForLocal:
+\b0  must be implemented. The other methods are invoked only if the dragging source implements them. All four methods are invoked automatically during a dragging session–you never send an NSDraggingSource message directly to an object.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Specifying dragging options	
+\f1 -
+\f0  draggingSourceOperationMaskForLocal:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  ignoreModifierKeysWhileDragging\
+\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Responding to dragging sessions	
+\f1 -
+\f0  draggedImage:beganAt:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  draggedImage:endedAt:deposited:\
+\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker1229 \markername NS_DEV_DOCFOR:objc_method:[NSDraggingSource-draggedImage:beganAt:];}
+¨}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 draggedImage:beganAt:\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0  (void)
+\b draggedImage:
+\b0 (NSImage *)
+\i aInimage
+\b\i0  beganAt:
+\b0 (NSPoint)
+\i aPoint\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invoked when 
+\i anImage
+\i0  is displayed but before it starts following the mouse. 
+\i aPoint
+\i0  is the origin of the image in screen coordinates. This method provides the source object with an opportunity to respond to the initiation of a dragging session. For example, you might choose to have the source give a visual indication to the user that data is being dragged from the source.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 ÄconvertScreenToBase:Ä(NSWindow), 
+\f1 -
+\f0  convertBaseToScreen:Ä(NSWindow), 
+\f1 -
+\f0 ÄconvertPoint:fromView:Ä(NSView), 
+\f1 -
+\f0  convertPoint:toView:Ä(NSView)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker1843 \markername NS_DEV_DOCFOR:objc_method:[NSDraggingSource-draggedImage:endedAt:deposited:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 draggedImage:endedAt:deposited:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b draggedImage:
+\b0 (NSImage *)
+\i anImage
+\b\i0  \
+
+\fi0 endedAt:
+\b0 (NSPoint)
+\i aPoint\
+
+\b\i0 deposited:
+\b0 (BOOL)
+\i flag\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invoked after 
+\i anImage
+\i0  has been released and the dragging destination has been given a chance to operate on the data it represents. 
+\i aPoint
+\i0  is the location of the image's origin in the screen coordinate system when it was released. A YES value for 
+\i flag
+\i0  indicates that the destination accepted the dragged data, while a NO value indicates that it was rejected.\
+
+\fs14 \
+
+\fs28 This method provides the source object with an opportunity to respond to either a successful or a failed dragging session. For example, if you are moving data from one location to another, you could use this method to make the source data disappear from its previous location, if the dragging session is successsful, or reset itself to its previous state, in the event of a failure.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 ÄconvertScreenToBase:Ä(NSWindow), 
+\f1 -
+\f0  convertBaseToScreen:Ä(NSWindow), 
+\f1 -
+\f0 ÄconvertPoint:fromView:Ä(NSView), 
+\f1 -
+\f0  convertPoint:toView:Ä(NSView)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker2856 \markername NS_DEV_DOCFOR:objc_method:[NSDraggingSource-draggingSourceOperationMaskForLocal:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 draggingSourceOperationMaskForLocal:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (unsigned int)
+\b draggingSourceOperationMaskForLocal:
+\b0 (BOOL)
+\i flag\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 This is the only NSDraggingSource method that must be implemented by the source object. It should return a mask, built by combining the applicable constants listed below using the C bitwise OR operator. You should use this mask to indicate which types of dragging operations the source object will allow to be performed on the dragged image's data. A YES value for
+\i  flag
+\i0  indicates that the candidate destination object (the window or view over which the dragged image is currently poised) is in the same application as the source, while a NO value indicates that the destination object is in a different application.\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f2\b\fs28\li1900\fc0\cf0 Option	Meaning\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 NSDragOperationCopy	The data represented by the image can be copied.\
+
+\fs14 \
+
+\fs28 NSDragOperationLink	The data can be shared.\
+
+\fs14 \
+
+\fs28 NSDragOperationGeneric	The operation can be defined by the destination.\
+
+\fs14 \
+
+\fs28 NSDragOperationPrivate	The operation is negotiated privately between the source and the destination.\
+
+\fs14 \
+
+\fs28 NSDragOperationAll	Combines all the above.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If the source does not permit any dragging operations, then it should return NSDragOperationNone.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker4026 \markername NS_DEV_DOCFOR:objc_method:[NSDraggingSource-ignoreModifierKeysWhileDragging];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 ignoreModifierKeysWhileDragging\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b ignoreModifierKeysWhileDragging\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Sets whether the use of the modifier keys should have no effect on the type of operation performed. If this method is not implemented or returns NO, then the user can tailor the drag operation by holding down a modifier key during the drag. The dragging option that corresponds to the modifier key is combined with the source's mask (as set with the 
+\b draggingSourceOperationMaskForLocal:
+\b0  method) using the C bitwise AND operator. See the description for the 
+\b draggingSourceOperationMask
+\b0  method in the NSDraggingInfo protocol specification for more information about dragging masks and modifier keys.\
+
+\fs14 \
+
+}

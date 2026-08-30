@@ -1,0 +1,53 @@
+.TH GETSECTBYNAME 3  "March 1, 1989" "NeXT Computer, Inc."
+.SH NAME
+getsectbyname, getsectdata \- get the section information for the named section
+.SH SYNOPSIS
+.nf
+\fB#include <ldsyms.h>\fR
+\fB#include <sys/loader.h>\fR
+.PP
+const struct section *\fBgetsectbynamefromheader\fR(struct mach_header *\fImhp\fR, char *\fIsegname\fR, char *\fIsectname\fR)
+const struct section *\fBgetsectbyname\fR(char *\fIsegname\fR, char *\fIsectname\fR);
+void *\fBgetsectdatafromheader\fR(struct mach_header *\fImhp\fR, char *\fIsegname\fR, char *\fIsectname\fR, int *\fIsize\fR)
+void *\fBgetsectdata\fR(char *\fIsegname\fR, char *\fIsectname\fR, int *\fIsize\fR);
+void *\fBgetsectdatafromlib\fR(char *\fIlibname\fR, char *\fIsegname\fR, char *\fIsectname\fR, int *\fIsize\fR)
+.fi
+.SH DESCRIPTION
+.I Getsectbynamefromheader
+returns the section structure for the named section in the named segment if it
+exists in the Mach-O (Mach object) executable for the specified Mach header
+.IR getsectbynamefromheader (3)
+is linked into.  Otherwise it returns NULL.  The Mach header can either be
+the link editor defined symbol _mh_execute_header or the header address of
+a Mach fixed virtual memory shared library.
+This routine just looks through the load commands that follow the header to
+find the specified section.  Since the headers are mapped into the text segment
+they are read only and thus
+.I const.
+.PP
+.I Getsectbyname
+is the same as 
+.I getsectbynamefromheader
+with its first argument being the link editor defined symbol _mh_execute_header.
+.PP
+.I Getsectdatafromheader
+returns a pointer to the data for the named section in the
+named segment if it exists in the Mach-O executable for the specified Mach
+header it is linked into.  Also
+it returns the size of the section data indirectly through the pointer size.
+Otherwise it returns NULL for the pointer and zero for the size.
+.PP
+.I Getsectdata
+is the same as 
+.I getsectdatafromheader
+with its first argument being the link editor defined symbol _mh_execute_header.
+.PP
+.I Getsectdatafromlib
+is the same as 
+.I getsectdatafromheader
+with its first argument being the name of a shared library
+(for example: ``libNeXT_s'' for /usr/shlib/libNeXT_s.A.shlib) to get the section
+data from.  If that shared library isn't used in the executable then it
+returns NULL for the pointer and zero for the size.
+.SH "SEE ALSO"
+end(3), getsegbyname(3), getmachheaders(3)

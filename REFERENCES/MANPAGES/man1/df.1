@@ -1,0 +1,75 @@
+.\" @(#)df.1	1.1 87/07/28 3.2/4.3 NFSSRC
+.\"
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)df.1	6.1 (Berkeley) 4/29/85
+.\"
+.TH DF 1 "April 29, 1985"
+.UC 4
+.SH NAME
+df \- report free disk space on file systems
+.SH SYNOPSIS
+.B df
+[
+.B \-i
+] [ filesystem ... ] [ file ... ]
+[
+.B \-t \fItype\fR
+] [ \fIfilesystem\fR .\|.\|. ] [ \fIfilename\fR .\|.\|. ]
+.SH DESCRIPTION
+.IX "df command"  ""  "\fLdf\fP \(em display free space"
+.IX "file system"  "free space display"
+.IX "file system"  "display free space"
+.IX display  "free space in file system"
+.I df
+displays the amount of disk space occupied by currently mounted file systems,
+the amount of used and available space,
+and how much of the file system's total capacity has been used.
+Used without arguments, \fIdf\fP reports on all mounted file systems, 
+producing something like:
+.sp .5v
+.RS
+.nf
+.DT
+tutorial% \fBdf\fP
+.ta \w'Filesystem'u+2n +\w'kbytes'u+2n +\w'used'u+2n +\w'avail'u+2n +\w'capacity'u+2n
+Filesystem	kbytes	used	avail	capacity	Mounted on
+/dev/ip0a	 7445	 4714	1986	70%		/
+/dev/ip0g	42277	35291	2758	93%		/usr
+.fi
+.RE
+.sp .5v
+.LP
+Note that used+avail is less than the amount of space in the file system
+(kbytes); this is because the system reserves a fraction of the space
+in the file system to allow its file system allocation routines to work well.
+The amount reserved is typically about 10%; this may be adjusted using
+.IR tunefs .
+When all the space on a file system except for this reserve is
+in use, only the super-user can allocate new files and data blocks
+to existing files.  When a file system is overallocated in this way,
+.I df
+may report that the file system is more than 100% utilized.
+.LP
+If arguments to \fIdf\fP are disk partitions (for example, \fI/dev/ip0a\fP\|)
+or UNIX path names, \fIdf\fP produces a report on the
+file system containing the named file. Thus "df ."
+shows the amount of space on the file system containing the current
+directory.
+.SH OPTIONS
+.TP
+.B \-i
+Also report the number of inodes which are used and free.
+This option is only meaningful for local file systems, since the NFS
+protocol does not support it.
+.TP
+.B \-t \fItype\fR
+Report on filesystems of a given
+.I type
+(for example, nfs or 4.2).
+.SH FILES
+/etc/mtab	list of currently mounted filesystems
+.SH "SEE ALSO"
+du(1V), mtab(5), quot(8), tunefs(8)

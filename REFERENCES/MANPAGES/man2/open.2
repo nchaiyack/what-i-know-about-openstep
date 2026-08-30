@@ -1,0 +1,326 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)open.2	6.4 (Berkeley) 5/14/86
+.\"
+.TH OPEN 2 "August 1, 1992"
+.UC 4
+.SH NAME
+open \- open a file for reading or writing, or create a new file
+.SH BSD SYNOPSIS
+.nf
+.ft B
+#include <libc.h>
+.PP
+.ft B
+open(char *\fIpath\fP, int \fIflags\fP, int \fImode\fP);
+.fi
+.SH POSIX SYNOPSIS
+.nf
+.ft B
+#include <sys/file.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+.PP
+.ft B
+int open(const char *\fIpath\fP, int \fIflags\fP, ...);
+.ft R
+.fi
+.SH DESCRIPTION
+The
+.IR open 
+function opens a file, whose pathname is specified by
+\fIpath\fP, for reading and/or writing
+as specified by the 
+.I flags
+argument,
+and returns a file descriptor for that file
+that is the lowest file descriptor
+not currently open for the process.
+The
+.I flags
+argument may indicate that the file
+is to be created if it doesn't already
+exist by specifying the O_CREAT flag,
+in which case the file is created with
+permissions as given in a third argument,
+.IR mode ,
+as described in
+.IR chmod (2)
+and modified by the process' umask value (see
+.IR umask (2)).
+For POSIX applications, the
+.I mode
+argument is optional,
+and isn't given unless the O_CREAT flag is specified.
+.PP
+The
+.I path
+argument is a pointer to an array
+of ASCII characters
+representing a pathname,
+terminated by a null character.
+The \fIflags\fP argument specifies the file status flags and
+file access modes for the open file, and it must contain
+exactly one of the following values (file access modes):
+.PP
+.RS
+.TP 15
+O_RDONLY
+Open for reading only.
+.TP 15
+O_WRONLY
+Open for writing only.
+.TP 15
+O_RDWR
+Open for reading and writing.
+.RE
+.PP
+Any combination of the following values
+may be bitwise
+.IR or 'ed
+with the
+file access mode above:
+.PP
+.RS
+.TP 15
+O_APPEND
+Append on each write.
+.TP 15
+O_CREAT
+If the file already exists, then this flag has no effect, except as noted
+under O_EXCL below.
+Otherwise the file is created; the file's user ID is set to the effective
+user ID of the calling process; the file's group ID is set to the group ID
+of the directory in which the file is created; and the file permission bits
+is set to the value of the third argument, \fImode\fP, which is of type
+\fImode_t\fP, except for those set in the process' umask value.
+The value of the \fImode\fP argument does not affect whether the file is
+opened for reading, writing or both.
+.TP 15
+O_EXCL
+If both O_EXCL and O_CREAT are set, then the
+.IR open 
+function will fail if the file exists,
+setting
+.I errno
+to EEXIST.
+This can be used to implement a simple locking system.
+.IP
+If O_EXCL is set and the last component
+of the pathname is a symbolic link,
+then
+.I open
+will fail even if the symbolic link points
+to a nonexistent name.
+.TP 15
+O_NDELAY
+(BSD only) If opening the file would result
+in the process being blocked for some reason,
+(for example, waiting for carrier on a dialup line),
+.I open
+returns immediately.
+The first time the process attempts to perform
+I/O on the open file it will block (not currently implemented).
+.TP 15
+O_NOCTTY
+(POSIX only) If \fIpath\fP identifies a terminal device, then
+.IR open 
+will not cause the terminal device to become the controlling terminal
+for the calling process.
+.TP 15
+O_NONBLOCK
+(POSIX only) As the BSD O_NDELAY, with these additions:
+.IP
+When opening a FIFO and the O_NONBLOCK flag is set, then an
+.IR open 
+for reading will return without delay.
+On the other hand, an
+.IR open 
+for writing will return an error if no process has the FIFO open for reading.
+.IP
+When an opening a FIFO and the O_NONBLOCK flag is clear, then an
+.IR open 
+for reading will block until a process opens the FIFO for writing.
+On the other hand, an
+.IR open 
+for writing will block until a process opens the FIFO for reading.
+.IP
+When opening a block special or character special file that supports
+nonblocking opens, and the O_NONBLOCK flag is set, then the
+.IR open 
+function will return without delay.
+If the O_NONBLOCK flag is clear, then the function will wait until
+the device is ready or available before returning.
+.TP 15
+O_TRUNC
+If the file exists and is a regular file, 
+it is truncated to zero length 
+upon successful
+.IR open .
+.RE
+.PP
+If O_CREAT is set and the file did not exist previously, then
+.IR open 
+will mark of update the \fIst_atime\fP, \fIst_ctime\fP and \fIst_mtime\fP
+fields of the file, and the \fIst_ctime\fP and \fIst_mtime\fP fields of the
+directory in which the file is created.
+.PP
+If O_TRUNC is set and the file previously existed, then
+.IR open 
+will mark for update the \fIst_ctime\fP and \fIst_mtime\fP fields of the file.
+.PP
+Upon successful completion,
+.IR open 
+sets the file pointer used to mark the current position within the
+file to the beginning of the file.  
+Furthermore, the new descriptor is set to remain open across
+.IR execve
+system calls\(emthe close-on-exec file descriptor flag associated with the
+new file descriptor is cleared; see 
+.IR close (2)
+and
+.IR fcntl (2).
+.PP
+The system imposes a limit on the number of file descriptors that can be
+opened simultaneously by one process.
+For BSD applications, the
+.IR getdtablesize (2)
+function returns the current system limit.
+For POSIX applications,
+this number is given by the constant OPEN_MAX.
+.SH "RETURN VALUE"
+Upon successful completion,
+.IR open 
+opens the file and returns a nonnegative integer representing
+the lowest numbered unused file descriptor.
+Otherwise, the function returns \-1 and sets \fIerrno\fP to indicate
+the error.
+.SH "ERRORS"
+If any of the following conditions occurs,
+.IR open 
+returns \-1 and sets errno to the corresponding value:
+.TP 15
+[EACCES]
+Search permission is denied for a component of the path prefix;
+or,
+the required permissions (for reading and/or writing)
+are denied for the named flag;
+or,
+O_CREAT is specified,
+the file does not exist,
+and the directory in which it is to be created
+does not permit writing;
+or,
+O_TRUNC is specified and the file does not permit writing.
+.TP 15
+[EDQUOT]
+O_CREAT is specified,
+the file does not exist,
+and the directory in which the entry for the new file
+is being placed cannot be extended because the
+user's quota of disk blocks on the file system
+containing the directory has been exhausted;
+or,
+O_CREAT is specified,
+the file does not exist,
+and the user's quota of inodes on the file system on
+which the file is being created has been exhausted.
+.TP 15
+[EEXIST]
+O_CREAT and O_EXCL are specified and the file exists.
+.TP 15
+[EFAULT]
+The \fIpath\fP argument points outside the process's allocated address space.
+.TP 15
+[EINTR]
+(POSIX only) The
+.IR open 
+function was interrupted by a signal.
+.\" 
+.\" The following error code removed to fix bug #35463.  8-bit characters are
+.\" OK, after all.
+.\" .TP 15
+.\" [EINVAL]
+.\" The pathname contains a character with the high-order bit set.
+.\" 
+.TP 15
+[EIO]
+An I/O error occurred while making the directory entry or
+allocating the inode for O_CREAT.
+.TP 15
+[EISDIR]
+The named file is a directory, and the \fIflags\fP argument specifies
+O_WRONLY or O_RDWR.
+.TP 15
+[ELOOP]
+Too many symbolic links were encountered in translating the pathname.
+.TP 15
+[EMFILE]
+The system limit for open file descriptors per process has already been
+reached.
+.TP 15
+[ENAMETOOLONG]
+A component of
+.I path
+exceeds 255 characters,
+or the entire pathname exceeds 1023 characters.
+For POSIX applications these values are given
+by the constants {NAME_MAX} and {PATH_MAX}, respectively.
+.TP 15
+[ENFILE]
+The system file table is full (too many files are currently open in the
+system).
+.TP 15
+[ENOENT]
+O_CREAT is not set and the named file does not exist;
+or,
+O_CREAT is set and either a component of the pathname that must exist does
+not exist or \fIpath\fP is empty string.
+.TP 15
+[ENOSPC]
+O_CREAT is specified,
+the file does not exist,
+and the directory in which the entry for the new file is being placed
+cannot be extended because there is no space left on the file
+system containing the directory;
+or,
+O_CREAT is specified,
+the file does not exist,
+and there are no free inodes on the file system on which the
+file is being created.
+.TP 15
+[ENOTDIR]
+A component of the path prefix is not a directory.
+.TP 15
+[ENXIO]
+The named file is a character special or block
+special file, and the device associated with this special file
+does not exist;
+or (POSIX only),
+O_NONBLOCK is set, the file is a FIFO, O_WRONLY is set and no process
+has the FIFO opened for reading.
+.TP 15
+[EOPNOTSUPP]
+(BSD only) An attempt was made to open a socket (not currently implemented).
+.TP 15
+[EROFS]
+The named file resides on a read-only file system,
+and the file is to be modified (O_WRONLY, O_RDWR, O_CREAT or O_TRUNC is
+set).
+.TP 15
+[ETXTBSY]
+The file is a pure procedure (shared text) file that is being
+executed and the
+.IR open 
+call requests write access.
+.SH "SEE ALSO"
+chmod(2),
+close(2),
+dup(2),
+fcntl(2), 
+lseek(2),
+read(2),
+umask(2),
+write(2)

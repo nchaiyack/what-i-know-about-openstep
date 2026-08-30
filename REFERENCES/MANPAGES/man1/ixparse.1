@@ -1,0 +1,235 @@
+.\" Copyright (c) 1992 NeXT Computer, Inc.
+.\" All rights reserved.
+.\"
+.\"	@(#)ixparse	3.0 (NeXT) 08/23/93
+.\"
+.TH IXPARSE 1 "August 24, 1993" "NeXT Computer, Inc."
+.nh
+.SH NAME
+ixparse \- generate and convert text processing information files
+
+.SH SYNOPSIS
+.B /usr/bin/ixparse
+[\ \fB\-aAbChHfgnNprUvwWx\fR\ ]
+[\ \fB\-t\fItype\fR\ ] 
+[\ \fB\-D\fIfile\fR\ ] [\ \fB\-F\fIfile\fR\ ] [\ \fB\-S\fIfile\fR\ ]
+[\ \fB\-L\fIlanguage\fR\ ]
+[\ \fB\-M\fI#\fR\ ] [\ \fB\-P\fI#\fR\ ]
+[\ \fB\-y\fIstring\fR\ ] [\ \fIfile\fR\ ...\ ]
+
+.SH DESCRIPTION
+Given a list of files, or a stream on standard input,
+.B ixparse
+generates one of four types of profiling information
+on standard output.
+With the \fB\-v\fR option,
+.B ixparse
+can also generate profiling information
+for each input file; the output
+is put into separate files named by adding an extension
+to the input file's name
+(see below for the extensions).
+.PP
+The four types of profile are:
+weighting domain (a binary format defined
+by the Indexing Kit's IXWeightingDomain class),
+histogram, 
+description,
+and
+Attribute Reader Format.
+The binary weighting domain format is undocumented.
+A description is a short summary that
+can be derived from some file formats,
+such as UNIX manual pages.
+Attribute Reader Format is described
+in the Indexing Kit documentation in the
+\fINEXTSTEP General Reference\fR.
+Histogram format is described below.
+.PP
+Weighting domain files can be used with
+.BR ixbuild (1)
+or again with
+.BR ixparse
+to alter the weighting of tokens in the index
+or profile.
+For example, a weighting domain could
+be generated for all the source files in a
+development project:
+.PP
+.RS
+.nf
+ixparse -w *.[cm] >project.weight
+.fi
+.RE
+.PP
+and that file could be used again with
+.BR ixparse :
+.PP
+.RS
+.nf
+ixparse -Hp -Dproject.weight MyObject.m
+.fi
+.RE
+.PP
+The result would be a histogram where the
+weights of words are skewed such that if two
+words occur the same number of times in
+\fBMyObject.m\fR, those occurring less frequently in
+the entire set of source files (that is, in
+the domain file \fBproject.weight\fR)
+have higher weights.
+.PP
+In addition to generating profiling
+information for text files,
+.B ixparse
+can read existing
+profiles in
+weighting domain format,
+histogram format, and
+NEXTSTEP Release 2 Word Frequency Table (WFTable) format,
+converting that information to one of the other
+formats.
+.PP
+
+.SH HISTOGRAM FORMAT
+Each line of a file in histogram format has the form:
+.nf
+.IP
+.I token weight rank
+.fi
+.PP
+\fItoken\fR is the token or word in the index,
+\fIweight\fR is its weight (frequency) in the domain,
+and \fIrank\fR is its cardinal rank in the domain
+(1 == most common, 2 = second most common, and so on).
+\fIrank\fR is only present in histograms produced
+by converting from weighting domains.
+The fields of the line are separated by single spaces;
+be sure to search backward from the end of a line to
+find the token, as it is possible for the token to
+contain embedded spaces or tabs.
+.PP
+
+.SH OPTIONS
+.IP "\fB\-\|\-\fR" 11
+List these options.
+.PP
+.PP
+The following options select input and output formats.
+Only one of the input options
+\fB\-t\fR, \fB\-h\fR, \fB\-w\fR, and \fB\-x\fR
+and one of the output options
+\fB\-H\fR, \fB\-g\fR, \fB\-W\fR, and \fB\-b\fR
+can be specified.
+.PP
+.PP
+.IP "\fB\-t\fItype\fR" 11
+Interpret input as of file type \fItype\fR
+(for exampe, \fB\-trtf\fR for Rich Text Format).
+By default,
+.B ixparse
+attempts to determine the file type
+for each file automatically.
+.IP "\fB\-w\fR"
+Interpret input as weighting domain format.
+.IP "\fB\-h\fR"
+Interpret input as histogram format.
+.IP "\fB\-x\fR"
+Interpret input as NEXTSTEP Release 2 WFTable format.
+.IP "\fB\-H\fR"
+Generate output in histogram format.
+This is the default.
+.IP "\fB\-g\fR"
+Generate output as descriptions of file contents.
+.IP "\fB\-W\fR"
+Generate output in weighting domain format.
+.IP "\fB\-b\fR"
+Generate output in Attribute Reader Format.
+.IP "\fB\-v\fR"
+Vector mode. Generate an output file for each input file.
+Histogram and Attribute Reader Format files
+have an extension of \fB.histogram\fR
+(this is a bug; Attribute Reader Format files should use \fB.arf\fR).
+weighting domain format files have an extension of \fB.weight\fR.
+Description files have an extension of \fB.description\fR.
+.PP
+.PP
+The remaining options control other parsing switches and
+weighting calculations.
+.PP
+.PP
+.IP "\fB\-a\fR" 11
+Use absolute weighting.
+The weight of a token (word) is its number
+of occurrences in the input.
+.IP "\fB\-A\fR"
+Don't fold plural word forms.
+The default is to do plural folding.
+.IP "\fB\-C\fR"
+Don't fold case to lower case.
+The default is to fold case.
+.IP \fB\-D\fIfile\fR
+Use the supplied weighting domain file (default \fB.index.domain\fR).
+This is used for generating peculiarity weighting.
+.IP "\fB\-f\fR"
+Use frequency weighting (number of occurrences / total tokens).
+.IP \fB\-F\fIfile\fR
+Use the supplied file type table file (default \fB.index.ftype\fR).
+See the
+.BR ixbuild (1)
+manual page for more information on file type tables.
+.IP "\fB\-L\fIlanguage\fR"
+Parse files as though they contain text in the language \fIlanguage\fR.
+If no language is specified, the system default language is used.
+.IP "\fB\-M\fI#\fR"
+Use the supplied minimum weight;
+words below this weight are dropped from the index.
+The default is no minimum weight.
+This option excludes use of the \fB\-P\fR option.
+.IP "\fB\-n\fR"
+Sort histogram output by name rather than weight.
+.IP "\fB\-N\fR"
+Do not sort histogram output.
+.IP "\fB\-p\fR"
+Use peculiarity weighting in conjunction
+with a weighting domain (see \fB\-D\fR).
+.IP \fB\-P\fI#\fR
+Use the supplied percentage passed;
+words below this percentage are dropped from the index.
+The default is 100% passed.
+This option excludes use of the \fB\-M\fR option.
+.IP "\fB\-r\fR"
+Reduce words to stems; writer -> write.
+The default is not to do this.
+.IP "\fB\-S\fIfile\fR"
+Use the supplied stop words file
+(default \fB.index.swords\fR).
+See the
+.BR ixbuild (1)
+manual page for more information on stop words files.
+.IP "\fB\-U\fR"
+Disable uniquing in Attribute Reader Format.
+See the Attribute Reader Format documentation
+for more information.
+.IP "\fB\-y\fIstring\fR"
+Use the supplied punctuation string to delimit words;
+for example, \fB\-y".,; "\fR.
+
+.SH SEE ALSO
+ixbuild(1), ixsearch(1),
+Indexing Kit Documentation in \fINEXTSTEP General Reference\fR
+
+.SH BUGS
+.B ixparse
+doesn't read data in Attribute Reader Format.
+.PP
+.B ixparse
+filters files from various formats during parsing.
+It should make the intermediate filtered formats
+available as output options.
+.PP
+Sorting options don't apply when converting from domain
+to histogram formats.
+.PP
+Output files generated by vector mode in Attribute Reader Format
+should use \fB.arf\fR as their extension, not \fB.historam\fR.

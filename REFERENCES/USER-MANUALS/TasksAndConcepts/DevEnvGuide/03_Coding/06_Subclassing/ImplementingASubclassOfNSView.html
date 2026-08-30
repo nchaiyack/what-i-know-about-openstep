@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 24.0px Helvetica; min-height: 29.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 19.0px Helvetica; min-height: 23.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 12.0px Helvetica; color: #0000ff}
+    p.p8 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 5.0px Helvetica; color: #0000ff; min-height: 6.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 3.0px Helvetica; color: #0000ff; min-height: 4.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 25.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 25.0px; font: 5.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 25.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Helvetica}
+    p.p16 {margin: 0.0px 0.0px 0.0px 25.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 25.0px; font: 4.0px Times; min-height: 5.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 25.0px; font: 6.0px Times; min-height: 8.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 25.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 40.0px; font: 12.0px Courier}
+    p.p23 {margin: 0.0px 0.0px 0.0px 40.0px; font: 2.0px Courier; min-height: 2.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 25.0px; font: 12.0px Helvetica}
+    p.p25 {margin: 0.0px 0.0px 0.0px 25.0px; font: 6.0px Helvetica; min-height: 7.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 100.0px; font: 12.0px Times; color: #0000ff}
+    p.p27 {margin: 0.0px 0.0px 0.0px 100.0px; font: 10.0px Times; color: #0000ff; min-height: 13.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 100.0px; font: 6.0px Times; color: #0000ff; min-height: 8.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 25.0px; font: 12.0px Courier}
+    p.p30 {margin: 0.0px 0.0px 0.0px 25.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 40.0px; font: 12.0px Courier; min-height: 14.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Times}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>Next Section<span class="Apple-tab-span">	</span><span class="Apple-converted-space">  </span>Previous Section</p>
+<p class="p3"><i></i><br></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b></b><b>Implementing a subclass of NSView<span class="Apple-converted-space"> </span></b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>1<span class="Apple-tab-span">	</span>Identify the class and its outlets and actions.</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>2<span class="Apple-tab-span">	</span>Place and resize an object from the Views palette on a window or panel.</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>3<span class="Apple-tab-span">	</span>Assign your class as the class of the object.</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>4<span class="Apple-tab-span">	</span>Connect the instance to other objects in the interface.</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>5<span class="Apple-tab-span">	</span>Generate code files.</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>6<span class="Apple-tab-span">	</span>Complete programming tasks necessary for any object.</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>7<span class="Apple-tab-span">	</span>Complete programming tasks specific to NSView objects:</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8pt" height="6pt" viewBox="0 0 8 6" role="img" aria-labelledby="manual-svg-1-title" data-source="ImplementingASubclassOfNSView.rtfd/arrow.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-1-title">arrow.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 1.011719 0.1875 L 6.582031 2.964844 L 1.011719 5.757812 Z M 1.011719 0.1875 "/>
+</svg></b><b><span class="Apple-tab-span">	</span>Initialize an NSView object.</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p7"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8pt" height="6pt" viewBox="0 0 8 6" role="img" aria-labelledby="manual-svg-2-title" data-source="ImplementingASubclassOfNSView.rtfd/arrow.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-2-title">arrow.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 1.011719 0.1875 L 6.582031 2.964844 L 1.011719 5.757812 Z M 1.011719 0.1875 "/>
+</svg></b><b><span class="Apple-tab-span">	</span>Draw an NSView object.</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p7"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8pt" height="6pt" viewBox="0 0 8 6" role="img" aria-labelledby="manual-svg-3-title" data-source="ImplementingASubclassOfNSView.rtfd/arrow.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-3-title">arrow.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 1.011719 0.1875 L 6.582031 2.964844 L 1.011719 5.757812 Z M 1.011719 0.1875 "/>
+</svg></b><b><span class="Apple-tab-span">	</span>If necessary, handle events.</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">Making a subclass of the NSView class is a procedure that differs from making a subclass of the NSObject class. But it starts out the same. In the Classes display of Interface Builder, choose Subclass from the Operations menu while NSView or one of its subclasses is highlighted in the browser. Then name your class and add outlets and actions.</p>
+<p class="p11"><br></p>
+<p class="p12"><img src="ImplementingASubclassOfNSView.rtfd/NibClassesNSViewSubclass.jpg" alt="NibClassesNSViewSubclass.jpg"></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><b>Making an Instance of an NSView Subclass</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p10">Place an instance of your class on your interface. If you're subclassing an NSView subclass (such as NSButton or NSTextField), drag the object that represents that class (that is, the button or the text field) from the palette window into your interface's the window. If you're subclassing NSView directly, use the CustomView object on the Views palette.</p>
+<p class="p11"><br></p>
+<p class="p12"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="670pt" height="441pt" viewBox="0 0 670 441" role="img" aria-labelledby="manual-svg-4-title" data-source="ImplementingASubclassOfNSView.rtfd/_ImplementingSubclassNSView1.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-4-title">_ImplementingSubclassNSView1.eps</title><defs>
+<g>
+<g id="manual-svg-4-glyph-0-0">
+<path d="M 1.046875 0 L 3.46875 0 C 4.734375 0 5.78125 0 6.78125 -0.703125 C 7.546875 -1.21875 8.5625 -2.375 8.953125 -4.234375 C 9.203125 -5.40625 9.171875 -6.578125 8.578125 -7.484375 C 7.875 -8.59375 6.515625 -8.59375 5.359375 -8.59375 L 2.875 -8.59375 Z M 3.859375 -7.609375 L 5.28125 -7.609375 C 6.328125 -7.609375 6.984375 -7.46875 7.40625 -6.859375 C 8.03125 -5.96875 7.734375 -4.5 7.671875 -4.171875 C 7.578125 -3.671875 7.234375 -2.28125 5.96875 -1.453125 C 5.296875 -1.03125 4.421875 -0.96875 3.609375 -0.96875 L 2.4375 -0.96875 Z M 3.859375 -7.609375 "/>
+</g>
+<g id="manual-svg-4-glyph-0-1">
+<path d="M 1.109375 0 L 2.234375 0 L 2.921875 -3.171875 C 3.125 -4.203125 3.609375 -4.984375 4.921875 -4.984375 C 5.0625 -4.984375 5.171875 -4.984375 5.25 -4.984375 C 5.328125 -4.96875 5.390625 -4.953125 5.453125 -4.921875 L 5.6875 -6.03125 C 5.5 -6.03125 5.25 -6.046875 4.90625 -6 C 4.390625 -5.921875 3.625 -5.65625 3.234375 -4.828125 L 3.453125 -5.984375 L 2.328125 -5.984375 C 2.28125 -5.578125 2.203125 -5.171875 2.125 -4.765625 Z M 1.109375 0 "/>
+</g>
+<g id="manual-svg-4-glyph-0-2">
+<path d="M 5.703125 0 C 5.75 -0.609375 5.90625 -1.40625 5.921875 -1.5 L 6.578125 -4.359375 C 6.640625 -4.625 6.6875 -4.921875 6.578125 -5.28125 C 6.375 -5.875 5.515625 -6.15625 4.640625 -6.15625 C 4.015625 -6.15625 3.125 -6.015625 2.578125 -5.515625 C 2.140625 -5.109375 2.03125 -4.6875 1.921875 -4.375 L 3.03125 -4.375 C 3.09375 -4.625 3.328125 -5.390625 4.453125 -5.390625 C 4.78125 -5.390625 5.25 -5.296875 5.40625 -5 C 5.578125 -4.734375 5.5 -4.421875 5.34375 -3.671875 C 5 -3.703125 4.828125 -3.71875 4.53125 -3.71875 C 4.0625 -3.71875 3.109375 -3.671875 2.375 -3.328125 C 1.390625 -2.8125 1.078125 -2.046875 0.96875 -1.578125 C 0.75 -0.578125 1.328125 0.1875 2.703125 0.1875 C 3.203125 0.1875 4.03125 0.09375 4.78125 -0.890625 C 4.703125 -0.578125 4.671875 -0.296875 4.6875 0 Z M 5.171875 -2.90625 C 4.984375 -2.078125 4.890625 -1.734375 4.5625 -1.328125 C 4.1875 -0.921875 3.71875 -0.6875 3.140625 -0.6875 C 2.140625 -0.6875 2.046875 -1.34375 2.125 -1.71875 C 2.390625 -2.9375 4.09375 -2.9375 4.546875 -2.9375 C 4.828125 -2.9375 4.984375 -2.921875 5.171875 -2.90625 Z M 5.171875 -2.90625 "/>
+</g>
+<g id="manual-svg-4-glyph-0-3">
+<path d="M 0.828125 0.46875 C 0.703125 1.28125 0.53125 2.390625 2.921875 2.390625 C 3.75 2.390625 4.9375 2.28125 5.640625 1.328125 C 5.984375 0.875 6.15625 0.28125 6.46875 -1.15625 L 7.265625 -4.890625 L 7.53125 -5.984375 L 6.4375 -5.984375 L 6.25 -5.15625 C 6.078125 -5.46875 5.765625 -6.0625 4.5625 -6.0625 C 3.09375 -6.0625 1.703125 -5.078125 1.265625 -3.046875 C 1.09375 -2.25 1.09375 -1.453125 1.46875 -0.84375 C 1.84375 -0.21875 2.609375 -0.109375 3.15625 -0.109375 C 3.515625 -0.109375 4.640625 -0.125 5.328125 -1.125 C 4.984375 0.5 4.734375 1.625 3.171875 1.625 C 2.109375 1.625 1.921875 1.125 2.03125 0.46875 Z M 3.625 -0.9375 C 2.25 -0.9375 2.21875 -2.15625 2.421875 -3.078125 C 2.578125 -3.828125 3.078125 -5.265625 4.5 -5.265625 C 5.015625 -5.265625 5.4375 -5.0625 5.671875 -4.734375 C 5.90625 -4.421875 5.984375 -4 5.828125 -3.25 C 5.59375 -2.171875 5.359375 -1.84375 5.046875 -1.53125 C 4.703125 -1.171875 4.28125 -0.9375 3.625 -0.9375 Z M 3.625 -0.9375 "/>
+</g>
+<g id="manual-svg-4-glyph-0-4">
+</g>
+<g id="manual-svg-4-glyph-0-5">
+<path d="M 1.21875 -5.171875 L 2.28125 -5.171875 L 1.4375 -1.1875 C 1.234375 -0.21875 1.671875 0.078125 2.6875 0.078125 C 3.09375 0.078125 3.421875 0.046875 3.625 0.015625 L 3.8125 -0.859375 C 3.71875 -0.828125 3.484375 -0.796875 3.265625 -0.796875 C 2.46875 -0.796875 2.578125 -1.296875 2.625 -1.59375 L 3.390625 -5.171875 L 4.734375 -5.171875 L 4.90625 -6 L 3.578125 -6 L 3.921875 -7.609375 L 2.71875 -7.25 L 2.46875 -6 L 1.40625 -6 Z M 1.21875 -5.171875 "/>
+</g>
+<g id="manual-svg-4-glyph-0-6">
+<path d="M 1.046875 0 L 2.171875 0 L 2.859375 -3.171875 C 2.921875 -3.53125 3.046875 -4.09375 3.3125 -4.421875 C 3.53125 -4.71875 4.046875 -5.234375 4.875 -5.234375 C 6.171875 -5.234375 5.921875 -4.078125 5.8125 -3.53125 L 5.0625 0 L 6.203125 0 L 7 -3.734375 C 7.171875 -4.609375 7.15625 -4.890625 7.09375 -5.125 C 6.90625 -5.859375 6.046875 -6.078125 5.421875 -6.078125 C 4.578125 -6.078125 3.765625 -5.734375 3.265625 -5.09375 L 4 -8.578125 L 2.875 -8.578125 Z M 1.046875 0 "/>
+</g>
+<g id="manual-svg-4-glyph-0-7">
+<path d="M 6.625 -2.78125 C 6.84375 -3.765625 7.40625 -6.125 4.734375 -6.125 C 4.375 -6.125 3.671875 -6.09375 3.015625 -5.6875 C 1.921875 -5.03125 1.46875 -4.0625 1.21875 -2.875 C 0.828125 -0.984375 1.46875 0.171875 3.359375 0.171875 C 4.5625 0.171875 5.265625 -0.328125 5.578125 -0.625 C 6.109375 -1.078125 6.265625 -1.578125 6.359375 -1.875 L 5.234375 -1.875 C 4.96875 -1.015625 4.296875 -0.625 3.578125 -0.625 C 2.34375 -0.625 2.03125 -1.546875 2.328125 -2.78125 Z M 2.53125 -3.578125 C 2.828125 -4.890625 3.8125 -5.328125 4.53125 -5.328125 C 5.921875 -5.328125 5.78125 -4.140625 5.640625 -3.578125 Z M 2.53125 -3.578125 "/>
+</g>
+<g id="manual-svg-4-glyph-0-8">
+<path d="M 1.21875 -2.921875 C 0.859375 -1.171875 1.53125 0.203125 3.5 0.203125 C 5.53125 0.203125 6.828125 -1.25 7.21875 -3 C 7.484375 -4.25 7.328125 -6.125 4.9375 -6.125 C 2.59375 -6.125 1.53125 -4.390625 1.21875 -2.921875 Z M 2.40625 -2.984375 C 2.8125 -4.859375 4.0625 -5.3125 4.78125 -5.3125 C 5.828125 -5.3125 6.34375 -4.53125 6.03125 -3.03125 C 5.640625 -1.234375 4.546875 -0.625 3.703125 -0.625 C 2.421875 -0.625 2.140625 -1.765625 2.40625 -2.984375 Z M 2.40625 -2.984375 "/>
+</g>
+<g id="manual-svg-4-glyph-0-9">
+<path d="M 3.984375 -8.59375 L 2.875 -8.59375 L 1.28125 -1.078125 L 1.03125 0 L 2.109375 0 L 2.328125 -0.90625 C 2.40625 -0.71875 2.484375 -0.53125 2.78125 -0.296875 C 3.21875 0.046875 3.75 0.078125 4.03125 0.078125 C 4.859375 0.078125 5.734375 -0.265625 6.34375 -0.9375 C 6.734375 -1.328125 7.125 -1.96875 7.375 -3.125 C 7.65625 -4.421875 7.375 -5.03125 7.15625 -5.375 C 6.734375 -5.984375 6.015625 -6.125 5.421875 -6.125 C 4.0625 -6.125 3.46875 -5.375 3.25 -5.109375 Z M 6.171875 -3.046875 C 5.984375 -2.078125 5.34375 -0.71875 3.96875 -0.71875 C 2.296875 -0.71875 2.6875 -2.59375 2.78125 -2.984375 C 2.859375 -3.375 3.28125 -5.375 5 -5.375 C 6.5625 -5.375 6.3125 -3.640625 6.171875 -3.046875 Z M 6.171875 -3.046875 "/>
+</g>
+<g id="manual-svg-4-glyph-0-10">
+<path d="M 2.53125 -7.328125 L 3.890625 -7.328125 L 4.15625 -8.578125 L 2.796875 -8.578125 Z M -0.5 2.296875 C -0.203125 2.328125 0.03125 2.34375 0.171875 2.34375 C 1.671875 2.34375 1.96875 1.125 2.078125 0.5625 L 3.484375 -5.984375 L 2.359375 -5.984375 L 0.984375 0.421875 C 0.78125 1.375 0.546875 1.53125 -0.328125 1.5 Z M -0.5 2.296875 "/>
+</g>
+<g id="manual-svg-4-glyph-0-11">
+<path d="M 6.4375 -4.0625 C 6.484375 -4.390625 6.5625 -4.875 6.234375 -5.390625 C 5.828125 -6.046875 4.9375 -6.125 4.546875 -6.125 C 3.359375 -6.125 1.671875 -5.390625 1.15625 -2.90625 C 0.890625 -1.671875 1.109375 -1.03125 1.375 -0.625 C 1.875 0.078125 2.78125 0.15625 3.171875 0.15625 C 4.65625 0.15625 5.734375 -0.828125 6.046875 -1.984375 L 4.921875 -1.984375 C 4.78125 -1.40625 4.296875 -0.6875 3.34375 -0.6875 C 2.15625 -0.6875 2.109375 -1.828125 2.375 -3.0625 C 2.46875 -3.515625 2.84375 -5.3125 4.390625 -5.3125 C 5.484375 -5.3125 5.34375 -4.328125 5.3125 -4.0625 Z M 6.4375 -4.0625 "/>
+</g>
+<g id="manual-svg-4-glyph-0-12">
+<path d="M 1.421875 -5.984375 L 2.125 0 L 3.4375 0 L 6.046875 -4.921875 L 6.40625 0 L 7.6875 0 L 11.078125 -5.984375 L 9.921875 -5.984375 L 7.421875 -1.265625 L 7.0625 -5.984375 L 5.59375 -5.984375 L 3.078125 -1.21875 L 2.640625 -5.984375 Z M 1.421875 -5.984375 "/>
+</g>
+<g id="manual-svg-4-glyph-0-13">
+<path d="M 0.890625 -1.78125 C 0.578125 -0.328125 1.59375 0.171875 2.8125 0.171875 C 3.421875 0.171875 4.078125 0.078125 4.671875 -0.234375 C 5.171875 -0.515625 5.65625 -1.078125 5.796875 -1.75 C 5.875 -2.125 5.84375 -2.546875 5.578125 -2.859375 C 5.296875 -3.1875 4.96875 -3.28125 3.390625 -3.671875 C 3.09375 -3.765625 2.59375 -3.890625 2.703125 -4.4375 C 2.890625 -5.296875 3.9375 -5.296875 4.109375 -5.296875 C 4.515625 -5.296875 5.28125 -5.234375 5.046875 -4.328125 L 6.1875 -4.328125 C 6.25 -4.578125 6.3125 -4.859375 6.234375 -5.1875 C 6.015625 -5.90625 5.015625 -6.125 4.265625 -6.125 C 2.875 -6.125 1.78125 -5.40625 1.546875 -4.3125 C 1.28125 -3.0625 2.28125 -2.8125 3.46875 -2.53125 C 4.3125 -2.328125 4.71875 -2.21875 4.578125 -1.625 C 4.546875 -1.421875 4.421875 -1.21875 4.28125 -1.078125 C 3.984375 -0.78125 3.609375 -0.6875 3.140625 -0.6875 C 2.0625 -0.6875 1.96875 -1.328125 2.078125 -1.78125 Z M 0.890625 -1.78125 "/>
+</g>
+<g id="manual-svg-4-glyph-0-14">
+<path d="M 1.078125 0 L 2.1875 0 L 4.015625 -8.578125 L 2.890625 -8.578125 Z M 1.078125 0 "/>
+</g>
+<g id="manual-svg-4-glyph-0-15">
+<path d="M 7.671875 -5.984375 L 6.453125 -5.984375 L 3.546875 -1.265625 L 2.671875 -5.984375 L 1.421875 -5.984375 L 2.625 -0.03125 L 1.25 2.265625 L 2.40625 2.265625 L 3.734375 0.03125 Z M 7.671875 -5.984375 "/>
+</g>
+<g id="manual-svg-4-glyph-0-16">
+<path d="M 2.203125 -5.984375 L 1.34375 -1.96875 C 1.09375 -0.78125 1.609375 0.0625 3.078125 0.0625 C 4.375 0.0625 4.921875 -0.609375 5.21875 -1.03125 L 5.03125 0 L 6.1875 0 C 6.25 -0.328125 6.375 -1 6.390625 -1.125 L 7.421875 -5.984375 L 6.28125 -5.984375 L 5.546875 -2.59375 C 5.484375 -2.296875 5.390625 -1.828125 5.0625 -1.46875 C 4.640625 -1 4.078125 -0.8125 3.515625 -0.8125 C 2.375 -0.8125 2.40625 -1.546875 2.53125 -2.125 L 3.34375 -5.984375 Z M 2.203125 -5.984375 "/>
+</g>
+<g id="manual-svg-4-glyph-0-17">
+<path d="M 1.078125 0 L 2.203125 0 L 2.921875 -3.4375 C 3.1875 -4.640625 4.0625 -5.234375 4.875 -5.234375 C 5.25 -5.234375 5.625 -5.09375 5.84375 -4.828125 C 6.0625 -4.546875 6.03125 -4.1875 5.953125 -3.796875 L 5.140625 0 L 6.28125 0 L 7.140625 -4.0625 C 7.53125 -5.890625 5.953125 -6.09375 5.421875 -6.09375 C 4.0625 -6.09375 3.453125 -5.265625 3.265625 -5.015625 L 3.46875 -5.984375 L 2.34375 -5.984375 L 2.203125 -5.28125 Z M 1.078125 0 "/>
+</g>
+<g id="manual-svg-4-glyph-0-18">
+<path d="M 6.28125 -5.171875 C 6.203125 -5.421875 5.921875 -6.171875 4.640625 -6.171875 C 3.234375 -6.171875 1.734375 -5.1875 1.25 -2.921875 C 0.6875 -0.296875 2.375 0.125 3.171875 0.125 C 3.578125 0.125 4.1875 0.015625 4.75 -0.328125 C 5.109375 -0.53125 5.28125 -0.78125 5.421875 -0.953125 L 5.234375 0 L 6.359375 0 C 6.40625 -0.3125 6.484375 -0.828125 6.515625 -0.953125 L 8.125 -8.578125 L 7.015625 -8.578125 Z M 5.875 -3.078125 C 5.78125 -2.609375 5.375 -0.671875 3.609375 -0.671875 C 2.234375 -0.671875 2.21875 -1.890625 2.453125 -2.953125 C 2.53125 -3.359375 2.953125 -5.34375 4.59375 -5.34375 C 5.234375 -5.34375 5.609375 -5.046875 5.78125 -4.734375 C 5.96875 -4.421875 6.0625 -3.9375 5.875 -3.078125 Z M 5.875 -3.078125 "/>
+</g>
+<g id="manual-svg-4-glyph-0-19">
+<path d="M 2.5 -7.34375 L 3.84375 -7.34375 L 4.109375 -8.578125 L 2.765625 -8.578125 Z M 1.0625 0 L 2.171875 0 L 3.453125 -5.984375 L 2.328125 -5.984375 Z M 1.0625 0 "/>
+</g>
+<g id="manual-svg-4-glyph-0-20">
+<path d="M 2.75 1.46875 C 2.53125 -0.796875 2.421875 -2.171875 2.78125 -3.859375 C 2.921875 -4.59375 3.171875 -5.328125 3.65625 -6.421875 C 4.140625 -7.5625 4.578125 -8.375 4.890625 -8.953125 L 4.109375 -8.953125 C 3.796875 -8.4375 3.328125 -7.671875 2.765625 -6.609375 C 2.296875 -5.703125 1.875 -4.78125 1.671875 -3.828125 C 1.3125 -2.09375 1.671875 -0.125 1.96875 1.46875 Z M 2.75 1.46875 "/>
+</g>
+<g id="manual-svg-4-glyph-0-21">
+<path d="M 1.125 0 L 2.21875 0 L 3.765625 -7.296875 L 6.578125 0 L 8.109375 0 L 9.9375 -8.59375 L 8.828125 -8.59375 L 7.328125 -1.484375 L 4.609375 -8.59375 L 2.953125 -8.59375 Z M 1.125 0 "/>
+</g>
+<g id="manual-svg-4-glyph-0-22">
+<path d="M 1.203125 -2.515625 C 1.109375 -2.09375 0.96875 -1.40625 1.328125 -0.78125 C 1.828125 0.09375 3.125 0.203125 3.78125 0.203125 C 5.984375 0.203125 7.421875 -0.953125 7.75 -2.46875 C 7.828125 -2.828125 7.9375 -3.671875 7.265625 -4.1875 C 6.828125 -4.53125 6.625 -4.578125 4.671875 -5.09375 C 3.671875 -5.34375 3.234375 -5.609375 3.40625 -6.375 C 3.578125 -7.234375 4.421875 -7.765625 5.609375 -7.765625 C 6.453125 -7.765625 7.296875 -7.53125 7.125 -6.453125 L 8.375 -6.453125 C 8.421875 -6.8125 8.53125 -7.390625 8.15625 -7.921875 C 7.625 -8.671875 6.484375 -8.765625 5.921875 -8.765625 C 4.296875 -8.765625 2.484375 -8 2.125 -6.25 C 1.984375 -5.671875 2.046875 -5.03125 2.640625 -4.5625 C 3.03125 -4.265625 3.578125 -4.125 4.828125 -3.796875 C 5.953125 -3.5 6.6875 -3.3125 6.484375 -2.34375 C 6.390625 -1.921875 5.921875 -0.8125 4.140625 -0.8125 C 2.171875 -0.8125 2.328125 -1.921875 2.4375 -2.515625 Z M 1.203125 -2.515625 "/>
+</g>
+<g id="manual-svg-4-glyph-0-23">
+<path d="M 9.53125 -8.59375 L 8.328125 -8.59375 L 4.1875 -1.25 L 3.3125 -8.59375 L 1.984375 -8.59375 L 3.234375 0 L 4.53125 0 Z M 9.53125 -8.59375 "/>
+</g>
+<g id="manual-svg-4-glyph-0-24">
+<path d="M 2.8125 -8.953125 C 3.015625 -6.6875 3.140625 -5.328125 2.78125 -3.640625 C 2.625 -2.90625 2.375 -2.15625 1.90625 -1.078125 C 1.421875 0.0625 0.96875 0.875 0.671875 1.46875 L 1.453125 1.46875 C 1.765625 0.953125 2.234375 0.171875 2.796875 -0.890625 C 3.265625 -1.796875 3.671875 -2.71875 3.875 -3.671875 C 4.234375 -5.40625 3.890625 -7.375 3.578125 -8.953125 Z M 2.8125 -8.953125 "/>
+</g>
+<g id="manual-svg-4-glyph-0-25">
+<path d="M 5.875 -8.65625 C 5.640625 -8.6875 5.296875 -8.734375 4.984375 -8.734375 C 4.203125 -8.734375 3.671875 -8.46875 3.328125 -8.078125 C 3.078125 -7.78125 2.953125 -7.484375 2.78125 -6.65625 L 2.640625 -5.984375 L 1.46875 -5.984375 L 1.28125 -5.171875 L 2.46875 -5.171875 L 1.375 0 L 2.46875 0 L 3.578125 -5.171875 L 4.96875 -5.171875 L 5.140625 -5.984375 L 3.75 -5.984375 L 3.9375 -6.921875 C 4.03125 -7.328125 4.125 -7.78125 5.03125 -7.78125 C 5.265625 -7.78125 5.5 -7.78125 5.6875 -7.765625 Z M 5.875 -8.65625 "/>
+</g>
+<g id="manual-svg-4-glyph-0-26">
+<path d="M 1.03125 0 L 2.171875 0 L 2.890625 -3.390625 C 2.96875 -3.78125 3.078125 -4.265625 3.40625 -4.609375 C 3.578125 -4.78125 4.09375 -5.265625 4.859375 -5.265625 C 5.734375 -5.265625 6.046875 -4.6875 5.890625 -3.953125 L 5.046875 0 L 6.171875 0 L 6.890625 -3.34375 C 6.9375 -3.609375 7.078125 -4.265625 7.421875 -4.625 C 7.625 -4.84375 8.109375 -5.265625 8.828125 -5.265625 C 9.40625 -5.265625 9.734375 -5.015625 9.875 -4.734375 C 9.9375 -4.578125 9.984375 -4.359375 9.875 -3.828125 L 9.0625 0 L 10.1875 0 L 11.046875 -4.015625 C 11.421875 -5.78125 10.15625 -6.125 9.296875 -6.125 C 7.984375 -6.125 7.328125 -5.34375 7.046875 -5.015625 C 6.921875 -5.453125 6.65625 -6.125 5.328125 -6.125 C 4.828125 -6.125 4 -6.046875 3.234375 -5.109375 L 3.421875 -5.984375 L 2.28125 -5.984375 L 2.125 -5.171875 Z M 1.03125 0 "/>
+</g>
+<g id="manual-svg-4-glyph-0-27">
+<path d="M 0.53125 2.296875 L 1.625 2.296875 L 2.265625 -0.671875 C 2.46875 -0.140625 3.03125 0.21875 3.90625 0.21875 C 5.328125 0.21875 6.828125 -0.75 7.3125 -2.96875 C 7.78125 -5.1875 6.734375 -6.078125 5.453125 -6.078125 C 4.96875 -6.078125 3.953125 -5.921875 3.1875 -4.984375 L 3.375 -5.984375 L 2.25 -5.984375 C 2.140625 -5.40625 2.125 -5.265625 2.078125 -5 Z M 2.671875 -2.8125 C 2.796875 -3.34375 3.203125 -5.234375 4.984375 -5.234375 C 6.3125 -5.234375 6.390625 -4.125 6.15625 -3.046875 C 6.078125 -2.625 5.828125 -1.765625 5.28125 -1.171875 C 4.78125 -0.65625 4.171875 -0.59375 3.890625 -0.59375 C 2.328125 -0.59375 2.53125 -2.078125 2.671875 -2.8125 Z M 2.671875 -2.8125 "/>
+</g>
+<g id="manual-svg-4-glyph-0-28">
+<path d="M 0.96875 0 L 2.28125 0 L 2.59375 -1.421875 L 1.28125 -1.421875 Z M 0.96875 0 "/>
+</g>
+</g>
+<image id="manual-svg-4-source-5" x="0" y="0" width="274" height="277" xlink:href="data:image/png;base64,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"/>
+<image id="manual-svg-4-source-8" x="0" y="0" width="396" height="423" xlink:href="data:image/png;base64,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"/>
+</defs>
+<use xlink:href="#manual-svg-4-source-5" transform="matrix(0.850004, 0, 0, 0.850004, 216.476, 0.772)"/>
+<use xlink:href="#manual-svg-4-source-8" transform="matrix(0.850003, 0, 0, 0.850002, 0.573059, 80.675238)"/>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-4-glyph-0-0" x="477.593" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-1" x="486.184872" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-2" x="490.814011" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-3" x="497.430467" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="504.701428" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-5" x="508.009656" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-6" x="511.972389" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-7" x="519.24335" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="525.859806" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-8" x="529.168033" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-9" x="536.438995" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-10" x="543.709956" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-7" x="547.018183" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-11" x="553.634639" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-5" x="559.584689" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="563.547422" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-12" x="566.85565" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-6" x="576.768433" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-8" x="584.039395" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-13" x="591.310356" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-7" x="597.260406" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="603.876861" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-11" x="607.185089" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-14" x="613.135139" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-2" x="616.443367" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-13" x="623.059822" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-13" x="629.009872" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="634.959922" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-15" x="638.26815" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-8" x="644.884606" y="194.436"/>
+<use xlink:href="#manual-svg-4-glyph-0-16" x="652.155567" y="194.436"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-4-glyph-0-12" x="477.593" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-2" x="487.505783" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-17" x="494.122239" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-5" x="501.3932" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="505.355933" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-5" x="508.664161" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-8" x="512.626894" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="519.897855" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-18" x="523.206083" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-19" x="530.477044" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-1" x="533.785272" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-7" x="538.414411" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-11" x="545.030867" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-5" x="550.980917" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-14" x="554.94365" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-15" x="558.251878" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="564.868333" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-13" x="568.176561" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-16" x="574.126611" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-9" x="581.397572" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-11" x="588.668533" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-14" x="594.618583" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-2" x="597.926811" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-13" x="604.543267" y="206.336"/>
+<use xlink:href="#manual-svg-4-glyph-0-13" x="610.493317" y="206.336"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-4-glyph-0-20" x="477.593" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-21" x="481.555733" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-22" x="490.814011" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-22" x="498.751378" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-11" x="506.688744" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-1" x="512.638794" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-8" x="517.267933" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-14" x="524.538894" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-14" x="527.847122" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-23" x="531.15535" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-19" x="539.092717" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-7" x="542.400945" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-12" x="549.0174" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="558.930184" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-6" x="562.238411" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-7" x="569.509372" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-1" x="576.125828" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-7" x="580.754967" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-24" x="587.371423" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="591.334156" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-25" x="594.642384" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-1" x="598.605117" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-8" x="603.234256" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-26" x="610.505217" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="621.738911" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-5" x="625.047139" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-6" x="629.009872" y="218.236"/>
+<use xlink:href="#manual-svg-4-glyph-0-7" x="636.280834" y="218.236"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-4-glyph-0-27" x="477.593" y="230.136"/>
+<use xlink:href="#manual-svg-4-glyph-0-2" x="484.863961" y="230.136"/>
+<use xlink:href="#manual-svg-4-glyph-0-14" x="491.480417" y="230.136"/>
+<use xlink:href="#manual-svg-4-glyph-0-7" x="494.788644" y="230.136"/>
+<use xlink:href="#manual-svg-4-glyph-0-5" x="501.4051" y="230.136"/>
+<use xlink:href="#manual-svg-4-glyph-0-5" x="505.367833" y="230.136"/>
+<use xlink:href="#manual-svg-4-glyph-0-7" x="509.330567" y="230.136"/>
+<use xlink:href="#manual-svg-4-glyph-0-28" x="515.947022" y="230.136"/>
+<use xlink:href="#manual-svg-4-glyph-0-28" x="519.25525" y="230.136"/>
+<use xlink:href="#manual-svg-4-glyph-0-28" x="522.563478" y="230.136"/>
+</g>
+<path fill="none" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(18.03894%, 19.219971%, 57.249451%)" stroke-opacity="1" stroke-miterlimit="3.89999" d="M 4663.75 1121.25 L 1178.710938 1121.25 L 804.726562 1499.492188 " transform="matrix(0.1, 0, 0, -0.1, 0, 441)"/>
+<path fill="none" stroke-width="33.999" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(13.729858%, 12.159729%, 12.548828%)" stroke-opacity="1" stroke-miterlimit="3.89999" d="M 3839.257812 2319.765625 L 3839.257812 1869.257812 " transform="matrix(0.1, 0, 0, -0.1, 0, 441)"/>
+<path fill="none" stroke-width="33.999" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(13.729858%, 12.159729%, 12.548828%)" stroke-opacity="1" stroke-miterlimit="3.89999" d="M 3856.25 1869.257812 L 1059.726562 1869.257812 " transform="matrix(0.1, 0, 0, -0.1, 0, 441)"/>
+<path fill="none" stroke-width="33.999" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(13.729858%, 12.159729%, 12.548828%)" stroke-opacity="1" stroke-miterlimit="3.86371" d="M 1161.40625 1828.59375 L 1044.492188 1869.257812 L 1161.40625 1909.921875 " transform="matrix(0.1, 0, 0, -0.1, 0, 441)"/>
+<path fill="none" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(18.03894%, 19.219971%, 57.249451%)" stroke-opacity="1" stroke-miterlimit="3.89999" d="M 4727.5 2451.484375 L 4391.757812 2447.265625 " transform="matrix(0.1, 0, 0, -0.1, 0, 441)"/>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-4-glyph-0-28" x="477.593" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-28" x="480.652266" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-28" x="483.711532" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-2" x="486.770797" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-17" x="493.138291" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-18" x="500.16029" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="507.182289" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-18" x="509.992577" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-1" x="517.014576" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-8" x="521.394753" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-27" x="528.416752" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="535.438751" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-19" x="538.249039" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-5" x="541.308305" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="545.022076" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-8" x="547.832364" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-17" x="554.854363" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="561.876362" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-2" x="564.68665" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="571.054144" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-12" x="573.864431" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-19" x="583.528253" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-17" x="586.587518" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-18" x="593.609518" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-8" x="600.631517" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-12" x="607.653516" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="617.317337" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-8" x="620.127625" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-1" x="627.149624" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="631.529801" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-27" x="634.340089" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-2" x="641.362088" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-17" x="647.729581" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-7" x="654.75158" y="323.995"/>
+<use xlink:href="#manual-svg-4-glyph-0-14" x="661.119074" y="323.995"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-4-glyph-0-8" x="477.593" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-25" x="484.863961" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="488.826694" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-15" x="492.134922" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-8" x="498.751378" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-16" x="506.022339" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-1" x="513.2933" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-4" x="517.922439" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-19" x="521.230667" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-17" x="524.538895" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-5" x="531.809856" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-7" x="535.772589" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-1" x="542.389045" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-25" x="547.018183" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-2" x="550.980917" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-11" x="557.597372" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-7" x="563.547422" y="335.895"/>
+<use xlink:href="#manual-svg-4-glyph-0-28" x="570.163878" y="335.895"/>
+</g>
+</svg></p>
+<p class="p13"><br></p>
+<p class="p10">Position and resize the object, and while it's still selected, bring up the Custom Class display of the Inspector panel by typing Command-5. Assign a class name to the object; this creates an instance of your NSView subclass.<span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p12"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="570pt" height="362pt" viewBox="0 0 570 362" role="img" aria-labelledby="manual-svg-5-title" data-source="ImplementingASubclassOfNSView.rtfd/_ImplementingSubclassNSView2.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-5-title">_ImplementingSubclassNSView2.eps</title><defs>
+<g>
+<g id="manual-svg-5-glyph-0-0">
+<path d="M 8.828125 -6.28125 C 9.09375 -8.234375 7.484375 -8.71875 6.28125 -8.71875 C 3.21875 -8.71875 1.921875 -6.015625 1.546875 -4.203125 C 1.1875 -2.53125 1.21875 0.125 4.234375 0.125 C 5.71875 0.125 7.421875 -0.578125 7.953125 -2.265625 L 6.640625 -2.265625 C 6.578125 -2.0625 6.421875 -1.6875 6.03125 -1.359375 C 5.578125 -0.96875 5.0625 -0.84375 4.53125 -0.84375 C 2.578125 -0.84375 2.46875 -2.59375 2.828125 -4.21875 C 3.125 -5.640625 3.953125 -7.765625 6.03125 -7.765625 C 7.671875 -7.765625 7.578125 -6.578125 7.5625 -6.28125 Z M 8.828125 -6.28125 "/>
+</g>
+<g id="manual-svg-5-glyph-0-1">
+<path d="M 1.046875 0 L 2.171875 0 L 2.859375 -3.171875 C 2.921875 -3.53125 3.046875 -4.09375 3.3125 -4.421875 C 3.53125 -4.71875 4.046875 -5.234375 4.875 -5.234375 C 6.171875 -5.234375 5.921875 -4.078125 5.8125 -3.53125 L 5.0625 0 L 6.203125 0 L 7 -3.734375 C 7.171875 -4.609375 7.15625 -4.890625 7.09375 -5.125 C 6.90625 -5.859375 6.046875 -6.078125 5.421875 -6.078125 C 4.578125 -6.078125 3.765625 -5.734375 3.265625 -5.09375 L 4 -8.578125 L 2.875 -8.578125 Z M 1.046875 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-2">
+<path d="M 1.21875 -2.921875 C 0.859375 -1.171875 1.53125 0.203125 3.5 0.203125 C 5.53125 0.203125 6.828125 -1.25 7.21875 -3 C 7.484375 -4.25 7.328125 -6.125 4.9375 -6.125 C 2.59375 -6.125 1.53125 -4.390625 1.21875 -2.921875 Z M 2.40625 -2.984375 C 2.8125 -4.859375 4.0625 -5.3125 4.78125 -5.3125 C 5.828125 -5.3125 6.34375 -4.53125 6.03125 -3.03125 C 5.640625 -1.234375 4.546875 -0.625 3.703125 -0.625 C 2.421875 -0.625 2.140625 -1.765625 2.40625 -2.984375 Z M 2.40625 -2.984375 "/>
+</g>
+<g id="manual-svg-5-glyph-0-3">
+<path d="M 0.890625 -1.78125 C 0.578125 -0.328125 1.59375 0.171875 2.8125 0.171875 C 3.421875 0.171875 4.078125 0.078125 4.671875 -0.234375 C 5.171875 -0.515625 5.65625 -1.078125 5.796875 -1.75 C 5.875 -2.125 5.84375 -2.546875 5.578125 -2.859375 C 5.296875 -3.1875 4.96875 -3.28125 3.390625 -3.671875 C 3.09375 -3.765625 2.59375 -3.890625 2.703125 -4.4375 C 2.890625 -5.296875 3.9375 -5.296875 4.109375 -5.296875 C 4.515625 -5.296875 5.28125 -5.234375 5.046875 -4.328125 L 6.1875 -4.328125 C 6.25 -4.578125 6.3125 -4.859375 6.234375 -5.1875 C 6.015625 -5.90625 5.015625 -6.125 4.265625 -6.125 C 2.875 -6.125 1.78125 -5.40625 1.546875 -4.3125 C 1.28125 -3.0625 2.28125 -2.8125 3.46875 -2.53125 C 4.3125 -2.328125 4.71875 -2.21875 4.578125 -1.625 C 4.546875 -1.421875 4.421875 -1.21875 4.28125 -1.078125 C 3.984375 -0.78125 3.609375 -0.6875 3.140625 -0.6875 C 2.0625 -0.6875 1.96875 -1.328125 2.078125 -1.78125 Z M 0.890625 -1.78125 "/>
+</g>
+<g id="manual-svg-5-glyph-0-4">
+<path d="M 6.625 -2.78125 C 6.84375 -3.765625 7.40625 -6.125 4.734375 -6.125 C 4.375 -6.125 3.671875 -6.09375 3.015625 -5.6875 C 1.921875 -5.03125 1.46875 -4.0625 1.21875 -2.875 C 0.828125 -0.984375 1.46875 0.171875 3.359375 0.171875 C 4.5625 0.171875 5.265625 -0.328125 5.578125 -0.625 C 6.109375 -1.078125 6.265625 -1.578125 6.359375 -1.875 L 5.234375 -1.875 C 4.96875 -1.015625 4.296875 -0.625 3.578125 -0.625 C 2.34375 -0.625 2.03125 -1.546875 2.328125 -2.78125 Z M 2.53125 -3.578125 C 2.828125 -4.890625 3.8125 -5.328125 4.53125 -5.328125 C 5.921875 -5.328125 5.78125 -4.140625 5.640625 -3.578125 Z M 2.53125 -3.578125 "/>
+</g>
+<g id="manual-svg-5-glyph-0-5">
+</g>
+<g id="manual-svg-5-glyph-0-6">
+<path d="M 2.203125 -5.984375 L 1.34375 -1.96875 C 1.09375 -0.78125 1.609375 0.0625 3.078125 0.0625 C 4.375 0.0625 4.921875 -0.609375 5.21875 -1.03125 L 5.03125 0 L 6.1875 0 C 6.25 -0.328125 6.375 -1 6.390625 -1.125 L 7.421875 -5.984375 L 6.28125 -5.984375 L 5.546875 -2.59375 C 5.484375 -2.296875 5.390625 -1.828125 5.0625 -1.46875 C 4.640625 -1 4.078125 -0.8125 3.515625 -0.8125 C 2.375 -0.8125 2.40625 -1.546875 2.53125 -2.125 L 3.34375 -5.984375 Z M 2.203125 -5.984375 "/>
+</g>
+<g id="manual-svg-5-glyph-0-7">
+<path d="M 1.21875 -5.171875 L 2.28125 -5.171875 L 1.4375 -1.1875 C 1.234375 -0.21875 1.671875 0.078125 2.6875 0.078125 C 3.09375 0.078125 3.421875 0.046875 3.625 0.015625 L 3.8125 -0.859375 C 3.71875 -0.828125 3.484375 -0.796875 3.265625 -0.796875 C 2.46875 -0.796875 2.578125 -1.296875 2.625 -1.59375 L 3.390625 -5.171875 L 4.734375 -5.171875 L 4.90625 -6 L 3.578125 -6 L 3.921875 -7.609375 L 2.71875 -7.25 L 2.46875 -6 L 1.40625 -6 Z M 1.21875 -5.171875 "/>
+</g>
+<g id="manual-svg-5-glyph-0-8">
+<path d="M 1.03125 0 L 2.171875 0 L 2.890625 -3.390625 C 2.96875 -3.78125 3.078125 -4.265625 3.40625 -4.609375 C 3.578125 -4.78125 4.09375 -5.265625 4.859375 -5.265625 C 5.734375 -5.265625 6.046875 -4.6875 5.890625 -3.953125 L 5.046875 0 L 6.171875 0 L 6.890625 -3.34375 C 6.9375 -3.609375 7.078125 -4.265625 7.421875 -4.625 C 7.625 -4.84375 8.109375 -5.265625 8.828125 -5.265625 C 9.40625 -5.265625 9.734375 -5.015625 9.875 -4.734375 C 9.9375 -4.578125 9.984375 -4.359375 9.875 -3.828125 L 9.0625 0 L 10.1875 0 L 11.046875 -4.015625 C 11.421875 -5.78125 10.15625 -6.125 9.296875 -6.125 C 7.984375 -6.125 7.328125 -5.34375 7.046875 -5.015625 C 6.921875 -5.453125 6.65625 -6.125 5.328125 -6.125 C 4.828125 -6.125 4 -6.046875 3.234375 -5.109375 L 3.421875 -5.984375 L 2.28125 -5.984375 L 2.125 -5.171875 Z M 1.03125 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-9">
+<path d="M 1.078125 0 L 2.1875 0 L 4.015625 -8.578125 L 2.890625 -8.578125 Z M 1.078125 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-10">
+<path d="M 5.703125 0 C 5.75 -0.609375 5.90625 -1.40625 5.921875 -1.5 L 6.578125 -4.359375 C 6.640625 -4.625 6.6875 -4.921875 6.578125 -5.28125 C 6.375 -5.875 5.515625 -6.15625 4.640625 -6.15625 C 4.015625 -6.15625 3.125 -6.015625 2.578125 -5.515625 C 2.140625 -5.109375 2.03125 -4.6875 1.921875 -4.375 L 3.03125 -4.375 C 3.09375 -4.625 3.328125 -5.390625 4.453125 -5.390625 C 4.78125 -5.390625 5.25 -5.296875 5.40625 -5 C 5.578125 -4.734375 5.5 -4.421875 5.34375 -3.671875 C 5 -3.703125 4.828125 -3.71875 4.53125 -3.71875 C 4.0625 -3.71875 3.109375 -3.671875 2.375 -3.328125 C 1.390625 -2.8125 1.078125 -2.046875 0.96875 -1.578125 C 0.75 -0.578125 1.328125 0.1875 2.703125 0.1875 C 3.203125 0.1875 4.03125 0.09375 4.78125 -0.890625 C 4.703125 -0.578125 4.671875 -0.296875 4.6875 0 Z M 5.171875 -2.90625 C 4.984375 -2.078125 4.890625 -1.734375 4.5625 -1.328125 C 4.1875 -0.921875 3.71875 -0.6875 3.140625 -0.6875 C 2.140625 -0.6875 2.046875 -1.34375 2.125 -1.71875 C 2.390625 -2.9375 4.09375 -2.9375 4.546875 -2.9375 C 4.828125 -2.9375 4.984375 -2.921875 5.171875 -2.90625 Z M 5.171875 -2.90625 "/>
+</g>
+<g id="manual-svg-5-glyph-0-11">
+<path d="M 1.109375 0 L 2.234375 0 L 2.921875 -3.171875 C 3.125 -4.203125 3.609375 -4.984375 4.921875 -4.984375 C 5.0625 -4.984375 5.171875 -4.984375 5.25 -4.984375 C 5.328125 -4.96875 5.390625 -4.953125 5.453125 -4.921875 L 5.6875 -6.03125 C 5.5 -6.03125 5.25 -6.046875 4.90625 -6 C 4.390625 -5.921875 3.625 -5.65625 3.234375 -4.828125 L 3.453125 -5.984375 L 2.328125 -5.984375 C 2.28125 -5.578125 2.203125 -5.171875 2.125 -4.765625 Z M 1.109375 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-12">
+<path d="M 7.671875 -5.984375 L 6.453125 -5.984375 L 3.546875 -1.265625 L 2.671875 -5.984375 L 1.421875 -5.984375 L 2.625 -0.03125 L 1.25 2.265625 L 2.40625 2.265625 L 3.734375 0.03125 Z M 7.671875 -5.984375 "/>
+</g>
+<g id="manual-svg-5-glyph-0-13">
+<path d="M 0.53125 2.296875 L 1.625 2.296875 L 2.265625 -0.671875 C 2.46875 -0.140625 3.03125 0.21875 3.90625 0.21875 C 5.328125 0.21875 6.828125 -0.75 7.3125 -2.96875 C 7.78125 -5.1875 6.734375 -6.078125 5.453125 -6.078125 C 4.96875 -6.078125 3.953125 -5.921875 3.1875 -4.984375 L 3.375 -5.984375 L 2.25 -5.984375 C 2.140625 -5.40625 2.125 -5.265625 2.078125 -5 Z M 2.671875 -2.8125 C 2.796875 -3.34375 3.203125 -5.234375 4.984375 -5.234375 C 6.3125 -5.234375 6.390625 -4.125 6.15625 -3.046875 C 6.078125 -2.625 5.828125 -1.765625 5.28125 -1.171875 C 4.78125 -0.65625 4.171875 -0.59375 3.890625 -0.59375 C 2.328125 -0.59375 2.53125 -2.078125 2.671875 -2.8125 Z M 2.671875 -2.8125 "/>
+</g>
+<g id="manual-svg-5-glyph-0-14">
+<path d="M 1.078125 0 L 2.203125 0 L 2.921875 -3.4375 C 3.1875 -4.640625 4.0625 -5.234375 4.875 -5.234375 C 5.25 -5.234375 5.625 -5.09375 5.84375 -4.828125 C 6.0625 -4.546875 6.03125 -4.1875 5.953125 -3.796875 L 5.140625 0 L 6.28125 0 L 7.140625 -4.0625 C 7.53125 -5.890625 5.953125 -6.09375 5.421875 -6.09375 C 4.0625 -6.09375 3.453125 -5.265625 3.265625 -5.015625 L 3.46875 -5.984375 L 2.34375 -5.984375 L 2.203125 -5.28125 Z M 1.078125 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-15">
+<path d="M 6.28125 -5.171875 C 6.203125 -5.421875 5.921875 -6.171875 4.640625 -6.171875 C 3.234375 -6.171875 1.734375 -5.1875 1.25 -2.921875 C 0.6875 -0.296875 2.375 0.125 3.171875 0.125 C 3.578125 0.125 4.1875 0.015625 4.75 -0.328125 C 5.109375 -0.53125 5.28125 -0.78125 5.421875 -0.953125 L 5.234375 0 L 6.359375 0 C 6.40625 -0.3125 6.484375 -0.828125 6.515625 -0.953125 L 8.125 -8.578125 L 7.015625 -8.578125 Z M 5.875 -3.078125 C 5.78125 -2.609375 5.375 -0.671875 3.609375 -0.671875 C 2.234375 -0.671875 2.21875 -1.890625 2.453125 -2.953125 C 2.53125 -3.359375 2.953125 -5.34375 4.59375 -5.34375 C 5.234375 -5.34375 5.609375 -5.046875 5.78125 -4.734375 C 5.96875 -4.421875 6.0625 -3.9375 5.875 -3.078125 Z M 5.875 -3.078125 "/>
+</g>
+<g id="manual-svg-5-glyph-0-16">
+<path d="M 1.078125 -2.671875 L 4.0625 -2.671875 L 4.25 -3.578125 L 1.265625 -3.578125 Z M 1.078125 -2.671875 "/>
+</g>
+<g id="manual-svg-5-glyph-0-17">
+<path d="M 1.078125 -1.953125 C 0.84375 -0.546875 1.75 0.1875 3.078125 0.1875 C 4.875 0.1875 6.28125 -1.03125 6.625 -2.65625 C 6.921875 -4.078125 6.390625 -5.375 4.734375 -5.375 C 3.78125 -5.375 3.140625 -4.859375 2.828125 -4.609375 L 3.5625 -7.28125 L 7.171875 -7.28125 L 7.375 -8.234375 L 2.734375 -8.234375 L 1.484375 -3.328125 L 2.578125 -3.328125 C 2.671875 -3.53125 2.78125 -3.78125 3.09375 -4.03125 C 3.390625 -4.28125 3.8125 -4.453125 4.28125 -4.453125 C 5.234375 -4.453125 5.71875 -3.796875 5.484375 -2.671875 C 5.359375 -2.140625 4.875 -0.78125 3.4375 -0.78125 C 2.828125 -0.78125 2.171875 -1.125 2.328125 -1.953125 Z M 1.078125 -1.953125 "/>
+</g>
+<g id="manual-svg-5-glyph-0-18">
+<path d="M 0.96875 0 L 2.28125 0 L 2.59375 -1.421875 L 1.28125 -1.421875 Z M 0.96875 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-19">
+<path d="M 2.5 -7.34375 L 3.84375 -7.34375 L 4.109375 -8.578125 L 2.765625 -8.578125 Z M 1.0625 0 L 2.171875 0 L 3.453125 -5.984375 L 2.328125 -5.984375 Z M 1.0625 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-20">
+<path d="M 6.4375 -4.0625 C 6.484375 -4.390625 6.5625 -4.875 6.234375 -5.390625 C 5.828125 -6.046875 4.9375 -6.125 4.546875 -6.125 C 3.359375 -6.125 1.671875 -5.390625 1.15625 -2.90625 C 0.890625 -1.671875 1.109375 -1.03125 1.375 -0.625 C 1.875 0.078125 2.78125 0.15625 3.171875 0.15625 C 4.65625 0.15625 5.734375 -0.828125 6.046875 -1.984375 L 4.921875 -1.984375 C 4.78125 -1.40625 4.296875 -0.6875 3.34375 -0.6875 C 2.15625 -0.6875 2.109375 -1.828125 2.375 -3.0625 C 2.46875 -3.515625 2.84375 -5.3125 4.390625 -5.3125 C 5.484375 -5.3125 5.34375 -4.328125 5.3125 -4.0625 Z M 6.4375 -4.0625 "/>
+</g>
+<g id="manual-svg-5-glyph-0-21">
+<path d="M 0.96875 0 L 2.078125 0 L 2.765625 -3.234375 L 4.46875 0 L 5.921875 0 L 3.984375 -3.4375 L 7.046875 -5.984375 L 5.578125 -5.984375 L 2.828125 -3.53125 L 3.921875 -8.65625 L 2.8125 -8.65625 Z M 0.96875 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-22">
+<path d="M 0.828125 0.46875 C 0.703125 1.28125 0.53125 2.390625 2.921875 2.390625 C 3.75 2.390625 4.9375 2.28125 5.640625 1.328125 C 5.984375 0.875 6.15625 0.28125 6.46875 -1.15625 L 7.265625 -4.890625 L 7.53125 -5.984375 L 6.4375 -5.984375 L 6.25 -5.15625 C 6.078125 -5.46875 5.765625 -6.0625 4.5625 -6.0625 C 3.09375 -6.0625 1.703125 -5.078125 1.265625 -3.046875 C 1.09375 -2.25 1.09375 -1.453125 1.46875 -0.84375 C 1.84375 -0.21875 2.609375 -0.109375 3.15625 -0.109375 C 3.515625 -0.109375 4.640625 -0.125 5.328125 -1.125 C 4.984375 0.5 4.734375 1.625 3.171875 1.625 C 2.109375 1.625 1.921875 1.125 2.03125 0.46875 Z M 3.625 -0.9375 C 2.25 -0.9375 2.21875 -2.15625 2.421875 -3.078125 C 2.578125 -3.828125 3.078125 -5.265625 4.5 -5.265625 C 5.015625 -5.265625 5.4375 -5.0625 5.671875 -4.734375 C 5.90625 -4.421875 5.984375 -4 5.828125 -3.25 C 5.59375 -2.171875 5.359375 -1.84375 5.046875 -1.53125 C 4.703125 -1.171875 4.28125 -0.9375 3.625 -0.9375 Z M 3.625 -0.9375 "/>
+</g>
+<g id="manual-svg-5-glyph-0-23">
+<path d="M 3.984375 -8.59375 L 2.875 -8.59375 L 1.28125 -1.078125 L 1.03125 0 L 2.109375 0 L 2.328125 -0.90625 C 2.40625 -0.71875 2.484375 -0.53125 2.78125 -0.296875 C 3.21875 0.046875 3.75 0.078125 4.03125 0.078125 C 4.859375 0.078125 5.734375 -0.265625 6.34375 -0.9375 C 6.734375 -1.328125 7.125 -1.96875 7.375 -3.125 C 7.65625 -4.421875 7.375 -5.03125 7.15625 -5.375 C 6.734375 -5.984375 6.015625 -6.125 5.421875 -6.125 C 4.0625 -6.125 3.46875 -5.375 3.25 -5.109375 Z M 6.171875 -3.046875 C 5.984375 -2.078125 5.34375 -0.71875 3.96875 -0.71875 C 2.296875 -0.71875 2.6875 -2.59375 2.78125 -2.984375 C 2.859375 -3.375 3.28125 -5.375 5 -5.375 C 6.5625 -5.375 6.3125 -3.640625 6.171875 -3.046875 Z M 6.171875 -3.046875 "/>
+</g>
+<g id="manual-svg-5-glyph-0-24">
+<path d="M 2.53125 -7.328125 L 3.890625 -7.328125 L 4.15625 -8.578125 L 2.796875 -8.578125 Z M -0.5 2.296875 C -0.203125 2.328125 0.03125 2.34375 0.171875 2.34375 C 1.671875 2.34375 1.96875 1.125 2.078125 0.5625 L 3.484375 -5.984375 L 2.359375 -5.984375 L 0.984375 0.421875 C 0.78125 1.375 0.546875 1.53125 -0.328125 1.5 Z M -0.5 2.296875 "/>
+</g>
+<g id="manual-svg-5-glyph-0-25">
+<path d="M 4.3125 0 L 5.921875 -7.578125 L 8.796875 -7.578125 L 9.015625 -8.59375 L 2.078125 -8.59375 L 1.859375 -7.578125 L 4.734375 -7.578125 L 3.125 0 Z M 4.3125 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-26">
+<path d="M 5.875 -8.65625 C 5.640625 -8.6875 5.296875 -8.734375 4.984375 -8.734375 C 4.203125 -8.734375 3.671875 -8.46875 3.328125 -8.078125 C 3.078125 -7.78125 2.953125 -7.484375 2.78125 -6.65625 L 2.640625 -5.984375 L 1.46875 -5.984375 L 1.28125 -5.171875 L 2.46875 -5.171875 L 1.375 0 L 2.46875 0 L 3.578125 -5.171875 L 4.96875 -5.171875 L 5.140625 -5.984375 L 3.75 -5.984375 L 3.9375 -6.921875 C 4.03125 -7.328125 4.125 -7.78125 5.03125 -7.78125 C 5.265625 -7.78125 5.5 -7.78125 5.6875 -7.765625 Z M 5.875 -8.65625 "/>
+</g>
+<g id="manual-svg-5-glyph-0-27">
+<path d="M 1.046875 0 L 2.234375 0 L 4.0625 -8.59375 L 2.875 -8.59375 Z M 1.046875 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-28">
+<path d="M 1.125 0 L 4.265625 0 C 4.9375 0 5.609375 0 6.28125 -0.390625 C 6.609375 -0.578125 7.484375 -1.171875 7.734375 -2.34375 C 8.078125 -3.984375 6.953125 -4.34375 6.484375 -4.484375 C 6.921875 -4.640625 8.03125 -5.015625 8.34375 -6.421875 C 8.484375 -7.109375 8.359375 -7.609375 8.0625 -7.96875 C 7.640625 -8.484375 7.078125 -8.59375 6.03125 -8.59375 L 2.953125 -8.59375 Z M 3.90625 -7.625 L 5.625 -7.625 C 6.28125 -7.625 7.359375 -7.625 7.078125 -6.328125 C 6.796875 -4.96875 5.421875 -4.96875 5.015625 -4.96875 L 3.34375 -4.96875 Z M 3.125 -3.9375 L 5.203125 -3.9375 C 6.25 -3.9375 6.71875 -3.3125 6.53125 -2.453125 C 6.328125 -1.46875 5.46875 -0.96875 4.53125 -0.96875 L 2.484375 -0.96875 Z M 3.125 -3.9375 "/>
+</g>
+</g>
+<image id="manual-svg-5-source-5" x="0" y="0" width="274" height="424" xlink:href="data:image/png;base64,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"/>
+</defs>
+<use xlink:href="#manual-svg-5-source-5" transform="matrix(0.850004, 0, 0, 0.850002, 0.248295, 0.79886)"/>
+<path fill="none" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(18.03894%, 19.219971%, 57.249451%)" stroke-opacity="1" stroke-miterlimit="3.89999" d="M 2866.992188 3306.015625 L 1617.5 3306.015625 " transform="matrix(0.1, 0, 0, -0.1, 0, 362)"/>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-0-0" x="292.716" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="300.653367" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-2" x="307.924328" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-2" x="315.195289" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="322.46625" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="328.4163" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="335.032756" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-0" x="338.340983" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-6" x="346.27835" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="353.549311" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="359.499361" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-2" x="363.462094" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-8" x="370.733056" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="381.96675" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-0" x="385.274978" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-9" x="393.212344" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="396.520572" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="403.137028" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="409.087078" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="415.037128" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="418.345356" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="425.616317" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-11" x="432.232772" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="436.861911" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="443.478367" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-2" x="446.786595" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-11" x="454.057556" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="458.686695" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="461.994922" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-12" x="465.957656" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-13" x="472.574111" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="479.845072" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="486.461528" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-0" x="489.769756" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-2" x="497.707123" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-8" x="504.978084" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-8" x="516.211778" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="527.445472" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-14" x="534.061928" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-15" x="541.332889" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-16" x="548.60385" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-17" x="552.566584" y="35.287"/>
+<use xlink:href="#manual-svg-5-glyph-0-18" x="559.183039" y="35.287"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-0-0" x="290.72577" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-9" x="298.663137" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-19" x="301.971364" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-20" x="305.279592" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-21" x="311.229642" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="317.179692" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-12" x="320.48792" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-2" x="327.104376" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-6" x="334.375337" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-11" x="341.646298" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="346.275437" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-20" x="349.583665" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-9" x="355.533715" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="358.841942" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="365.458398" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="371.408448" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="377.358498" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-14" x="380.666726" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="387.937687" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-8" x="394.554142" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="405.787837" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="412.404292" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="415.71252" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-2" x="419.675254" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="426.946215" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="430.254442" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="436.870898" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="442.820948" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-19" x="448.770998" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-22" x="452.079226" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-14" x="459.350187" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="466.621148" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-19" x="469.929376" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="473.237604" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="477.200337" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="480.508565" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-2" x="484.471298" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="491.742259" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="495.050487" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="499.01322" y="194.282"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="506.284181" y="194.282"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-0-2" x="290.72577" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-23" x="297.996731" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-24" x="305.267692" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="308.57592" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-20" x="315.192376" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="321.142426" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-18" x="325.105159" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="328.413387" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-25" x="331.721614" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="338.992576" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-19" x="346.263537" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="349.571765" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="355.521815" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="358.830042" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="364.780092" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="368.742826" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-13" x="375.359281" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="382.630242" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-20" x="385.93847" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-11" x="391.88852" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="396.517659" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="403.134115" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="409.75057" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="413.713303" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="420.329759" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="426.279809" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="429.588037" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-14" x="436.204492" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="443.475454" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-19" x="446.783681" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-14" x="450.091909" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="457.36287" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="463.31292" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="467.275654" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-14" x="473.892109" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-20" x="481.16307" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="487.11312" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="493.729576" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-2" x="497.037804" y="206.1824"/>
+<use xlink:href="#manual-svg-5-glyph-0-26" x="504.308765" y="206.1824"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-0-12" x="290.72577" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-2" x="297.342226" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-6" x="304.613187" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-11" x="311.884148" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="316.513287" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-20" x="319.821514" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-9" x="325.771564" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="329.079792" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="335.696248" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="341.646298" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="347.596348" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-19" x="350.904576" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-14" x="354.212803" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="361.483765" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-27" x="364.791992" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-14" x="368.10022" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="375.371181" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="379.333915" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-11" x="385.95037" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-26" x="390.579509" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="394.542242" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-20" x="401.158698" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="407.108748" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="413.725204" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-28" x="417.033431" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-6" x="424.970798" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-19" x="432.241759" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-9" x="435.549987" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-15" x="438.858215" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="446.129176" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-11" x="452.745631" y="218.0828"/>
+<use xlink:href="#manual-svg-5-glyph-0-18" x="457.37477" y="218.0828"/>
+</g>
+<path fill="none" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(18.03894%, 19.219971%, 57.249451%)" stroke-opacity="1" stroke-miterlimit="3.89999" d="M 2875.507812 1716.484375 L 1430.507812 1716.484375 L 651.484375 2502.148438 " transform="matrix(0.1, 0, 0, -0.1, 0, 362)"/>
+</svg></p>
+<p class="p13"><br></p>
+<p class="p17"><br></p>
+<p class="p10"><span class="s2"><b>Tip: </b></span>Make sure you choose the appropriate superclass. If you subclass an NSView subclass, rather than subclassing NSView directly, you can still set the that class's attributes for your object using the Inspector panel's Attributes display. If you subclass NSView directly, you lose the ability to set attributes using the Inspector panel.<span class="Apple-converted-space"> </span></p>
+<p class="p18"><br></p>
+<p class="p10">The next three steps that you must complete are the same tasks that follow the instantiation of NSObject subclasses:</p>
+<p class="p11"><br></p>
+<p class="p19"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-6-title" data-source="ImplementingASubclassOfNSView.rtfd/SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-6-title">SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Connect the instance to other objects in the interface (“Connecting your class's outlets” and “Connecting your class's actions”). But now the instance appears as part of the interface, and not as an icon in the Instances display of the nib file window.</p>
+<p class="p20"><br></p>
+<p class="p19"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-7-title" data-source="ImplementingASubclassOfNSView.rtfd/SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-7-title">SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Generate code files and have them inserted in your project (“Generating source code files”).</p>
+<p class="p20"><br></p>
+<p class="p19"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-8-title" data-source="ImplementingASubclassOfNSView.rtfd/SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-8-title">SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Switch over to the project in Project Builder that contains the nib file, and open your class's code files.<span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p10">Since NSView inherits from NSObject, next complete some of the same programming tasks recommended for subclasses of NSObject:</p>
+<p class="p11"><br></p>
+<p class="p19"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-9-title" data-source="ImplementingASubclassOfNSView.rtfd/SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-9-title">SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Declaring new instance variables</p>
+<p class="p19"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-10-title" data-source="ImplementingASubclassOfNSView.rtfd/SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-10-title">SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Implementing accessor methods</p>
+<p class="p19"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-11-title" data-source="ImplementingASubclassOfNSView.rtfd/SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-11-title">SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Implementing target/action methods</p>
+<p class="p19"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-12-title" data-source="ImplementingASubclassOfNSView.rtfd/SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-12-title">SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Archiving and unarchiving</p>
+<p class="p20"><br></p>
+<p class="p10">To create a functional subclass of NSView, you must complete two additional steps (and might want to complete another), which are described on the following pages.<span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p18"><br></p>
+<p class="p15"><b>Initializing NSView Objects<span class="Apple-converted-space"> </span></b></p>
+<p class="p16"><b></b><br></p>
+<p class="p10">Subclasses of NSView override <span class="s2"><b>initWithFrame:</b></span> instead of <span class="s2"><b>init</b></span>. In <span class="s2"><b>initWithFrame:</b></span> (NSView's designated initializer) you initialize a just-allocated instance of your class, setting its attributes to an initial state. The method's sole argument is the rectangle in which drawing is to occur (usually the frame of the view).<span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p10">In this example, <span class="s2"><b>initWithFrame:</b></span> initializes instance variables of varying types and performs other housekeeping chores.</p>
+<p class="p11"><br></p>
+<p class="p21"><br></p>
+<p class="p13"><br></p>
+<p class="p22">- (id)initWithFrame:(NSRect)frameRect {</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>[super initWithFrame:frameRect];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>glist = [[NSMutableArray allocWithZone:[self zone]]<span class="Apple-converted-space"> </span></p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>init];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>slist = [[NSMutableArray allocWithZone:[self zone]]<span class="Apple-converted-space"> </span></p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>init];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>cacheImage = [self createCacheWithSize:[self bounds].size];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>[self cache:[self bounds] andUpdateLinks:NO];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>gvFlags.grid = 10;</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>gvFlags.gridDisabled = 1;</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>[self allocateGState];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>gridGray = DEFAULT_GRID_GRAY;</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>PSInit();</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>currentGraphic = [Rectangle class];<span class="Apple-tab-span">	</span><span class="Apple-converted-space">      </span>/* default graphic */</p>
+<p class="p23"><br></p>
+<p class="p22">/* trick to allow NSApp to control currentGraphic */</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>currentGraphic = [self currentGraphic];<span class="Apple-converted-space">   </span></p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>editView = [self createEditView];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>[[self class] initClassVars];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>[self registerForDragging];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>spellDocTag = 0;</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>return self;</p>
+<p class="p23"><br></p>
+<p class="p22">}</p>
+<p class="p23"><br></p>
+<p class="p24"><b>Notes on the code: </b>The implementation of an <b>initWithFrame:</b> method begins by invoking <b>super</b>'s <b>initWithFrame:</b> method, ends by returning <b>self</b>, and in between sets the instance variables to initial values. Often the attributes set have a visual aspect, and affect how the view is drawn.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p10">As with NSObject subclasses, you might have to implement the <span class="s2"><b>dealloc</b></span> method to deallocate dynamically allocated storage.</p>
+<p class="p11"><br></p>
+<p class="p26">The NSView class offers your subclass a wealth of inherent functionality. It includes methods for managing the view hierarchy, for converting coordinates and modifying the coordinate system, for managing cursors and events, and for focusing, clipping, scrolling, dragging, and printing. See the description of the NSView class in the <i>Application Kit Reference</i>. <span class="Apple-converted-space">    </span></p>
+<p class="p27"><br></p>
+<p class="p28"><br></p>
+<p class="p15"><b>Drawing NSView Objects<span class="Apple-converted-space"> </span></b></p>
+<p class="p16"><b></b><br></p>
+<p class="p10">An NSView object draws itself with the <span class="s2"><b>drawRect:</b></span> method. To invoke <span class="s2"><b>drawRect:</b></span>, another object must send <span class="s2"><b>display</b></span> to the NSView object. The <span class="s2"><b>drawRect:</b></span> method is also invoked automatically when windows are resized and exposed, when NSViews are scrolled, and when similar events happen.The NSRect argument passed to <span class="s2"><b>drawRect:</b></span> indicates how much of the NSView needs to be drawn.<span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p29">- (void)drawRect:(NSRect)rect</p>
+<p class="p13"><br></p>
+<p class="p29">{</p>
+<p class="p30"><br></p>
+<p class="p29"><span class="Apple-tab-span">	</span>int grid;</p>
+<p class="p29"><span class="Apple-tab-span">	</span>float gray;</p>
+<p class="p30"><br></p>
+<p class="p30"><br></p>
+<p class="p29"><span class="Apple-tab-span">	</span>grid = [spacing intValue];</p>
+<p class="p29"><span class="Apple-tab-span">	</span>grid = MAX(grid, 0.0);</p>
+<p class="p29"><span class="Apple-tab-span">	</span>PSsetgray(NSWhite);</p>
+<p class="p29"><span class="Apple-tab-span">	</span>NSRectFill(rect);</p>
+<p class="p29"><span class="Apple-tab-span">	</span>if (grid &gt;= 4) {</p>
+<p class="p29"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>gray = [grayField floatValue];</p>
+<p class="p29"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>gray = MIN(gray, 1.0);</p>
+<p class="p29"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>gray = MAX(gray, 0.0);</p>
+<p class="p29"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>PSsetgray(gray);</p>
+<p class="p29"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>PSsetlinewidth(0.0);</p>
+<p class="p29"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>[self drawGrid:grid];</p>
+<p class="p29"><span class="Apple-tab-span">	</span>}</p>
+<p class="p29"><span class="Apple-tab-span">	</span>PSsetgray(NSBlack);</p>
+<p class="p29"><span class="Apple-tab-span">	</span>NSFrameRect([self bounds]);</p>
+<p class="p29">}</p>
+<p class="p13"><br></p>
+<p class="p24"><b>Notes on the code:</b> The example above shows <b>drawRect:</b>. This example fills in the view with a white background, draws a grid using a user-selectable gray value, then uses <b>NSFrameRect()</b> to draw a black border around the view.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p10">In implementing <span class="s2"><b>drawRect:</b></span>, write whatever code helps to draw your NSView. You can call <span class="s2"><b>pswrap</b></span>-generated functions to send PostScript code to the Window Server. You can send messages to bitmap objects, requesting them to composite source images stored in off-screen windows. You can change font styles and text colors. If your NSView uses an NSCell to do any of its drawing, you can send <span class="s2"><b>drawWithFrame:inView:</b></span> or <span class="s2"><b>drawInteriorWithFrame:inView:</b></span> to the NSCell within <span class="s2"><b>drawRect:</b></span>.</p>
+<p class="p11"><br></p>
+<p class="p26">The PostScript functions and operators available for use are described in <i>DPSClientLibrary Reference</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p26"><b>pswrap</b> is a program that creates a C function to correspond to a sequence of PostScript code. Note that your custom <b>pswrap</b> code (extension <b>.psw</b>) must go in Project Builder under Other Sources. <b>pswrap</b> is described in detail in Adobe Systems' <i>pswrap Reference Manual</i>.</p>
+<p class="p27"><br></p>
+<p class="p10">The <span class="s2"><b>drawRect:</b></span> method defines an NSView's static appearance on the screen. Your subclass can also add other methods for dynamic drawing in response to user events. In these methods you might highlight the NSView, drag it from one place to another, or animate it. The Application Kit locks focus automatically when <span class="s2"><b>drawRect:</b></span> is invoked. In dynamic-drawing contexts you must lock and unlock focus yourself when drawing.</p>
+<p class="p11"><br></p>
+<p class="p10">If you want your view to respond to mouse clicks, key presses, or other user events, you must do at least two things:</p>
+<p class="p11"><br></p>
+<p class="p19"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-13-title" data-source="ImplementingASubclassOfNSView.rtfd/SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-13-title">SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Re-implement NSView's <span class="s2"><b>acceptsFirstResponder</b></span> method to return YES.</p>
+<p class="p20"><br></p>
+<p class="p19"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-14-title" data-source="ImplementingASubclassOfNSView.rtfd/SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-14-title">SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Decide which event types you want to respond to and implement the appropriate methods: <span class="s2"><b>mouseUp:</b></span>, <span class="s2"><b>mouseDown:</b></span>, <span class="s2"><b>keyDown:</b></span>, <span class="s2"><b>mouseEntered:</b></span>, and so on.<span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p10">The event methods are defined in the NSResponder class, where the default implementation is to forward the event message to the next responder.<span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p10">When it invokes an event method, the input system passes in an NSEvent object. This object holds details related to the event: the type of event, the mouse's location (in the window's base coordinates), the window number, a time value associated with the event, flags indicating modifier keys and mouse buttons, and supplementary data.</p>
+<p class="p11"><br></p>
+<p class="p10">You can find or derive much of the information required for handling an event in the NSEvent parameter. For instance, you can convert the NSEvent mouse location to your NSView's base coordinate system with <span class="s2"><b>convertPoint:fromView:</b></span>. You can check for modifier keys or mouse buttons using the keyboard-state flags masks.<span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p10">The following example illustrates several of these techniques.</p>
+<p class="p27"><br></p>
+<p class="p21"><br></p>
+<p class="p13"><br></p>
+<p class="p22">- (void)mouseDown:(NSEvent *)event<span class="Apple-converted-space"> </span></p>
+<p class="p23"><br></p>
+<p class="p22">{</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>NSPoint p, start;</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>int grid, gridCount;</p>
+<p class="p23"><br></p>
+<p class="p31"><br></p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>start = [event locationInWindow];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>start = [self convertPoint:start fromView:nil];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>grid = MAX([spacing intValue], 1.0);</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>gridCount = (int)MAX(start.x, start.y) / grid;</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>gridCount = MAX(gridCount, 1.0);</p>
+<p class="p23"><br></p>
+<p class="p31"><br></p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>event = [[self window] nextEventMatchingMask:<span class="Apple-converted-space"> </span></p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSLeftMouseDraggedMask|NSLeftMouseUpMask];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>while ([event type] != NSLeftMouseUp) {</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>p = [event locationInWindow];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>p = [self convertPoint:p fromView:nil];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>grid = (int)MAX(p.x, p.y) / gridCount;</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>grid = MAX(grid, 1.0);</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>if (grid != [spacing intValue]) {</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>[form abortEditing];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>[spacing setIntValue:grid];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>[self display];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>}</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>event = [[self window] nextEventMatchingMask:<span class="Apple-converted-space"> </span></p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSLeftMouseDraggedMask|NSLeftMouseUpMask];</p>
+<p class="p23"><br></p>
+<p class="p22"><span class="Apple-tab-span">	</span>}</p>
+<p class="p23"><br></p>
+<p class="p22">}</p>
+<p class="p23"><br></p>
+<p class="p21"><br></p>
+<p class="p18"><br></p>
+<p class="p10"><span class="s2"><b>Tip: </b></span>If you want your NSView to handle target/action messages sent to the First Responder (for example, copy and paste), be sure to override <span class="s2"><b>acceptsFirstResponder</b></span> to return YES, and then implement the appropriate methods <span class="s2"><b>(copy:</b></span> and <span class="s2"><b>paste:</b></span>).</p>
+<p class="p18"><br></p>
+<p class="p11"><br></p>
+<p class="p26">The NSEvent class is described in the <i>Application Kit Reference</i>. <span class="Apple-converted-space">  </span></p>
+</body>
+</html>

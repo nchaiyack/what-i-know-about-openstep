@@ -1,0 +1,42 @@
+.\"	@(#)getenv.3	6.1 (Berkeley) 5/15/85
+.\"
+.TH GETENV 3 "August 1, 1992"
+.AT 3
+.SH NAME
+getenv \- value for environment name
+.SH SYNOPSIS
+.nf
+.ft B
+#include <stdlib.h>
+.PP
+.ft B
+char *getenv(char *\fIname\fP);
+.ft R
+.fi
+.SH DESCRIPTION
+.I Getenv
+.a
+searches the environment list
+(see
+.IR environ (7))
+for a string of the form
+.IB name = value
+and returns a pointer to the string
+.I value
+if such a string is present, otherwise 
+.I getenv
+returns the value 0 (NULL).
+.SH "RETURN VALUE"
+Upon successful completion, 
+.I getenv
+returns a pointer to a string
+containing the 
+.I value
+for the specified
+.IR name, 
+or a NULL pointer if the specified 
+.I name
+cannot be found.  
+Unsuccessful completion results in the return of a NULL pointer.
+.SH SEE ALSO
+execve(2), environ(7)

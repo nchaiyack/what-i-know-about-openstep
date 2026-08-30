@@ -1,0 +1,129 @@
+.\" Copyright (c) 1983 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)mkdir.2	6.4 (Berkeley) 8/26/85
+.\"
+.TH MKDIR 2 "August 1, 1992"
+.UC 5
+.SH NAME
+mkdir \- make a directory
+.SH SYNOPSIS
+.nf
+.ft B
+#include <sys/types.h>
+#include <sys/stat.h>
+.PP
+.ft B
+int mkdir(const char *\fIpath\fP, mode_t \fImode\fP);
+.ft R
+.fi
+.SH DESCRIPTION
+The
+.IR mkdir 
+function creates a new, empty directory with name \fIpath\fP.
+The mode of the new directory is initialized from the \fImode\fP
+argument.
+The low-order nine bits of \fImode\fP are modified by the process's
+file mode creation mask: all bits set in the process's file mode
+creation mask are cleared.
+See
+.IR umask (2).
+.PP
+The directory's owner ID is set to the process's effective user ID.
+The directory's group ID is set to that of the parent directory in
+which the directory is created.
+.PP
+Upon successful completion, the
+.IR mkdir 
+function marks for update the \fIst_atime\fP, \fIst_ctime\fP and \fIst_mtime\fP
+fields of the directory, and the \fIst_ctime\fP and \fIst_mtime\fP
+fields of the parent directory in which the new directory is created.
+.SH "RETURN VALUE"
+Upon successful completion, the
+.IR mkdir 
+function returns a value of zero.
+Otherwise, a value of \-1 is returned and \fIerrno\fP is set to indicate
+the error.
+.SH "ERRORS
+If any of the following conditions occurs, the
+.IR mkdir 
+function returns \-1 and set \fIerrno\fP to the corresponding value:
+.TP 15
+[EACCES]
+Search permission is denied for a component of the path prefix,
+or write permission is denied on the parent directory
+in which the new directory is to be created.
+.TP 15
+[EDQUOT]
+The directory in which the entry for the new directory
+is being placed cannot be extended because the
+user's quota of disk blocks on the file system
+containing the directory has been exhausted;
+or,
+the user's quota of disk blocks on the file system that will
+hold the contents of the new directory has been exhausted;
+or,
+the user's quota of inodes on the file system on
+which the directory is being created has been exhausted.
+.TP 15
+[EEXIST]
+The named file exists.
+.TP 15
+[EFAULT]
+The \fIpath\fP argument points outside the process's allocated address space.
+.TP 15
+[EINVAL]
+The pathname contains a character with the high-order bit set.
+.TP 15
+[EIO]
+An I/O error occurred while making the directory entry
+or allocating the inode; or
+an I/O error occurred while reading from
+or writing to the file system.
+.TP 15
+[ELOOP]
+Too many symbolic links were encountered in translating the pathname.
+.TP 15
+[EMLINK]
+The link count of the parent directory in which the new directory to be
+created would exceed {LINK_MAX} (see
+.IR <limits.h> )
+(POSIX only).
+.TP 15
+[ENAMETOOLONG]
+A component of
+.I path
+exceeds 255 characters,
+or the entire pathname exceeds 1023 characters.
+For POSIX applications these values are given
+by the constants {NAME_MAX} and {PATH_MAX}, respectively.
+.TP 15
+[ENOENT]
+A component of the path prefix does not exist,
+or the \fIpath\fP argument points to an empty string.
+.TP 15
+[ENOSPC]
+The directory in which the entry for the new directory is being placed
+cannot be extended because there is no space left on the file
+system containing the directory;
+or,
+there is no space left on the file
+system to hold the contents of the new directory;
+or,
+there are no free inodes on the file system on which the
+directory or the contents of the new directory are being created.
+.TP 15
+[ENOTDIR]
+A component of the path prefix is not a directory.
+.TP 15
+[EPERM]
+The \fIpath\fP argument contains a byte with the high-order bit set.
+.TP 15
+[EROFS]
+The parent directory of the new directory being created resides in a
+read-only file system.
+.SH "SEE ALSO"
+chmod(2),
+stat(2) or stat(2P),
+umask(2)

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 20.0px; font: 14.0px Times}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px Helvetica; color: #0000ff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Helvetica; min-height: 11.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 20.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 32.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; text-indent: 36.0px; font: 12.0px Courier}
+    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; text-indent: 36.0px; font: 2.0px Courier; min-height: 2.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 2.0px Courier; min-height: 2.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #0000ff}
+    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 5.0px Helvetica; color: #0000ff; min-height: 6.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #260075}
+    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; font: 3.0px Helvetica; color: #ff00ff; min-height: 4.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 32.0px; font: 8.0px Times; min-height: 10.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 20.0px; text-indent: 16.0px; font: 12.0px Courier}
+    p.p19 {margin: 0.0px 0.0px 0.0px 20.0px; text-indent: 16.0px; font: 2.0px Courier; min-height: 2.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 20.0px; text-indent: 16.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -16.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -16.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 32.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #ff00ff; min-height: 14.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 45.0px; font: 14.0px Times}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Times}
+    span.s3 {color: #ff00ff}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"> Previous Section<span class="Apple-converted-space">  </span> Next Section</p>
+<p class="p2"><br></p>
+<p class="p4"><b>4. To Do Tutorial</b><b></b></p>
+<p class="p5"><b>Managing the Data and Coordinating its Display (ToDoDoc)</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p3">If you recall the discussion on To Do's design earlier in this chapter, you'll remember that the application's real data consists of instances of the model class, ToDoItem. To Do stores these objects in arrays and stores the arrays in a dictionary; it uses dates as the keys for accessing specific arrays. (Both the dictionary and its arrays are mutable, of course.) You might also recall that this design depends on a positional correspondence between the text fields of the document interface and the “slots” of the arrays.</p>
+<p class="p7"><br></p>
+<p class="p3">To lend clarity to this design's implementation, this section follows the process from start to finish through which the ToDoDoc class handles entered data, and organizes, displays, and stores it. It also shows how the display and manipulation of data is driven by the selections made in the CalendarMatrix object.</p>
+<p class="p7"><br></p>
+<p class="p3">Start by revisiting a portion of code you wrote earlier for ToDoDoc's <span class="s2"><b>initWithFile:</b></span> method.</p>
+<p class="p8"><br></p>
+<p class="p9">- initWithFile:(NSString *)aFile</p>
+<p class="p10"><br></p>
+<p class="p9">{</p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-converted-space">    </span>/* ... */</p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-converted-space">    </span>if (aFile) {</p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-converted-space">        </span>activeDays = [NSUnarchiver unarchiveObjectWithFile:aFile];</p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-converted-space">        </span>if (activeDays)<span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-converted-space">            </span>activeDays = [activeDays retain];</p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-converted-space">        </span>else<span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-converted-space">            </span>NSRunAlertPanel(@"To Do", @"Couldn't unarchive file %@",<span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-converted-space">                </span>nil, nil, nil, aFile);</p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-converted-space">        </span>activeDays = [[NSMutableDictionary alloc] init];</p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-converted-space">        </span>[self setCurrentItems:nil];</p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-converted-space">    </span>}</p>
+<p class="p10"><br></p>
+<p class="p9">/* ... */</p>
+<p class="p10"><br></p>
+<p class="p9">}</p>
+<p class="p11"><br></p>
+<p class="p12"><br></p>
+<p class="p11"><br></p>
+<p class="p3">Assume the user has chosen the New command from the Document menu. Since there is no archive file (<span class="s2"><b>aFile</b></span> is <span class="s2"><b>nil</b></span>), the <span class="s2"><b>activeDays</b></span> dictionary is created but is left empty. Then<span class="s2"><b> initWithFile:</b></span> invokes its own <span class="s2"><b>setCurrentItems:</b></span> method, passing in <span class="s2"><b>nil</b></span>.</p>
+<p class="p8"><br></p>
+<p class="p13"><b>1<span class="Apple-tab-span">	</span>Set the current items or, if necessary, create and prepare the array that holds them.</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><span class="s3"><span class="Apple-tab-span">	</span></span>Implement <b>setCurrentItems:</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p18">- (void)setCurrentItems:(NSMutableArray *)newItems</p>
+<p class="p19"><br></p>
+<p class="p18">{</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>if (currentItems) [currentItems autorelease];</p>
+<p class="p19"><br></p>
+<p class="p20"><br></p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>if (newItems)<span class="Apple-converted-space"> </span></p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>currentItems = [newItems mutableCopy];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>else {</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>int numRows = [[itemMatrix cells] count];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>currentItems = [[NSMutableArray alloc]<span class="Apple-converted-space"> </span></p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>initWithCapacity:numRows];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>while (--numRows &gt;= 0)</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>[currentItems addObject:@""];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>}</p>
+<p class="p19"><br></p>
+<p class="p18">}</p>
+<p class="p11"><br></p>
+<p class="p12"><br></p>
+<p class="p3">This “set” accessor method is like other such methods, except in how it handles a <span class="s2"><b>nil</b></span> argument. In this case, <span class="s2"><b>nil</b></span> signifies that the array does not exist, and so it must be created. Not only does <span class="s2"><b>setCurrentItems:</b></span> create the array, but it “initializes” it with empty string objects. It does this because NSMutableArray's methods cannot tolerate <span class="s2"><b>nil</b></span> objects within the bounds of the array.</p>
+<p class="p7"><br></p>
+<p class="p3">So there's now a <span class="s2"><b>currentItems</b></span> array ready to accept ToDoItems. Imagine yourself using the application. What are the user events that cause a ToDoItem to be added to the <span class="s2"><b>currentItems</b></span> array? To Do allows entry of items “on the fly,” and thus does not require the user to click a button to add a ToDoItem to the array. Specifically, items are added when users type something and then:</p>
+<p class="p7"><br></p>
+<p class="p21"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-1-title" data-source="G_ToDo_ManageData.rtfd/SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-1-title">SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Press the Tab key.</p>
+<p class="p21"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-2-title" data-source="G_ToDo_ManageData.rtfd/953169_SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-2-title">953169_SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Press the Enter key.</p>
+<p class="p21"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-3-title" data-source="G_ToDo_ManageData.rtfd/75306_SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-3-title">75306_SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Click outside the text field.</p>
+<p class="p22"><br></p>
+<p class="p3">The <span class="s2"><b>controlTextDidEndEditing:</b></span> delegation method makes these scenarios possible. The matrix of editable text fields (<span class="s2"><b>itemMatrix</b></span>) invokes this method when the cursor leaves a text field that has been edited.<span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p8"><br></p>
+<p class="p13"><b>2<span class="Apple-tab-span">	</span>As items are entered in the interface, add ToDoItems to internal storage,<span class="Apple-converted-space"> </span></b></p>
+<p class="p13"><b><span class="Apple-tab-span">	</span>delete them, or modify them, as appropriate.</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><span class="s3"><span class="Apple-tab-span">	</span></span>Implement <b>controlTextDidEndEditing:</b>.<span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p16"><br></p>
+<p class="p23"><br></p>
+<p class="p18">- (void)controlTextDidEndEditing:(NSNotification *)notif</p>
+<p class="p19"><br></p>
+<p class="p18">{</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>id curItem, newItem;</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>int row = [itemMatrix selectedRow];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>NSString *selName = [[itemMatrix selectedCell] stringValue];</p>
+<p class="p19"><br></p>
+<p class="p18">/* 1 */</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>if (![[itemMatrix window] isDocumentEdited] ||</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>(row &gt;= [currentItems count])) return;</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>if (!currentItems)</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>[self setCurrentItems:nil];</p>
+<p class="p19"><br></p>
+<p class="p18">/* 2 */</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>if ([selName isEqualToString:@""] &amp;&amp;<span class="Apple-converted-space"> </span></p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>([[currentItems objectAtIndex:row] isKindOfClass:</p>
+<p class="p18"><span class="Apple-converted-space">            </span>[ToDoItem class]]) &amp;&amp;</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>(![[[currentItems objectAtIndex:row] itemName]</p>
+<p class="p18"><span class="Apple-converted-space">            </span>isEqualToString:@""]))<span class="Apple-converted-space"> </span></p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>[currentItems replaceObjectAtIndex:row withObject:@""];</p>
+<p class="p19"><br></p>
+<p class="p18">/* 3 */</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>else if ([[currentItems objectAtIndex:row] isKindOfClass:</p>
+<p class="p18"><span class="Apple-converted-space">            </span>[ToDoItem class]] &amp;&amp;</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>(![[[currentItems objectAtIndex:row] itemName]</p>
+<p class="p18"><span class="Apple-converted-space">            </span>isEqualToString:selName]) )</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>[[currentItems objectAtIndex:row] setItemName:selName];</p>
+<p class="p19"><br></p>
+<p class="p18">/* 4 */</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">   </span>else if (![selName isEqualToString:@""]) {</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>newItem = [[ToDoItem alloc] initWithName:selName</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>andDate:[calendar selectedDay]];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>[currentItems replaceObjectAtIndex:row withObject:newItem];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>[newItem release];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>}</p>
+<p class="p19"><br></p>
+<p class="p18">/* 5 */</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[self updateMatrix];</p>
+<p class="p19"><br></p>
+<p class="p18">}</p>
+<p class="p11"><br></p>
+<p class="p12"><br></p>
+<p class="p3">A control sends <span class="s2"><b>controlTextDidEndEditing:</b></span> to its delegate when the cursor <i>leaves</i> a text field. In addition to creating new ToDoItems, this implementation of <span class="s2"><b>controlTextDidEndEditing:</b></span> removes ToDoItems from arrays and modifies item text. What it does is appropriate to what the user does.</p>
+<p class="p7"><br></p>
+<p class="p21">1.<span class="Apple-tab-span">	</span>If the document hasn't been edited (see <span class="s2"><b>controlTextDidChange:</b></span>) or if the selected row exceeds the array bounds, it returns because there's no reason to proceed. It initializes a <span class="s2"><b>currentItems</b></span> array if one doesn't exist.<span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p21">2.<span class="Apple-tab-span">	</span>If the user deletes the text of an existing item, it removes the ToDoItem that positionally corresponds to the row of that deleted text.</p>
+<p class="p22"><br></p>
+<p class="p21">3.<span class="Apple-tab-span">	</span>It changes the name of an item if the text entered in a field doesn't match the name of the corresponding item in the <span class="s2"><b>currentItems</b></span> array.</p>
+<p class="p22"><br></p>
+<p class="p21">4.<span class="Apple-tab-span">	</span>If either of the two previous conditions don't apply, and text has been entered, it creates a new ToDoItem and inserts it in the <span class="s2"><b>currentItems</b></span> array.</p>
+<p class="p22"><br></p>
+<p class="p21">5.<span class="Apple-tab-span">	</span>Updates the list of items in the document interface.</p>
+<p class="p22"><br></p>
+<p class="p8"><br></p>
+<p class="p13"><b>3<span class="Apple-tab-span">	</span>Update the document interface with the current items.</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><span class="s3"><span class="Apple-tab-span">	</span></span>Implement <b>updateMatrix:</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p23"><br></p>
+<p class="p18">- (void)updateMatrix</p>
+<p class="p19"><br></p>
+<p class="p18">{</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>int i, cnt = [currentItems count], rows = [[itemMatrix cells] count];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>ToDoItem *thisItem;</p>
+<p class="p19"><br></p>
+<p class="p20"><br></p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>for (i=0; i&lt;cnt, i&lt;rows; i++) {</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>NSDate *due;</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>thisItem = [currentItems objectAtIndex:i];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>if ([thisItem isKindOfClass:[ToDoItem class]]) {<span class="Apple-converted-space">        </span>/* 1 */</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>if ( [thisItem secsUntilDue] )</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">                </span>due = [[thisItem day] addTimeInterval:</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">                          </span>[thisItem secsUntilDue]];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>else</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">                </span>due = nil;</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>[[itemMatrix cellAtRow:i column:0] setStringValue:</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">                </span>[thisItem itemName]];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>[[markMatrix cellAtRow:i column:0] setTimeDue:due];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>[[markMatrix cellAtRow:i column:0] setTriState:</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">                </span>[thisItem itemStatus]];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>}</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>else<span class="Apple-converted-space">  </span>{<span class="Apple-converted-space">                                                </span>/* 2 */</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>[[itemMatrix cellAtRow:i column:0] setStringValue:@""];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>[[markMatrix cellAtRow:i column:0] setTitle:@""];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>[[markMatrix cellAtRow:i column:0] setImage:nil];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>}</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>}</p>
+<p class="p19"><br></p>
+<p class="p18">}</p>
+<p class="p11"><br></p>
+<p class="p8"><br></p>
+<p class="p3">The <span class="s2"><b>updateMatrix</b></span> method writes the names of the items (ToDoItems) in the <span class="s2"><b>currentItems</b></span> array to the text fields of <span class="s2"><b>itemMatrix</b></span>. It also updates the visual appearance of the cells in the matrix (<span class="s2"><b>markMatrix</b></span>) next to <span class="s2"><b>itemMatrix</b></span>. These cells are instances of a custom subclass of NSButtonCell that you will create later in this tutorial. For now, just type all the code above; later, when you create the cell class, ToDoCell, you can refer back to this example to see what is happening.</p>
+<p class="p7"><br></p>
+<p class="p3">Basically, this method cycles through the array of items, doing the following:</p>
+<p class="p7"><br></p>
+<p class="p21">1.<span class="Apple-tab-span">	</span>If an object in the array is a ToDoItem, it writes the item name to the text field corresponding to the array slot and updates the button cell next to the field.</p>
+<p class="p22"><br></p>
+<p class="p21">2.<span class="Apple-tab-span">	</span>If an object isn't a ToDoItem, it blanks the corresponding text field and cell.</p>
+<p class="p7"><br></p>
+<p class="p7"><br></p>
+<p class="p13"><b>4<span class="Apple-tab-span">	</span>Respond to user actions in the calendar.</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><span class="s3"><span class="Apple-tab-span">	</span></span>Implement CalendarMatrix's delegation methods.<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p18">- (void)calendarMatrix:(CalendarMatrix *)matrix <span class="Apple-converted-space">        </span>/* 1 */</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>didChangeToDate:(NSDate *)date</p>
+<p class="p19"><br></p>
+<p class="p18">{</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[[itemMatrix window] makeFirstResponder:[itemMatrix window]];<span class="Apple-converted-space"> </span></p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[self saveDocItems];<span class="Apple-converted-space"> </span></p>
+<p class="p19"><br></p>
+<p class="p20"><br></p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[self setCurrentItems:[activeDays objectForKey:date]];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[dayLabel setStringValue:[date descriptionWithCalendarFormat:</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>@"To Do on %a %B %d %Y" timeZone:[NSTimeZone defaultTimeZone]</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>locale:nil]];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[self updateMatrix];</p>
+<p class="p19"><br></p>
+<p class="p18">}</p>
+<p class="p19"><br></p>
+<p class="p20"><br></p>
+<p class="p19"><br></p>
+<p class="p18">- (void)calendarMatrix:(CalendarMatrix *)matrix <span class="Apple-converted-space">        </span>/* 2 */</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>didChangeToMonth:(int)mo year:(int)yr</p>
+<p class="p19"><br></p>
+<p class="p18">{</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[self saveDocItems];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[self setCurrentItems:nil];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[self updateMatrix];</p>
+<p class="p19"><br></p>
+<p class="p18">}</p>
+<p class="p11"><br></p>
+<p class="p12"><br></p>
+<p class="p3">As you recall, CalendarMatrix declared two methods to allow delegates to “hook into” its behavior. Its delegate for this application is ToDoDoc.</p>
+<p class="p7"><br></p>
+<p class="p21">1.<span class="Apple-tab-span">	</span>The calendar sends <span class="s2"><b>calendarMatrix:didChangeToDate:</b></span> when users click a new day of the month. This implementation saves the current items to the <span class="s2"><b>activeDays</b></span> dictionary. It then sets the current items to be those corresponding to the selected date (if there are no items for that date, the <span class="s2"><b>objectForKey:</b></span> message returns <span class="s2"><b>nil</b></span> and the <span class="s2"><b>currentItems</b></span> array is initialized with empty strings). Finally it updates the matrix with the new data.</p>
+<p class="p22"><br></p>
+<p class="p21">2.<span class="Apple-tab-span">	</span>The calendar sends <span class="s2"><b>calendarMatrix:didChangeToMonth:year:</b></span> when users go to a new month and (possibly) a new year. This implementation responds by saving the current items to internal storage and presenting a blank list of items.</p>
+<p class="p7"><br></p>
+<p class="p7"><br></p>
+<p class="p13"><b>5<span class="Apple-tab-span">	</span>Save the data to internal storage.</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><span class="s3"><span class="Apple-tab-span">	</span></span>Implement <b>saveDocItems:</b>.</p>
+<p class="p24"><span class="Apple-tab-span">	</span></p>
+<p class="p18">- (void)saveDocItems</p>
+<p class="p19"><br></p>
+<p class="p18">{</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>ToDoItem *anItem;</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>int i, cnt = [currentItems count];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>// save day's current items (array) to document dictionary</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>for (i=0; i&lt;cnt; i++) {</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>if ( (anItem = [currentItems objectAtIndex:i])<span class="Apple-converted-space">  </span>&amp;&amp;</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">             </span>([anItem isKindOfClass:[ToDoItem class]]) ) {</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>[activeDays setObject:currentItems forKey:</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">                </span>[anItem day]];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">            </span>break;</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">        </span>}</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>}</p>
+<p class="p19"><br></p>
+<p class="p18">}</p>
+<p class="p11"><br></p>
+<p class="p8"><br></p>
+<p class="p3">This method inspects the <span class="s2"><b>currentItems</b></span> array and, if it contains at least one ToDoItem, puts the array in the <span class="s2"><b>activeDays</b></span> dictionary with a key corresponding to the date.<span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p7"><br></p>
+<p class="p13"><b>6<span class="Apple-tab-span">	</span>Archive and unarchive the document's data.</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><span class="s3"><span class="Apple-tab-span">	</span></span>Implement <b>encodeWithCoder: </b>and <b>initWithCoder:</b> to archive and<span class="Apple-converted-space"> </span></p>
+<p class="p15"><span class="Apple-tab-span">	</span>unarchive the dictionary holding the arrays of ToDoItems.</p>
+<p class="p16"><br></p>
+<p class="p17"><br></p>
+<p class="p3">Now that you've completed the methods for saving and archiving the collection objects holding ToDoItems, assume that the user has saved his document and then opens it.</p>
+<p class="p8"><br></p>
+<p class="p13"><b>7<span class="Apple-tab-span">	</span>Perform set-up tasks when the document's nib file is unarchived.</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><span class="s3"><span class="Apple-tab-span">	</span></span>Implement <b>awakeFromNib</b> as shown below.</p>
+<p class="p16"><br></p>
+<p class="p23"><br></p>
+<p class="p18">- (void)awakeFromNib</p>
+<p class="p19"><br></p>
+<p class="p18">{</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>int i;</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>NSDate *date;</p>
+<p class="p19"><br></p>
+<p class="p20"><br></p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>date = [calendar selectedDay];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[self setCurrentItems:[activeDays objectForKey:date]];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>/* set up self as delegates */</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[[itemMatrix window] setDelegate:self];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[itemMatrix setDelegate:self];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[[itemMatrix window] makeKeyAndOrderFront:self];</p>
+<p class="p19"><br></p>
+<p class="p18">}</p>
+<p class="p11"><br></p>
+<p class="p12"><br></p>
+<p class="p3">When the <span class="s2"><b>ToDoDoc.nib</b></span> file is completely unarchived, <span class="s2"><b>awakeFromNib</b></span> is invoked. It sets the current items for today, sets a couple of delegates, and puts the document window in front of all other windows.</p>
+<p class="p2"><b><span class="Apple-converted-space"> </span></b><b></b></p>
+<p class="p25"><span class="s2"><b>Note: </b></span>This method sets some delegates programmatically, which is redundant since you set these delegates in Interface Builder. However, this code demonstrates the programmatic route—and no harm done.</p>
+<p class="p8"><br></p>
+<p class="p13"><b>8<span class="Apple-tab-span">	</span>Set up the document once it's created or opened.</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><span class="s3"><span class="Apple-tab-span">	</span></span>Implement <b>activateDoc</b> as shown below.</p>
+<p class="p24"><span class="Apple-tab-span">	</span></p>
+<p class="p18">- (void)activateDoc</p>
+<p class="p19"><br></p>
+<p class="p18">{</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>if ([currentItems count]) [self updateMatrix];</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">    </span>[dayLabel setStringValue:[[calendar selectedDay]</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">         </span>descriptionWithCalendarFormat:@"To Do on %a %B %d %Y"</p>
+<p class="p19"><br></p>
+<p class="p18"><span class="Apple-converted-space">         </span>timeZone:[NSTimeZone defaultTimeZone] locale:nil]];</p>
+<p class="p19"><br></p>
+<p class="p18">}</p>
+<p class="p11"><br></p>
+<p class="p12"><br></p>
+<p class="p3">The <span class="s2"><b>activateDoc</b></span> method is invoked right after a ToDo document is created or opened. It starts the ball rolling by updating the list matrices of the document and writing the current date to the “To Do on <i>&lt;date&gt;</i>” label.<span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+</body>
+</html>

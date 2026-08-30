@@ -1,0 +1,595 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 50.0px Times; min-height: 61.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 161.0px; font: 28.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 161.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 161.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 161.0px; font: 14.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 161.0px; font: 15.0px Helvetica; min-height: 18.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 161.0px; text-indent: -101.0px; font: 14.0px Times}
+    p.p10 {margin: 0.0px 0.0px 0.0px 161.0px; text-indent: -101.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 60.0px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 161.0px; font: 14.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 161.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 161.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 161.0px; text-indent: -101.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 161.0px; text-indent: -101.0px; font: 30.0px Times; min-height: 37.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 60.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 180.0px; font: 14.0px Times}
+    p.p19 {margin: 0.0px 0.0px 0.0px 180.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 180.0px; font: 30.0px Times; min-height: 37.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 180.0px; text-indent: -19.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 180.0px; text-indent: -19.0px; font: 40.0px Times; min-height: 48.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 161.0px; text-indent: -101.0px; font: 40.0px Times; min-height: 48.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 60.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 161.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 60.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 60.0px; font: 14.0px Helvetica}
+    span.s1 {font: 12.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><b>Defined Types</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DPSContextRec</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsfriends.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef struct _t_DPSContextRec {</p>
+<p class="p12"><span class="Apple-tab-span">	</span>char *<b>priv</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>DPSSpace <b>space</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>DPSProgramEncoding <b>programEncoding</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>DPSNameEncoding <b>nameEncoding</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>struct _t_DPSProcsRec const * <b>procs</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>void (*<b>textProc</b>)();</p>
+<p class="p12"><span class="Apple-tab-span">	</span>void (*<b>errorProc</b>)();</p>
+<p class="p12"><span class="Apple-tab-span">	</span>DPSResults <b>resultTable</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>unsigned int <b>resultTableLength</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>struct _t_DPSContextRec *<b>chainParent</b>, *<b>chainChild</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>DPSContextType <b>type</b>;</p>
+<p class="p12">} <b>DPSContextRec</b>, *<b>DPSContext</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>The <b>DPSContextRec</b> structure represents a Display PostScript context.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DPSContextType</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsfriends.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef enum {</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_machServer</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_fdServer</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_stream</b></p>
+<p class="p12">} <b>DPSContextType</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These represent the context types supported by NeXT's version of Display PostScript, as used in the <b>type</b> field of a <b>DPSContextRec</b> structure.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DPSErrorCode</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsclient.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef enum _DPSErrorCode {</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_ps</b> = DPS_ERROR_BASE,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_nameTooLong</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_resultTagCheck</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_resultTypeCheck</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_invalidContext</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_select</b> = DPS_NEXT_ERROR_BASE,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_connectionClosed</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_read</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_write</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_invalidFD</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_invalidTE</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_invalidPort</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_outOfMemory</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_err_cantConnect</b></p>
+<p class="p12">} <b>DPSErrorCode</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>Error codes passed to a <b>DPSErrorProc()</b> function.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DPSEventFilterFunc</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef int (*<b>DPSEventFilterFunc</b>)(NXEvent *<i>ev</i> );</p>
+<p class="p17"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>Call-back function used to filter events.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DPSFDProc</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef void (*<b>DPSFDProc</b>)( int <i>fd</i>, void *<i>userData</i> );</p>
+<p class="p17"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>Call-back function used when a file descriptor is registered through <b>DPSAddFD()</b>.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DPSNumberFormat</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef enum _DPSNumberFormat {</p>
+<p class="p12">#ifdef _ _BIG_ENDIAN_ _</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_float</b> = 48,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_long</b> = 0,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_short</b> = 32</p>
+<p class="p12">#else</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_float</b> = 48+128,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_long</b> = 0+128,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_short</b> = 32+128</p>
+<p class="p12">} <b>DPSNumberFormat</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These constants are used by the <b>DPSDoUserPath()</b> function to describe the type of numbers that are being passed.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DPSPingProc</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef void (*<b>DPSPingProc</b>)(DPSContext <i>ctxt</i>, void *<i>userData</i>);</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>Call-back function used by <b>DPSAsynchronousWaitContext()</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DPSPortProc</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef void (*<b>DPSPortProc</b>)( msg_header_t *<i>msg</i>, void *<i>userData</i> );</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>Call-back function used when a port is registered through <b>DPSAddPort()</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DPSTimedEntry</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef struct _ _DPSTimedEntry *<b>DPSTimedEntry</b>;</p>
+<p class="p17"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>The return type for <b>DPSAddTimedEntry()</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DPSTimedEntryProc</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef void (*<b>DPSTimedEntryProc</b>)</p>
+<p class="p12"><span class="Apple-tab-span">	</span>(DPSTimedEntry <i>timedEntry</i>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span>double<i> now</i>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span>void *<i>userData</i> );</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>Call-back function used when a timed entry is registered through <b>DPSAddTimedEntry()</b>.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DPSUserPathAction</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef enum _DPSUserPathAction {</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_uappend</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_ufill</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_ueofill</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_ustroke</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_ustrokepath</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_inufill</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_inueofill</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_inustroke</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_def</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_put</b><b></b></p>
+<p class="p12">} <b>DPSUserPathAction</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These constants are convenient representations of some of the PostScript operator indices, suitable for enrollment in the action array passed to <b>DPSDoUserPath()</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>DPSUserPathOp</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef enum _DPSUserPathOp {</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_setbbox</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_moveto</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_rmoveto</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_lineto</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_rlineto</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_curveto</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_rcurveto</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_arc</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_arcn</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_arct</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_closepath</b>,</p>
+<p class="p12"><span class="Apple-tab-span">	</span><b>dps_ucache</b></p>
+<p class="p12">} <b>DPSUserPathOp</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These constants represent the PostScript operators that can be passed in <b>DPSDoUserPath()</b>'s operator array.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>NXCoord</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/event.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef float <b>NXCoord</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>Used to represent a single coordinate in a Cartesian coordinate system.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>NXEvent</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/event.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef struct _NXEvent {</p>
+<p class="p12"><span class="Apple-tab-span">	</span>int <b>type</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>NXPoint <b>location</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>long <b>time</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>int <b>flags</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>unsigned int <b>window</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>NXEventData <b>data</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>DPSContext <b>ctxt</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12">} <b>NXEvent</b>, <b>*NXEventPtr</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>Represents a single event; this structure is also known as the <i>event record</i>.<span class="Apple-converted-space">  </span>The fields are:</p>
+<p class="p15"><br></p>
+<p class="p18">type<span class="Apple-tab-span">	</span>The type of event (see “Event Types,” below)</p>
+<p class="p18">location<span class="Apple-tab-span">	</span>The event's location in the base coordinate system of its window</p>
+<p class="p18">time<span class="Apple-tab-span">	</span>The time of the event (in hardware-dependent units) since system startup<span class="Apple-converted-space"> </span></p>
+<p class="p18">flags<span class="Apple-tab-span">	</span>Mouse-button and modifier-key flags (see “Event Flags,” below)</p>
+<p class="p18">window<span class="Apple-tab-span">	</span>The window number of the window associated with the event</p>
+<p class="p18">data<span class="Apple-tab-span">	</span>Additional type-specific data (see “NXEventData,” below)</p>
+<p class="p18">ctxt<span class="Apple-tab-span">	</span>The PostScript context of the event</p>
+<p class="p19"><br></p>
+<p class="p20"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>NXEventData</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/event.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef union {</p>
+<p class="p12"><span class="Apple-tab-span">	</span>struct {<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>short <b>eventNum</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>int <b>click</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>unsigned char <b>pressure</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>} <b>mouse</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>struct {<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>short <b>repeat</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>unsigned short <b>charSet</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>unsigned short <b>charCode</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>unsigned short <b>keyCode</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>short <b>keyData</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>} <b>key</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>struct {<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>short <b>eventNum</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>int <b>trackingNum</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>int <b>userData</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span>} <b>tracking</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>struct {<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>short <b>subtype</b>;<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>union {</p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>float <b>F</b>[2];<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>long <b>L</b>[2];<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>short <b>S</b>[4];<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>char <b>C</b>[8];<span class="Apple-converted-space"> </span></p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>} <b>misc</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>} <b>compound</b>;</p>
+<p class="p12">} <b>NXEventData</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>This structure supplies type-specific information for an event.<span class="Apple-converted-space">  </span>It's a union of four structures, where the type of the event determines which structure is pertinent:</p>
+<p class="p15"><br></p>
+<p class="p21">•<span class="Apple-tab-span">	</span><b>mouse</b> is used for mouse events.</p>
+<p class="p21">•<span class="Apple-tab-span">	</span><b>key</b> is used for keyboard events.</p>
+<p class="p21">•<span class="Apple-tab-span">	</span><b>tracking</b> is for tracking-rectangle events.</p>
+<p class="p21">•<span class="Apple-tab-span">	</span><b>compound</b> is for system-, kit-, and application-defined events.</p>
+<p class="p22"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>NXPoint</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/event.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef struct _NXPoint {</p>
+<p class="p12"><span class="Apple-tab-span">	</span>NXCoord <b>x</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>NXCoord <b>y</b>;</p>
+<p class="p12">} <b>NXPoint</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>Represents a point in a Cartesian coordinate system.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>NXSize</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/event.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>typedef struct _NXSize {</p>
+<p class="p12"><span class="Apple-tab-span">	</span>NXCoord <b>width</b>;</p>
+<p class="p12"><span class="Apple-tab-span">	</span>NXCoord <b>height</b>;</p>
+<p class="p12">} <b>NXSize</b>;</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>Represents a two-dimensional size.</p>
+<p class="p15"><br></p>
+<p class="p23"><br></p>
+<p class="p4"><b>Symbolic Constants</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>All Contexts</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS</p>
+<p class="p24"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p11"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>DPS_ALLCONTEXTS<span class="Apple-converted-space"> </span></b></p>
+<p class="p17"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>This constant represents all extant contexts.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Alpha Constants</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS</p>
+<p class="p24"><br></p>
+<p class="p11"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NX_DATA</b></p>
+<p class="p12"><b>NX_ONES</b></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These constants represent alpha values.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Character Set Values</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/event.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS</p>
+<p class="p24"><br></p>
+<p class="p11"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NX_ASCIISET<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b>NX_SYMBOLSET<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b>NX_DINGBATSSET</b></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These constants represent the values that may occur in the <b>data.key.charSet </b>field of an NXEvent structure.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Compositing Operations</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p11"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NX_CLEAR<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b>NX_COPY</b></p>
+<p class="p12"><b>NX_SOVER</b></p>
+<p class="p12"><b>NX_SIN</b></p>
+<p class="p12"><b>NX_SOUT</b></p>
+<p class="p12"><b>NX_SATOP</b></p>
+<p class="p12"><b>NX_DOVER</b></p>
+<p class="p12"><b>NX_DIN</b></p>
+<p class="p12"><b>NX_DOUT</b></p>
+<p class="p12"><b>NX_DATOP</b></p>
+<p class="p12"><b>NX_XOR</b></p>
+<p class="p12"><b>NX_PLUSD</b></p>
+<p class="p12"><b>NX_HIGHLIGHT</b></p>
+<p class="p12"><b>NX_PLUSL</b></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These represent the compositing operations used by <b>PScomposite()</b> and the NXImage class.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Error Code Bases</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsclient.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p11"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>DPS_ERROR_BASE</b></p>
+<p class="p12"><b>DPS_NEXT_ERROR_BASE</b></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These constants represent the lowest values for Display PostScript error codes.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Event Types</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/event.h</p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>SYNOPSIS</p>
+<p class="p25"><b></b><br></p>
+<p class="p12"><b>Type<span class="Apple-tab-span">	</span>Meaning</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p12">NX_NULLEVENT<span class="Apple-tab-span">	</span>A non-event</p>
+<p class="p13"><br></p>
+<p class="p12">NX_LMOUSEDOWN<span class="Apple-tab-span">	</span>Left mouse-down</p>
+<p class="p12">NX_LMOUSEUP<span class="Apple-tab-span">	</span>Left mouse-up<span class="Apple-converted-space"> </span></p>
+<p class="p12">NX_LMOUSEDRAGGED<span class="Apple-tab-span">	</span>left mouse-dragged</p>
+<p class="p13"><br></p>
+<p class="p12">NX_MOUSEDOWN<span class="Apple-tab-span">	</span>Same as NX_LMOUSEDOWN</p>
+<p class="p12">NX_MOUSEUP<span class="Apple-tab-span">	</span>Same as NX_LMOUSEUP<span class="Apple-converted-space"> </span></p>
+<p class="p12">NX_MOUSEDRAGGED<span class="Apple-tab-span">	</span>Same as NX_LMOUSEDRAGGED<span class="Apple-converted-space"> </span></p>
+<p class="p13"><br></p>
+<p class="p12">NX_RMOUSEDOWN<span class="Apple-tab-span">	</span>Right mouse-down</p>
+<p class="p12">NX_RMOUSEUP<span class="Apple-tab-span">	</span>Right mouse-up<span class="Apple-converted-space"> </span></p>
+<p class="p12">NX_RMOUSEDRAGGED<span class="Apple-tab-span">	</span>Right mouse-dragged<span class="Apple-converted-space"> </span></p>
+<p class="p13"><br></p>
+<p class="p12">NX_MOUSEMOVED<span class="Apple-tab-span">	</span>Mouse-moved<span class="Apple-converted-space"> </span></p>
+<p class="p12">NX_MOUSEENTERED<span class="Apple-tab-span">	</span>Mouse-entered</p>
+<p class="p12">NX_MOUSEEXITED<span class="Apple-tab-span">	</span>Mouse-exited<span class="Apple-converted-space"> </span></p>
+<p class="p12">NX_KEYDOWN<span class="Apple-tab-span">	</span>Key-down<span class="Apple-converted-space"> </span></p>
+<p class="p12">NX_KEYUP<span class="Apple-tab-span">	</span>Key-up event</p>
+<p class="p12">NX_FLAGSCHANGED<span class="Apple-tab-span">	</span>Flags-changed<span class="Apple-converted-space"> </span></p>
+<p class="p13"><br></p>
+<p class="p12">NX_KITDEFINED<span class="Apple-tab-span">	</span>Application Kit-defined</p>
+<p class="p12">NX_SYSDEFINED<span class="Apple-tab-span">	</span>System-defined<span class="Apple-converted-space"> </span></p>
+<p class="p12">NX_APPDEFINED<span class="Apple-tab-span">	</span>Application-defined<span class="Apple-converted-space"> </span></p>
+<p class="p13"><br></p>
+<p class="p12">NX_TIMER<span class="Apple-tab-span">	</span>Timer used for tracking</p>
+<p class="p12">NX_CURSORUPDATE<span class="Apple-tab-span">	</span>Cursor tracking<span class="Apple-converted-space"> </span></p>
+<p class="p12">NX_JOURNALEVENT<span class="Apple-tab-span">	</span>Event used by journaling<span class="Apple-converted-space"> </span></p>
+<p class="p13"><br></p>
+<p class="p12">NX_FIRSTEVENT<span class="Apple-tab-span">	</span>The smallest-valued event constant</p>
+<p class="p12">NX_LASTEVENT<span class="Apple-tab-span">	</span>The greatest-valued event constant</p>
+<p class="p12">NX_ALLEVENTS<span class="Apple-tab-span">	</span>A value that includes all event types</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These constants represent event types.<span class="Apple-converted-space">  </span>They're passed as the <b>type</b> field of the NXEvent structure that's created when an event occurs.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Event Type Masks</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/event.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p11"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NX_NULLEVENTMASK</b></p>
+<p class="p12"><b>NX_LMOUSEDOWNMASK</b></p>
+<p class="p12"><b>NX_LMOUSEUPMASK</b></p>
+<p class="p12"><b>NX_RMOUSEDOWNMASK</b></p>
+<p class="p12"><b>NX_RMOUSEUPMASK</b></p>
+<p class="p12"><b>NX_MOUSEMOVEDMASK</b></p>
+<p class="p12"><b>NX_LMOUSEDRAGGEDMASK</b></p>
+<p class="p12"><b>NX_RMOUSEDRAGGEDMASK</b></p>
+<p class="p12"><b>NX_MOUSEENTEREDMASK<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b>NX_MOUSEEXITEDMASK<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b>NX_KEYDOWNMASK</b></p>
+<p class="p12"><b>NX_KEYUPMASK</b></p>
+<p class="p12"><b>NX_FLAGSCHANGEDMASK<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b>NX_KITDEFINEDMASK<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b>NX_APPDEFINEDMASK<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b>NX_SYSDEFINEDMASK</b></p>
+<p class="p12"><b>NX_TIMERMASK</b></p>
+<p class="p12"><b>NX_CURSORUPDATEMASK</b></p>
+<p class="p12"><b>NX_MOUSEDOWNMASK</b></p>
+<p class="p12"><b>NX_MOUSEUPMASK</b></p>
+<p class="p12"><b>NX_MOUSEDRAGGEDMASK</b></p>
+<p class="p12"><b>NX_JOURNALEVENTMASK</b></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These masks correspond to the event types defined immediately above.<span class="Apple-converted-space">  </span>They let you query the <b>type</b> field of an NXEvent structure for the existence of a particular event type.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Forever</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS</p>
+<p class="p24"><br></p>
+<p class="p11"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NX_FOREVER</b></p>
+<p class="p17"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>A long, long time.<span class="Apple-converted-space">  </span>Typically used as the timeout argument to <b>DPSGetEvent()</b>.</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Keyboard State Flags Masks</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/event.h</p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>SYNOPSIS</p>
+<p class="p27"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Type<span class="Apple-tab-span">	</span>Meaning</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p12">NX_ALPHASHIFTMASK<span class="Apple-tab-span">	</span>Shift lock</p>
+<p class="p12">NX_SHIFTMASK<span class="Apple-tab-span">	</span>Shift key</p>
+<p class="p12">NX_CONTROLMASK<span class="Apple-tab-span">	</span>Control key<span class="Apple-converted-space"> </span></p>
+<p class="p12">NX_ALTERNATEMASK<span class="Apple-tab-span">	</span>Alt key</p>
+<p class="p12">NX_COMMANDMASK<span class="Apple-tab-span">	</span>Command key<span class="Apple-converted-space"> </span></p>
+<p class="p12">NX_NUMERICPADMASK<span class="Apple-tab-span">	</span>Number pad key</p>
+<p class="p12">NX_HELPMASK<span class="Apple-tab-span">	</span>Help key</p>
+<p class="p13"><br></p>
+<p class="p12">NX_NEXTCTRLKEYMASK<span class="Apple-tab-span">	</span>Control key</p>
+<p class="p12">NX_NEXTLSHIFTKEYMASK<span class="Apple-tab-span">	</span>Left shift key</p>
+<p class="p12">NX_NEXTRSHIFTKEYMASK<span class="Apple-tab-span">	</span>Right shift key</p>
+<p class="p12">NX_NEXTLCMDKEYMASK<span class="Apple-tab-span">	</span>Left command key<span class="Apple-converted-space"> </span></p>
+<p class="p12">NX_NEXTRCMDKEYMASK<span class="Apple-tab-span">	</span>Right command key</p>
+<p class="p12">NX_NEXTLALTKEYMASK<span class="Apple-tab-span">	</span>Left alt key<span class="Apple-converted-space"> </span></p>
+<p class="p12">NX_NEXTRALTKEYMASK<span class="Apple-tab-span">	</span>Right alt key</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These masks correspond to keyboard states that might be included in an NXEvent structure's <b>flags </b>mask.<span class="Apple-converted-space">  </span>The masks are grouped as device-independent (NX_ALPHASHIFTMASK through NX_HELPMASK) and device-dependent (all others).</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Miscellaneous Event Flags Masks</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/event.h</p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>SYNOPSIS</p>
+<p class="p27"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Type<span class="Apple-tab-span">	</span>Meaning</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p12">NX_STYLUSPROXIMITYMASK<span class="Apple-tab-span">	</span>Stylus is in proximity (for tablets)</p>
+<p class="p12">NX_NONCOALSESCEDMASK<span class="Apple-tab-span">	</span>Event coalescing disabled</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These masks correspond to miscellaneous states that might be included in an NXEvent structure's <b>flags </b>mask.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Window Backing Types<span class="Apple-tab-span">	</span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>SYNOPSIS</p>
+<p class="p24"><br></p>
+<p class="p11"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NX_RETAINED</b></p>
+<p class="p12"><b>NX_NONRETAINED</b></p>
+<p class="p12"><b>NX_BUFFERED</b></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These represent the three backing types provided by window devices (and used by the Application Kit's Window objects).</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>Window Screen List Placement<span class="Apple-tab-span">	</span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p10"><br></p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SYNOPSIS</p>
+<p class="p24"><br></p>
+<p class="p11"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NX_ABOVE</b></p>
+<p class="p12"><b>NX_BELOW</b></p>
+<p class="p12"><b>NX_OUT</b></p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p9"><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span>These represent the placement of a window device in the screen list.</p>
+<p class="p15"><br></p>
+</body>
+</html>

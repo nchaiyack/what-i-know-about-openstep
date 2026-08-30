@@ -1,0 +1,248 @@
+.\" Copyright (c) 1990 The Regents of the University of California.
+.\" All rights reserved.
+.\"
+.\" Redistribution and use in source and binary forms, with or without
+.\" modification, are permitted provided that the following conditions
+.\" are met:
+.\" 1. Redistributions of source code must retain the above copyright
+.\"    notice, this list of conditions and the following disclaimer.
+.\" 2. Redistributions in binary form must reproduce the above copyright
+.\"    notice, this list of conditions and the following disclaimer in the
+.\"    documentation and/or other materials provided with the distribution.
+.\" 3. All advertising materials mentioning features or use of this software
+.\"    must display the following acknowledgement:
+.\"	This product includes software developed by the University of
+.\"	California, Berkeley and its contributors.
+.\" 4. Neither the name of the University nor the names of its contributors
+.\"    may be used to endorse or promote products derived from this software
+.\"    without specific prior written permission.
+.\"
+.\" THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+.\" ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+.\" IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+.\" ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+.\" FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+.\" DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+.\" OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+.\" HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+.\" LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+.\" OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+.\" SUCH DAMAGE.
+.\"
+.\"     @(#)cpio.1	5.6 (Berkeley) 3/14/91
+.\"
+.TH CPIO 1 "March 14, 1991"
+.SH NAME
+cpio \- copy file archives in and out
+.SH SYNOPSIS
+.B
+.br
+
+\fBcpio\fR
+.BR \(mii
+\fR[ \fBBcdmrtuvfsSb6\fR ]
+\fR[ \fIpatterns\fR ]
+.br
+
+\fBcpio\fR
+.BR \(mio
+\fR[ \fBacBv\fR ]
+.br
+
+\fBcpio\fR
+.BR \(mip
+\fR[ \fBadlmruv\fR ]
+\fIdirectory\fR
+.SH DESCRIPTION
+The
+\fBcpio\fR
+utility
+has three functional modes:
+copy in, copy out and pass.
+.LP
+Functional Options:
+.RS
+.HP 3n
+\fB\(mii\fR
+.IR "Copy in" .
+Extracts files from the standard input,
+which is assumed to be the product of a previous
+\fBcpio\fR
+.BR \(mio .
+Only files with names that match patterns are selected.
+Patterns are given in the name-generating notation of
+\fBsh\fR(1).
+In patterns, meta-characters
+``\&?'',
+``\&*'',
+and
+``[...]''
+match the
+slash
+``\&/''
+character.  Multiple patterns may be specified and
+if no patterns are specified, the default for patterns is
+``\&*''
+(i.e., select all files).
+The extracted files are conditionally created
+and copied into the current directory tree
+based upon the options described below.
+The permissions of the files
+will be those of the previous
+\fBcpio\fR
+.BR \(mio .
+The owner and group of the files will be that of the
+current user unless the user is super-user,
+which causes
+\fBcpio\fR
+to retain the owner and group of the files of the
+previous
+\fBcpio\fR
+.BR \(mio .
+.HP 3n
+\fB\(mio\fR
+.IR "Copy out" .
+Reads the standard input to obtain a list
+of path names and copies those files onto the standard
+output together with path name and status information.
+Output is padded to a 512-byte boundary.
+.HP 3n
+\fB\(mip\fR
+.I "Pass."
+Reads the standard input to obtain a list of
+path names of files that are conditionally created and
+copied into the destination directory tree based upon the
+options described below.
+.RE
+.LP
+Options for the above functional options:
+.RS
+.HP 3n
+\fB\(miB\fR
+Input/output is to be blocked 5,120 bytes to the record
+(does not apply to the pass options; meaningful only
+with data directed to or from
+/dev/rmt/??).
+.HP 3n
+\fB\(miS\fR
+Swap halfwords.
+Use only with the
+.BR \(mii
+option.
+.HP 3n
+\fB\(mia\fR
+Reset access times of input files after they have been
+copied.
+.HP 3n
+\fB\(mib\fR
+halfwords.
+Use only with the
+.BR \(mii
+option.
+.HP 3n
+\fB\(mic\fR
+Write header information in ASCII character form for
+portability.
+.HP 3n
+\fB\(mid\fR
+Directories are to be created as needed.
+.HP 3n
+\fB\(mif\fR
+Copy in all files except those in patterns.
+.HP 3n
+\fB\(mil\fR
+Whenever possible,
+link files rather than copying them.
+Usable only with the
+.BR \(mip
+option.
+.HP 3n
+\fB\(mim\fR
+Retain previous file modification time.
+This option is
+ineffective on directories that are being copied.
+.HP 3n
+\fB\(mir\fR
+Interactively rename files.
+If the user types a null line,
+the file is skipped.
+.HP 3n
+\fB\(mis\fR
+Swap bytes.
+Use only with the
+.BR \(mii
+option.
+.HP 3n
+\fB\(mit\fR
+Print a table of contents of the input.
+No files are created.
+.HP 3n
+\fB\(miu\fR
+Copy unconditionally
+(normally, an older file will not
+replace a newer file with the same name).
+.HP 3n
+\fB\(miv\fR
+Verbose:
+causes a list of file names to be printed.
+When used with the t option,
+the table of contents
+looks like the output of an
+``ls -l''
+command (see
+\fBls\fR(1))
+.HP 3n
+\fB\(mi6\fR
+Process an old
+(i.e., UNIX System Sixth Edition format)
+file.  Only useful with
+.BR \(mii
+(copy in).
+.RE
+.SH EXAMPLES
+The first example below copies the contents of a directory
+into an archive;
+the second duplicates a directory hierarchy:
+.LP
+.RS
+.nf
+ls  \&| cpio -o > edev/rmt/0m
+
+cd olddir
+find \&. -depth -print \&|  cpio -pdl newdir
+.RE
+.LP
+The trivial case
+.LP
+.RS
+.na
+find \&. -depth -print \&|  cpio -oB >/dev/fmt/0m
+.RE
+.LP
+can be handled more efficiently by:
+.LP
+.RS
+.na
+find \&. -cpio /dev/rmt/0m
+.RE
+.SH SEE ALSO
+\fBar\fR(1),
+\fBfind\fR(1),
+\fBls\fR(1),
+\fBcpio\fR(4)
+.SH HISTORY
+The
+\fBcpio\fR
+command appeared in System V AT&T UNIX.
+This program is derived
+from the System V AT&T sources
+contributed to the public domain by AT&T.
+.SH BUGS
+Path names are restricted to 128 characters.
+If there are too many unique linked files,
+the program runs out of memory to keep track of them
+and, thereafter, linking information is lost.
+Only the super-user can copy special files.
+The
+.BR \(miB
+option does not work with certain magnetic tape drives.

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 32.0px Times; min-height: 38.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 19.0px Helvetica; min-height: 23.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 12.0px Helvetica; color: #0000ff}
+    p.p7 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 3.0px Helvetica; color: #0000ff; min-height: 4.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 25.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 25.0px; font: 5.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 25.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Helvetica}
+    p.p14 {margin: 0.0px 0.0px 0.0px 25.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 25.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 25.0px; font: 12.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 176.0px; text-indent: -152.0px; font: 12.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 176.0px; text-indent: -152.0px; font: 2.0px Times; min-height: 4.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Helvetica; color: #0000ff}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>Next Section<span class="Apple-tab-span">	</span><span class="Apple-converted-space">  </span>Previous Section</p>
+<p class="p3"><br></p>
+<p class="p4"><b></b><b>Customizing browsers</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8pt" height="6pt" viewBox="0 0 8 6" role="img" aria-labelledby="manual-svg-1-title" data-source="CustomizingBrowsers.rtfd/arrow.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-1-title">arrow.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 1.011719 0.1875 L 6.582031 2.964844 L 1.011719 5.757812 Z M 1.011719 0.1875 "/>
+</svg></b><b><span class="Apple-tab-span">	</span>Select the browser options.</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8">Browsers display lists of data and allow users to select items from the list. They can hold one-dimensional lists or hierarchically organized lists of data such as directory paths. Browsers display these hierarchical levels in columns, which users can navigate using buttons or scrollers. An entry in a column can be either a <i>leaf node</i> or a <i>branch node</i>. Leaf nodes terminate a path; branch nodes, which have a right-arrow icon, lead into the next level in the hierarchy. A browser's attributes affect its navigation controls, methods of selection, and appearance.</p>
+<p class="p9"><br></p>
+<p class="p10"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="448pt" height="307pt" viewBox="0 0 448 307" role="img" aria-labelledby="manual-svg-2-title" data-source="CustomizingBrowsers.rtfd/_CustomizingBrowsers.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-2-title">_CustomizingBrowsers.eps</title><defs>
+<g>
+<g id="manual-svg-2-glyph-0-0">
+<path d="M 1.203125 -2.515625 C 1.109375 -2.09375 0.96875 -1.40625 1.328125 -0.78125 C 1.828125 0.09375 3.125 0.203125 3.78125 0.203125 C 5.984375 0.203125 7.421875 -0.953125 7.75 -2.46875 C 7.828125 -2.828125 7.9375 -3.671875 7.265625 -4.1875 C 6.828125 -4.53125 6.625 -4.578125 4.671875 -5.09375 C 3.671875 -5.34375 3.234375 -5.609375 3.40625 -6.375 C 3.578125 -7.234375 4.421875 -7.765625 5.609375 -7.765625 C 6.453125 -7.765625 7.296875 -7.53125 7.125 -6.453125 L 8.375 -6.453125 C 8.421875 -6.8125 8.53125 -7.390625 8.15625 -7.921875 C 7.625 -8.671875 6.484375 -8.765625 5.921875 -8.765625 C 4.296875 -8.765625 2.484375 -8 2.125 -6.25 C 1.984375 -5.671875 2.046875 -5.03125 2.640625 -4.5625 C 3.03125 -4.265625 3.578125 -4.125 4.828125 -3.796875 C 5.953125 -3.5 6.6875 -3.3125 6.484375 -2.34375 C 6.390625 -1.921875 5.921875 -0.8125 4.140625 -0.8125 C 2.171875 -0.8125 2.328125 -1.921875 2.4375 -2.515625 Z M 1.203125 -2.515625 "/>
+</g>
+<g id="manual-svg-2-glyph-0-1">
+<path d="M 6.625 -2.78125 C 6.84375 -3.765625 7.40625 -6.125 4.734375 -6.125 C 4.375 -6.125 3.671875 -6.09375 3.015625 -5.6875 C 1.921875 -5.03125 1.46875 -4.0625 1.21875 -2.875 C 0.828125 -0.984375 1.46875 0.171875 3.359375 0.171875 C 4.5625 0.171875 5.265625 -0.328125 5.578125 -0.625 C 6.109375 -1.078125 6.265625 -1.578125 6.359375 -1.875 L 5.234375 -1.875 C 4.96875 -1.015625 4.296875 -0.625 3.578125 -0.625 C 2.34375 -0.625 2.03125 -1.546875 2.328125 -2.78125 Z M 2.53125 -3.578125 C 2.828125 -4.890625 3.8125 -5.328125 4.53125 -5.328125 C 5.921875 -5.328125 5.78125 -4.140625 5.640625 -3.578125 Z M 2.53125 -3.578125 "/>
+</g>
+<g id="manual-svg-2-glyph-0-2">
+<path d="M 1.078125 0 L 2.1875 0 L 4.015625 -8.578125 L 2.890625 -8.578125 Z M 1.078125 0 "/>
+</g>
+<g id="manual-svg-2-glyph-0-3">
+<path d="M 6.4375 -4.0625 C 6.484375 -4.390625 6.5625 -4.875 6.234375 -5.390625 C 5.828125 -6.046875 4.9375 -6.125 4.546875 -6.125 C 3.359375 -6.125 1.671875 -5.390625 1.15625 -2.90625 C 0.890625 -1.671875 1.109375 -1.03125 1.375 -0.625 C 1.875 0.078125 2.78125 0.15625 3.171875 0.15625 C 4.65625 0.15625 5.734375 -0.828125 6.046875 -1.984375 L 4.921875 -1.984375 C 4.78125 -1.40625 4.296875 -0.6875 3.34375 -0.6875 C 2.15625 -0.6875 2.109375 -1.828125 2.375 -3.0625 C 2.46875 -3.515625 2.84375 -5.3125 4.390625 -5.3125 C 5.484375 -5.3125 5.34375 -4.328125 5.3125 -4.0625 Z M 6.4375 -4.0625 "/>
+</g>
+<g id="manual-svg-2-glyph-0-4">
+<path d="M 1.21875 -5.171875 L 2.28125 -5.171875 L 1.4375 -1.1875 C 1.234375 -0.21875 1.671875 0.078125 2.6875 0.078125 C 3.09375 0.078125 3.421875 0.046875 3.625 0.015625 L 3.8125 -0.859375 C 3.71875 -0.828125 3.484375 -0.796875 3.265625 -0.796875 C 2.46875 -0.796875 2.578125 -1.296875 2.625 -1.59375 L 3.390625 -5.171875 L 4.734375 -5.171875 L 4.90625 -6 L 3.578125 -6 L 3.921875 -7.609375 L 2.71875 -7.25 L 2.46875 -6 L 1.40625 -6 Z M 1.21875 -5.171875 "/>
+</g>
+<g id="manual-svg-2-glyph-0-5">
+</g>
+<g id="manual-svg-2-glyph-0-6">
+<path d="M 1.21875 -2.921875 C 0.859375 -1.171875 1.53125 0.203125 3.5 0.203125 C 5.53125 0.203125 6.828125 -1.25 7.21875 -3 C 7.484375 -4.25 7.328125 -6.125 4.9375 -6.125 C 2.59375 -6.125 1.53125 -4.390625 1.21875 -2.921875 Z M 2.40625 -2.984375 C 2.8125 -4.859375 4.0625 -5.3125 4.78125 -5.3125 C 5.828125 -5.3125 6.34375 -4.53125 6.03125 -3.03125 C 5.640625 -1.234375 4.546875 -0.625 3.703125 -0.625 C 2.421875 -0.625 2.140625 -1.765625 2.40625 -2.984375 Z M 2.40625 -2.984375 "/>
+</g>
+<g id="manual-svg-2-glyph-0-7">
+<path d="M 0.53125 2.296875 L 1.625 2.296875 L 2.265625 -0.671875 C 2.46875 -0.140625 3.03125 0.21875 3.90625 0.21875 C 5.328125 0.21875 6.828125 -0.75 7.3125 -2.96875 C 7.78125 -5.1875 6.734375 -6.078125 5.453125 -6.078125 C 4.96875 -6.078125 3.953125 -5.921875 3.1875 -4.984375 L 3.375 -5.984375 L 2.25 -5.984375 C 2.140625 -5.40625 2.125 -5.265625 2.078125 -5 Z M 2.671875 -2.8125 C 2.796875 -3.34375 3.203125 -5.234375 4.984375 -5.234375 C 6.3125 -5.234375 6.390625 -4.125 6.15625 -3.046875 C 6.078125 -2.625 5.828125 -1.765625 5.28125 -1.171875 C 4.78125 -0.65625 4.171875 -0.59375 3.890625 -0.59375 C 2.328125 -0.59375 2.53125 -2.078125 2.671875 -2.8125 Z M 2.671875 -2.8125 "/>
+</g>
+<g id="manual-svg-2-glyph-0-8">
+<path d="M 2.5 -7.34375 L 3.84375 -7.34375 L 4.109375 -8.578125 L 2.765625 -8.578125 Z M 1.0625 0 L 2.171875 0 L 3.453125 -5.984375 L 2.328125 -5.984375 Z M 1.0625 0 "/>
+</g>
+<g id="manual-svg-2-glyph-0-9">
+<path d="M 1.078125 0 L 2.203125 0 L 2.921875 -3.4375 C 3.1875 -4.640625 4.0625 -5.234375 4.875 -5.234375 C 5.25 -5.234375 5.625 -5.09375 5.84375 -4.828125 C 6.0625 -4.546875 6.03125 -4.1875 5.953125 -3.796875 L 5.140625 0 L 6.28125 0 L 7.140625 -4.0625 C 7.53125 -5.890625 5.953125 -6.09375 5.421875 -6.09375 C 4.0625 -6.09375 3.453125 -5.265625 3.265625 -5.015625 L 3.46875 -5.984375 L 2.34375 -5.984375 L 2.203125 -5.28125 Z M 1.078125 0 "/>
+</g>
+<g id="manual-svg-2-glyph-0-10">
+<path d="M 0.890625 -1.78125 C 0.578125 -0.328125 1.59375 0.171875 2.8125 0.171875 C 3.421875 0.171875 4.078125 0.078125 4.671875 -0.234375 C 5.171875 -0.515625 5.65625 -1.078125 5.796875 -1.75 C 5.875 -2.125 5.84375 -2.546875 5.578125 -2.859375 C 5.296875 -3.1875 4.96875 -3.28125 3.390625 -3.671875 C 3.09375 -3.765625 2.59375 -3.890625 2.703125 -4.4375 C 2.890625 -5.296875 3.9375 -5.296875 4.109375 -5.296875 C 4.515625 -5.296875 5.28125 -5.234375 5.046875 -4.328125 L 6.1875 -4.328125 C 6.25 -4.578125 6.3125 -4.859375 6.234375 -5.1875 C 6.015625 -5.90625 5.015625 -6.125 4.265625 -6.125 C 2.875 -6.125 1.78125 -5.40625 1.546875 -4.3125 C 1.28125 -3.0625 2.28125 -2.8125 3.46875 -2.53125 C 4.3125 -2.328125 4.71875 -2.21875 4.578125 -1.625 C 4.546875 -1.421875 4.421875 -1.21875 4.28125 -1.078125 C 3.984375 -0.78125 3.609375 -0.6875 3.140625 -0.6875 C 2.0625 -0.6875 1.96875 -1.328125 2.078125 -1.78125 Z M 0.890625 -1.78125 "/>
+</g>
+<g id="manual-svg-2-glyph-0-11">
+<path d="M 5.875 -8.65625 C 5.640625 -8.6875 5.296875 -8.734375 4.984375 -8.734375 C 4.203125 -8.734375 3.671875 -8.46875 3.328125 -8.078125 C 3.078125 -7.78125 2.953125 -7.484375 2.78125 -6.65625 L 2.640625 -5.984375 L 1.46875 -5.984375 L 1.28125 -5.171875 L 2.46875 -5.171875 L 1.375 0 L 2.46875 0 L 3.578125 -5.171875 L 4.96875 -5.171875 L 5.140625 -5.984375 L 3.75 -5.984375 L 3.9375 -6.921875 C 4.03125 -7.328125 4.125 -7.78125 5.03125 -7.78125 C 5.265625 -7.78125 5.5 -7.78125 5.6875 -7.765625 Z M 5.875 -8.65625 "/>
+</g>
+<g id="manual-svg-2-glyph-0-12">
+<path d="M 1.109375 0 L 2.234375 0 L 2.921875 -3.171875 C 3.125 -4.203125 3.609375 -4.984375 4.921875 -4.984375 C 5.0625 -4.984375 5.171875 -4.984375 5.25 -4.984375 C 5.328125 -4.96875 5.390625 -4.953125 5.453125 -4.921875 L 5.6875 -6.03125 C 5.5 -6.03125 5.25 -6.046875 4.90625 -6 C 4.390625 -5.921875 3.625 -5.65625 3.234375 -4.828125 L 3.453125 -5.984375 L 2.328125 -5.984375 C 2.28125 -5.578125 2.203125 -5.171875 2.125 -4.765625 Z M 1.109375 0 "/>
+</g>
+<g id="manual-svg-2-glyph-0-13">
+<path d="M 3.984375 -8.59375 L 2.875 -8.59375 L 1.28125 -1.078125 L 1.03125 0 L 2.109375 0 L 2.328125 -0.90625 C 2.40625 -0.71875 2.484375 -0.53125 2.78125 -0.296875 C 3.21875 0.046875 3.75 0.078125 4.03125 0.078125 C 4.859375 0.078125 5.734375 -0.265625 6.34375 -0.9375 C 6.734375 -1.328125 7.125 -1.96875 7.375 -3.125 C 7.65625 -4.421875 7.375 -5.03125 7.15625 -5.375 C 6.734375 -5.984375 6.015625 -6.125 5.421875 -6.125 C 4.0625 -6.125 3.46875 -5.375 3.25 -5.109375 Z M 6.171875 -3.046875 C 5.984375 -2.078125 5.34375 -0.71875 3.96875 -0.71875 C 2.296875 -0.71875 2.6875 -2.59375 2.78125 -2.984375 C 2.859375 -3.375 3.28125 -5.375 5 -5.375 C 6.5625 -5.375 6.3125 -3.640625 6.171875 -3.046875 Z M 6.171875 -3.046875 "/>
+</g>
+<g id="manual-svg-2-glyph-0-14">
+<path d="M 1.421875 -5.984375 L 2.125 0 L 3.4375 0 L 6.046875 -4.921875 L 6.40625 0 L 7.6875 0 L 11.078125 -5.984375 L 9.921875 -5.984375 L 7.421875 -1.265625 L 7.0625 -5.984375 L 5.59375 -5.984375 L 3.078125 -1.21875 L 2.640625 -5.984375 Z M 1.421875 -5.984375 "/>
+</g>
+<g id="manual-svg-2-glyph-0-15">
+<path d="M 0.96875 0 L 2.28125 0 L 2.59375 -1.421875 L 1.28125 -1.421875 Z M 0.96875 0 "/>
+</g>
+</g>
+<image id="manual-svg-2-source-5" x="0" y="0" width="274" height="424" xlink:href="data:image/png;base64,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"/>
+</defs>
+<use xlink:href="#manual-svg-2-source-5" transform="matrix(0.722493, 0, 0, 0.722495, 0.300293, 0.031263)"/>
+<path fill="none" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(18.03894%, 19.219971%, 57.249451%)" stroke-opacity="1" stroke-miterlimit="3.89999" d="M 1583.984375 1012.695312 L 2280.976562 1012.695312 " transform="matrix(0.1, 0, 0, -0.1, 0, 307)"/>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-2-glyph-0-0" x="235.748" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-1" x="243.685367" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-2" x="250.301822" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-1" x="253.61005" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-3" x="260.226506" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-4" x="266.176556" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-5" x="270.139289" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-6" x="273.447517" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-7" x="280.718478" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-4" x="287.989439" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-8" x="291.952172" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-6" x="295.2604" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-9" x="302.531361" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-10" x="309.802322" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-5" x="315.752372" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-11" x="319.0606" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-6" x="323.023333" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-12" x="330.294295" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-5" x="334.923433" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-13" x="338.231661" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-12" x="345.502622" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-6" x="350.131761" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-14" x="357.402722" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-10" x="367.315506" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-1" x="373.265556" y="209.0387"/>
+<use xlink:href="#manual-svg-2-glyph-0-12" x="379.882011" y="209.0387"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-2-glyph-0-15" x="383.630607" y="209.0387"/>
+</g>
+</svg></p>
+<p class="p11"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><b>Browser Options</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b>Option<span class="Apple-tab-span">	</span>Description</b></p>
+<p class="p16"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-3-title" data-source="CustomizingBrowsers.rtfd/TableHeadRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-3-title">TableHeadRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(3.529358%, 75.686646%, 42.744446%)" stroke-opacity="1" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></b><b></b></p>
+<p class="p11"><b></b><br></p>
+<p class="p17">Allow multiple selection<span class="Apple-tab-span">	</span>The user can select more than one node at a time.</p>
+<p class="p17"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-4-title" data-source="CustomizingBrowsers.rtfd/TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-4-title">TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p18"><br></p>
+<p class="p17">Allow empty selection<span class="Apple-tab-span">	</span>Makes it possible to have no cells selected; otherwise, the first cell in the column is selected by default.</p>
+<p class="p17"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-5-title" data-source="CustomizingBrowsers.rtfd/TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-5-title">TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p18"><br></p>
+<p class="p17">Allow branch selection<span class="Apple-tab-span">	</span>The user can select branch nodes (such as directories).</p>
+<p class="p17"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-6-title" data-source="CustomizingBrowsers.rtfd/TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-6-title">TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p18"><br></p>
+<p class="p17">Separate columns<span class="Apple-tab-span">	</span>Separates columns with a bezeled bar (if not set, a black line appears).</p>
+<p class="p17"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-7-title" data-source="CustomizingBrowsers.rtfd/TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-7-title">TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p18"><br></p>
+<p class="p17">Display titles<span class="Apple-tab-span">	</span>Titles are above columns and column divider is bezeled bar.</p>
+<p class="p17"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-8-title" data-source="CustomizingBrowsers.rtfd/TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-8-title">TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p18"><br></p>
+<p class="p17">Allow horizontal scroller<span class="Apple-tab-span">	</span>Allows users to scroll horizontally as well as vertically.</p>
+<p class="p17"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-9-title" data-source="CustomizingBrowsers.rtfd/TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-9-title">TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p9"><br></p>
+<p class="p8"><span class="s2"><b>Related Concept:</b></span><span class="Apple-converted-space">  </span><span class="Apple-converted-space">  </span>Compound Objects<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+</body>
+</html>

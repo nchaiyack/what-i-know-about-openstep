@@ -1,0 +1,6 @@
+"FirstResponder" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSObject; };
+"ProgressViewInspector" = {
+    ACTIONS = {}; 
+    OUTLETS = {slider = id; textField = id; }; 
+    SUPERCLASS = IBInspector; 
+};

@@ -1,0 +1,137 @@
+.TH ST 4 "June 30, 1989" "NeXT Computer, Inc."
+.SH NAME
+st \- SCSI Tape Device Driver
+.SH SYNOPSIS
+device_name as st0/1 at sc0 target ? lun ?
+.SH DESCRIPTION
+This driver allows access to a number of tape drives with standard SCSI
+interfaces.  Four different devices in /dev access this driver:
+.RS
+.nf
+
+/dev/rst?   Generic SCSI tape, rewind on close
+/dev/nrst?  Generic SCSI tape, no rewind on close
+/dev/rxt?   Exabyte SCSI tape, rewind on close
+/dev/nrxt?  Exabyte SCSI tape, no rewind on close
+
+.fi
+.RE    
+All four of these devices are character devices.  There is no block I/O to
+tape on the NeXT machine.  The Exabyte has its own device entry because it
+has unusual initialization requirements that are performed implicitly by
+the driver when /dev/rxt? or /dev/nrxt? is opened.
+.LP
+Tape operation occurs in two basic modes - fixed block size and variable
+block size.  In this context, a "block" refers to one record on the tape.
+Some tape drives can write blocks of arbitrary length; others require a
+constant block size.  Ioctl() calls are provided to set the appropriate
+mode.  In the case of fixed block mode, if a write() occurs with a byte
+count which is not an integral multiple of the block size, the last partial
+block written will be padded with zeroes to make a complete block.  The
+default mode for the st driver is variable block mode.
+.LP
+The following operations are allowed by the SCSI tape driver:
+.TP
+open()
+See open(2).
+.TP
+close() 
+Closing a SCSI tape devices has some implied effects.  If the last
+operation on the device was a write(), a tape mark is written during
+the close operation.  If the tape device is /dev/rst? or /dev/rxt?, the
+tape will be rewound to beginning of tape (BOT) during the close operation.
+.TP
+read()
+See read(2).
+.TP 
+write()
+See write(2).  This operation is not legal at all times; for example, after
+reading a portion of a tape, a write command is illegal if more data exists
+on the tape.  One can only write to a tape if the tape is at BOT or at the
+end of recorded data.
+.TP 
+ioctl()
+The general form of an ioctl() call is 
+.RS
+.nf
+
+ioctl(int d, u_int request, char *argp)
+
+.fi
+.RE
+The following ioctl requests are currently defined
+(see /NextDeveloper/Headers/bsd/dev/scsireg.h and /NextDeveloper/Headers/bsd/sys/mtio.h):
+.TP
+MTIOCFIXBLK
+Sets the driver to fixed block mode.  argp points to
+an int containing the desired block size.
+.TP
+MTIOCVARBLK
+Set variable block mode.  *argp is undefined.  This mode
+is the default mode.
+.TP
+MTIOCMODSEL
+Executes a mode select command.  argp points to 
+struct modesel_parms (see /NextDeveloper/Headers/bsd/dev/scsireg.h). Mode select
+and Mode Sense command are largely vendor unique SCSI
+implementations.
+.TP
+MTIOCMODSEN
+Executes a mode sense command.  argp points to 
+struct modesel_parms (see /NextDeveloper/Headers/bsd/dev/scsireg.h).
+.TP
+MTIOCINILL
+Inhibit illegal length.  This causes the "suppress Illegal
+length" bit to be set on all SCSI read commands.  This
+allows reading variable block sizes without knowing 
+the block size (and without receiving error status
+from the drive when doing so).  This is the default mode for
+the Exabyte device (/dev/rxt? and /dev/nrxt?).
+.TP
+MTIOCALILL
+Allow illegal length.  This causes error status (EIO) to
+result when the number of bytes requested in a read 
+operation does not equal the number of bytes actually in
+the block to be read.  This is the default mode for the 
+non-Exabyte device (/dev/rst? and /dev/nrst?).
+.TP
+MTIOCSRQ
+Execute an arbitrary SCSI command using the scsi_req
+mechanism.
+argp points to a struct scsi_req, which is defined in
+/NextDeveloper/Headers/bsd/dev/scsireg.h as are all other constants used with
+this mechanism.  This struct contains both the input to the 
+st driver required for execution of a command (SCSI CDB
+bytes, address at which DMA will occur, etc.) as well as 
+the status block upon return.
+.LP
+For MTIOCSRQ, the following status is provided:
+.TP
+srp->sr_io_status
+Indicates success, I/O timeout, SCSI
+check status, DMA overrun, etc.
+.TP
+srp->sr_scsi_status
+The actual SCSI status byte returned by the target.
+.TP
+srp->sr_dma_xfr
+Number of data bytes actually transferred to/from device.
+.TP
+srp->sr_exec_time
+Command execution time, with microsecond resolution.
+.SH FILES
+.nf
+/NextDeveloper/Headers/bsd/dev/scsireg.h
+/NextDeveloper/Headers/bsd/sys/mtio.h
+/dev/rst?
+/dev/nrst?
+/dev/rxt?
+/dev/nrxt?
+.fi
+.SH "SEE ALSO"
+open(2), read(2), write(2), ioctl(2), close(2), dump(8)
+.SH BUGS
+The default of variable block mode does not work for some older tape drives.  Before these drives can be used,
+the driver must be reconfigured 
+for the appropriate fixed block size 
+using the MTIOCFIXBLK ioctl.

@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -63.0px; font: 28.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -63.0px; font: 35.0px Helvetica; min-height: 42.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 10.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 14.0px Times}
+    p.p10 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Helvetica}
+    p.p18 {margin: 0.0px 0.0px 0.0px 95.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 116.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 116.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p24 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -64.0px; font: 36.0px Helvetica; min-height: 43.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -64.0px; font: 26.0px Helvetica}
+    p.p28 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -64.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 12.0px Helvetica}
+    p.p30 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p32 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p33 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p35 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p38 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p39 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p42 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p44 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p48 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p49 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p50 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p51 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.0px Helvetica}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.s5 {font: 14.0px Times}
+    span.s6 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">p<span class="Apple-tab-span">	</span>c </span><b></b><b>NSAttributedString Class Cluster Additions</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Class Cluster Description</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7">NSAttributedString<i> </i>objects manage character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an <i>attributed string</i>. The cluster's two public classes, NSAttributedString and NSMutableAttributedString, declare the programmatic interface for read-only attributed strings and modifiable attributed strings, respectively. The Foundation Kit defines the basic functionality for attributed strings, while the remainder is defined here in the Application Kit. The Application Kit also uses a subclass of NSMutableAttributedString, called NSTextStorage, to provide the storage for NeXT's extended text-handling system.</p>
+<p class="p8"><br></p>
+<p class="p9"><span class="s3"><b>Note:<span class="Apple-tab-span">	</span></b></span>NSAttributedString is <i>not</i> a subclass of NSString. It contains a string object to which it applies attributes. This protects users of attributed strings from ambiguities caused by the semantic differences between simple and attributed string. For example, equality can't be simply defined between an NSString and an attributed string.</p>
+<p class="p10"><br></p>
+<p class="p7">Because of the nature of class clusters, attributed string objects are not actual instances of the NSAttributedString or NSMutableAttributedString classes, but are instances of one of their private concrete subclasses. Although an attributed string object's class is private, its interface is public, as declared by these abstract superclasses, NSAttributedString and NSMutableAttributedString. The attributed string classes adopt the NSCopying and NSMutableCopying protocols, making it convenient to convert an attributed string from one type to the other.</p>
+<p class="p8"><br></p>
+<p class="p7">You create an NSAttributedString object from scratch by using one of <b>initWithString:</b>, <b>initWithString:attributes:</b>, or <b>initWithAttributedString:</b>. These methods initialize an attributed string with data you provide. You can also create an attributed string from RTF data using <b>initWithRTF:documentAttributes:</b>, <b>initWithRTFD:documentAttributes:</b>, <b>initWithRTFDFileWrapper:documentAttributes:</b>, or <b>initWithPath:documentAttributes:</b>. See “RTF Document Attributes” for more details on reading RTF.</p>
+<p class="p8"><br></p>
+<p class="p7">An attributed string provides basic access to its contents with the <b>string</b> and <b>attributesAtIndex:effectiveRange:</b> methods, which yield characters and attributes, respectively. These two primitive methods are used by the other access methods to retrieve attributes individually by name, by functional group (font or ruler attributes, for example), and so on.</p>
+<p class="p8"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><b>Feature Overview</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7">NSAttributedString and NSMutableAttributedString add a number of features to the basic content storage of NSString:</p>
+<p class="p8"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Association of arbitrary, programmer-defined attributes with ranges of characters</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Preservation of attribute-to-character mapping after changes (NSMutableAttributedString)</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Support for RTF, including file attachments and graphics</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Drawing in NSView objects (note that the Application Kit adds drawing methods to NSString as well)</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Linguistic unit (word) and line calculation</p>
+<p class="p16"><br></p>
+<p class="p7">An attributed string identifies attributes by name, storing their values as opaque <b>id</b>s in an NSDictionary. For example, the text font is stored as an NSFont object under the name given by NSFontAttributeName. You can associate any object value, by any name, with a given range of characters in the attributed string. The basic attributes defined by NSAttributedString are described below under “Accessing Attributes.”</p>
+<p class="p8"><br></p>
+<p class="p7">A mutable attributed string keeps track of the attribute mapping as characters are added to and deleted from it and as attributes are changed. It allows you to group batches of edits with the <b>beginEditing</b> and <b>endEditing</b> methods, and to consolidate changes to the attribute-to-character mapping with the <b>fix...</b> methods. See “Changing a Mutable Attributed String” below for more information.</p>
+<p class="p8"><br></p>
+<p class="p7">An attributed string can be created from rich text (RTF) or rich text with attachments (RTFD), and can write its contents as RTF or RTFD data. Three initialization methods, <b>initWithRTF:documentAttributes:</b>, <b>initWithRTFD:documentAttributes:</b>, and <b>initWithRTFDFileWrapper:documentAttributes:</b>, interpret rich text data. The methods for writing rich text are <b>RTFFromRange:documentAttributes:</b> and <b>RTFDFromRange:documentAttributes:</b>, which return rich text data for any legal range within the attributed string, and <b>RTFDFileWrapperFromRange:documentAttributes:</b>, which returns the attributed string as an NSFileWrapper. NSAttributedString provides limited support for some document-level attributes, as described below under “RTF Document Attributes.” Additional support for rich text is provided by other text-handling classes such as NSTextView.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">You can draw an attributed string in a focused NSView by invoking either the <b>drawAtPoint:</b> or <b>drawInRect:</b> method. Note that the Application Kit defines drawing methods for NSString as well, allowing any string object to draw itself. These methods, <b>drawAtPoint:withAttributes:</b> and <b>drawInRect:withAttributes:</b>, are described in the NSString Additions class specification.</p>
+<p class="p8"><br></p>
+<p class="p7">An attributed string supports the typical behavior of editors in selecting a word on a double-click with the <b>doubleClickAtIndex:</b> method, and finds word breaks with <b>nextWordFromIndex:forward:</b>. It also calculates line breaks with the <b>lineBreakBeforeIndex:withinRange:</b> method.</p>
+<p class="p8"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><b>Accessing Attributes</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7">An attributed string identifies attributes by name, storing an <b>id</b> value under the attribute name in an NSDictionary, which is in turn associated with an NSRange that indicates the characters to which the dictionary's attributes apply. You can assign any attribute name/value pair you wish to a range of characters, in addition to these standard attributes:</p>
+<p class="p8"><br></p>
+<p class="p17"><b>Attribute Identifier<span class="Apple-tab-span">	</span>Value Class<span class="Apple-tab-span">	</span>Default Value</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19">NSFontAttributeName<span class="Apple-tab-span">	</span>NSFont<span class="Apple-tab-span">	</span>Helvetica 12-point</p>
+<p class="p19">NSForegroundColorAttributeName<span class="Apple-tab-span">	</span>NSColor<span class="Apple-tab-span">	</span>black</p>
+<p class="p19">NSBackgroundColorAttributeName<span class="Apple-tab-span">	</span>NSColor<span class="Apple-tab-span">	</span>none (no background drawn)</p>
+<p class="p19">NSUnderlineStyleAttributeName<span class="Apple-tab-span">	</span>NSNumber, as an <b>int</b><span class="Apple-tab-span">	</span>none (no underline)</p>
+<p class="p19">NSSuperscriptAttributeName<span class="Apple-tab-span">	</span>NSNumber, as an <b>int</b><span class="Apple-tab-span">	</span>0</p>
+<p class="p19">NSBaselineOffsetAttributeName<span class="Apple-tab-span">	</span>NSNumber, as a <b>float</b><span class="Apple-tab-span">	</span>0.0</p>
+<p class="p19">NSKernAttributeName<span class="Apple-tab-span">	</span>NSNumber, as a <b>float</b><span class="Apple-tab-span">	</span>0.0</p>
+<p class="p19">NSLigatureAttributeName<span class="Apple-tab-span">	</span>NSNumber, as an <b>int</b><span class="Apple-tab-span">	</span>1 (standard ligatures)</p>
+<p class="p19">NSParagraphStyleAttributeName<span class="Apple-tab-span">	</span>NSParagraphStyle<span class="Apple-tab-span">	</span>(as returned by NSParagraphStyle's</p>
+<p class="p19"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><b>defaultParagraphStyle</b> method)</p>
+<p class="p19">NSAttachmentAttributeName<span class="Apple-tab-span">	</span>NSTextAttachment<span class="Apple-tab-span">	</span>none (no attachment)</p>
+<p class="p20"><br></p>
+<p class="p7">The identifiers listed are actually global NSString variables containing the attribute names. The value class is what users of an attributed string should expect the attribute values to be presented as. The default values are what they should assume if no attribute value has been explicitly set for the requested character range.</p>
+<p class="p8"><br></p>
+<p class="p7">The natures of several attributes aren't obvious from name alone:</p>
+<p class="p8"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>The underline attribute has only one value defined, NSSingleUnderlineStyle. All characters with this attribute value should be drawn with a single line just below the baseline.</p>
+<p class="p16"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>The superscript attribute indicates an abstract level for both super- and subscripts. The user of the attributed string can interpret this as desired, adjusting the baseline by the same or a different amount for each level, changing the font size, or both.</p>
+<p class="p16"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>The baseline offset attribute is a literal distance by which the characters should be shifted above the baseline (for positive offsets) or below (for negative offsets).</p>
+<p class="p16"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>The kerning attribute indicates how much the following character should be shifted from its default offset as defined by the current character's font; a positive kern indicates a shift farther along and a negative kern indicates a shift closer to the current character.</p>
+<p class="p16"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>The ligature attribute determines what kinds of ligatures should be used when displaying the string. A value of 0 indicates that only ligatures essential for proper rendering of text should be used, 1 indicates that standard ligatures should be used, and 2 indicates that all available ligatures should be used. Which ligatures are standard depends on the script and possibly the font. Arabic text, for example, requires ligatures for many character sequences, but has a rich set of additional ligatures that combine characters. English text has no essential ligatures, and typically has only two standard ligatures, those for “fi” and “fl”—all others being considered more advanced or fancy.</p>
+<p class="p16"><br></p>
+<p class="p7">With an immutable attributed string, you assign all attributes on creating the string using methods such as <b>initWithRTF:documentAttributes:</b>, which interprets attributes from the RTF data, <b>initWithString:attributes:</b>, which explicitly takes an NSDictionary of name/value pairs, or <b>initWithString:</b>, which assigns no attributes. See “Changing a Mutable Attributed String” below for information on assigning attributes with a mutable attributed string.</p>
+<p class="p8"><br></p>
+<p class="p7">To retrieve attribute values from either type of attributed string, use any of these methods:</p>
+<p class="p8"><br></p>
+<p class="p21"><span class="s4">-</span> attributesAtIndex:effectiveRange:</p>
+<p class="p21"><span class="s4">-</span> attributesAtIndex:longestEffectiveRange:inRange:</p>
+<p class="p21"><span class="s4">-</span> attribute:atIndex:effectiveRange:</p>
+<p class="p21"><span class="s4">-</span> attribute:atIndex:longestEffectiveRange:inRange:</p>
+<p class="p21"><span class="s4">-</span> fontAttributesInRange:</p>
+<p class="p21"><span class="s4">-</span> rulerAttributesInRange:</p>
+<p class="p22"><br></p>
+<p class="p7">The first two methods return all attributes at a given index, the <b>attribute:...</b> methods return the value of a single named attribute, and <b>fontAttributesInRange:</b> and <b>rulerAttributesInRange:</b> return attributes defined to apply only to characters or to whole paragraphs, respectively (see the individual method descriptions for more information).</p>
+<p class="p8"><br></p>
+<p class="p7">The first four methods also return by reference the <i>effective range</i> and the <i>longest effective range</i> of the attributes. These ranges allow you to determine the extent of attributes. Conceptually, each character in an attributed string has its own collection of attributes; however, it's often useful to know when the attributes and values are the same over a series of characters. This allows a routine to progress through an attributed string in chunks larger than a single character. In retrieving the effective range, an attributed string simply looks up information in its attribute mapping, essentially the dictionary of attributes that apply at the index requested. In retrieving the longest effective range, the attributed string continues checking characters past this basic range as long as the attribute values are the same. This extra comparison increases the execution time for these methods but guarantees a precise maximal range for the attributes requested.The code fragment below progresses through an attributed string in chunks based on the effective range. The fictitious <b>analyzer</b> object here counts the number of characters in each font. The <b>while</b> loop progresses as long as the effective range retrieved doesn't include the end of the attributed string, retrieving the font in effect just past the latest retrieved range. For each font attribute retrieved, <b>analyzer</b> is asked to tally the number of characters in the effective range. In this example, it's possible that consecutive invocations of <b>attribute:atIndex:effectiveRange:</b> will return the same value.</p>
+<p class="p8"><br></p>
+<p class="p23">NSAttributedString *attrStr;</p>
+<p class="p23">unsigned int length;</p>
+<p class="p23">NSRange effectiveRange;</p>
+<p class="p23">id attributeValue;</p>
+<p class="p24"><br></p>
+<p class="p23">length = [attrStr length];</p>
+<p class="p23">effectiveRange = NSMakeRange(0, 0);</p>
+<p class="p24"><br></p>
+<p class="p23">while (NSMaxRange(effectiveRange) &lt; length) {</p>
+<p class="p23"><span class="Apple-converted-space">    </span>attributeValue = [attrStr attribute:NSFontAttributeName</p>
+<p class="p23"><span class="Apple-converted-space">        </span>atIndex:NSMaxRange(effectiveRange) effectiveRange:&amp;effectiveRange];</p>
+<p class="p23"><span class="Apple-converted-space">    </span>[analyzer tallyCharacterRange:effectiveRange font:attributeValue];</p>
+<p class="p23">}</p>
+<p class="p25"><br></p>
+<p class="p7">In contrast, the next code fragment progresses through the attributed string according to the maximum effective range for each font. In this case, <b>analyzer</b> counts font <i>changes</i>, which may not be represented by merely retrieving effective ranges. In this case the <b>while</b> loop is predicated on the length of the limiting range, which begins as the entire length of the attributed string and is whittled down as the loop progresses. After <b>analyzer</b> records the font change, the limit range is adjusted to account for the longest effective range retrieved.</p>
+<p class="p8"><br></p>
+<p class="p23">NSAttributedString *attrStr;</p>
+<p class="p23">NSRange limitRange;</p>
+<p class="p23">NSRange effectiveRange;</p>
+<p class="p23">id attributeValue;</p>
+<p class="p24"><br></p>
+<p class="p23">limitRange = NSMakeRange(0, [attrStr length]);</p>
+<p class="p24"><br></p>
+<p class="p23">while (limitRange.length &gt; 0) {</p>
+<p class="p23"><span class="Apple-converted-space">    </span>attributeValue = [attrStr attribute:NSFontAttributeName</p>
+<p class="p23"><span class="Apple-converted-space">        </span>atIndex:limitRange.location longestEffectiveRange:&amp;effectiveRange</p>
+<p class="p23"><span class="Apple-converted-space">        </span>inRange:limitRange];</p>
+<p class="p23"><span class="Apple-converted-space">    </span>[analyzer recordFontChange:attributeValue];</p>
+<p class="p23"><span class="Apple-converted-space">    </span>limitRange = NSMakeRange(NSMaxRange(effectiveRange),</p>
+<p class="p23"><span class="Apple-converted-space">        </span>NSMaxRange(limitRange) - NSMaxRange(effectiveRange));</p>
+<p class="p23">}</p>
+<p class="p25"><br></p>
+<p class="p7">Note that the second code fragment is more complex. Because of this, and because <b>attribute:atIndex:longestEffectiveRange:inRange:</b> is somewhat slower than <b>attribute:atIndex:effectiveRange:</b>, you should typically use it only when absolutely necessary for the work you're performing. In most cases working by effective range is enough.</p>
+<p class="p8"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><b>Changing a Mutable Attributed String</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7">NSMutableAttributedString declares a number of methods for changing both characters and attributes, such as the primitive <b>replaceCharactersInRange:withString:</b> and <b>setAttributes:range:</b>, or the more convenient methods <b>addAttribute:value:range:</b>, <b>applyFontTraits:range:</b>, <b>setAlignment:range:</b>, and so on. All of the methods for changing a mutable attributed string properly update the mapping between characters and attributes, but after a change some inconsistencies can develop. Here are some examples of attribute consistency requirements:</p>
+<p class="p8"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Paragraph styles must apply to entire paragraphs.</p>
+<p class="p16"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Scripts may only be assigned fonts that support them. For example, Kanji and Arabic characters can't be assigned the Times-Roman font, and must be reassigned fonts that support these scripts.</p>
+<p class="p16"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Deleting attachment characters from the string requires the corresponding attachment objects to be released. Similarly, removing attachment objects requires the corresponding attachment characters to be removed from the string.</p>
+<p class="p16"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>A code editing application that displays all language keywords in boldface can automatically assign this attriute as the user changes the font or edits the text.</p>
+<p class="p16"><br></p>
+<p class="p7">NSMutableAttributedString defines methods to fix these inconsistencies as changes are made. This allows the attributes to be cleaned up at a low level, hiding potential problems from higher levels and providing for very clean update of display as attributes change. There are six methods for fixing attributes:</p>
+<p class="p8"><br></p>
+<p class="p21"><span class="s4">-</span> fixAttributesInRange:</p>
+<p class="p21"><span class="s4">-</span> fixAttachmentAttributeInRange:</p>
+<p class="p21"><span class="s4">-</span> fixFontAttributeInRange:</p>
+<p class="p21"><span class="s4">-</span> fixParagraphStyleAttributeInRange:</p>
+<p class="p21"><span class="s4">-</span> beginEditing</p>
+<p class="p21"><span class="s4">-</span> endEditing</p>
+<p class="p22"><br></p>
+<p class="p7">The first method, <b>fixAttributesInRange:</b>, invokes the other three <b>fix...</b> methods to clean up deleted attachment references, font attributes, and paragraph attributes, respectively. The individual method descriptions explain what cleanup entails for each case.</p>
+<p class="p8"><br></p>
+<p class="p7">The <b>beginEditing</b> and <b>endEditing</b> methods are provided for subclasses of NSMutableAttributedString to override. Their default implementations do nothing. These methods allow instances of a subclass to record or buffer groups of changes and clean themselves up on receiving an <b>endEditing</b> message. <b>endEditing</b> also allows the receiver to notify any observers that it has been changed. NSTextStorage's implementation of <b>endEditing</b>, for example, fixes changed attributes and then notifies its NSLayoutManagers that they need to re-lay and redisplay their text.</p>
+<p class="p8"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><b>RTF Document Attributes</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7">Attributed strings keep attribute information for their text only, while RTF allows for more general attributes of a document, especially regarding paper size and layout. To support higher-level objects that use attributed strings, the methods that work with RTF also read and write some RTF directives for document attributes, stored in an NSDictionary under these keys:</p>
+<p class="p8"><br></p>
+<p class="p17"><b>Attribute Key<span class="Apple-tab-span">	</span>Value Class</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19">PaperSize<span class="Apple-tab-span">	</span>NSValue, as an NSSize</p>
+<p class="p19">LeftMargin<span class="Apple-tab-span">	</span>NSNumber, as a <b>float</b></p>
+<p class="p19">RightMargin<span class="Apple-tab-span">	</span>NSNumber, as a <b>float</b></p>
+<p class="p19">TopMargin<span class="Apple-tab-span">	</span>NSNumber, as a <b>float</b></p>
+<p class="p19">BottomMargin<span class="Apple-tab-span">	</span>NSNumber, as a <b>float</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p7">The <b>init</b> methods, such as <b>initWithRTF:documentAttributes:</b>, return by reference a dictionary containing the attributes read from the RTF data, which your application can then use to set up its page layout. Similarly, RTF extraction methods such as <b>RTFFromRange:documentAttributes:</b>, accept a dictionary containing those attributes and writes them into the RTF data, thus preserving the page layout information.</p>
+<p class="p8"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><b>Attachments</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7">Attachments, such as embedded images or files, are represented in an attributed string by both a special character and an attribute. The character is identified by the global name NSAttachmentCharacter, and indicates the presence of an attachment at its location in the string. The attribute, identified in the string by the attribute name NSAttachmentAttributeName, is an NSTextAttachment object. An NSTextAttachment contains the data for the attachment itself, as well as an image to display when the string is drawn. You can use NSAttributedString's <b>attributedStringWithAttachment:</b> class method to construct an attachment string, which you can then add to a mutable attributed string using <b>appendAttributedString:</b> or <b>insertAttributedString:atIndex:</b>.</p>
+<p class="p8"><br></p>
+<p class="p26"><br></p>
+<p class="p26"><br></p>
+<p class="p27"><span class="s2">p<span class="Apple-tab-span">	</span>i </span><b>NSAttributedString Additions</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s5">NSObject</span></p>
+<p class="p30"><br></p>
+<p class="p31"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSAttributedString.h</p>
+<p class="p32">AppKit/NSStringDrawing.h</p>
+<p class="p32">AppKit/NSTextAttachment.h</p>
+<p class="p33"><br></p>
+<p class="p33"><br></p>
+<p class="p34"><b>Class Description</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p7">The Application Kit extends the Foundation Kit's NSAttributedString class by adding:</p>
+<p class="p8"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Support for RTF, with or without attachments</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Graphic attributes, including font and ruler attributes</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Methods for drawing attributed strings</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Methods for calculating significant linguistic units</p>
+<p class="p36"><br></p>
+<p class="p34"><b>Method Types</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p37">Creating an NSAttributedString<span class="Apple-tab-span">	</span><span class="s4">-</span> initWithRTF:documentAttributes:</p>
+<p class="p38"><span class="s4">-</span> initWithRTFD:documentAttributes:</p>
+<p class="p38"><span class="s4">-</span> initWithRTFDFileWrapper:documentAttributes:</p>
+<p class="p38"><span class="s4">-</span> initWithPath:documentAttributes:</p>
+<p class="p38">+ attributedStringWithAttachment:</p>
+<p class="p39"><br></p>
+<p class="p37">Retrieving attribute information<span class="Apple-tab-span">	</span><span class="s4">-</span> fontAttributesInRange:</p>
+<p class="p38"><span class="s4">-</span> rulerAttributesInRange:</p>
+<p class="p38"><span class="s4">-</span> containsAttachments</p>
+<p class="p39"><br></p>
+<p class="p37">Calculating linguistic units<span class="Apple-tab-span">	</span><span class="s4">-</span> doubleClickAtIndex:</p>
+<p class="p38"><span class="s4">-</span> lineBreakBeforeIndex:withinRange:</p>
+<p class="p38"><span class="s4">-</span> nextWordFromIndex:forward:</p>
+<p class="p39"><br></p>
+<p class="p37">Drawing the string<span class="Apple-tab-span">	</span><span class="s4">-</span> drawAtPoint:</p>
+<p class="p38"><span class="s4">-</span> drawInRect:</p>
+<p class="p38"><span class="s4">-</span> size</p>
+<p class="p39"><br></p>
+<p class="p37">Generating RTF data<span class="Apple-tab-span">	</span><span class="s4">-</span> RTFFromRange:documentAttributes:</p>
+<p class="p38"><span class="s4">-</span> RTFDFileWrapperFromRange:documentAttributes:</p>
+<p class="p38"><span class="s4">-</span> RTFDFromRange:documentAttributes:</p>
+<p class="p40"><br></p>
+<p class="p34"><b>Class Methods</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>attributedStringWithAttachment:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43">+ (NSAttributedString *)<b>attributedStringWithAttachment:</b>(NSTextAttachment *)<i>attachment</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Returns an NSAttributedString object containing only the attachment marker character (NSAttachmentCharacter), which is assigned an attribute whose name is NSTextAttachmentName and whose value is <i>attachment</i>. Use this method, along with <b>appendAttributedString:</b> or <b>insertAttributedString:atIndex:</b>, to add an attachment to an attributed string.</p>
+<p class="p8"><br></p>
+<p class="p45"><br></p>
+<p class="p34"><b>Instance Methods</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>containsAttachments</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (BOOL)<b>containsAttachments</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p7">Returns YES if the receiver contains any attachment attributes, NO otherwise. This method checks only for attachment attributes, not for NSAttachmentCharacter.</p>
+<p class="p8"><br></p>
+<p class="p46"><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>doubleClickAtIndex:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (NSRange)<b>doubleClickAtIndex:</b>(unsigned int)<i>index</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Returns the range of characters that form a word (or other linguistic unit) surrounding <i>index</i>, taking language characteristics into account. Raises an NSRangeException if <i>index</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>nextWordFromIndex:forward:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>drawAtPoint:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (void)<b>drawAtPoint:</b>(NSPoint)<i>point</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Draws the receiver with its font and other display attributes at <i>point</i> in the currently focused NSView. Text is drawn in such a way that the upper left corner of its bounding box lies at <i>point</i>, regardless of the line sweep direction or whether the NSView is flipped.</p>
+<p class="p8"><br></p>
+<p class="p7">Don't invoke this method while no NSView is focused.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>lockFocus</b> (NSView), <span class="s4">-</span> <b>size</b>, <span class="s4">-</span> <b>drawInRect:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>drawInRect:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (void)<b>drawInRect:</b>(NSRect)<i>rect</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Draws the receiver with its font and other display attributes within <i>rect</i> in the currently focused NSView, clipping the drawing to this rectangle. Text is drawn within <i>rect</i> according to its line sweep direction; for example, Arabic text will begin at the right edge and potentially be clipped on the left.</p>
+<p class="p8"><br></p>
+<p class="p7">Don't invoke this method while no NSView is focused.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>lockFocus</b> (NSView), <span class="s4">-</span> <b>drawAtPoint:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>fontAttributesInRange:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (NSDictionary *)<b>fontAttributesInRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Returns the font attributes in effect for the character at <i>aRange.location</i>. Font attributes are all those listed under “Accessing Attributes” in the class cluster description except NSParagraphStyleAttributeName and NSAttachmentAttributeName. Use this method to obtain font attributes that are to be copied or pasted with “copy font” operations. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>rulerAttributesInRange:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>initWithPath:documentAttributes:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (id)<b>initWithPath:</b>(NSString *)<i>path</i> <b>documentAttributes:</b>(NSDictionary **)<i>docAttributes</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Initializes a new NSAttributedString from RTF or RTFD data contained in the file at <i>path</i>. Also returns by reference in <i>docAttributes</i> a dictionary containing document-level attributes, as listed in the class cluster description under “RTF Document Attributes.” <i>docAttributes</i> may be NULL, in which case no document attributes are returned. Returns <b>self</b>, or <b>nil</b> if the file at <i>path</i> can't be decoded.</p>
+<p class="p8"><br></p>
+<p class="p46"><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>initWithRTF:documentAttributes:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (id)<b>initWithRTF:</b>(NSData *)<i>rtfData</i> <b>documentAttributes:</b>(NSDictionary **)<i>docAttributes</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Initializes a new NSAttributedString by decoding the stream of RTF commands and data contained in <i>rtfData</i>. Also returns by reference in <i>docAttributes</i> a dictionary containing document-level attributes, as listed in the class cluster description under “RTF Document Attributes.” <i>docAttributes</i> may be NULL, in which case no document attributes are returned. Returns <b>self</b>, or <b>nil</b> if <i>rtfData</i> can't be decoded.</p>
+<p class="p8"><br></p>
+<p class="p46"><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>initWithRTFD:documentAttributes:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (id)<b>initWithRTFD:</b>(NSData *)<i>rtfdData</i> <b>documentAttributes:</b>(NSDictionary **)<i>docAttributes</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Initializes a new NSAttributedString by decoding the stream of RTFD commands and data contained in <i>rtfdData</i>. Also returns by reference in <i>docAttributes</i> a dictionary containing document-level attributes, as listed in the class cluster description under “RTF Document Attributes.” <i>docAttributes</i> may be NULL, in which case no document attributes are returned. Returns <b>self</b>, or <b>nil</b> if <i>rtfData</i> can't be decoded.</p>
+<p class="p8"><br></p>
+<p class="p46"><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>initWithRTFDFileWrapper:documentAttributes:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (id)<b>initWithRTFDFileWrapper:</b>(NSFileWrapper *)<i>wrapper</i> <b>documentAttributes:</b>(NSDictionary **)<i>docAttributes</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Initializes a new NSAttributedString from <i>wrapper</i> an NSFileWrapper object containing an RTFD document. Also returns by reference in <i>docAttributes</i> a dictionary containing document-level attributes, as listed in the class cluster description under “RTF Document Attributes.” <i>docAttributes</i> may be NULL, in which case no document attributes are returned. Returns <b>self</b>, or <b>nil</b> if <i>wrapper</i> can't be interpreted as an RTFD document.</p>
+<p class="p8"><br></p>
+<p class="p46"><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>lineBreakBeforeIndex:withinRange:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (unsigned int)<b>lineBreakBeforeIndex:</b>(unsigned int)<i>index </i><b>withinRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Returns the index of the closest character before <i>index</i> and within <i>aRange</i> that can be placed on a new line when laying out text. In other words, finds the appropriate line break when the character at <i>index</i> won't fit on the same line as the character at the beginning of <i>aRange</i>. Returns NSNotFound if no line break is possible before <i>index</i>.</p>
+<p class="p8"><br></p>
+<p class="p7">Raises an NSRangeException if <i>index</i> or any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>nextWordFromIndex:forward:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>nextWordFromIndex:forward:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (unsigned int)<b>nextWordFromIndex:</b>(unsigned int)<i>index </i><b>forward:</b>(BOOL)<i>flag</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Returns the index of the first character of the word after or before <i>index</i>. If <i>flag</i> is YES, this is the first character after <i>index</i> that begins a word; if <i>flag</i> is NO, it's the first character before <i>index</i> that begins a word, whether <i>index</i> is located within a word or not. If <i>index</i> lies at either end of the string and the search direction would progress past that end, it's returned unchanged. This method is intended for moving the insertion point during editing, not for linguistic analysis or parsing of text.</p>
+<p class="p8"><br></p>
+<p class="p7">Raises an NSRangeException if <i>index</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>lineBreakBeforeIndex:withinRange:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>RTFDFileWrapperFromRange:documentAttributes:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (NSFileWrapper *)<b>RTFDFileWrapperFromRagne:</b>(NSRange)<i>aRange</i> <b>documentAttributes:</b>(NSDictionary *)<i>docAttributes</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Returns an NSFileWrapper object that contains an RTFD document corresponding to the characters and attributes within <i>aRange</i>. The file wrapper also includes the document-level attributes in <i>docAttributes</i>, as explained in the class cluster description under “RTF Document Attributes.” If there are no document-level attributes, <i>docAttributes</i> can be <b>nil</b>. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p7">You can save the file wrapper using NSFileWrapper's <b>writeToFile:atomically:updateFilenames:</b> method.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>RTFDFromRange:documentAttributes:</b>, <span class="s4">-</span> <b>RTFFromRange:documentAttributes:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>RTFDFromRange:documentAttributes:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (NSData *)<b>RTFDFromRange:</b>(NSRange)<i>aRange</i> <b>documentAttributes:</b>(NSDictionary *)<i>docAttributes</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Returns an NSData object that contains an RTFD stream corresponding to the characters and attributes within <i>aRange</i>. Also writes the document-level attributes in <i>docAttributes</i>, as explained in the class cluster description under “RTF Document Attributes.” If there are no document-level attributes, <i>docAttributes</i> can be <b>nil</b>. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p7">When writing data to the pasteboard, you can use the NSData object as the first argument to NSPasteboard's <b>setData:forType:</b> method, with a second argument of NSRTFDPboardType.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>RTFFromRange:documentAttributes:</b>, <span class="s4">-</span> <b>RTFDFileWrapperFromRange:documentAttributes:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>RTFFromRange:documentAttributes:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (NSData *)<b>RTFFromRange:</b>(NSRange)<i>aRange</i> <b>documentAttributes:</b>(NSDictionary *)<i>docAttributes</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Returns an NSData object that contains an RTF stream corresponding to the characters and attributes within <i>aRange</i>, omitting all attachment attributes. Also writes the document-level attributes in <i>docAttributes</i>, as explained in the class cluster description under “RTF Document Attributes.” If there are no document-level attributes, <i>docAttributes</i> can be <b>nil</b>. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p7">When writing data to the pasteboard, you can use the NSData object as the first argument to NSPasteboard's <b>setData:forType:</b> method, with a second argument of NSRTFPboardType.</p>
+<p class="p8"><br></p>
+<p class="p7">Although this method strips attachments, it leaves the attachment characters in the text itself. NSText's <b>RTFFromRange:</b> method, on the other hand, does strip attachment characters when extracting RTF.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>RTFDFromRange:documentAttributes:</b>, <span class="s4">-</span> <b>RTFDFileWrapperFromRange:documentAttributes:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerAttributesInRange:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (NSDictionary *)<b>rulerAttributesInRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Returns the ruler (paragraph) attributes in effect for the characters within <i>aRange</i>. The only ruler attribute currently defined is that named by NSParagraphStyleAttributeName. Use this method to obtain attributes that are to be copied or pasted with “copy ruler” operations. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>fontAttributesInRange:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>size</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (NSSize)<b>size</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p7">Returns the bounding box of the marks that the receiver draws.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>drawAtPoint:</b>, <span class="s4">-</span> <b>drawInRect:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p26"><br></p>
+<p class="p26"><br></p>
+<p class="p27"><span class="s2">p<span class="Apple-tab-span">	</span>i </span><b></b><b>NSMutableAttributedString</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p50"><span class="s3"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSAttributedString : NSObject</p>
+<p class="p30"><br></p>
+<p class="p31"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSAttributedString.h</p>
+<p class="p32">AppKit/NSStringDrawing.h</p>
+<p class="p32">AppKit/NSTextAttachment.h</p>
+<p class="p33"><br></p>
+<p class="p33"><br></p>
+<p class="p34"><b>Class Description</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p7">Additions to the NSMutableAttributedString class primarily involve setting graphical attributes, such as font, super- or subscripting, and alignment, and making these attributes consistent after changes. See the class cluster description for more information.</p>
+<p class="p8"><br></p>
+<p class="p45"><br></p>
+<p class="p34"><b>Method Types</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p37">Changing attributes<span class="Apple-tab-span">	</span><span class="s4">-</span> applyFontTraits:range:</p>
+<p class="p38"><span class="s4">-</span> setAlignment:range:</p>
+<p class="p38"><span class="s4">-</span> subscriptRange:</p>
+<p class="p38"><span class="s4">-</span> superscriptRange:</p>
+<p class="p38"><span class="s4">-</span> unscriptRange:</p>
+<p class="p39"><br></p>
+<p class="p37">Updating attachment contents<span class="Apple-tab-span">	</span><span class="s4">-</span> updateAttachmentsFromPath:</p>
+<p class="p51"><br></p>
+<p class="p37">Fixing attributes after changes<span class="Apple-tab-span">	</span><span class="s4">-</span> fixAttributesInRange:</p>
+<p class="p38"><span class="s4">-</span> fixAttachmentAttributeInRange:</p>
+<p class="p38"><span class="s4">-</span> fixFontAttributeInRange:</p>
+<p class="p38"><span class="s4">-</span> fixParagraphStyleAttributeInRange:</p>
+<p class="p40"><br></p>
+<p class="p34"><b>Instance Methods</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>applyFontTraits:range:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (void)<b>applyFontTraits:</b>(NSFontTraitMask)<i>mask </i><b>range:</b>(NSRange)<i>aRange</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Apply the font attributes specified by <i>mask</i> to the characters in <i>aRange</i>. See the NSFontManager class specification for a description of the font traits available. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setAlignment:range:</b>,<b> </b><span class="s4">-</span> <b>setAttributes:range:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>fixAttachmentAttributeInRange:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (void)<b>fixAttachmentAttributeInRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Cleans up attachment attributes in <i>aRange</i>, removing all attachment attributes assigned to characters other than NSAttachmentCharacter. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>fixFontAttributeInRange:</b>, <span class="s4">-</span> <b>fixParagraphStyleAttributeInRange:</b>, <span class="s4">-</span> <b>fixAttributesInRange:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>fixAttributesInRange:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (void)<b>fixAttributesInRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Invokes the other <b>fix...</b> methods, allowing you to clean up an attributed string with a single message. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>fixAttachmentAttributeInRange:</b>, <span class="s4">-</span> <b>fixFontAttributeInRange:</b>, <span class="s4">-</span> <b>fixParagraphStyleAttributeInRange:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>fixFontAttributeInRange:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (void)<b>fixFontAttributeInRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Fixes the font attribute in <i>aRange</i>, assigning default fonts to characters with illegal fonts for their scripts and otherwise correcting font attribute assignments. For example, Kanji characters in assigned a Latin font are reassigned an appropriate Kanji font. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>fixParagraphStyleAttributeInRange:</b>, <span class="s4">-</span> <b>fixAttachmentAttributeInRange:</b>, <span class="s4">-</span> <b>fixAttributesInRange:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>fixParagraphStyleAttributeInRange:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (void)<b>fixParagraphStyleAttributeInRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Fixes the paragraph style attributes in <i>aRange</i>, assigning the first paragraph style attribute value in each paragraph to all characters of the paragraph. This method extends the range as needed to cover the last paragraph partially contained. A paragraph is delimited by any of these characters, the longest possible sequence being preferred to any shorter:</p>
+<p class="p8"><br></p>
+<p class="p19">U+000D (<b>\r</b> or CR)<span class="Apple-tab-span">	</span>U+2028 (Unicode line separator)</p>
+<p class="p19">U+000A (<b>\n</b> or LF)<span class="Apple-tab-span">	</span>U+2029 (Unicode paragraph separator)</p>
+<p class="p19"><b>\r\n</b>, in that order (also known as CRLF)</p>
+<p class="p20"><br></p>
+<p class="p7">Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>fixFontAttributeInRange:</b>, <span class="s4">-</span> <b>fixAttachmentAttributeInRange:</b>, <span class="s4">-</span> <b>fixAttributesInRange:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setAlignment:range:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (void)<b>setAlignment:</b>(NSTextAlignment)<i>alignment </i><b>range:</b>(NSRange)<i>aRange</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Sets the alignment characteristic of the paragraph style attribute for the characters in <i>aRange</i> to <i>alignment</i>. When attribute fixing takes place, this change will only affect paragraphs whose first character was included in <i>aRange</i>. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> addAttributes:range:</b>,<b> </b><span class="s4">-</span><b> applyFontTraits:range:</b>, <span class="s4">-</span> <b>fixParagraphStyleAttributeInRange:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>subscriptRange:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (void)<b>subscriptRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Decrements the value of the superscript attribute for characters in <i>aRange</i> by 1. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>superscriptRange:, </b><span class="s4">-</span> <b>unscriptRange:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>superscriptRange:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (void)<b>superscriptRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Increments the value of the superscript attribute for characters in <i>aRange</i> by 1. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>subscriptRange:, </b><span class="s4">-</span> <b>unscriptRange:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>unscriptRange:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (void)<b>unscriptRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Removes the superscript attribute from the characters in <i>aRange</i>. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the receiver's characters.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>subscriptRange:, </b><span class="s4">-</span> <b>superscriptRange:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p41"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>updateAttachmentsFromPath:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s4">-</span> (void)<b>updateAttachmentsFromPath:</b>(NSString *)<i>path</i></p>
+<p class="p44"><i></i><br></p>
+<p class="p7">Updates all attachments based on files contained in the RTFD file package at <i>path</i>.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>updateFromPath:</b> (NSFileWrapper)</p>
+<p class="p48"><br></p>
+</body>
+</html>

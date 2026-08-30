@@ -1,0 +1,63 @@
+.TH INSTALL_TEX 1 "August 21, 1989"
+.UC 4
+.SH NAME
+Install_TeX \- install TeX for use from distribution media
+.SH SYNOPSIS
+.B Install_TeX
+.br
+.SH DESCRIPTION
+The
+.I Install_TeX
+shell script uncompresses, untars, and installs the
+.I TeX 
+and
+.I METAFONT
+software system from the distribution file.  It must
+be run as root; it will abort if it is not.  It can be run multiple
+times in case something should happen to the installation.  It does
+not currently remove the distribution file /usr/tex/TeXdist.tar.Z;
+this file may be removed when everything is functioning correctly to
+reclaim a small amount of disk space.
+.PP
+When this shell script is run, there must be approximately twenty
+megabytes of space on the file system for all the various files that
+are created.
+.SH FILES
+.PP
+.ti+5n
+ /usr/tex/TeXdist.tar.Z  
+.ti+18n
+the compressed distribution.
+.ti+5n
+ /usr/lib/tex             
+.ti+18n
+the root of the created TeX library
+.ti+5n
+ /usr/lib/mf
+.ti+18n
+the root of the created mf library
+.ti+5n
+ /NextLibrary/Fonts/TeXFonts  
+.ti+18n
+where the fonts are placed
+.ti+5n
+ /LocalLibrary/Fonts/TeXFonts 
+.ti+18n
+where dynamically created fonts are placed
+.ti+5n
+/usr/bin                 
+.ti+18n
+where most executables created are stored
+.PP
+.SH SEE ALSO
+tex(1), dvips(1), texview(1), mf(1)
+.PP
+.SH DIAGNOSTICS
+This program will complain and abort if it is not run as superuser.
+If any of the directories that are to be created exist, a warning will
+be printed and the user will be asked if he or she wishes to continue.
+.PP
+.SH BUGS
+If this program is run when less then about twenty megabytes of disk
+space is free, it may abort at any point, or possibly even appear to
+run to completion.

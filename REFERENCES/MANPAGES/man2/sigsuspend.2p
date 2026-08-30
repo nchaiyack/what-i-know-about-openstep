@@ -1,0 +1,47 @@
+.\"	@(#)sigsuspend.2	8/16/92
+.\"
+.TH SIGSUSPEND 2P "August 1, 1992"
+.UC 4
+.SH NAME
+sigsuspend \- (POSIX only) suspend the process until delivery of a specified signal.
+.SH SYNOPSIS
+.nf
+.ft B
+#include <signal.h>
+.PP
+.br
+.B sigsuspend(const sigset_t *\fIsigmask\fR);
+.fi
+.SH DESCRIPTION
+The information in this specification applies
+only to POSIX applications.
+.PP
+The
+.I sigsuspend
+function replaces the signal mask of the process with the set of
+signals pointed to by the argument \fIsigmask\fR and then suspends
+the process until delivery of a signal whose action is either to
+execute a signal-catching function or to terminate the process.
+.PP
+If the action is to terminate the process, 
+.I sigsuspend
+does not return.
+If the action is to execute a signal-catching function, 
+.I sigsuspend
+returns after the signal-catching function returns, with the signal mask
+restored to the set that existed prior to the 
+.I sigsuspend
+call.
+.SH "RETURN VALUE"
+Since 
+.I sigsuspend 
+suspends process execution
+indefinitely, there is no successful completion return value.  A
+value of \-1 is returned and \fIerrno\fR is set to indicate the error.
+.SH ERRORS
+.TP 15
+[EINTR]
+A signal is caught by the calling process, and control is returned from the 
+signal-catching function.
+.SH "SEE ALSO"
+pause(3), sigaction(2P), sigpending(2P), sigprocmask(2P), sigsetops(3)

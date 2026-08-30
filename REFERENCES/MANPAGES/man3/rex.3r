@@ -1,0 +1,84 @@
+.\" @(#)rex.3r	1.3 87/11/09 3.2/4.3NFSSRC
+.\" @(#)rex.3r 1.1 86/09/25 SMI; 
+.TH REX 3R "21 January 1986"
+.SH NAME
+rex \- remote execution protocol
+.SH SYNOPSIS
+.ft B
+.nf
+#include <sys/ioctl.h>
+#include <rpcsvc/rex.h>
+.SH DESCRIPTION
+.IX "remote execution protocol" "" "remote execution protocol \(em \fLrex\fR"
+This server will execute commands remotely.
+the working directory and environment of the command can be specified,
+and the standard input and output of the command can be arbitrarily 
+redirected.
+An option is provided for interactive I/O for programs that expect
+to be running on terminals.
+Note that this service is only provided with the TCP
+transport.
+.PP
+.SH RPC INFO
+.nf
+program number:
+	REXPROG
+.sp .5
+xdr routines:
+	int xdr_rex_start(xdrs, start);
+		XDR *xdrs;
+		struct rex_start *start;
+	int  xdr_rex_result(xdrs, result);
+		XDR *xdrs;
+		struct rex_result *result;
+	int xdr_rex_ttymode(xdrs, mode);
+		XDR *xdrs;
+		struct rex_ttymode *mode;
+	int xdr_rex_ttysize(xdrs, size);
+		XDR *xdrs;
+		struct ttysize *size;
+.sp .5
+procs:
+	REXPROC_START
+		Takes rex_start structure, starts a command executing,
+		and returns a rex_result structure.
+	REXPROC_WAIT
+		Takes no arguments, waits for a command to finish executing,
+		and returns a rex_result structure.
+	REXPROC_MODES
+		Takes a rex_ttymode structure, and sends the tty modes.
+	REXPROC_WINCH
+		Takes a ttysize structure, and sends window size information.
+versions:
+	REXVERS_ORIG
+		Original version
+structures:
+.sp 0.5
+#define REX_INTERACTIVE		1	/* Interative mode */
+.ta 0.75in 3in
+struct rex_start {
+	char **rst_cmd;	/* list of command and args */
+	char *rst_host;	/* working directory host name */
+	char *rst_fsname;	/* working directory file system name */
+	char *rst_dirwithin;	/* working directory within file system */
+	char **rst_env;	/* list of environment */
+	u_short rst_port0;	/* port for stdin */
+	u_short rst_port1;	/* port for stdin */
+	u_short rst_port2;	/* port for stdin */
+	u_long rst_flags;	/* options - see #defines above */
+};
+
+struct rex_result {
+   	int rlt_stat;	/* integer status code */
+	char *rlt_message;	/* string message for human consumption */
+};
+
+struct rex_ttymode {
+	struct sgttyb basic;	/* standard unix tty flags */
+	struct tchars more;	/* interrupt, kill characters, etc. */
+	struct ltchars yetmore;	/* special Berkeley characters */
+	u_long andmore;	/* and Berkeley modes */
+};
+.fi
+.SH SEE ALSO
+on(1C), rexd(8C)

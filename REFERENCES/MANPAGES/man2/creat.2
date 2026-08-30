@@ -1,0 +1,82 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)creat.2	6.6 (Berkeley) 5/22/86
+.\"
+.TH CREAT 2 "August 1, 1992"
+.UC 4
+.SH NAME
+creat \- create a new file or rewrite an existing one
+.SH SYNOPSIS
+.nf
+.ft B
+#include <sys/file.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+.PP
+.ft B
+int creat(const char *\fIpath\fP, mode_t \fImode\fP);
+.ft R
+.fi
+.SH DESCRIPTION
+The
+.IR creat 
+function creates a new file
+or prepares to rewrite
+an existing file
+whose pathname is given by
+.IR path .
+If the file did not exist previously,
+then the file is created
+with permission bits set to the value of the
+.I mode
+argument, modified by the process's
+mode mask (see
+.IR umask (2)).
+Also see
+.IR  chmod (2)
+for the
+construction of the
+.I mode
+argument.
+.PP
+The created file is opened for writing,
+and its file descriptor is returned.
+If the file already existed,
+its mode and owner remain unchanged
+but it is truncated to zero length.
+.PP
+The function call:
+.PP
+.RS
+creat(\fIpath\fP, \fImode\fP);
+.RE
+.PP
+is equivalent to:
+.PP
+.RS
+open(\fIpath\fP, O_WRONLY | O_CREAT | O_TRUNC, \fImode\fP);
+.RE
+.PP
+.SH "RETURN VALUE"
+Upon successful completion,
+.IR creat 
+returns a nonnegative integer representing
+the lowest numbered unused file descriptor.
+Otherwise, the function returns -1 and sets
+.I errno
+to indicate
+the error.
+.SH "ERRORS"
+See
+.IR open (2)
+for possible error conditions and
+.I errno
+values.
+.SH "SEE ALSO"
+chmod(2),
+close(2),
+open(2),
+umask(2),
+write(2)

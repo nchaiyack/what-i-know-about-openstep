@@ -1,0 +1,23 @@
+{
+    BUNDLE_EXTENSION = bundle; 
+    DOCUMENTEXTENSIONS = (); 
+    DYNAMIC_CODE_GEN = YES; 
+    FILESTABLE = {
+        CLASSES = (NullDecoder.m, NullEncoder.m); 
+        C_FILES = (); 
+        H_FILES = (NullDecoder.h, NullEncoder.h); 
+        OTHER_LINKED = (); 
+        OTHER_RESOURCES = (NT.component, Localizable.strings); 
+        OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble); 
+        STRINGS_FILES = (); 
+        SUBPROJECTS = (); 
+        TOOLS = (); 
+    }; 
+    GENERATEMAIN = NO; 
+    INSTALLDIR = "~/Library/NEXTIME.framework/Components"; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {Localizable.strings = Localizable.strings; }; 
+    PROJECTNAME = NullVideo; 
+    PROJECTTYPE = Bundle; 
+    PROJECTVERSION = 2.2; 
+}

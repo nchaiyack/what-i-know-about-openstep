@@ -1,0 +1,11 @@
+"Document" = {
+    OUTLETS = (
+	encodingAccessory, 
+	encodingPopupButton, 
+	hasMultiplePagesField, 
+	numberOfPagesField, 
+	pageLayoutAccessory
+    ); 
+    SUPERCLASS = NSObject; 
+};
+"FirstResponder" = {CATEGORY = LocalActions; };

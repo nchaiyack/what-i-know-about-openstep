@@ -1,0 +1,71 @@
+.TH TCGETATTR 3P  "August 1, 1992"
+.UC 4
+.SH NAME
+tcgetattr, tcsetattr \- get and set terminal attributes
+.SH SYNOPSIS
+.B #include <termios.h>
+.PP
+.B int tcgetattr(int \fIfildes\fP, struct termios *\fItermios_p\fP);
+.PP
+.B int tcsetattr(int \fIfildes\fP, int \fIactions\fP, 
+.B const struct termios *\fItermios_p\fP);
+.SH DESCRIPTION
+The \fItcgetattr\fR function gets the parameters associated with an open
+terminal file, passed through the \fIfildes\fR argument.  It stores the
+parameters in the \fItermios\fR structure passed through the argument
+\fItp\fR.  This function may be called from a background process;
+however, the terminal attributes may be subsequently changed by a
+foreground process.   
+.PP
+The \fItcsetattr\fR function sets the parameters associated with the
+terminal to those in the \fItermios\fR structure referenced by 
+\fItermios_p\fR.  The possible values of the \fIactions\fR argument are
+the following constants defined in <termios.h>:
+.PP
+.IP "\fBConstant\fR" 18
+\fBDescription\fR
+.IP TCSANOW 18
+Set the terminal attributes immediately.
+.IP TCSADRAIN 18
+Set the terminal attributes after all output that has
+already been written to \fIfildes\fR has been transmitted.
+.IP TCSAFLUSH 18
+Set the terminal attributes after all output that has
+already been written to \fIfildes\fR has been transmitted.  Discard all
+input that has not been read before setting the attributes.
+.PP
+A process that is not in the foreground process group cannot call
+\fItcsetattr\fR for its controlling terminal.
+.PP
+The \fItcsetattr\fR function returns success if it was able to perform
+any of the requested actions, even if some of the requested actions
+could not be performed.  
+.SH "RETURN VALUE"
+Upon successful completion \fItcgetattr\fR and \fItcsetattr\fR 
+return a value of zero.  Otherwise, a value of -1 is returned and 
+\fIerrno\fR is set to indicate the error.
+.SH "ERRORS"
+.I Tcgetattr
+and 
+.I tcsetattr
+shall return \-1 and set 
+.I errno 
+to the corresponding value:
+.TP 15
+[EBADF]
+The 
+.I fildes
+argument is not a valid file descriptor.
+.TP 15
+[ENOTTY]
+The file associated with \fIfildes\fR is not a terminal.
+.PP
+The following errors may be associated with \fItcsetattr\fR:
+.TP 15
+[EINTR]
+A signal interrupted the \fItcsetattr\fR function.
+.TP 15
+[EINVAL]
+The value of the \fIpgrp_id\fR argument is not valid.
+.SH "SEE ALSO"
+termios(4P)

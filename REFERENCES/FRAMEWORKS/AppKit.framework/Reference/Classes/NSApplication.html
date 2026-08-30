@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 10.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 12.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 388.0px; text-indent: -313.0px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 388.0px; text-indent: -313.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 10.0px; font: 9.0px Helvetica; min-height: 11.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 10.0px; font: 9.0px Helvetica}
+    p.p23 {margin: 0.0px 0.0px 0.0px 10.0px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 10.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 12.0px Helvetica}
+    p.p26 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p29 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p32 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p36 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p37 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p38 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p42 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p44 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p45 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p47 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p48 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p49 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p50 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p51 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Times}
+    p.p52 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p53 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 12.0px Helvetica}
+    p.p54 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p55 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p56 {margin: 0.0px 0.0px 0.0px 95.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p57 {margin: 0.0px 0.0px 0.0px 95.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p58 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 14.0px Times}
+    p.p59 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p60 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Helvetica}
+    span.s3 {font: 14.0px Symbol}
+    span.s4 {font: 26.0px Helvetica}
+    span.s5 {font: 14.0px Times}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSApplication</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><span class="s2"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSResponder : NSObject</p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s2"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSCoding (NSResponder)<span class="Apple-converted-space"> </span></p>
+<p class="p8">NSObject (NSObject)<span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p7"><span class="s2"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSApplication.h</p>
+<p class="p8">AppKit/NSColorPanel.h</p>
+<p class="p8">AppKit/NSDataLinkPanel.h</p>
+<p class="p8">AppKit/NSHelpManager.h</p>
+<p class="p8">AppKit/NSPageLayout.h</p>
+<p class="p9"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="595pt" height="21pt" viewBox="0 0 595 21" role="img" aria-labelledby="eps-svg-1-title" data-source="NSApplication.rtfd/AtaGlance1.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">AtaGlance1.eps</title><defs>
+<g>
+<g id="eps-svg-1-glyph-0-0">
+<path d="M 8.859375 -6.265625 C 8.796875 -7.078125 8.625 -7.609375 8.234375 -8.140625 C 7.5 -9.09375 6.328125 -9.640625 4.90625 -9.640625 C 2.234375 -9.640625 0.578125 -7.71875 0.578125 -4.65625 C 0.578125 -1.59375 2.21875 0.296875 4.859375 0.296875 C 7.234375 0.296875 8.78125 -1.0625 8.90625 -3.234375 L 7 -3.234375 C 6.875 -2.03125 6.125 -1.34375 4.90625 -1.34375 C 3.40625 -1.34375 2.515625 -2.5625 2.515625 -4.625 C 2.515625 -6.71875 3.4375 -7.96875 4.984375 -7.96875 C 6.109375 -7.96875 6.75 -7.421875 7 -6.265625 Z M 8.859375 -6.265625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-1">
+<path d="M 2.6875 -9.484375 L 0.875 -9.484375 L 0.875 0 L 2.6875 0 Z M 2.6875 -9.484375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-2">
+<path d="M 6.8125 -0.21875 C 6.5 -0.515625 6.390625 -0.734375 6.390625 -1.078125 L 6.390625 -4.984375 C 6.390625 -6.40625 5.421875 -7.140625 3.515625 -7.140625 C 1.625 -7.140625 0.640625 -6.328125 0.515625 -4.703125 L 2.28125 -4.703125 C 2.359375 -5.4375 2.671875 -5.671875 3.5625 -5.671875 C 4.265625 -5.671875 4.609375 -5.4375 4.609375 -4.96875 C 4.609375 -4.734375 4.5 -4.53125 4.296875 -4.421875 C 4.0625 -4.296875 4.0625 -4.296875 3.15625 -4.140625 L 2.4375 -4.015625 C 1.046875 -3.78125 0.359375 -3.0625 0.359375 -1.8125 C 0.359375 -0.546875 1.203125 0.296875 2.5 0.296875 C 3.28125 0.296875 3.984375 -0.03125 4.625 -0.703125 C 4.625 -0.34375 4.671875 -0.203125 4.84375 0 L 6.8125 0 Z M 4.609375 -2.828125 C 4.609375 -1.765625 4.09375 -1.171875 3.171875 -1.171875 C 2.5625 -1.171875 2.1875 -1.5 2.1875 -2.015625 C 2.1875 -2.5625 2.46875 -2.828125 3.21875 -2.984375 L 3.84375 -3.09375 C 4.328125 -3.1875 4.40625 -3.21875 4.609375 -3.3125 Z M 4.609375 -2.828125 "/>
+</g>
+<g id="eps-svg-1-glyph-0-3">
+<path d="M 6.5625 -4.765625 C 6.53125 -6.234375 5.390625 -7.140625 3.515625 -7.140625 C 1.734375 -7.140625 0.625 -6.234375 0.625 -4.796875 C 0.625 -4.328125 0.765625 -3.921875 1.015625 -3.65625 C 1.265625 -3.40625 1.484375 -3.28125 2.15625 -3.0625 L 4.328125 -2.390625 C 4.78125 -2.25 4.9375 -2.109375 4.9375 -1.8125 C 4.9375 -1.390625 4.4375 -1.125 3.59375 -1.125 C 3.109375 -1.125 2.75 -1.203125 2.515625 -1.375 C 2.3125 -1.515625 2.234375 -1.65625 2.15625 -2.046875 L 0.375 -2.046875 C 0.421875 -0.5 1.5625 0.296875 3.6875 0.296875 C 4.671875 0.296875 5.40625 0.09375 5.921875 -0.328125 C 6.453125 -0.734375 6.765625 -1.390625 6.765625 -2.078125 C 6.765625 -2.984375 6.3125 -3.578125 5.375 -3.84375 L 3.078125 -4.515625 C 2.578125 -4.671875 2.4375 -4.765625 2.4375 -5.0625 C 2.4375 -5.453125 2.859375 -5.703125 3.5 -5.703125 C 4.375 -5.703125 4.796875 -5.390625 4.8125 -4.765625 Z M 6.5625 -4.765625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-4">
+</g>
+<g id="eps-svg-1-glyph-0-5">
+<path d="M 3.90625 -6.875 L 2.90625 -6.875 L 2.90625 -8.765625 L 1.078125 -8.765625 L 1.078125 -6.875 L 0.1875 -6.875 L 0.1875 -5.671875 L 1.078125 -5.671875 L 1.078125 -1.359375 C 1.078125 -0.25 1.65625 0.296875 2.859375 0.296875 C 3.28125 0.296875 3.578125 0.265625 3.90625 0.15625 L 3.90625 -1.125 C 3.734375 -1.09375 3.640625 -1.078125 3.5 -1.078125 C 3.015625 -1.078125 2.90625 -1.21875 2.90625 -1.84375 L 2.90625 -5.671875 L 3.90625 -5.671875 Z M 3.90625 -6.875 "/>
+</g>
+<g id="eps-svg-1-glyph-0-6">
+<path d="M 9.25 -5.09375 L 5.453125 -5.09375 L 5.453125 -3.46875 L 7.609375 -3.46875 C 7.546875 -2.9375 7.421875 -2.609375 7.140625 -2.28125 C 6.671875 -1.703125 5.9375 -1.359375 5.203125 -1.359375 C 3.609375 -1.359375 2.5 -2.75 2.5 -4.6875 C 2.5 -6.734375 3.484375 -7.96875 5.140625 -7.96875 C 5.828125 -7.96875 6.390625 -7.78125 6.828125 -7.390625 C 7.09375 -7.15625 7.234375 -6.9375 7.40625 -6.453125 L 9.25 -6.453125 C 9.015625 -8.40625 7.421875 -9.640625 5.140625 -9.640625 C 2.40625 -9.640625 0.546875 -7.625 0.546875 -4.671875 C 0.546875 -1.796875 2.421875 0.296875 4.984375 0.296875 C 6.25 0.296875 7.109375 -0.15625 7.84375 -1.21875 L 8.078125 0.03125 L 9.25 0.03125 Z M 9.25 -5.09375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-7">
+<path d="M 0.8125 -7.015625 L 0.8125 0 L 2.640625 0 L 2.640625 -4.21875 C 2.640625 -5.046875 3.21875 -5.59375 4.109375 -5.59375 C 4.890625 -5.59375 5.28125 -5.15625 5.28125 -4.328125 L 5.28125 0 L 7.09375 0 L 7.09375 -4.703125 C 7.09375 -6.265625 6.25 -7.140625 4.75 -7.140625 C 3.796875 -7.140625 3.15625 -6.796875 2.640625 -6 L 2.640625 -7.015625 Z M 0.8125 -7.015625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-8">
+<path d="M 6.78125 -4.390625 C 6.65625 -6.109375 5.53125 -7.140625 3.75 -7.140625 C 1.65625 -7.140625 0.4375 -5.765625 0.4375 -3.359375 C 0.4375 -1.046875 1.65625 0.296875 3.734375 0.296875 C 5.4375 0.296875 6.609375 -0.75 6.78125 -2.4375 L 5.046875 -2.4375 C 4.828125 -1.515625 4.453125 -1.171875 3.734375 -1.171875 C 2.8125 -1.171875 2.265625 -1.984375 2.265625 -3.359375 C 2.265625 -4.046875 2.390625 -4.65625 2.609375 -5.0625 C 2.828125 -5.453125 3.21875 -5.671875 3.75 -5.671875 C 4.484375 -5.671875 4.84375 -5.3125 5.046875 -4.390625 Z M 6.78125 -4.390625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-9">
+<path d="M 6.8125 -2.9375 C 6.828125 -3.09375 6.828125 -3.15625 6.828125 -3.25 C 6.828125 -3.953125 6.71875 -4.609375 6.546875 -5.09375 C 6.078125 -6.375 4.953125 -7.140625 3.53125 -7.140625 C 1.515625 -7.140625 0.28125 -5.6875 0.28125 -3.328125 C 0.28125 -1.078125 1.515625 0.296875 3.5 0.296875 C 5.0625 0.296875 6.34375 -0.578125 6.75 -1.96875 L 4.953125 -1.96875 C 4.734375 -1.421875 4.21875 -1.09375 3.5625 -1.09375 C 3.046875 -1.09375 2.625 -1.3125 2.359375 -1.703125 C 2.203125 -1.96875 2.125 -2.28125 2.109375 -2.9375 Z M 2.125 -4.140625 C 2.25 -5.21875 2.703125 -5.75 3.515625 -5.75 C 4.34375 -5.75 4.84375 -5.1875 4.921875 -4.140625 Z M 2.125 -4.140625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-10">
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 594 21 L 594 1 L 48 1 L 48 21 L 594 21 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 685 195 L 5 195 " transform="matrix(0.1, 0, 0, -0.1, 0, 21)"/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-0" x="65.5" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="74.886" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="78.5" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="85.728" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="92.956" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="100.184" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="103.798" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-5" x="111.026" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="115.355" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="118.969" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="126.197" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-6" x="129.811" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="139.925" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="143.539" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-7" x="150.767" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-8" x="158.71" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-9" x="165.938" y="16.5"/>
+<use xlink:href="#eps-svg-1-glyph-0-10" x="173.166" y="16.5"/>
+</g>
+</svg></b><b></b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b>Purpose</b></p>
+<p class="p15">An NSApplication object manages an application's main event loop in addition to resources used by all of that application's objects.<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p14"><b>Principal Attributes</b></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Delegate<span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>List of windows<span class="Apple-converted-space"> </span></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Key window<span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Main window<span class="Apple-converted-space"> </span></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>DPS context</p>
+<p class="p16"><br></p>
+<p class="p14"><b>Creation</b></p>
+<p class="p17">Project Builder</p>
+<p class="p17"><b>+ </b>sharedApplication<span class="Apple-tab-span">	</span>Creates the shared application instance (global variable NSApp).<span class="Apple-converted-space"> </span></p>
+<p class="p18"><br></p>
+<p class="p14"><b>Commonly Used Methods</b></p>
+<p class="p19"><span class="s3">-</span> keyWindow<span class="Apple-tab-span">	</span>Returns an NSWindow representing the key window.</p>
+<p class="p19"><span class="s3">-</span> mainWindow<span class="Apple-tab-span">	</span>Returns an NSWindow representing the main window.<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="s3">-</span> registerServicesMenuSendTypes:returnTypes:<span class="Apple-tab-span">	</span>Specifies which services are valid for this application.</p>
+<p class="p19"><span class="s3">-</span> runModalForWindow:<span class="Apple-tab-span">	</span>Runs a modal event loop for the specified NSWindow.</p>
+<p class="p20"><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p22"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="595pt" height="9pt" viewBox="0 0 595 9" role="img" aria-labelledby="eps-svg-2-title" data-source="NSApplication.rtfd/AtaGlanceClose1.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-2-title">AtaGlanceClose1.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 594 9 L 594 1.75 L 48 1.75 L 48 9 L 594 9 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 685 5 L 5 5 " transform="matrix(0.1, 0, 0, -0.1, 0, 9)"/>
+</svg></b><b></b></p>
+<p class="p23"><b></b><br></p>
+<p class="p24"><b></b><br></p>
+<p class="p25"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p26"><b></b><br></p>
+<p class="p15">The NSApplication class provides the central framework for your application's execution. Every application must have exactly one instance of NSApplication (or a subclass of NSApplication). Your program's <b>main()</b> function should create this instance by invoking the <b>sharedApplication</b> class method. After creating the NSApplication object, the <b>main()</b> function should load your application's main nib file and then start the event loop by sending the NSApplication object a <b>run</b> message. If you create an Application project in Project Builder, this <b>main()</b> function is created for you. The <b>main()</b> function that Project Builder creates begins by calling a function named <b>NSApplicationMain()</b>, which is functionally similar to the following:<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p28">void NSApplicationMain(int argc, char *argv[]) {</p>
+<p class="p28"><span class="Apple-tab-span">	</span>[NSApplication sharedApplication];</p>
+<p class="p28"><span class="Apple-tab-span">	</span>[NSBundle loadNibNamed:@"myMain" owner:app];</p>
+<p class="p28"><span class="Apple-tab-span">	</span>[NSApp run];</p>
+<p class="p28">}</p>
+<p class="p29"><br></p>
+<p class="p15">The <b>sharedApplication</b> class method initializes the PostScript environment and connects your program to the Window Server and the Display PostScript server. The NSApplication object maintains a list of all the NSWindows that the application uses, so it can retrieve any of the application's NSViews. <b>sharedApplication</b> also initializes the global variable NSApp, which you use to retrieve the NSApplication instance. <b>sharedApplication</b> only performs the initialization once; if you invoke it more than once, it simply returns the NSApplication object that it created previously.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">NSApplication's main purpose is to receive events from the Window Server and distribute them to the proper NSResponders. NSApp translates an event into an NSEvent object, then forwards the NSEvent to the affected NSWindow object. All keyboard and mouse events go directly to the NSWindow associated with the event. The only exception to this rule is if the Command key is pressed when a key-down event occurs; in this case, every NSWindow has an opportunity to respond to the event. When an NSWindow receives an NSEvent from NSApp, it distributes it to the objects in its view hierarchy.</p>
+<p class="p27"><br></p>
+<p class="p15">The NSApplication class sets up autorelease pools (instances of the NSAutoreleasePool class) during initialization and inside the event loop—specifically, within its <b>init</b> (or <b>sharedApplication</b>) and <b>run</b> methods. Similarly, the methods that the Application Kit adds to NSBundle employ autorelease pools during the loading of nib files. These autorelease pools aren't accessible outside the scope of the respective NSApplication and NSBundle methods. Typically, an application creates objects either while the event loop is running or by loading objects from nib files, so this usually isn't a problem. However, if you do need to use OpenStep classes within the <b>main()</b> function itself (other than to load nib files or to instantiate NSApplication), you should create an autorelease pool before using the classes and then release the pool when you're done. For more information, see the NSAutoreleasePool class specification in the <i>Foundation Framework Reference</i>.</p>
+<p class="p27"><br></p>
+<p class="p30"><br></p>
+<p class="p31"><b>Subclassing NSApplication</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p15">Rarely do you need to create a custom NSApplication subclass. In general, a better design is to separate the code that embodies your program's functionality into a number of custom objects. Usually, those custom objects are subclasses of NSObject. Methods defined in your custom objects can be invoked from a small dispatcher object without being closely tied to NSApp. The only reason to subclass NSApplication is if you need to provide your own special response to messages that are routinely sent to NSApp. (Even then, NSApp's delegate is often given a chance to respond to such messages, so it's more appropriate to implement the delegate methods.) To use a custom subclass of NSApplication, simply send <b>sharedApplication</b> to your custom class rather than directly to NSApplication. If you create your application in Project Builder, set the application class on the Project Attributes inspector, and Project Builder will update the <b>main()</b> function accordingly. As mentioned previously, NSApp uses autorelease pools in its <b>init</b> and <b>run</b> methods; if you override these methods, you'll need to create your own autorelease pools.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p30"><br></p>
+<p class="p31"><b>The Delegate and Notifications</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p15">You can assign a delegate to NSApp. The delegate responds to certain messages on behalf of NSApp. Some of these messages, such as <b>application:openFile:</b>, ask the delegate to open a file. Another message, <b>applicationShouldTerminate:</b>, lets the delegate determine whether the application should be allowed to quit. The NSApplication class sends these messages directly to its delegate.</p>
+<p class="p27"><br></p>
+<p class="p15">NSApp also posts notifications to the application's default notification center. Any object may register to receive one or more of the notifications posted by NSApp by sending the message <b>addObserver:selector:name:object:</b> to the default notification center (an instance of the NSNotificationCenter class). NSApp's delegate is automatically registered to receive these notifications if it implements certain delegate methods. For example, NSApp posts notifications when it is about to be done launching the application and when it is done launching the application (NSApplicationWillFinishLaunchingNotification and NSApplicationDidFinishLaunchingNotification). The delegate has an opportunity to respond to these notifications by implementing the methods <b>applicationWillFinishLaunching:</b> and <b>applicationDidFinishLaunching:</b>. If the delegate wants to be informed of both events, it implements both methods. If it only needs to know when the application is finished launching, it implements only <b>applicationDidFinishLaunching:</b>. For more information on notifications, see the NSNotificationCenter class specification in the <i>Foundation Framework Reference</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p34"><br></p>
+<p class="p35"><b>Method Types</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p36">Creating and initializing an NSApplication</p>
+<p class="p37">+ sharedApplication</p>
+<p class="p37"><span class="s3">-</span> finishLaunching</p>
+<p class="p38"><br></p>
+<p class="p36">Changing the active application<span class="Apple-tab-span">	</span><span class="s3">-</span> activateIgnoringOtherApps:</p>
+<p class="p37"><span class="s3">-</span> isActive</p>
+<p class="p37"><span class="s3">-</span> deactivate</p>
+<p class="p38"><br></p>
+<p class="p36">Running the event loop<span class="Apple-tab-span">	</span><span class="s3">-</span> run</p>
+<p class="p37"><span class="s3">-</span> isRunning</p>
+<p class="p37"><span class="s3">-</span> stop:</p>
+<p class="p37"><span class="s3">-</span> runModalForWindow:</p>
+<p class="p37"><span class="s3">-</span> stopModal</p>
+<p class="p37"><span class="s3">-</span> stopModalWithCode:</p>
+<p class="p37"><span class="s3">-</span> abortModal</p>
+<p class="p37"><span class="s3">-</span> beginModalSessionForWindow:</p>
+<p class="p37"><span class="s3">-</span> runModalSession:</p>
+<p class="p37"><span class="s3">-</span> endModalSession:</p>
+<p class="p37"><span class="s3">-</span> sendEvent:</p>
+<p class="p38"><br></p>
+<p class="p36">Getting, removing, and posting events</p>
+<p class="p37"><span class="s3">-</span> currentEvent</p>
+<p class="p37"><span class="s3">-</span> nextEventMatchingMask:untilDate:inMode:dequeue:</p>
+<p class="p37"><span class="s3">-</span> discardEventsMatchingMask:beforeEvent:</p>
+<p class="p37"><span class="s3">-</span> postEvent:atStart:</p>
+<p class="p38"><br></p>
+<p class="p36">Managing windows<span class="Apple-tab-span">	</span><span class="s3">-</span> keyWindow</p>
+<p class="p37"><span class="s3">-</span> mainWindow</p>
+<p class="p37"><span class="s3">-</span> windowWithWindowNumber:</p>
+<p class="p37"><span class="s3">-</span> windows</p>
+<p class="p37"><span class="s3">-</span> makeWindowsPerform:inOrder:</p>
+<p class="p37"><span class="s3">-</span> setWindowsNeedUpdate:</p>
+<p class="p37"><span class="s3">-</span> updateWindows</p>
+<p class="p37"><span class="s3">-</span> miniaturizeAll:</p>
+<p class="p37"><span class="s3">-</span> preventWindowOrdering</p>
+<p class="p38"><br></p>
+<p class="p36">Hiding all windows<span class="Apple-tab-span">	</span><span class="s3">-</span> hide:</p>
+<p class="p37"><span class="s3">-</span> isHidden</p>
+<p class="p37"><span class="s3">-</span> unhide:</p>
+<p class="p37"><span class="s3">-</span> unhideWithoutActivation</p>
+<p class="p38"><br></p>
+<p class="p36">Setting the application's icon<span class="Apple-tab-span">	</span><span class="s3">-</span> setApplicationIconImage:</p>
+<p class="p37"><span class="s3">-</span> applicationIconImage</p>
+<p class="p38"><br></p>
+<p class="p36">Getting the main menu<span class="Apple-tab-span">	</span><span class="s3">-</span> setMainMenu:</p>
+<p class="p37"><span class="s3">-</span> mainMenu</p>
+<p class="p38"><br></p>
+<p class="p36">Managing the Window menu<span class="Apple-tab-span">	</span><span class="s3">-</span> setWindowsMenu:</p>
+<p class="p37"><span class="s3">-</span> windowsMenu</p>
+<p class="p37"><span class="s3">-</span> arrangeInFront:</p>
+<p class="p37"><span class="s3">-</span> addWindowsItem:title:filename:</p>
+<p class="p37"><span class="s3">-</span> changeWindowsItem:title:filename:</p>
+<p class="p37"><span class="s3">-</span> removeWindowsItem:</p>
+<p class="p37"><span class="s3">-</span> updateWindowsItem:</p>
+<p class="p38"><br></p>
+<p class="p36">Managing the Services menu<span class="Apple-tab-span">	</span><span class="s3">-</span> setServicesMenu:</p>
+<p class="p37"><span class="s3">-</span> servicesMenu</p>
+<p class="p37"><span class="s3">-</span> registerServicesMenuSendTypes:returnTypes:</p>
+<p class="p37"><span class="s3">-</span> validRequestorForSendType:returnType:</p>
+<p class="p37"><span class="s3">-</span> setServicesProvider:</p>
+<p class="p37"><span class="s3">-</span> servicesProvider:</p>
+<p class="p38"><br></p>
+<p class="p36">Showing standard panels<span class="Apple-tab-span">	</span><span class="s3">-</span> orderFrontColorPanel:</p>
+<p class="p37"><span class="s3">-</span> orderFrontDataLinkPanel:</p>
+<p class="p37"><span class="s3">-</span> runPageLayout:</p>
+<p class="p38"><br></p>
+<p class="p36">Displaying help<span class="Apple-tab-span">	</span><span class="s3">-</span> showHelp:</p>
+<p class="p37"><span class="s3">-</span> activateContextHelpMode:</p>
+<p class="p38"><br></p>
+<p class="p36">Sending action messages<span class="Apple-tab-span">	</span><span class="s3">-</span> sendAction:to:from:</p>
+<p class="p37"><span class="s3">-</span> tryToPerform:with:</p>
+<p class="p37"><span class="s3">-</span> targetForAction:</p>
+<p class="p38"><br></p>
+<p class="p36">Getting the Display PostScript context</p>
+<p class="p37"><span class="s3">-</span> context</p>
+<p class="p38"><br></p>
+<p class="p36">Reporting an exception<span class="Apple-tab-span">	</span><span class="s3">-</span> reportException:</p>
+<p class="p39"><br></p>
+<p class="p36">Terminating the application<span class="Apple-tab-span">	</span><span class="s3">-</span> terminate:</p>
+<p class="p39"><br></p>
+<p class="p36">Assigning a delegate<span class="Apple-tab-span">	</span><span class="s3">-</span> setDelegate:</p>
+<p class="p37"><span class="s3">-</span> delegate</p>
+<p class="p38"><br></p>
+<p class="p36">Microsoft Windows<span class="s2"><b>®</b></span> specific methods</p>
+<p class="p37"><span class="s3">-</span> applicationHandle</p>
+<p class="p37"><span class="s3">-</span> windowWithWindowHandle:</p>
+<p class="p37">+ setApplicationHandle:previousHandle:commandLine:show:</p>
+<p class="p37">+ useRunningCopyOfApplication</p>
+<p class="p40"><br></p>
+<p class="p35"><b>Class Methods</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p41"><span class="s4">p<span class="Apple-tab-span">	</span></span><b>setApplicationHandle:previousHandle:commandLine:show:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43">+ (void)<b>setApplicationHandle:</b>(void *)<i>hInstance</i><span class="Apple-converted-space"> </span></p>
+<p class="p44"><b>previousHandle:</b>(void *)<i>prevInstance</i><span class="Apple-converted-space"> </span></p>
+<p class="p44"><b>commandLine:</b>(NSString *)<i>cmdLine</i><span class="Apple-converted-space"> </span></p>
+<p class="p44"><b>show:</b>(int)<i>cmdShow</i><span class="Apple-converted-space"> </span></p>
+<p class="p45"><br></p>
+<p class="p15">On Microsoft Windows platforms, informs the NSApplication class of the values for the arguments passed to the <b>WinMain()</b> function. This message should be sent once, as the first line of the <b>WinMain()</b> function. If you create your application using Project Builder, this is done for you. You only need to invoke this method if you implement your own <b>WinMain()</b> function. Don't override this method in NSApplication subclasses.</p>
+<p class="p27"><br></p>
+<p class="p15">This method is not implemented on the Mach platform.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationHandle</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>sharedApplication</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43">+ (NSApplication *)<b>sharedApplication</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns the NSApplication instance (the global NSApp), creating it if it doesn't exist yet. This method also makes a connection to the Window Server and completes other initialization. Your program should invoke this method as one of the first statements in <b>main()</b>; this is done for you if you create your application with Project Builder. To retrieve the NSApplication instance after it has been created, you use the global variable NSApp or invoke this method.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>run</b>, <span class="s3">-</span> <b>terminate:<span class="Apple-converted-space"> </span></b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p41"><span class="s4">p<span class="Apple-tab-span">	</span></span><b>useRunningCopyOfApplication</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43">+ (void)<b>useRunningCopyOfApplication</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">On Microsoft Windows platforms, attempts to find an already running copy of the application at startup. This method is invoked in the <b>WinMain()</b> function. If the command used to start the application contains the option <b>-NSUseRunningCopy YES</b> and the application is already running, this method causes that version of the application to be activated rather than start up a new copy.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">The method returns if the<b> -NSUseRunningCopy YES</b> option was not specified, if there was no previously running copy, or if the running copy was unable to be used (for any reason).<span class="Apple-converted-space">  </span>If a running copy is successfully found and used, this method exits with a code of 0.</p>
+<p class="p27"><br></p>
+<p class="p15">You never need to invoke this method directly. If you need to prevent the system from using an already running copy of the application, write your own <b>WinMain()</b> function, removing this method invocation. NSApplication subclasses should not override this method.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">This method is not defined for the Mach platform.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p34"><br></p>
+<p class="p35"><b>Instance Methods</b><b></b><b></b></p>
+<p class="p26"><b></b><br></p>
+<p class="p31"><b>abortModal</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>abortModal</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Aborts the event loop started by<b> runModalForWindow:</b> by raising an NSAbortModalException, which is caught by <b>runModalForWindow:</b>. Because this method raises an exception, it never returns; <b>runModalForWindow:</b>, when stopped with this method, returns NSRunAbortedResponse. <b>abortModal</b> is typically sent by objects registered with the default NSRunLoop; for example, by objects that have registered a method to be repeatedly invoked by the NSRunLoop through the use of an NSTimer object.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">This method can also abort a modal session created by<b> beginModalSessionForWindow:</b>, provided the loop that runs the modal session (by invoking <b>runModalSession:</b>) catches NSAbortModalException.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>endModalSession:</b>, <span class="s3">-</span> <b>stopModal</b>, <span class="s3">-</span> <b>stopModalWithCode:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p41"><span class="s4">p<span class="Apple-tab-span">	</span></span><b>activateContextHelpMode:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>activateContextHelpMode:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Places the application in context-sensitive help mode. In this mode, the cursor becomes a question mark, and help appears for any user interface item that the user clicks. This method is typically invoked on Microsoft Windows platforms when the user selects the What's This menu item. (An application also enters context-sensitive help mode on Microsoft Windows platforms when the user presses Shift-F1.)<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">On Mach platforms, most applications don't use this method. Instead, applications enter context-sensitive mode when the user presses the Help key. On either platform, applications exit context-sensitive help mode upon the first event after a help window is displayed.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>showHelp:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>activateIgnoringOtherApps:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>activateIgnoringOtherApps:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Makes the receiver the active application. If <i>flag</i> is NO, the application is activated only if no other application is currently active. If <i>flag</i> is YES, the application activates regardless.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">On Mach platforms, <i>flag</i> is normally set to NO. When the Workspace Manager launches an application, using a value of NO for<b> </b><i>flag</i><b> </b>allows the application to become active if the user waits for it to launch, but the application remains unobtrusive if the user activates another application. Regardless of the setting of <i>flag</i>, there may be a time lag before the application activates; you should not assume that the application will be active immediately after sending this message.</p>
+<p class="p27"><br></p>
+<p class="p15">On Microsoft Windows platforms, <i>flag</i> is normally set to YES. Setting <i>flag</i> to NO has no effect.</p>
+<p class="p27"><br></p>
+<p class="p15">You rarely need to invoke this method. Under most circumstances, the Application Kit takes care of proper activation. However, you might find this method useful if you implement your own methods for interapplication communication.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">You don't need to send this message to make one of the application's NSWindows key. When you send a <b>makeKeyWindow</b> message to an NSWindow, you simply ensure that the NSWindow will be the key window when the application is active.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>deactivate</b>, <span class="s3">-</span> <b>isActive</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>addWindowsItem:title:filename:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>addWindowsItem:</b>(NSWindow *)<i>aWindow<span class="Apple-converted-space"> </span></i></p>
+<p class="p44"><b>title:</b>(NSString *)<i>aString<span class="Apple-converted-space"> </span></i></p>
+<p class="p44"><b>filename:</b>(BOOL)<i>isFilename</i><span class="Apple-converted-space"> </span></p>
+<p class="p45"><br></p>
+<p class="p15">Adds an item to the Window menu for <i>aWindow</i>. If <i>isFilename</i> is NO, <i>aString</i> appears literally in the menu. If <i>isFilename</i> is YES, <i>aString</i> is assumed to be a converted path name with the name of the file preceding the path (the way NSWindow's <b>setTitleWithRepresentedFilename:</b> method shows a title). If an item for <i>aWindow</i> already exists in the Window menu, this method has no effect. You rarely invoke this method because an item is placed in the Window menu for you whenever an NSWindow's title is set.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>changeWindowsItem:title:filename:</b>, <span class="s3">-</span> <b>setTitle: </b>(NSWindow), <span class="s3">-</span> <b>setTitleWithRepresentedFilename: </b>(NSWindow)</p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p41"><span class="s4">p<span class="Apple-tab-span">	</span></span><b>applicationHandle</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43">- (void *)<b>applicationHandle</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">On Microsoft Windows platforms, returns the application's Win32 instance handle, which is a required parameter for some Win32 function calls. This method is not defined for the Mach platform.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>setApplicationHandle:previousHandle:commandLine:show:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>applicationIconImage</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSImage *)<b>applicationIconImage<span class="Apple-converted-space"> </span></b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Returns the NSImage used for the application's icon, which represents the application in the Workspace Manager on Mach platforms or in the Program Manager on Microsoft Windows platforms.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setApplicationIconImage:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>arrangeInFront:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>arrangeInFront:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Arranges all of the windows listed in the Window menu in front of all other windows. Windows associated with the application but not listed in the Window menu are not ordered to the front.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>addWindowItem:title:filename:</b>, <span class="s3">-</span> <b>removeWindowsItem:</b>, <span class="s3">-</span> <b>makeKeyAndOrderFront: </b>(NSWindow)</p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>beginModalSessionForWindow:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSModalSession)<b>beginModalSessionForWindow:</b>(NSWindow *)<i>aWindow</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Sets up a modal session with the NSWindow <i>aWindow</i> and returns an NSModalSession structure representing the session. In a modal session, the application receives mouse events only if they occur in <i>aWindow</i>. The NSWindow is made key and ordered to the front.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15"><b>beginModalSessionForWindow:</b> only sets up the modal session. To actually run the session, use <b>runModalSession:</b>. <b>beginModalSessionForWindow:</b> should be balanced by <b>endModalSession:</b>. If an exception is raised, <b>beginModalSessionForWindow:</b> arranges for proper cleanup. Do <i>not</i> use NS_DURING constructs to send an <b>endModalSession:</b> message in the event of an exception.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">A loop using these methods is similar to a modal event loop run with <b>runModalForWindow:</b>, except that the application can continue processing between method invocations.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p50"><br></p>
+<p class="p31"><b></b><b>changeWindowsItem:title:filename:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>changeWindowsItem:</b>(NSWindow *)<i>aWindow </i><b>title:</b>(NSString *)<i>aString </i><b>filename:</b>(BOOL)<i>isFilename</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Changes the item for <i>aWindow</i> in the Window menu to <i>aString</i>. If <i>aWindow</i> doesn't have an item in the Window menu, this method adds the item. If <i>isFilename</i> is NO, <i>aString</i> appears literally in the menu. If <i>isFilename</i> is YES, <i>aString</i> is assumed to be a converted path name with the file's name preceding the path (the way NSWindow's <b>setTitleWithRepresentedFilename:</b> places a title).<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><i> </i><span class="s3">-</span> <b>addWindowsItem:title:filename:</b>, <span class="s3">-</span> <b>removeWindowsItem:</b>, <span class="s3">-</span> <b>setTitle: </b>(NSWindow), <span class="s3">-</span> <b>setTitleWithRepresentedFilename: </b>(NSWindow)</p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>context</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSDPSContext *)<b>context</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns the receiver's Display PostScript context.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p50"><br></p>
+<p class="p31"><b></b><b>currentEvent</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSEvent *)<b>currentEvent</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns the current event, the last event the receiver retrieved from the event queue. NSApp receives events and forwards the current event to the affected NSWindow object, which then distributes it to the objects in its view hierarchy.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>discardEventsMatchingMask:beforeEvent:</b>, <span class="s3">-</span> <b>postEvent:atStart:</b>, <span class="s3">-</span> <b>sendEvent:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>deactivate</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>deactivate</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Deactivates the application. Normally, you shouldn't invoke this method; the Application Kit is responsible for proper deactivation.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>activateIgnoringOtherApps:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>delegate</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (id)<b>delegate</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns the receiver's delegate.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setDelegate:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>discardEventsMatchingMask:beforeEvent:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>discardEventsMatchingMask:</b>(unsigned int)<i>mask </i><b>beforeEvent:</b>(NSEvent *)<i>lastEvent</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Removes from the event queue all events matching those specified in <i>mask</i> that were generated before <i>lastEvent.</i> Typically, you send this message to an NSWindow rather than to NSApp.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15"><i>mask</i> can contain these constants:</p>
+<p class="p27"><br></p>
+<p class="p51">NSLeftMouseDownMask<span class="Apple-tab-span">	</span>The left mouse button was pressed.</p>
+<p class="p52"><br></p>
+<p class="p51">NSLeftMouseUpMask<span class="Apple-tab-span">	</span>The left mouse button was released.</p>
+<p class="p52"><br></p>
+<p class="p51">NSRightMouseDownMask<span class="Apple-tab-span">	</span>The right mouse button was pressed.</p>
+<p class="p52"><br></p>
+<p class="p51">NSRightMouseUpMask<span class="Apple-tab-span">	</span>The right mouse button was released.</p>
+<p class="p52"><br></p>
+<p class="p51">NSMouseMovedMask<span class="Apple-tab-span">	</span>The user moved the mouse.</p>
+<p class="p52"><br></p>
+<p class="p51">NSLeftMouseDraggedMask<span class="Apple-tab-span">	</span>The user moved the mouse while the left button was pressed.</p>
+<p class="p52"><br></p>
+<p class="p51">NSRightMouseDraggedMask<span class="Apple-tab-span">	</span>The user moved the mouse while the right button was pressed.</p>
+<p class="p52"><br></p>
+<p class="p51">NSMouseEnteredMask<span class="Apple-tab-span">	</span>The mouse entered a tracking rectangle.</p>
+<p class="p52"><br></p>
+<p class="p51">NSMouseExitedMask<span class="Apple-tab-span">	</span>The mouse exited a tracking rectangle.</p>
+<p class="p52"><br></p>
+<p class="p51">NSKeyDownMask<span class="Apple-tab-span">	</span>A key on the keyboard was pressed.</p>
+<p class="p52"><br></p>
+<p class="p51">NSKeyUpMask<span class="Apple-tab-span">	</span>A key on the keyboard was released.</p>
+<p class="p52"><br></p>
+<p class="p51">NSFlagsChangedMask<span class="Apple-tab-span">	</span>A Shift, Command, Alternate, or Escape key was pressed or released.</p>
+<p class="p52"><br></p>
+<p class="p51">NSPeriodicMask<span class="Apple-tab-span">	</span>A periodic event occurred.</p>
+<p class="p52"><br></p>
+<p class="p51">NSCursorUpdateMask<span class="Apple-tab-span">	</span>Cursor update.</p>
+<p class="p52"><br></p>
+<p class="p51">NSAnyEventMask<span class="Apple-tab-span">	</span>Any event.<span class="Apple-converted-space"> </span></p>
+<p class="p52"><br></p>
+<p class="p15">Use this method to ignore certain events that occurred after a particular event. For example, suppose your application has a tracking loop that you exit when the user releases the mouse button, and you want to discard all of the events that occurred during that loop. You use NSAnyEvent as the <i>mask</i> argument and pass the mouse up event as the <i>lastEvent</i> argument. Passing the mouse-up event as <i>lastEvent</i> ensures that any events that might have occurred after the mouse-up event (that is, that appear in the queue after the mouse-up event) don't get discarded.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>nextEventMatchingMask:untilDate:inMode:dequeue:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b>encodeWithCoder:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43">@protocol NSCoding</p>
+<p class="p44"><span class="s3">-</span> (void)<b>encodeWithCoder:</b>(NSCoder *)<i>aCoder</i><span class="Apple-converted-space"> </span></p>
+<p class="p45"><br></p>
+<p class="p15">Raises an NSInvalidArgumentException. You cannot encode an NSApplication instance.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>initWithCoder:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>endModalSession:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>endModalSession:</b>(NSModalSession)<i>session</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Finishes a modal session. The argument <i>session</i> should be the return value from a previous invocation of <b>beginModalSessionForWindow:</b>.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>runModalSession:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>finishLaunching</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>finishLaunching</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Activates the application, opens any files specified by the “NSOpen” user default, and unhighlights the application's icon. The <b>run</b> method invokes<b> </b>this method before it starts the event loop. When this method begins, it posts an NSApplicationWillFinishLaunchingNotification to the default notification center. When it successfully completes, it posts an NSApplicationDidFinishLaunchingNotification. If you override <b>finishLaunching</b>, the subclass method should invoke the superclass method.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span><b> applicationWillFinishLaunching:</b> (delegate method), <span class="s3">-</span><b> applicationDidFinishLaunching:</b> (delegate method)</p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>hide:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>hide:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Hides all the application's windows. This method is usually invoked when the user chooses Hide in the application's main menu. When this method begins, it posts an NSApplicationWillHideNotification to the default notification center. When it completes successfully, it posts an NSApplicationDidHideNotification.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationDidHide:</b> (delegate method), <span class="s3">-</span> <b>applicationWillHide:</b> (delegate method), <span class="s3">-</span> <b>miniaturizeAll:</b>, <span class="s3">-</span> <b>unhide:</b>, <span class="s3">-</span> <b>unhideWithoutActivation</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b>initWithCoder:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43">@protocol NSCoding</p>
+<p class="p44"><span class="s3">-</span> (id)<b>initWithCoder:</b>(NSCoder *)<i>aDecoder</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p15">Raises an NSInvalidArgumentException. You cannot encode an NSApplication instance.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>encodeWithCoder:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>isActive</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (BOOL)<b>isActive</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns YES if this is the active application, NO otherwise.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>activateIgnoringOtherApps:</b>, <span class="s3">-</span> <b>deactivate<span class="Apple-converted-space"> </span></b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>isHidden</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (BOOL)<b>isHidden</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns YES if the application is hidden, NO otherwise.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hide:</b>, <span class="s3">-</span> <b>unhide:</b>, <span class="s3">-</span> <b>unhideWithoutActivation</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>isRunning</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (BOOL)<b>isRunning</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns YES if the main event loop is running, NO otherwise. NO means the <b>stop:</b> method was invoked.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>run</b>, <span class="s3">-</span> <b>terminate:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>keyWindow</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSWindow *)<b>keyWindow</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns the key window, the NSWindow that receives keyboard events. If there is no key window or if the key window belongs to another application, this method returns <b>nil</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>mainWindow</b>, <span class="s3">-</span> <b>isKeyWindow </b>(NSWindow)</p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>mainMenu</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSMenu *)<b>mainMenu</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns the application's main menu.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setMainMenu:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>mainWindow</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSWindow *)<b>mainWindow</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns the main window. If there is no main window, if the main window belongs to another application, or if the application is hidden, this method returns <b>nil</b>.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>keyWindow</b>, <span class="s3">-</span> <b>isMainWindow </b>(NSWindow)</p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>makeWindowsPerform:inOrder:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSWindow *)<b>makeWindowsPerform:</b>(SEL)<i>aSelector </i><b>inOrder:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Sends the <i>aSelector</i> message to each NSWindow in the application in turn until one of them returns a value other than <b>nil</b>. Returns that NSWindow, or <b>nil</b> if all of the NSWindows returned <b>nil</b> for <i>aSelector</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">If <i>flag</i> is YES, the NSWindows receive the <i>aSelector</i> message in the front-to-back order in which they appear in the Window Server's window list. If <i>flag</i> is NO, NSWindows receive the message in the order they appear in NSApp's window list. This order is unspecified.</p>
+<p class="p27"><br></p>
+<p class="p15">The method designated by <i>aSelector</i> can't take any arguments.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>sendAction:to:from:</b>, <span class="s3">-</span> <b>tryToPerform:with:</b>, <span class="s3">-</span> <b>windows</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>miniaturizeAll:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>miniaturizeAll:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Miniaturizes all the receiver's windows.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><i></i><br></p>
+<p class="p53"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s3">-</span><span class="s5"> <b>hide:</b><span class="Apple-converted-space"> </span></span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>nextEventMatchingMask:untilDate:inMode:dequeue:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSEvent *)<b>nextEventMatchingMask:</b>(unsigned int)<i>mask<span class="Apple-converted-space"> </span></i></p>
+<p class="p44"><b>untilDate:</b>(NSDate *)<i>expiration<span class="Apple-converted-space"> </span></i></p>
+<p class="p44"><b>inMode:</b>(NSString *)<i>mode<span class="Apple-converted-space"> </span></i></p>
+<p class="p44"><b>dequeue:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p45"><br></p>
+<p class="p15">Returns the next event matching <i>mask</i>, or <b>nil</b> if no such event is found before the <i>expiration</i> date. If <i>flag</i> is YES, the event is removed from the queue. See the method description for <b>discardEventsMatchingMask:beforeEvent:</b> for a list of the possible values for <i>mask</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">The <i>mode</i> argument names an NSRunLoop mode that determines what other ports are listened to and what timers may fire while NSApp is waiting for the event. The possible modes available in the Application Kit are:</p>
+<p class="p27"><br></p>
+<p class="p51">NSDefaultRunLoopMode<span class="Apple-tab-span">	</span>Main event loop.</p>
+<p class="p52"><br></p>
+<p class="p51">NSEventTrackingRunLoopMode<span class="Apple-tab-span">	</span>Modal event loops.</p>
+<p class="p52"><br></p>
+<p class="p51">NSModalPanelRunLoopMode<span class="Apple-tab-span">	</span>Loops that operate while a modal panel is up.</p>
+<p class="p52"><br></p>
+<p class="p51">NSConnectionReplyMode<span class="Apple-tab-span">	</span>Loops that operate while NSConnection is waiting for reply.</p>
+<p class="p52"><br></p>
+<p class="p15">Events that are skipped are left in the queue.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">You can use this method to short circuit normal event dispatching and get your own events. For example, you may want to do this in response to a mouse-down event in order to track the mouse while it's down. In this case, you would set <i>mask</i> to accept mouse-dragged or mouse-up events and use the NSEventTrackingRunLoopMode.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>postEvent:atStart:</b>, <span class="s3">-</span> <b>run</b>, <span class="s3">-</span> <b>runModalForWindow:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>orderFrontColorPanel:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>orderFrontColorPanel:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Brings up the color panel, an instance of NSColorPanel. If the NSColorPanel does not exist yet, it creates one. This method is typically invoked when the user chooses Colors from a menu.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p50"><br></p>
+<p class="p31"><b></b><b>orderFrontDataLinkPanel:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>orderFrontDataLinkPanel:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Brings up the data link panel, an instance of NSDataLinkPanel. If the NSDataLinkPanel does not exist yet, it creates one. This method is typically invoked when the user chooses an appropriate command from the application's menu. For example, the Edit application invokes this method when the user chooses Link Inspector from the Link menu.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p50"><br></p>
+<p class="p31"><b></b><b>postEvent:atStart:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>postEvent:</b>(NSEvent *)<i>anEvent </i><b>atStart:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Adds <i>anEvent</i> to the application's event queue. If <i>flag </i>is YES, the event is added to the front of the queue, otherwise the event is added to the back of the queue.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>currentEvent</b>, <span class="s3">-</span> <b>sendEvent:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>preventWindowOrdering</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>preventWindowOrdering</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Suppresses the usual window ordering in handling the most recent mouse-down event. This method is only useful for mouse-down events when you want to prevent the window that receives the event from being ordered to the front.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p50"><br></p>
+<p class="p31"><b></b><b>registerServicesMenuSendTypes:returnTypes:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>registerServicesMenuSendTypes:</b>(NSArray *)<i>sendTypes </i><b>returnTypes:</b>(NSArray *)<i>returnTypes</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Registers the pasteboard types that the application can send and receive in response to service requests. If the application has a Services menu, a menu item is added for each service provider that can accept one of the specified <i>sendTypes</i> or return one of the specified <i>returnTypes</i>. You should typically invoke this method at application start-up time or when an object that can use services is created. You can invoke it more than once; its purpose is to ensure that there is a menu item for every service that the application may use. The event-handling mechanism will dynamically enable the individual items to indicate which services are currently appropriate. All of the NSResponders in your application (typically NSViews) should register every possible type that they can send and receive by sending this message to NSApp.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>validRequestorForSendType:returnType:</b>, <span class="s3">-</span> <b>readSelectionFromPasteboard: </b>(NSServicesRequests protocol), <span class="s3">-</span> <b>writeSelectionToPasteboard:types: </b>(NSServicesRequests protocol)</p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>removeWindowsItem:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>removeWindowsItem:</b>(NSWindow *)<i>aWindow</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Removes the Window menu item for <i>aWindow. </i>This method doesn't prevent the item from being automatically added again. Use NSWindow's <b>setExcludedFromWindowsMenu:</b> method if you want the item to remain excluded from the Window menu.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>addWindowsItem:title:filename:</b>, <span class="s3">-</span> <b>changeWindowsItem:title:filename:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>reportException:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>reportException:</b>(NSException *)<i>anException</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Logs <i>anException</i> by calling <b>NSLog()</b>. This method does not raise the exception. Use it inside of an exception handler to record that the exception occurred.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p50"><br></p>
+<p class="p31"><b></b><b>run</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>run</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Starts the main event loop. The loop continues until a <b>stop:</b> or <b>terminate:</b> message is received. Upon each iteration through the loop, the next available event from the Window Server is stored and is then dispatched by sending the event to NSApp using <b>sendEvent:</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">Send a <b>run</b> message as the last statement from <b>main()</b>, after the application's objects have been initialized.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationDidFinishLaunching: </b>(delegate method), <span class="s3">-</span> <b>runModalForWindow:</b>, <span class="s3">-</span> <b>runModalSession:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>runModalForWindow:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (int)<b>runModalForWindow:</b>(NSWindow *)<i>aWindow</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Starts a modal event loop for <i>aWindow</i>. Until the loop is broken by a <b>stopModal</b>, <b>stopModalWithCode:</b>, or <b>abortModal</b> message, the application won't respond to any mouse, keyboard, or window-close events unless they're associated with <i>aWindow</i>. If <b>stopModalWithCode:</b> is used to stop the modal event loop, this method returns the argument passed to <b>stopModalWithCode:</b>. If <b>stopModal</b> is used, it returns the constant NSRunStoppedResponse. If <b>abortModal</b> is used, it returns the constant NSRunAbortedResponse. This method is functionally similar to the following:</p>
+<p class="p27"><br></p>
+<p class="p28">NSModalSession session = [NSApp beginModalSessionforWindow:theWindow];</p>
+<p class="p54"><br></p>
+<p class="p28">for (;;) {</p>
+<p class="p28"><span class="Apple-converted-space"> </span>if ([NSApp runModalSession:session] != NSRunContinuesResponse)</p>
+<p class="p28"><span class="Apple-converted-space">  </span>break;</p>
+<p class="p28">}</p>
+<p class="p28">[NSApp endModalSession:session];</p>
+<p class="p29"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>run</b>, <span class="s3">-</span> <b>runModalSession:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>runModalSession:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (int)<b>runModalSession:</b>(NSModalSession)<i>session</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Runs a modal session represented by <i>session, </i>as defined in a previous invocation of <b>beginModalSessionForWindow:</b>. A loop using this method is similar to a modal event loop run with <b>runModalForWindow:</b>, except that with this method the application can continue processing between method invocations. When you invoke this method, events for the NSWindow of this session are dispatched as normal; this method returns when there are no more events. You must invoke this method frequently enough that the window remains responsive to events.</p>
+<p class="p27"><br></p>
+<p class="p15">If the modal session was not stopped, this method returns NSRunContinuesResponse. If <b>stopModal</b> was invoked as the result of event processing, NSRunStoppedResponse is returned. If <b>stopModalWithCode:</b> was invoked, this method returns the value passed to <b>stopModalWithCode:</b>. The NSAbortModalException raised by <b>abortModal</b> isn't caught, so <b>abortModal</b> will not stop the loop.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>endModalSession</b>, <span class="s3">-</span> <b>run</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>runPageLayout:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>runPageLayout:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Displays the application's page layout panel, an instance of NSPageLayout. If the NSPageLayout instance does not exist, it creates one. This method is typically invoked when the user selects Page Layout from the application's menu.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p50"><br></p>
+<p class="p31"><b></b><b>sendAction:to:from:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (BOOL)<b>sendAction:</b>(SEL)<i>anAction </i><b>to:</b>(id)<i>aTarget </i><b>from:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Sends the message <i>anAction</i> to <i>aTarget</i>.<i> </i>If <i>aTarget is </i><b>nil</b><i>, </i>NSApp looks for an object that can respond to the message—that is, an object that implements a method matching <i>anAction</i>. It begins with the first responder of the key window. If the first responder can't respond, it tries the first responder's next responder and continues following next responder links up the responder chain. If none of the objects in the key window's responder chain can handle the message, NSApp attempts to send the message to the key window's delegate.</p>
+<p class="p27"><br></p>
+<p class="p15">If the delegate doesn't respond and the main window is different from the key window, NSApp begins again with the first responder in the main window. If objects in the main window can't respond, NSApp attempts to send the message to the main window's delegate. If still no object has responded, NSApp tries to handle the message itself. If NSApp can't respond, it attempts to send the message to its own delegate.</p>
+<p class="p27"><br></p>
+<p class="p15">Returns YES if the action is successfully sent; otherwise returns NO.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>targetForAction:</b>, <span class="s3">-</span> <b>tryToPerform:with:</b>, <span class="s3">-</span> <b>makeWindowsPerform:inOrder:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>sendEvent:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>sendEvent:</b>(NSEvent *)<i>anEvent</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Dispatches <i>anEvent</i> to other objects. You rarely invoke <b>sendEvent:</b> directly although you might want to override this method to perform some action on every event. <b>sendEvent:</b> messages are sent from the main event loop (the <b>run</b> method). <b>sendEvent:</b> is the method that dispatches events to the appropriate responders; NSApp handles application events, the NSWindow indicated in the event record handles window related events, and mouse and key events are forwarded to the appropriate NSWindow for further dispatching.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>currentEvent</b>, <span class="s3">-</span> <b>postEvent:atStart:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>servicesMenu</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSMenu *)<b>servicesMenu</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns the Services menu or <b>nil</b> if no Services menu has been created.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setServicesMenu:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b>servicesProvider</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSMenu *)<b>servicesProvider</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns the object that provides the services that this application advertises in the Services menu of other applications.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setServicesProvider:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>setApplicationIconImage:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>setApplicationIconImage:</b>(NSImage *)<i>anImage</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Sets the application's icon to <i>anImage.<span class="Apple-converted-space"> </span></i></p>
+<p class="p27"><i></i><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationIconImage</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>setDelegate:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>setDelegate:</b>(id)<i>anObject</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Makes <i>anObject</i> the receiver's delegate. The messages that a delegate can expect to receive are listed at the end of this specification. The delegate doesn't need to implement all the methods.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p53"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s3">-</span><span class="s5"> <b>delegate</b></span></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>setMainMenu:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>setMainMenu:</b>(NSMenu *)<i>aMenu</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Makes <i>aMenu</i> the application's main menu.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p53"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s3">-</span><span class="s5"> <b>mainMenu</b></span></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>setServicesMenu:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>setServicesMenu:</b>(NSMenu *)<i>aMenu</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Makes <i>aMenu</i> the application's Services menu.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>servicesMenu</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b>setServicesProvider:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>setServicesProvider:</b>(id)<i>aProvider</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Registers the object <i>aProvider</i> as the service provider. The service provider is an object that performs all of the services that the application provides to other applications. When another application requests a service from the receiver, it sends the service request to <i>aProvider</i>.</p>
+<p class="p27"><br></p>
+<p class="p15">For more information on registering services, see the on-line document <b>/NextLibrary/Documentation/NextDev/TasksAndConcepts/ProgrammingTopics/Services.rtf</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>servicesProvider</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>setWindowsMenu:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>setWindowsMenu:</b>(NSMenu *)<i>aMenu</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Makes <i>aMenu</i> the application's Window menu.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>windowsMenu</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>setWindowsNeedUpdate:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>setWindowsNeedUpdate:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Sets whether the application's windows need updating when the application has finished processing the current event. This method is especially useful for making sure menus are updated to reflect changes not initiated by user actions, such as messages received from remote objects.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><i> </i><span class="s3">-</span> <b>updateWindows</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p41"><span class="s4">p<span class="Apple-tab-span">	</span></span><b>showHelp:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>showHelp:</b>(id)<i>sender</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Brings up the application's help file by sending a request to the shared NSWorkspace object to open the file using the default application for the help file's type. (You set the application's help file using Project Builder.) This method is typically invoked when the user chooses the Help command or one of the commands from the Help menu.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">On Microsoft Windows platforms, the help file is typically an HLP file, so this method brings up Microsoft Windows help. On Mach platforms, the help file is typically an RTF file and is displayed using Edit, but the help file can be anything. For example, Project Builder on Mach brings up a Digital Librarian bookshelf in response to its Help command.</p>
+<p class="p27"><br></p>
+<p class="p15">For more information on providing on-line help for your application, see the NSHelpManager class specification.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>activateContextHelpMode:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>stop:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>stop:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Stops the main event loop. This method will break the flow of control out of the <b>run</b> method, thereby returning to the <b>main()</b> function. A subsequent <b>run</b> message will restart the loop.</p>
+<p class="p27"><br></p>
+<p class="p15">If this method is invoked during a modal event loop, it will break that loop but not the main event loop.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>runModalForWindow:</b>, <span class="s3">-</span> <b>runModalSession:</b>,<b> </b><span class="s3">-</span> <b>terminate:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>stopModal</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>stopModal</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Stops a modal event loop. This method should always be paired with a previous invocation of <b>runModalForWindow:</b> or <b>beginModalSessionForWindow:</b>. When <b>runModalForWindow:</b> is stopped with this method, it returns NSRunStoppedResponse. This method will stop the loop only if it's executed by code responding to an event. If you need to stop a <b>runModalForWindow:</b> loop from a method registered with the current NSRunLoop (for example, a method repeatedly invoked by an NSTimer object), use the <b>abortModal</b> method.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>runModalSession:</b>, <span class="s3">-</span> <b>stopModalWithCode:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>stopModalWithCode:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>stopModalWithCode:</b>(int)<i>returnCode</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Like <b>stopModal</b>, except the argument <i>returnCode</i> allows you to specify the value that <b>runModalForWindow:</b> will return.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>abortModal</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>targetForAction:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (id)<b>targetForAction:</b>(SEL)<i>aSelector</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns the object that receives the action message <i>aSelector</i>.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>sendAction:to:from:</b>, <span class="s3">-</span> <b>tryToPerform:with:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>terminate:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>terminate:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Terminates the application. This method is typically invoked when the user chooses Quit or Exit from the application's menu. Each use of<b> terminate: </b>invokes <b>applicationShouldTerminate:</b> to notify the delegate that the application will terminate. If <b>applicationShouldTerminate:</b> returns NO, control is returned to the main event loop, and the application isn't terminated. Otherwise, this method posts an NSApplicationWillTerminateNotification to the default notification center. Don't put final cleanup code in your application's <b>main()</b> function; it will never be executed. If cleanup is necessary, have the delegate respond to <b>applicationWillTerminate:</b> and perform the cleanup in that method.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>run</b>, <span class="s3">-</span> <b>stop:</b>, <b>exit()</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>tryToPerform:with:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (BOOL)<b>tryToPerform:</b>(SEL)<i>aSelector </i><b>with:</b>(id)<i>anObject</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Dispatches action messages. The receiver tries to perform the method <i>aSelector</i> using its inherited NSResponder method <b>tryToPerform:with:</b>. If the receiver doesn't perform <i>aSelector</i>, the delegate is given the opportunity to perform it using its inherited NSObject method <b>perform:withObject:</b>. If either the receiver or its delegate accept <i>aSelector</i>, this method returns YES; otherwise it returns NO.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>respondsToSelector: </b>(NSObject)</p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>unhide:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>unhide:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Restores hidden windows to the screen and makes the application active. Invokes <b>unhideWithoutActivation</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>activateIgnoringOtherApps:</b>, <span class="s3">-</span> <b>hide:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>unhideWithoutActivation</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>unhideWithoutActivation</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Restores hidden windows without activating their owner (the receiver). When this method begins, it posts an NSApplicationWillUnhideNotification to the default notification center. If it completes successfully, it posts an NSApplicationDidUnhideNotification.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>activateIgnoringOtherApps:</b>, <span class="s3">-</span> <b>applicationDidUnhide:</b> (delegate method), <span class="s3">-</span> <b>applicationWillUnhide:</b> (delegate method), <span class="s3">-</span> <b>hide:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b></b><b>updateWindows</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>updateWindows</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Sends an<b> update</b> message to each on-screen NSWindow. This method is invoked automatically in the main event loop after each event. If the NSWindow has automatic updating turned on, its <b>update</b> method will redraw all of the NSWindow's NSViews that need redrawing. If automatic updating is turned off, the <b>update</b> message does nothing. (You turn automatic updating on and off by sending <b>setAutodisplay:</b> to an NSWindow.)<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">When this method begins, it posts an NSApplicationWillUpdateNotification to the default notification center. When it successfully completes, it posts an NSApplicationDidUpdateNotification.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationWillUpdate: </b>(delegate method), <span class="s3">-</span> <b>applicationDidUpdate: </b>(delegate method), <span class="s3">-</span> <b>setWindowsNeedUpdate:</b>, <span class="s3">-</span> <b>setAutodisplay:</b> (NSWindow)</p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>updateWindowsItem:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>updateWindowsItem:</b>(NSWindow *)<i>aWindow</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Updates the Window menu item for <i>aWindow</i> to reflect the edited status of <i>aWindow</i>. You rarely need to invoke this method because it is invoked automatically when the edit status of an NSWindow is set.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>changeWindowsItem:title:filename:</b>, <span class="s3">-</span> <b>setDocumentEdited: </b>(NSWindow)</p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>validRequestorForSendType:returnType:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (id)<b>validRequestorForSendType:</b>(NSString *)<i>sendType </i><b>returnType:</b>(NSString *)<i>returnType</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Indicates whether the receiver can send and receive the specified pasteboard types.<i> </i>This message is sent to all responders in a responder chain. NSApp is typically the last item in the responder chain, so it usually only receives this message if none of the current responders can send <i>sendType</i> data and accept back <i>returnType</i> data.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">The receiver passes this message on to its delegate if the delegate can respond (and isn't an NSResponder with its own next responder). If the delegate can't respond or returns <b>nil</b>, this method returns <b>nil</b>. If the delegate can find an object that can send <i>sendType</i> data and accept back <i>returnType</i> data, that object is returned.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>validRequestorForSendType:returnType: </b>(NSResponder), <span class="s3">-</span> <b>registerServicesMenuSendTypes:andReturnTypes:</b>, <span class="s3">-</span> <b>readSelectionFromPasteboard: </b>(NSServicesRequests protocol), <span class="s3">-</span> <b>writeSelectionToPasteboard:types: </b>(NSServicesRequests protocol)</p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p41"><span class="s4">p<span class="Apple-tab-span">	</span></span><b>windowWithWindowHandle:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSWindow *)<b>windowWithWindowHandle:</b>(void *)<i>hWnd</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">On Microsoft Windows platforms, returns the NSWindow object associated with the Win32 window handle <i>hWnd</i>. If the application does not own <i>hWnd</i> or <i>hWnd</i> does not have an NSWindow associated with it, this method returns <b>nil</b>. This method is for Microsoft Windows platforms only. <b>windowWithWindowHandle:</b> is not defined for the Mach platform.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>windowWithWindowHandle:</b> (NSWindow), <span class="s3">-</span> <b>windowHandle</b> (NSWindow)</p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b></b><b>windowWithWindowNumber:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSWindow *)<b>windowWithWindowNumber:</b>(int)<i>windowNum</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns the NSWindow object corresponding to <i>windowNum</i>.</p>
+<p class="p27"><br></p>
+<p class="p50"><br></p>
+<p class="p31"><b></b><b>windows</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSArray *)<b>windows</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns an NSArray of the application's NSWindows, including off-screen windows.</p>
+<p class="p27"><br></p>
+<p class="p50"><br></p>
+<p class="p31"><b></b><b>windowsMenu</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (NSMenu *)<b>windowsMenu</b><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Returns the Window menu or <b>nil</b> if no Window menu has been created.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setWindowsMenu:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p55"><br></p>
+<p class="p35"><b>Notifications<span class="Apple-converted-space"> </span></b></p>
+<p class="p26"><b></b><br></p>
+<p class="p31"><b>NSApplicationDidBecomeActiveNotification</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">Posted immediately after the application becomes active. The notification contains:</p>
+<p class="p27"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>NSApp</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo<span class="Apple-tab-span">	</span>None</p>
+<p class="p52"><br></p>
+<p class="p56"><br></p>
+<p class="p31"><b>NSApplicationDidFinishLaunchingNotification</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">Posted at the end of the <b>finishLaunching</b> method to indicate that the application has completed launching and is ready to run.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">The notification contains:</p>
+<p class="p27"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>NSApp</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo<span class="Apple-tab-span">	</span>None</p>
+<p class="p52"><br></p>
+<p class="p56"><br></p>
+<p class="p31"><b>NSApplicationDidHideNotification</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">Posted at the end of the <b>hide:</b> method to indicate that the application is now hidden. The notification contains:</p>
+<p class="p27"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>NSApp</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo<span class="Apple-tab-span">	</span>None</p>
+<p class="p52"><br></p>
+<p class="p56"><br></p>
+<p class="p31"><b>NSApplicationDidResignActiveNotification</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">Posted immediately after the application gives up its active status to another application. The notification contains:</p>
+<p class="p27"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>NSApp</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo<span class="Apple-tab-span">	</span>None</p>
+<p class="p52"><br></p>
+<p class="p56"><br></p>
+<p class="p31"><b>NSApplicationDidUnhideNotification</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">Posted at the end of the <b>unhideWithoutActivation</b> method to indicate that the application is now visible. The notification contains:</p>
+<p class="p27"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>NSApp</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo<span class="Apple-tab-span">	</span>None</p>
+<p class="p52"><br></p>
+<p class="p56"><br></p>
+<p class="p31"><b>NSApplicationDidUpdateNotification</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">Posted at the end of the <b>updateWindows</b> method to indicate that the application has finished updating its windows. The notification contains:</p>
+<p class="p27"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>NSApp</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo<span class="Apple-tab-span">	</span>None</p>
+<p class="p52"><br></p>
+<p class="p56"><br></p>
+<p class="p31"><b>NSApplicationWillBecomeActiveNotification</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">Posted immediately after the application becomes active. The notification contains:</p>
+<p class="p27"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>NSApp</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo<span class="Apple-tab-span">	</span>None</p>
+<p class="p52"><br></p>
+<p class="p56"><br></p>
+<p class="p31"><b>NSApplicationWillFinishLaunchingNotification</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">Posted at the start of the <b>finishLaunching</b> method to indicate that the application has completed its initialization process and is about to finish launching. The notification contains:</p>
+<p class="p27"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>NSApp</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo<span class="Apple-tab-span">	</span>None</p>
+<p class="p52"><br></p>
+<p class="p56"><br></p>
+<p class="p31"><b>NSApplicationWillHideNotification</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">Posted at the start of the <b>hide:</b> method to indicate that the application is about to be hidden. The notification contains:</p>
+<p class="p27"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>NSApp</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo<span class="Apple-tab-span">	</span>None</p>
+<p class="p52"><br></p>
+<p class="p56"><br></p>
+<p class="p31"><b>NSApplicationWillResignActiveNotification</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">Posted immediately before the application gives up its active status to another application. The notification contains:</p>
+<p class="p27"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>NSApp</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo<span class="Apple-tab-span">	</span>None</p>
+<p class="p52"><br></p>
+<p class="p56"><br></p>
+<p class="p31"><b>NSApplicationWillTerminateNotification</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">Posted by the <b>terminate:</b> method to indicate that the application will terminate. Posted only if the delegate method <b>applicationShouldTerminate:</b> returns YES. The notification contains:</p>
+<p class="p27"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>NSApp</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo<span class="Apple-tab-span">	</span>None</p>
+<p class="p52"><br></p>
+<p class="p56"><br></p>
+<p class="p31"><b>NSApplicationWillUnhideNotification</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">Posted at the start of the <b>unhideWithoutActivation</b> method to indicate that the application is about to be visible. The notification contains:</p>
+<p class="p27"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>NSApp</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo<span class="Apple-tab-span">	</span>None</p>
+<p class="p52"><br></p>
+<p class="p56"><br></p>
+<p class="p31"><b>NSApplicationWillUpdateNotification</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">Posted at the start of the <b>updateWindows</b> method to indicate that the application is about to update its windows. The notification contains:</p>
+<p class="p27"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>NSApp</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo<span class="Apple-tab-span">	</span>None</p>
+<p class="p52"><br></p>
+<p class="p57"><br></p>
+<p class="p35"><b>Methods Implemented By the Delegate</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p31"><b>application:openFile:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (BOOL)<b>application:</b>(NSApplication *)<i>theApplication</i><b> openFile:</b>(NSString *)<i>filename<span class="Apple-converted-space"> </span></i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent directly by <i>theApplication</i> to the delegate. The method should open the file <i>filename</i>, returning YES if the file is successfully opened, and NO otherwise.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p58"><span class="s2"><b>Note:<span class="Apple-tab-span">	</span></b></span>If the user has started up the application by double-clicking a file, the delegate receives the <b>application:openFile:</b> message before receiving <b>applicationDidFinishLaunching:</b>. (<b>applicationWillFinishLaunching:</b> is sent before <b>application:openFile:</b>.)</p>
+<p class="p59"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>application:openFileWithoutUI:</b>, <span class="s3">-</span> <b>application:openTempFile:</b>, <span class="s3">-</span> <b>applicationOpenUntitledFile:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b>application:openFileWithoutUI:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (BOOL)<b>application:</b>(NSApplication *)<i>sender</i><b> openFileWithoutUI:</b>(NSString *)<i>filename</i><b><span class="Apple-converted-space"> </span></b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Sent directly by <i>sender</i> to the delegate to request that the file <i>filename</i> be opened as a linked file. The method should open the file without bringing up its application's user interface; that is, work with the file is under programmatic control of <i>sender</i>, rather than under keyboard control of the user. Returns YES if the file was successfully opened, NO otherwise.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>application:openFile:</b>, <span class="s3">-</span> <b>appliction:openTempFile:</b>, <span class="s3">-</span> <b>application:printFile:</b>, <span class="s3">-</span> <b>applicationOpenUntitledFile:<span class="Apple-converted-space"> </span></b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b>application:openTempFile:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (BOOL)<b>application:</b>(NSApplication *)<i>theApplication</i><b> openTempFile:</b>(NSString *)<i>filename<span class="Apple-converted-space"> </span></i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent directly by <i>theApplication</i> to the delegate. The method should attempt to open the file <i>filename</i>, returning YES if the file is successfully opened, and NO otherwise.</p>
+<p class="p27"><br></p>
+<p class="p15">By design, a file opened through this method is assumed to be temporary; it's the application's responsibility to remove the file at the appropriate time.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>application:openFile:</b>, <span class="s3">-</span> <b>application:openFileWithoutUI:</b>, <span class="s3">-</span> <b>applicationOpenUntitledFile:<span class="Apple-converted-space"> </span></b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b>application:printFile:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (BOOL)<b>application:</b>(NSApplication *)<i>theApplication</i><b> printFile:</b>(NSString *)<i>filename<span class="Apple-converted-space"> </span></i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent when the user starts up the application on the command line with the <b>-NSPrint</b> option. Sent directly by <i>theApplication</i> to the delegate.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">The method should attempt to print the file <i>filename</i>, returning YES if the file was successfully printed, and NO otherwise. The application terminates (using the <b>terminate:</b> method) after this method returns.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">If at all possible, this method should print the file without displaying the user interface. For example, if you pass the <b>-NSPrint</b> option to the TextEdit application, TextEdit assumes you want to print the entire contents of the specified file. However, if the application opens more complex documents, you may want to display a panel that lets user choose exactly what they want to print.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>application:openFileWithoutUI:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b>applicationDidBecomeActive:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>applicationDidBecomeActive:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent by the default notification center immediately after the application becomes active. <i>aNotification</i> is always an NSApplicationDidBecomeActiveNotification. You can retrieve the NSApplication object by sending the <b>object</b> method to <i>aNotification</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationDidFinishLaunching:</b>, <span class="s3">-</span> <b>applicationDidResignActive:</b>, <span class="s3">-</span> <b>applicationWillBecomeActive:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b>applicationDidFinishLaunching:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>applicationDidFinishLaunching:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent by the default notification center after the application has been launched and initialized but before it has received its first event. <i>aNotification</i> is always an NSApplicationDidFinishLaunchingNotification. You can retrieve the NSApplication object in question by sending <b>object</b> to <i>aNotification</i>. The delegate can implement this method to perform further initialization.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p58"><span class="s2"><b>Note:<span class="Apple-tab-span">	</span></b></span>If the user has started up the application by double-clicking a file, the delegate receives the <b>application:openFile:</b> message before receiving <b>applicationDidFinishLaunching:</b>. (<b>applicationWillFinishLaunching:</b> is sent before <b>application:openFile:</b>.)</p>
+<p class="p59"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationDidBecomeActive:</b>, <span class="s3">-</span> <b>applicationWillFinishLaunching:</b>, <span class="s3">-</span> <b>finishLaunching</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b>applicationDidHide:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>applicationDidHide:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent by the default notification center immediately after the application is hidden. <i>aNotification</i> is always an NSApplicationDidHideNotification. You can retrieve the NSApplication object in question by sending <b>object</b> to <i>aNotification</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationWillHide:</b>, <span class="s3">-</span> <b>applicationDidUnhide:</b>, <span class="s3">-</span> <b>hide</b>:<span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b>applicationDidResignActive:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>applicationDidResignActive:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent by the default notification center immediately after the application is deactivated. <i>aNotification</i> is always an NSApplicationDidResignActiveNotification. You can retrieve the NSApplication object in question by sending <b>object</b> to <i>aNotification</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationDidBecomeActive:</b>, <span class="s3">-</span> <b>applicationWillResignActive:<span class="Apple-converted-space"> </span></b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b>applicationDidUnhide</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>applicationDidUnhide:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent by the default notification center immediately after the application is made visible. <i>aNotification</i> is always an NSApplicationDidUnhideNotification. You can retrieve the NSApplication object in question by sending <b>object</b> to <i>aNotification</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationDidHide:</b>, <span class="s3">-</span> <b>applicationWillUnhide:</b>, <span class="s3">-</span> <b>unhide</b>:<span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b>applicationDidUpdate:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>applicationDidUpdate:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent by the default notification center immediately after the NSApplication object updates its NSWindows. <i>aNotification</i> is always an NSApplicationDidUpdateNotification. You can retrieve the NSApplication object in question by sending <b>object</b> to <i>aNotification</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationWillUpdate:</b>, <span class="s3">-</span> <b>updateWindows</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b>applicationOpenUntitledFile:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (BOOL)<b>applicationOpenUntitledFile:</b>(NSApplication *)<i>theApplication</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent directly by <i>theApplication</i> to the delegate to request that a new, untitled file be opened. Returns YES if the file was successfully opened, NO otherwise.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>application:openFile:</b>, <span class="s3">-</span> <b>application:openFileWithoutUI:</b>, <span class="s3">-</span> <b>application:openTempFile:<span class="Apple-converted-space"> </span></b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b>applicationShouldTerminate:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (BOOL)<b>applicationShouldTerminate:</b>(NSApplication *)<i>sender</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Invoked from within the <b>terminate:</b> method immediately before the application terminates. <i>sender</i> is the NSApplication to be terminated. If this method returns NO, the application is not terminated, and control returns to the main event loop. Return YES to allow the application to terminate.</p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationShouldTerminateAfterLastWindowClosed:</b>, <span class="s3">-</span> <b>applicationWillTerminate:</b>, <span class="s3">-</span> <b>terminate:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p41"><span class="s4">p<span class="Apple-tab-span">	</span></span><b>applicationShouldTerminateAfterLastWindowClosed:</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (BOOL)<b>applicationShouldTerminateAfterLastWindowClosed:</b>(NSApplication *)<i>theApplication</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Invoked when the user closes the last window that the application has open on.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">This method is intended for the Microsoft Windows platform. On Microsoft Windows, the default behavior is to terminate the application if the user closes the last window. Most application use this default behavior; however, you may choose to have <b>applicationShouldTerminateAfterLastWindowClosed:</b> perform some other function, such as display a panel that gives the user a choice of exiting the application or opening a new window.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p15">If this method returns NO, the application is not terminated, and control returns to the main event loop. Return YES to allow the application to terminate. Note that <b>applicationShouldTerminate:</b> is invoked if this method returns YES.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>terminate:</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b>applicationWillBecomeActive:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>applicationWillBecomeActive:</b>(NSNotification *)<i>aNotification</i><span class="Apple-converted-space"> </span></p>
+<p class="p49"><br></p>
+<p class="p15">Sent by the default notification center immediately before the application becomes active. <i>aNotification</i> is always an NSApplicationWillBecomeActiveNotification. You can retrieve the NSApplication object in question by sending <b>object</b> to <i>aNotification</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationDidBecomeActive:</b>, <span class="s3">-</span> <b>applicationWillFinishLaunching:</b>, <span class="s3">-</span> <b>applicationWillResignActive:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b>applicationWillFinishLaunching:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>applicationWillFinishLaunching:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent by the default notification center immediately before the NSApplication object is initialized. <i>aNotification</i> is always an NSApplicationWillFinishLaunchingNotification. You can retrieve the NSApplication object in question by sending <b>object</b> to <i>aNotification</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationDidFinishLaunching:</b>, <span class="s3">-</span> <b>applicationWilBecomeActive:</b>, <span class="s3">-</span> <b>finishLaunching</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b>applicationWillHide:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>applicationWillHide:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent by the default notification center immediately after the application is hidden. <i>aNotification</i> is always an NSApplicationWillHideNotification. You can retrieve the NSApplication object in question by sending <b>object</b> to <i>aNotification</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationDidHide:</b>, <span class="s3">-</span> <b>hide</b>:<span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b>applicationWillTerminate:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>applicationWillTerminate:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent by the default notification center immediately before the application terminates. <i>aNotification</i> is always an NSApplicationWillTerminateNotification. You can retrieve the NSApplication object in question by sending <b>object</b> to <i>aNotification</i>. Put any necessary cleanup code in this method.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationShouldTerminate:</b>, <span class="s3">-</span> <b>terminate:</b><span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b>applicationWillResignActive:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>applicationWillResignActive:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent by the default notification center immediately after the application is deactivated. <i>aNotification</i> is always an NSApplicationWillResignActiveNotification. You can retrieve the NSApplication object in question by sending <b>object</b> to <i>aNotification</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationWillBecomeActive:</b>, <span class="s3">-</span> <b>applicationDidResignActive:<span class="Apple-converted-space"> </span></b></p>
+<p class="p47"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p31"><b>applicationWillUnhide</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>applicationWillUnhide:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent by the default notification center immediately after the application is unhidden. <i>aNotification</i> is always an NSApplicationWillUnhideNotification. You can retrieve the NSApplication object in question by sending <b>object</b> to <i>aNotification</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationDidUnhide:</b>, <span class="s3">-</span> <b>applicationWillHide:</b>, <span class="s3">-</span> <b>unhide</b>:<span class="Apple-converted-space"> </span></p>
+<p class="p47"><br></p>
+<p class="p48"><br></p>
+<p class="p31"><b>applicationWillUpdate:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p43"><span class="s3">-</span> (void)<b>applicationWillUpdate:</b>(NSNotification *)<i>aNotification</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sent by the default notification center immediately before the NSApplication object updates its NSWindows. <i>aNotification</i> is always an NSApplicationWillUpdateNotification. You can retrieve the NSApplication object in question by sending <b>object</b> to <i>aNotification</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p46"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>applicationDidUpdate:</b>, <span class="s3">-</span>  <b>updateWindows</b></p>
+<p class="p47"><b></b><br></p>
+<p class="p60"><br></p>
+<p class="p27"><br></p>
+</body>
+</html>

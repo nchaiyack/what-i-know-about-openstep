@@ -1,0 +1,1438 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f3\fmodern Courier;\f5\fnil NeXTdoc;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\f2\b\fs52\li1460{\NeXTHelpMarker62 \markername NS_DEV_DOCFOR:objc_class:NSPrinter;}
+¬}\f2\b\i0\ulnone\ql\fs52\fi0\li1460\gray0\fc0\cf0\up0\dn0 NSPrinter\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject \
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding\
+
+\fi0 NSCopying\
+NSObject (NSObject)\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 AppKit/NSPrinter.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 An NSPrinter object describes a printer's capabilities, such as whether the printer can print in color and whether it provides a particular font. An NSPrinter object represents either a particular make or type of printer, or an actual printer available to the computer. You use NSPrinter to get information about printers, not modify printer attributes or control a printing job.\
+
+\fs14 \
+
+\fs28 There are two ways to create an NSPrinter:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	To create an abstract object that provides information about a type of printer rather than an object that represents an actual printer device, use the
+\b  printerWithType:
+\b0  class method, passing a printer type (an NSString) as the argument. The 
+\b printerTypes
+\b0  class method provides a list of printer types,  model names recognized by the computer. Printer types are described in files written in PostScript Printer Description (PPD) format. The location of these files is platform dependent.\
+
+\fs14 \
+
+\fs28 ·	Use the 
+\b printerWithName:
+\b0  class method to create or find an NSPrinter that corresponds to an actual printer device. Use the 
+\b printerNames
+\b0  class method to get a list of recognized printer names.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Once you have an NSPrinter, there's only one thing you can do with it: retrieve information regarding the type of printer or regarding the actual printer the object represents.\
+
+\fs14 \
+
+\fs28 When you create an NSPrinter object, the object reads the file that corresponds to the type of printer, a model name, you specified and stores the data it finds there in named tables. Printer types are described in files written in the PostScript Printer Description (PPD) format. Any piece of information in the PPD tables can be retrieved through the methods 
+\b stringForKey:inTable:
+\b0  and 
+\b stringListForKey:inTable:
+\b0 , as explained later. Commonly needed items, such as whether a printer supports color or the size of the page on which it prints, are available through more direct methods (methods such as 
+\b isColor
+\b0  and 
+\b pageSizeForPaper:
+\b0 ). \
+
+\fs14 \
+
+\pard\tx2300\f2\b\fs24\fi-800\li2300\fc0\cf0 Note:	
+\f0\b0\fs28 To understand what the NSPrinter tables contain, you need to be acquainted with the PPD file format. This is described in 
+\i PostScript Printer Description File Format Specification, version 4.0
+\i0 , available from Adobe Systems Incorporated. The rest of this class description assumes a familiarity with the concepts and terminology presented in the Adobe manual. A brief summary of the PPD format is given below; PPD terms defined in the Adobe manual are shown in italic.\
+
+\fs40 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 PPD Format\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 A PPD file statement, or 
+\i entry
+\i0 , associates a value with a main keyword:\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\fs28\li2320\fc0\cf0 *mainKeyword: value\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The asterisk is literal; it indicates the beginning of a new entry.\
+
+\fs14 \
+
+\fs28 For example:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 *ModelName: "MMimeo Machine" \
+*3dDevice: False\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 A main keyword can be qualified by an 
+\i option keyword
+\i0 :\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\fs28\li2320\fc0\cf0 *mainKeyword optionKeyword: value\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 For example:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 *PaperDensity Letter: "0.1"\
+*PaperDensity Legal: "0.2"\
+*PaperDensity A4: "0.3"\
+*PaperDensity B5: "0.4"\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 In addition, any number of entries may have the same main keyword with no option keyword yet give different values:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 *InkName: ProcessBlack/Process Black\
+*InkName: CustomColor/Custom Color\
+*InkName: ProcessCyan/Process Cyan\
+*InkName: ProcessMagenta/Process Magenta\
+*InkName: ProcessYellow/Process Yellow\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 Option keywords and values can sport 
+\i translation strings
+\i0 . A translation string is a textual description, appropriate for display in a user interface, of the option or value. An option or value is separated from its translation string by a slash:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 *Resolution 300dpi/300 dpi: " ... "\
+*InkName: ProcessBlack/Process Black\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 In the first example, the 
+\b 300dpi
+\b0  option would be presented in a user interface as ª300 dpi.º In the second example, the translation string for the 
+\b ProcessBlack
+\b0  value is set to ªProcess Blackº.\
+
+\fs14 \
+
+\fs28 NSPrinter treats entries that have an 
+\b *OrderDependency
+\b0  or *
+\b UIConstraint
+\b0  main keyword specially. Such entries take the following forms (the bracketed elements are optional):\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\fs28\li2320\fc0\cf0 *OrderDependency: 
+\i real section mainKeyword [optionKeyword] \
+
+\fs14 \
+
+\i0\fs28 *UIConstraint: 
+\i mainKeyword1 [optionKeyword1] mainKeyword2 [optionKeyword2]\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 There may be more than one UIConstraint entry with the same
+\i  mainKeyword1
+\i0  or 
+\i mainKeyword1/optionKeyword1
+\i0  value. Below are some examples of 
+\b *OrderDependency
+\b0  and 
+\b *UIConstraint
+\b0  entries:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 *OrderDependency: 10 AnySetup *Resolution\
+*UIConstraint: *Option3 None *PageSize Legal\
+*UIConstraint: *Option3 None *PageRegion Legal\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 Explaining these entries is beyond the scope of this documentation; however, it's important to note their forms in order to understand how they're represented in the NSPrinter tables.   \
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 NSPrinter Tables\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSPrinter defines five key-value tables to store PPD information. The tables are identified by the names given below:\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f2\b\fs28\li1900\fc0\cf0 Name	Contents\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 PPD	General information about a printer type. This table contains the values for all entries in a PPD file except those with the 
+\b *OrderDependency 
+\b0 and 
+\b *UIConstraint
+\b0  main keywords. The values in this table don't include the translation strings.\
+
+\fs14 \
+
+\fs28 PPDOptionTranslation	Option keyword translation strings.\
+
+\fs14 \
+
+\fs28 PPDArgumentTranslation	Value translation strings.\
+
+\fs14 \
+
+\fs28 PPDOrderDependency	
+\b *OrderDependency
+\b0  values.\
+
+\fs14 \
+
+\fs28 PPDUIConstraints	
+\b *UIConstraint
+\b0  values.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 There are two principle methods for retrieving data from the NSPrinter tables:\
+
+\fs14 \
+
+\pard\tx1800\tx3360\tx3740\fs28\fi-300\li1800\fc0\cf0 ·	
+\b stringForKey:inTable:
+\b0  returns the value for the first occurrence of a given key in the given table.\
+·	
+\b stringListForKey:inTable:
+\b0  returns an array of values, one for each occurrence of the key.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 For both methods, the first argument is an NSString that names a keyÐwhich part of a PPD file entry the key corresponds to depends on the table (as explained in the following sections). The second argument names the table that you want to search. The values that are returned by these methods, whether singular or in an array, are always NSStrings, even if the value wasn't a quoted string in the PPD file.\
+
+\fs14 \
+
+\fs28 The NSPrinter tables store data as ASCII text, thus the two methods described above are sufficient for retrieving any value from any table. NSPrinter provides a number of other methods, such as 
+\b booleanForKey:inTable:
+\b0  and 
+\b intForKey:inTable:
+\b0 , that retrieve single values and coerce them, if possible, into particular data types. The coercion doesn't affect the data that's stored in the table (it remains in ASCII format).\
+
+\fs14 \
+
+\fs28 To check the integrity of a table, use the 
+\b isKey:forTable:
+\b0  and 
+\b statusForTable:
+\b0  methods. The former returns a boolean that indicates whether the given key is valid for the given table; the latter returns an error code that describes the general state of a table (in particular, whether it actually exists). \
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Retrieving Values from the PPD Table\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Keys for the PPD table are strings that name a main keyword or main keyword/option keyword pairing (formatted as 
+\i ªmainKeyword/optionKeywordº
+\i0 ). In both cases, you exclude the main keyword asterisk. The following example creates an NSPrinter and invokes 
+\b stringForKey:inTable:
+\b0  to retrieve the value for an un-optioned main keyword:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 /* Create an NSPrinter object for a printer type. */\
+NSPrinter *prType = [NSPrinter printerWithType:@"My_Mimeo_Machine"]\
+\
+/* Sets sValue to FALSE. */\
+NSString *sValue = [prType stringForKey:@"3dDevice" inTable:@"PPD"];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 To retrieve the value for a main keyword/option keyword pair, pass the keywords formatted as 
+\i ªmainKeyword/optionKeywordº
+\i0 :\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 /* Sets sValue to "0.3". */\
+NSString *sValue = [prType stringForKey:@"PaperDensity/A4" inTable:@"PPD"];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b\fs28\li1500\fc0\cf0 stringForKey:inTable:
+\b0  can determine if a main keyword has options. If you pass a main keyword (only) as the first argument to the method, and if that keyword has options in the PPD file, the method returns an empty string. If it doesn't have options, it returns the value of the first occurrence of the main keyword:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 /* Sets sValue to an empty string. */\
+NSString *sValue = [prType stringForKey:@"PaperDensity" inTable:@"PPD"];\
+\
+/* Sets sValue to "ProcessBlack". */\
+NSString *sValue = [prType stringForKey:@"InkName" inTable:@"PPD"];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 To retrieve the values for all occurrences of a main keyword, use the 
+\b stringListForKey:inTable:
+\b0  method giving the main keyword only:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 /* Sets sList to an array containing "ProcessBlack","CustomColor", etc. */\
+NSArray *sList = [prType stringListForKey:@"InkName" inTable:@"PPD"];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 In addition, 
+\b stringListForKey:inTable:
+\b0  can be used to retrieve all the options for a main keyword (given that the main keyword has options):\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 /* Sets sList to an array containing "Letter", "Legal","A4", etc. */\
+NSArray *sList = [prType stringListForKey:@"PaperDensity" inTable:@"PPD"];\
+
+\fs40 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Retrieving Values from the Option and Argument Translation Tables\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 A key to a translation table is similiar to a key  to the PPD table: It's a main keyword or main/option keyword pair (again excluding the asterisk). However, the values that are returned from the translation tables are the translation strings for the option or argument (value) portions of the PPD file entry. For example:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 /* Sets sValue to "300 dpi". */\
+NSString *sValue = [prType stringForKey:@"Resolution/300dpi" \
+                                inTable:@"PPDOptionTranslation"];\
+\
+/* Sets sList to an array containing "Process Black", "Custom Color", etc. */\
+NSArray *sList = [prType stringListForKey:@"InkName"\
+                                  inTable:@"PPDArgumentTranslation"];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 As with the PPD table, use 
+\b stringListForKey:inTable:
+\b0  to request an array of all occurances of a main keyword.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Retrieving Values from the Order Dependency Table\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 As mentioned earlier, an order dependency entry takes this form:\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\fs28\li2320\fc0\cf0 *OrderDependency: 
+\i real section mainKeyword [optionKeyword] \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 These entries are stored in the PPDOrderDependency table. To retrieve a value from this table, always use 
+\b stringListForKey:inTable:
+\b0 . The value passed as the key is, again, a main keyword or main keyword/option keyword pair; however, these values correspond to the 
+\i mainKeyword
+\i0  and 
+\i optionKeyword
+\i0  parts of an order dependency entry's value. As with the other tables, the main keyword's asterisk is excluded. The method returns an NSArray of two NSStrings that correspond to the 
+\i real
+\i0  and 
+\i section
+\i0  values for the entry. For example:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 /* Sets sList to an array containing "10" and "AnySetup". */\
+NSArray *sList = [prType stringListForKey:@"Resolution"\
+                                  inTable:@"PPDOrderDependency"]\
+
+\fs40 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Retrieving Values from the UIConstraints Table\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Retrieving a value from the PPDUIConstraints table is similar to retrieving a value from the PPDOrderDependency table: always use 
+\b stringListForKey:inTable:
+\b0  and the key corresponds to elements in the entry's value. Given the following form (as described earlier), the key corresponds to 
+\i mainKeyword1/optionKeyword1
+\i0 :\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\fs28\li2320\fc0\cf0 *UIConstraint: 
+\i mainKeyword1
+\i0  [
+\i optionKeyword1
+\i0 ] 
+\i mainKeyword2
+\i0  [
+\i optionKeyword2
+\i0 ]\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The NSArray that's returned by 
+\b stringListForKey:inTable:
+\b0  contains the 
+\i mainKeyword2
+\i0  and 
+\i optionKeyword2
+\i0  values (with the keywords stored as separate elements in the NSArray) for every 
+\b *UIConstraints
+\b0  entry that has the given 
+\i mainKeyword1/optionKeyword1
+\i0  value. For example:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 /* Sets sList to an array containing:\
+   "PageSize", "Legal", "PageRegion", and "Legal" */\
+NSArray *sList = [prType stringListForKey:@"Option3/None" \
+                                  inTable:@"PPDUIConstraints"]\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 Note that the main keywords that are returned in the NSArray don't have asterisks. Also, the NSArray that's returned always alternates main and option keywords. If a particular main keyword doesn't have an option associated with it, the string for the option will be empty (but the entry in the NSArray for the option 
+\i will
+\i0  exist).\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Adopted Protocols \
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 NSCoding	
+\f1 -
+\f0  encodeWithCoder:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  initWithCoder:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 NSCopying	
+\f1 -
+\f0  copyWithZone:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types \
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0  Creating an NSPrinter	+ printerWithName:\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 + printerWithName:domain:includeUnavailable:\
++ printerWithType:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting general printer information	+ printerNames\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 + printerTypes\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting attributes	
+\f1 -
+\f0  domain\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  host\
+
+\f1 -
+\f0  name\
+
+\f1 -
+\f0  note\
+
+\f1 -
+\f0  type\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting specific information	
+\f1 -
+\f0  acceptsBinary\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  imageRectForPaper:\
+
+\f1 -
+\f0  pageSizeForPaper:\
+
+\f1 -
+\f0  isColor\
+
+\f1 -
+\f0  isFontAvailable:\
+
+\f1 -
+\f0  isOutputStackInReverseOrder\
+
+\f1 -
+\f0  languageLevel\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Querying the tables	
+\f1 -
+\f0  isKey:inTable:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  stringForKey:inTable:\
+
+\f1 -
+\f0  stringListForKey:inTable:\
+
+\f1 -
+\f0  booleanForKey:inTable:\
+
+\f1 -
+\f0  floatForKey:inTable:\
+
+\f1 -
+\f0  intForKey:inTable:\
+
+\f1 -
+\f0  rectForKey:inTable:\
+
+\f1 -
+\f0  sizeForKey:inTable:\
+
+\f1 -
+\f0  statusForTable:\
+
+\f1 -
+\f0  deviceDescription\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods \
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker12384 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-printerNames];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 printerNames\
+
+\fs6 \
+
+\f0\b0\fs28\fi-620\li2520 + (NSArray *)printerNames\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an array of recognized printer names.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\b\i0 +printerTypes, 
+\f1\b0 -
+\f0\b  name\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12508 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-printerTypes];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 printerTypes\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSArray *)
+\b printerTypes
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an array of recognized model names.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  +
+\b\i0 printerNames, 
+\f1\b0 -
+\f0\b  type\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12631 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-printerWithName:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 printerWithName:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSPrinter *)
+\b printerWithName:
+\b0 (NSString *)
+\i name
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an NSPrinter that represents an actual printer with the given 
+\i name
+\i0 . Returns 
+\b nil
+\b0  if the specified printer is not available.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 + printerWithType:, + printerNames, 
+\f1 -
+\f0 €name\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker12889 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-printerWithName:domain:includeUnavailable:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 printerWithName:domain:includeUnavailable:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSPrinter *)
+\b printerWithName:
+\b0 (NSString *)
+\i name 
+\b\i0 domain:
+\b0 (NSString *)
+\i domain 
+\b\i0 includeUnavailable:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 This method is for Mach platforms onlyÐit is not defined for other platforms. Returns an NSPrinter that represents an actual printer with the given 
+\i name
+\i0  and 
+\i domain
+\i0 .  If 
+\i domain
+\i0  is 
+\b nil
+\b0 , the first printer (matching 
+\i name
+\i0 ) found on any host or domain is used.  Returns 
+\b nil
+\b0  if the specified printer is not available and
+\b  
+\b0  
+\i flag
+\i0  is NO.  If 
+\i flag
+\i0  is YES, the availability of the printer is ignored.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\fs28 + printerWithName:, + printerWithType:
+\b0 , + 
+\b printerNames, 
+\f1\b0 -
+\f0\b  domain, 
+\f1\b0 -
+\f0\b  name\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker13514 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-printerWithType:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 printerWithType:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSPrinter *)
+\b printerWithType:
+\b0 (NSString *)
+\i type
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an NSPrinter with the given printer 
+\i type
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\fs28 + printerWithName:,
+\b0\i  
+\i0  + 
+\b printerTypes, 
+\f1\b0 -
+\f0\b €type\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker13708 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-acceptsBinary];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 acceptsBinary\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0  (BOOL)
+\b acceptsBinary
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the receiver accepts binary PostScript, otherwise NO.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker13819 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-booleanForKey:inTable:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 booleanForKey:inTable:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b booleanForKey:
+\b0 (NSString *)
+\i key 
+\b\i0 inTable:
+\b0 (NSString *)
+\i table
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a boolean value associated with 
+\i key
+\i0  in 
+\i table
+\i0 . Will also return NO if 
+\i key
+\i0  is not in 
+\i table
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b  isKey:inTable:
+\b0\i ,
+\b  
+\f1\b0\i0 -
+\f0\b  stringForKey:inTable:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker14063 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-copyWithZone:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 copyWithZone:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 @protocol NSCopying\
+
+\f1 -
+\f0 €(id)
+\b copyWithZone:
+\b0 (NSZone€*)
+\i zone\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Doesn't return a copy of the receiver. Returns the receiver with its reference count incremented (sends 
+\b retain
+\b0  to the receiver).\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker14265 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-deviceDescription];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 deviceDescription\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSDictionary *)
+\b deviceDescription
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a dictionary of keys and values describing the device. See NSGraphics.h for possible keys.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker14426 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-domain];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 domain\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b domain
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 This method is for Mach platforms onlyÐit is not defined for other platforms. Returns the name of the domain in which the receiver's printer resides. Returns 
+\b nil
+\b0  if the receiver doesn't represent an actual printer.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 + printerWithName:domain:includeUnavailable:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker14731 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-floatForKey:inTable:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 floatForKey:inTable:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (float)
+\b floatForKey:
+\b0 (NSString *)
+\i key 
+\b\i0 inTable:
+\b0 (NSString *)
+\i table
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a floating-point value associated with 
+\i key
+\i0  in 
+\i table
+\i0 . Returns 0.0 if 
+\i key
+\i0  is not in 
+\i table
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b  isKey:inTable:
+\b0\i ,
+\b  
+\f1\b0\i0 -
+\f0  
+\b stringForKey:inTable:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker14971 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-host];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 host\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b host
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the name of the receiver's host computer.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker15051 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-imageRectForPaper:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageRectForPaper:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSRect)
+\b imageRectForPaper:
+\b0 (NSString *)
+\i paperName
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the printing rectangle for the paper 
+\i paperName
+\i0 . Possible values for 
+\i paperName
+\i0  are contained in the printer's PPD file. Typical values are Letter and Legal.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b pageSizeForPaper:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker15321 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-intForKey:inTable:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 intForKey:inTable:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (int)
+\b intForKey:
+\b0 (NSString *)
+\i key 
+\b\i0 inTable:
+\b0 (NSString *)
+\i table
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an integer value associated with 
+\i key
+\i0  in 
+\i table
+\i0 . Returns 0 if 
+\i key
+\i0  is not in 
+\i table
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b  isKey:inTable:
+\b0\i ,
+\b  
+\f1\b0\i0 -
+\f0  
+\b stringForKey:inTable:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker15547 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-isColor];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isColor\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isColor
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the receiver can print color, otherwise NO.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker15636 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-isFontAvailable:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isFontAvailable:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isFontAvailable:
+\b0 (NSString *)
+\i faceName
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if font 
+\i faceName
+\i0  is available to the receiver, otherwise NO.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker15777 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-isKey:inTable:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isKey:inTable:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isKey:
+\b0 (NSString *)
+\i key 
+\b\i0 inTable:
+\b0 (NSString *)
+\i table
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if  
+\i key
+\i0  is in 
+\i table
+\i0 , otherwise NO.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker15901 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-isOutputStackInReverseOrder];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isOutputStackInReverseOrder\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isOutputStackInReverseOrder
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if  the receiver outputs pages in reverse page order, otherwise NO.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker16051 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-languageLevel];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 languageLevel\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (int)
+\b languageLevel
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the PostScript Language Level recognized by the receiver.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker16158 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-name];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 name\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b name
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the receiver's name.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28 + 
+\b\i0 printerNames, + printerWithName:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker16263 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-note];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 note\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b note
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the note associated with the receiver.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker16340 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-pageSizeForPaper:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 pageSizeForPaper:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSSize)
+\b pageSizeForPaper:
+\b0 (NSString *)
+\i paperName
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the size of the page for the  paper type 
+\i paperName
+\i0 . Possible values for 
+\i paperName
+\i0  are contained in the printer's PPD file. Typical values are Letter and Legal.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0  imageRectForPaper:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker16614 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-rectForKey:inTable:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 rectForKey:inTable:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSRect)
+\b rectForKey:
+\b0 (NSString *)
+\i key 
+\b\i0 inTable:
+\b0 (NSString *)
+\i table
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the rectangle associated with 
+\i key
+\i0  in 
+\i table
+\i0 . Returns NSZeroRect if 
+\i key
+\i0  is not in 
+\i table
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b  isKey:inTable:
+\b0\i ,
+\b  
+\f1\b0\i0 -
+\f0  
+\b stringForKey:inTable:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker16851 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-sizeForKey:inTable:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 sizeForKey:inTable:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSSize)
+\b sizeForKey:
+\b0 (NSString *)
+\i key 
+\b\i0 inTable:
+\b0 (NSString *)
+\i table
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the size associated with 
+\i key
+\i0  in 
+\i table
+\i0 . The returned width and height is  0.0 if 
+\i key
+\i0  is not in 
+\i table
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b  isKey:inTable:
+\b0\i ,
+\b  
+\f1\b0\i0 -
+\f0  
+\b stringForKey:inTable:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker17102 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-statusForTable:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 statusForTable:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSPrinterTableStatus)
+\b statusForTable:
+\b0 (NSString *)
+\i table
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the status of 
+\i table
+\i0 :\
+
+\fs14 \
+
+\pard\tx6740\tx9520\fs28\fi-4840\li6740\fc0\cf0 NSPrinterTableOK\
+
+\fs14 \
+
+\fs28 NSPrinterTableNotFound\
+
+\fs14 \
+
+\fs28 NSPrinterTableError\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker17273 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-stringForKey:inTable:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 stringForKey:inTable:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b stringForKey:
+\b0 (NSString *)
+\i key 
+\b\i0 inTable:
+\b0 (NSString *)
+\i table
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the first occurence of a value associated with 
+\i key
+\i0  in 
+\i table
+\i0 . If 
+\i key
+\i0  is a main keyword only, and if that keyword has options in the PPD file, this method returns an empty string. Use 
+\b stringListForKey:inTable:
+\b0  to retrieve the values for all occurrences of a main keyword. Returns 
+\b nil
+\b0  if 
+\i key
+\i0  is not in 
+\i table
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b  isKey:inTable:
+\b0 ,
+\b  
+\f1\b0 -
+\f0  
+\b booleanForKey:inTable:
+\b0 , 
+\f1 -
+\f0  
+\b floatForKey:inTable:
+\b0 , 
+\f1 -
+\f0  
+\b intForKey:inTable:
+\b0 , 
+\f1 -
+\f0 €
+\b rectForKey:inTable:
+\b0 , 
+\f1 -
+\f0  
+\b sizeForKey:in:Table:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker17831 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-stringListForKey:inTable:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 stringListForKey:inTable:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSArray *)
+\b stringListForKey:
+\b0 (NSString *)
+\i key 
+\b\i0 inTable:
+\b0 (NSString *)
+\i table
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an array of strings, one for each occurrence, associated with 
+\i key
+\i0  in 
+\i table
+\i0 . Returns 
+\b nil
+\b0  if 
+\i key
+\i0  is not in 
+\i table
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b  isKey:inTable:
+\b0 ,
+\b  
+\f1\b0 -
+\f0  
+\b  stringForKey:inTable:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker18109 \markername NS_DEV_DOCFOR:objc_method:[NSPrinter-type];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 type\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b type
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the name of the receiver's type.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  + 
+\b printerTypes\
+
+\fs14 \
+
+}

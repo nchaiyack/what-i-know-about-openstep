@@ -1,0 +1,1694 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f5\fnil NeXTdoc;\f3\fswiss Helvetica;\f4\fmodern Courier;\f2\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1997 by Apple Computer, Inc.  All Rights Reserved.\
+\
+
+\pard\tx820\tx1460\f5\fs72\fi-1260\li1460\fc0\cf0 p	c 
+{\f3\b\fs56{\NeXTHelpMarker67 \markername NS_DEV_DOCFOR:objc_class:NSAttributedString;}
+¬}\pard\tx820\tx1460\f3\b\i0\ulnone\fs56\fi-1260\li1460\fc0\cf0 NSAttributedString Class Cluster Additions\
+
+\fs70 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li200\fc0\cf0 Class Cluster Description\
+
+\fs14 \
+
+\f0\b0\fs28\li1500 NSAttributedString
+\i  
+\i0 objects manage character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an 
+\i attributed string
+\i0 . The cluster's two public classes, NSAttributedString and NSMutableAttributedString, declare the programmatic interface for read-only attributed strings and modifiable attributed strings, respectively. The Foundation Kit defines the basic functionality for attributed strings, while the remainder is defined here in the Application Kit. The Application Kit also uses a subclass of NSMutableAttributedString, called NSTextStorage, to provide the storage for NeXT's extended text-handling system.\
+
+\fs14 \
+
+\pard\tx2300\f3\b\fs24\fi-800\li2300\fc0\cf0 Note:	
+\f0\b0\fs28 NSAttributedString is 
+\i not
+\i0  a subclass of NSString. It contains a string object to which it applies attributes. This protects users of attributed strings from ambiguities caused by the semantic differences between simple and attributed string. For example, equality can't be simply defined between an NSString and an attributed string.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Because of the nature of class clusters, attributed string objects are not actual instances of the NSAttributedString or NSMutableAttributedString classes, but are instances of one of their private concrete subclasses. Although an attributed string object's class is private, its interface is public, as declared by these abstract superclasses, NSAttributedString and NSMutableAttributedString. The attributed string classes adopt the NSCopying and NSMutableCopying protocols, making it convenient to convert an attributed string from one type to the other.\
+
+\fs14 \
+
+\fs28 You create an NSAttributedString object from scratch by using one of 
+\b initWithString:
+\b0 , 
+\b initWithString:attributes:
+\b0 , or 
+\b initWithAttributedString:
+\b0 . These methods initialize an attributed string with data you provide. You can also create an attributed string from RTF data using 
+\b initWithRTF:documentAttributes:
+\b0 , 
+\b initWithRTFD:documentAttributes:
+\b0 , 
+\b initWithRTFDFileWrapper:documentAttributes:
+\b0 , or 
+\b initWithPath:documentAttributes:
+\b0 . See ªRTF Document Attributesº for more details on reading RTF.\
+
+\fs14 \
+
+\fs28 An attributed string provides basic access to its contents with the 
+\b string
+\b0  and 
+\b attributesAtIndex:effectiveRange:
+\b0  methods, which yield characters and attributes, respectively. These two primitive methods are used by the other access methods to retrieve attributes individually by name, by functional group (font or ruler attributes, for example), and so on.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f3\b\fs28\li1500\fc0\cf0 Feature Overview\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSAttributedString and NSMutableAttributedString add a number of features to the basic content storage of NSString:\
+
+\fs14 \
+
+\pard\tx1800\tx3360\tx3740\fs28\fi-300\li1800\fc0\cf0 ·	Association of arbitrary, programmer-defined attributes with ranges of characters\
+·	Preservation of attribute-to-character mapping after changes (NSMutableAttributedString)\
+·	Support for RTF, including file attachments and graphics\
+·	Drawing in NSView objects (note that the Application Kit adds drawing methods to NSString as well)\
+·	Linguistic unit (word) and line calculation\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 An attributed string identifies attributes by name, storing their values as opaque 
+\b id
+\b0 s in an NSDictionary. For example, the text font is stored as an NSFont object under the name given by NSFontAttributeName. You can associate any object value, by any name, with a given range of characters in the attributed string. The basic attributes defined by NSAttributedString are described below under ªAccessing Attributes.º\
+
+\fs14 \
+
+\fs28 A mutable attributed string keeps track of the attribute mapping as characters are added to and deleted from it and as attributes are changed. It allows you to group batches of edits with the 
+\b beginEditing
+\b0  and 
+\b endEditing
+\b0  methods, and to consolidate changes to the attribute-to-character mapping with the 
+\b fix...
+\b0  methods. See ªChanging a Mutable Attributed Stringº below for more information.\
+
+\fs14 \
+
+\fs28 An attributed string can be created from rich text (RTF) or rich text with attachments (RTFD), and can write its contents as RTF or RTFD data. Three initialization methods, 
+\b initWithRTF:documentAttributes:
+\b0 , 
+\b initWithRTFD:documentAttributes:
+\b0 , and 
+\b initWithRTFDFileWrapper:documentAttributes:
+\b0 , interpret rich text data. The methods for writing rich text are 
+\b RTFFromRange:documentAttributes:
+\b0  and 
+\b RTFDFromRange:documentAttributes:
+\b0 , which return rich text data for any legal range within the attributed string, and 
+\b RTFDFileWrapperFromRange:documentAttributes:
+\b0 , which returns the attributed string as an NSFileWrapper. NSAttributedString provides limited support for some document-level attributes, as described below under ªRTF Document Attributes.º Additional support for rich text is provided by other text-handling classes such as NSTextView. \
+
+\fs14 \
+
+\fs28 You can draw an attributed string in a focused NSView by invoking either the 
+\b drawAtPoint:
+\b0  or 
+\b drawInRect:
+\b0  method. Note that the Application Kit defines drawing methods for NSString as well, allowing any string object to draw itself. These methods, 
+\b drawAtPoint:withAttributes:
+\b0  and 
+\b drawInRect:withAttributes:
+\b0 , are described in the NSString Additions class specification.\
+
+\fs14 \
+
+\fs28 An attributed string supports the typical behavior of editors in selecting a word on a double-click with the 
+\b doubleClickAtIndex:
+\b0  method, and finds word breaks with 
+\b nextWordFromIndex:forward:
+\b0 . It also calculates line breaks with the 
+\b lineBreakBeforeIndex:withinRange:
+\b0  method.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f3\b\fs28\li1500\fc0\cf0 Accessing Attributes\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 An attributed string identifies attributes by name, storing an 
+\b id
+\b0  value under the attribute name in an NSDictionary, which is in turn associated with an NSRange that indicates the characters to which the dictionary's attributes apply. You can assign any attribute name/value pair you wish to a range of characters, in addition to these standard attributes:\
+
+\fs14 \
+
+\pard\tx6500\tx9520\f3\b\fs28\li1900\fc0\cf0 Attribute Identifier	Value Class	Default Value\
+
+\fs6 \
+
+\f0\b0\fs28 NSFontAttributeName	NSFont	Helvetica 12-point\
+NSForegroundColorAttributeName	NSColor	black\
+NSBackgroundColorAttributeName	NSColor	none (no background drawn)\
+NSUnderlineStyleAttributeName	NSNumber, as an 
+\b int
+\b0 	none (no underline)\
+NSSuperscriptAttributeName	NSNumber, as an 
+\b int
+\b0 	0\
+NSBaselineOffsetAttributeName	NSNumber, as a 
+\b float
+\b0 	0.0\
+NSKernAttributeName	NSNumber, as a 
+\b float
+\b0 	0.0\
+NSLigatureAttributeName	NSNumber, as an 
+\b int
+\b0 	1 (standard ligatures)\
+NSParagraphStyleAttributeName	NSParagraphStyle	(as returned by NSParagraphStyle's\
+		
+\b defaultParagraphStyle
+\b0  method)\
+NSAttachmentAttributeName	NSTextAttachment	none (no attachment)\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The identifiers listed are actually global NSString variables containing the attribute names. The value class is what users of an attributed string should expect the attribute values to be presented as. The default values are what they should assume if no attribute value has been explicitly set for the requested character range.\
+
+\fs14 \
+
+\fs28 The natures of several attributes aren't obvious from name alone:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	The underline attribute has only one value defined, NSSingleUnderlineStyle. All characters with this attribute value should be drawn with a single line just below the baseline.\
+
+\fs14 \
+
+\fs28 ·	The superscript attribute indicates an abstract level for both super- and subscripts. The user of the attributed string can interpret this as desired, adjusting the baseline by the same or a different amount for each level, changing the font size, or both.\
+
+\fs14 \
+
+\fs28 ·	The baseline offset attribute is a literal distance by which the characters should be shifted above the baseline (for positive offsets) or below (for negative offsets).\
+
+\fs14 \
+
+\fs28 ·	The kerning attribute indicates how much the following character should be shifted from its default offset as defined by the current character's font; a positive kern indicates a shift farther along and a negative kern indicates a shift closer to the current character.\
+
+\fs14 \
+
+\fs28 ·	The ligature attribute determines what kinds of ligatures should be used when displaying the string. A value of 0 indicates that only ligatures essential for proper rendering of text should be used, 1 indicates that standard ligatures should be used, and 2 indicates that all available ligatures should be used. Which ligatures are standard depends on the script and possibly the font. Arabic text, for example, requires ligatures for many character sequences, but has a rich set of additional ligatures that combine characters. English text has no essential ligatures, and typically has only two standard ligatures, those for ªfiº and ªflºÐall others being considered more advanced or fancy.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 With an immutable attributed string, you assign all attributes on creating the string using methods such as 
+\b initWithRTF:documentAttributes:
+\b0 , which interprets attributes from the RTF data, 
+\b initWithString:attributes:
+\b0 , which explicitly takes an NSDictionary of name/value pairs, or 
+\b initWithString:
+\b0 , which assigns no attributes. See ªChanging a Mutable Attributed Stringº below for information on assigning attributes with a mutable attributed string.\
+
+\fs14 \
+
+\fs28 To retrieve attribute values from either type of attributed string, use any of these methods:\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\f1\fs28\li2320\fc0\cf0 -
+\f0 €attributesAtIndex:effectiveRange:\
+
+\f1 -
+\f0 €attributesAtIndex:longestEffectiveRange:inRange:\
+
+\f1 -
+\f0 €attribute:atIndex:effectiveRange:\
+
+\f1 -
+\f0 €attribute:atIndex:longestEffectiveRange:inRange:\
+
+\f1 -
+\f0 €fontAttributesInRange:\
+
+\f1 -
+\f0 €rulerAttributesInRange:\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The first two methods return all attributes at a given index, the 
+\b attribute:...
+\b0  methods return the value of a single named attribute, and 
+\b fontAttributesInRange:
+\b0  and 
+\b rulerAttributesInRange:
+\b0  return attributes defined to apply only to characters or to whole paragraphs, respectively (see the individual method descriptions for more information).\
+
+\fs14 \
+
+\fs28 The first four methods also return by reference the 
+\i effective range
+\i0  and the 
+\i longest effective range
+\i0  of the attributes. These ranges allow you to determine the extent of attributes. Conceptually, each character in an attributed string has its own collection of attributes; however, it's often useful to know when the attributes and values are the same over a series of characters. This allows a routine to progress through an attributed string in chunks larger than a single character. In retrieving the effective range, an attributed string simply looks up information in its attribute mapping, essentially the dictionary of attributes that apply at the index requested. In retrieving the longest effective range, the attributed string continues checking characters past this basic range as long as the attribute values are the same. This extra comparison increases the execution time for these methods but guarantees a precise maximal range for the attributes requested.The code fragment below progresses through an attributed string in chunks based on the effective range. The fictitious 
+\b analyzer
+\b0  object here counts the number of characters in each font. The 
+\b while
+\b0  loop progresses as long as the effective range retrieved doesn't include the end of the attributed string, retrieving the font in effect just past the latest retrieved range. For each font attribute retrieved, 
+\b analyzer
+\b0  is asked to tally the number of characters in the effective range. In this example, it's possible that consecutive invocations of 
+\b attribute:atIndex:effectiveRange:
+\b0  will return the same value.\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 NSAttributedString *attrStr;\
+unsigned int length;\
+NSRange effectiveRange;\
+id attributeValue;\
+\
+length = [attrStr length];\
+effectiveRange = NSMakeRange(0, 0);\
+\
+while (NSMaxRange(effectiveRange) < length) \{\
+    attributeValue = [attrStr attribute:NSFontAttributeName\
+        atIndex:NSMaxRange(effectiveRange) effectiveRange:&effectiveRange];\
+    [analyzer tallyCharacterRange:effectiveRange font:attributeValue];\
+\}\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 In contrast, the next code fragment progresses through the attributed string according to the maximum effective range for each font. In this case, 
+\b analyzer
+\b0  counts font 
+\i changes
+\i0 , which may not be represented by merely retrieving effective ranges. In this case the 
+\b while
+\b0  loop is predicated on the length of the limiting range, which begins as the entire length of the attributed string and is whittled down as the loop progresses. After 
+\b analyzer
+\b0  records the font change, the limit range is adjusted to account for the longest effective range retrieved.\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 NSAttributedString *attrStr;\
+NSRange limitRange;\
+NSRange effectiveRange;\
+id attributeValue;\
+\
+limitRange = NSMakeRange(0, [attrStr length]);\
+\
+while (limitRange.length > 0) \{\
+    attributeValue = [attrStr attribute:NSFontAttributeName\
+        atIndex:limitRange.location longestEffectiveRange:&effectiveRange\
+        inRange:limitRange];\
+    [analyzer recordFontChange:attributeValue];\
+    limitRange = NSMakeRange(NSMaxRange(effectiveRange),\
+        NSMaxRange(limitRange) - NSMaxRange(effectiveRange));\
+\}\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 Note that the second code fragment is more complex. Because of this, and because 
+\b attribute:atIndex:longestEffectiveRange:inRange:
+\b0  is somewhat slower than 
+\b attribute:atIndex:effectiveRange:
+\b0 , you should typically use it only when absolutely necessary for the work you're performing. In most cases working by effective range is enough.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f3\b\fs28\li1500\fc0\cf0 Changing a Mutable Attributed String\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSMutableAttributedString declares a number of methods for changing both characters and attributes, such as the primitive 
+\b replaceCharactersInRange:withString:
+\b0  and 
+\b setAttributes:range:
+\b0 , or the more convenient methods 
+\b addAttribute:value:range:
+\b0 , 
+\b applyFontTraits:range:
+\b0 , 
+\b setAlignment:range:
+\b0 , and so on. All of the methods for changing a mutable attributed string properly update the mapping between characters and attributes, but after a change some inconsistencies can develop. Here are some examples of attribute consistency requirements:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	Paragraph styles must apply to entire paragraphs.\
+
+\fs14 \
+
+\fs28 ·	Scripts may only be assigned fonts that support them. For example, Kanji and Arabic characters can't be assigned the Times-Roman font, and must be reassigned fonts that support these scripts.\
+
+\fs14 \
+
+\fs28 ·	Deleting attachment characters from the string requires the corresponding attachment objects to be released. Similarly, removing attachment objects requires the corresponding attachment characters to be removed from the string.\
+
+\fs14 \
+
+\fs28 ·	A code editing application that displays all language keywords in boldface can automatically assign this attriute as the user changes the font or edits the text.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 NSMutableAttributedString defines methods to fix these inconsistencies as changes are made. This allows the attributes to be cleaned up at a low level, hiding potential problems from higher levels and providing for very clean update of display as attributes change. There are six methods for fixing attributes:\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\f1\fs28\li2320\fc0\cf0 -
+\f0 €fixAttributesInRange:\
+
+\f1 -
+\f0 €fixAttachmentAttributeInRange:\
+
+\f1 -
+\f0 €fixFontAttributeInRange:\
+
+\f1 -
+\f0 €fixParagraphStyleAttributeInRange:\
+
+\f1 -
+\f0 €beginEditing\
+
+\f1 -
+\f0 €endEditing\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The first method, 
+\b fixAttributesInRange:
+\b0 , invokes the other three 
+\b fix...
+\b0  methods to clean up deleted attachment references, font attributes, and paragraph attributes, respectively. The individual method descriptions explain what cleanup entails for each case.\
+
+\fs14 \
+
+\fs28 The 
+\b beginEditing
+\b0  and 
+\b endEditing
+\b0  methods are provided for subclasses of NSMutableAttributedString to override. Their default implementations do nothing. These methods allow instances of a subclass to record or buffer groups of changes and clean themselves up on receiving an 
+\b endEditing
+\b0  message. 
+\b endEditing
+\b0  also allows the receiver to notify any observers that it has been changed. NSTextStorage's implementation of 
+\b endEditing
+\b0 , for example, fixes changed attributes and then notifies its NSLayoutManagers that they need to re-lay and redisplay their text.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f3\b\fs28\li1500\fc0\cf0 RTF Document Attributes\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Attributed strings keep attribute information for their text only, while RTF allows for more general attributes of a document, especially regarding paper size and layout. To support higher-level objects that use attributed strings, the methods that work with RTF also read and write some RTF directives for document attributes, stored in an NSDictionary under these keys:\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f3\b\fs28\li1900\fc0\cf0 Attribute Key	Value Class\
+
+\fs6 \
+
+\pard\tx5480\tx9520\f0\b0\fs28\li1900\fc0\cf0 PaperSize	NSValue, as an NSSize\
+LeftMargin	NSNumber, as a 
+\b float\
+
+\b0 RightMargin	NSNumber, as a 
+\b float\
+
+\b0 TopMargin	NSNumber, as a 
+\b float\
+
+\b0 BottomMargin	NSNumber, as a 
+\b float\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 The 
+\b init
+\b0  methods, such as 
+\b initWithRTF:documentAttributes:
+\b0 , return by reference a dictionary containing the attributes read from the RTF data, which your application can then use to set up its page layout. Similarly, RTF extraction methods such as 
+\b RTFFromRange:documentAttributes:
+\b0 , accept a dictionary containing those attributes and writes them into the RTF data, thus preserving the page layout information.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f3\b\fs28\li1500\fc0\cf0 Attachments\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Attachments, such as embedded images or files, are represented in an attributed string by both a special character and an attribute. The character is identified by the global name NSAttachmentCharacter, and indicates the presence of an attachment at its location in the string. The attribute, identified in the string by the attribute name NSAttachmentAttributeName, is an NSTextAttachment object. An NSTextAttachment contains the data for the attachment itself, as well as an image to display when the string is drawn. You can use NSAttributedString's 
+\b attributedStringWithAttachment:
+\b0  class method to construct an attachment string, which you can then add to a mutable attributed string using 
+\b appendAttributedString:
+\b0  or 
+\b insertAttributedString:atIndex:
+\b0 .\
+
+\fs14 \
+
+\pard\tx820\tx1460\f5\fs72\fi-1280\li1460\fc0\cf0 \
+\
+p	i 
+\f3\b\fs52 NSAttributedString Additions\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject\
+
+\fs20 \
+
+\f3\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 AppKit/NSAttributedString.h\
+
+\fi0 AppKit/NSStringDrawing.h\
+AppKit/NSTextAttachment.h\
+
+\fs20 \
+\
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Class Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 The Application Kit extends the Foundation Kit's NSAttributedString class by adding:\
+
+\fs14 \
+
+\pard\tx1800\tx3360\tx3740\fs28\fi-300\li1800\fc0\cf0 ·	Support for RTF, with or without attachments\
+·	Graphic attributes, including font and ruler attributes\
+·	Methods for drawing attributed strings\
+·	Methods for calculating significant linguistic units\
+
+\fs70 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Creating an NSAttributedString	
+\f1 -
+\f0 €initWithRTF:documentAttributes:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €initWithRTFD:documentAttributes:\
+
+\f1 -
+\f0 €initWithRTFDFileWrapper:documentAttributes:\
+
+\f1 -
+\f0 €initWithPath:documentAttributes:\
++€attributedStringWithAttachment:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Retrieving attribute information	
+\f1 -
+\f0 €fontAttributesInRange:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €rulerAttributesInRange:\
+
+\f1 -
+\f0 €containsAttachments\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Calculating linguistic units	
+\f1 -
+\f0 €doubleClickAtIndex:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €lineBreakBeforeIndex:withinRange:\
+
+\f1 -
+\f0 €nextWordFromIndex:forward:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Drawing the string	
+\f1 -
+\f0 €drawAtPoint:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €drawInRect:\
+
+\f1 -
+\f0 €size\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Generating RTF data	
+\f1 -
+\f0 €RTFFromRange:documentAttributes:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €RTFDFileWrapperFromRange:documentAttributes:\
+
+\f1 -
+\f0 €RTFDFromRange:documentAttributes:\
+
+\fs70 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods\
+
+\fs14 \
+
+\pard\tx1500\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker18392 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-attributedStringWithAttachment:];}
+¬}\pard\tx1500\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 attributedStringWithAttachment:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSAttributedString€*)
+\b attributedStringWithAttachment:
+\b0 (NSTextAttachment€*)
+\i attachment\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns an NSAttributedString object containing only the attachment marker character (NSAttachmentCharacter), which is assigned an attribute whose name is NSTextAttachmentName and whose value is 
+\i attachment
+\i0 . Use this method, along with 
+\b appendAttributedString:
+\b0  or 
+\b insertAttributedString:atIndex:
+\b0 , to add an attachment to an attributed string.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+\pard\tx1500\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker18876 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-containsAttachments];}
+¬}\pard\tx1500\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 containsAttachments\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b containsAttachments\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns YES if the receiver contains any attachment attributes, NO otherwise. This method checks only for attachment attributes, not for NSAttachmentCharacter.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker19091 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-doubleClickAtIndex:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 doubleClickAtIndex:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSRange)
+\b doubleClickAtIndex:
+\b0 (unsigned€int)
+\i index\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the range of characters that form a word (or other linguistic unit) surrounding 
+\i index
+\i0 , taking language characteristics into account. Raises an NSRangeException if 
+\i index
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b nextWordFromIndex:forward:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker19435 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-drawAtPoint:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 drawAtPoint:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b drawAtPoint:
+\b0 (NSPoint)
+\i point\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Draws the receiver with its font and other display attributes at 
+\i point
+\i0  in the currently focused NSView. Text is drawn in such a way that the upper left corner of its bounding box lies at 
+\i point
+\i0 , regardless of the line sweep direction or whether the NSView is flipped.\
+
+\fs14 \
+
+\fs28 Don't invoke this method while no NSView is focused.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b lockFocus
+\b0 €(NSView), 
+\f1 -
+\f0 €
+\b size
+\b0 , 
+\f1 -
+\f0 €
+\b drawInRect:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker19866 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-drawInRect:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 drawInRect:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b drawInRect:
+\b0 (NSRect)
+\i rect\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Draws the receiver with its font and other display attributes within 
+\i rect
+\i0  in the currently focused NSView, clipping the drawing to this rectangle. Text is drawn within 
+\i rect
+\i0  according to its line sweep direction; for example, Arabic text will begin at the right edge and potentially be clipped on the left.\
+
+\fs14 \
+
+\fs28 Don't invoke this method while no NSView is focused.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b lockFocus
+\b0 €(NSView), 
+\f1 -
+\f0 €
+\b drawAtPoint:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker20325 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-fontAttributesInRange:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 fontAttributesInRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSDictionary€*)
+\b fontAttributesInRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the font attributes in effect for the character at 
+\i aRange.location
+\i0 . Font attributes are all those listed under ªAccessing Attributesº in the class cluster description except NSParagraphStyleAttributeName and NSAttachmentAttributeName. Use this method to obtain font attributes that are to be copied or pasted with ªcopy fontº operations. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b rulerAttributesInRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker20893 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-attributedStringFromRTF:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 initWithPath:documentAttributes:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithPath:
+\b0 (NSString€*)
+\i path
+\i0  
+\b documentAttributes:
+\b0 (NSDictionary€**)
+\i docAttributes\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes a new NSAttributedString from RTF or RTFD data contained in the file at 
+\i path
+\i0 . Also returns by reference in 
+\i docAttributes
+\i0  a dictionary containing document-level attributes, as listed in the class cluster description under ªRTF Document Attributes.º 
+\i docAttributes
+\i0  may be NULL, in which case no document attributes are returned. Returns 
+\b self
+\b0 , or 
+\b nil
+\b0  if the file at 
+\i path
+\i0  can't be decoded.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker21416 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-attributedStringFromRTF:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 initWithRTF:documentAttributes:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithRTF:
+\b0 (NSData€*)
+\i rtfData
+\i0  
+\b documentAttributes:
+\b0 (NSDictionary€**)
+\i docAttributes\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes a new NSAttributedString by decoding the stream of RTF commands and data contained in 
+\i rtfData
+\i0 . Also returns by reference in 
+\i docAttributes
+\i0  a dictionary containing document-level attributes, as listed in the class cluster description under ªRTF Document Attributes.º 
+\i docAttributes
+\i0  may be NULL, in which case no document attributes are returned. Returns 
+\b self
+\b0 , or 
+\b nil
+\b0  if 
+\i rtfData
+\i0  can't be decoded.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker21946 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-attributedStringFromRTFD:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 initWithRTFD:documentAttributes:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithRTFD:
+\b0 (NSData€*)
+\i rtfdData
+\i0  
+\b documentAttributes:
+\b0 (NSDictionary€**)
+\i docAttributes\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes a new NSAttributedString by decoding the stream of RTFD commands and data contained in 
+\i rtfdData
+\i0 . Also returns by reference in 
+\i docAttributes
+\i0  a dictionary containing document-level attributes, as listed in the class cluster description under ªRTF Document Attributes.º 
+\i docAttributes
+\i0  may be NULL, in which case no document attributes are returned. Returns 
+\b self
+\b0 , or 
+\b nil
+\b0  if 
+\i rtfData
+\i0  can't be decoded.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker22481 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-attributedStringFromRTFDFile:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 initWithRTFDFileWrapper:documentAttributes:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithRTFDFileWrapper:
+\b0 (NSFileWrapper€*)
+\i wrapper
+\i0  
+\b documentAttributes:
+\b0 (NSDictionary€**)
+\i docAttributes\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes a new NSAttributedString from 
+\i wrapper
+\i0  an NSFileWrapper object containing an RTFD document. Also returns by reference in 
+\i docAttributes
+\i0  a dictionary containing document-level attributes, as listed in the class cluster description under ªRTF Document Attributes.º 
+\i docAttributes
+\i0  may be NULL, in which case no document attributes are returned. Returns 
+\b self
+\b0 , or 
+\b nil
+\b0  if 
+\i wrapper
+\i0  can't be interpreted as an RTFD document.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker23062 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-lineBreakBeforeIndex:withinRange:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 lineBreakBeforeIndex:withinRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(unsigned€int)
+\b lineBreakBeforeIndex:
+\b0 (unsigned€int)
+\i index 
+\b\i0 withinRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the index of the closest character before 
+\i index
+\i0  and within 
+\i aRange
+\i0  that can be placed on a new line when laying out text. In other words, finds the appropriate line break when the character at 
+\i index
+\i0  won't fit on the same line as the character at the beginning of 
+\i aRange
+\i0 . Returns NSNotFound if no line break is possible before 
+\i index
+\i0 .\
+
+\fs14 \
+
+\fs28 Raises an NSRangeException if 
+\i index
+\i0  or any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b nextWordFromIndex:forward:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker23677 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-nextWordFromIndex:forward:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 nextWordFromIndex:forward:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(unsigned€int)
+\b nextWordFromIndex:
+\b0 (unsigned€int)
+\i index 
+\b\i0 forward:
+\b0 (BOOL)
+\i flag\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the index of the first character of the word after or before 
+\i index
+\i0 . If 
+\i flag
+\i0  is YES, this is the first character after 
+\i index
+\i0  that begins a word; if 
+\i flag
+\i0  is NO, it's the first character before 
+\i index
+\i0  that begins a word, whether 
+\i index
+\i0  is located within a word or not. If 
+\i index
+\i0  lies at either end of the string and the search direction would progress past that end, it's returned unchanged. This method is intended for moving the insertion point during editing, not for linguistic analysis or parsing of text.\
+
+\fs14 \
+
+\fs28 Raises an NSRangeException if 
+\i index
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b lineBreakBeforeIndex:withinRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker24431 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-writeRTFDToFile:atomically:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 RTFDFileWrapperFromRange:documentAttributes:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSFileWrapper€*)
+\b RTFDFileWrapperFromRagne:
+\b0 (NSRange)
+\i aRange
+\i0  
+\b documentAttributes:
+\b0 (NSDictionary€*)
+\i docAttributes\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns an NSFileWrapper object that contains an RTFD document corresponding to the characters and attributes within 
+\i aRange
+\i0 . The file wrapper also includes the document-level attributes in 
+\i docAttributes
+\i0 , as explained in the class cluster description under ªRTF Document Attributes.º If there are no document-level attributes, 
+\i docAttributes
+\i0  can be 
+\b nil
+\b0 . Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\fs28 You can save the file wrapper using NSFileWrapper's 
+\b writeToFile:atomically:updateFilenames:
+\b0  method.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b RTFDFromRange:documentAttributes:
+\b0 , 
+\f1 -
+\f0 €
+\b RTFFromRange:documentAttributes:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker25227 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-RTFDFromRange:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 RTFDFromRange:documentAttributes:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSData€*)
+\b RTFDFromRange:
+\b0 (NSRange)
+\i aRange
+\i0  
+\b documentAttributes:
+\b0 (NSDictionary€*)
+\i docAttributes\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns an NSData object that contains an RTFD stream corresponding to the characters and attributes within 
+\i aRange
+\i0 . Also writes the document-level attributes in 
+\i docAttributes
+\i0 , as explained in the class cluster description under ªRTF Document Attributes.º If there are no document-level attributes, 
+\i docAttributes
+\i0  can be 
+\b nil
+\b0 . Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\fs28 When writing data to the pasteboard, you can use the NSData object as the first argument to NSPasteboard's 
+\b setData:forType:
+\b0  method, with a second argument of NSRTFDPboardType.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b RTFFromRange:documentAttributes:
+\b0 , 
+\f1 -
+\f0 €
+\b RTFDFileWrapperFromRange:documentAttributes:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker26053 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-RTFFromRange:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 RTFFromRange:documentAttributes:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSData€*)
+\b RTFFromRange:
+\b0 (NSRange)
+\i aRange
+\i0  
+\b documentAttributes:
+\b0 (NSDictionary€*)
+\i docAttributes\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns an NSData object that contains an RTF stream corresponding to the characters and attributes within 
+\i aRange
+\i0 , omitting all attachment attributes. Also writes the document-level attributes in 
+\i docAttributes
+\i0 , as explained in the class cluster description under ªRTF Document Attributes.º If there are no document-level attributes, 
+\i docAttributes
+\i0  can be 
+\b nil
+\b0 . Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\fs28 When writing data to the pasteboard, you can use the NSData object as the first argument to NSPasteboard's 
+\b setData:forType:
+\b0  method, with a second argument of NSRTFPboardType.\
+
+\fs14 \
+
+\fs28 Although this method strips attachments, it leaves the attachment characters in the text itself. NSText's 
+\b RTFFromRange:
+\b0  method, on the other hand, does strip attachment characters when extracting RTF.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b RTFDFromRange:documentAttributes:
+\b0 , 
+\f1 -
+\f0 €
+\b RTFDFileWrapperFromRange:documentAttributes:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker27114 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-rulerAttributesInRange:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 rulerAttributesInRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSDictionary€*)
+\b rulerAttributesInRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the ruler (paragraph) attributes in effect for the characters within 
+\i aRange
+\i0 . The only ruler attribute currently defined is that named by NSParagraphStyleAttributeName. Use this method to obtain attributes that are to be copied or pasted with ªcopy rulerº operations. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b fontAttributesInRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker27612 \markername NS_DEV_DOCFOR:objc_method:[NSAttributedString-size];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 size\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSSize)
+\b size\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the bounding box of the marks that the receiver draws.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b drawAtPoint:
+\b0 , 
+\f1 -
+\f0 €
+\b drawInRect:\
+
+\fs14 \
+
+\pard\tx820\tx1460\f5\b0\fs72\fi-1280\li1460\fc0\cf0 \
+\
+p	i 
+{\f3\b\fs52{\NeXTHelpMarker27746 \markername NS_DEV_DOCFOR:objc_class:NSMutableAttributedString;}
+¬}\pard\tx820\tx1460\f3\b\i0\ulnone\fs52\fi-1280\li1460\fc0\cf0 NSMutableAttributedString\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSAttributedString€:€NSObject\
+
+\fs20 \
+
+\f3\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 AppKit/NSAttributedString.h\
+
+\fi0 AppKit/NSStringDrawing.h\
+AppKit/NSTextAttachment.h\
+
+\fs20 \
+\
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Class Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Additions to the NSMutableAttributedString class primarily involve setting graphical attributes, such as font, super- or subscripting, and alignment, and making these attributes consistent after changes. See the class cluster description for more information.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Changing attributes	
+\f1 -
+\f0 €applyFontTraits:range:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €setAlignment:range:\
+
+\f1 -
+\f0 €subscriptRange:\
+
+\f1 -
+\f0 €superscriptRange:\
+
+\f1 -
+\f0 €unscriptRange:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Updating attachment contents	
+\f1 -
+\f0 €updateAttachmentsFromPath:\
+
+\fs10 \
+
+\fs28 Fixing attributes after changes	
+\f1 -
+\f0 €fixAttributesInRange:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €fixAttachmentAttributeInRange:\
+
+\f1 -
+\f0 €fixFontAttributeInRange:\
+
+\f1 -
+\f0 €fixParagraphStyleAttributeInRange:\
+
+\fs70 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+\pard\tx1500\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker28565 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-applyFontTraits:range:];}
+¬}\pard\tx1500\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 applyFontTraits:range:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b applyFontTraits:
+\b0 (NSFontTraitMask)
+\i mask 
+\b\i0 range:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Apply the font attributes specified by 
+\i mask
+\i0  to the characters in 
+\i aRange
+\i0 . See the NSFontManager class specification for a description of the font traits available. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b setAlignment:range:
+\b0 ,
+\b  
+\f1\b0 -
+\f0 €
+\b setAttributes:range:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker28982 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-fixAttachmentAttributeInRange:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 fixAttachmentAttributeInRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b fixAttachmentAttributeInRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Cleans up attachment attributes in 
+\i aRange
+\i0 , removing all attachment attributes assigned to characters other than NSAttachmentCharacter. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b fixFontAttributeInRange:
+\b0 , 
+\f1 -
+\f0 €
+\b fixParagraphStyleAttributeInRange:
+\b0 , 
+\f1 -
+\f0 €
+\b fixAttributesInRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker29409 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-fixAttributesInRange:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 fixAttributesInRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b fixAttributesInRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invokes the other 
+\b fix...
+\b0  methods, allowing you to clean up an attributed string with a single message. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b fixAttachmentAttributeInRange:
+\b0 , 
+\f1 -
+\f0 €
+\b fixFontAttributeInRange:
+\b0 , 
+\f1 -
+\f0 €
+\b fixParagraphStyleAttributeInRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker29795 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-fixFontAttributeInRange:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 fixFontAttributeInRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b fixFontAttributeInRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Fixes the font attribute in 
+\i aRange
+\i0 , assigning default fonts to characters with illegal fonts for their scripts and otherwise correcting font attribute assignments. For example, Kanji characters in assigned a Latin font are reassigned an appropriate Kanji font. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b fixParagraphStyleAttributeInRange:
+\b0 , 
+\f1 -
+\f0 €
+\b fixAttachmentAttributeInRange:
+\b0 , 
+\f1 -
+\f0 €
+\b fixAttributesInRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker30342 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-fixParagraphStyleAttributeInRange:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 fixParagraphStyleAttributeInRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b fixParagraphStyleAttributeInRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Fixes the paragraph style attributes in 
+\i aRange
+\i0 , assigning the first paragraph style attribute value in each paragraph to all characters of the paragraph. This method extends the range as needed to cover the last paragraph partially contained. A paragraph is delimited by any of these characters, the longest possible sequence being preferred to any shorter:\
+
+\fs14 \
+
+\pard\tx5480\tx9520\fs28\li1900\fc0\cf0 U+000D (
+\b \\r
+\b0  or CR)	U+2028 (Unicode line separator)\
+U+000A (
+\b \\n
+\b0  or LF)	U+2029 (Unicode paragraph separator)\
+
+\b \\r\\n
+\b0 , in that order (also known as CRLF)\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b fixFontAttributeInRange:
+\b0 , 
+\f1 -
+\f0 €
+\b fixAttachmentAttributeInRange:
+\b0 , 
+\f1 -
+\f0 €
+\b fixAttributesInRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker31144 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-setAlignment:range:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 setAlignment:range:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b setAlignment:
+\b0 (NSTextAlignment)
+\i alignment 
+\b\i0 range:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sets the alignment characteristic of the paragraph style attribute for the characters in 
+\i aRange
+\i0  to 
+\i alignment
+\i0 . When attribute fixing takes place, this change will only affect paragraphs whose first character was included in 
+\i aRange
+\i0 . Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €addAttributes:range:
+\b0 ,
+\b  
+\f1\b0 -
+\f0\b €applyFontTraits:range:
+\b0 , 
+\f1 -
+\f0 €
+\b fixParagraphStyleAttributeInRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker31669 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-subscriptRange:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 subscriptRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b subscriptRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Decrements the value of the superscript attribute for characters in 
+\i aRange
+\i0  by 1. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b superscriptRange:, 
+\f1\b0 -
+\f0 €
+\b unscriptRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker31960 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-superscriptRange:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 superscriptRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b superscriptRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Increments the value of the superscript attribute for characters in 
+\i aRange
+\i0  by 1. Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b subscriptRange:, 
+\f1\b0 -
+\f0 €
+\b unscriptRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker32253 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-unscriptRange:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 unscriptRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b unscriptRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Removes the superscript attribute from the characters in 
+\i aRange
+\i0 . Raises an NSRangeException if any part of 
+\i aRange
+\i0  lies beyond the end of the receiver's characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b subscriptRange:, 
+\f1\b0 -
+\f0 €
+\b superscriptRange:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker32527 \markername NS_DEV_DOCFOR:objc_method:[NSMutableAttributedString-updateAttachmentsFromPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 updateAttachmentsFromPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b updateAttachmentsFromPath:
+\b0 (NSString€*)
+\i path\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Updates all attachments based on files contained in the RTFD file package at 
+\i path
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b updateFromPath:
+\b0 €(NSFileWrapper)\
+
+\fs14 \
+
+}

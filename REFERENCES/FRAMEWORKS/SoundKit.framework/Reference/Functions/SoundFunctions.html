@@ -1,0 +1,806 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 40.0px Times; min-height: 48.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 119.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 119.0px; font: 14.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 119.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 119.0px; font: 5.0px Helvetica; min-height: 6.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -78.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -78.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -98.0px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -98.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 138.0px; text-indent: -97.0px; font: 14.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 138.0px; text-indent: -19.0px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 138.0px; text-indent: -19.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -98.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -98.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 138.0px; font: 14.0px Helvetica}
+    p.p18 {margin: 0.0px 0.0px 0.0px 138.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 138.0px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 138.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 119.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 119.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 119.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -66.0px; font: 14.0px Times}
+    p.p25 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -66.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -66.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -68.0px; font: 14.0px Times}
+    p.p28 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -68.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -68.0px; font: 30.0px Times; min-height: 37.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 138.0px; font: 12.0px Courier}
+    p.p31 {margin: 0.0px 0.0px 0.0px 138.0px; font: 10.0px Courier; min-height: 12.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 119.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 138.0px; text-indent: -19.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -66.0px; font: 30.0px Times; min-height: 37.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 138.0px; text-indent: -97.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -98.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 157.0px; text-indent: -38.0px; font: 14.0px Helvetica}
+    p.p38 {margin: 0.0px 0.0px 0.0px 157.0px; text-indent: -38.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 157.0px; text-indent: -38.0px; font: 5.0px Helvetica; min-height: 6.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 138.0px; text-indent: -19.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 138.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 138.0px; font: 40.0px Courier; min-height: 48.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -77.0px; font: 14.0px Times}
+    p.p44 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -77.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -77.0px; font: 30.0px Times; min-height: 37.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -68.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 138.0px; font: 30.0px Times; min-height: 37.0px}
+    p.p48 {margin: 0.0px 0.0px 0.0px 138.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p49 {margin: 0.0px 0.0px 0.0px 138.0px; font: 5.0px Times; min-height: 6.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b></b><b></b><b>SNDAcquire(), SNDReset(), SNDRelease()</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Access sound resources</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/accesssound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDAcquire(</b>int <i>soundResource</i>, int <i>priority</i>, int <i>preempt</i>, int <i>timeout</i>,<span class="Apple-converted-space">  </span>SNDNegotiationFun <i>negFun</i>, void *<i>arg</i>, port_t *<i>devicePort</i>, port_t *<i>ownerPort</i><b>)</b></p>
+<p class="p13">int <b>SNDReset(</b>int <i>soundResource</i>, port_t <i>devicePort</i>, port_t <i>ownerPort</i><b>)</b></p>
+<p class="p13">int <b>SNDRelease(</b>int <i>soundResource</i>, port_t *<i>devicePort</i>, port_t *<i>ownerPort</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDAcquire()</b> attempts to gain ownership of the sound resources specified in <i>soundResource</i>, a value that's created by (bitwise) or'ing a combination of the following resource codes:</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><b>Code<span class="Apple-tab-span">	</span>Resource</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19">SND_ACCESS_OUT<span class="Apple-tab-span">	</span>sound-out<span class="Apple-converted-space"> </span></p>
+<p class="p19">SND_ACCESS_IN<span class="Apple-tab-span">	</span>sound-in</p>
+<p class="p19">SND_ACCESS_DSP<span class="Apple-tab-span">	</span>the DSP<span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p21">Alternatively, you can acquire the sound driver device port without gaining ownership of the device by passing 0 as the value of <i>soundResource</i>. <span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p21">Device and ownership ports to a successfully acquired sound resource are returned in <i>devicePort</i> and <i>ownerPort</i>, respectively.<span class="Apple-converted-space">  </span>If you pass a previously created port as the value of <i>devicePort</i>, that port is used; passing a value of PORT_NULL (0) causes <b>SNDAcquire()</b> to create a port for you.<span class="Apple-converted-space">  </span>The value you pass through <i>ownerPort</i> is ignored by the function; a new owner port is always created.<span class="Apple-converted-space">   </span></p>
+<p class="p22"><br></p>
+<p class="p21">Acquiring a resource makes it active, such that other acquisition requests may fail, even if the requests are in the same process.<span class="Apple-converted-space">  </span>You can grant a priority to the acquisition by setting the value of the <i>priority</i> argument—in a subsequent call to <b>SNDAcquire()</b>, the acquisition with the higher priority wins.<span class="Apple-converted-space">  </span>The <i>preempt</i> flag is used as a tie-breaker.</p>
+<p class="p22"><br></p>
+<p class="p21">The function's <i>timeout</i>, <i>negFun</i>, and <i>arg</i> arguments are currently unused. <span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p21"><b>The ports that are created and returned by SNDAcquire()</b> can be passed as arguments to certain sound driver functions (functions that are prefixed “snddriver”).<span class="Apple-converted-space">  </span>Furthermore, there's not much reason to call <b>SNDAcquire()</b> unless this is what you're doing:<span class="Apple-converted-space">  </span>Although you can use the function generally to query for the existence of a particular resource, there's not much point in acquiring a sound device if all you're going to do is call other <b>SND...() </b>functions.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>SNDReset()</b> and <b>SNDRelease()</b> reset to a virgin state and release, respectively, the specified resources.<span class="Apple-converted-space">  </span>The resources must have been previously acquired through <b>SNDAcquire()</b>; the device and owner port arguments are values returned by that function.<span class="Apple-converted-space">  </span><b>SNDRelease()</b> sets the owner port to PORT_NULL; the device port is unaffected.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned. <span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p27">ERRORS<span class="Apple-tab-span">	</span>If <b>SNDAcquire()</b> is unable to acquire any one of the resources specified in <i>soundResource</i>, none of the resources are acquired. <span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p29"><br></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b></b><b>SNDAlloc(), SNDFree()</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Create and free a sound structure<span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/utilsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDAlloc(</b>SNDSoundStruct **<i>sound</i>, int <i>dataSize</i>, int <i>dataFormat</i>, int <i>samplingRate</i>, int <i>channelCount</i>, int <i>infoSize</i><b>)</b></p>
+<p class="p13">int <b>SNDFree(</b>SNDSoundStruct *<i>sound</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span>The SNDSoundStruct structure is the data format used by the sound software to encapsulate a sound.<span class="Apple-converted-space">  </span>It defines the soundfile format and the sound pasteboard type, and it lies at the heart of every Sound object.<span class="Apple-converted-space">  </span><b>SNDAlloc()</b> creates and returns, in <i>sound</i>, a new SNDSoundStruct.<span class="Apple-converted-space">  </span>The arguments to <b>SNDAlloc()</b> correspond to the SNDSoundStruct fields described below.<span class="Apple-converted-space">  </span><b>SNDFree()</b> frees the SNDSoundStruct pointed to by <i>sound.</i><span class="Apple-converted-space">  </span>You should always use <b>SNDFree()</b> to free a sound structure created through <b>SNDAlloc()</b>. <span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p21">The fields of the SNDSoundStruct structure list the attributes of the sound that the structure represents.<span class="Apple-converted-space">  </span>The sound data itself isn't contained in the structure, but is located by a structure field.<span class="Apple-converted-space">  </span>Nonetheless, it's often convenient to think of a SNDSoundStruct as containing the sound data that it represents.<span class="Apple-converted-space">  </span>By convention, the structure is referred to as the sound's “header.”<span class="Apple-converted-space">  </span>It's defined as:</p>
+<p class="p22"><br></p>
+<p class="p30">typedef struct<span class="Apple-converted-space">  </span>{</p>
+<p class="p30"><span class="Apple-converted-space">    </span>int<span class="Apple-converted-space">  </span>magic; <span class="Apple-converted-space">        </span>/* SND_MAGIC ((int)0x2e736e64) */</p>
+<p class="p30"><span class="Apple-converted-space">    </span>int<span class="Apple-converted-space">  </span>dataLocation;<span class="Apple-converted-space">  </span>/* Offset or pointer to the raw data */</p>
+<p class="p30"><span class="Apple-converted-space">    </span>int<span class="Apple-converted-space">  </span>dataSize;<span class="Apple-converted-space">      </span>/* Raw data size in bytes */</p>
+<p class="p30"><span class="Apple-converted-space">    </span>int<span class="Apple-converted-space">  </span>dataFormat;<span class="Apple-converted-space">    </span>/* The data format code */</p>
+<p class="p30"><span class="Apple-converted-space">    </span>int<span class="Apple-converted-space">  </span>samplingRate;<span class="Apple-converted-space">  </span>/* The sampling rate */</p>
+<p class="p30"><span class="Apple-converted-space">    </span>int<span class="Apple-converted-space">  </span>channelCount;<span class="Apple-converted-space">  </span>/* The number of channels */</p>
+<p class="p30"><span class="Apple-converted-space">    </span>char info[4]; <span class="Apple-converted-space">      </span>/* Textual information about the sound */</p>
+<p class="p30">SNDSoundStruct;</p>
+<p class="p31"><br></p>
+<p class="p21">The <b>magic</b> field is a magic number that identifies a SNDSoundStruct.<span class="Apple-converted-space">  </span>It's automatically set when you allocate the structure. <span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p21">The <b>dataLocation</b> field indicates the location of the actual sound data.<span class="Apple-converted-space">  </span>Usually, the data immediately follows the header.<span class="Apple-converted-space">  </span>In this case, <b>dataLocation</b> is the offset from the beginning of the structure to the first byte of the sound data—in other words, it's the size of the sound's header.<span class="Apple-converted-space">  </span>However, if you edit the sound through functions such as <b>SNDDeleteSamples()</b> or <b>SNDInsertSamples()</b>, the sound can become fragmented such that the data no longer follows the header.<span class="Apple-converted-space">  </span>In this case, <b>dataLocation</b> is a pointer to a NULL-terminated block of addresses, each of which points to a separate SNDSoundStruct.<span class="Apple-converted-space">  </span>The collection of these SNDSoundStructs make up the fragmented data. <span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p21"><b>dataSize</b> is the size, in bytes, of the memory allocated for the sound data.<span class="Apple-converted-space">  </span>The memory is initialized to zero. <span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p21"><b>dataFormat</b> describes the sound data as one of the following codes:</p>
+<p class="p22"><br></p>
+<p class="p32"><br></p>
+<p class="p17"><b>Code</b><span class="Apple-tab-span">	</span><b>Format</b><span class="Apple-converted-space"> </span></p>
+<p class="p18"><br></p>
+<p class="p19">SND_FORMAT_MULAW_8<span class="Apple-tab-span">	</span>8-bit mu-law samples</p>
+<p class="p19">SND_FORMAT_LINEAR_8<span class="Apple-tab-span">	</span>8-bit linear samples</p>
+<p class="p19">SND_FORMAT_LINEAR_16<span class="Apple-tab-span">	</span>16-bit linear samples</p>
+<p class="p19">SND_FORMAT_EMPHASIZED<span class="Apple-tab-span">	</span>16-bit linear with emphasis</p>
+<p class="p19">SND_FORMAT_COMPRESSED<span class="Apple-tab-span">	</span>16-bit linear with compression</p>
+<p class="p19">SND_FORMAT_COMPRESSED_EMPHASIZED<span class="Apple-tab-span">	</span>A combination of the two above</p>
+<p class="p19">SND_FORMAT_LINEAR_24<span class="Apple-tab-span">	</span>24-bit linear samples</p>
+<p class="p19">SND_FORMAT_LINEAR_32<span class="Apple-tab-span">	</span>32-bit linear samples</p>
+<p class="p19">SND_FORMAT_FLOAT<span class="Apple-tab-span">	</span>floating-point samples</p>
+<p class="p19">SND_FORMAT_DOUBLE<span class="Apple-tab-span">	</span>double-precision float samples</p>
+<p class="p19">SND_FORMAT_DSP_DATA_8<span class="Apple-tab-span">	</span>8-bit fixed-point samples</p>
+<p class="p19">SND_FORMAT_DSP_DATA_16<span class="Apple-tab-span">	</span>16-bit fixed-point samples</p>
+<p class="p19">SND_FORMAT_DSP_DATA_24<span class="Apple-tab-span">	</span>24-bit fixed-point samples</p>
+<p class="p19">SND_FORMAT_DSP_DATA_32<span class="Apple-tab-span">	</span>32-bit fixed-point samples</p>
+<p class="p19">SND_FORMAT_DSP_CORE<span class="Apple-tab-span">	</span>DSP program</p>
+<p class="p19">SND_FORMAT_DISPLAY<span class="Apple-tab-span">	</span>non-audio display data</p>
+<p class="p19">SND_FORMAT_INDIRECT<span class="Apple-tab-span">	</span>fragmented sampled data</p>
+<p class="p19">SND_FORMAT_UNSPECIFIED<span class="Apple-tab-span">	</span>unspecified format<span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p21">All but the last five formats identify different sizes and types of sampled data.<span class="Apple-converted-space">  </span>The others deserve special note: <span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>SND_FORMAT_DSP_CORE format contains data that represents a loadable DSP core program.<span class="Apple-converted-space">  </span>Sounds in this format are required by the <b>SNDBootDSP()</b> and <b>SNDRunDSP()</b> functions.<span class="Apple-converted-space">  </span>You create a SND_FORMAT_DSP_CORE sound by reading a DSP load file (extension “.lod”) with the <b>SNDReadDSPfile()</b> function.</p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>SND_FORMAT_DISPLAY format is used by the Sound Kit's SoundView class.<span class="Apple-converted-space">  </span>Such sounds can't be played. <span class="Apple-converted-space"> </span></p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>SND_FORMAT_INDIRECT indicates data that has become fragmented due to editing.  Only sampled data can become fragmented.<span class="Apple-converted-space">  </span>You never allocate a sound with this format.</p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>SND_FORMAT_UNSPECIFIED is used for unrecognized formats.</p>
+<p class="p33"><br></p>
+<p class="p21"><b>samplingRate</b> is also given as a code and should be cast into an <b>int</b>.<span class="Apple-converted-space">  </span>The NeXT sound hardware supports the following sampling rates for recording and playback:</p>
+<p class="p22"><br></p>
+<p class="p32"><br></p>
+<p class="p17"><b>Code</b><span class="Apple-tab-span">	</span><b>Sampling Rate (Hz)</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19">SND_RATE_CODEC<span class="Apple-tab-span">	</span>8012.8210513</p>
+<p class="p19">SND_RATE_LOW<span class="Apple-tab-span">	</span>22050</p>
+<p class="p19">SND_RATE_HIGH<span class="Apple-tab-span">	</span>44100</p>
+<p class="p20"><br></p>
+<p class="p21"><b>channelCount</b> is the number of channels of sound.<span class="Apple-converted-space">  </span>Playback of one- and two-channel sounds is supported; a sound with more than two channels is unplayable. <span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p21"><b>infoSize</b> is the size of a variable-length string that can be used to textually describe the sound.<span class="Apple-converted-space">  </span>The size is extended to the next 4-byte boundary (the minimum size is 4 bytes).<span class="Apple-converted-space">  </span>You can't increase the length of the info string once its size has been set. <span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned. <span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b></b><b>SNDBootDSP()</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Boot the DSP</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/accesssound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDBootDSP(</b>port_t *<i>devicePort</i>, port_t *<i>ownerPort</i>, SNDSoundStruct *<i>dspCore</i><b>)</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDBootDSP()</b> boots the DSP using the DSP bootstrap image specified in <i>dspCore.</i><span class="Apple-converted-space">  </span>This allows you to load all internal RAM and all but the top six words of external RAM on the DSP.<span class="Apple-converted-space">  </span>The owner and device ports must have been previously acquired through <b>SNDAcquire()</b>.<span class="Apple-converted-space">  </span>The format of <i>dspCore</i> must SND_FORMAT_DSP core image should be in loadable (“.lod”) form, such as is created through the <b>SNDReadDSPfile()</b> function.</p>
+<p class="p15"><br></p>
+<p class="p36"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned. <span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p37"><b>SNDCompressSound()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Compress or decompress a sound</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/convertsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDCompressSound(</b>SNDSoundStruct *<i>fromSound</i>, SNDSoundStruct **<i>toSound</i>, BOOL <i>bitFaithful</i>, int <i>compressionAmount</i><b>)</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDCompressSound()</b> creates and returns, in <i>toSound</i>, a new SNDSoundStruct that contains a compressed or decompressed version of the sound in <i>fromSound</i>:</p>
+<p class="p15"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>If <i>fromSound's</i> format is SND_FORMAT_LINEAR_16 or SND_FORMAT_EMPHASIZED, the sound returned in <i>toSound</i> is compressed.</p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>If its format is SND_FORMAT_COMPRESSED or SND_FORMAT_COMPRESSED_EMPHASIZED, the sound is decompressed.</p>
+<p class="p33"><br></p>
+<p class="p21">No other formats are allowed; in addition, the sound can't have more than two channels.</p>
+<p class="p22"><br></p>
+<p class="p21">The function's <i>bitFaithful</i> and <i>compressionAmount</i> arguments are used only when compressing:</p>
+<p class="p22"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>bitFaithful</i> determines the fidelity with which a compressed sound can be restored to its original state.<span class="Apple-converted-space">  </span>If <i>bitFaithful</i> is YES, the sound returned in <i>toSound</i> can be decompressed to exactly match the original sound data; if it's NO, some degradation can be expected. <span class="Apple-converted-space"> </span></p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>The <i>compressionAmount</i> argument controls the amount of compression.<span class="Apple-converted-space">  </span>Its value ranges from 4 to 8 with higher numbers giving more compression but less fidelity.<span class="Apple-converted-space">  </span>Depending on the signal, a <i>compressionAmount</i> of 4 will compress the sound to about half its original size; a value of 8 compresses to about one-sixth the size.<span class="Apple-converted-space">  </span>For bit-faithful compression, you should set <i>compressionAmount</i> to 4.</p>
+<p class="p33"><br></p>
+<p class="p40"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise an error code, as described in <b>SNDSoundError()</b>, is returned.</p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b></b><b>SNDConvertDecibelsToLinear(), SNDConvertLinearToDecibels()</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Convert between logarithmic and linear units</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>SoundKit/NXSoundDevice.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>float <b>SNDConvertDecibelsToLinear(</b>float <i>dB</i><b>)</b></p>
+<p class="p13">float <b>SNDConvertLinearToDecibels(</b>float <i>linear</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span>These convenience functions convert from units of decibels to a linear value, and vice versa.<span class="Apple-converted-space">  </span>Decibels express the difference between two quantities in logarithmic units, while on a linear scale the same relationship is expressed as the ratio of the two quantities.<span class="Apple-converted-space">  </span>For example, a difference of zero decibels is equivalent to a ratio of 1.0.<span class="Apple-converted-space">  </span>The functions are, in their entirety:</p>
+<p class="p15"><br></p>
+<p class="p30">float SNDConvertDecibelsToLinear(float dB)</p>
+<p class="p30">{</p>
+<p class="p30"><span class="Apple-converted-space">    </span>return (float)pow(10.0, (double)dB/20.0);</p>
+<p class="p30">}</p>
+<p class="p41"><br></p>
+<p class="p30">float SNDConvertLinearToDecibels(float linear)</p>
+<p class="p30">{</p>
+<p class="p30"><span class="Apple-converted-space">    </span>return (float)(20.0 * log10((double)linear));</p>
+<p class="p30">}</p>
+<p class="p42"><br></p>
+<p class="p37"><b>SNDConvertSound(), SNDMulaw(), SNDiMulaw()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Convert a sound's attributes</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/convertsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDConvertSound(</b>SNDSoundStruct *<i>fromSound</i>, SNDSoundStruct **<i>toSound</i><b>)</b></p>
+<p class="p13">unsigned char <b>SNDMulaw(</b>short <i>linearValue</i><b>)</b></p>
+<p class="p13">short <b>SNDiMulaw(</b>unsigned char <i>mulawValue</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDConvertSound()</b> copies the sampled data from <i>fromSound</i> into <i>toSound</i>, converting the copied data to the format, channel count, and sampling rate specified by <i>toSound</i>.<span class="Apple-converted-space">  </span>Memory for the converted data is automatically allocated.<span class="Apple-converted-space">  </span>The following conversions are possible:</p>
+<p class="p15"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Arbitrary sampling rate conversion.</p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Compression and decompression.</p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Floating-point formats (including double-precision) to and from linear formats.</p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Mono to stereo.</p>
+<p class="p13">•<span class="Apple-tab-span">	</span>CODEC mu-law to and from linear formats.</p>
+<p class="p33"><br></p>
+<p class="p21"><b>SNDMulaw()</b> converts a value from 16-bit linear to mu-law:<span class="Apple-converted-space">  </span>It takes a single linear 16-bit argument and returns the corresponding mu-law value.<span class="Apple-converted-space">  </span><b>SNDiMulaw()</b> performs the inverse operation:<span class="Apple-converted-space">  </span>It takes a mu-law argument and returns the 16-bit linear value.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, <b>SNDConvertSound()</b> returns SND_ERR_NONE.<span class="Apple-converted-space">  </span>Otherwise an error code, as described in <b>SNDSoundError()</b>, is returned.</p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p43"><b>SEE ALSO<span class="Apple-tab-span">	</span>SNDAlloc(), SNDSamplesToBytes()</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p37"><b>SNDCopySound(), SNDCopySamples()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Copy all or part of a sound</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/editsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDCopySound(</b>SNDSoundStruct **<i>toSound</i>, SNDSoundStruct *<i>fromSound</i><b>)</b></p>
+<p class="p13">int <b>SNDCopySamples(</b>SNDSoundStruct **<i>toSound</i>, SNDSoundStruct *<i>fromSound</i>, int <i>startSample</i>, int <i>sampleCount</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDCopySound()</b> creates and returns, in <i>toSound</i>, a new SNDSoundStruct that contains a copy of the sound in <i>fromSound.</i><span class="Apple-converted-space">  </span>This works for any type of sound, including DSP sounds.</p>
+<p class="p15"><br></p>
+<p class="p21"><b>SNDCopySamples()</b> also creates a new SNDSoundStruct pointed to by <i>toSound</i>, but copies only the specified of <i>fromSound</i>, starting with the <i>startSample</i> sample (counting from sample 0) and copying <i>sampleCount</i> samples.<span class="Apple-converted-space">  </span>This function works only for sampled sounds.</p>
+<p class="p22"><br></p>
+<p class="p21"><i>toSound</i> should eventually be freed with <b>SNDFree()</b>.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>Both functions return an error code as described in <b>SNDSoundError()</b>.</p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p27">ERRORS<span class="Apple-tab-span">	</span>If an error occurs, the SNDSoundStruct isn't created.</p>
+<p class="p28"><br></p>
+<p class="p29"><br></p>
+<p class="p37"><b>SNDDropATCSamples(), SNDInsertATCSamples()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Speed up or slow down playback of ATC sound</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/atcsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDDropATCSamples(</b>int <i>numSamples</i>, int <i>bySamples</i><b>)</b></p>
+<p class="p13">int <b>SNDInsertATCSamples(</b>int <i>numSamples</i>, int <i>bySamples</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDDropATCSamples()</b> and <b>SNDInsertATCSamples()</b> provide elementary support for synchronizing sound playback to other events.<span class="Apple-converted-space">  </span>By skipping or repeating selected samples of an ATC sound while it's playing, you can slightly shrink or stretch its duration, as necessary.<span class="Apple-converted-space">  </span>This mechanism is intended for subtle timing adjustments, not for effects like fast forward.<span class="Apple-converted-space">  </span>Although dropping or inserting samples shouldn't cause any clicks in the<span class="Apple-converted-space">  </span>sound, it will cause some distortion.<span class="Apple-converted-space">  </span>A sound in the ATC (Audio Transform Compression) format must be playing for these functions to have any effect.</p>
+<p class="p15"><br></p>
+<p class="p21">If <i>bySamples</i> is zero, one sample is chosen randomly out of the next 256 consecutive samples and omitted (in the case of <b>SNDDropATCSamples()</b>) or repeated (in the case of <b>SNDInsertATCSamples()</b>).<span class="Apple-converted-space">  </span>This process repeats until <i>numSamples</i> samples have been dropped or inserted.<span class="Apple-converted-space">  </span>If <i>bySamples</i> is greater than zero, an attempt is made to drop or add <i>numSamples</i> samples before <i>bySamples</i> more samples of the original sound have played.<span class="Apple-converted-space">  </span>Too large a ratio of <i>numSamples</i> to <i>bySamples</i> may produce unwanted results.</p>
+<p class="p22"><br></p>
+<p class="p21">To determine when to drop or insert samples, call <b>SNDSamplesProcessed()</b> to obtain an estimate of how many samples have been played thus far.<span class="Apple-converted-space">  </span>Divide this number by the sampling rate to obtain the elapsed time in seconds, and compare the result to the notion of time with which you want to synchronize.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p43"><b>SEE ALSO<span class="Apple-tab-span">	</span>SNDSamplesProcessed(), SNDCompressSound(), SNDSetATCGain(), SNDGetNumberOfATCBands()</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p37"><b>SNDGetDataPointer()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Gain access to sampled sound data</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/utilsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDGetDataPointer(</b>SNDSoundStruct *<i>sound</i>, char **<i>data</i>, int *<i>sampleCount</i>, int *<i>width</i><b>)</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span>The <b>SNDGetDataPointer()</b> provides access to <i>sound</i>'s sound data (which must be unfragmented sample data).<span class="Apple-converted-space">  </span>A pointer to the sound data is returned by reference in<i> data</i>, the number of samples in the data is returned in <i>sampleCount</i>, and the width (in bytes) of a single sample is returned in <i>width</i>.<span class="Apple-converted-space">  </span>Note that <i>sampleCount</i> is the total sample count—it isn't a count of the sample frames.<span class="Apple-converted-space">   </span></p>
+<p class="p15"><br></p>
+<p class="p36"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned.</p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p37"><b>SNDGetNumberOfATCBands(), SNDGetATCBandFrequencies(), SNDGetATCBandwidths()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Query for frequency bands used by Audio Transform Compression</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/atcsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDGetNumberOfATCBands(</b>int *<i>numBands</i><b>)</b></p>
+<p class="p13">int <b>SNDGetATCBandFrequencies(</b>int <i>numBands</i>, float *<i>centerFreqs</i><b>)</b></p>
+<p class="p13">int <b>SNDGetATCBandwidths(</b>int <i>numBands</i>, float *<i>bandwidths</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDGetNumberOfATCBands()</b> returns, by reference in <i>numBands</i>, the number of frequency bands that <b>SNDCompressSound()</b> uses for compressing sounds with ATC (Audio Transform Compression). <span class="Apple-converted-space">  </span>Currently, this number is always 40.</p>
+<p class="p15"><br></p>
+<p class="p21"><b>SNDGetATCBandFrequencies()</b> fills the array <i>centerFreqs</i> with floating-point numbers that specify the center frequency in Hertz of each band.<span class="Apple-converted-space">  </span>Similarly, the array filled by <b>SNDGetATCBandwidths()</b> contains the width in Hertz of each band.<span class="Apple-converted-space">  </span>The first argument to each of these functions should be the value returned by <b>SNDGetNumberOfATCBands()</b>.</p>
+<p class="p22"><br></p>
+<p class="p21">The ATC bands correspond roughly to the “critical bands” of hearing.<span class="Apple-converted-space">  </span>Band zero is centered at zero Hz, and the highest band is centered at half the sampling rate.<span class="Apple-converted-space">  </span>The bandwidths and spacing are uniform below a certain frequency, above which the bands are progressively wider in Hertz and spaced further apart.<span class="Apple-converted-space">  </span>For sounds having the standard sampling rate of 44.1 kHz, bands below 1000 Hz have the same bandwidth, while bands above 1000 Hz have bandwidths of approximately 20% of the band's center frequency.<span class="Apple-converted-space">  </span>For sounds with other sampling rates, the bands' frequencies are scaled so that the same number of bands covers zero Hz to half the sampling rate, whatever the latter may be.<span class="Apple-converted-space">  </span><b>SNDGetATCBandFrequencies()</b> and <b>SNDGetATCBandwidths()</b> assume a 44.1-kHz sampling rate when filling the arrays <i>centerFreqs</i> and <i>bandwidths</i>, respectively.<span class="Apple-converted-space">  </span>To obtain the correct values for other sampling rates, multiply each element of the returned arrays by the ratio of the sampling rate to 44.1 kHz.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>0 is returned unless the host isn't a NeXT computer, in which case ATC is unavailable.</p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p43"><b>SEE ALSO<span class="Apple-tab-span">	</span>SNDCompressSound(), SNDSetATCGain(), SNDDropATCSamples()</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p37"><b>SNDInsertSamples(), SNDDeleteSamples(), SNDCompactSamples()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Edit a sampled sound</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/editsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDInsertSamples(</b>SNDSoundStruct *<i>toSound</i>, SNDSoundStruct *<i>fromSound</i>, int <i>startSample</i><b>)</b></p>
+<p class="p13">int <b>SNDDeleteSamples(</b>SNDSoundStruct *<i>sound</i>, int <i>startSample</i>, int <i>sampleCount</i><b>)</b></p>
+<p class="p13">int <b>SNDCompactSamples(</b>SNDSoundStruct **<i>toSound</i>, SNDSoundStruct *<i>fromSound</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDInsertSamples()</b> inserts a copy of <i>fromSound</i> into <i>toSound</i> at position <i>startSample</i> of <i>toSound</i> (counting from sample 0).<span class="Apple-converted-space">  </span>This operation may fragment <i>toSound</i>.</p>
+<p class="p15"><br></p>
+<p class="p21"><b>SNDDeleteSamples()</b> deletes <i>sampleCount</i> samples from <i>sound</i>, starting at sample <i>startSample.</i><span class="Apple-converted-space">  </span>The memory occupied by the deleted segment is freed.<span class="Apple-converted-space">  </span>The sound may become fragmented.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>SNDCompactSamples()</b> creates and returns, in <i>toSound</i>, a new SNDSoundStruct that contains a compacted version of <i>fromSound.</i><span class="Apple-converted-space">  </span>Compaction eliminates the fragmentation that can be caused by inserting and deleting samples.</p>
+<p class="p22"><br></p>
+<p class="p21">These functions work only on sounds that contain sampled data.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned.</p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p37"><b>SNDPlaySoundfile()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Play a soundfile</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/utilsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDPlaySoundfile(</b>char *<i>path</i>, int <i>priority</i><b>)</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDPlaySoundfile()</b> plays the soundfile named <i>path.</i><span class="Apple-converted-space">  </span>The function returns immediately while playback continues in a background thread.<span class="Apple-converted-space">  </span>Playback interrupts a currently playing sound of the same or lower priority.</p>
+<p class="p15"><br></p>
+<p class="p36"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned.</p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p37"><b>SNDReadSoundfile(), SNDRead(), SNDReadHeader(), SNDReadDSPfile()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Read a sound from a file</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/filesound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDReadSoundfile(</b>char *<i>path</i>, SNDSoundStruct **<i>sound</i><b>)</b></p>
+<p class="p13">int <b>SNDRead(</b>int <i>fd</i>, SNDSoundStruct **<i>sound</i><b>)</b></p>
+<p class="p13">int <b>SNDReadHeader(</b>int <i>fd</i>, SNDSoundStruct **<i>sound</i><b>)</b></p>
+<p class="p13">int <b>SNDReadDSPfile(</b>char *<i>path</i>, SNDSoundStruct **<i>sound</i>, char *<i>info</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span>Each of these functions creates and returns, by reference in the <i>sound</i> argument, a SNDSoundStruct that contains the sound represented in a specified file.</p>
+<p class="p15"><br></p>
+<p class="p21"><b>SNDReadSoundfile()</b> and <b>SNDRead()</b> read the entire contents of a soundfile.<span class="Apple-converted-space">  </span>The <i>path</i> argument to <b>SNDReadSoundfile()</b> is a pathname; the function opens and closes the file automatically.<span class="Apple-converted-space">  </span><b>SNDRead()</b> takes a file descriptor <i>fd</i> that must be open for reading.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>SNDReadHeader()</b> reads only the header portion of the file descriptor <i>fd.</i><span class="Apple-converted-space">  </span>Storage for the actual sound data isn't allocated.<span class="Apple-converted-space">  </span>The <b>dataLocation</b> field of the new SNDSoundStruct can be interpreted as the size of the header.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>SNDReadDSPfile()</b> creates a SNDSoundStruct for the given loadable DSP core file.<span class="Apple-converted-space">  </span>The file, which is opened and closed by the function, is specified as a pathname and must have a “.lod” extension.<span class="Apple-converted-space">  </span>The <i>info</i> argument is provided as a convenience, allowing you to specify an information string that's written in <i>sound</i>'s header.<span class="Apple-converted-space">  </span>The DSP program is executed by calling <b>SNDBootDSP()</b> or <b>SNDRunDSP()</b>.</p>
+<p class="p22"><br></p>
+<p class="p21">For all three functions, <i>sound</i> should eventually be deallocated with <b>SNDFree()</b>.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned.</p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p27">ERRORS<span class="Apple-tab-span">	</span>If an error occurs, the SNDSoundStruct isn't created.</p>
+<p class="p28"><br></p>
+<p class="p46"><br></p>
+<p class="p43"><b>SEE ALSO<span class="Apple-tab-span">	</span>SNDFree()</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p37"><b>SNDReserve(), SNDUnreserve()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Reserve sound resources for recording or playback</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/accesssound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDReserve(</b>int <i>soundResource</i>, int <i>priority</i><b>)</b></p>
+<p class="p13">int <b>SNDUnreserve(</b>int <i>soundResource</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDReserve()</b> attempts to gain ownership of the sound resources specified in <b><i>soundResource</i></b>, a value that's created by (bitwise) or'ing a combination of the following resource codes:</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><b>Code<span class="Apple-tab-span">	</span>Resource</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19">SND_ACCESS_OUT<span class="Apple-tab-span">	</span>sound out</p>
+<p class="p19">SND_ACCESS_IN<span class="Apple-tab-span">	</span>sound in</p>
+<p class="p19">SND_ACCESS_DSP<span class="Apple-tab-span">	</span>the DSP<span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p21">The <i>priority</i> argument is used, ostensibly, to determine whether a particular reservation can supercede an existing one.<span class="Apple-converted-space">  </span>However, the priority scheme doesn't work between applications—if you successfully reserve a sound resource, no other application can take it from you, regardless of the relative priority values that were used in the respective <b>SNDReserve()</b> calls.<span class="Apple-converted-space">  </span>(The priority argument does have an affect within the same application, but there really isn't much reason for one part of an application to steal sound resources from another part.)</p>
+<p class="p22"><br></p>
+<p class="p21">Despite this, <b>SNDReserve()</b> isn't utterly useless; it eliminates some of the overhead of acquiring and setting up a device that would otherwise occur upon each instance of playback (or recording).<span class="Apple-converted-space">  </span>For example, if you want to play a series of soundfiles, you stand a better chance of seamless playback if you first reserve the sound-out device.</p>
+<p class="p22"><br></p>
+<p class="p21">Use of <b>SNDReserve()</b> is optional; prioritized access to the appropriate resource is established when either the <b>SNDStartPlaying()</b> or the <b>SNDStartRecording()</b> function is called.<span class="Apple-converted-space">  </span>The process should eventually free its reserved resources by calling <b>SNDUnreserve()</b>.<span class="Apple-converted-space">  </span>Sound resources are automatically freed when the process terminates.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned.</p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p27">ERRORS<span class="Apple-tab-span">	</span>If <b>SNDReserve()</b> is unable to reserve any one of the resources specified in <i>soundResource</i>, it won't reserve any of them.</p>
+<p class="p28"><br></p>
+<p class="p29"><br></p>
+<p class="p37"><b>SNDRunDSP()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Run the DSP</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/convertsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDRunDSP(</b>SNDSoundStruct *<i>dspCore</i>, char *<i>toDSP</i>, int <i>toCount</i>, int<i> toWidth</i>, int<i> toBufferSize</i>, char **<i>fromDSP</i>, int *<i>fromCount</i>, int<i> fromWidth</i>, int<i> negotiationTimeout</i>, int <i>flushTimeout</i>, int <i>conversionTimeout</i><b>)</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDRunDSP()</b> loads and runs the DSP program that you provide.<span class="Apple-converted-space">  </span>The functions is designed to be used with DSP programs that process sound data—you typically use this function to provide your own sound conversion algorithms.<span class="Apple-converted-space">  </span>The arguments are as follows:</p>
+<p class="p15"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>The DSP program is represented by <i>dspCore</i>; it must implement complex DMA mode for its output, and must be in loadable (“.lod”) form<i>.</i> <span class="Apple-converted-space"> </span></p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>toDSP</i> is a pointer to the data that you wish to feed to the DSP.</p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>toCount</i> is the number of samples to process.</p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>toWidth</i> is the size of a single unprocessed sample.</p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>toBufferSize</i> is the total size, in bytes, of the <i>toDSP</i> data. <span class="Apple-converted-space"> </span></p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>fromDSP</i> is a pointer to the address of the processed data.<span class="Apple-converted-space">  </span>The memory to store the data is allocated for you.</p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>fromCount</i> is returned by the function to give the number of samples that it actually processed.</p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>fromWidth</i> is the size, in bytes, of a single processed sample.</p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>The timeout arguments, <i>negotiationTimeout</i>, <i>flushTimeout</i>, and <i>conversionTimeout</i>, are ignored.</p>
+<p class="p33"><br></p>
+<p class="p40"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned. <span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b></b><b>SNDSampleCount(), SNDBytesToSamples(), SNDSamplesToBytes()</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Measure samples in a sound</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/utilsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDSampleCount(</b>SNDSoundStruct *<i>sound</i><b>)</b></p>
+<p class="p13">int <b>SNDBytesToSamples(</b>int <i>byteCount</i>, int <i>channelCount</i>, int <i>dataFormat</i><b>)</b></p>
+<p class="p13">int <b>SNDSamplesToBytes(</b>int <i>sampleCount</i>, int <i>channelCount</i>, int <i>dataFormat</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDSampleCount()</b> returns the number of sample frames, or channel-independent samples, in <i>sound</i>.<span class="Apple-converted-space">  </span>The sound must contain sampled data.</p>
+<p class="p15"><br></p>
+<p class="p21"><b>SNDBytesToSamples()</b> returns the number of samples contained in <i>byteCount</i> bytes of sound data with the given channel count and data format.<span class="Apple-converted-space">  </span><b>SNDSamplesToBytes()</b> performs the inverse operation, returning the number of bytes needed to store <i>sampleCount</i> samples.<span class="Apple-converted-space">  </span>The value returned by <b>SNDSamplesToBytes()</b> is useful for computing the <i>dataSize</i> argument to <b>SNDAlloc()</b>.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If <i>sound</i> doesn't contain sampled data (or if for any other reason the sample count can't be determined), <b>SNDSampleCount()</b> returns <span class="s2">-</span>1.<span class="Apple-converted-space">  </span><b>SNDBytesToSamples()</b> and <b>SNDSamplesToBytes()</b> return 0 if <i>dataFormat</i> isn't a sampled sound format and <span class="s2">-</span>1 if <i>dataFormat</i> isn't recognized.</p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p37"><b>SNDSetATCGain(), SNDGetATCGain(), SNDSetATCEqualizerGains(), SNDGetATCEqualizerGains(), SNDScaleATCEqualizerGains()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Modify volume or equalization for ATC playback</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/atcsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDSetATCGain(</b>float <i>level</i><b>)</b></p>
+<p class="p13">int <b>SNDGetATCGain(</b>float *<i>level</i><b>)</b></p>
+<p class="p13">int <b>SNDSetATCEqualizerGains(</b>int <i>numBands</i>, float *<i>gains</i><b>)</b></p>
+<p class="p13">int <b>SNDGetATCEqualizerGains(</b>int <i>numBands</i>, float *<i>gains</i><b>)</b></p>
+<p class="p13">int <b>SNDScaleATCEqualizerGains(</b>int <i>numBands</i>, float *<i>gainScalars</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span>Audio Transform Compression (ATC) can be used not only for compression, but also to manipulate a sound's volume or frequency spectrum.<span class="Apple-converted-space">  </span>These functions determine the<span class="Apple-converted-space">  </span>playback level of sounds in the ATC format—either their overall gain, or the gains of their individual frequency bands.</p>
+<p class="p15"><br></p>
+<p class="p21"><b>SNDSetATCGain()</b> sets the overall sound output level for ATC sound playback.<span class="Apple-converted-space">  </span>The value for <i>level</i> can range from 0.0 (which will silence any ATC sound) to 1.0 (which will play sounds unchanged).<span class="Apple-converted-space">  </span>The new level setting takes effect starting with the next ATC sound played.<span class="Apple-converted-space">  </span><b>SNDGetATCGain()</b> returns, in its argument, a pointer to the current level.<span class="Apple-converted-space">  </span>Note that this volume setting—unlike that specified by <b>SNDSetVolume()</b>—affects not only the speaker and headphone output, but also the line-out jacks.<span class="Apple-converted-space">  </span>This is possible because <b>SNDSetATCGain()</b> is implemented as a scaling of the ATC equalizer gains, and so it only affects ATC sounds.<span class="Apple-converted-space">  </span>For such sounds, the volume at the speaker and headphones is the product of the ATC gain and the global setting returned by <b>SNDGetVolume()</b>.</p>
+<p class="p22"><br></p>
+<p class="p21">Because ATC manipulates the gain of individual frequency bands, it can be used to implement a graphic equalizer for playback of ATC sounds.<span class="Apple-converted-space">  </span>An array of “equalizer gains” is provided for this purpose.<span class="Apple-converted-space">  </span><b>SNDSetATCEqualizerGains()</b> sets the equalizer gains to the values in the array <i>gains</i>, and <b>SNDGetATCEqualizerGains()</b> returns the current equalizer gains by reference.<span class="Apple-converted-space">  </span><b>SNDScaleATCEqualizerGains()</b> multiplies each band's gain by the corresponding scalar in the array <i>gainScalars</i>.<span class="Apple-converted-space">  </span>For all three functions, <i>numBands</i> should be the value returned by <b>SNDGetNumberOfATCBands()</b>.<span class="Apple-converted-space">  </span>Each element of the <i>gains</i> array specifies a factor by which the sound amplitude in the corresponding frequency band will be multiplied during sound playback.<span class="Apple-converted-space">  </span>The gain should be a nonnegative number between 0.0 and 16.0 (inclusive).<span class="Apple-converted-space">  </span>Gains greater than 1.0 may cause the output to be clipped.<span class="Apple-converted-space">  </span>The system default gain for each band is 1.0, meaning that the sound is played without modification.<span class="Apple-converted-space">  </span>Changes take effect starting with the next sound played; any currently playing sound is unaffected.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>Zero is returned, with one exception:<span class="Apple-converted-space">  </span>If <b>SNDSetATCGain()</b>, <b>SNDSetATCEqualizerGains()</b>, or <b>SNDScaleATCEqualizerGains()</b> sets the gains of any frequency bands to values less than zero or greater than the 16.0, those values are set to zero or the maximum (respectively), and the function returns the number of bands that were clipped in this way.</p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p43"><b>SEE ALSO<span class="Apple-tab-span">	</span>SNDCompressSound(), SNDGetNumberOfATCBands(), SNDSetVolume, SNDDropATCSamples()</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b></b><b>SNDSetATCSquelchThresholds(), SNDGetATCSquelchThresholds(), SNDUseDefaultATCSquelchThresholds()</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Set or get Audio Transform Compression parameters</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/atcsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDSetATCSquelchThresholds(</b>int <i>numBands</i>, float *<i>thresholds</i><b>)</b></p>
+<p class="p13">int <b>SNDGetATCSquelchThresholds(</b>int <i>numBands</i>, float *<i>thresholds</i><b>)</b></p>
+<p class="p13">int <b>SNDUseDefaultATCSquelchThresholds(</b>void<b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span>These functions set or retrieve parameters that control the amount of compression achieved by <b>SNDCompressSound()</b> when it uses Audio Transform Compression (ATC).</p>
+<p class="p15"><br></p>
+<p class="p21"><b>SNDSetATCSquelchThresholds()</b> and <b>SNDGetATCSquelchThresholds()</b> respectively fill and retrieve the array <i>thresholds</i>, which specifies the squelch thresholds for each frequency band.<span class="Apple-converted-space">  </span>The first argument to both functions, <i>numBands</i>, should be obtained from <b>SNDGetNumberOfATCBands()</b>.<span class="Apple-converted-space">  </span>(If desired, the frequencies of the bands can be determined by invoking <b>SNDGetATCBandFrequencies()</b>.) <span class="Apple-converted-space">  </span>The thresholds can range from zero to one.<span class="Apple-converted-space">  </span>A value of 0.0 ensures that frequencies in that band will never be suppressed, while a value of 1.0 almost always squelches them. The<span class="Apple-converted-space">  </span>default squelch threshold for each band is the estimated threshold of audibility at a normal listening level.<span class="Apple-converted-space">  </span>The defaults can be restored by calling <b>SNDUseDefaultATCSquelchThresholds()</b>.<span class="Apple-converted-space">  </span>Changes to the thresholds take effect starting with the next sound compressed; any currently compressing sound is unaffected.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>Zero is returned upon success, with one exception:<span class="Apple-converted-space">  </span>If the <i>thresholds</i> array passed to<span class="Apple-converted-space">  </span><b>SNDSetATCSquelchThresholds()</b> contains any values less than zero or greater than one, those values are set to zero or one (respectively), and the function returns the number of bands that were clipped in this way.</p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p43"><b>SEE ALSO<span class="Apple-tab-span">	</span>SNDCompressSound(), SNDGetNumberOfATCBands(), SNDGetATCBandFrequencies(), SNDSetATCGain(), SNDDropATCSamples()</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b></b><b>SNDSetCompressionOptions(), SNDGetCompressionOptions()</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Set and get compression attributes used in recording</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/preformsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDSetCompressionOptions(</b>SNDSoundStruct *<i>sound</i>, int <i>bitFaithful</i>, int <i>compressionAmount</i><b>)</b></p>
+<p class="p13">int <b>SNDGetCompressionOptions(</b>SNDSoundStruct <i>*sound</i>, int *<i>bitFaithful</i>, int *<i>compressionAmount</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDSetCompressionOptions()</b> sets the bit-faithfulness and the compression amount that <b>SNDStartRecording()</b> uses during subsequent recordings into the sound <i>sound</i>.<span class="Apple-converted-space">  </span>These values are effective only if <i>sound</i>'s format specifies compression.<span class="Apple-converted-space">  </span>By default, such a recording is bit-faithful with a compression amount of 4. <span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p21"><b>SNDGetCompressionOptions()</b> returns, in its arguments, pointers to the currently established compression options.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise an error code, as described in <b>SNDSoundError()</b>, is returned.</p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p37"><b>SNDSetHost()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Set the host computer for subsequent playback or recording</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/accesssound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDSetHost(</b>char *<i>newHostname</i><b>)</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDSetHost()</b> gives you access to the named host for subsequent playbacks or recordings.<span class="Apple-converted-space">  </span>If <i>newHostname</i> is NULL or a zero-length string, the default (the local host) is restored.</p>
+<p class="p15"><br></p>
+<p class="p36"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned.</p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p37"><b>SNDSetVolume(), SNDGetVolume(), SNDSetMute(), SNDGetMute(), SNDSetFilter(), SNDGetFilter()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Sound playback utilities</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/utilsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDSetVolume(</b>int <i>left</i>, int <i>right</i><b>)</b></p>
+<p class="p13">int <b>SNDGetVolume(</b>int *<i>left</i>, int *<i>right</i><b>)</b></p>
+<p class="p13">int <b>SNDSetMute(</b>int <i>speakerOn</i><b>)</b></p>
+<p class="p13">int <b>SNDGetMute(</b>int *<i>speakerOn</i><b>)</b></p>
+<p class="p13">int <b>SNDSetFilter(</b>int <i>filterOn</i><b>)</b></p>
+<p class="p13">int <b>SNDGetFilter(</b>int *<i>filterOn</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDSetVolume()</b> sets the sound playback level for the left and right channels, specified as an integer between 1 and 43 (inclusive).<span class="Apple-converted-space">  </span>This only affects the signal to the internal speaker and the stereo headphone jack; the line-out level is undisturbed.<span class="Apple-converted-space">  </span><b>SNDGetVolume()</b> returns, in its arguments, pointers to the playback levels of either channel.</p>
+<p class="p15"><br></p>
+<p class="p21"><b>SNDSetMute()</b> mutes and unmutes the internal speaker and headphone level as <i>speakerOn</i> is 0 and nonzero, respectively.<span class="Apple-converted-space">  </span><b>SNDGetMute()</b> returns, in its argument, a pointer to the mute status.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>SNDSetFilter()</b> turns the low-pass filter off or on as <i>filterOn</i> is 0 or nonzero, respectively.<span class="Apple-converted-space">  </span><b>SNDGetFilter()</b> returns, in its argument, a pointer to the state of the filter.<span class="Apple-converted-space">  </span>The filter is automatically turned on while sounds whose format is SND_FORMAT_EMPHASIZED or SND_FORMAT_COMPRESSED_EMPHASIZED are being played.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned.</p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b></b><b>SNDSoundError()</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Describe a sound error</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/sounderror.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>char *<b>SNDSoundError(</b>int <i>err</i><b>)</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDSoundError()</b> returns a pointer to a string that describes the given error code.<span class="Apple-converted-space">  </span>The following are defined as error codes:</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><b>Code<span class="Apple-tab-span">	</span>String</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19">SND_ERR_NONE<span class="Apple-tab-span">	</span>""</p>
+<p class="p19">SND_ERR_NOT_SOUND<span class="Apple-tab-span">	</span>"Not a sound"</p>
+<p class="p19">SND_ERR_BAD_FORMAT<span class="Apple-tab-span">	</span>"Bad data format"</p>
+<p class="p19">SND_ERR_BAD_RATE<span class="Apple-tab-span">	</span>"Bad sampling rate"</p>
+<p class="p19">SND_ERR_BAD_CHANNEL<span class="Apple-tab-span">	</span>"bad channel count"</p>
+<p class="p19">SND_ERR_BAD_SIZE <span class="Apple-tab-span">	</span>"bad size"</p>
+<p class="p19">SND_ERR_BAD_FILENAME<span class="Apple-tab-span">	</span>"Bad file name"</p>
+<p class="p19">SND_ERR_CANNOT_OPEN<span class="Apple-tab-span">	</span>"Cannot open file"</p>
+<p class="p19">SND_ERR_CANNOT_WRITE<span class="Apple-tab-span">	</span>"Cannot write file"</p>
+<p class="p19">SND_ERR_CANNOT_READ<span class="Apple-tab-span">	</span>"Cannot read file"</p>
+<p class="p19">SND_ERR_CANNOT_ALLOC <span class="Apple-tab-span">	</span>"Cannot allocate memory"</p>
+<p class="p19">SND_ERR_CANNOT_FREE<span class="Apple-tab-span">	</span>"Cannot free memory"</p>
+<p class="p19">SND_ERR_CANNOT_COPY<span class="Apple-tab-span">	</span>"Cannot copy"</p>
+<p class="p19">SND_ERR_CANNOT_RESERVE<span class="Apple-tab-span">	</span>"Cannot reserve access"</p>
+<p class="p19">SND_ERR_NOT_RESERVED<span class="Apple-tab-span">	</span>"Access not reserved"</p>
+<p class="p19">SND_ERR_CANNOT_RECORD<span class="Apple-tab-span">	</span>"Cannot record sound"</p>
+<p class="p19">SND_ERR_ALREADY_RECORDING<span class="Apple-tab-span">	</span>"Already recording sound"</p>
+<p class="p19">SND_ERR_NOT_RECORDING<span class="Apple-tab-span">	</span>"Not recording sound"</p>
+<p class="p19">SND_ERR_CANNOT_PLAY<span class="Apple-tab-span">	</span>"Cannot play sound"</p>
+<p class="p19">SND_ERR_ALREADY_PLAYING<span class="Apple-tab-span">	</span>"Already playing sound"</p>
+<p class="p19">SND_ERR_NOT_IMPLEMENTED<span class="Apple-tab-span">	</span>"Not implemented"</p>
+<p class="p19">SND_ERR_NOT_PLAYING<span class="Apple-tab-span">	</span>"Not playing sound"</p>
+<p class="p19">SND_ERR_CANNOT_FIND<span class="Apple-tab-span">	</span>"Cannot find sound"</p>
+<p class="p19">SND_ERR_CANNOT_EDIT<span class="Apple-tab-span">	</span>"Cannot edit sound"</p>
+<p class="p19">SND_ERR_BAD_SPACE<span class="Apple-tab-span">	</span>"Bad memory space in DSP load image"</p>
+<p class="p19">SND_ERR_KERNEL<span class="Apple-tab-span">	</span>"Mach kernel error"</p>
+<p class="p19">SND_ERR_BAD_CONFIGURATION<span class="Apple-tab-span">	</span>"Bad configuration"</p>
+<p class="p19">SND_ERR_CANNOT_CONFIGURE<span class="Apple-tab-span">	</span>"Cannot configure"</p>
+<p class="p19">SND_ERR_UNDERRUN<span class="Apple-tab-span">	</span>"Data underrun"</p>
+<p class="p19">SND_ERR_ABORTED<span class="Apple-tab-span">	</span>"Aborted"</p>
+<p class="p19">SND_ERR_BAD_TAG<span class="Apple-tab-span">	</span>"Bad tag"</p>
+<p class="p19">SND_ERR_CANNOT_ACCESS<span class="Apple-tab-span">	</span>"Cannot access hardware resources"</p>
+<p class="p19">SND_ERR_TIMEOUT<span class="Apple-tab-span">	</span>"Timeout"</p>
+<p class="p19">SND_ERR_BUSY<span class="Apple-tab-span">	</span>"Hardware resources already in use"</p>
+<p class="p19">SND_ERR_CANNOT_ABORT<span class="Apple-tab-span">	</span>"Cannot abort operation"</p>
+<p class="p19">SND_ERR_INFO_TOO_BIG<span class="Apple-tab-span">	</span>"Information string too large"</p>
+<p class="p19">SND_ERR_UNKNOWN<span class="Apple-tab-span">	</span>"Unknown error"</p>
+<p class="p20"><br></p>
+<p class="p47"><br></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b></b><b>SNDStartPlaying(),<span class="Apple-converted-space">  </span>SNDVerifyPlayable(), SNDStartRecording(), SNDStartRecordingFile(), SNDWait(), SNDStop(), SNDSamplesProcessed(), SNDModifyPriority()</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Recording and playing a sound</p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/performsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDStartPlaying(</b>SNDSoundStruct *<i>sound</i>, int <i>tag</i>, int <i>priority</i>, int <i>preempt</i>, SNDNotificationFun <i>beginFun</i>, SNDNotificationFun <i>endFun</i><b>)</b></p>
+<p class="p13">int <b>SNDVerifyPlayable(</b>SNDSoundStruct *<i>sound</i><b>)</b></p>
+<p class="p13">int <b>SNDStartRecording(</b>SNDSoundStruct *<i>sound</i>, int <i>tag</i>, int <i>priority</i>, int <i>preempt</i>, SNDNotificationFun <i>beginFun</i>, SNDNotificationFun <i>endFun</i><b>)</b></p>
+<p class="p13">int <b>SNDStartRecordingFile(</b>char *<i>fileName</i>, SNDSoundStruct *<i>sound</i>, int <i>tag</i>, int <i>priority</i>, int <i>preempt</i>, SNDNotificationFun <i>beginFun</i>, SNDNotificationFun <i>endFun</i><b>)</b></p>
+<p class="p13">int <b>SNDStop(</b>int <i>tag</i><b>)</b></p>
+<p class="p13">int <b>SNDWait(</b>int <i>tag</i><b>)</b></p>
+<p class="p13">int <b>SNDSamplesProcessed(</b>int <i>tag</i><b>)</b></p>
+<p class="p13">int <b>SNDModifyPriority(</b>int <i>tag</i>, int <i>newPriority</i><b>)</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span><b>SNDStartPlaying()</b> initiates the playback of <i>sound.</i><span class="Apple-converted-space">  </span>The function returns immediately while the playback continues in a background thread.<span class="Apple-converted-space">  </span>During playback, the sound is played on the internal speaker and sent to the stereo line-out jacks.</p>
+<p class="p15"><br></p>
+<p class="p21">The <i>tag</i> argument is an arbitrary positive integer that the caller supplies to identify the playback session in subsequent calls to <b>SNDWait()</b>, <b>SNDStop()</b>, <b>SNDSamplesProcessed()</b>, and <b>SNDModifyPriority()</b>.<span class="Apple-converted-space">  </span>You should never set a sound's tag to 0.</p>
+<p class="p22"><br></p>
+<p class="p21">The value of <i>priority</i> establishes the sound's right to use the playback resources.<span class="Apple-converted-space">  </span>The lowest priority is 0, larger numbers signify higher priorities.<span class="Apple-converted-space">  </span>Negative priorities are reserved.<span class="Apple-converted-space">  </span>A call to <b>SNDStartPlaying()</b> will interrupt a currently playing sound if the new sound has a higher priority.<span class="Apple-converted-space">  </span>If the new sound has a lower priority, the old sound continues and the new sound is put in a sound playback queue.<span class="Apple-converted-space">  </span>Sounds in the queue are sorted by priority.</p>
+<p class="p22"><br></p>
+<p class="p21">A nonzero <i>preempt</i> flag is used for urgent sounds, such as system beeps.<span class="Apple-converted-space">  </span>Preemption allows a new sound to interrupt a sound that has the same (or lower) priority.<span class="Apple-converted-space">  </span>However, if the new sound can't interrupt, it isn't put in the queue.</p>
+<p class="p22"><br></p>
+<p class="p21"><i>beginFun</i> and <i>endFun</i> are user-defined notification functions that are automatically called when the sound begins playing and when it ends, respectively.<span class="Apple-converted-space">  </span>A notification function is defined as an integer function with three arguments:</p>
+<p class="p22"><br></p>
+<p class="p21"><span class="Apple-tab-span">	</span>typedef int (*SNDNotificationFun)(SNDSoundStruct *<i>sound</i>, int <i>tag</i>, int <i>err</i>);<span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p21">The <i>sound</i> and <i>tag</i> arguments are taken directly from the <b>SNDStartPlaying()</b> call.<span class="Apple-converted-space">  </span>The <i>err</i> argument is one of the error codes listed in <b>SNDSoundError()</b> and is generated automatically to inform the notification function of the state of the playback.<span class="Apple-converted-space">  </span>The return value is ignored.<span class="Apple-converted-space">  </span>The value SND_NULL_FUN should be used to specify no function as either <i>beginFun</i> or <i>endFun</i>.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>SNDVerifyPlayable()</b> returns SND_ERR_NONE if <i>sound</i> can be played without first being converted to another format, sampling rate, or number of channels.<span class="Apple-converted-space">  </span>Otherwise, it returns SND_ERR_CANNOT_PLAY.</p>
+<p class="p22"><br></p>
+<p class="p21">The arguments to <b>SNDStartRecording()</b> are like those to <b>SNDStartPlaying()</b>.<span class="Apple-converted-space">  </span>The sound resource used for recording is implied by information in <i>sound</i>'s header; currently, two configurations are allowed:</p>
+<p class="p22"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>If the sound is one channel of mulaw format (SND_FORMAT_MULAW) at the CODEC sampling rate (SND_RATE_CODEC), then the recording is made from the CODEC input (the microphone jack at the back of the monitor).</p>
+<p class="p33"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>If the format is one of the DSP data or compressed formats, the recording is made from the DSP port.<span class="Apple-converted-space">  </span>In the case of a compressed format, the sound is compressed according to options set by <b>SNDSetCompressionOptions()</b>.</p>
+<p class="p33"><br></p>
+<p class="p21">Like playback, recording is performed in a background thread.<span class="Apple-converted-space">  </span>The recording completes when the storage allocated for the sound is filled with data.</p>
+<p class="p22"><br></p>
+<p class="p21">For both playback and recording, reserving the appropriate sound device first (through <b>SNDReserve()</b>) may help eliminate some overhead.<span class="Apple-converted-space">  </span>This is particularly true if you're playing a series of sounds.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>SNDStartRecordingFile()</b> is similar to <b>SNDStartRecording()</b>, but the sound is written directly to the file <i>fileName</i>.<span class="Apple-converted-space">  </span>The <i>sound</i> argument is used for its size and format information.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>SNDStop()</b> terminates the playback or recording session that has a tag of <i>tag</i>.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>SNDWait()</b> returns only when the playback or recording with a tag of <i>tag</i> has completed.<span class="Apple-converted-space">  </span>If <i>tag</i> is 0, all sounds in the sound queue are awaited.<span class="Apple-converted-space">  </span>Note that if you call this function from the main thread of an application that has an asynchronous event-driven user interface, the interface will be effectively frozen until this function returns.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>SNDSamplesProcessed()</b> returns the number of samples that have been played or recorded so far in the playback or recording that has the given tag<i>.</i> If the tagged sound isn't currently active, <span class="s2">-</span>1 is returned.<span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p21"><b>SNDModifyPriority()</b> resets the priority, as <i>newPriority</i>, of the playback or recording that has a tag of <i>tag</i>.</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned.</p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p37"><b>SNDSwapSoundToHost(), SwapHostToSound()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Swap the bytes in each sample in a buffer of sound data<span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/utilsound.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDSwapSoundToHost(</b>void *<i>dest</i>, void *<i>src</i>, int <i>sampleCount</i>, int <i>channelCount</i>,<span class="Apple-converted-space"> </span></p>
+<p class="p19">int <i>dataFormat</i><b>)</b></p>
+<p class="p13">int <b>SNDSwapHostToSound(</b>void *<i>dest</i>, void *<i>src</i>, int <i>sampleCount</i>, int <i>channelCount</i>,<span class="Apple-converted-space"> </span></p>
+<p class="p19">int <i>dataFormat</i><b>)</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p10">DESCRIPTION<span class="Apple-tab-span">	</span>These functions read the data pointed to by <i>src</i>, swap the order of the bytes that comprise each sample (if necessary) and write the swapped data to <i>dest</i> (<i>src</i> and <i>dest</i> can be the same pointer).<span class="Apple-converted-space">  </span>The other arguments, taken cumulatively, describe the size of the sound buffer:</p>
+<p class="p15"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>sampleCount</i> is the number of sample frames, or channel-independent samples.</p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>channelCount</i> is the number of channels of sound data. <span class="Apple-converted-space"> </span></p>
+<p class="p13">•<span class="Apple-tab-span">	</span><i>dataFormat</i> is a format-encoding constant, such as SND_FORMAT_LINEAR_16.</p>
+<p class="p33"><br></p>
+<p class="p21">The functions return an error code, where SND_ERR_NONE indicates success.</p>
+<p class="p22"><br></p>
+<p class="p21">The “Sound” and “Host” terms in these names have these meanings:</p>
+<p class="p22"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>To play a sound, the sound data must be in “Sound” format.</p>
+<p class="p13">•<span class="Apple-tab-span">	</span>To examine sound data, it must be in “Host” format.<span class="Apple-converted-space"> </span></p>
+<p class="p33"><br></p>
+<p class="p21">When you read a soundfile or record a sound, the sound data is guaranteed to be in “Sound” format; if all you want to do is play the soundfile or write the recorded sound to a file—in other words, if you don't want to examine the data—then you don't need to call these functions.</p>
+<p class="p22"><br></p>
+<p class="p21">However, if, for example, you read a soundfile in order to look at the value at each sample, you must first call <b>SNDSwapSoundToHost()</b> to convert the sound data to “Host” format.<span class="Apple-converted-space">  </span>If you modify samples in a converted sound, you must re-convert to “Sound” format, through<b> SNDSwapHostToSound()</b>, before the sound can be played or written to a file.</p>
+<p class="p22"><br></p>
+<p class="p21">Note that you don't have to convert entire soundfiles (or SNDSoundStruct data buffers) at a time.<span class="Apple-converted-space">  </span>The arguments let you convert an arbitrary range of samples starting at any sample in a sound data buffer.</p>
+<p class="p22"><br></p>
+<p class="p21">These functions are built upon the general <b>NXSwap...</b> functions that are described in <b>/NextLibrary/Documentation/NextDev/Concepts/PortabilityGuide</b>.<span class="Apple-converted-space">  </span>The primary difference between the sound swapping functions and the general swapping functions is that the sound functions let you convert buffers of data, whereas a single call to a general function can convert only one datum. <span class="Apple-converted-space">  </span>If you wish, you can call the general functions (iteratively) rather than the sound functions.<span class="Apple-converted-space">  </span>The correspondences between the<span class="Apple-converted-space">  </span>functions are:</p>
+<p class="p22"><br></p>
+<p class="p32"><br></p>
+<p class="p17"><b>Sound function<span class="Apple-tab-span">	</span>Analogous general function</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19">SNDSwapSoundToHost()<span class="Apple-tab-span">	</span>NXSwapBigShortToHost()</p>
+<p class="p20"><br></p>
+<p class="p19">SNDSwapHostToSound()<span class="Apple-tab-span">	</span>NXSwapHostShortToBig()</p>
+<p class="p20"><br></p>
+<p class="p49"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned.</p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p37"><b>SNDWriteSoundfile(), SNDWrite(), SNDWriteHeader()</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p8">SUMMARY<span class="Apple-tab-span">	</span>Write a sound to a file<span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p10">DECLARED IN<span class="Apple-tab-span">	</span>sound/soundfile.h</p>
+<p class="p11"><br></p>
+<p class="p12">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>SNDWriteSoundfile(</b>char *<i>path</i>, SNDSoundStruct *<i>sound</i><b>)</b></p>
+<p class="p13">int <b>SNDWrite(</b>int <i>fd</i>, SNDSoundStruct *<i>sound</i><b>)</b></p>
+<p class="p13">int <b>SNDWriteHeader(</b>int <i>fd</i>, SNDSoundStruct *<i>sound</i><b>)</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p21"><b>SNDWriteSoundfile()</b> writes the specified sound structure as the soundfile.<span class="Apple-converted-space">  </span><i>path</i> is a full pathname that should include the “.snd” extension (the convention for soundfiles).<span class="Apple-converted-space">  </span>The function automatically opens and closes the file.</p>
+<p class="p22"><br></p>
+<p class="p21"><b>SNDWrite()</b> also writes a complete soundfile, but its argument is a file descriptor rather than a pathname.<span class="Apple-converted-space">  </span>The file must be open for writing. <span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p21">With both <b>SNDWriteSoundfile()</b> and <b>SNDWrite()</b>, the actual sound data is written as a contiguous block, even if <i>sound</i> is fragmented.<span class="Apple-converted-space">  </span>However, <i>sound</i> itself isn't affected—if it's fragmented, it remains fragmented. <span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p21"><b>SNDWriteHeader()</b> is similar to <b>SNDWrite()</b>, but it only writes <i>sound</i>'s header to the file. <span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p24">RETURN<span class="Apple-tab-span">	</span>If no error occurs, SND_ERR_NONE is returned.<span class="Apple-converted-space">  </span>Otherwise, an error code, as described in <b>SNDSoundError()</b>, is returned.</p>
+<p class="p25"><br></p>
+</body>
+</html>

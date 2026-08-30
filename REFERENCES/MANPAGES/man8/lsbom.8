@@ -1,0 +1,81 @@
+.\"	@(#)mkbom.8	6.1 (Berkeley) 4/29/85
+.\"
+.TH LSBOM 8 "January 5, 1993"
+.AT 3
+.SH NAME
+lsbom \- List the contents of a bill of materials
+.SH SYNOPSIS
+.B lsbom
+[ \fB\-s\fP ] [ \fB\-f\fP ] [ \fB\-d\fP ] [ \fB\-l\fP ]
+[ \fB\-b\fP ] [ \fB\-c\fP ] [ \fB\-m\fR ] [ \fB\-arch\fP \fIarchVal\fR ] 
+.I bomfile
+.SH DESCRIPTION
+.I Lsbom
+lists the contents of each named
+.I bomfile,
+printing a line for each file in the contents.
+The output is similar to the output of the command ``ls -l''.
+.PP
+Each line begins with the path of the entry,
+its mode (octal), and its UID/GID.
+.PP
+There are a few differences
+between the lines printed for plain files, 
+directories, symbolic links, and device files:
+.PP
+.in +5n
+For a plain file, the UID/GID is followed by the file number and 
+the file checksum. Each unique file has its own file number;
+files which are hard-linked have the same file number.
+The file number is not necessarily the same
+as the file's original inode number.
+.sp
+For a symbolic link, the UID/GID is followed by the size and checksum of the
+link path, and the link path itself.
+.sp
+For a device file,
+the UID/GID file number is followed by the device number.
+.in -5n
+.SH "OPTIONS"
+.TP 10
+.B -s
+Print only the path of each file.
+.TP 10
+.B -f
+List plain files.
+.TP 10
+.B -d
+List directories.
+.TP 10
+.B -l
+List symbolic links.
+.TP 10
+.B -b
+List block devices.
+.TP 10
+.B -c
+List character devices.
+.TP 10
+.B -m
+Print modified times (for plain files only)
+.TP 10
+.B -arch \fIarchVal\fR
+Print information for \fIarchVal\fR (one of "m68k", "i386",
+"hppa", or "sparc").
+.SH "EXAMPLES"
+.TP 25
+lsbom bomfile
+List the contents of bomfile.
+.TP 25
+lsbom -s bomfile
+List only the paths of the contents of bomfile.
+.TP 25
+lsbom -f -l bomfile
+List the plain files and symbolic links of bomfile
+(but not directories or devices).
+.TP 25
+lsbom -arch m68k bomfile
+List the sizes and sums of the Motorola portion of multi-architecture
+("fat") files in bomfile instead of the sizes and sums of the fat files.
+.SH "SEE ALSO"
+bom(5), mkbom(8), showmods(8)

@@ -1,0 +1,16 @@
+/*
+ * palette.table
+ * Copyright (c) 1997 NeXT Software, Inc.
+ * All rights reserved.
+ *
+ * You may freely copy, distribute and reuse the code in this example.
+ * NeXT disclaims any warranty of any kind, expressed or implied,
+ * as to its fitness for any particular use.
+ */
+
+Class = ProgressViewPalette;		// (a subclass of IBPalette)
+NibFile = ProgressViewPalette;		// (a nib file name)
+ExportClasses = (ProgressView);		// (a list of class names)
+// Icon =;				// (a tiff/eps file name)
+// ExportImages = ();			// (a list of icon names)
+// ExportSounds = ();			// (a list of sound names)

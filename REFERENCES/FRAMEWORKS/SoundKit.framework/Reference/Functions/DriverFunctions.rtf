@@ -1,0 +1,2477 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f4\fmodern Courier;\f3\fmodern Ohlfs;}
+\paperw14220
+\paperh12580
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+\fs80 \
+
+\f2\b\fs28\li2380 \
+
+{{\NeXTHelpMarker64 \markername NS_DEV_DOCFOR:objc_function:snddriver_dsp_reset();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 snddriver_dsp_boot(), snddriver_dsp_reset()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Start the DSP\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_dsp_boot(
+\b0 port_t 
+\i commandPort
+\i0 , int *
+\i bootImage
+\i0 , int 
+\i imageSize
+\i0 , int 
+\i priority
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 kern_return_t 
+\b snddriver_dsp_reset(
+\b0 port_t 
+\i commandPort
+\i0 , int 
+\i priority
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b snddriver_dsp_boot()
+\b0  enqueues a command to boot the DSP.  The arguments are as follows:\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\fi-380\li2760\fc0\cf0 ·	
+\i commandPort
+\i0  is the DSP command port, as retrieved by 
+\b snddriver_get_dsp_cmd_port()
+\b0 .  \
+
+\fs20 \
+
+\fs28 ·	
+\i bootImage
+\i0  is a pointer to a DSP program image that's downloaded to the DSP (program memory location 0x0) and immediately executed.  The image is created by reading a ª.lodº file that's assembled from DSP56001 assembly code.\
+
+\fs20 \
+
+\fs28 ·	
+\i imageSize
+\i0  is the size of the DSP boot image, in bytes.  The image must not exceed 512 words (24-bit DSP words right-justified within 32-bit integers).\
+
+\fs20 \
+
+\fs28 ·	
+\i priority
+\i0  is one of the three priority constants SNDDRIVER_LOW_PRIORITY, SNDDRIVER_MED_PRIORITY, or SNDDRIVER_HIGH_PRIORITY.  The sound driver sorts the commands in its DSP command queue according to priority.\
+
+\fs20 \
+
+\fs28\fi0\li2380 Booting the DSP clears neither external memory nor on-chip data memory.\
+
+\fs20 \
+
+\b\fs28 snddriver_dsp_reset()
+\b0  puts the DSP in its reset state.  By this it's meant that the DSP's execution is immediately halted and a bootstrap program is awaited.  Booting the DSP automatically resets it, thus you don't need to call this function before calling 
+\b snddriver_boot_dsp()
+\b0 .  \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs60 \
+
+{\pard\f2\b\fs28\li2380\fc0\cf0{\NeXTHelpMarker1553 \markername NS_DEV_DOCFOR:objc_function:snddriver_dsp_dma_write();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi-760\li3140\gray0\fc0\cf0\up0\dn0 snddriver_dsp_dma_write(), snddriver_dsp_dma_read()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Transfer data to and from the DSP via DMA\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_dsp_dma_write(
+\b0 port_t 
+\i commandPort
+\i0 , int 
+\i elementCount
+\i0 , int€
+\i dataFormat
+\i0 , pointer_t 
+\i data
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 kern_return_t 
+\b snddriver_dsp_dma_read(
+\b0 port_t 
+\i commandPort
+\i0 , int 
+\i elementCount
+\i0 , int€
+\i dataFormat
+\i0 , pointer_t 
+\i data
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	These functions enqueue commands that perform application-initiated DMA transfers to and from the DSP.  You must include complex DMA protocol to use these functions.  The arguments to the two functions are similar:\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\fi-380\li2760\fc0\cf0 ·	
+\i commandPort
+\i0  is the DSP command port, as retrieved by 
+\b snddriver_get_dsp_cmd_port()
+\b0 .  \
+
+\fs20 \
+
+\fs28 ·	
+\i elementCount
+\i0  is the number of data elements to send during each transfer.\
+
+\fs20 \
+
+\fs28 ·	
+\i dataFormat
+\i0  is an integer constant that describes the size and packing of an individual data element.  These are\
+
+\fs20 \
+
+\pard\tx6420\tx10440\fs28\li2760\fc0\cf0 DSP_MODE8	1 byte per element\
+DSP_MODE16	2 bytes per element\
+DSP_MODE24	3 bytes per element\
+DSP_MODE32	3 bytes per element, right-justified in 4\
+DSP_MODE2416	2 bytes per element, packed and right-justified in 4\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\fi-380\li2760\fc0\cf0 ·	
+\i data
+\i0  is a pointer to the data that you're transferring.\
+
+\fs20 \
+
+\fs28\fi0\li2380 There are three rules regarding the size and alignment of a DMA transfer buffer:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	The size in bytes of a single DMA transfer buffer, reckoned as 
+\i elementCount€
+\i0 *€bytes-per-element, must be a multiple of 16.  Note that bytes-per-element isn't given directly as an argument.\
+
+\fs20 \
+
+\fs28 ·	The data must be ªquad-alignedº; in other words, the starting address (
+\i data
+\i0 ) must be a multiple of 16.\
+
+\fs20 \
+
+\fs28 ·	All the data in a transfer buffer must lie on the same page of virtual memory.\
+
+\fs20 \
+
+\fs28\fi0\li2380 If you're writing data, the 
+\b snddriver_dsp_dma_write()
+\b0  function enqueues a command to send the data to the DSP and then immediately returns.  
+\b snddriver_dsp_dma_read()
+\b0 , on the other hand, waits until it has read the prescribed amount of data and returns with 
+\i data
+\i0  filled.  DMA-transfer commands are always enqueued with high priority.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	snddriver_dsp_read(), snddriver_dsp_write(), snddriver_dsp_protocol()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker3646 \markername NS_DEV_DOCFOR:objc_function:snddriver_dsp_host_cmd();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 snddriver_dsp_host_cmd()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Enqueue a DSP command\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_dsp_host_cmd(
+\b0 port_t 
+\i commandPort
+\i0 , u_int 
+\i hostCommand
+\i0 , u_int€
+\i priority
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b snddriver_dsp_host_cmd()
+\b0  enqueues a command on the sound driver's DSP command queue that interrupts the DSP and causes it to execute one of 32 interrupt routines (or 
+\i host commands
+\i0 ).  Its arguments are as follows:\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\fi-380\li2760\fc0\cf0 ·	
+\i commandPort
+\i0  is the DSP command port, as retrieved by 
+\b snddriver_get_dsp_cmd_port()
+\b0 .  \
+
+\fs20 \
+
+\fs28 ·	
+\i hostCommand
+\i0  is an integer that represents the host command you want to execute.  The first 22 host commands are already defined (or reserved).  The host commands provided by NeXT are represented by constants (prefix ªDSP_hc_º) that are defined in 
+\b /usr/include/nextdev/snd_dsp.h
+\b0 .  Creating your own host command requires a familiarity with DSP programming that lies beyond the scope of this description.\
+
+\fs20 \
+
+\fs28 ·	
+\i priority
+\i0  is one of the three priority constants SNDDRIVER_LOW_PRIORITY, SNDDRIVER_MED_PRIORITY, or SNDDRIVER_HIGH_PRIORITY.  The sound driver sorts the commands in its DSP command queue according to priority.\
+
+\fs20 \
+
+\fs28\fi0\li2380 When the DSP receives a host command, it sets the HC flag in the Command Vector Register.  After executing the command, the DSP clears the flag.  You should always precede a call to 
+\b snddriver_dsp_host_cmd()
+\b0  with a call to 
+\b snddriver_dspcmd_req_condition()
+\b0  that waits for HC to clear in order to avoid overwriting a previously requested, but as yet unexecuted, host command:\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 /* CVR_HC is defined in <nextdev/snd_dspreg.h> */ \
+err = snddriver_dspcmd_req_condition(commandPort, CVR_HC, 0, ...);\
+if (err != 0)\
+    . . .\
+\
+/* Now enqueue the host command request. */\
+err = snddriver_dsp_host_cmd(...);\
+if (err != 0)\
+    . . .\
+
+\fs30 \
+
+\pard\tx2380\f0\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	snddriver_dspcmd_req_condition()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker5510 \markername NS_DEV_DOCFOR:objc_function:snddriver_dsp_protocol();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 snddriver_dsp_protocol()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Set the sound driver's protocol vis-a-vis the DSP\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_dsp_protocol(
+\b0 port_t 
+\i devicePort
+\i0 , port_t 
+\i ownerPort
+\i0 , int€
+\i protocol
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b snddriver_dsp_protocol()
+\b0  lets you establish the manner in which the sound driver communicates with the DSP; specifically, it determines whether to create 0, 1, or 2 DSP-reply buffers and whether DSP interrupts are enabled.  The existence of the DSP-reply buffers determines whether you can use streams to transfer data.  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The function's first two arguments are the sound driver device port and the DSP owner port, as acquired through 
+\b SNDAcquire()
+\b0 .  \
+
+\fs20 \
+
+\fs28  
+\i protocol
+\i0  is the heart of the matter:  It's a code that represents the protocol that you wish to establish.  There are two ways to create the appropriate protocol:  If you're using streams to access the DSP, then you should pass the protocol variable that's modified by calls to 
+\b snddriver_stream_setup()
+\b0 , as explained (with an example) in the description of that function.  AlternativelyÐor in addition to the foregoingÐyou can create a protocol code by or'ing the following DSP protocol constants:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	SNDDRIVER_DSP_PROTO_RAW represents the barest protocol.  The sound driver makes no assumptions about how the DSP is being used:  No DSP-reply buffers are created and the DSP can't interrupt the host.  You can't use streams in raw protocol; to transfer data, you use the 
+\b snddriver_dsp_write()
+\b0  and 
+\b snddriver_dsp_read()
+\b0  functions.\
+
+\fs20 \
+
+\fs28\fi0\li2380 All the other protocols create at least one DSP-reply buffer and allow DSP interrupts, thus allowing you to transfer data through a stream:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	SNDDRIVER_DSP_PROTO_DSPMSG (ªDSP-messageº) creates a buffer that can hold 512 DSP-reply messages.  A message from the DSP (as it lies in the reply buffer) is a 24-bit word right-justified in 32 bits.  To receive the contents of this buffer, you enqueue a request through 
+\b snddriver_dspcmd_req_msg()
+\b0 .\
+
+\fs20 \
+
+\fs28 ·	SNDDRIVER_DSP_PROTO_DSPERR (ªDSP-errorº) creates an additional 512-message DSP-reply buffer that collects error messages sent from the DSP.  An error message is identified as having its MSB (bit 23) set.  You can request the contents of the error buffer through 
+\b snddriver_dspcmd_req_err()
+\b0 .\
+
+\fs20 \
+
+\fs28 ·	SNDDRIVER_DSP_PROTO_C_DMA (ªcomplex DMAº) implies DSP message mode (a single DSP-reply buffer is created) and allows DSP-initiated DMA transfers.  \
+
+\fs20 \
+
+\fs28 ·	SNDDRIVER_DSP_PROTO_HFABORT (ªhost flag abortº) causes the driver to take note if the DSP aborts.  (The DSP indicates that it has aborted by setting HF2 and HF3.)\
+
+\fs20 \
+
+\fs28\fi0\li2380 To get the documented behavior from these protocols, you 
+\i must
+\i0  include SNDDRIVER_DSP_PROTO_RAW.  \
+
+\fs20 \
+
+\pard\fs28\li2380\fc0\cf0 Note:  A protocol of 0 produces Release 1.0 behavior; this is roughly equivalent to a combination of DSP message, DSP error, and host flag abort modes.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	snddriver_stream_setup()\
+
+\fs20 \
+
+\fs60 \
+
+{\pard\f2\fs28\li2380\fc0\cf0{\NeXTHelpMarker8436 \markername NS_DEV_DOCFOR:objc_function:snddriver_dsp_set_flags();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi-760\li3140\gray0\fc0\cf0\up0\dn0 snddriver_dsp_set_flags()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Set the DSP host flags\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_dsp_set_flags(
+\b0 port_t 
+\i commandPort
+\i0 , u_int 
+\i flagMask
+\i0 , u_int€
+\i flagValue
+\i0 , u_int 
+\i priority
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b snddriver_dsp_set_flags()
+\b0  enqueues a command to modify one or both of the DSP host interface flags HF0 (host flag 0) and HF1 (host flag 1).\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The 
+\i flagMask
+\i0  argument defines which of the host flags you want to affect.  The flags are represented by the constants SNDDRIVER_ICR_HF0 and SNDDRIVER_ICR_HF1.  You can set both flags at the same time by or'ing these two constants.  (ICR stands for ªInterrupt Control Registerº; this is the register to which the host flags belong.)\
+
+\fs20 \
+
+\i\fs28 flagValue
+\i0  is the value to which you're setting the flag(s).  A host flag can be either on or off, states that are also referred to as ªsetº and ªclearedº.  To set a flag, you pass its constant identifier; to clear it, you pass 0.  The following examples illustrate this concept:\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 /* Set HF0 (turn it on). */\
+snddriver_dsp_set_flags(..., SNDDRIVER_ICR_HF0,\
+           SNDDRIVER_ICR_HF0,...)\
+\
+/* Clear HF1. */\
+snddriver_dsp_set_flags(..., SNDDRIVER_ICR_HF1,0,...)\
+\
+/* Set both flags. */\
+snddriver_dsp_set_flags(..., \
+        SNDDRIVER_ICR_HF0 | SNDDRIVER_ICR_HF1,\
+           SNDDRIVER_ICR_HF0 | SNDDRIVER_ICR_HF1, ...)\
+\
+/* Set HF0 and clear HF1. */\
+snddriver_dsp_set_flags(..., \
+        SNDDRIVER_ICR_HF0 | SNDDRIVER_ICR_HF1,\
+           SNDDRIVER_ICR_HF0, ...)\
+\
+/* Clear both flags. */\
+snddriver_dsp_set_flags(..., \
+        SNDDRIVER_ICR_HF0 | SNDDRIVER_ICR_HF1, 0,...)\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 The other two arguments, 
+\i commandPort
+\i0  and 
+\i priority
+\i0 , are the DSP command port and command-queue priority, respectively.  The DSP command port is retrieved through 
+\b snddriver_dsp_cmd_port()
+\b0 ; you set the priority to one of SNDDRIVER_HIGH_PRIORITY, SNDDRIVER_MED_PRIORITY, or SNDDRIVER_LOW_PRIORITY.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	snddriver_dspcmd_req_condition()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker10415 \markername NS_DEV_DOCFOR:objc_function:snddriver_dsp_read_messages();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 snddriver_dsp_write(), snddriver_dsp_read(), snddriver_dsp_read_data(), snddriver_dsp_read_messages()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Transfer data to and from the DSP \
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_dsp_write(
+\b0 port_t 
+\i commandPort
+\i0 , void *
+\i buffer
+\i0 , int
+\b €
+\b0\i elementCount
+\i0 , int 
+\i elementSize
+\i0 , int 
+\i priority
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 kern_return_t 
+\b snddriver_dsp_read(
+\b0 port_t 
+\i commandPort
+\i0 , void *
+\i buffer
+\i0 , int
+\b €
+\b0\i elementCount
+\i0 , int 
+\i elementSize
+\i0 , int 
+\i priority
+\b\i0 )\
+
+\b0 kern_return_t 
+\b snddriver_dsp_read_messages(
+\b0 port_t 
+\i commandPort
+\i0 , void *
+\i buffer
+\i0 , int
+\b €
+\b0\i elementCount
+\i0 , int 
+\i elementSize
+\i0 , int 
+\i priority
+\b\i0 )\
+
+\b0 kern_return_t 
+\b snddriver_dsp_read_data(
+\b0 port_t 
+\i commandPort
+\i0 , void **
+\i buffer
+\i0 , int
+\b €
+\b0\i elementCount
+\i0 , int 
+\i elementSize
+\i0 , int 
+\i priority
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b snddriver_dsp_write()
+\b0  enqueues a command to perform a one-shot, application-initiated data transfer to the DSP; 
+\b snddriver_dsp_read()
+\b0  brings data back from the DSP in a like manner.  You generally use these functions if you have a small amount of data to transfer or if the transfers are infrequent enough that the overhead of the obvious alternativeÐsetting up a DMA streamÐwould be exorbitant.  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The other two functions, 
+\b snddriver_dsp_read_messages()
+\b0  and 
+\b snddriver_dsp_read_data()
+\b0  are auxiliary to 
+\b snddriver_dsp_read()
+\b0 .  When you call 
+\b snddriver_dsp_read()
+\b0 , it, in turn, calls one of the auxiliary functions; which of the two functions it calls depends on the current DSP protocol, as described below.  You can call these functions yourself by-passing 
+\b snddriver_dsp_read()
+\b0 , although you should adhere to the same protocol rules that 
+\b snddriver_dsp_read()
+\b0  obeys.\
+
+\fs20 \
+
+\fs28 The arguments to all four functions are similar:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	
+\i commandPort
+\i0  is the DSP command port, as retrieved through 
+\b snddriver_get_dsp_cmd_port().\
+
+\fs20 \
+
+\b0\fs28 ·	
+\i buffer
+\i0 , as used by 
+\b snddriver_dsp_write()
+\b0 , is a pointer to the data you want to send to the DSP.  For the 
+\b snddriver_dsp_read...()
+\b0  functions, it's a pointer to the location where you want the retrieved data to be stored.  Note that for 
+\b snddriver_dsp_read_data()
+\b0 , 
+\i buffer
+\i0  is the address of a pointer; this allows the function to allocate memory for the data if you haven't allocated it yourself.  \
+
+\fs20 \
+
+\fs28 ·	
+\i elementCount
+\i0  and 
+\i elementSize
+\i0  are the number of data elements to transfer and the size, in bytes, of a single element, respectively.  \
+
+\fs20 \
+
+\fs28 ·	
+\i priority
+\i0  is an integer used to sort the command on the DSP command queue.  The sound driver defines three priorities represented by the constants SNDDRIVER_LOW_PRIORITY, SNDDRIVER_MED_PRIORITY, and SNDDRIVER_HIGH_PRIORITY.  You normally set all application-initiated data transfers to low priority, thus reserving medium and high priority for operations that need to jump to the head of the DSP command queue.  \
+
+\fs20 \
+
+\fs28\fi0\li2380 Of these functions, 
+\b snddriver_dsp_write()
+\b0  is most straightforward:  When it's called, a transfer-data-to-the-DSP command is sorted (by priority) into the DSP command queue.  If, when its turn comes, the command can't be executed, the driver simply pushes it back on the queue and tries again.  No other commands of equal or lower priority can be executed while a frustrated write command is sitting on top of the queue.  Note, however, that higher priority commands 
+\i will
+\i0  get through.  \
+
+\fs20 \
+
+\fs28 As mentioned earlier, 
+\b snddriver_dsp_read()
+\b0  calls one of its two auxiliary functions as determined by the current DSP protocol:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	If your application is in raw protocol, then 
+\b snddriver_dsp_read_data()
+\b0  is used to read data from the DSP transmit registers.\
+
+\fs20 \
+
+\fs28 ·	If DSP message protocol is included, 
+\b snddriver_dsp_read_messages()
+\b0  is used to read data from the DSP-reply buffer.  \
+
+\fs20 \
+
+\fs28\fi0\li2380 The difference between the two mechanisms is generally transparent such that you can call 
+\b snddriver_read_data()
+\b0  without regard for the current protocol.  However, the manner in which the underlying functions handles incomplete reads is significant:  If the read can't be completed (typically because the DSP hasn't generated enough data), 
+\b snddriver_dsp_read_data()
+\b0  blocks the DSP command queue in the fashion of 
+\b snddriver_dsp_write()
+\b0 .  In the same situation, 
+\b snddriver_dsp_read_messages()
+\b0  waits for more data without blocking the command queue.  Thus 
+\b snddriver_dsp_read_messages()
+\b0  can safely be called from a separate thread at any time.  This isn't true of 
+\b snddriver_dsp_read_data()
+\b0 ; you should be scrupulous about ensuring that sufficient data has been processed by the DSP before you attempt to read it through this function (or through 
+\b snddriver_dsp_read()
+\b0  while in raw protocol).  \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	snddriver_dsp_dma_read(), snddriver_dsp_dma_write()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker14940 \markername NS_DEV_DOCFOR:objc_function:snddriver_dspcmd_req_condition();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 snddriver_dspcmd_req_condition()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Request a DSP host interface register condition\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_dspcmd_req_condition(
+\b0 port_t 
+\i commandPort
+\i0 , u_int€
+\i registerMask
+\i0 , u_int 
+\i conditionFlags
+\i0 , int 
+\i priority
+\i0 , port
+\b _
+\b0 t 
+\i replyPort
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b snddriver_dspcmd_req_condition()
+\b0  does two things:  It causes the DSP command queue to block until the specified host interface register condition is true, and it registers a request for an asynchronous message to be sent to 
+\i replyPort
+\i0  when the condition is fulfilled.  The function returns immediately.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 You specify a condition through a combination of the 
+\i registerMask
+\i0  and 
+\i conditionFlags
+\i0  arguments:  \
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	
+\i registerMask
+\i0  specifies the host interface registers (actually, the bits therein) that you're interested in.  It's created by 
+\b or
+\b0\i '
+\i0 ing the register-bit constants defined in 
+\b nextdev/snd_dspregs.h
+\b0 .  A subset of these are also defined as sound driver constants in 
+\b sound/snddriver_client.h
+\b0 .\
+
+\fs20 \
+
+\fs28 ·	
+\i conditionFlags
+\i0  encodes the states of the register bits that define a satisfied condition.  To specify that you want a register bit set, you 
+\b or
+\b0  the register-bit constant that represents it; if you want it clear, you exclude the constant.  If you want all the specified bits to be clear, set 
+\i conditionFlags
+\i0  to 0.  \
+
+\fs20 \
+
+\fs28\fi0\li2380 In the following example, the command queue is blocked until HF0 is set and HF1 is clear (both flags are in the Interrupt Control Register):  \
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 /* Block until HF0 is set and HF1 is clear. */\
+snddriver_dspcmd_req_condition(..., \
+        SNDDRIVER_ICR_HF0 | SNDDRIVER_ICR_HF1,\
+        SNDDRIVER_ICR_HF2, ...)\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 The condition request is sorted into the DSP command queue according to 
+\i priority
+\i0 , which must be one of SNDDRIVER_LOW_PRIORITY, SNDDRIVER_MED_PRIORITY, or SNDDRIVER_HIGH_PRIORITY.\
+
+\fs20 \
+
+\fs28 The message that's sent to the reply port when the condition is fulfilled contains the value of the host interface register.  By setting the 
+\i registerMask
+\i0  argument to 0, you can use the 
+\b snddriver_dspcmd_req_condition()
+\b0  function to simply poll for this value.  \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	snddriver_dsp_set_flags()\
+
+\fs20 \
+
+\fs60 \
+
+{\pard\f2\fs28\li2380\fc0\cf0{\NeXTHelpMarker17091 \markername NS_DEV_DOCFOR:objc_function:snddriver_dspcmd_req_msg();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi-760\li3140\gray0\fc0\cf0\up0\dn0 snddriver_dspcmd_req_msg(), snddriver_dspcmd_req_err()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Request the contents of the DSP-reply buffers \
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_dspcmd_req_msg(
+\b0 port_t 
+\i commandPort
+\i0 , port_t 
+\i replyPort
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 kern_return_t 
+\b snddriver_dspcmd_req_err(
+\b0 port_t 
+\i commandPort
+\i0 , port_t 
+\i replyPort
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	The 
+\b snddriver_dspcmd_req_msg()
+\b0  and 
+\b snddriver_dspcmd_req_err()
+\b0  functions are part of the mechanism by which your application retrieves messages from the sound driver's DSP-reply buffers.  They request that the contents of the appropriate buffer (as described below) be sent in a Mach message to 
+\i replyPort
+\i0 , a valid port that must already be allocated.  Simply requesting a message is only half of the story:  You then have to receive the message that's been sent, usually by sitting in a 
+\b msg_receive()
+\b0  loop.  You typically process the Mach messages that these functions induce by passing the messages to the 
+\b snddriver_reply_handler()
+\b0  function.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The utility of these functions depends on your application's DSP protocol:  \
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	You should never use these functions in raw protocol since the sound driver doesn't create any DSP-reply buffers.\
+
+\fs20 \
+
+\fs28 ·	By including DSP message protocol, a single DSP-reply buffer is created in which both€error and non-error messages are stored; thus 
+\b ...req_msg()
+\b0  is of use, but 
+\b ...req_err()
+\b0  isn't.  \
+
+\fs20 \
+
+\fs28 ·	DSP error protocol deems that two buffers be created, one for error messages and the other for non-error messages.  Both functions are useful in this protocol.  \
+
+\fs20 \
+
+\fs28\fi0\li2380 DSP protocol and how to set it is explained in the description of the 
+\b snddriver_set_dsp_protocol()
+\b0  function.  For both functions, the 
+\i commandPort
+\i0  argument is the DSP command port as retrieved by 
+\b snddriver_get_dsp_cmd_port()
+\b0 .  \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	snddriver_set_dsp_protocol(), snddriver_reply_handler() \
+
+\fs20 \
+
+\fs60 \
+
+{\pard\f2\fs28\li2380\fc0\cf0{\NeXTHelpMarker18971 \markername NS_DEV_DOCFOR:objc_function:snddriver_get_dsp_cmd_port();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi-760\li3140\gray0\fc0\cf0\up0\dn0 snddriver_get_dsp_cmd_port()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Get the DSP command port \
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_get_dsp_cmd_port(
+\b0 port_t 
+\i devicePort
+\i0 , port_t 
+\i ownerPort
+\i0 , port_t€*
+\i commandPort
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b snddriver_get_dsp_cmd_port()
+\b0  attempts to get the 
+\i DSP command port
+\i0 , the port through which the sound driver issues commands to the DSP.  If it's successful, the port is returned in the 
+\i commandPort
+\i0  argument, which needn't have been previously allocated.  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The first two arguments, 
+\i devicePort
+\i0  and 
+\i ownerPort
+\i0 , are the sound driver device port and the DSP owner port, as acquired through 
+\b SNDAcquire()
+\b0 .  \
+
+\fs20 \
+
+\fs28 The DSP command port is required as an argument by almost all sound driver functions that communicate with the DSP.  The one notable exception, for which you don't have to get the command port as it's gotten implicitly when needed, is if you send and retrieve DSP data via streams after having booted the DSP through the 
+\b SNDBootDSP()
+\b0  sound library function.  But even in this case getting the command port as a reflex to getting the DSP owner port won't serve you ill.  \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs60 \
+
+{\pard\f2\b\fs28\li2380\fc0\cf0{\NeXTHelpMarker20137 \markername NS_DEV_DOCFOR:objc_function:snddriver_new_device_port();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi-760\li3140\gray0\fc0\cf0\up0\dn0 snddriver_new_device_port()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Reallocate the sound driver device port\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_new_device_port(
+\b0 port_t 
+\i devicePort
+\i0 , port_t 
+\i superuserPort
+\i0 , port_t *
+\i newDevicePort
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	This function deallocates the sound driver device port 
+\i devicePort
+\i0 , as previously acquired through 
+\b SNDAcquire()
+\b0 , then allocates a new port to the device which it returns as 
+\i newDevicePort
+\i0 .  When the old device port is deallocated, so, too, are all its resource owner ports and sound streams; thus any currently operating sound driver tasks, such as recording and playing sounds, are aborted.  Because of the ruthlessness of this act, you must be the UNIX superuser to call this function, as verified by the 
+\i superuserPort
+\i0  argument, for which you should pass the return value of 
+\b host_priv_self()
+\b0 .  The new device port's registration with regard to the Network Name Server is the same as that of the old; in other words, if the old port had been registered (through 
+\b netname_check_in()
+\b0 ), the new one will be registered automatically.\
+
+\fs20 \
+
+\fs10 \
+
+\fs28\fi-1320 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker21279 \markername NS_DEV_DOCFOR:objc_function:snddriver_reply_handler();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 snddriver_reply_handler()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Respond to asynchronous sound driver messages\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_reply_handler(
+\b0 msg_header_t *
+\i reply
+\i0 , snddriver_handlers_t€*
+\i handlers
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b snddriver_reply_handler()
+\b0  helps your application respond to asynchronous sound driver messages.  The function is designed around the 
+\b snddriver_handlers
+\b0  structure, which provides a correspondence between the sound driver messages and a list of C functions that you provide.  When you receive a message from the sound driver, you pass the message and a 
+\b snddriver_handlers
+\b0  structure to 
+\b snddriver_reply_handler()
+\b0  which then executes the handler function that corresponds to the message.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The definition of the 
+\b snddriver_handlers
+\b0  structure (
+\b typedef
+\b0 'd, for convenience, as 
+\b snddriver_handlers_t
+\b0 ) reveals the nature of the functions that you can register as reply€handlers:\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 typedef struct snddriver_handlers \{\
+    void                     *arg;\
+    int                       timeout;\
+    sndreply_tagged_t         started;\
+    sndreply_tagged_t         completed;\
+    sndreply_tagged_t         aborted;\
+    sndreply_tagged_t         paused;\
+    sndreply_tagged_t         resumed;\
+    sndreply_tagged_t         overflow;\
+    sndreply_recorded_data_t  recorded_data;\
+    sndreply_dsp_cond_true_t  condition_true;\
+    sndreply_dsp_msg_t        dsp_message;\
+    sndreply_dsp_msg_t        dsp_error;\
+   \} snddriver_handlers_t;\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 The structure's 
+\b arg
+\b0  field is a value that's passed to the reply handlers when they're called by 
+\b snddriver_reply_handler()
+\b0 ; you can set it to whatever value best suits your application, but keep in mind that the value must fit within the size of a pointer (four bytes).  The 
+\b timeout
+\b0  field is currently unused.  \
+
+\fs20 \
+
+\fs28 The final ten fields are the heart of the structure:  Each corresponds to a particular sound driver message.  The first six of these correspond to messages that indicate a change in the state of a stream (ªstream-stateº messages); in other words, the sound driver sends a specific message when a stream starts processing data, when it completes its processing, when it aborts, and so on.  By setting a field to a particular function, you register that function as the handler for the message to which the field corresponds.  For example, to€establish a function named 
+\b handleStreamStart()
+\b0  as the function that's executed when€your application receives a stream-started message from the sound driver, you would do the following:\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 /* Create a snddriver_handlers_t and register the \
+ * function handleStreamStart() (which we'll assume already \
+ * exists) to process stream-started messages.\
+ */\
+snddriver_handlers_t replyHandlers;\
+replyHandlers.started = handleStreamStart;\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 While this registers 
+\b handleStreamStart()
+\b0  as the handler for stream-started messages, you must also tell the sound driver that you actually want such messages sent to your application.  To do this, you set the 
+\i msgStarted
+\i0  boolean argument to true when you call 
+\b snddriver_stream_start_reading()
+\b0  or 
+\b snddriver_stream_start_writing()
+\b0 .  Analogous 
+\i msg...
+\i0  message flags exist for the other five stream-state messages.  \
+
+\fs20 \
+
+\fs28 When the sound driver sends a stream-state message to your application, it sends it to the port that you specify as the last argument (
+\i replyPort
+\i0 ) to 
+\b snddriver_stream_start_reading()
+\b0  or 
+\b snddriver_stream_start_writing()
+\b0 .  To receive the message, you create a 
+\b msg_header_t
+\b0  structure, set its 
+\b local_port
+\b0  field to the stream's reply port, and then wait for the message to arrive by sitting in a message receive (
+\b msg_receive()
+\b0 ) loop.  After so capturing the message, you then pass it, along with your€handler structure, to 
+\b snddriver_reply_handler()
+\b0 .  This is demonstrated by the example below.  \
+
+\fs20 \
+
+\fs28 Notice, from the definition of 
+\b snddriver_handlers
+\b0 , that the six stream-state handlers are all of type 
+\b sndreply_tagged_t
+\b0 .  This type represents a two-argument function protocol that's defined as\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 typedef void (*sndreply_tagged_t) (void *arg, int tag);\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 The functions that you register to handle the stream-state messages must adhere to this protocol.  The values of the arguments are set by 
+\b snddriver_reply_handler()
+\b0 :\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	
+\i arg
+\i0  is given the value of the 
+\i arg
+\i0  field of the 
+\b snddriver_handlers
+\b0  structure in which the function is registered.  As mentioned earlier, you can set the structure's 
+\i arg
+\i0  field to a (four-byte) value that suits the needs of your application.\
+
+\fs20 \
+
+\fs28 ·	
+\i tag
+\i0  is the region-identifying tag that you provide as an argument to 
+\b snddriver_stream_start_writing()
+\b0  or 
+\b snddriver_stream_start_reading()
+\b0 .\
+
+\fs20 \
+
+\fs28\fi0\li2380 The seventh of the ten 
+\b snddriver_handlers
+\b0  handler fieldsÐ
+\b recorded_data
+\b0 Ðalso applies to streams.  However, unlike the fist six, which are optional, 
+\b recorded_data
+\b0  is essential when you're reading data from a stream.  Its importance arises from the way that the sound driver handles read data:  It keeps the data in the kernel's virtual memory until you ask to bring it into your application.  The only way to bring this data back is to supply a 
+\b recorded_data
+\b0  handler that does so.  The following program excerpt demonstrates a typical way to achieve this effect.  In the example, details such as acquiring the sound driver and sound resource owner ports are omitted.  The read stream shown here is anonymousÐthe code can be used equally well for a stream that reads from sound-in or from the DSP:  \
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 /* The code shown in the example requires the following header \
+   files  */\
+#import <sound/snddriver_client.h>\
+#import <mach.h>\
+\
+/* Define a read stream tag, a read pointer, and a byte count \
+   variable. */\
+#define READ_TAG 1\
+static short *readData;\
+static int readCount;\
+\
+/* Create a recorded_data handler; the function's protocol is \
+ * explained following the example.\
+ */\
+static void read_completed(void *arg, int tag, void *kernelData, \
+                            int size) \
+\{\
+    /* Make sure this is the read stream. */\
+    if (tag == READ_TAG) \{\
+        readData = (short *)kernelData;\
+        readCount = size; \
+    \}\
+\}\
+\
+main()\
+\{\
+    /* Define a read port, a reply port, and a reply structure. */\
+    port_t readPort, replyPort;\
+    snddriver_handlers_t replyHandlers;\
+\
+    /* Allocate a Mach message header. msg_header_t and MSG_SIZE_MAX\
+     * (and msg_receive, below) are defined in mach.h.\
+     */\
+    msg_header_t *reply_msg = (msg_header_t *)malloc(MSG_SIZE_MAX);\
+\
+    /* Create an error-check variable. */\
+    int err;\
+\
+    /* Allocate the reply port. */\
+    err = port_allocate(task_self(), &replyPort); \
+    if (err != 0)\
+        . . .\
+\
+    /* Set the recorded_data handler. */\
+    replyHandlers.recorded_data = read_completed;\
+\
+    /* Set the amount of data you want to read; for the purposes of \
+     * this example, an arbitrary amount is specified. \
+     */\
+    readCount = 1024;\
+\
+    /* Here, a number of activities -- such as acquiring the sound \
+     * driver port and sound resource owner port, setting up a read \
+     * stream through snddriver_stream_setup(), and (possibly) \
+     * booting the DSP and sending it data -- are omitted. \
+     */\
+    . . .\
+\
+    /* Enqueue a read request.  The six 0 arguments are the message\
+     * request flags.  \
+     */\
+    err = snddriver_stream_start_reading(readPort, 0, readCount, \
+                      READ_TAG, 0,0,0,0,0,0, replyPort);\
+    if (err != 0)\
+        .  .  .\
+\
+    /* Sit in a message-receive loop. */\
+    while(1) \{\
+        /* Set up the reply message.  This must be done inside the \
+         * loop since msg_receive() may change the message header.\
+         */\
+        replyMsg->msg_size = MSG_SIZE_MAX;\
+        replyMsg->msg_local_port = replyPort;\
+        err = msg_receive(replyMsg, MSG_OPTION_NONE, 0);\
+        if (err != 0)\
+            . . .\
+    \}\
+\
+    /* Dispatch the message to the reply handlers.*/\
+    err = snddriver_reply_handler(replyMsg, &replyHandlers);\
+    if (err != 0)\
+        . . .\
+    /* Provide a means to break out of the loop. */\
+    . . .\
+    \}\
+\}\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 As implied by the example, you don't need to tell the sound driver that you want a data-recorded message to be sent to your application; the message is always sent automatically.  The example also illustrates the rule that the reply port used to receive messages while in the 
+\b msg_receive()
+\b0  loop is that which is specified as the final argument to the 
+\b snddriver_stream_start_reading()
+\b0  function.  \
+
+\fs20 \
+
+\fs28 The data type of the 
+\b recorded_data
+\b0  field dictates the protocol of the function that you design to bring data back to the application.  The type is 
+\b sndreply_recorded_data_t
+\b0 :\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 typedef void (*sndreply_recorded_data_t)(void *arg, int tag, \
+                void *kernelData, int size);\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 The first two arguments, 
+\i arg
+\i0  and 
+\i tag
+\i0 , are the same as in the 
+\b snddreply_tagged_t
+\b0  type.  
+\i kernelData
+\i0  is a pointer to the recorded data as it resides in the kernel; 
+\i size
+\i0  is the size of the recorded data in bytes.\
+
+\fs20 \
+
+\fs28 The final three 
+\b snddriver_handlers
+\b0  fields correspond to messages that are inspired by the€DSP:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	The 
+\b condition_true
+\b0  handler is called when a requested DSP host interface register condition comes true.  (More accurately, the handler is called when the message that indicates that the condition is true is passed to 
+\b snddriver_reply_handler()
+\b0 .) \
+
+\fs20 \
+
+\fs28 ·	
+\b dsp_message
+\b0  handles general messages that the sound driver receives from the DSP.\
+
+\fs20 \
+
+\fs28 ·	
+\b dsp_error
+\b0  does the same for DSP error messages.\
+
+\fs20 \
+
+\fs28\fi0\li2380 For each of these three handlers, there is a corresponding sound driver function that enqueues a request for a condition, a DSP message, or a DSP error message, respectively:  \
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	
+\b snddriver_dspcmd_req_condition()
+\b0  blocks the DSP command queue until the state of the DSP host interface registers satisfies a requested condition.\
+
+\fs20 \
+
+\fs28 ·	
+\b snddriver_dspcmd_req_msg()
+\b0  requests that the messages in the DSP-reply buffer be€sent to your application.  You must include DSP-message protocol for this to have an€effect.\
+
+\fs20 \
+
+\fs28 ·	
+\b snddriver_dspcmd_req_err()
+\b0  requests that the 512-byte DSP-reply error buffer be sent in a message.  You must include DSP-error protocol for this to have an effect.\
+
+\fs20 \
+
+\fs28\fi0\li2380 As with the 
+\b snddriver_stream_start...()
+\b0  functions, the three DSP request functions require that you provide a reply port as an argument.  It's to this reply port that the sound driver sends the requested DSP-inspired messages.  A single call to one of these functions causes a single reply message to be sent to your application.  Thus, for each call to 
+\b snddriver_dspcmd_req_msg()
+\b0 , for example, your application will receive one message from the sound driver.\
+
+\fs20 \
+
+\fs28 The 
+\b condition_true
+\b0  handler is of type 
+\b sndreply_dsp_cond_true_t
+\b0 :  \
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 typedef void (*sndreply_dsp_cond_true_t)(void *arg, u_int mask, \
+                u_int flags, u_int registers);\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\i\fs28\li2380\fc0\cf0 arg
+\i0  is the value of the 
+\b arg
+\b0  field.  The next two arguments, 
+\i mask
+\i0  and 
+\i flags
+\i0 , are given the values that were passed to 
+\b snddriver_dspcmd_req_condition()
+\b0  (which also has 
+\i mask
+\i0  and 
+\i flags
+\i0  arguments).  
+\i registers
+\i0  encodes the current status of the four DSP host interface registers in a single 32-bit vector.  See the description of 
+\b snddriver_dspcmd_req_condition()
+\b0  for more information on how this works.  \
+
+\fs20 \
+
+\fs28 The 
+\b dsp_message
+\b0  and 
+\b dsp_error
+\b0  are of type 
+\b sndreply_dsp_msg_t
+\b0 :\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 typedef void (*sndreply_dsp_msg_t)(void *arg, int *data, int size);\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\i\fs28\li2380\fc0\cf0 arg
+\i0  is the value of the 
+\b arg
+\b0  field.  
+\i data
+\i0  is a pointer to the contents of the appropriate DSP-message buffer (regular or error, as the handler is 
+\b dsp_message
+\b0  or 
+\b dsp_error
+\b0 ).  
+\i size
+\i0  is the size of the buffer contents, in bytes.\
+
+\fs20 \
+
+\b\fs28 snddriver_reply_handler()
+\b0  ignores messages for which you haven't created and registered a handler function.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	snddriver_stream_start_reading(), snddriver_stream_start_writing(), snddriver_dspcmd_req_condition(), snddriver_dspcmd_req_msg(), snddriver_dspcmd_req_err()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker32958 \markername NS_DEV_DOCFOR:objc_function:snddriver_set_ramp();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 snddriver_set_device_parms(), snddriver_get_device_parms(), snddriver_set_volume(), snddriver_get_volume(), snddriver_set_ramp()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Set and get sound playback attributes\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_set_device_parms(
+\b0 port_t 
+\i devicePort
+\i0 , boolean_t 
+\i speakerOn
+\i0 , boolean_t 
+\i filterOn
+\i0 , boolean_t 
+\i zerofill
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 kern_return_t 
+\b snddriver_get_device_parms(
+\b0 port_t 
+\i devicePort
+\i0 , boolean_t€*
+\i speakerOn
+\i0 , boolean_t *
+\i filterOn
+\i0 , boolean_t *
+\i zerofill
+\b\i0 )\
+
+\b0 kern_return_t 
+\b snddriver_set_volume(
+\b0 port_t 
+\i devicePort
+\i0 , int 
+\i leftVolume
+\i0 , int
+\b €
+\b0\i rightVolume
+\b\i0 )\
+
+\b0 kern_return_t 
+\b snddriver_get_volume(
+\b0 port_t 
+\i devicePort
+\i0 , int *
+\i leftVolume
+\i0 , int
+\b €
+\b0 *
+\i rightVolume
+\b\i0 )\
+
+\b0 kern_return_t 
+\b snddriver_set_ramp(
+\b0 port_t 
+\i devicePort
+\i0 , int 
+\i rampOn
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	These functions set and get attributes of the sound playback system.  Each takes, as its first argument, the sound driver device port as acquired through 
+\b SNDAcquire()
+\b0 .  You needn't acquire ownership of sound-out to set the playback attributes.  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The NXSoundOut class can be used in place of all these functions.\
+
+\fs20 \
+
+\b\fs28 snddriver_set_device_parms()
+\b0  sets three attributes as specified by the values of its boolean arguments:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	The internal speaker is turned on or off as 
+\i speakerOn
+\i0  is true or false.  Calling the function with alternating true and false 
+\i speakerOn
+\i0  values is equivalent to toggling the Mute key (Command Mute) on the keyboard.  \
+
+\fs20 \
+
+\fs28 ·	Similarly, the value of 
+\i filterOn
+\i0  turns the de-emphasis filter on or off.  The filter can be controlled from the keyboard by toggling the louder key while holding down the Command key (this isn't marked on the keyboard).  In addition, the de-emphasis filter is automatically turned on when a de-emphasis format sound is played and returned to its previous state when the sound is done playing.  \
+
+\fs20 \
+
+\fs28 ·	During playback, low sampling rate (22.05 kHz) sounds are converted to the high sampling rate (44.1 kHz) as they are sent to the DAC (which converts data at 44.1 kHz only).  To do this, the sound driver emits an extra sample for every existing sample in the sound data.  The value of 
+\i zerofill
+\i0  determines whether these extra samples are set to 0 (true) or if they're copies of the existing samples (false).  In almost all cases, copying the samples is preferable, since zerofilling results in a decrease in power.  Note that you can't toggle this attribute from the keyboard.  Also, keep in mind that CODEC rate sounds are converted to 22.05 kHz before being sent to the DAC and so are also affected by the state of 
+\i zerofill
+\i0 .  \
+
+\fs20 \
+
+\b\fs28\fi0\li2380 snddriver_get_device_parms()
+\b0  returns, by reference in its final three arguments, the values of the attributes described above.  \
+
+\fs20 \
+
+\b\fs28 snddriver_set_volume()
+\b0  sets the volume of the internal speaker and similarly adjusts the signal that's sent to the stereo headphone jack (the signal to the line-out jacks is unaffected).  The two channels of the stereo signal are set independent of each other, specified as the values of 
+\i leftVolume
+\i0  and 
+\i rightVolume.
+\i0   The volume of the internal speaker is the sum of these two values.  Volume values are integers in the range 1 to 43, inclusive, where the unit is equal to 2 decibels.  A volume of 1 is inaudible and 43 is full blast.  An argument value outside this range will yield some unexpected volume within the range.  You can also adjust playback volume by pressing the volume keys on the keyboard.  Each discrete tap on a volume key increments or decrements both the left and the right volume settings by 1.\
+
+\fs20 \
+
+\b\fs28 snddriver_get_volume()
+\b0  returns the left and right playback volumes by reference in 
+\i leftVolume
+\i0  and 
+\i rightVolume
+\i0 , respectively.  \
+
+\fs20 \
+
+\fs28 By default, sounds are ramped during playback:  The first few samples are ramped up from zero and the last samples are ramped down.  This helps prevent clicks at the beginnings and ends of sounds.  
+\b snddriver_set_ramp()
+\b0  enables or disables this feature as its 
+\i rampOn
+\i0  argument is nonzero or zero.  You almost always want ramping enabled; the one obvious case in which it's undesirable is if you're chaining a series of separate sounds that are meant to be played seamlessly, one immediately after the other.  In this case, ramping will cause annoying amplitude dips at each seam.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	SNDSetVolume(), + setVolume:: (Sound), 
+\f1\b0 -
+\f0\b  setAttenuationLeft:right: (NXSoundOut)\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker37262 \markername NS_DEV_DOCFOR:objc_function:snddriver_set_sndout_owner_port();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 snddriver_set_dsp_owner_port(), snddriver_set_sndin_owner_port(), snddriver_set_sndout_owner_port()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Acquire ownership of sound resources \
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_set_dsp_owner_port(
+\b0 port_t 
+\i devicePort
+\i0 , port_t 
+\i ownerPort
+\i0 , port_t *
+\i negotiationPort
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 kern_return_t 
+\b snddriver_set_sndin_owner_port(
+\b0 port_t 
+\i devicePort
+\i0 , port_t 
+\i ownerPort
+\i0 , port_t *
+\i negotiationPort
+\b\i0 )\
+
+\b0 kern_return_t 
+\b snddriver_set_sndout_owner_port(
+\b0 port_t 
+\i devicePort
+\i0 , port_t
+\b €
+\b0\i ownerPort
+\i0 , port_t *
+\i negotiationPort
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	These functions try to acquire ownership of the DSP, sound-in, or sound-out by setting the resource's owner port to a port that you supply.  They duplicate part of the functionality provided by 
+\b SNDAcquire()
+\b0 ; the latter should, in most cases, be used to the exclusion of€these.  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The arguments are the same for all three functions:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	
+\i devicePort
+\i0  is a valid port to the sound driver device, as acquired through 
+\b SNDAcquire()
+\b0 .  \
+
+\fs20 \
+
+\fs28 ·	
+\i ownerPort
+\i0  is the port that will become the owner port for the requested resource if the€function is successful.  You must have already allocated 
+\i ownerPort
+\i0  through the function 
+\b port_allocate()
+\b0 .\
+
+\fs20 \
+
+\fs28 ·	If the function successfully acquires ownership of the resource, then the port pointed to by 
+\i negotiationPort
+\i0  is registered as the negotiation port for the resource.  However, if the function isn't successfulÐmost likely because ownership of the resource has already been claimedÐthen the currently registered negotiation port is returned in the 
+\i negotiationPort
+\i0  argument.  By convention you point 
+\i negotiationPort
+\i0  to 
+\i ownerPort
+\i0  before calling these functions, thereby making the owner port accessible to other tasks.  Similarly, if your bid for ownership fails and the current owner has followed this convention, then you can use the port returned in 
+\i negotiationPort
+\i0  as the owner port for the resource.  Note, however, that if the function call fails, there's no way to determine if the port pointed to by 
+\i negotiationPort
+\i0  is actually the owner port.  If you want to acquire sole ownership of a resource, set 
+\i negotiationPort
+\i0  to something other than the 
+\i ownerPort
+\i0  before calling these functions.  This will ensure that only the caller will have access to the resource (assuming that the function is successful).  \
+
+\fs20 \
+
+\fs28\fi0\li2380 A single port can be used to claim ownership of more than one device.  This is sometimes necessary when setting up a multiple-device stream (as explained in 
+\b snddriver_stream_setup()
+\b0 ).  In the following example, the same port attempts to own both the DSP and sound-out:\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 err = port_allocate(task_self(), &ownerPort)\
+. . .\
+\
+/* Acquire ownership of the DSP. */ \
+err=snddriver_set_dsp_owner_port(devPort, ownerPort, &negPort);\
+. . . \
+\
+/* Acquire ownership of sound-out. */ \
+err=snddriver_set_sndout_owner_port(devPort,ownerPort,&negPort);\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 After you've claimed ownership of a resource, you should do something with it.  With sound-in you set up a stream port through which you read (record) data.  This is done by calling the 
+\b snddriver_stream_setup()
+\b0  and 
+\b snddriver_stream_start_reading()
+\b0  functions.  Analogously, with sound-out you set up a stream through which you write (playback) data through the 
+\b snddriver_stream_start_writing()
+\b0  function.\
+
+\fs20 \
+
+\fs28 If you claim ownership of the DSP you should also acquire the DSP command port by calling 
+\b snddriver_get_dsp_cmd_port()
+\b0 .  Most of the functions that access the DSP require the command port as an argument.  You can also set up streams to the DSP as you would to sound-in or sound-out.  Successfully setting the DSP's owner port puts the DSP in its reset state.\
+
+\fs20 \
+
+\fs28 To relinquish ownership of a resource, you deallocate the owner port by calling 
+\b port_deallocate()
+\b0 :  \
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 err = port_deallocate(task_self(), ownerPort);\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 Deallocating a resource's owner unregisters the resource's negotiation port.  All ports are automatically deallocated when your application exits.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	snddriver_stream_setup(), snddriver_get_dsp_cmd_port()\
+
+\fs20 \
+
+\fs60 \
+
+{\pard\f2\fs28\li2380\fc0\cf0{\NeXTHelpMarker41259 \markername NS_DEV_DOCFOR:objc_function:snddriver_set_sndout_bufcount();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi-760\li3140\gray0\fc0\cf0\up0\dn0 snddriver_set_sndout_bufcount(), snddriver_set_sndout_bufsize(), snddriver_stream_ndma()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Configure stream transfer buffers \
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_set_sndout_bufcount(
+\b0 port_t 
+\i devicePort
+\i0 , port_t 
+\i sndoutPort
+\i0 , int€
+\i count
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 kern_return_t 
+\b snddriver_set_sndout_bufsize(
+\b0 port_t 
+\i devicePort
+\i0 , port_t 
+\i sndoutPort
+\i0 , int€
+\i size
+\b\i0 )\
+
+\b0 kern_return_t 
+\b snddriver_stream_ndma(
+\b0 port_t 
+\i streamPort
+\i0 , int 
+\i regionTag
+\i0 , int€
+\i count
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	These functions let you control the number and size of the DMA buffers that are used to transfer data in a stream.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 snddriver_set_sndout_bufcount()
+\b0  sets the number of buffers that are used when playing back sounds; the 
+\i count
+\i0  argument, which must be greater than 0, establishes the buffer count.  Four buffers are used in the default configuration.  \
+
+\fs20 \
+
+\b\fs28 snddriver_set_sndout_bufsize()
+\b0  sets the size of the sound-out buffers (in bytes) to the value of the 
+\i size
+\i0  argument.  This function is needed only if you're using a linked stream to sound-out (see the 
+\b snddriver_stream_setup()
+\b0  function for more on linked streams).  The value of 
+\i size
+\i0  must be no greater than 
+\b vm_page_size
+\b0 , the size of a page of virtual memory; the default is 
+\b vm_page_size
+\b0 .  If you're writing directly to the sound-out streamÐin other words if the stream to sound-out is configured as SNDDRIVER_STREAM_TO_SNDOUT_22 or ...SNDOUT_44Ðthe size of the sound-out buffers is computed from the 
+\i sampleCount
+\i0  argument to 
+\b snddriver_stream_setup()
+\b0  and the size set here is ignored.\
+
+\fs20 \
+
+\fs28 For both of these functions, the 
+\i devicePort
+\i0  and 
+\i sndoutPort
+\i0  arguments are ports to the sound driver device and to sound-out, as acquired through 
+\b SNDAcquire()
+\b0 .\
+
+\fs20 \
+
+\b\fs28 snddriver_stream_ndma()
+\b0  sets, to 
+\i count
+\i0 , the number of DMA transfer buffers that are used to receive data from sound-in, and to transmit and receive data to and from the DSP.  The DMA buffer count can be set on a region-by-region basis; the stream and region to which a particular setting applies are identified by the 
+\i streamPort
+\i0  and 
+\i regionTag
+\i0  arguments, respectively.  Note that in a linked stream to sound-out, the buffer count to and from the DSP is automatically set to the sound-out buffer count (overruling the setting made through this function).\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	snddriver_stream_setup()\
+
+\fs20 \
+
+\fs60 \
+
+{\pard\f2\fs28\li2380\fc0\cf0{\NeXTHelpMarker43571 \markername NS_DEV_DOCFOR:objc_function:snddriver_stream_control();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi-760\li3140\gray0\fc0\cf0\up0\dn0 snddriver_stream_control(), snddriver_stream_nsamples()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Control and query a stream\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_stream_control(
+\b0 port_t 
+\i streamPort
+\i0 , int 
+\i regionTag
+\i0 , int€
+\i control
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 kern_return_t 
+\b snddriver_stream_nsamples(
+\b0 port_t 
+\i streamPort
+\i0 , int *
+\i byteCount
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b snddriver_stream_control()
+\b0  provides control over an active stream by allowing you to apply a controlling operation to one or more of the stream's enqueued regions.  The stream and the regions therein are identified by the function's first two arguments:  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\fi-380\li2760\fc0\cf0 ·	
+\i streamPort
+\i0  is the stream's port, as created by 
+\b snddriver_stream_setup()
+\b0 .\
+
+\fs20 \
+
+\fs28 ·	
+\i regionTag
+\i0  is the integer identifier that you gave the region (or regions) in a previous call to 
+\b snddriver_stream_start_writing()
+\b0  or 
+\b snddriver_stream_start_reading()
+\b0 .  \
+
+\fs20 \
+
+\fs28\fi0\li2380 A tag value of 0 causes the controlling operation to be applied to all regions enqueued on the stream.  \
+
+\fs20 \
+
+\fs28 You specify the controlling operation by passing one of the following constants as the control argument:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	SNDDRIVER_PAUSE_STREAM causes the stream to pause.  If data is currently being read from or written to the specified region, the read or write is immediately suspended.  If the region isn't yet active, the pause takes effect when the region comes to the top of the stream's queue (it's paused just before the first sample is read or written).  \
+
+\fs20 \
+
+\fs28 ·	SNDDRIVER_RESUME_STREAM resumes a previously paused stream.\
+
+\fs20 \
+
+\fs28 ·	SNDDRIVER_ABORT_STREAM terminates the stream's activity when the specified region comes to the top of the queue; the queue is then cleared.  If the region is currently being acted upon, the stream is terminated immediately.\
+
+\fs20 \
+
+\fs28 ·	SNDDRIVER_AWAIT_STREAM is used to retrieve a partially recorded region from a stream that's reading dataÐnormally, you can't retrieve such data until the entire region has been filled.  If the specified region is currently active, a data-recorded message is sent to the reply port that you registered in 
+\b snddriver_stream_start_reading()
+\b0 .  You then pass the message to 
+\b snddriver_reply_handler()
+\b0  which calls the 
+\b recorded_data
+\b0  reply handler.  The unrecorded portion of the region continues.  If the specified region isn't currently active, this has no effect.\
+
+\fs20 \
+
+\fs28\fi0\li2380 While you can use any of these four at the same time by or'ing them in 
+\i control
+\i0 , the only combination that's of use is SNDDRIVER_AWAIT_STREAM or'd with one of the other three.  For example, by setting 
+\i regionTag
+\i0  to 0 and 
+\i control
+\i0  to\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 SNDDRIVER_PAUSE_STREAM | SNDDRIVER_AWAIT_STREAM\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 you immediately pause the stream and can then bring back data from the current region.  \
+
+\fs20 \
+
+\fs28 You can request that a stream-paused, stream-resumed, or stream-aborted message be sent to the reply port when you pause, resume, or abort a stream, respectively, by setting the appropriate 
+\i msg...
+\i0  flag to true in your call to 
+\b snddriver_stream_start_...()
+\b0 .  \
+
+\fs20 \
+
+\b\fs28 snddriver_stream_nsamples()
+\b0  returns the number of bytes (
+\i not
+\i0  samples, despite the name€of the function) that have been read from or written to a particular stream.  The steam€is specified by 
+\i streamPort
+\i0 .  The byte count is returned by reference in the 
+\i byteCount
+\i0 €argument.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	snddriver_stream_setup(), snddriver_stream_start_writing(), snddriver_stream_start_writing(), snddriver_reply_handler()\
+
+\fs20 \
+
+\fs60 \
+
+{\pard\f2\fs28\li2380\fc0\cf0{\NeXTHelpMarker46901 \markername NS_DEV_DOCFOR:objc_function:snddriver_stream_setup();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi-760\li3140\gray0\fc0\cf0\up0\dn0 snddriver_stream_setup()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Configure a sound stream \
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_stream_setup(
+\b0 port_t 
+\i devicePort
+\i0 , port_t 
+\i ownerPort
+\i0 , int
+\b €
+\b0\i dataPath
+\i0 , int 
+\i sampleCount
+\i0 , int 
+\i sampleSize
+\i0 , int 
+\i lowWater
+\i0 , int 
+\i highWater
+\i0 , int€*
+\i protocol
+\i0 , port_t€*
+\i streamPort
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	A stream, as it applies to the sound driver, is a path through which an indefinitely long sequence of data passes.  One end of a sound driver stream typically lies in your application's memory, while at the other end is a sound device.  For example, to record a sound from the microphone you create a stream from sound-in to your application.  Analogously, a stream from your application to sound-out is required to play back sound data.  A single stream of data can pass through more than one sound device; for example, you can send data from your application to the DSP from whence it issues directly to sound-out.  Thus you can DSP-process and play your sound data in one motion, without incurring the overhead of bringing the processed data back into your application.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The 
+\b snddriver_stream_setup()
+\b0  function creates a port to a sound stream.  The port,€returned in the 
+\i streamPort
+\i0  argument, is used as an identifier in subsequent calls to€functions that write to, read from, and otherwise control the stream (as listed at the end€of€this description).\
+
+\fs20 \
+
+\fs28 The function's first two arguments are the usual capability ports:  
+\i devicePort
+\i0  is a port to the sound driver device, and 
+\i ownerPort
+\i0  is the owner port for 
+\i all
+\i0  resources that are touched by the stream, as acquired through 
+\b SNDAcquire()
+\b0 .\
+
+\fs20 \
+
+\fs28 You establish the stream's courseÐthe source and destination of its dataÐby setting€
+\i dataPath
+\i0  to one of constants listed below.  There are two types of data paths:  ªsimpleº and ªlinked.º  The simple data paths (listed below) connect your application to€a€sound resource:  \
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	SNDDRIVER_STREAM_FROM_SNDIN; read samples from the CODEC microphone.\
+
+\fs20 \
+
+\fs28 ·	SNDDRIVER_STREAM_TO_SNDOUT_44; write samples to the stereo DAC at the high sampling rate (44.1 kHz).\
+
+\fs20 \
+
+\fs28 ·	SNDDRIVER_STREAM_TO_SNDOUT_22; write samples to the stereo DAC at the low sampling rate (22.05 kHz).\
+
+\fs20 \
+
+\fs28 ·	SNDDRIVER_DMA_STREAM_TO_DSP; write data via DMA to the DSP.\
+
+\fs20 \
+
+\fs28 ·	SNDDRIVER_DMA_STREAM_FROM_DSP; read data via DMA from the DSP.\
+
+\fs20 \
+
+\fs28\fi0\li2380 Six linked data paths connect the DSP directly to sound-out:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	SNDDRIVER_STREAM_DSP_TO_SNDOUT_44 and ...SNDOUT_22; DSP-processed samples are sent directly to sound-out at the low or high sampling rate.\
+
+\fs20 \
+
+\fs28 ·	SNDDRIVER_STREAM_THROUGH_DSP_TO_SNDOUT_44 and ...SNDOUT_22; data flows from your application to the DSP and thence directly to sound-out at the high or low sampling rate.\
+
+\fs20 \
+
+\fs28 ·	SNDDRIVER_DMA_STREAM_THROUGH_DSP_TO_SNDOUT_44 and ...SNDOUT_22; data flows from your application to the DSP and thence directly to sound-out using DMA.\
+
+\fs20 \
+
+\fs28\fi0\li2380 Data is transferred through a stream in buffers.  The 
+\i sampleCount
+\i0  argument establishes the length of a single transfer buffer in samples (or data elements); the size of a single sample is set by the 
+\i sampleSize
+\i0  argument.  The maximum size for a transfer buffer (in bytes) is that of a page of virtual memory, as given by the global read-only variable 
+\b vm_page_size
+\b0 .  Typically, the transfer buffer size is set to this limit:  If, for example, the samples that you're sending through the stream are two bytes wide, then, to follow this convention, you would set 
+\i sampleCount
+\i0  to 
+\b vm_page_size
+\b0 /2.  If the stream uses DMA, then the size of a transfer buffer (in bytes) must be a power of 2 greater than or equal to 16.  \
+
+\fs20 \
+
+\fs28 For some applicationsÐparticularly those in which latency is an issueÐsetting the number of transfer buffers that are used can be as important as setting the size of the buffers.  This is done through the 
+\b snddriver_set_sndout_bufcount()
+\b0  and 
+\b snddriver_stream_ndma()
+\b0  functions.\
+
+\fs20 \
+
+\fs28 The range of acceptable values for the 
+\i sampleSize
+\i0  argument depends on the stream's data€path:  \
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	If you're reading from sound-in into your application, then 
+\i sampleSize
+\i0  must be set to 1 to accommodate the 8-bit mu-law samples generated by the CODEC microphone input.  \
+
+\fs20 \
+
+\fs28 ·	If you're writing from your application to sound-out or from the DSP to sound-out , then 
+\i sampleSize
+\i0  must be 2 since the DAC expects 16-bit interleaved-stereo samples.  Note that while the DAC processes data only at the high sampling rate, the sound driver performs the conversion from low to high for you.  This isn't true for playback of CODEC-rate sounds for which you typically download a sampling-rate conversion program to the DSP, and then create a stream that goes through the DSP and then directly to sound-out.  This is what the 
+\b SNDStartPlaying()
+\b0  function does, for example.  \
+
+\fs20 \
+
+\fs28 ·	In all the other paths, your application writes to or reads from the DSP.  Here, 
+\i sampleSize
+\i0 €can be 1, 2, or 4, according to the sample size expected by or produced by€your DSP program.  \
+
+\fs20 \
+
+\fs28\fi0\li2380 The 
+\i lowWater
+\i0  and 
+\i highWater
+\i0  arguments are memory threshold values, measured in bytes, that are inspected by the sound driver.  During an operation such as recording or playback, successive pages of sound data are locked into physical memory (or ªwired downº) during which time they're read from or written to.  As a page is completed, it's unwired.  The driver tries to maintain at least 
+\i lowWater
+\i0  bytes of wired-down memory; if the amount drops below this threshold, the driver wires down pages until it reaches the 
+\i highWater
+\i0  mark.  \
+
+\fs20 \
+
+\fs28 If your stream touches the DSP, then you need to set the DSP protocol by passing the appropriate value to 
+\b snddriver_dsp_protocol()
+\b0 .  The 
+\i protocol
+\i0  argument found here helps you create this value:  The function or's the appropriate protocol constants, as determined by the characteristics of the stream that you're setting up, into 
+\i protocol
+\i0  and returns the new value by reference.  You then pass the variable to 
+\b snddriver_dsp_protocol()
+\b0 .  You should initialize your protocol variable to SNDDRIVER_DSP_PROTO_RAW before calling 
+\b snddriver_stream_setup()
+\b0 , as shown in the following example:\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 /* Initialize the protocol variable. */\
+    int protocol = SNDDRIVER_DSP_PROTO_RAW;\
+    int err;\
+\
+    /* Set up a stream to the DSP. */\
+    err = snddriver_stream_setup(..., SNDDRIVER_STREAM_TO_DSP,\
+                                    .., &protocol, ...);\
+    if (err != 0) \
+    . . .\
+\
+    /* Set up a stream from the DSP. */\
+    err = snddriver_stream_setup(..., SNDDRIVER_STREAM_FROM_DSP,\
+                                    ..., &protocol, ...);\
+    if (err != 0) \
+    . . .\
+\
+    /* Pass the protocol to the sound driver. */\
+    err = snddriver_dsp_protocol(..., protocol);\
+    if (err != 0) \
+    . . .\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 The protocol constants are described as part of the 
+\b snddriver_dsp_protocol()
+\b0  function.\
+
+\fs20 \
+
+\fs28 Having created a stream, you can read from it, write to it, and control it by passing the port returned in 
+\i streamPort
+\i0  to the following functions:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	
+\b snddriver_stream_start_reading()
+\b0  and 
+\b snddriver_stream_start_writing()
+\b0  read from and write to a stream, respectively.  Streams from sound-in or from the DSP can only be read; similarly, streams to sound-out or to the DSP can only be written.  \
+
+\fs20 \
+
+\fs28 ·	
+\b snddriver_stream_control()
+\b0  pauses, resumes, and aborts an active stream.\
+
+\fs20 \
+
+\fs28 ·	
+\b snddriver_stream_nsamples()
+\b0  measures the amount of data that has passed through the stream.\
+
+\fs20 \
+
+\fs28\fi0\li2380 For sound-in and sound-out, streams are the only way to travel.  This isn't true of the DSP; the sound driver provides a one-shot, non-stream DSP read and write mechanism, embodied in 
+\b snddriver_dsp_read()
+\b0 , 
+\b snddriver_dsp_dma_read()
+\b0 , and analogous 
+\b ...write()
+\b0  functions, that can be more efficient for short data transfers.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	snddriver_stream_start_reading(), snddriver_stream_start_writing(), snddriver_set_sndout_bufcount(), snddriver_stream_ndma()\
+
+\fs20 \
+
+\fs60 \
+
+{\pard\f2\fs28\li2380\fc0\cf0{\NeXTHelpMarker54661 \markername NS_DEV_DOCFOR:objc_function:snddriver_stream_start_writing();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi-760\li3140\gray0\fc0\cf0\up0\dn0 snddriver_stream_start_writing(), snddriver_stream_start_reading()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Send data to and retrieve data fom a stream\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/snddriver_client.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	kern_return_t 
+\b snddriver_stream_start_writing(
+\b0 port_t 
+\i streamPort
+\i0 , void *
+\i data
+\i0 , int
+\b €
+\b0\i sampleCount
+\i0 , int 
+\i regionTag
+\i0 , boolean_t 
+\i preempt
+\i0 , boolean_t 
+\i deallocateWhenDone
+\i0 , boolean_t 
+\i msgStarted
+\i0 , boolean_t 
+\i msgCompleted
+\i0 , boolean_t 
+\i msgAborted
+\i0 , boolean_t€
+\i msgPaused
+\i0 , boolean_t 
+\i msgResumed
+\i0 , boolean_t 
+\i msgUnderrun
+\i0 , port_t€
+\i replyPort
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 kern_return_t 
+\b snddriver_stream_start_reading(
+\b0 port_t 
+\i streamPort
+\i0 , char *
+\i filename
+\i0 , int€
+\i sampleCount
+\i0 , int 
+\i regionTag
+\i0 , boolean_t 
+\i msgStarted
+\i0 , boolean_t 
+\i msgCompleted
+\i0 , boolean_t€
+\i msgAborted
+\i0 , boolean_t 
+\i msgPaused
+\i0 , boolean_t 
+\i msgResumed
+\i0 , boolean_t€
+\i msgOverrun
+\i0 , port_t 
+\i replyPort
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	These two functions cause data to be written to or read from a sound stream identified by€
+\i streamPort
+\i0 , which must have been created by a previous call to 
+\b snddriver_stream_setup()
+\b0 .  The two functions operate in much the same manner:  Each€invocation enqueues a single region of data that's operated on (either read from or€written to) asynchronously by the sound driver.  However, there's a fundamental difference between the two functions in that 
+\b ...writing()
+\b0  enqueues a region that you pass as the 
+\i data
+\i0  argument, while 
+\b ...reading()
+\b0  stores the data it reads in a region that it allocates itself.  To bring the read data back into your application, you must create and register a reply-handler function that transfers the data when the read is complete.  The mechanism for doing this is explained (and an example given) in the 
+\b snddriver_reply_handler()
+\b0  function description.  \
+
+\fs20 \
+
+\pard\fs28\li2380\fc0\cf0 Note:  The 
+\b ...reading()
+\b0  argument 
+\i filenameÐ
+\i0 which would imply that the read data is written to a fileÐis currently unused.  Also note that 
+\i the 
+\i0 data buffer you pass to 
+\b ...writing()
+\b0  is write-protected:  Any changes you make to the data after it's been enqueued won't be seen by the driver.  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\i\fs28\li2380\fc0\cf0 sampleCount
+\i0  is the number of samples in the region that's being written or read.  If you're writing to the DSP, 
+\i sampleCount
+\i0  must be a multiple of the 
+\i sampleCount
+\i0  argument to 
+\b snddriver_stream_setup()
+\b0 .  In all other cases, 
+\i sampleCount
+\i0  can be any value.\
+
+\fs20 \
+
+\i\fs28 regionTag
+\i0  is an integer that identifies the region.  While you can give each region a distinct tag, you usually create a single tag value for each stream that you set up.  For example, if you have a stream that reads data from sound-in and another that writes to sound-out, you would create two tag values, one for either stream, and then tag each region with the value associated with its stream.\
+
+\fs20 \
+
+\fs28 If the 
+\i preempt
+\i0  flag (
+\b ...writing()
+\b0  only) is true, the sound driver starts writing 
+\i data
+\i0  immediately after the current transfer buffer has been completely processed.  When it's finished with the preempting region, the driver returns to its region queue, disregarding the rest of the partially-processed preempted region.\
+
+\fs20 \
+
+\fs28 If 
+\i deallocateWhenDone
+\i0  (
+\b ...writing()
+\b0  only) is true, the region's data is deallocated after it's written.\
+
+\fs20 \
+
+\fs28 The six 
+\i msg...
+\i0  flags register requests for stream-state messages to be sent asynchronously to the port 
+\i replyPort
+\i0 .  The first flags, 
+\i msgStarted
+\i0  and 
+\i msgCompleted
+\i0 , if true, cause messages to be sent just as the driver begins its first and just after it finishes its last transfer of data from the region, respectively.  The conditions referred to by the next three arguments, 
+\i msgAborted
+\i0 , 
+\i msgPaused
+\i0 , and 
+\i msgResumed
+\i0 , occur as a result of calls to 
+\b snddriver_stream_control()
+\b0 .  The 
+\i msgUnderrun
+\i0  (for 
+\b ...writing()
+\b0 ) or 
+\i msgOverrun
+\i0  (for 
+\b ...reading()
+\b0 ) argument, if true, causes a message to be sent if the driver can't transfer data quickly enough to keep up with real time.  In general this is only signficant if data is being read from sound-in or written to sound-out:  Underrun results in brief pauses in playback; overrun causes incoming samples to be lost.  You normally process the asynchronous messages that you receive by passing them to the 
+\b snddriver_reply_handler()
+\b0  function.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	 Returns an error code:  0 on success, nonzero on failure.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	snddriver_reply_handler, snddriver_stream_setup\
+
+\fs20 \
+
+}

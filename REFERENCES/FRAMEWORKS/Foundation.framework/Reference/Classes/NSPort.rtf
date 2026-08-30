@@ -1,0 +1,460 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f5\fnil NeXTdoc;\f2\fswiss Helvetica;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+{\colortbl;\red0\green0\blue0;}
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+\pard\tx1460\f5\fs72\fi-760\li1460\fc0\cf0 p	
+{\f2\b\fs52{\NeXTHelpMarker64 \markername NS_DEV_DOCFOR:objc_class:NSPort;}
+¬}\pard\tx1460\f2\b\i0\ulnone\fs52\fi-760\li1460\fc0\cf0 NSPort\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding\
+
+\fi0 NSCopying\
+NSObject (NSObject)\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 Foundation/NSPort.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 An NSPort represents a communication channel to or from another NSPort, which typically resides in different thread or task. The distributed objects system uses NSPort objects to send NSPortMessages back and forth. You should implement interapplication communication using distributed objects whenever possible, and use NSPorts only when necessary.\
+
+\fs14 \
+
+\pard\tx2300\f2\b\fs24\fi-800\li2300\fc0\cf0 Note:	
+\f0\b0\fs28 An NSPort is essentially the object form of a Mach port. To use NSPorts effectively you should be familiar with Mach ports, port access rights, and Mach messages.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 When an NSPort receives an NSPortMessage, it forwards the message to its delegate in a 
+\b handleMachMessage:
+\b0  or 
+\b handlePortMessage:
+\b0  message. The delegate should implement only one of these methods to process the incoming message in whatever form desired. 
+\b handleMachMessage:
+\b0  provides a message as a raw Mach message beginning with a 
+\b msg_header_t
+\b0  structure. 
+\b handlePortMessage:
+\b0  provides a message as an NSPortMessage object, which is an object-oriented wrapper for a Mach message.\
+
+\fs14 \
+
+\fs28 NSPorts intended to receive incoming messages need to be added to an NSRunLoop. See the NSRunLoop class specification for more information.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Adopted Protocols\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 NSCoding	
+\f1 -
+\f0 €encodeWithCoder:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €initWithCoder:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 NSCopying	
+\f1 -
+\f0 €copyWithZone:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Creating instances	+€port\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€portWithMachPort:\
+
+\f1 -
+\f0 €init\
+
+\f1 -
+\f0 €initWithMachPort:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting the Mach port	
+\f1 -
+\f0 €machPort\
+
+\fs10 \
+
+\fs28 Validation	
+\f1 -
+\f0 €invalidate\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €isValid\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Setting the delegate	
+\f1 -
+\f0 €setDelegate:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €delegate\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods\
+
+\fs14 \
+
+\pard\tx1500\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker1656 \markername NS_DEV_DOCFOR:objc_method:[NSPort-port];}
+¬}\pard\tx1500\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 port\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSPort€*)
+\b port\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Creates and returns a new NSPort object capable of both sending and receiving messages.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker1773 \markername NS_DEV_DOCFOR:objc_method:[NSPort-portWithMachPort:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 portWithMachPort:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSPort€*)
+\b portWithMachPort:
+\b0 (int)
+\i machPort\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns an NSPort object that uses the Mach port 
+\i machPort
+\i0  (which should be of type 
+\b port_t
+\b0  cast to 
+\b int
+\b0 ). Creates the NSPort object if necessary. Depending on the access rights for 
+\i machPort
+\i0 , the new NSPort may only be able to send messages.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+\pard\tx1500\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker2098 \markername NS_DEV_DOCFOR:objc_method:[NSPort-delegate];}
+¬}\pard\tx1500\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 delegate\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b delegate\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the NSPort's delegate.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b setDelegate:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker2186 \markername NS_DEV_DOCFOR:objc_method:[NSPort-init];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 init\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b init\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Initializes a newly allocated NSPort object to be capable of both sending and receiving messages. Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker2321 \markername NS_DEV_DOCFOR:objc_method:[NSPort-initWithMachPort:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 initWithMachPort:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(id)
+\b initWithMachPort:
+\b0 (int)
+\i machPort\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes a newly allocated NSPort object to use the Mach port 
+\i machPort
+\i0  (which should be of type 
+\b port_t
+\b0  cast to 
+\b int
+\b0 ). Depending on the access rights for 
+\i machPort
+\i0 , the new NSPort may only be able to send messages. If an NSPort with 
+\i machPort
+\i0  already exists, deallocates the receiver, then retains and returns the existing NSPort.\
+
+\fs14 \
+
+\fs28 This method is the designated initializer for the NSPort class. Returns 
+\b self
+\b0 .\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker2792 \markername NS_DEV_DOCFOR:objc_method:[NSPort-invalidate];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 invalidate\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b invalidate\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Marks the NSPort as invalid and posts an NSPortDidBecomeInvalidNotification to the default notification center.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b isValid\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker2962 \markername NS_DEV_DOCFOR:objc_method:[NSPort-isValid];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 isValid\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b isValid\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns NO if the NSPort is known to be invalid, YES otherwise (an NSPort only notes that it has become invalid when it tries to send or receive a message). An NSPort becomes invalid when its underlying communication resource, which is operating-system dependent, is closed or damaged.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b invalidate\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker3303 \markername NS_DEV_DOCFOR:objc_method:[NSPort-machPort];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 machPort\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(int)
+\b machPort\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns as an 
+\b int
+\b0  the Mach port used by the NSPort. Cast this value to a 
+\b port_t
+\b0  when using it with Mach system calls.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker3453 \markername NS_DEV_DOCFOR:objc_method:[NSPort-setDelegate:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 setDelegate:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b setDelegate:
+\b0 (id)
+\i anObject\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sets the NSPort's delegate to 
+\i anObject
+\i0 . Doesn't retain 
+\i anObject
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b delegate\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\fs28\fi-1020\li1200\fc1\cf1 Methods Implemented by the Delegate\
+
+\fs14\fi-920\li2200\fc0\cf0 \
+
+\pard\tx1500\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker3630 \markername NS_DEV_DOCFOR:objc_method:[NSPort-handleMachMessage:];}
+¬}\pard\tx1500\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 handleMachMessage:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b handleMachMessage:
+\b0 (void€*)
+\i machMessage\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Processes 
+\i machMessage
+\i0 , an incoming Mach message cast as a pointer to 
+\b void
+\b0 . The delegate should interpret this data as a pointer to a Mach message beginning with a 
+\b msg_header_t
+\b0  structure and should handle the message appropriately.\
+
+\fs14 \
+
+\fs28 The delegate should implement only one of 
+\b handleMachMessage:
+\b0  and 
+\b handlePortMessage:
+\b0 .\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker4019 \markername NS_DEV_DOCFOR:objc_method:[NSPort-handlePortMessage:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 handlePortMessage:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b handlePortMessage:
+\b0 (NSPortMessage€*)
+\i portMessage\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Processes 
+\i portMessage
+\i0 , an incoming message on the NSPort. See the NSPortMessage class specification for more information.\
+
+\fs14 \
+
+\fs28 The delegate should implement only one of 
+\b handleMachMessage:
+\b0  and 
+\b handlePortMessage:
+\b0 .\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Notifications\
+
+\fs14 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker4323 \markername NS_DEV_DOCFOR:objc_method:[NSPort-NSPortDidBecomeInvalidNotification];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 NSPortDidBecomeInvalidNotification\
+
+\fs6 \
+
+\fs8 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Posted from the 
+\b invalidate
+\b0  method, which is invoked when the NSPort is deallocated or when it notices that its communication channel has been damaged. The notification contains:\
+
+\fs14 \
+
+\pard\tx6740\tx9520\b\fs28\fi-4840\li6740\fc0\cf0 Notification Object
+\b0 	The NSPort object that has become invalid.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The NSPort object posting this notification is no longer useful, so all receivers should unregister themselves for any notifications involving the NSPort.\
+
+\fs14 \
+
+}

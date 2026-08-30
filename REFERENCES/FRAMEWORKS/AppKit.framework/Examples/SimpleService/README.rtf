@@ -1,0 +1,25 @@
+{\rtf0\ansi{\fonttbl\f0\fswiss Helvetica;}
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\ql\qnatural
+
+\f0\b\fs36 \cf0 SimpleService\
+\
+
+\b0\fs24 SimpleService is a little program which shows to to create services for the OpenStep services menu.  There are two services provided in this example:\
+\
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\li160\fi-160\ql\qnatural
+\cf0 · "Open File" service, which opens the file specified by the provided string. This service has no return value.\
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\ql\qnatural
+\cf0 \
+· "Capitalize" service, which takes a string and returns a capitalized version.\
+\
+Take a look at CustomInfo.plist to see how the service information is stored. Details on the various entries can be found in the  documentation, in "Services" under "Programming Topics."\
+\
+To install SimpleService, copy it into ~/Library/Services and do "make_services".\
+\
+There are some tricky issues in creating a service:\
+· The project is an Application, not Bundle, allowing the standard makefiles to create an .exe instead of .dll on Windows\
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\li160\fi-160\ql\qnatural
+\cf0 · Makefile.preamble specifies that the wrapper extension should be ".service", not ".app" (see APP_WRAPPER_EXTENSION) Note that in 4.0 and 4.1, this variable was in Makefile.postamble and did not need to have a period. But when used with the latest Makefiles ("pb_makefiles"), it needs the period and has to be in the preamble.\
+· Makefile.postamble clears PROJTYPE_LDFLAGS on NEXTSTEP to avoid giving the executable an icon section. This way Workspace will not create an app tile when the service is launched.\
+\
+}

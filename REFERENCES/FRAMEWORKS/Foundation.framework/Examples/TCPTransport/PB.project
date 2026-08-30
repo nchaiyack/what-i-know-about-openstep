@@ -1,0 +1,16 @@
+{
+    FILESTABLE = {
+        CLASSES = (TCPPort.m, DataStream.m, RemoteTest.m); 
+        FRAMEWORKS = (Foundation.framework); 
+        H_FILES = (TCPPort.h, DataStream.h, RemoteTest.h); 
+        OTHER_LINKED = (TCPTransport_main.m); 
+        OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble, m.template, h.template); 
+    }; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {}; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    PROJECTNAME = TCPTransport; 
+    PROJECTTYPE = Tool; 
+    PROJECTVERSION = 2.5; 
+    WINDOWS_BUILDTOOL = make; 
+}

@@ -1,0 +1,39 @@
+.\"	@(#)mkbom.8	6.1 (Berkeley) 4/29/85
+.\"
+.TH SHOWMODS 8 "January 5, 1993"
+.AT 3
+.SH NAME
+showmods \- Find modified system files
+.SH SYNOPSIS
+.B showmods
+[\ \fIbomfile\fP\ \fI...\fP\ ]
+.SH DESCRIPTION
+When no arguments are supplied,
+.B showmods
+examines the system files on the current boot device
+and lists the ones that have been modified or deleted
+to its standard output.
+Although it is not mandatory,
+.B showmods
+should be run as
+.B root
+so that files which are not world-readable
+may be checked.
+.PP
+When one or more
+.I bomfiles
+is specified, only the files listed
+in the given bills of materials are examined.
+.PP
+It is normal for many files to be modified
+in the course of day-to-day operation.
+Some technical sophistication may be required
+to determine whether
+.IR showmod 's
+output indicates an incorrectly configured system.
+.SH FILES
+/usr/lib/NextStep/BaseSystem.bom - BOM for the non-optional parts of NEXTSTEP
+.PP
+/NextLibrary/Receipts/*.pkg/*.bom - BOMs for other installed packages
+.SH "SEE ALSO"
+bom(5), mkbom(8), lsbom(8)

@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p16 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 316.0px; font: 14.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 316.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p27 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p29 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p32 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p36 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Helvetica}
+    p.p38 {margin: 0.0px 0.0px 0.0px 95.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p40 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Times}
+    p.p42 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 95.0px; font: 30.0px Courier; min-height: 36.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 95.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p48 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSWorkspace</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s2">NSObject</span></p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s3"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSObject (NSObject)</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSWorkspace.h</p>
+<p class="p8"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">An NSWorkspace object responds to application requests to perform a variety of services:</p>
+<p class="p12"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>opening, manipulating, and obtaining information about files and devices</p>
+<p class="p13">•<span class="Apple-tab-span">	</span>tracking changes to the file system, devices, and the user database</p>
+<p class="p13">•<span class="Apple-tab-span">	</span>launching applications</p>
+<p class="p13">•<span class="Apple-tab-span">	</span>miscellaneous services such as animating an image and requesting additional time before power off</p>
+<p class="p14"><br></p>
+<p class="p11">There is one shared NSWorkspace object per application. You use the class method <b>sharedWorkspace</b> to access it. For example, the following statement uses an NSWorkspace object to request that a file be opened in the Edit application:</p>
+<p class="p12"><br></p>
+<p class="p15">[[NSWorkspace sharedWorkspace] openFile:@"/Myfiles/README"<span class="Apple-converted-space"> </span></p>
+<p class="p15"><span class="Apple-tab-span">	</span>withApplication:@"Edit"];</p>
+<p class="p16"><br></p>
+<p class="p17"><span class="s3"><b>Note:<span class="Apple-tab-span">	</span></b></span>On the Microsoft Windows platform, some of the methods in this class have no effect. Refer to the method descriptions below.</p>
+<p class="p18"><br></p>
+<p class="p9"><b>Method Types<span class="Apple-converted-space"> </span></b></p>
+<p class="p10"><b></b><br></p>
+<p class="p19">Accessing the shared NSWorkspace<span class="Apple-tab-span">	</span>+ sharedWorkspace</p>
+<p class="p20"><br></p>
+<p class="p19">Accessing the NSWorkspace notification center</p>
+<p class="p21"><span class="s4">-</span> notificationCenter</p>
+<p class="p22"><br></p>
+<p class="p19">Opening files<span class="Apple-tab-span">	</span><span class="s4">-</span> openFile:</p>
+<p class="p21"><span class="s4">-</span> openFile:withApplication:</p>
+<p class="p21"><span class="s4">-</span> openFile:fromImage:at:inView:</p>
+<p class="p21"><span class="s4">-</span> openFile:withApplication:andDeactivate:</p>
+<p class="p21"><span class="s4">-</span> openTempFile:</p>
+<p class="p22"><br></p>
+<p class="p19">Manipulating applications<span class="Apple-tab-span">	</span><span class="s4">-</span> launchApplication:</p>
+<p class="p21"><span class="s4">-</span> launchApplication:showIcon:autolaunch:</p>
+<p class="p21"><span class="s4">-</span> hideOtherApplications</p>
+<p class="p22"><br></p>
+<p class="p19">Manipulating files<span class="Apple-tab-span">	</span><span class="s4">-</span> performFileOperation:source:destination:files:tag:</p>
+<p class="p21"><span class="s4">-</span> selectFile:inFileViewerRootedAtPath:</p>
+<p class="p22"><br></p>
+<p class="p19">Requesting information about files</p>
+<p class="p21"><span class="s4">-</span> iconForFile:</p>
+<p class="p21"><span class="s4">-</span> iconForFileType:</p>
+<p class="p21"><span class="s4">-</span> iconForFiles:</p>
+<p class="p21"><span class="s4">-</span> getInfoForFile:application:type:</p>
+<p class="p21"><span class="s4">-</span> fullPathForApplication:</p>
+<p class="p21"><span class="s4">-</span> getFileSystemInfoForPath:isRemovable:isWritable:</p>
+<p class="p23">isUnmountable:description:type:</p>
+<p class="p24"><br></p>
+<p class="p19">Requesting additional time before logout</p>
+<p class="p21"><span class="s4">-</span> extendPowerOffBy:</p>
+<p class="p22"><br></p>
+<p class="p19">Tracking changes to the file system</p>
+<p class="p21"><span class="s4">-</span> noteFileSystemChanged</p>
+<p class="p21"><span class="s4">-</span> fileSystemChanged</p>
+<p class="p22"><br></p>
+<p class="p19">Updating registered services and file types</p>
+<p class="p21"><span class="s4">-</span> findApplications</p>
+<p class="p22"><br></p>
+<p class="p19">Tracking changes to the defaults database</p>
+<p class="p21"><span class="s4">-</span> noteUserDefaultsChanged</p>
+<p class="p21"><span class="s4">-</span> userDefaultsChanged</p>
+<p class="p22"><br></p>
+<p class="p19">Tracking status changes for applications and devices</p>
+<p class="p21"><span class="s4">-</span> mountedRemovableMedia</p>
+<p class="p21"><span class="s4">-</span> mountNewRemovableMedia</p>
+<p class="p21"><span class="s4">-</span> checkForRemovableMedia</p>
+<p class="p22"><br></p>
+<p class="p19">Animating an image<span class="Apple-tab-span">	</span><span class="s4">-</span> slideImage:from:to:</p>
+<p class="p20"><br></p>
+<p class="p19">Unmounting a device<span class="Apple-tab-span">	</span><span class="s4">-</span> unmountAndEjectDeviceAtPath:</p>
+<p class="p25"><br></p>
+<p class="p9"><b>Class Methods<span class="Apple-converted-space"> </span></b></p>
+<p class="p10"><b></b><br></p>
+<p class="p26"><b></b><b>sharedWorkspace</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28">+ (NSWorkspace *)<b>sharedWorkspace</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Returns the shared NSWorkspace instance.</p>
+<p class="p12"><br></p>
+<p class="p30"><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p26"><b></b><b>checkForRemovableMedia</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>checkForRemovableMedia</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">On the Mach platform, polls the system's drives for any disks that have been inserted but not yet mounted. <b>checkForRemovableMedia</b> doesn't wait until such disks are mounted; instead, it requests that the disk be mounted asynchronously and returns immediately.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11"><span class="Apple-converted-space"> </span>This method has no effect on the Microsoft Windows platform.</p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>mountNewRemovableMedia</b>, <span class="s4">-</span> <b>mountedRemovableMedia</b><span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>extendPowerOffBy:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (int)<b>extendPowerOffBy:</b>(int)<i>requested</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Requests <i>requested</i> milliseconds more time before the power goes off or the user logs out. Returns the number of additional milliseconds granted. On some platforms you might not be able to extend the time.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p34"><br></p>
+<p class="p26"><b></b><b>fileSystemChanged</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>fileSystemChanged</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">On the Mach platform, returns YES if a change to the file system has been registered with a <b>noteFileSystemChanged</b> message since the last <b>fileSystemChanged</b> message; NO otherwise.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is not implemented on the Microsoft Windows platform. If you try to use it, it raises an NSInvalidArgumentException.</p>
+<p class="p12"><br></p>
+<p class="p34"><br></p>
+<p class="p26"><b></b><b>findApplications</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>findApplications</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">On the Mach platform, examines all applications in the normal places (<b>/LocalApps</b>, <b>/NextApps</b>, <b>/NextDeveloper/Apps</b>) and updates the records of registered services and file types.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11"><span class="Apple-converted-space"> </span>This method has no effect on the Microsoft Windows platform.</p>
+<p class="p12"><br></p>
+<p class="p34"><br></p>
+<p class="p26"><b></b><b>fullPathForApplication:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSString *)<b>fullPathForApplication:</b>(NSString *)<i>appName</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Returns the full path for the application <i>appName</i>, or <b>nil</b> if <i>appName</i> isn't in one of the normal places.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p34"><br></p>
+<p class="p26"><b></b><b>getFileSystemInfoForPath:isRemovable:isWritable:isUnmountable:</b></p>
+<p class="p26"><b>description:type:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>getFileSystemInfoForPath:</b>(NSString *)<i>fullPath<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>isRemovable:</b>(BOOL *)<i>removableFlag<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>isWritable:</b>(BOOL *)<i>writableFlag<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>isUnmountable:</b>(BOOL *)<i>unmountableFlag<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>description:</b>(NSString **)<i>description<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>type:</b>(NSString **)<i>fileSystemType</i><span class="Apple-converted-space"> </span></p>
+<p class="p36"><br></p>
+<p class="p11">On the Mach platform, describes the file system at <i>fullPath</i>. This method has no effect on the Microsoft Windows platform.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">Returns YES if <i>fullPath</i> is a file system mount point, NO otherwise. If the return value is YES, <i>description</i> describes the file system; this value can be used in strings, but it shouldn't be depended upon by program logic. Example values for description are “hard”, “nfs”, and “foreign”. <i>fileSystemType</i> indicates the file system type; values could be “NeXT”, “DOS”, or other values. <i>removableFlag</i> is YES if the file system is on removable media, NO otherwise. <i>writableFlag</i> is YES if the file system's media is writable, NO otherwise. <i>unmountableFlag</i> returns YES if the file system is unmountable, NO otherwise.</p>
+<p class="p12"><br></p>
+<p class="p34"><br></p>
+<p class="p26"><b></b><b>getInfoForFile:application:type:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>getInfoForFile:</b>(NSString *)<i>fullPath<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>application:</b>(NSString **)<i>appName<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>type:</b>(NSString **)<i>type</i><span class="Apple-converted-space"> </span></p>
+<p class="p36"><br></p>
+<p class="p11">Retrieves information about the file specified by <i>fullPath</i>. If this method returns YES, the NSString pointed to by <i>appName</i> is set to the application the system would use to open <i>fullPath</i>. The NSString pointed to by <i>type</i> contains one of the following values or a file name extension such as “rtf” indicating the file's type:</p>
+<p class="p12"><br></p>
+<p class="p37"><b>Value<span class="Apple-tab-span">	</span>Type of File</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p39">NSPlainFileType<span class="Apple-tab-span">	</span>Plain (untyped) file</p>
+<p class="p40"><br></p>
+<p class="p39">NSDirectoryFileType<span class="Apple-tab-span">	</span>Directory</p>
+<p class="p40"><br></p>
+<p class="p39">NSApplicationFileType<span class="Apple-tab-span">	</span>OpenStep application</p>
+<p class="p40"><br></p>
+<p class="p39">NSFilesystemFileType<span class="Apple-tab-span">	</span>File system mount point</p>
+<p class="p40"><br></p>
+<p class="p39">NSShellCommandFileType<span class="Apple-tab-span">	</span>Executable shell command</p>
+<p class="p40"><br></p>
+<p class="p11">This method returns NO if it could not find <i>fullPath</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>iconForFile:</b>, <span class="s4">-</span> <b>iconForFiles:</b><span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>hideOtherApplications</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>hideOtherApplications</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Hides all applications other than the sender. This method has no effect on the Microsoft Windows platform. On the Mach platform, the user can hide all applications except the current one by Command-double-clicking an application's tile, so programmatic invocation of this method is usually unnecessary.</p>
+<p class="p12"><br></p>
+<p class="p34"><br></p>
+<p class="p26"><b></b><b>iconForFile:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSImage *)<b>iconForFile:</b>(NSString *)<i>fullPath</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Returns an NSImage with the icon for the single file specified by <i>fullPath</i>.</p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>getInfoForFile:application:type:</b>, <span class="s4">-</span> <b>iconForFileType:</b>, <span class="s4">-</span> <b>iconForFiles:</b><span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>iconForFileType:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSImage *)<b>iconForFileType:</b>(NSString *)<i>fileType</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Returns an NSImage the icon for the file type specified by <i>fileType</i>.</p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>iconForFile:</b>, <span class="s4">-</span> <b>iconForFiles:</b><span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>iconForFiles:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSImage *)<b>iconForFiles:</b>(NSArray *)<i>fullPaths</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Returns an NSImage with the icon for the files specified in <i>fullPaths</i>, an array of NSStrings. If <i>fullPaths</i> specifies one file, its icon is returned. If <i>fullPaths</i> specifies more than one file, an icon representing the multiple selection is returned.</p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>iconForFile:</b>, <span class="s4">-</span> <b>iconForFileType:</b><span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>launchApplication:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>launchApplication:</b>(NSString *)<i>appName</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Launches the application <i>appName</i>. <i>appName</i> need not be specified with a full path and, in the case of an application wrapper, can be specified with or without the <b>.app</b> extension. Returns YES if the application is successfully launched or already running, NO if it can't be launched.</p>
+<p class="p12"><br></p>
+<p class="p11">Before this method begins, it posts an NSWorkspaceWillLaunchApplicationNotification to the NSWorkspace's notification center. When the operation is complete, it posts an NSWorkspaceDidLaunchApplicationNotification.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>launchApplication:showIcon:autolaunch:</b><span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>launchApplication:showIcon:autolaunch:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>launchApplication:</b>(NSString *)<i>appName<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>showIcon:</b>(BOOL)<i>showIcon<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>autolaunch:</b>(BOOL)<i>autolaunch</i><span class="Apple-converted-space"> </span></p>
+<p class="p36"><br></p>
+<p class="p11">Launches the application <i>appName</i>. If <i>showIcon</i> is NO, the application's icon won't be placed on the screen. (The icon still exists, though.) If <i>autolaunch</i> is YES, the autolaunch default will be set as though the application were autolaunched at startup. This method is provided to enable daemon-like applications that lack a normal user interface and for use by alternative dock programs.<span class="Apple-converted-space">  </span>Its use is not generally encouraged.</p>
+<p class="p12"><br></p>
+<p class="p11">Returns YES if the application is successfully launched or already running, and NO if it can't be launched.</p>
+<p class="p12"><br></p>
+<p class="p11">Before this method begins, it posts an NSWorkspaceWillLaunchApplicationNotification to the NSWorkspace's notification center. When the operation is complete, it posts an NSWorkspaceDidLaunchApplicationNotification.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>launchApplication:</b><span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>mountNewRemovableMedia</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSArray *)<b>mountNewRemovableMedia</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">On the Mach platform, polls the system's drives for any disks that have been inserted but not yet mounted, waits until the new disks have been mounted, and returns an NSArray of NSStrings containing full pathnames to all newly mounted disks. This method posts an NSWorkspaceDidMountNotification to the NSWorkspace's notification center when it is finished.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is not implemented on the Microsoft Windows platform. If you try to use it, it raises an NSInvalidArgumentException.</p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>checkForRemovableMedia</b>, <span class="s4">-</span> <b>mountedRemovableMedia</b><span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>mountedRemovableMedia</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSArray *)<b>mountedRemovableMedia</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Returns an NSArray of NSStrings containing the full pathnames of all currently mounted removable disks. This method is not implemented on the Microsoft Windows platform. If you try to use it, it raises an NSInvalidArgumentException.</p>
+<p class="p12"><br></p>
+<p class="p11">On the Mach platform, if the computer provides an interrupt or other notification when the user inserts a disk into a drive, the Workspace Manager will mount the disk immediately. However, if no notification is given, the Workspace Manager won't be aware that a disk needs to be mounted. On such systems, an application should invoke either <b>mountNewRemovableMedia:</b> or <b>checkForRemovableMedia</b> before invoking <b>mountedRemovableMedia:</b>. Either of these methods cause the Workspace Manager to poll the drives to see if a disk is present. If a disk has been inserted but not yet mounted, these methods will cause the Workspace Manager to mount it.</p>
+<p class="p12"><br></p>
+<p class="p11">The Disk button in an Open or Save panel invokes <b>mountedRemovableMedia:</b> and <b>mountNewRemovableMedia:</b> as part of its operation, so most applications won't need to invoke these methods directly.</p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>checkForRemovableMedia</b>, <span class="s4">-</span> <b>mountNewRemovableMedia</b><span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>noteFileSystemChanged</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>noteFileSystemChanged</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">On the Mach platform, informs NSWorkspace that the file system has changed. NSWorkspace then gets the status of all the files and directories it is interested in and updates itself appropriately. This method is used by many objects that write or delete files.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">This method has no effect on the Microsoft Windows platform.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>fileSystemChanged</b><span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>noteUserDefaultsChanged</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>noteUserDefaultsChanged</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">On the Mach platform, informs NSWorkspace that the defaults database has changed. NSWorkspace then reads all the defaults it is interested in and reconfigures itself appropriately. For example, on Mach platforms, this method is used by the Preferences application to notify Workspace Manager whether the user prefers to see hidden files.</p>
+<p class="p12"><br></p>
+<p class="p11">This method has no effect on the Microsoft Windows platform.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>userDefaultsChanged</b><span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>notificationCenter</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSNotificationCenter *)<b>notificationCenter</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Returns the notification center for workspace notifications.</p>
+<p class="p12"><br></p>
+<p class="p34"><br></p>
+<p class="p26"><b></b><b>openFile:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>openFile:</b>(NSString *)<i>fullPath</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Opens the file specified by <i>fullPath</i> using the default application for its type; returns YES if file was successfully opened, NO otherwise. The sending application is deactivated before the request is sent.</p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>openFile:fromImage:at:inView:</b>, <span class="s4">-</span> <b>openFile:withApplication:</b>, <span class="s4">-</span> <b>openFile:withApplication:andDeactivate:</b>, <span class="s4">-</span> <b>openTempFile:</b><span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>openFile:fromImage:at:inView:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>openFile:</b>(NSString *)<i>fullPath<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>fromImage:</b>(NSImage *)<i>anImage<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>at:</b>(NSPoint)<i>point<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>inView:</b>(NSView *)<i>aView</i><span class="Apple-converted-space"> </span></p>
+<p class="p36"><br></p>
+<p class="p11">Opens the file specified by <i>fullPath</i> using the default application for its type. On the Mach platform, Workspace Manager provides animation before opening the file to give the user feedback that the file is to be opened. To provide this animation, <i>anImage</i> should contain an icon for the file, and its image should be displayed at <i>point</i>, specified in <i>aView</i>'s coordinates. On the Microsoft Windows platform, this method is the same as the <b>openFile:</b> method.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">The sending application is deactivated before the request is sent. Returns YES if the file is successfully opened, NO otherwise.</p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>openFile:</b>, <span class="s4">-</span> <b>openFile:withApplication:</b>, <span class="s4">-</span> <b>openFile:withApplication:andDeactivate:</b>, <span class="s4">-</span> <b>openTempFile:</b><span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>openFile:withApplication:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>openFile:</b>(NSString *)<i>fullPath </i><b>withApplication:</b>(NSString *)<i>appName</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Opens the file specified by <i>fullPath</i> using the <i>appName</i> application. <i>appName</i> need not be specified with a full path and, in the case of an application wrapper, can be specified with or without the <b>.app</b> extension. The sending application is deactivated before the request is sent. Returns YES if the file is successfully opened, NO otherwise.</p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>openFile:</b>, <span class="s4">-</span> <b>openFile:withApplication:andDeactivate:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p26"><b></b><b>openFile:withApplication:andDeactivate:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>openFile:</b>(NSString *)<i>fullPath<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>withApplication:</b>(NSString *)<i>appName<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>andDeactivate:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p36"><br></p>
+<p class="p11">Opens the file specified by <i>fullPath</i> using the <i>appName</i> application. <i>appName</i> need not be specified with a full path and, in the case of an application wrapper, can be specified with or without the <b>.app</b> extension. If <i>appName</i> is <b>nil</b>, the default application for the file's type is used. If <i>flag</i> is YES, the sending application is deactivated before the request is sent, allowing the opening application to become the active application. Returns YES if the file is successfully opened, NO otherwise.</p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>openFile:</b>, <span class="s4">-</span> <b>openFile:withApplication:</b>, <span class="s4">-</span> <b>application:openFile:</b> (NSApplication delegate method)<span class="Apple-converted-space"> </span></p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>openTempFile:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>openTempFile:</b>(NSString *)<i>fullPath</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Opens the temporary file specified by <i>fullPath</i> using the default application for its type. The sending application is deactivated before the request is sent. Using this method instead of one of the <b>openFile:...</b> methods lets the receiving application know that it should delete the file when it no longer needs it. Returns YES if the file is successfully opened, NO otherwise.</p>
+<p class="p12"><br></p>
+<p class="p31"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>openFile:</b>, <span class="s4">-</span> <b>openFile:fromImage:at:inView:</b>, <span class="s4">-</span> <b>openFile:withApplication:</b>, <span class="s4">-</span> <b>openFile:withApplication:andDeactivate:</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b></b><br></p>
+<p class="p26"><b></b><b>performFileOperation:source:destination:files:tag:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>performFileOperation:</b>(NSString *)<i>operation<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>source:</b>(NSString *)<i>source<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>destination:</b>(NSString *)<i>destination<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>files:</b>(NSArray *)<i>files<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>tag:</b>(int *)<i>tag</i><span class="Apple-converted-space"> </span></p>
+<p class="p36"><br></p>
+<p class="p11">Performs a file operation on a set of files in a particular directory. <i>operation</i> is some file operation, such as compressing or moving files. <i>files</i> contains NSString specifying the names of the files to be manipulated. The file names are given relative to the <i>source</i> directory. The list can contain both files and directories; all of them must be located directly within source (not in one of its subdirectories).<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">Some operations—such as moving, copying, and linking files—require a destination directory to be specified. If not, <i>destination</i> should be the empty string (@"").</p>
+<p class="p12"><br></p>
+<p class="p11">The possible values for <i>operation</i> are:</p>
+<p class="p12"><br></p>
+<p class="p37"><b>Operation<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Meaning</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p41">NSWorkspaceMoveOperation<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Move file to destination</p>
+<p class="p42"><br></p>
+<p class="p41">NSWorkspaceCopyOperation<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Copy file to destination</p>
+<p class="p42"><br></p>
+<p class="p41">NSWorkspaceLinkOperation<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Create link to file in destination</p>
+<p class="p42"><br></p>
+<p class="p41">NSWorkspaceCompressOperation<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Compress file</p>
+<p class="p42"><br></p>
+<p class="p41">NSWorkspaceDecompressOperation<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Decompress file</p>
+<p class="p42"><br></p>
+<p class="p41">NSWorkspaceEncryptOperation<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Encrypt file</p>
+<p class="p42"><br></p>
+<p class="p41">NSWorkspaceDecryptOperation<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Decrypt file</p>
+<p class="p42"><br></p>
+<p class="p41">NSWorkspaceDestroyOperation<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Destroy file</p>
+<p class="p42"><br></p>
+<p class="p41">NSWorkspaceRecycleOperation<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Move file to recycler</p>
+<p class="p42"><br></p>
+<p class="p41">NSWorkspaceDuplicateOperation<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Duplicate file in source directory</p>
+<p class="p42"><br></p>
+<p class="p17"><span class="s3"><b>Note:<span class="Apple-tab-span">	</span></b></span>NSWorkspaceCompressOperation, NSWorkspaceDecompressOperation, NSWorkspaceEncryptOperation, and NSWorkspaceDecryptOperation are not available on the Microsoft Windows platform.</p>
+<p class="p43"><br></p>
+<p class="p11">This method returns YES if the operation succeeded, NO otherwise, In <i>tag</i>, the method returns a negative integer if the operation fails, 0 if the operation is performed synchronously and succeeds, and a positive integer if the operation is performed asynchronously. The positive integer is a tag that identifies the requested file operation. Before this method returns, it posts an NSWorkspaceDidPerformFileOperationNotification to NSWorkspace's notification center.</p>
+<p class="p12"><br></p>
+<p class="p34"><br></p>
+<p class="p26"><b></b><b>selectFile:inFileViewerRootedAtPath:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>selectFile:</b>(NSString *)<i>fullPath </i><b>inFileViewerRootedAtPath:</b>(NSString *)<i>rootFullPath</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Selects the file specified by <i>fullPath</i>. If a path is specified by <i>rootFullPath</i>, a new file viewer is opened. If <i>rootFullPath</i> is an empty string (@""), the file is selected in the main viewer. Returns YES if the file is successfully selected, NO otherwise.</p>
+<p class="p12"><br></p>
+<p class="p34"><br></p>
+<p class="p26"><b></b><b>slideImage:from:to:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>slideImage:</b>(NSImage *)<i>image<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>from:</b>(NSPoint)<i>fromPoint<span class="Apple-converted-space"> </span></i></p>
+<p class="p35"><b>to:</b>(NSPoint)<i>toPoint</i><span class="Apple-converted-space"> </span></p>
+<p class="p36"><br></p>
+<p class="p11">On Mach platforms, animates a sliding image of <i>image</i> from <i>fromPoint</i> to <i>toPoint</i>, specified in screen coordinates. This method has no effect on the Microsoft Windows platform.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p34"><br></p>
+<p class="p26"><b></b><b>unmountAndEjectDeviceAtPath:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>unmountAndEjectDeviceAtPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">Unmounts and ejects the device at path. Returns YES if unmount succeeded and NO otherwise. When this method begins, it posts an NSWorkspaceWillUnmountNotification to NSWorkspace's notification center. When it is finished, it posts an NSWorkspaceDidUnmountNotification.</p>
+<p class="p12"><br></p>
+<p class="p34"><br></p>
+<p class="p26"><b></b><b>userDefaultsChanged</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>userDefaultsChanged</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p11">On the Mach platform, returns whether a change to the defaults database has been registered with a <b>noteUserDefaultsChanged</b> message since the last <b>userDefaultsChanged</b> message.</p>
+<p class="p12"><br></p>
+<p class="p11">This method has no effect on the Microsoft Windows platform.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p30"><br></p>
+<p class="p9"><b>Notifications</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">All NSWorkspace notifications are posted to NSWorkspace's own notification center, not the application's default notification center. Access this center using the <b>notificationCenter</b> method.</p>
+<p class="p12"><br></p>
+<p class="p15">NSNotificationCenter *workspaceCenter = [[NSWorkspace sharedWorkspace]<span class="Apple-converted-space"> </span></p>
+<p class="p15"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>notificationCenter];</p>
+<p class="p44"><br></p>
+<p class="p26"><b>NSWorkspaceDidLaunchApplicationNotification</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p11">Posted when a new application has started up.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">The notification object contains:</p>
+<p class="p12"><br></p>
+<p class="p39"><b>Notification Object</b><span class="Apple-tab-span">	</span>the shared NSWorkspace instance</p>
+<p class="p40"><br></p>
+<p class="p39"><b>Userinfo</b><span class="Apple-tab-span">	</span></p>
+<p class="p40"><br></p>
+<p class="p37"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p41">NSApplicationName<span class="Apple-tab-span">	</span>The application being terminated</p>
+<p class="p42"><br></p>
+<p class="p46"><br></p>
+<p class="p26"><b>NSWorkspaceDidMountNotification</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p11">Posted when a new device has been mounted.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">The notification object contains:</p>
+<p class="p12"><br></p>
+<p class="p39"><b>Notification Object</b><span class="Apple-tab-span">	</span>the shared NSWorkspace instance</p>
+<p class="p40"><br></p>
+<p class="p39"><b>Userinfo</b><span class="Apple-tab-span">	</span></p>
+<p class="p40"><br></p>
+<p class="p37"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p41">NSDevicePath<span class="Apple-tab-span">	</span>The path where the device was mounted</p>
+<p class="p42"><br></p>
+<p class="p46"><br></p>
+<p class="p26"><b>NSWorkspaceDidPerformFileOperationNotification</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p11">Posted when a file operation has been performed.</p>
+<p class="p12"><br></p>
+<p class="p39"><b>Notification Object</b><span class="Apple-tab-span">	</span>the shared NSWorkspace instance</p>
+<p class="p40"><br></p>
+<p class="p39"><b>Userinfo</b><span class="Apple-tab-span">	</span></p>
+<p class="p40"><br></p>
+<p class="p37"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p41">NSOperationNumber<span class="Apple-tab-span">	</span>A number indicating the type of file operation completed</p>
+<p class="p42"><br></p>
+<p class="p46"><br></p>
+<p class="p26"><b>NSWorkspaceDidTerminateApplicationNotification</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p11">Posted when an application finishes executing.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">The notification object contains:</p>
+<p class="p12"><br></p>
+<p class="p39"><b>Notification Object</b><span class="Apple-tab-span">	</span>the shared NSWorkspace instance</p>
+<p class="p40"><br></p>
+<p class="p39"><b>Userinfo</b><span class="Apple-tab-span">	</span></p>
+<p class="p40"><br></p>
+<p class="p37"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p41">NSApplicationName<span class="Apple-tab-span">	</span>The application that terminated</p>
+<p class="p42"><br></p>
+<p class="p46"><br></p>
+<p class="p26"><b>NSWorkspaceDidUnmountNotification</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p11">Posted when the workspace has unmounted a device.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p39"><b>Notification Object</b><span class="Apple-tab-span">	</span>the shared NSWorkspace instance</p>
+<p class="p40"><br></p>
+<p class="p39"><b>Userinfo</b><span class="Apple-tab-span">	</span></p>
+<p class="p40"><br></p>
+<p class="p37"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p41">NSDevicePath<span class="Apple-tab-span">	</span>The path where the device was previously mounted</p>
+<p class="p42"><br></p>
+<p class="p46"><br></p>
+<p class="p26"><b>NSWorkspaceWillLaunchApplicationNotification</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p11">Posted when the workspace is about to launch an application.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p39"><b>Notification Object</b><span class="Apple-tab-span">	</span>the shared NSWorkspace instance</p>
+<p class="p40"><br></p>
+<p class="p39"><b>Userinfo</b><span class="Apple-tab-span">	</span></p>
+<p class="p40"><br></p>
+<p class="p37"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p41">NSApplicationName<span class="Apple-tab-span">	</span>The application about to be launched</p>
+<p class="p42"><br></p>
+<p class="p46"><br></p>
+<p class="p26"><b>NSWorkspaceWillPowerOffNotification</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p11">Posted when the user has requested that the machine be powered off.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p39"><b>Notification Object</b><span class="Apple-tab-span">	</span>the shared NSWorkspace instance</p>
+<p class="p40"><br></p>
+<p class="p39"><b>Userinfo</b><span class="Apple-tab-span">	</span>None</p>
+<p class="p40"><br></p>
+<p class="p47"><br></p>
+<p class="p26"><b>NSWorkspaceWillUnmountNotification</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p11">Posted when the workspace is about to unmount a device.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p39"><b>Notification Object</b><span class="Apple-tab-span">	</span>the shared NSWorkspace instance</p>
+<p class="p40"><br></p>
+<p class="p39"><b>Userinfo</b><span class="Apple-tab-span">	</span></p>
+<p class="p40"><br></p>
+<p class="p37"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p41">NSDevicePath<span class="Apple-tab-span">	</span>The path where the device is mounted</p>
+<p class="p42"><br></p>
+<p class="p48"><br></p>
+<p class="p12"><br></p>
+</body>
+</html>

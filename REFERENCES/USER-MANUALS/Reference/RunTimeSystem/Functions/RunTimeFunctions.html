@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 201.6px; text-indent: -37.8px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 201.6px; text-indent: -37.8px; font: 14.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 201.6px; text-indent: -37.8px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 163.8px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 163.8px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 163.8px; text-indent: -100.8px; font: 5.0px Times; min-height: 6.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 163.8px; text-indent: -100.8px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 163.8px; text-indent: -100.8px; font: 14.0px Times; min-height: 18.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 182.6px; text-indent: -119.6px; font: 14.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 182.7px; text-indent: -18.9px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 163.8px; text-indent: -100.8px; font: 10.0px Times; min-height: 13.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 163.8px; font: 10.0px Times; min-height: 13.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 182.7px; font: 12.0px Courier}
+    p.p18 {margin: 0.0px 0.0px 0.0px 182.7px; font: 12.0px Courier; min-height: 14.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 201.6px; text-indent: -37.8px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 163.8px; text-indent: -100.8px; font: 10.0px Helvetica}
+    p.p21 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Symbol}
+    span.s3 {font: 10.0px Helvetica}
+    span.s4 {font: 14.0px Helvetica}
+    span.s5 {font: 14.0px Times}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><br></p>
+<p class="p4"><b>class_addMethods() </b><span class="s2">ﬁ</span><b> See class_getInstanceMethod()<span class="Apple-converted-space"> </span></b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>class_createInstance(), class_createInstanceFromZone()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Create a new instance of a class</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>id <b>class_createInstance(</b>Class <i>aClass</i>, unsigned int <i>indexedIvarBytes</i><b>)</b></p>
+<p class="p13">id <b>class_createInstanceFromZone(</b>Class <i>aClass</i>, unsigned int <i>indexedIvarBytes</i>, NXZone *<i>zone</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>These functions provide an interface to the object allocators used by the run-time system.<span class="Apple-converted-space">  </span>The default allocators, which can be changed by reassigning the <b>_alloc</b> and <b>_zoneAlloc</b> variables, create a new instance of <i>aClass</i> by dynamically allocating memory for it, initializing its <b>isa</b> instance variable to point to the class, and returning the new instance.<span class="Apple-converted-space">  </span>All other instance variables are initialized to 0.</p>
+<p class="p14"><br></p>
+<p class="p15">The two functions are identical, except that <b>class_createInstanceFromZone()</b> allocates memory for the new object from the region specified by <i>zone</i> and <b>class_createInstance()</b> allocates memory from the default zone returned by <b>NXDefaultMallocZone()</b>.</p>
+<p class="p16"><br></p>
+<p class="p15">Object's <b>alloc</b> and <b>allocFromZone:</b> methods use <b>class_createInstanceFromZone()</b> to allocate memory for a new object, with <b>alloc</b> taking the memory from the default zone.<span class="Apple-converted-space">  </span>The <b>new</b> method uses <b>class_createInstance()</b>.</p>
+<p class="p16"><br></p>
+<p class="p15">The second argument to both functions, <i>indexedIvarBytes</i>, states the number of extra bytes required for indexed instance variables.<span class="Apple-converted-space">  </span>Normally, it's 0.</p>
+<p class="p16"><br></p>
+<p class="p15">Indexed instance variables are instance variables that are not declared or accounted for in the usual way, generally because they don't have a fixed size.<span class="Apple-converted-space">  </span>Usually they're arrays whose length can't be computed at compile time.<span class="Apple-converted-space">  </span>Since the components of a C structure can't be of uncertain size, indexed instance variables can't be declared in the class interface.<span class="Apple-converted-space">  </span>The class must account for them outside the normal channels provided by the Objective C language.</p>
+<p class="p16"><br></p>
+<p class="p15">All of the storage required for indexed instance variables must be allocated through one of these two functions.<span class="Apple-converted-space">  </span>The following code shows how they might be used in an instance-creating class method:</p>
+<p class="p16"><br></p>
+<p class="p17">+ new:(unsigned int)numBytes<span class="Apple-converted-space"> </span></p>
+<p class="p17">{</p>
+<p class="p17"><span class="Apple-converted-space">    </span>self = class_createInstance((Class)self, numBytes);</p>
+<p class="p17"><span class="Apple-converted-space">    </span>length = numBytes;</p>
+<p class="p17"><span class="Apple-converted-space">    </span>. . .</p>
+<p class="p17">}</p>
+<p class="p18"><br></p>
+<p class="p17">- (char *)getArray<span class="Apple-converted-space"> </span></p>
+<p class="p17">{</p>
+<p class="p17"><span class="Apple-converted-space">    </span>return(object_getIndexedIvars(self));</p>
+<p class="p17">}</p>
+<p class="p16"><br></p>
+<p class="p15">Indexed instance variables should be avoided if at all possible.<span class="Apple-converted-space">  </span>It's a much better practice to store variable-length data outside the object and declare one real instance variable that points to it and perhaps another that records its length.<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p16"><br></p>
+<p class="p17">+ new:(unsigned int)numBytes<span class="Apple-converted-space"> </span></p>
+<p class="p17">{</p>
+<p class="p17"><span class="Apple-converted-space">    </span>self = [super new];</p>
+<p class="p17"><span class="Apple-converted-space">    </span>data = malloc(numBytes);</p>
+<p class="p17"><span class="Apple-converted-space">    </span>length = numBytes;</p>
+<p class="p17"><span class="Apple-converted-space">    </span>. . .</p>
+<p class="p17">}</p>
+<p class="p18"><br></p>
+<p class="p17">- (char *)getArray<span class="Apple-converted-space"> </span></p>
+<p class="p17">{</p>
+<p class="p17"><span class="Apple-converted-space">    </span>return data;</p>
+<p class="p17">}</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>If successful, both <b>class_createInstance()</b> and <b>class_createInstanceFromZone()</b> return the new instance of <i>aClass</i>.<span class="Apple-converted-space">  </span>If not successful, they generate an error message and call <b>abort()</b>.</p>
+<p class="p14"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>class_createInstanceFromZone() </b><span class="s2">ﬁ</span><b> See class_createInstance()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p4"><b>class_getClassMethod() </b><span class="s2">ﬁ</span><b> See class_getInstanceMethod()<span class="Apple-converted-space"> </span></b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>class_getInstanceMethod(), class_getClassMethod(), class_addMethods(), class_removeMethods()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get, add, and remove methods</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>Method <b>class_getInstanceMethod(</b>Class <i>aClass</i>, SEL <i>aSelector</i><b>)</b></p>
+<p class="p13">Method <b>class_getClassMethod(</b>Class <i>aClass</i>, SEL <i>aSelector</i><b>)</b></p>
+<p class="p13">void <b>class_addMethods(</b>Class <i>aClass</i>, struct objc_method_list *<i>methodList</i><b>)</b></p>
+<p class="p13">void <b>class_removeMethods(</b>Class <i>aClass</i>, struct objc_method_list *<i>methodList</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The first two functions, <b>class_getInstanceMethod()</b> and <b>class_getClassMethod()</b>, return a pointer to the class data structure that describes the <i>aSelector</i> method.<span class="Apple-converted-space">  </span>For <b>class_getInstanceMethod()</b>, <i>aSelector</i> must identify an instance method; for <b>class_getClassMethod()</b>, it must identify a class method.<span class="Apple-converted-space">  </span>Both functions return a NULL pointer if <i>aSelector</i> doesn't identify a method defined in or inherited by <i>aClass</i>.</p>
+<p class="p14"><br></p>
+<p class="p15">The run-time system uses the next function, <b>class_addMethods()</b>, to implement Objective C categories.<span class="Apple-converted-space">  </span>Each function adds the methods in <i>methodList</i> to the dictionary of methods defined for <i>aClass</i>.<span class="Apple-converted-space">  </span>To add methods that can be used by instances of a class, <i>aClass</i> should be the class object.<span class="Apple-converted-space">  </span>To add methods that can be used by a class object, <i>aClass</i> should be the metaclass object (the <b>isa</b> field of the Class structure).<span class="Apple-converted-space">  </span>All the methods in <i>methodList</i> must be mapped to valid SEL selectors before they're added to the class.<span class="Apple-converted-space">  </span>The <b>sel_registerName()</b> function can be used to accomplish this.</p>
+<p class="p16"><br></p>
+<p class="p15">The last function, <b>class_removeMethods()</b>, removes methods that were previously added using <b>class_addMethods()</b>.<span class="Apple-converted-space">  </span>The run-time system uses it to unload categories that were dynamically loaded at an earlier point in time.<span class="Apple-converted-space">  </span>Its second argument, <i>methodList</i>, must be identical to a pointer previously passed to <b>class_addMethods()</b>.<span class="Apple-converted-space">  </span>To remove instance methods, <i>aClass</i> should be the class object.<span class="Apple-converted-space">  </span>To remove class methods, <i>aClass</i> should be the <b>isa</b> field of the Class structure.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span><b>class_getInstanceMethod()</b> and <b>class_getClassMethod()</b> return a pointer to the data structure that describes the <i>aSelector</i> method as implemented for <i>aClass</i>.<span class="Apple-converted-space">  </span>If <i>aSelector</i> isn't defined for <i>aClass</i>, they return NULL.</p>
+<p class="p14"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>class_getInstanceVariable()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get the class template for an instance variable</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>Ivar <b>class_getInstanceVariable(</b>Class <i>aClass</i>, const char *<i>variableName</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>This function returns a pointer to the class data structure that describes the <i>variableName</i> instance variable.<span class="Apple-converted-space">  </span>If <i>aClass</i> doesn't define or inherit the instance variable, a NULL pointer is returned.</p>
+<p class="p14"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>class_getVersion() </b><span class="s2">ﬁ</span><b> See class_setVersion()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>class_poseAs()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Pose as the superclass</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>Class <b>class_poseAs(</b>Class <i>theImposter</i>, Class <i>theSuperclass</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span><b>class_poseAs()</b> causes one class, <i>theImposter</i>, to take the place of its own superclass, <i>theSuperclass</i>.<span class="Apple-converted-space">  </span>Messages sent to <i>theSuperclass</i> will actually be received by <i>theImposter</i>.<span class="Apple-converted-space">  </span>The posing class can't declare any new instance variables, but it can define new methods and override methods defined in the superclass.</p>
+<p class="p14"><br></p>
+<p class="p15">Posing is usually done through Object's <b>poseAs:</b> method, which calls this function.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>Normally, <b>class_poseAs()</b> returns its first argument, <i>theImposter</i>.<span class="Apple-converted-space">  </span>However, if <i>theImposter</i> defines instance variables or is not a subclass of (or the same as) <i>theSuperclass</i>, it generates an error message and aborts.</p>
+<p class="p14"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>class_removeMethods() </b><span class="s2">ﬁ</span><b> See class_getInstanceMethod()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>class_setVersion(), class_getVersion()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Set and get the class version</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>void <b>class_setVersion(</b>Class <i>aClass</i>, int <i>versionNumber</i><b>)</b></p>
+<p class="p13">int <b>class_getVersion(</b>Class <i>aClass</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>These functions set and return the class version number.<span class="Apple-converted-space">  </span>This number is used when archiving instances of the class.</p>
+<p class="p14"><br></p>
+<p class="p15">Object's <b>setVersion:</b> and <b>version</b> methods do the same work as these functions.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span><b>class_getVersion()</b> returns the version number for <i>aClass</i> last set by <b>class_setVersion()</b>, or 0 if no version has been set.</p>
+<p class="p14"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>marg_getRef() </b><span class="s2">ﬁ</span><b> See marg_getValue()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>marg_getValue(), marg_getRef(), marg_setValue()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Examine and alter method argument values</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><i>type-name</i> <b>marg_getValue(</b>marg_list <i>argFrame</i>, int <i>offset</i>,<i> type-name</i><b>)</b></p>
+<p class="p13"><i>type-name</i> *<b>marg_getRef(</b>marg_list <i>argFrame</i>, int <i>offset</i>,<i> type-name</i><b>)</b></p>
+<p class="p13">void <b>marg_setValue(</b>marg_list <i>argFrame</i>, int <i>offset</i>,<i> type-name</i>, <i>type-name value</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>These three macros get and set the values of arguments passed in a message.<span class="Apple-converted-space">  </span>They're designed to be used within implementations of the <b>forward::</b> method, which is described under the Object class in Chapter 1, “Root Class.”</p>
+<p class="p14"><br></p>
+<p class="p15">The first argument to each macro, <i>argFrame</i>, is a pointer to the list of arguments passed in the message.<span class="Apple-converted-space">  </span>The run-time system passes this pointer to the <b>forward::</b> method, making it available to be used in these macros.<span class="Apple-converted-space">  </span>The next two arguments—an <i>offset</i> into the argument list and the type of the argument at that offset—can be obtained by calling <b>method_getArgumentInfo()</b>.</p>
+<p class="p16"><br></p>
+<p class="p15">The first macro, <b>marg_getValue</b>, returns the argument at <i>offset</i> in <i>argFrame</i>.<span class="Apple-converted-space">  </span>The return value, like the argument, is of type <i>type-name</i>.<span class="Apple-converted-space">  </span>The second macro, <b>marg_getRef</b>, returns a reference to the argument at <i>offset</i> in <i>argFrame</i>.<span class="Apple-converted-space">  </span>The pointer returned is to an argument of the <i>type-name</i> type.<span class="Apple-converted-space">  </span>The third macro, <b>marg_setValue</b>, alters the argument at <i>offset</i> in <i>argFrame</i> by assigning it <i>value.<span class="Apple-converted-space">  </span></i>The new value must be of the same type as the argument.</p>
+<p class="p16"><br></p>
+<p class="p15">Because these are macros, the <i>type-name</i> must be written as types normally are in source code; it can't be passed as a variable.<span class="Apple-converted-space">  </span>Therefore, if the type is obtained from <b>method_getArgumentInfo()</b>, a <b>switch</b> statement would be required to select the correct macro call from a list of predetermined choices.<span class="Apple-converted-space">  </span><b>method_getArgumentInfo()</b> encodes the argument type according to the conventions of the <b>@encode()</b> compiler directive.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span><b>marg_getValue</b> returns a <i>type-name</i> argument value.<span class="Apple-converted-space">  </span><b>marg_getRef</b> returns a pointer to a <i>type-name</i> argument value.</p>
+<p class="p14"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>marg_setValue() </b><span class="s2">ﬁ</span><b> See marg_getValue()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>method_getArgumentInfo() </b><span class="s2">ﬁ</span><b> See method_getNumberOfArguments()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>method_getNumberOfArguments(), method_getSizeOfArguments(), method_getArgumentInfo()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get information about a method</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>unsigned int <b>method_getNumberOfArguments(</b>Method <i>aMethod</i><b>)</b></p>
+<p class="p13">unsigned int <b>method_getSizeOfArguments(</b>Method <i>aMethod</i><b>)</b></p>
+<p class="p13">unsigned int <b>method_getArgumentInfo(</b>Method <i>aMethod</i>, int <i>index</i>, const char **<i>type</i>, int *<i>offset</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The three functions described here all provide information about the argument structure of a particular method.<span class="Apple-converted-space">  </span>They take as their first argument the method's data structure, <i>aMethod</i>, which can be obtained by calling <b>class_getInstanceMethod()</b> or <b>class_getClassMethod()</b>.</p>
+<p class="p14"><br></p>
+<p class="p15">The first function, <b>method_getNumberOfArguments()</b>, returns the number of arguments that <i>aMethod</i> takes.<span class="Apple-converted-space">  </span>This will be at least two, since it includes the “hidden” arguments, <b>self</b> and <b>_cmd</b>, which are the first two arguments passed to every method implementation.</p>
+<p class="p16"><br></p>
+<p class="p15">The second function, <b>method_getSizeOfArguments()</b>, returns the number of bytes that all of <i>aMethod</i>'s arguments, taken together, would occupy on the stack.<span class="Apple-converted-space">  </span>This information is required by <b>objc_msgSendv()</b>.</p>
+<p class="p16"><br></p>
+<p class="p15">The third function, <b>method_getArgumentInfo()</b>, takes an <i>index</i> into <i>aMethod</i>'s argument list and returns, by reference, the type of the argument and the offset to the location of that argument in the list.<span class="Apple-converted-space">  </span>Indices begin with 0.<span class="Apple-converted-space">  </span>The “hidden” arguments <b>self</b> and <b>_cmd</b> are indexed at 0 and 1; method-specific arguments begin at index 2.<span class="Apple-converted-space">  </span>If <i>index</i> is too large for the actual number of arguments, the <i>type</i> aand <i>offset</i> pointers are set to NULL.<span class="Apple-converted-space">  </span>Otherwise, the offset is measured in bytes; it depends entirely on the size of arguments preceding the one at <i>index</i>.<span class="Apple-converted-space">  </span>The type is encoded according to the conventions of the <b>@encode()</b> compiler directive.</p>
+<p class="p16"><br></p>
+<p class="p15">The information obtained from <b>method_getArgumentInfo()</b> can be used in the <b>marg_getValue</b>, <b>marg_getRef</b>, and <b>marg_setValue</b> macros to examine and alter the values of an argument on the stack after <i>aMethod</i> has been called.<span class="Apple-converted-space">  </span>The offset can be passed directly to these macros, but the type must first be decoded to a full type name.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span><b>method_getNumberOfArguments()</b> returns how many arguments the implementation of <i>aMethod</i> takes, and <b>method_getSizeOfArguments()</b> returns how many bytes the arguments take up on the stack.<span class="Apple-converted-space">  </span><b>method_getArgumentInfo()</b> returns the <i>index</i> it is passed. <span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p19"><b></b><br></p>
+<p class="p4"><b>method_getSizeOfArguments() </b><span class="s2">ﬁ</span><b> See method_getNumberOfArguments()<span class="Apple-converted-space"> </span></b></p>
+<p class="p5"><b></b><br></p>
+<p class="p4"><b>objc_addClass() </b><span class="s2">ﬁ</span><b> See objc_getClass()<span class="Apple-converted-space"> </span></b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>objc_getClass(), objc_lookUpClass(), objc_getMetaClass(), objc_getClasses(), objc_addClass(), objc_getModules()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Manage run-time structures</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-runtime.h</p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>id <b>objc_getClass(</b>const char *<i>aClassName</i><b>)</b></p>
+<p class="p13">id <b>objc_lookUpClass(</b>const char *<i>aClassName</i><b>)</b></p>
+<p class="p13">id <b>objc_getMetaClass(</b>const char *<i>aClassName</i><b>)</b></p>
+<p class="p13">NXHashTable *<b>objc_getClasses(</b>void<b>)</b></p>
+<p class="p13">void <b>objc_addClass(</b>Class <i>aClass</i><b>)</b></p>
+<p class="p13">Module *<b>objc_getModules(</b>void<b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>These functions return and modify the principal data structures used by the run-time system.</p>
+<p class="p14"><br></p>
+<p class="p15">The first two functions, <b>objc_getClass()</b> and <b>objc_lookUpClass()</b>, both return the <b>id</b> of the class object for the <i>aClassName</i> class.<span class="Apple-converted-space">  </span>However, if the <i>aClassName</i> class isn't known to the run-time system, <b>objc_getClass()</b> prints a message to the standard error stream and causes the process to abort, while <b>objc_lookUpClass()</b> merely returns <b>nil</b>.</p>
+<p class="p16"><br></p>
+<p class="p15">The third function, <b>objc_getMetaClass()</b>, returns the <b>id</b> of the metaclass object for the <i>aClassName</i> class.<span class="Apple-converted-space">  </span>The metaclass object holds information used by the class object, just as the class object holds information used by instances of the class.<span class="Apple-converted-space">  </span>Like <b>objc_getClass()</b>, it prints a message to the standard error stream and causes the process to abort if <i>aClassName</i> isn't a valid class.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>objc_getClasses()</b> returns a pointer to the hash table containing all the Objective C classes that are currently known to the run-time system.<span class="Apple-converted-space">  </span>You can examine the table using the common hashing functions.<span class="Apple-converted-space">  </span>In the following example, <b>NXNextHashState()</b> gets each class from the table in turn, and <b>object_getClassName()</b> asks for their names:</p>
+<p class="p16"><br></p>
+<p class="p17">NXHashTable *classes = objc_getClasses();</p>
+<p class="p17">NXHashState state = NXInitHashState(classes);</p>
+<p class="p17">Class thisClass;</p>
+<p class="p18"><br></p>
+<p class="p17">while ( NXNextHashState(classes, &amp;state, (void **)&amp;thisClass) )</p>
+<p class="p17"><span class="Apple-converted-space">    </span>fprintf(stderr, "%s\n", object_getClassName((id)thisClass));</p>
+<p class="p16"><br></p>
+<p class="p15">The NXHashTable type returned by <b>objc_getClasses()</b> is defined in the <b>objc/hashtable.h</b> header file and is documented in Chapter 3, “Common Classes and Functions.”<span class="Apple-converted-space">  </span>This data structure can be read, as illustrated in the example above, but it should not be modified or freed.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>objc_addClass()</b> adds <i>aClass</i> to the list of classes known to the run-time system.<span class="Apple-converted-space">  </span>(The class is added to the hash table that <b>objc_getClasses()</b> returns.)</p>
+<p class="p16"><br></p>
+<p class="p15">The compiler creates a Module data structure for each file it compiles.<span class="Apple-converted-space">  </span>The <b>objc_getModules()</b> function returns a pointer to the run-time system's list of all current modules, except those that were dynamically loaded.<span class="Apple-converted-space">  </span>Module structures are described under “Supporting Header Files” later in this chapter.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span><b>objc_lookUpClass()</b> returns the class object for <i>aClassName</i>, or <b>nil</b> if there is no such class.<span class="Apple-converted-space">  </span><b>objc_getClass()</b> and <b>objc_getMetaClass()</b><span class="Apple-converted-space"> </span><b> </b>return the class and metaclass objects for <i>aClassName</i>, if such a class exists, and abort otherwise.<span class="Apple-converted-space">  </span><b>objc_getClasses()</b> returns a pointer to a hash table of all current classes, and <b>objc_getModules()</b> returns a pointer to all current modules.</p>
+<p class="p14"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>objc_getClasses() </b><span class="s2">ﬁ</span><b> See objc_getClass()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>objc_getMetaClass() </b><span class="s2">ﬁ</span><b> See objc_getClass()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>objc_getModules() </b><span class="s2">ﬁ</span><b> See objc_getClass()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>objc_loadModules(), objc_unloadModules()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Dynamically load and unload classes</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-load.h</p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>long <b>objc_loadModules(</b>char *<i>files</i>[], NXStream *<i>stream</i>, void (*<i>callback</i>)(Class, Category), struct mach_header **<i>header</i>, char *<i>debugFilename</i><b>)</b></p>
+<p class="p13">long <b>objc_unloadModules(</b>NXStream *<i>stream</i>, void (*<i>callback</i>)(Class, Category)<b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span><b>objc_loadModules()</b> dynamically loads object files containing Objective C class and category definitions into a running program.<span class="Apple-converted-space">  </span>Its first argument, <i>files</i>, is a list of null-terminated pathnames for the object files containing the classes and categories that are to be loaded.<span class="Apple-converted-space">  </span>They can be full paths or paths relative to the current working directory.<span class="Apple-converted-space">  </span>The second argument, <i>stream</i>, is a pointer to an NXStream where any error messages produced by the loader will be written.<span class="Apple-converted-space">  </span>It can be NULL, in which case no messages will be written.</p>
+<p class="p14"><br></p>
+<p class="p15">The third argument, <i>callback</i>, allows you to specify a function that will be called immediately after each class or category is loaded.<span class="Apple-converted-space">  </span>When a category is loaded, the function is passed both the <b>Category</b> structure and the <b>Class</b> structure for that category.<span class="Apple-converted-space">  </span>When a class is loaded, it's passed only the <b>Class</b> structure.<span class="Apple-converted-space">  </span>Like <i>stream</i>, <i>callback</i> can be NULL.</p>
+<p class="p16"><br></p>
+<p class="p15">The fourth argument, <i>header</i>, is used to get a pointer to the <b>mach_header</b> structure for the loaded modules.<span class="Apple-converted-space">  </span>It, too, can be NULL.<span class="Apple-converted-space">  </span>All the modules in <i>files</i> are grouped under the same header.</p>
+<p class="p16"><br></p>
+<p class="p15">The final argument, which also can be NULL, is the pathname for a file that the loader will create and initialize with a copy of the loaded modules.<span class="Apple-converted-space">  </span>This file can be passed to the debugger and added to the list of files being debugged.<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p16"><br></p>
+<p class="p17">(gdb) add-file <i>debugFilename</i></p>
+<p class="p16"><br></p>
+<p class="p15"><b>obj_unloadModules()</b> unloads all the modules loaded by <b>objc_loadModules()</b>, that is, all the modules from the <i>files</i> list.<span class="Apple-converted-space">  </span>Each time it's called, it unloads another set of modules, working its way back from the modules loaded by the most recent call to <b>objc_loadModules()</b> to those loaded by the next most recent call, and so on.</p>
+<p class="p16"><br></p>
+<p class="p15">The first argument to <b>obj_unloadModules()</b>, <i>stream</i>, is a pointer to an NXStream where error messages will be written.<span class="Apple-converted-space">  </span>Its second argument, <i>callback</i>, allows you to specify a function that will be called immediately before each class or category is unloaded.<span class="Apple-converted-space">  </span>Both arguments can be NULL.</p>
+<p class="p16"><br></p>
+<p class="p15"><span class="s4"><b>Note:<span class="Apple-converted-space">  </span></b></span>The NXBundle class, documented in Chapter 3, “Common Classes and Functions,” provides a simpler and preferred way to dynamically load classes.<span class="Apple-converted-space">  </span>NXBundle integrates dynamic loading with localization (using language-specific resources such as strings, images, and sounds).</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>Both functions return 0 if the modules are successfully loaded or unloaded and 1 if they're not.</p>
+<p class="p14"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>objc_lookUpClass() </b><span class="s2">ﬁ</span><b> See objc_getClass()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>objc_msgSend(), objc_msgSendSuper(), objc_msgSendv()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Send messages at run time</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-runtime.h</p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>id <b>objc_msgSend(</b>id <i>theReceiver</i>, SEL <i>theSelector</i>, ...<b>)</b></p>
+<p class="p13">id <b>objc_msgSendSuper(</b>struct objc_super *<i>superContext</i>, SEL <i>theSelector</i>, ...<b>)</b></p>
+<p class="p13">id <b>objc_msgSendv(</b>id <i>theReceiver</i>, SEL <i>theSelector</i>, unsigned int <i>argSize</i>, marg_list <i>argFrame</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The compiler converts every message expression into a call on one of the first two of these three functions.<span class="Apple-converted-space">  </span>Messages to <b>super</b> are converted to calls on <b>objc_msgSendSuper()</b>; all others are converted to calls on <b>objc_msgSend()</b>.</p>
+<p class="p14"><br></p>
+<p class="p15">Both functions find the implementation of the <i>theSelector</i> method that's appropriate for the receiver of the message.<span class="Apple-converted-space">  </span>For <b>objc_msgSend()</b>, <i>theReceiver</i> is passed explicitly as an argument.<span class="Apple-converted-space">  </span>For <b>objc_msgSendSuper()</b>, <i>superContext</i> defines the context in which the message was sent, including who the receiver is.</p>
+<p class="p16"><br></p>
+<p class="p15">Arguments that are included in the <i>aSelector</i> message are passed directly as additional arguments to both functions.</p>
+<p class="p16"><br></p>
+<p class="p15">Calls to <b>objc_msgSend()</b> and <b>objc_msgSendSuper()</b> should be generated only by the compiler.<span class="Apple-converted-space">  </span>You shouldn't call them directly in the Objective C code you write.<span class="Apple-converted-space">  </span>You can however use the Object instance method <b>performv::</b> to send an arbitrary message to an object..<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p15">The third function, <b>objc_msgSendv()</b>, is an alternative to <b>objc_msgSend()</b> that's designed to be used within class-specific implementations of the <b>forward::</b> method.<span class="Apple-converted-space">  </span>Instead of being passed each of the arguments to the <i>aSelector</i> message, it takes a pointer to the arguments list, <i>argFrame</i>, and the size of the list in bytes, <i>argSize</i>.<span class="Apple-converted-space">  </span><i>argSize</i> can be obtained by calling <b>method_getSizeOfArguments()</b>; <i>argFrame</i> is passed as the second argument to the <b>forward::</b> method.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>objc_msgSendv()</b> parses the argument list based on information stored for <i>aSelector</i> and the class of the receiver.<span class="Apple-converted-space">  </span>Because of this additional work, it's more expensive than <b>objc_msgSend()</b>.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>Each method passes on the value returned by the <i>aSelector</i> method.</p>
+<p class="p14"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>objc_msgSendSuper() </b><span class="s2">ﬁ</span><b> See objc_msgSend()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>objc_msgSendv() </b><span class="s2">ﬁ</span><b> See objc_msgSend()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>objc_setMultithreaded()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Make the run-time system thread safe</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-runtime.h</p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>void <b>objc_setMultithreaded(</b>BOOL <i>flag</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>When <i>flag</i> is YES, this function ensures that two or more threads of the same task can safely use the run-time system for Objective C.<span class="Apple-converted-space">  </span>To guarantee correct run-time behavior, it should be called immediately before starting up a new thread.</p>
+<p class="p14"><br></p>
+<p class="p15">Because of the additional checking required to ensure thread-safe behavior, messaging will be slower than normal.<span class="Apple-converted-space">  </span>Therefore, <i>flag</i> should be reset to the default NO when there is only one thread using Objective C.</p>
+<p class="p16"><br></p>
+<p class="p15">This function cannot guarantee that all parts of the run-time system are absolutely thread-safe.<span class="Apple-converted-space">  </span>In particular, if one thread is in the middle of dynamically loading or unloading a class (using <b>objc_loadModules()</b> or <b>objc_unloadModules()</b>) while another thread is using the class, the second thread might find the class in an inconsistent state.<span class="Apple-converted-space">  </span>Similarly, a thread that gets the class hash table (using <b>objc_getClasses()</b>) cannot be sure that another thread won't be modifying it at the same time.</p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>objc_unloadModules() </b><span class="s2">ﬁ</span><b> See objc_loadModules()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>object_copy() </b><span class="s2">ﬁ</span><b> See object_dispose()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>object_copyFromZone() </b><span class="s2">ﬁ</span><b> See object_dispose()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>object_dispose(), object_copy(), object_copyFromZone(),</b></p>
+<p class="p7"><b>object_realloc(), object_reallocFromZone()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Manage object memory</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/Object.h</p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>id <b>object_dispose(</b>Object *<i>anObject</i><b>)</b></p>
+<p class="p13">id <b>object_copy(</b>Object *<i>anObject</i>, unsigned int <i>indexedIvarBytes</i><b>)</b></p>
+<p class="p13">id <b>object_copyFromZone(</b>Object *<i>anObject</i>, unsigned int <i>indexedIvarBytes</i>, NXZone *<i>zone</i><b>)</b></p>
+<p class="p13">id <b>object_realloc(</b>Object *<i>anObject</i>, unsigned int <i>numBytes</i><b>)</b></p>
+<p class="p13">id <b>object_reallocFromZone(</b>Object *<i>anObject</i>, unsigned int <i>numBytes</i>, NXZone *<i>zone</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>These five functions, along with <b>class_createInstance() </b>and <b>class_createInstanceFromZone()</b>, manage the dynamic allocation of memory for objects.<span class="Apple-converted-space">  </span>Like those two functions, each of them is simply a “cover” for—a way of calling—another, private function.</p>
+<p class="p14"><br></p>
+<p class="p15"><b>object_dispose()</b> frees the memory occupied by <i>anObject</i> after setting its <b>isa</b> instance variable to <b>nil</b>, and returns <b>nil</b>.<span class="Apple-converted-space">  </span>The function it calls to do this work can be changed by reassigning the <b>_dealloc</b> variable.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>object_copy()</b> and <b>object_copyFromZone()</b> create a new object that's an exact copy of <i>anObject</i> and return the new object.<span class="Apple-converted-space">  </span><b>object_copy()</b> allocates memory for the copy from the same zone as the original; <b>object_copyFromZone()</b> places the copy in <i>zone</i>.<span class="Apple-converted-space">  </span>The second argument to both functions, <i>indexedIvarBytes</i>, specifies the number of additional bytes that should be allocated to accommodate indexed instance variables; it serves the same purpose as the second argument to <b>class_createInstance()</b>.</p>
+<p class="p16"><br></p>
+<p class="p15">The functions that <b>object_copy()</b> and <b>object_copyFromZone()</b> call to do their work can be changed by reassigning the <b>_copy</b> and <b>_zoneCopy</b> variables.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>object_realloc()</b> and <b>object_reallocFromZone()</b> reallocate storage for <i>anObject</i>, adding <i>numBytes</i> if possible.<span class="Apple-converted-space">  </span>The memory previously occupied by <i>anObject</i> is freed if it can't be reused, and a pointer to the new location of <i>anObject</i> is returned.<span class="Apple-converted-space">  </span><b>object_realloc()</b> allocates memory for the object from the same zone that it originally occupied; <b>object_reallocFromZone()</b> locates the object in <i>zone</i>.</p>
+<p class="p16"><br></p>
+<p class="p15">The functions that <b>object_realloc() and object_reallocFromZone()</b> call to do their work can be changed by reassigning the <b>_realloc</b> and <b>_zoneRealloc</b> variables.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span><b>object_dispose()</b> returns <b>nil</b>, <b>object_copy()</b> and <b>object_copyFromZone()</b> return the copy, and <b>object_realloc()</b> and <b>object_reallocFromZone()</b> return the reallocated object.<span class="Apple-converted-space">  </span>If the attempt to copy or reallocate the object fails, an error message is generated and <b>abort()</b> is called.</p>
+<p class="p14"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>object_getClassName()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Return the class name</p>
+<p class="p11"><br></p>
+<p class="p20"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b><span class="s5">objc/objc.h</span></p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>const char *<b>object_getClassName(</b>id <i>anObject</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This function returns the name of <i>anObject</i>'s class, or the string “nil” if <i>anObject</i> is <b>nil</b>.<span class="Apple-converted-space">  </span><i>anObject</i> can be either an instance or a class object.</p>
+<p class="p14"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>object_getIndexedIvars()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Return a pointer to an object's extra memory</p>
+<p class="p11"><br></p>
+<p class="p20"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b><span class="s5">objc/objc.h</span></p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>void *<b>object_getIndexedIvars(</b>id <i>anObject</i><b>)</b></p>
+<p class="p16"><br></p>
+<p class="p15">This function returns a pointer to the first indexed instance variable of <i>anObject</i>, if <i>anObject</i> has indexed instance variables.<span class="Apple-converted-space">  </span>If not, the pointer returned won't be valid and should not be used.</p>
+<p class="p16"><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>class_createInstance()</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>object_getInstanceVariable() </b><span class="s2">ﬁ</span><b> See object_setInstanceVariable()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>object_realloc() </b><span class="s2">ﬁ</span><b> See object_dispose()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7"><b>object_reallocFromZone() </b><span class="s2">ﬁ</span><b> See object_dispose()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>object_setInstanceVariable(), object_getInstanceVariable()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Set and get instance variables</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/Object.h</p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>Ivar <b>object_setInstanceVariable(</b>id <i>anObject</i>, const char *<i>variableName</i>, void *<i>value</i><b>)</b></p>
+<p class="p13">Ivar <b>object_getInstanceVariable(</b>id <i>anObject</i>, const char *<i>variableName</i>, void **<i>value</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span><b>object_setInstanceVariable()</b> assigns a new value to the <i>variableName</i> instance variable belonging to <i>anObject</i>.<span class="Apple-converted-space">  </span>The instance variable must be one that's declared as a pointer; typically it's an <b>id</b>.<span class="Apple-converted-space">  </span>The new value of the pointer is passed in the third argument, <i>value</i>.<span class="Apple-converted-space">  </span>(Note that the pointer value is passed directly, not by reference.)</p>
+<p class="p14"><br></p>
+<p class="p15"><b>object_getInstanceVariable()</b> gets the value of the pointer stored as <i>anObject</i>'s <i>variableName</i> instance variable.<span class="Apple-converted-space">  </span>The pointer is returned by reference through the third argument, <i>value</i>.<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p16"><br></p>
+<p class="p17">int *i;</p>
+<p class="p17">Ivar var = object_getInstanceVariable(anObject, "num", (void **)&amp;i);</p>
+<p class="p16"><br></p>
+<p class="p15">These functions provide a way of setting and getting instance variables that are declared as pointers, without having to implement methods for that purpose.<span class="Apple-converted-space">  </span>For example, Interface Builder calls <b>object_setInstanceVariable()</b> to initialize programmer-defined “outlet” instance variables.</p>
+<p class="p16"><br></p>
+<p class="p15">These functions cannot reliably be used to set and get instance variables that are not pointers.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>Both functions return a pointer to the class template that describes the <i>variableName</i> instance variable.<span class="Apple-converted-space">  </span>A NULL pointer is returned if <i>anObject</i> has no instance variable with that name.</p>
+<p class="p14"><br></p>
+<p class="p15">The returned template has a field describing the data type of the instance variable.<span class="Apple-converted-space">  </span>You can check it to be sure that the value set is of the correct type.</p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>sel_getName() </b><span class="s2">ﬁ</span><b> See sel_getUid()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>sel_getUid(), sel_getName()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Match method names with method selectors</p>
+<p class="p11"><br></p>
+<p class="p20"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b><span class="s5">objc/objc.h</span></p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>SEL <b>sel_getUid(</b>const char *<i>aName</i><b>)</b></p>
+<p class="p13">const char *<b>sel_getName(</b>SEL <i>aSelector</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The first function, <b>sel_getUid()</b>, returns the unique identifier that represents the <i>aName</i> method at run time.<span class="Apple-converted-space">  </span>The identifier is a selector (type SEL) and is used in place of the method name in compiled code; methods with the same name have the same selector.<span class="Apple-converted-space">  </span>Whenever possible, you should use the <b>@selector()</b> directive to ask the compiler to provide the selector for a method.<span class="Apple-converted-space">  </span>This function asks the run-time system for the selector and should be used only if the name isn't known at compile time.</p>
+<p class="p14"><br></p>
+<p class="p15">The second function, <b>sel_getName()</b>, is the inverse of the first.<span class="Apple-converted-space">  </span>It returns the name that was mapped to <i>aSelector</i>.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span><b>sel_getUid()</b> returns the selector for the <i>aName</i> method, or 0 if there is no known method with that name.<span class="Apple-converted-space">  </span><b>sel_getName()</b> returns a character string with the name of the method identified by the <i>aSelector</i> selector.<span class="Apple-converted-space">  </span>If <i>aSelector</i> isn't a valid selector, a NULL pointer is returned.</p>
+<p class="p14"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>sel_isMapped()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Determine whether a selector is valid</p>
+<p class="p11"><br></p>
+<p class="p20"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b><span class="s5">objc/objc.h</span></p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>BOOL <b>sel_isMapped(</b>SEL <i>aSelector</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span><b>sel_isMapped()</b> returns YES if <i>aSelector</i> is a valid selector (is currently mapped to a method implementation) or could possibly be one (because it lies within the same range as valid selectors); otherwise it returns NO.</p>
+<p class="p14"><br></p>
+<p class="p15">Because all of a program's selectors are guaranteed to be mapped at start-up, this function has little real use.<span class="Apple-converted-space">  </span>It's included here for reasons of backward compatibility only.</p>
+<p class="p16"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>sel_registerName()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Register a method name</p>
+<p class="p11"><br></p>
+<p class="p20"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b><span class="s5">objc/objc.h</span></p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span>SEL <b>sel_registerName(</b>const char *<i>aName</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This function registers <i>aName</i> as a method name and causes it to be mapped to a SEL selector, which it returns.</p>
+<p class="p14"><br></p>
+<p class="p15">No check is made to see if <i>aName</i> is already a valid method name.<span class="Apple-converted-space">  </span>If it is, the same name will be mapped to more than one selector.<span class="Apple-converted-space">  </span>When the run-time system needs to match a selector to the name, it's indeterminant which one it will find.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span><b>sel_registerName()</b> returns the selector it maps to the <i>aString</i> method.</p>
+<p class="p14"><br></p>
+<p class="p21"><br></p>
+<p class="p16"><br></p>
+</body>
+</html>

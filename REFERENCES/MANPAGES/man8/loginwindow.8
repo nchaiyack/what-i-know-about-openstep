@@ -1,0 +1,277 @@
+.\" Copyright (c) 1988 NeXT, Inc.
+.\" All rights reserved.
+.\"
+.\"	@(#)loginwindow.8	3.2 (NeXT) 09/02/93
+.\"
+.TH LOGINWINDOW 8 "January 12, 1989"
+.UC 4
+.SH NAME
+loginwindow \- allow user to log in on console
+.SH SYNOPSIS
+.B /usr/bin/loginwindow
+[\ \fB\-LoginHook\ \fIprogname\fR\ ]
+[\ \fB\-LogoutHook\ \fIprogname\fR\ ]
+[\ \fB\-HostName\ \fIhostname\fR\ ]
+[\ \fB\-ImageFile\ \fIfilename\fR\ ]
+[\ \fB\-DefaultUser\ \fIusername\fR\ ]
+[\ \fB\-PowerOffDisabled\ true\fR\ ]
+.SH DESCRIPTION
+.B loginwindow
+is the login front end for the console
+of the NEXTSTEP(tm) environment.
+It's usally run as the program on the console tty from the
+.B /etc/ttys
+file.
+.PP
+.B loginwindow
+allows the user to enter his login name and password,
+verifies those against the
+user/password database, and starts the
+Workspace Manager 
+(
+.BR /usr/lib/NextStep/Workspace.app )
+as that user.
+.PP
+If there is an account for the user 
+.B me
+(or the user named by the
+.B DefaultUser
+option)
+and that account has no password, then
+.B loginwindow
+does not actually go through the login procedure;
+it immediately executes the Workspace for that user.
+This can be disabled by holding down the left mouse button while
+.B loginwindow
+is starting.
+.PP
+If the user has an entry
+for
+.B loginwindow
+named
+.B Workspace
+in his defaults database
+the named program will be executed instead of
+Workspace Manager.
+The workspace \fIprogram\fR is invoked with the command line
+.IP
+\fIprogram\fB -LoginProgram YES\fR
+.PP
+If the user name of
+.B exit
+is given,
+.B loginwindow
+immediately exits with status 0
+and restarts the Window Server.
+If the user name of
+.B console
+is given,
+.B loginwindow
+immediately exits with status 1
+and opens the UNIX Console window.
+This may be used in conjunction with the
+.B onerror
+feature of the
+.B ttys
+file.
+.PP
+Before starting the Workspace Manager, 
+.B loginwindow
+clears the Pasteboard, and
+reads the following user parameters
+(set by the user with the Preferences application)
+from the user's defaults database and places them in effect:
+.PP
+.nf
+	MouseScaling
+	InitialKeyRepeat
+	KeyRepeat
+	ClickTime
+	ClickSpace
+	AutoDimTime
+	MouseHandedness
+	MouseButtonsTied
+	Keymap (or SwappedKeymap)
+	Volume
+	Mute
+	Brightness
+.fi
+.PP
+It also looks up the following two user parameters
+and places them in effect for the duration of the user's
+login session:
+.PP
+.nf
+	PublicWindowServer
+	umask
+.fi
+.PP
+.B PublicWindowServer
+is a parameter indicating whether unrestricted access
+to the Window Server on this machine
+should be allowed while the user is logged in.
+If it is YES, then any client on any machine
+may connect to the window server.
+Otherwise, only processes descended from the Workspace or
+special system processes such as the printer daemon
+will be allowed to connect.
+.B umask
+gives an integer indicating the user's desired default umask.
+See
+.IR umask (2)
+for more information.
+.PP
+After the user has logged out,
+.B loginwindow
+clears the Pasteboard and
+resets the parameters listed above
+to their default values.
+.PP
+.SH "OPTIONS"
+.PP
+Note: Like other NEXTSTEP(tm) applications,
+.B loginwindow
+may accept these options on the command line or as entries
+in the defaults database of the user running the program,
+(which for 
+.B loginwindow
+is usually 
+.BR root ).
+.TP
+\fB\-LoginHook \fIprogname\fR
+provides a program for loginwindow to call before allowing
+a user to log in.
+This program, if specified, will be called
+after the user's name and password have been verified aginst
+the
+.B passwd
+database.
+The intention of this hook is to allow system administrators
+to do logging of the user and necessary bookkeeping with the 
+Unix databases such as
+.B wtmp
+if desired.
+By default, loginwindow does handle the 
+.B utmp
+database, but not the other activities performed by the terminal
+oriented 
+.I login
+program (for example, maintaining the
+.B wtmp
+database).
+The program is called with its first argument as
+the user name of the person logging in.
+If the hook program
+exits with return code 0, the user will be logged in;
+otherwise the login will be prevented.
+The
+.B LoginHook
+program should be specified as a full pathname.
+Also,
+it is 
+.I not
+called when the default user (\fBme\fR) is logged in without
+being asked for a password.
+.TP
+\fB\-LogoutHook \fIprogname\fR
+provides a program for loginwindow to call after a user has
+logged out.
+The program is invoked with the name of the user
+who just logged out as its first argument.
+Like the
+.B LoginHook,
+the program should be given by its full pathname, and it
+is not called when the single-user account (default 'me')
+is logged out.
+.TP
+\fB\-HostName \fIhostname\fR
+provides a host name to be displayed in the window.
+If such a name is provided, it is drawn
+towards the upper-right region of the window.
+If the host
+name provided is
+.B localhost,
+then the hostname the machine
+was configured with at startup time is used.
+.TP
+\fB\-ImageFile \fIfilename\fR
+provides an alternate file to use as the background of the
+window used by 
+.B loginwindow.
+Normally, it loads the file
+.B /usr/lib/NextStep/loginwindow.app/LoginPanel.tiff
+and displays that as the background for 
+.B loginwindow.
+The file used should contain an image
+462 pixels wide by 260 pixels high.
+White rectangles for the user name and password
+will be drawn by
+.B loginwindow
+at coordinates
+(124, 102) and (123, 136), with the text
+\*(lqName:\*(rq and \*(lqPassword:\*(rq before each
+(these may appear in a language other than English).
+Both rectangles are 310 pixels wide and 22 pixels high.
+Subject to these restrictions,
+the image may contain whatever is desired.
+Note that though the image will be centered on the screen
+if it is larger than the default size,
+the name and password fields are still drawn
+relative to the bottom left of the image
+itself.
+.TP
+\fB\-DefaultUser \fIusername\fR
+provides for designating any particular username as the
+name to use when checking for single-user status
+(see the description of the treatment of the
+.B me
+account above).
+If the DefaultUser option is given,
+then that user name, rather than 
+.B me, 
+will be
+checked, and if it has no password, it will be logged
+in.
+.TP
+\fB\-PowerOffDisabled true\fR
+allows the System Administrator to prevent users from casually
+powering down the system.
+If this option is supplied, then
+pressing the power key while loginwindow is active has no affect.
+Additionally, if the user presses the power key
+while in the Workspace Manager,
+then Workspace Manager will exit
+but the system will not be powered down.
+This may be used to make it less likely for users to
+casually power down a system that is providing some shared
+service, for example, a print server.
+.PP
+If this is done, system administrators may wish to allow the
+system to be powered down under password control.
+A quick
+way to do this is to create a user named
+.BR power ,
+assign a suitable password to that user, and set that user's 
+.B Workspace
+default for
+.B loginwindow
+to be 
+.B /etc/fasthalt -p.
+.SH FILES
+.nf
+.ta \w'/usr/lib/NextStep/nextlogin.tiff 'u
+/etc/utmp	user/terminal database
+/etc/ttys	terminal configuration file
+/etc/halt	program used to shut down system
+~/.NeXT/.NeXTdefaults.D	files for user's defaults
+~/.NeXT/.NeXTdefaults.L
+/usr/lib/NextStep/Workspace.app	Default location of Workspace
+/usr/lib/NextStep/nextlogin.tiff	Default image file
+.fi
+.DT
+.SH "SEE ALSO"
+utmp(5), login(8), ttys(5), passwd(5)
+.br
+\fINEXTSTEP Network and System Administration\fR manual
+.SH BUGS
+utmp handling should be in the LoginHook program.

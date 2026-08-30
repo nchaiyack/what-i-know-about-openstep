@@ -1,0 +1,78 @@
+.TH PropertyList 5 "March 7 1995" "NeXT Computer, Inc."
+.SH NAME
+PropertyList \- ASCII Property List format
+.SH DESCRIPTION
+A property list organizes data into named values
+and lists of values.
+Property lists are used by the NEXTSTEP user defaults system
+(among other things).
+This man page provides a brief and incomplete overview for casual users;
+see <<xref>> for a detailed description of the ASCII property list format.
+.PP
+In simple terms, a property list contains strings, binary data,
+arrays of items, and dictionaries.
+These four kinds of items can be combined in various ways,
+as described below.
+.PP
+A string is enclosed in double quotation marks;
+for example, "This is a string."
+(The period is included in this string.)
+The quotation marks can be omitted if the string is
+composed strictly of alphanumeric characters
+and contains no white space
+(numbers are handled as strings in property lists).
+Though the property list format uses ASCII for strings,
+note that NEXTSTEP uses Unicode.
+You may see strings containing unreadable sequences of ASCII characters;
+these are used to represent Unicode characters.
+<<Details?>>
+.PP
+Binary data is enclosed in angle brackets and encoded in hexadecimal ASCII;
+for example, <0fbd777 1c2735ae>.
+Spaces are ignored.
+.PP
+An array is enclosed in parentheses,
+with the elements separated by commas;
+for example, ("San Francisco", "New York", "London").
+The items don't all have to be of the same type
+(for example, all strings) \(em but they normally should be.
+Arrays can contain strings, binary data,
+other arrays, or dictionaries.
+.PP
+A dictionary is enclosed in curly braces,
+and contains a list of keys with their values.
+Each key-value pair ends with a semicolon.
+Here's a sample dictionary: { user = maryg;
+"error string" = "core dump"; code = <fead0007>; }.
+(Note the omission of quotation marks for single-word alphanumeric strings.)
+Values don't all have to be the same type,
+since their types are usually defined by whatever program uses them
+(in this example, the program using the dictionary knows
+that
+.B user
+is a string and
+.B code
+is binary data).
+Dictionaries can contain strings, binary data,
+arrays, and other dictionaries.
+.PP
+Below is a sample of a more complex property list,
+taken from a user's defaults system (see
+.IR defaults (1)).
+The property list itself is a dictionary with keys "Clock," "NSGlobalDomain,"
+and so on; each value is also a dictionary, which contains the individual defaults.
+.PP
+.nf
+{
+    Clock = {ClockStyle = 3; }; 
+    NSGlobalDomain = {24HourClock = Yes; Language = English; }; 
+    NeXT1 = {Keymap = /NextLibrary/Keyboards/NeXTUSA; }; 
+    Viewer = {NSBrowserColumnWidth = 145; "NSWindow Frame Preferences" = "5 197 395 309 "; }; 
+    Workspace = {SelectedTabIndex = 0; WindowOrigin = "-75.000000"; }; 
+    pbs = {}; 
+}
+.fi
+.SH "SEE ALSO"
+defaults(1)
+.PP
+.I <<TM notice for Unicode?>>

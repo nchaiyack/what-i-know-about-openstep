@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.0px Times; min-height: 10.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 14.0px Times}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 48.0px Times; min-height: 58.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 14.0px Times; min-height: 18.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 48.0px Helvetica; min-height: 58.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 25.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 12.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 40.0px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 40.0px; font: 12.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 40.0px; font: 6.0px Times; min-height: 8.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 14.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 3.0px; text-indent: 22.0px; font: 14.0px Times}
+    p.p19 {margin: 0.0px 0.0px 0.0px 25.0px; font: 12.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 25.0px; font: 22.0px Times; min-height: 28.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; font: 24.0px Helvetica}
+    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; font: 19.0px Helvetica; min-height: 23.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Times}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><i>Appendix B</i></p>
+<p class="p5"><i></i><br></p>
+<p class="p6"><i></i><br></p>
+<p class="p5"><i></i><br></p>
+<p class="p7"><b>Reference Manual for the Objective-C Language</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><br></p>
+<p class="p11">This appendix presents a formal grammar for the Objective-C extensions to the C language—as the Objective-C language is implemented for the OPENSTEP development environment. It adds to the grammar for ANSI standard C found in Appendix A of <i>The C Programming Language</i> (second edition, 1988) by Brian W. Kernighan and Dennis M. Ritchie, published by Prentice Hall, and should be read in conjunction with that book.</p>
+<p class="p10"><br></p>
+<p class="p11">The Objective-C extensions introduce some new symbols (such as <i>class-interface</i>), but also make use of symbols (such as <i>function-definition</i>) that are explained in the standard C grammar.<span class="Apple-converted-space">  </span>The symbols mentioned but not explained here are listed below:</p>
+<p class="p10"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><b>Undefined Symbols</b></p>
+<p class="p14"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-1-title" data-source="B_Grammar.rtfd/274939_TableHeadRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-1-title">274939_TableHeadRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(3.529358%, 75.686646%, 42.744446%)" stroke-opacity="1" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></b><b></b></p>
+<p class="p15"><b></b><br></p>
+<p class="p14">compound statement<span class="Apple-tab-span">	</span>identifier</p>
+<p class="p15"><br></p>
+<p class="p14">constant<span class="Apple-tab-span">	</span>parameter-type-list</p>
+<p class="p15"><br></p>
+<p class="p14">declaration<span class="Apple-tab-span">	</span>string</p>
+<p class="p15"><br></p>
+<p class="p14">declaration-list<span class="Apple-tab-span">	</span>struct-declaration-list</p>
+<p class="p15"><br></p>
+<p class="p14">enum-specifier<span class="Apple-tab-span">	</span>struct-or-union</p>
+<p class="p15"><br></p>
+<p class="p14">expression<span class="Apple-tab-span">	</span>typedef-name</p>
+<p class="p15"><br></p>
+<p class="p14">function-definition<span class="Apple-tab-span">	</span>type-name</p>
+<p class="p10"><br></p>
+<p class="p12"><br></p>
+<p class="p11">Of these, <i>identifier</i> and <i>string</i> are undefined terminal symbols.<span class="Apple-converted-space">  </span>Objective-C adds no undefined terminal symbols of its own.</p>
+<p class="p10"><br></p>
+<p class="p11">Two notational conventions used here differ from those used in <i>The C Programming Language:</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Literal symbols are shown in <span class="s2"><b>bold</b></span> type.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Brackets enclose optional elements and are in <i>italic</i> type. Literal brackets, like other literal symbols, are non-italic and bold.</p>
+<p class="p17"><br></p>
+<p class="p11">Otherwise, this appendix follows the conventions of the C reference manual. Each part of the grammar consists of a symbol followed by a colon and an indented list of mutually-exclusive possibilities for expanding the symbol. For example:</p>
+<p class="p10"><br></p>
+<p class="p18"><i>receiver:</i></p>
+<p class="p11"><i>expression</i></p>
+<p class="p11"><i>class-name</i></p>
+<p class="p19"><b>super</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">However, there is an exception: Even though they're not mutually exclusive, the constituents of classes, categories, and protocols are listed on separate lines to clearly show the ordering of elements. For example:</p>
+<p class="p10"><br></p>
+<p class="p11"><i>protocol-declaration:</i></p>
+<p class="p11"><span class="s2"><b>@protocol</b></span><span class="Apple-converted-space">  </span><i>protocol-name</i></p>
+<p class="p11"><i>[</i> <i>protocol-reference-list</i> <i>]</i></p>
+<p class="p11"><i>[</i> <i>interface-declaration-list</i> <i>]</i></p>
+<p class="p19"><b>@end</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">This exception to the general rule is easily recognized since each list terminates with <span class="s2"><b>@end</b></span>.</p>
+<p class="p10"><br></p>
+<p class="p11">There are just four entry points where the Objective-C language modifies the rules defined for standard C:</p>
+<p class="p10"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>External declarations</p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Type specifiers</p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Type qualifiers</p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Primary expressions</p>
+<p class="p17"><br></p>
+<p class="p11">This appendix is therefore divided into four sections corresponding to these points.<span class="Apple-converted-space">  </span>Where a rule in the standard C grammar is modified by an Objective-C extension, the entire rule is repeated in its modified form.</p>
+<p class="p10"><br></p>
+<p class="p20"><br></p>
+<p class="p21"><b>External Declarations</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11"><i>external-declaration:</i></p>
+<p class="p11"><i>function-definition</i></p>
+<p class="p11"><i>declaration</i></p>
+<p class="p11"><i>class-interface</i></p>
+<p class="p11"><i>class-implementation</i></p>
+<p class="p11"><i>category-interface</i></p>
+<p class="p11"><i>category-implementation</i></p>
+<p class="p11"><i>protocol-declaration</i></p>
+<p class="p11"><i>class-declaration-list</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>class-interface:</i></p>
+<p class="p11"><span class="s2"><b>@interface</b></span><span class="Apple-converted-space">  </span><i>class-name</i><span class="Apple-converted-space">  </span><i>[</i> <span class="s2"><b>:</b></span><span class="Apple-converted-space">  </span><i>superclass-name</i> <i>]</i></p>
+<p class="p11"><i>[</i> <i>protocol-reference-list</i> <i>]</i></p>
+<p class="p11"><i>[</i> <i>instance-variables</i> <i>]</i></p>
+<p class="p11"><i>[</i> <i>interface-declaration-list</i> <i>]</i></p>
+<p class="p19"><b>@end</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>class-implementation:</i></p>
+<p class="p11"><span class="s2"><b>@implementation</b></span><span class="Apple-converted-space">  </span><i>class-name</i><span class="Apple-converted-space">  </span><i>[</i> <span class="s2"><b>:</b></span><span class="Apple-converted-space">  </span><i>superclass-name</i> <i>]</i></p>
+<p class="p11"><i>[</i> <i>instance-variables</i> <i>]</i></p>
+<p class="p11"><i>[</i> <i>implementation-definition-list</i> <i>]</i></p>
+<p class="p19"><b>@end</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>category-interface:</i></p>
+<p class="p11"><span class="s2"><b>@interface</b></span><span class="Apple-converted-space">  </span><i>class-name</i><span class="Apple-converted-space">  </span><span class="s2"><b>(</b></span><span class="Apple-converted-space">  </span><i>category-name</i><span class="Apple-converted-space">  </span><span class="s2"><b>)</b></span></p>
+<p class="p11"><i>[</i> <i>protocol-reference-list</i> <i>]</i></p>
+<p class="p11"><i>[</i> <i>interface-declaration-list</i> <i>]</i></p>
+<p class="p19"><b>@end</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>category-implementation:</i></p>
+<p class="p11"><span class="s2"><b>@implementation</b></span><span class="Apple-converted-space">  </span><i>class-name</i><span class="Apple-converted-space">  </span><span class="s2"><b>(</b></span><span class="Apple-converted-space"> </span><i> category-name</i><span class="Apple-converted-space">  </span><span class="s2"><b>)</b></span></p>
+<p class="p11"><i>[</i> <i>implementation-definition-list</i> <i>]</i></p>
+<p class="p19"><b>@end</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>protocol-declaration:</i></p>
+<p class="p11"><span class="s2"><b>@protocol</b></span><span class="Apple-converted-space">  </span><i>protocol-name</i></p>
+<p class="p11"><i>[</i> <i>protocol-reference-list</i> <i>]</i></p>
+<p class="p11"><i>[</i> <i>interface-declaration-list</i> <i>]</i></p>
+<p class="p19"><b>@end</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>class-declaration-list:</i></p>
+<p class="p11"><span class="s2"><b>@class<span class="Apple-converted-space"> </span></b></span> <i>class-list</i><span class="Apple-converted-space">  </span><span class="s2"><b>;</b></span></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>class-list:</i></p>
+<p class="p11"><i>class-name</i></p>
+<p class="p11"><i>class-list</i><span class="Apple-converted-space">  </span><span class="s2"><b>,</b></span><span class="Apple-converted-space">  </span><i>class-name</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>protocol-reference-list:</i></p>
+<p class="p11"><span class="s2"><b>&lt;</b></span><span class="Apple-converted-space">  </span><i>protocol-list</i><span class="Apple-converted-space">  </span><span class="s2"><b>&gt;</b></span></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>protocol-list:</i></p>
+<p class="p11"><i>protocol-name</i></p>
+<p class="p11"><i>protocol-list</i><span class="Apple-converted-space">  </span><span class="s2"><b>,</b></span><span class="Apple-converted-space">  </span><i>protocol-name</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>class-name:</i></p>
+<p class="p11"><i>identifier</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>superclass-name:</i></p>
+<p class="p11"><i>identifier</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>category-name:</i></p>
+<p class="p11"><i>identifier</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>protocol-name:</i></p>
+<p class="p11"><i>identifier</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>instance-variables:</i></p>
+<p class="p11"><span class="s2"><b>{</b></span><span class="Apple-converted-space">  </span><i>[ visibility-specification ]</i><span class="Apple-converted-space">  </span><i>struct-declaration-list</i><span class="Apple-converted-space">  </span><i>[</i> <i>instance-variables</i> <i>]</i><span class="Apple-converted-space">  </span><span class="s2"><b>}</b></span></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>visibility-specification:</i></p>
+<p class="p19"><b>@private</b></p>
+<p class="p19"><b>@protected</b></p>
+<p class="p19"><b>@public</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>interface-declaration-list:</i></p>
+<p class="p11"><i>declaration</i></p>
+<p class="p11"><i>method-declaration</i></p>
+<p class="p11"><i>interface-declaration-list</i><span class="Apple-converted-space">  </span><i>declaration</i></p>
+<p class="p11"><i>interface-declaration-list</i><span class="Apple-converted-space">  </span><i>method-declaration</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>method-declaration:</i></p>
+<p class="p11"><i>class-method-declaration</i></p>
+<p class="p11"><i>instance-method-declaration</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>class-method-declaration:</i></p>
+<p class="p11"><span class="s2"><b>+</b></span><span class="Apple-converted-space">  </span><i>[</i> <i>method-type</i> <i>]</i><span class="Apple-converted-space">  </span><i>method-selector</i><span class="Apple-converted-space">  </span><span class="s2"><b>;</b></span></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>instance-method-declaration:</i></p>
+<p class="p11"><span class="s1">-</span><span class="Apple-converted-space">  </span><i>[</i> <i>method-type</i> <i>]</i><span class="Apple-converted-space">  </span><i>method-selector</i><span class="Apple-converted-space">  </span><span class="s2"><b>;</b></span></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>implementation-definition-list:</i></p>
+<p class="p11"><i>function-definition</i></p>
+<p class="p11"><i>declaration</i></p>
+<p class="p11"><i>method-definition</i></p>
+<p class="p11"><i>implementation-definition-list</i><span class="Apple-converted-space">  </span><i>function-definition</i></p>
+<p class="p11"><i>implementation-definition-list</i><span class="Apple-converted-space">  </span><i>declaration</i></p>
+<p class="p11"><i>implementation-definition-list</i><span class="Apple-converted-space">  </span><i>method-definition</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>method-definition:</i></p>
+<p class="p11"><i>class-method-definition</i></p>
+<p class="p11"><i>instance-method-definition</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>class-method-definition:</i></p>
+<p class="p11"><span class="s2"><b>+</b></span><span class="Apple-converted-space">  </span><i>[</i> <i>method-type</i> <i>]</i><span class="Apple-converted-space">  </span><i>method-selector</i><span class="Apple-converted-space">  </span><i>[</i> <i>declaration-list</i> <i>]</i><span class="Apple-converted-space">  </span><i>compound-statement</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>instance-method-definition:</i></p>
+<p class="p11"><span class="s1">-</span><span class="Apple-converted-space">  </span><i>[</i> <i>method-type</i> <i>]</i><span class="Apple-converted-space">  </span><i>method-selector</i><span class="Apple-converted-space">  </span><i>[</i> <i>declaration-list</i> <i>]</i><span class="Apple-converted-space">  </span><i>compound-statement</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>method-selector:</i></p>
+<p class="p11"><i>unary-selector</i></p>
+<p class="p11"><i>keyword-selector</i><span class="Apple-converted-space">  </span><i>[</i><span class="s2"><b> ,<span class="Apple-converted-space">  </span>...</b></span> <i>]</i></p>
+<p class="p11"><i>keyword-selector</i><span class="Apple-converted-space">  </span><i>[</i> <span class="s2"><b>,</b></span><span class="Apple-converted-space">  </span><i>parameter-type-list</i> <i>]</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>unary-selector:</i></p>
+<p class="p11"><i>selector</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>keyword-selector:</i></p>
+<p class="p11"><i>keyword-declarator</i></p>
+<p class="p11"><i>keyword-selector</i><span class="Apple-converted-space">  </span><i>keyword-declarator</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>keyword-declarator:</i></p>
+<p class="p11"><span class="s2"><b>:</b></span><span class="Apple-converted-space">  </span><i>[</i> <i>method-type</i> <i>]</i><span class="Apple-converted-space">  </span><i>identifier</i></p>
+<p class="p11"><i>selector</i><span class="Apple-converted-space">  </span><span class="s2"><b>:</b></span><span class="Apple-converted-space">  </span><i>[</i> <i>method-type</i> <i>]</i><span class="Apple-converted-space">  </span><i>identifier</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>selector:</i></p>
+<p class="p11"><i>identifier</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>method-type:</i></p>
+<p class="p11"><span class="s2"><b>(</b></span><span class="Apple-converted-space">  </span><i>type-name</i><span class="Apple-converted-space">  </span><span class="s2"><b>)</b></span></p>
+<p class="p10"><b></b><br></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b>Type Specifiers</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11"><i>type-specifier:</i></p>
+<p class="p19"><b>void</b></p>
+<p class="p19"><b>char</b></p>
+<p class="p19"><b>short</b></p>
+<p class="p19"><b>int</b></p>
+<p class="p19"><b>long</b></p>
+<p class="p19"><b>float</b></p>
+<p class="p19"><b>double</b></p>
+<p class="p19"><b>signed</b></p>
+<p class="p19"><b>unsigned</b></p>
+<p class="p11"><span class="s2"><b>id</b></span><span class="Apple-converted-space">  </span><i>[</i> <i>protocol-reference-list</i> <i>]</i></p>
+<p class="p11"><i>class-name</i><span class="Apple-converted-space">  </span><i>[</i> <i>protocol-reference-list</i> <i>]</i></p>
+<p class="p11"><i>struct-or-union-specifier</i></p>
+<p class="p11"><i>enum-specifier</i></p>
+<p class="p11"><i>typedef-name</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>struct-or-union-specifier:</i></p>
+<p class="p11"><i>struct-or-union</i><span class="Apple-converted-space">  </span><i>[</i> <i>identifier</i> <i>]</i><span class="Apple-converted-space">  </span><span class="s2"><b>{</b></span><span class="Apple-converted-space">  </span><i>struct-declaration-list</i><span class="Apple-converted-space"> </span><span class="s2"><b> }</b></span></p>
+<p class="p11"><i>struct-or-union</i><span class="Apple-converted-space">  </span><i>[</i> <i>identifier</i> <i>]</i><span class="Apple-converted-space"> </span><span class="s2"><b> {<span class="Apple-converted-space">  </span>@defs<span class="Apple-converted-space">  </span>(</b></span><span class="Apple-converted-space">  </span><i>class-name</i><span class="Apple-converted-space"> </span><span class="s2"><b> )<span class="Apple-converted-space">  </span>}</b></span></p>
+<p class="p11"><i>struct-or-union</i><span class="Apple-converted-space">  </span><i>identifier</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p20"><i></i><br></p>
+<p class="p21"><b>Type Qualifiers</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11"><i>type-qualifier:</i></p>
+<p class="p19"><b>const</b></p>
+<p class="p19"><b>volatile</b></p>
+<p class="p11"><i>protocol-qualifier</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>protocol-qualifier:</i></p>
+<p class="p19"><b>in</b></p>
+<p class="p19"><b>out</b></p>
+<p class="p19"><b>inout</b></p>
+<p class="p19"><b>bycopy</b></p>
+<p class="p19"><b>byref</b></p>
+<p class="p19"><b>oneway</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b>Primary Expressions</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11"><i>primary-expression:</i></p>
+<p class="p11"><i>identifier</i></p>
+<p class="p11"><i>constant</i></p>
+<p class="p11"><i>string</i></p>
+<p class="p11"><span class="s2"><b>(</b></span><span class="Apple-converted-space">  </span><i>expression</i><span class="Apple-converted-space">  </span><span class="s2"><b>)</b></span></p>
+<p class="p19"><b>self</b></p>
+<p class="p11"><i>message-expression</i></p>
+<p class="p11"><i>selector-expression</i></p>
+<p class="p11"><i>protocol-expression</i></p>
+<p class="p11"><i>encode-expression</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>message-expression:</i></p>
+<p class="p11"><span class="s2"><b>[</b></span><span class="Apple-converted-space">  </span><i>receiver</i><span class="Apple-converted-space">  </span><i>message-selector</i><span class="Apple-converted-space"> </span><span class="s2"><b> ]</b></span></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>receiver:</i></p>
+<p class="p11"><i>expression</i></p>
+<p class="p11"><i>class-name</i></p>
+<p class="p19"><b>super</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>message-selector:</i></p>
+<p class="p11"><i>selector</i></p>
+<p class="p11"><i>keyword-argument-list</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>keyword-argument-list:</i></p>
+<p class="p11"><i>keyword-argument</i></p>
+<p class="p11"><i>keyword-argument-list</i><span class="Apple-converted-space">  </span><i>keyword-argument</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>keyword-argument:</i></p>
+<p class="p11"><i>selector</i><span class="Apple-converted-space">  </span><span class="s2"><b>:</b></span><span class="Apple-converted-space">  </span><i>expression</i></p>
+<p class="p11"><span class="s2"><b>:</b></span><span class="Apple-converted-space">  </span><i>expression</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>selector-expression:</i></p>
+<p class="p11"><span class="s2"><b>@selector<span class="Apple-converted-space">  </span>(</b></span><span class="Apple-converted-space">  </span><i>selector-name</i><span class="Apple-converted-space">  </span><span class="s2"><b>)</b></span></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>selector-name:</i></p>
+<p class="p11"><i>selector</i></p>
+<p class="p11"><i>keyword-name-list</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>keyword-name-list:</i></p>
+<p class="p11"><i>keyword-name</i></p>
+<p class="p11"><i>keyword-name-list</i><span class="Apple-converted-space">  </span><i>keyword-name</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p11"><i>keyword-name:</i></p>
+<p class="p11"><i>selector</i><span class="Apple-converted-space">  </span><span class="s2"><b>:</b></span></p>
+<p class="p19"><b>:</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>protocol-expression:</i></p>
+<p class="p11"><span class="s2"><b>@protocol<span class="Apple-converted-space">  </span>(</b></span><span class="Apple-converted-space">  </span><i>protocol-name</i><span class="Apple-converted-space">  </span><span class="s2"><b>)</b></span></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><i>encode-expression:</i></p>
+<p class="p11"><span class="s2"><b>@encode<span class="Apple-converted-space">  </span>(</b></span><span class="Apple-converted-space">  </span><i>type-name</i><span class="Apple-converted-space">  </span><span class="s2"><b>)</b></span></p>
+<p class="p10"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><br></p>
+</body>
+</html>

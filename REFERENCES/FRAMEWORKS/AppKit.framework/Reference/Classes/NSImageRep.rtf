@@ -1,0 +1,1267 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f3\fmodern Courier;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+{\colortbl;\red0\green0\blue0;}
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\f2\b\fs52\li1460{\NeXTHelpMarker62 \markername NS_DEV_DOCFOR:objc_class:NSImageRep;}
+¬}\f2\b\i0\ulnone\ql\fs52\fi0\li1460\gray0\fc0\cf0\up0\dn0 NSImageRep\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding\
+
+\fi0 NSCopying\
+NSObject (NSObject) \
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 AppKit/NSImageRep.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSImageRep is a semi-abstract superclass (ªsemi,º because it has some instance variables and implementation of its own); each of its subclasses knows how to draw an image from a particular kind of source data. While an NSImageRep subclass can be used directly, it's typically used through an NSImage object. An NSImage manages a group of representations, choosing the best one for the current output device.\
+
+\fs14 \
+
+\fs28 There are four subclasses defined in the Application Kit:\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f2\b\fs28\li1900\fc0\cf0 Subclass	Source Data\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 NSBitmapImageRep	Tag Image File Format (TIFF), Windows bitmap (BMP) and other bitmap data\
+
+\fs14 \
+
+\fs28 NSCachedImageRep	A rendered image, usually in an off-screen window\
+
+\fs14 \
+
+\fs28 NSCustomImageRep	A delegated method that can draw the image\
+
+\fs14 \
+
+\fs28 NSEPSImageRep	Encapsulated PostScript code (EPS)\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 You can define other NSImageRep subclasses for objects that render images from other types of source information. New subclasses must be added to the NSImageRep class registry by invoking the 
+\b registerImageRepClass:
+\b0  class method. The NSImageRep subclass informs the registry of the data types it can support through its 
+\b imageUnfilteredFileTypes
+\b0 , 
+\b imageUnfilteredPasteboardTypes
+\b0 , and 
+\b canInitWithData:
+\b0  class methods. Once an NSImageRep subclass is registered, an instance of that subclass is created any time NSImage encounters the type of data handled by that subclass.\
+
+\fs14 \
+
+\fs28 Subclasses which deal with file and pasteboard types should implement 
+\b imageUnfilteredFileTypes
+\b0 , 
+\b imageUnfilteredPasteboardTypes
+\b0 , 
+\b initWithData:
+\b0 , 
+\b canInitWithData:
+\b0 , and, if they have the ability to read multiple images from a file, 
+\b imageRepsWithData:
+\b0 . These last three should not do any filtering; all filtering is automatic.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Adopted Protocols\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 NSCoding	
+\f1 -
+\f0 €encodeWithCoder:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €initWithCoder:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 NSCopying	
+\f1 -
+\f0 €copyWithZone:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types \
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Creating an NSImageRep	+€imageRepsWithContentsOfFile:\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€imageRepsWithPasteboard:\
++€imageRepWithContentsOfFile:\
++€imageRepWithPasteboard:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Checking data types	+€canInitWithData:\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€canInitWithPasteboard:\
++€imageFileTypes:\
++€imagePasteboardTypes:\
++€imageUnfilteredFileTypes:\
++€imageUnfilteredPasteboardTypes:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Setting the size of the image	
+\f1 -
+\f0 €setSize:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €size\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Specifying information about the representation\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €bitsPerSample\
+
+\f1 -
+\f0 €colorSpaceName\
+
+\f1 -
+\f0 €hasAlpha\
+
+\f1 -
+\f0 €isOpaque\
+
+\f1 -
+\f0 €pixelsHigh\
+
+\f1 -
+\f0 €pixelsWide\
+
+\f1 -
+\f0 €setAlpha:\
+
+\f1 -
+\f0 €setBitsPerSample:\
+
+\f1 -
+\f0 €setColorSpaceName:\
+
+\f1 -
+\f0 €setOpaque:\
+
+\f1 -
+\f0 €setPixelsHigh:\
+
+\f1 -
+\f0 €setPixelsWide:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Drawing the image	
+\f1 -
+\f0 €draw\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €drawAtPoint:\
+
+\f1 -
+\f0 €drawInRect:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Managing NSImageRep subclasses	+€imageRepClassForData:\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€imageRepClassForFileType:\
++€imageRepClassForPasteboardType:\
++€registeredImageRepClasses\
++€registerImageRepClass:\
++€unregisterImageRepClass:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc1\cf1 Notifications\
+
+\fs14\li2200\fc0\cf0 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 When the NSImageRep class registry changes\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 NSImageRepRegistryDidChangeNotification\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods \
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker2922 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-canInitWithData:];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 canInitWithData:\
+
+\fs6 \
+
+\f0\b0\fs28\fi-620\li2520 + (BOOL)
+\b canInitWithData:
+\b0 (NSData *)
+\i data
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Overridden in subclasses to return YES if the receiver can initialize itself from 
+\i data
+\i0 , and NO if it cannot. Note that this method doesn't need to do a comprehensive check; it should return NO only if it knows that the receiver can't initialize itself from 
+\i data
+\i0 .\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker3247 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-canInitWithPasteboard:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 canInitWithPasteboard:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (BOOL)
+\b canInitWithPasteboard:
+\b0 (NSPasteboard *)
+\i pasteboard
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the NSImageRep can handle the data represented by pasteboard, otherwise returns NO.\
+
+\fs14 \
+
+\fs28 This method invokes the 
+\b imageUnfilteredPasteboardTypes
+\b0  class method and checks the list of types returned by that method against the data types in pasteboard. If it finds a match, it returns YES. When creating a subclass of NSImageRep that accepts image data from a non-default pasteboard type, override the 
+\b imageUnfilteredPasteboardTypes
+\b0  method to assure that this method returns the correct response. \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker3837 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-imageFileTypes];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageFileTypes\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSArray *)
+\b imageFileTypes
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an array of NSStrings representing all file types supported by NSImageRep or one of its subclasses. The list includes both those types returned by 
+\b the imageUnfilteredFileTypes
+\b0  class method and those that can be converted to a supported type by a user-installed filter service. Don't override this method when subclassing NSImageRepÐit always returns a valid list for any subclass of NSImageRep that correctly overrides the 
+\b imageUnfilteredFileTypes
+\b0  method. \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker4351 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-imagePasteboardTypes];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imagePasteboardTypes\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSArray *)
+\b imagePasteboardTypes
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an array of NSStrings representing all pasteboard types supported by NSImageRep or one of its subclasses. The list includes both those types returned by the 
+\b imageUnfilteredPasteboardTypes
+\b0  class method and those that can be converted by a user-installed filter service to a supported type. Don't override this method when subclassing NSImageRepÐit always returns a valid list for any subclass of NSImageRep that correctly overrides the 
+\b imageUnfilteredPasteboardTypes
+\b0  method. \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker4895 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-imageRepClassForData:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageRepClassForData:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (Class)
+\b imageRepClassForData:
+\b0 (NSData *)
+\i data
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the NSImageRep subclass that handles data of type 
+\i data
+\i0 , or 
+\b Nil
+\b0  if the NSImage class registry contains no subclasses that handle data of the specified type.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5132 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-imageRepClassForFileType:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageRepClassForFileType:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (Class)
+\b imageRepClassForFileType:
+\b0 (NSString *)
+\i type
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the NSImageRep subclass that handles files of type 
+\i type
+\i0 , or 
+\b Nil
+\b0  if the NSImage class registry contains no subclasses that handle files of the specified type.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5381 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-imageRepClassForPasteboardType:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageRepClassForPasteboardType:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (Class)
+\b imageRepClassForPasteboardType:
+\b0 (NSString *)
+\i type
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the NSImageRep subclass that handles pasteboard data of type 
+\i type
+\i0 , or 
+\b Nil
+\b0  if the NSImage class registry contains no subclasses that handle pasteboard data of the specified type.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5662 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-imageRepWithContentsOfFile:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageRepWithContentsOfFile:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (id)
+\b imageRepWithContentsOfFile:
+\b0 (NSString *)
+\i filename
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If sent to the NSImageRep class object, this method returns a newly-allocated instance of a subclass of NSImageRep (chosen through the use of 
+\b imageRepClassForFileType:
+\b0 ) that's initialized with the contents of the file 
+\i filename
+\i0 . If sent to a subclass of NSImageRep that recognizes the type of file specified by 
+\i filename
+\i0 , it returns an instance of that subclass initialized with the contents of the file 
+\i filename\
+
+\fs14 \
+
+\b\i0\fs28 imageRepWithContentsOfFile:
+\b0  returns 
+\b nil
+\b0  in any of the following cases:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	The message is sent to the NSImageRep class object, and there are no subclasses in the NSImageRep class registry that handle data of the type indicated by 
+\i filename
+\i0 .\
+
+\fs14 \
+
+\fs28 ·	The message is sent to a subclass of NSImageRep, and that subclass doesn't handle data of the type indicated by 
+\i filename
+\i0 .\
+
+\fs14 \
+
+\fs28 ·	The NSImageRep subclass is unable to initialize itself with the contents of 
+\i filename
+\i0 .\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i\fs28\li1500\fc0\cf0 filename
+\i0  may be a full or relative pathname, and should include an extension that identifies the data type in the file. By default, the files handled are those with the extensions ªtiffº, ªtifº, ªbmpº, and ªepsº. \
+
+\fs14 \
+
+\fs28 The NSImageRep subclass is initialized by creating an NSData object based on the contents of the file, then passing it to 
+\b imageRepWithData:
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€imageFileTypes\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker7000 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-imageRepWithPasteboard:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageRepWithPasteboard:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (id)
+\b imageRepWithPasteboard:
+\b0 (NSPasteboard *)
+\i pasteboard
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If sent to the NSImageRep class object, this method returns a newly-allocated instance of a subclass of NSImageRep that's initialized with the data in 
+\i pasteboard
+\i0 . If sent to a subclass of NSImageRep that recognizes the type of data contained in 
+\i pasteboard
+\i0 , it returns an instance of that subclass initialized with the data in 
+\i pasteboard\
+
+\fs14 \
+
+\b\i0\fs28 imageRepWithPasteboard:
+\b0  returns 
+\b nil
+\b0  in any of the following cases:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	The message is sent to the NSImageRep class object, and there are no subclasses in the NSImageRep class registry that handle data of the type contained in 
+\i pasteboard
+\i0 .\
+
+\fs14 \
+
+\fs28 ·	The message is sent to a subclass of NSImageRep, and that subclass doesn't handle data of the type contained in 
+\i pasteboard
+\i0 .\
+
+\fs14 \
+
+\fs28 ·	The NSImageRep subclass is unable to initialize itself with the contents of 
+\i pasteboard
+\i0 .\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The NSImageRep subclass is initialized by creating an NSData object based on the data in pasteboard, then passing it to 
+\b imageRepWithData:
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€imagePasteboardTypes\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker8053 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-imageRepsWithContentsOfFile:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageRepsWithContentsOfFile:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSArray *)
+\b imageRepsWithContentsOfFile:
+\b0 (NSString *)
+\i filename
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If sent to the NSImageRep class object, this method returns an array of objects (all newly-allocated instances of a subclass of NSImageRep, chosen through the use of 
+\b imageRepClassForFileType:
+\b0 ) that have been initialized with the contents of the file 
+\i filename
+\i0 . If sent to a subclass of NSImageRep that recognizes the type of file specified by 
+\i filename
+\i0 , it returns an array of objects (all instances of that subclass) that have been initialized with the contents of the file 
+\i filename\
+
+\fs14 \
+
+\b\i0\fs28 imageRepsWithContentsOfFile:
+\b0  returns 
+\b nil
+\b0  in any of the following cases:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	The message is sent to the NSImageRep class object, and there are no subclasses in the NSImageRep class registry that handle data of the type indicated by 
+\i filename
+\i0 .\
+
+\fs14 \
+
+\fs28 ·	The message is sent to a subclass of NSImageRep, and that subclass doesn't handle data of the type indicated by 
+\i filename
+\i0 .\
+
+\fs14 \
+
+\fs28 ·	The NSImageRep subclass is unable to initialize itself with the contents of 
+\i filename
+\i0 .\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i\fs28\li1500\fc0\cf0 filename
+\i0  may be a full or relative pathname, and should include an extension that identifies the data type in the file. By default, the files handled are those with the extensions ªtiffº, ªtifº, ªbmpº, and ªepsº. \
+
+\fs14 \
+
+\fs28 The NSImageRep subclass is initialized by creating an NSData object based on the contents of the file, then passing it to 
+\b imageRepsWithData:
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€imageFileTypes\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker9473 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-imageRepsWithPasteboard:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageRepsWithPasteboard:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSArray *)
+\b imageRepsWithPasteboard:
+\b0 (NSPasteboard *)
+\i pasteboard
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If sent to the NSImageRep class object, this method returns an array of objects (all newly-allocated instances of a subclass of NSImageRep) that have been initialized with the data in 
+\i pasteboard
+\i0 . If sent to a subclass of NSImageRep that recognizes the type of data contained in 
+\i pasteboard
+\i0 , it returns an array of objects (all instances of that subclass) initialized with the data in 
+\i pasteboard\
+
+\fs14 \
+
+\b\i0\fs28 imageRepsWithPasteboard:
+\b0  returns 
+\b nil
+\b0  in any of the following cases:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	The message is sent to the NSImageRep class object, and there are no subclasses in the NSImageRep class registry that handle data of the type contained in 
+\i pasteboard
+\i0 .\
+
+\fs14 \
+
+\fs28 ·	The message is sent to a subclass of NSImageRep, and that subclass doesn't handle data of the type contained in 
+\i pasteboard
+\i0 .\
+
+\fs14 \
+
+\fs28 ·	The NSImageRep subclass is unable to initialize itself with the contents of 
+\i pasteboard
+\i0 .\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The NSImageRep subclass is initialized by creating an NSData object based on the data in 
+\i pasteboard
+\i0 , then passing it to 
+\b imageRepsWithData:
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€imagePasteboardTypes\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker10594 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-imageUnfilteredFileTypes];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageUnfilteredFileTypes\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSArray *)
+\b imageUnfilteredFileTypes
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an array of NSStrings representing all file types (extensions) supported by the NSImageRep. By default, the returned array is empty.\
+
+\fs14 \
+
+\fs28 When creating a subclass of NSImageRep, override this method to return a list of strings representing the supported file types. For example, NSBitmapImageRep implements the following code for this method:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 + (NSArray *)imageUnfilteredFileTypes \{\
+€€€€static NSArray *types = nil;\
+\
+€€€€if (!types) types = [[NSArray alloc] \
+€€€€€€€€initWithObjects:@"tiff", @"tif", @"bmp", nil];\
+€€€€return types;\
+\}\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 If your subclass supports the types supported by its superclass, you must explicitly get the array of types from the superclass and put them in the array returned by this method. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b imageFileTypes
+\b0 , +€
+\b imageUnfilteredFileTypes:
+\b0  (NSImage)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker11450 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-imageUnfilteredPasteboardTypes];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageUnfilteredPasteboardTypes\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSArray *)
+\b imageUnfilteredPasteboardTypes
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an array representing all pasteboard types supported by the NSImageRep. By default, the returned array is empty. \
+
+\fs14 \
+
+\fs28 When creating a subclass of NSImageRep, override this method to return a list representing the supported pasteboard types. For example, NSBitmapImageRep implements the following code for this method:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 + (NSArray *)imageUnfilteredPasteboardTypes \{\
+€€€€static NSArray *types = nil;\
+\
+€€€€if (!types) types = [[NSArray alloc] initWithObjects:NSTIFFPboardType, nil];\
+€€€€return types;\
+\}\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 If your subclass supports the types supported by its superclass, you must explicitly get the list of types from the superclass and add them to the array returned by this method. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b imagePasteboardTypes
+\b0 , +€
+\b imageUnfilteredPasteboardTypes:
+\b0  (NSImage)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker12295 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-registerImageRepClass:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 registerImageRepClass:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (void)
+\b registerImageRepClass:
+\b0 (Class)
+\i imageRepClass
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Adds 
+\i imageRepClass
+\i0  to the registry of available NSImageRep classes. This method posts the NSImageRepRegistryChangedNotification notification, along with the receiving object, to the default notification center.\
+
+\fs14 \
+
+\fs28 A good place to add image representation classes to the registry is in the 
+\b load
+\b0  class method.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 + 
+\b load
+\b0  (NSObject)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker12710 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-registeredImageRepClasses];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 registeredImageRepClasses\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSArray *)
+\b registeredImageRepClasses
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an array containing the registered NSImageRep classes.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker12844 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-unregisterImageRepClass:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 unregisterImageRepClass:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (void)
+\b unregisterImageRepClass:
+\b0 (Class)
+\i imageRepClass
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Removes 
+\i imageRepClass
+\i0  from the registry of available NSImageRep classes. This method posts the NSImageRepRegistryChangedNotification notification, along with the receiving object, to the default notification center.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker13162 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-bitsPerSample];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 bitsPerSample\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0  (int)
+\b bitsPerSample
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the number of bits used to specify a single pixel in each component of the data.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker13292 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-colorSpaceName];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 colorSpaceName\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b colorSpaceName
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns
+\i  
+\i0 the name if the image's color space, or NSCalibratedRGBColorSpace if no name has been assigned.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker13446 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-draw];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 draw\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b draw
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Implemented by subclasses to draw the image at location (0.0, 0.0) in the current coordinate system. Subclass methods return YES if the image is successfully drawn, and NO if it isn't. This version of the method simply returns YES.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker13702 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-drawAtPoint:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 drawAtPoint:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b drawAtPoint:
+\b0 (NSPoint)
+\i aPoint
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the current coordinates to those indicated by 
+\i aPoint
+\i0 , invokes the receiver's 
+\b draw
+\b0  method draw the image at that point, then restores the current coordinates to their original setting. If 
+\i aPoint
+\i0  is (0.0, 0.0), 
+\b drawAtPoint:
+\b0  simply invokes 
+\b draw
+\b0 .\
+
+\fs14 \
+
+\fs28 This method returns NO without translating, scaling, or drawing if the size of the image has not been set. Otherwise it returns the value returned by the 
+\b draw
+\b0  method, which indicates whether the image is successfully drawn.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €setSize:
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker14253 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-drawInRect:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 drawInRect:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b drawInRect:
+\b0 (NSRect)
+\i rect
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Draws the image so that it fits inside the rectangle referred to by 
+\i rect
+\i0 . The current coordinates are set to the point specified in the rectangle and are scaled so the image will fit within the rectangle. The receiver's 
+\b draw
+\b0  method is then invoked to draw the image. After draw has been invoked, the current coordinates and scale factors are restored to their original settings.\
+
+\fs14 \
+
+\fs28 This method returns NO without translating, scaling, or drawing if the size of the image has not been set. Otherwise it returns the value returned by the 
+\b draw
+\b0  method, which indicates whether the image is successfully drawn.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €setSize:
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker14930 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-hasAlpha];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 hasAlpha\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b hasAlpha
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the receiver has been informed that the image has a coverage component (alpha), and NO if not.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker15072 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-isOpaque];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isOpaque\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isOpaque
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the receiver is opaque; NO otherwise. Use this method to test whether an NSImageRep completely covers the area within the rectangle returned by size:. Use the method setOpaque: to set the value returned by this method.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker15338 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-pixelsHigh];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 pixelsHigh\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (int)
+\b pixelsHigh
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the height of the image in pixels, as specified in the image data.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €size:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker15467 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-pixelsWide];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 pixelsWide\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (int)
+\b pixelsWide
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the width of the image in pixels, as specified in the image data.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €size:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker15595 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-setAlpha:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setAlpha:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setAlpha:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Informs the NSImageRep whether the image has an alpha component. 
+\i flag
+\i0  should be YES if it does, and NO if it doesn't.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker15757 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-setBitsPerSample:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setBitsPerSample:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setBitsPerSample:
+\b0 (int)
+\i anInt
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Informs the NSImageRep that the image has 
+\i anInt
+\i0  bits of data for each pixel in each component.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker15912 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-setColorSpaceName:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setColorSpaceName:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setColorSpaceName:
+\b0 (NSString *)
+\i string
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Informs the receiver of the image's color space. By default, an NSImageRep's color space name is NSCalibratedRGBColorSpace. Color space names are defined as part of the NSColor class, in NSGraphics.h. The following are valid color space names:\
+
+\fs14 \
+
+\pard\tx2320\tx3740\tx4140\fs28\li2320\fc0\cf0 NSCalibratedWhiteColorSpace\
+NSCalibratedBlackColorSpace\
+NSCalibratedRGBColorSpace\
+NSDeviceWhiteColorSpace\
+NSDeviceBlackColorSpace\
+NSDeviceRGBColorSpace\
+NSDeviceCMYKColorSpace\
+NSNamedColorSpace\
+NSCustomColorSpace\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker16439 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-setOpaque:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setOpaque:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setOpaque:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets opacity of the NSImageRep's image. If flag is YES, the image is opaque.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker16562 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-setPixelsHigh:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setPixelsHigh:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setPixelsHigh:
+\b0 (int)
+\i anInt
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Informs the NSImageRep that the data specifies an image 
+\i anInt
+\i0  pixels high.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €setSize:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker16713 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-setPixelsWide:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setPixelsWide:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setPixelsWide:
+\b0 (int)
+\i anInt
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Informs the NSImageRep that the data specifies an image 
+\i anInt
+\i0  pixels wide.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €setSize:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker16864 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-setSize:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setSize:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setSize:
+\b0 (NSSize)
+\i aSize
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the size of the image in units of the base coordinate system. This determines the size of the image when it's rendered; it's not necessarily the same as the width and height of the image in pixels as specified in the image data. You must set the image size before you can render it.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €draw
+\b0 , 
+\f1 -
+\f0\b €setPixelsHigh:
+\b0 , 
+\f1 -
+\f0\b €setPixelsWide:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker17251 \markername NS_DEV_DOCFOR:objc_method:[NSImageRep-size];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 size\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSSize)
+\b size
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the size of the image in units of the base coordinate system. This is the size of the image when it's rendered; it's not necessarily the same as the width and height of the image in pixels as specified in the image data.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €pixelsHigh:
+\b0 , 
+\f1 -
+\f0\b €pixelsWide:\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\fs28\fi-1020\li1200\fc0\cf0 Notifications\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSImageRep declares and posts the following notification. In addition, it posts notifications that are declared by its superclass, NSObject. See the NSObject class specification for more information.\
+
+\fs14 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 NSImageRepRegistryDidChangeNotification\
+
+\fs6 \
+
+\fs4 \
+
+\pard\tx6080\tx11280\f0\fs28\fi-4840\li6320\fc0\cf0 Notification Object
+\b0 	The notifying NSImageRep.\
+
+\fs10 \
+
+\b\fs28 Userinfo
+\b0 	none\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Posted when the NSImageRep class registry changes, either through the use of 
+\b registerImageRepClass:
+\b0  or 
+\b unregisterImageRepClass:
+\b0 . \
+
+\fs14 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 \
+
+}

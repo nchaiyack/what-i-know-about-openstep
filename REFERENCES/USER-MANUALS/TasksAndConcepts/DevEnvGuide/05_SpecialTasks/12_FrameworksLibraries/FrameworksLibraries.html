@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 24.0px Helvetica; min-height: 29.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 6.0px Times; min-height: 8.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica; color: #0000ff}
+    p.p8 {margin: 0.0px 0.0px 0.0px 17.0px; font: 12.0px Helvetica}
+    p.p9 {margin: 0.0px 0.0px 0.0px 17.0px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 17.0px; font: 8.0px Helvetica; color: #00ff00; min-height: 10.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 141.0px; font: 8.0px Times; min-height: 10.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 17.0px; font: 12.0px Helvetica; color: #0000ff}
+    p.p13 {margin: 0.0px 0.0px 0.0px 17.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 141.0px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 141.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {color: #00ff00}
+    span.s3 {font: 14.0px Times; color: #000000}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>Previous Chapter</p>
+<p class="p3"><i></i><br></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><i></i><br></p>
+<p class="p3"><i></i><br></p>
+<p class="p6"><b>Special Tasks in the Development Environment</b></p>
+<p class="p5"><br></p>
+<p class="p7"><b>12<span class="Apple-tab-span">	</span>Creating Frameworks and Dynamic Shared Libraries</b></p>
+<p class="p5"><br></p>
+<p class="p1"><i>Framework and Library are similar project types. The only difference is<span class="Apple-converted-space"> </span></i></p>
+<p class="p1"><i>in the packaging. To create either one, you specify which headers to publish<span class="Apple-converted-space"> </span></i></p>
+<p class="p1"><i>to its users and set up any precompiled headers. Another concern when<span class="Apple-converted-space"> </span></i></p>
+<p class="p1"><i>updating an exisitng framework is changing the version number in such a<span class="Apple-converted-space"> </span></i></p>
+<p class="p1"><i>way that you don't break users' programs.<span class="Apple-converted-space"> </span></i></p>
+<p class="p2"><i></i><br></p>
+<p class="p5"><i></i><br></p>
+<p class="p8"><span class="s2"><b></b><b><span class="Apple-converted-space">  </span></b></span><b>Setting up a framework project</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Making a header file private</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Installing a precompiled header</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p8"><span class="s2"><b></b><b><span class="Apple-converted-space">  </span></b></span><b>Providing backward compatibility</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Adding public API</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Verifying compatibility between two libraries</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Debugging frameworks</b></p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s3"><span class="Apple-converted-space">  </span></span><b>Related Concepts</b><b></b></p>
+<p class="p9"><b></b><br></p>
+<p class="p13"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p14">My library was dukedom large enough.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><span class="Apple-tab-span">	</span>Shakespeare, <i>The Tempest</i><i></i></p>
+<p class="p11"><br></p>
+<p class="p14">I shall sleep, and move with the moving ships</p>
+<p class="p14">Change as the winds change, veer with the tide.</p>
+<p class="p14"><span class="Apple-tab-span">	</span>Algernon Charles Swinburne</p>
+<p class="p11"><br></p>
+<p class="p14">Since `tis Nature's law to change, Constancy alone is strange.</p>
+<p class="p14"><span class="Apple-tab-span">	</span>Hon Wilmot, Earl of Rochester, <i>A Dialogue between Strephon and Daphne</i><i></i></p>
+<p class="p11"><br></p>
+<p class="p15"><br></p>
+<p class="p11"><br></p>
+</body>
+</html>

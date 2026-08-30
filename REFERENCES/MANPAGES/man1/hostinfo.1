@@ -1,0 +1,20 @@
+.TH host_info 1 "March 24, 1989" "NeXT Computer, Inc."
+.SH NAME
+.nf
+hostinfo \- display information about a Mach host
+.SH SYNOPSIS
+\fBhostinfo\fR
+.SH DESCRIPTION
+The
+.I hostinfo
+program displays information about a Mach host.  In particular, it displays
+the maximum number of processors the kernel was configured for, the actual
+number of processors physically available in the hardware
+configuration, and the amount of physical memory available in the host.
+Then, for each logical slot
+.I hostinfo
+displays information about the processor configured in that slot.  The
+information includes the slot number, the cpu type and sub-type, and
+whether or not the processor is executing.
+.SH SEE ALSO
+.I host_info(2), slot_info(2), slot_name(3)

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 24.0px Helvetica; min-height: 29.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 6.0px Times; min-height: 8.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica; color: #0000ff}
+    p.p8 {margin: 0.0px 0.0px 0.0px 17.0px; font: 12.0px Helvetica}
+    p.p9 {margin: 0.0px 0.0px 0.0px 17.0px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 17.0px; font: 12.0px Helvetica; color: #0000ff}
+    p.p11 {margin: 0.0px 0.0px 0.0px 141.0px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 141.0px; font: 8.0px Times; min-height: 10.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 141.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {color: #00ff00}
+    span.s3 {color: #000000}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>Next Chapter<span class="Apple-tab-span">	</span><span class="Apple-converted-space">  </span>Previous Chapter</p>
+<p class="p3"><i></i><br></p>
+<p class="p4"><b></b><br></p>
+<p class="p3"><i></i><br></p>
+<p class="p5"><b>Coding</b></p>
+<p class="p6"><br></p>
+<p class="p7"><b>6<span class="Apple-tab-span">	</span>Subclassing</b></p>
+<p class="p6"><br></p>
+<p class="p1"><i>To do something meaningful in OpenStep programming, you must create<span class="Apple-converted-space"> </span></i></p>
+<p class="p1"><i>a custom class. Custom classes harness the power of OpenStep objects<span class="Apple-converted-space"> </span></i></p>
+<p class="p1"><i>and give an application its distinctive logic and form. This chapter<span class="Apple-converted-space"> </span></i></p>
+<p class="p1"><i>describes the basic steps that you must follow to create and use a subclass.</i></p>
+<p class="p2"><i></i><br></p>
+<p class="p6"><i></i><br></p>
+<p class="p8"><span class="s2"><b></b><b><span class="Apple-converted-space">  </span></b></span><b>A roadmap to making or adding custom classes</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Naming a new class</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Specifying outlets and actions</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Creating an instance of your class</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Connecting your class's outlets</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Connecting your class's actions</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Generating source code files</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Implementing a subclass of NSObject</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Making your class a delegate</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Implementing a subclass of NSView</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Adding existing classes to your nib file</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Updating a class definition</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p10"><span class="s3"><b></b><b><span class="Apple-converted-space">  </span></b></span><b>Related Concepts</b><b></b></p>
+<p class="p9"><b></b><br></p>
+<p class="p11">I inherited it brick, and left it marble.</p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Emperor Augustus</p>
+<p class="p12"><br></p>
+<p class="p12"><br></p>
+<p class="p11">They rightly do inherit heaven's graces,</p>
+<p class="p11">And husband nature's riches from expense.</p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Shakespeare, Sonnets</p>
+<p class="p13"><br></p>
+<p class="p11">Observe how system into system runs,</p>
+<p class="p11">What other planets circle other suns.</p>
+<p class="p11"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Alexander Pope, An Essay on Man</p>
+<p class="p12"><br></p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+.TH STBLOCKSIZE 8 "August 9 1994" "NeXT Computer, Inc."
+.SH NAME
+stblocksize  \-  Set the block transfer size of a SCSI tape device.
+.SH SYNOPSIS
+.B \/usr\/etc\/stblocksize  
+[ \fB-v\fR ] [ \fB-s\fR \fIsize\fR ] \fIdevice_pathname\fR
+.SH DESCRIPTION
+\fIstblocksize\fR determines the maximum and minimum number of bytes that a SCSI tape device is capable of transfering to or from the computer in a single hardware-level transaction.    If the maximum and minimum are the same value, \fIstblocksize\fR places the device in fixed-block mode and will use that value for all data transfers.   Otherwise, it sets the device to variable-block mode.    
+
+This command is called by the \fB\/etc\/rc\fR script that is invoked during the bootup sequence.  This means that tape drives connected to the system have their block size set automatically.
+
+Note that \fIstblocksize\fR controls the size of low-level data transfers in hardware.  It should not be confused with the block sizes used in other commands like \fBtar\fR or \fBdd\fR which control the format of data as seen by the software at a higher level.
+.SH OPTIONS
+.TP 12
+.B "-v"
+Verbose mode. Print the maximum and minimum block size reported by the device to standard output.   
+
+.TP 12
+.B "-s" \fIsize\fR
+Set block size to \fIsize\fR, regardless of what the device reports.
+.SH "EXAMPLES"
+The following command causes the maximum and minimum block sizes for \fB/dev/rst0\fR to be displayed on the output device:
+.LP
+.DS
+stblocksize -v /dev/rst0
+.DE
+.LP
+This command sets the transfer block size for \fB/dev/rst0\fR to 512 bytes:
+.LP
+.DS
+stblocksize -s 512 /dev/rst0
+.DE
+.LP
+.SH "SEE ALSO"
+st(4),mt (1)
+.SH "DIAGNOSTICS"
+\fIstblocksize\fR returns a status of 0 for normal execution.   It returns -1 and prints a diagnostic message if it is unable to interpret the command line, open the tape device, or retrieve or set the device's block size.
+.SH "BUGS"
+\fIstblocksize\fR cannot correct automatically for tape drives that report their block sizes incorrectly.   For such devices, you must execute the command with the \fB-s\fR option each time the system is booted (\fBe.g.\fR, by modifying the command line in \fB\/etc\/rc\fR).
+

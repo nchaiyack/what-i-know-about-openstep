@@ -1,0 +1,19 @@
+.\"
+.TH FMOD 3P "August 1, 1992"
+.AT 3
+.SH NAME
+fmod \- floating point remainder
+.SH SYNOPSIS
+.nf
+.B #include <math.h>
+.PP
+.B double fmod(double \fIx\fP, double \fIy\fP);
+.SH DESCRIPTION
+.I Fmod
+computes the floating-point remainder of \fIx\|/\|y\fR.
+.SH "RETURN VALUE"
+.I Fmod
+returns the value \fIx\fR \- (\fII\fR * \fIy\fR), for some integer
+\fII\fR such that, if \fIy\fR is nonzero, the result has the
+same sign as \fIx\fR and magnitude less than the magnitude of 
+\fIy\fR.

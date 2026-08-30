@@ -1,0 +1,30 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;}
+\paperw14220
+\paperh13060
+\margl120
+\margr0
+{\colortbl;\red0\green0\blue0;}
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+\fs16 \
+
+{\f2\b\fs36\li500\fc1\cf1{\NeXTHelpMarker63 \markername WhenInterfaceBuilderStartsUp;}
+¬}\f2\b\i0\ulnone\ql\fs36\fi0\li500\gray0\fc1\cf1\up0\dn0 When Interface Builder Starts Up\
+
+\fs8\fc0\cf0 \
+
+\f0\b0\fs28 When you open a nib file, Interface Builder displays several windows and panels on your screen.\
+
+\fs20 \
+
+\b\fs28 The palette
+\b0  
+\b window 
+\b0 Holds all currently loaded palettes of objects. You select a palette by clicking its icon. Then you drag objects from the palette to the appropriate surface.\
+
+\fs20 \
+
+{\fs28{\NeXTGraphic373 

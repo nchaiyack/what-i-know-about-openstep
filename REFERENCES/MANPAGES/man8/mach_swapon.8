@@ -1,0 +1,99 @@
+.TH MACH_SWAPON 8 "March 1, 1989" "NeXT Computer, Inc."
+.SH NAME
+mach_swapon \- add a file for paging/swapping
+.SH SYNOPSIS
+.B mach_swapon
+[
+.B -v
+] [
+.B -o
+options ] file
+.br
+.B mach_swapon
+[
+.B -v
+] [
+.B -f
+swaptab ]
+.B -a
+.SH DESCRIPTION
+.I Mach_swapon
+makes a file available to the system for allocation of paging
+and swapping space.
+It is normally invoked at boot time by the
+.B /etc/rc
+script, and uses information kept in the 
+.B /etc/swaptab
+file to enable paging on a 
+.I file
+(which must be specified as a full pathname).
+The super-user can run
+.B mach_swapon
+at any time to enable system paging on additional files.
+.SH OPTIONS
+The first form of the command is used to enable paging on
+.IR file .
+The second form of the command is used to enable paging
+on all files listed in the 
+.I swaptab
+file.
+.TP
+.B \-a
+All.  Enable paging on all files listed in the
+.B swaptab
+file.
+.TP
+.B \-v
+Verbose.  Print each file as it is enabled.
+.TP
+\fB\-f\ \fIswaptab\fR
+Read list of paging files from
+.I swaptab
+instead of
+.BR /etc/swaptab.
+.TP
+\fB\-o\ \fIoptions\fR
+Specify a comma-separated list of optional characteristics for
+the file being enabled.
+.I options
+can be selected from among:
+.RS
+.TP
+.B prefer
+Enable this file as a "preferred" paging area.  The system will
+preferentially allocate space in this paging file over non-preferred
+paging files.
+.TP
+.BI lowat= size
+Attempt to shrink the file down to the low water mark,
+.IR size ,
+when paging resources are freed.  If
+.I size
+equals zero, then the paging file does not shrink as resources
+are freed.
+.TP
+.BI hiwat= size
+Do not grow the paging file above the high water mark,
+.IR size .
+If
+.I size
+is zero then the file will grow as large as needed.
+.TP
+.B nocompress
+Do not compress the swapfile.  Normally, the swapfile is compressed, resulting in reduced disk usage and increased swapping performance (there is less to swap).  This option will turn this feature off.
+.RE
+.SH FILES
+.PD 0
+.TP 20
+.B /etc/swaptab
+static pager file information
+.PD
+.SH "SEE ALSO"
+.BR mach_swapon (2),
+.BR swaptab (5)
+.SH BUGS
+There is no
+.I mach_swapoff
+command.
+
+There is no way of listing the currently enabled paging files.

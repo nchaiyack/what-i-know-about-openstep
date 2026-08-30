@@ -1,0 +1,43 @@
+.TH REASB 8 "August 30, 1989" "NeXT Computer, Inc."
+.SH NAME
+reasb \- reassign SCSI logical block
+.SH SYNOPSIS
+.B /usr/etc/reasb  
+.I raw_device 
+.I SCSI_block_number 
+[
+.B \-r
+]
+.SH DESCRIPTION
+This command causes a logical block on a SCSI disk drive to be reassigned to a new location on the disk. The actual relocation and reassignment is performed by the disk drive (as opposed to the operating system). The algorithms used to allocate spare sectors vary between drive manufacturers. 
+.I SCSI_block_number 
+is generally obtained from console error information, printed by the SCSI disk driver upon detection of media errors reported by the drive during normal operation.
+.SH OPTIONS
+.TP
+.B \-r
+When this flag is specified, 
+20 attempts are made to read the current contents of 
+.I SCSI_block_number. 
+If any one read attempt is successful, the reassignment takes place 
+and then the previously read contents of 
+.I SCSI_block_number 
+are written back to the newly relocated sector.
+If all 20 read attempts result in errors, the user will be notified and
+asked whether or not to continue with the reassign block command.
+Responding with anything other than 'y' results in the operation 
+being aborted with no further I/O.
+.SH FILES
+.B /dev/rsd\fI?\fR
+.SH "SEE ALSO"
+.B sd(4)
+.SH BUGS
+Some SCSI drives do not implement the SCSI Reassign Block command; 
+.B reasb 
+will fail on these drives. Also, blocks in a given area of a disk can in general only be reassigned a small number of times before the drive runs out of spare locations. The 
+.B reasb 
+command should be used sparingly.
+.PP
+The 
+.B reasb 
+command takes a decimal SCSI block number as an argument, 
+but the sd driver reports media errors in hexadecimal.

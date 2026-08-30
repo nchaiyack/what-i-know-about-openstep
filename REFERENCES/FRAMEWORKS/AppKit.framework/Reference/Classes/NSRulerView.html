@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.2px; text-indent: -37.9px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.2px; text-indent: -37.9px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.7px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 15.0px Times; min-height: 18.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 10.1px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 10.1px; font: 14.0px Helvetica}
+    p.p14 {margin: 0.0px 0.0px 0.0px 10.1px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.6px; font: 12.0px Helvetica}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 75.6px; font: 9.5px Times; min-height: 11.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 317.1px; text-indent: -241.5px; font: 14.0px Times}
+    p.p19 {margin: 0.0px 0.0px 0.0px 317.1px; text-indent: -241.5px; font: 9.5px Times; min-height: 11.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 317.1px; text-indent: -241.5px; font: 10.0px Times; min-height: 13.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 10.1px; font: 9.5px Helvetica; min-height: 11.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 10.1px; font: 9.5px Helvetica}
+    p.p23 {margin: 0.0px 0.0px 0.0px 10.1px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 10.1px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 12.0px Helvetica}
+    p.p26 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 95.8px; font: 14.0px Helvetica}
+    p.p29 {margin: 0.0px 0.0px 0.0px 95.8px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 95.8px; font: 14.0px Times}
+    p.p31 {margin: 0.0px 0.0px 0.0px 95.8px; font: 7.0px Times; min-height: 8.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 95.8px; font: 13.0px Times; min-height: 16.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Helvetica}
+    p.p34 {margin: 0.0px 0.0px 0.0px 75.6px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 75.6px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 95.8px; font: 12.0px Courier}
+    p.p37 {margin: 0.0px 0.0px 0.0px 95.8px; font: 12.0px Courier; min-height: 14.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 95.8px; font: 7.0px Courier; min-height: 8.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 75.6px; font: 13.0px Times; min-height: 16.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 10.1px; font: 14.0px Times}
+    p.p41 {margin: 0.0px 0.0px 0.0px 10.1px; font: 14.0px Times; min-height: 18.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 10.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 75.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p45 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 14.0px Times}
+    p.p46 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 5.0px Times; min-height: 6.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 316.7px; font: 14.0px Times}
+    p.p48 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 14.0px Times}
+    p.p49 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 5.0px Times; min-height: 6.0px}
+    p.p50 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 35.0px Times; min-height: 42.0px}
+    p.p51 {margin: 0.0px 0.0px 0.0px 75.6px; text-indent: -25.1px; font: 14.0px Helvetica}
+    p.p52 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p53 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p54 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p55 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 14.0px Times}
+    p.p56 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p57 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p58 {margin: 0.0px 0.0px 0.0px 75.6px; text-indent: -25.1px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p59 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p60 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p61 {margin: 0.0px 0.0px 0.0px 75.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p62 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 13.0px Times; min-height: 16.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.5px Helvetica}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.s5 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">p<span class="Apple-tab-span">	</span></span><b></b><b>NSRulerView</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><span class="s3"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSView : NSResponder : NSObject</p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s3"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSCoding (NSResponder)</p>
+<p class="p8">NSObject (NSObject)</p>
+<p class="p9"><br></p>
+<p class="p7"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSRulerView.h</p>
+<p class="p10"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p13"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="22pt" viewBox="0 0 597 22" role="img" aria-labelledby="eps-svg-1-title" data-source="NSRulerView.rtfd/AtaGlance.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">AtaGlance.eps</title><defs>
+<g>
+<g id="eps-svg-1-glyph-0-0">
+<path d="M 8.859375 -6.265625 C 8.796875 -7.078125 8.625 -7.609375 8.234375 -8.140625 C 7.5 -9.09375 6.328125 -9.640625 4.90625 -9.640625 C 2.234375 -9.640625 0.578125 -7.71875 0.578125 -4.65625 C 0.578125 -1.59375 2.21875 0.296875 4.859375 0.296875 C 7.234375 0.296875 8.78125 -1.0625 8.90625 -3.234375 L 7 -3.234375 C 6.875 -2.03125 6.125 -1.34375 4.90625 -1.34375 C 3.40625 -1.34375 2.515625 -2.5625 2.515625 -4.625 C 2.515625 -6.71875 3.4375 -7.96875 4.984375 -7.96875 C 6.109375 -7.96875 6.75 -7.421875 7 -6.265625 Z M 8.859375 -6.265625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-1">
+<path d="M 2.6875 -9.484375 L 0.875 -9.484375 L 0.875 0 L 2.6875 0 Z M 2.6875 -9.484375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-2">
+<path d="M 6.8125 -0.21875 C 6.5 -0.515625 6.390625 -0.734375 6.390625 -1.078125 L 6.390625 -4.984375 C 6.390625 -6.40625 5.421875 -7.140625 3.515625 -7.140625 C 1.625 -7.140625 0.640625 -6.328125 0.515625 -4.703125 L 2.28125 -4.703125 C 2.359375 -5.4375 2.671875 -5.671875 3.5625 -5.671875 C 4.265625 -5.671875 4.609375 -5.4375 4.609375 -4.96875 C 4.609375 -4.734375 4.5 -4.53125 4.296875 -4.421875 C 4.0625 -4.296875 4.0625 -4.296875 3.15625 -4.140625 L 2.4375 -4.015625 C 1.046875 -3.78125 0.359375 -3.0625 0.359375 -1.8125 C 0.359375 -0.546875 1.203125 0.296875 2.5 0.296875 C 3.28125 0.296875 3.984375 -0.03125 4.625 -0.703125 C 4.625 -0.34375 4.671875 -0.203125 4.84375 0 L 6.8125 0 Z M 4.609375 -2.828125 C 4.609375 -1.765625 4.09375 -1.171875 3.171875 -1.171875 C 2.5625 -1.171875 2.1875 -1.5 2.1875 -2.015625 C 2.1875 -2.5625 2.46875 -2.828125 3.21875 -2.984375 L 3.84375 -3.09375 C 4.328125 -3.1875 4.40625 -3.21875 4.609375 -3.3125 Z M 4.609375 -2.828125 "/>
+</g>
+<g id="eps-svg-1-glyph-0-3">
+<path d="M 6.5625 -4.765625 C 6.53125 -6.234375 5.390625 -7.140625 3.515625 -7.140625 C 1.734375 -7.140625 0.625 -6.234375 0.625 -4.796875 C 0.625 -4.328125 0.765625 -3.921875 1.015625 -3.65625 C 1.265625 -3.40625 1.484375 -3.28125 2.15625 -3.0625 L 4.328125 -2.390625 C 4.78125 -2.25 4.9375 -2.109375 4.9375 -1.8125 C 4.9375 -1.390625 4.4375 -1.125 3.59375 -1.125 C 3.109375 -1.125 2.75 -1.203125 2.515625 -1.375 C 2.3125 -1.515625 2.234375 -1.65625 2.15625 -2.046875 L 0.375 -2.046875 C 0.421875 -0.5 1.5625 0.296875 3.6875 0.296875 C 4.671875 0.296875 5.40625 0.09375 5.921875 -0.328125 C 6.453125 -0.734375 6.765625 -1.390625 6.765625 -2.078125 C 6.765625 -2.984375 6.3125 -3.578125 5.375 -3.84375 L 3.078125 -4.515625 C 2.578125 -4.671875 2.4375 -4.765625 2.4375 -5.0625 C 2.4375 -5.453125 2.859375 -5.703125 3.5 -5.703125 C 4.375 -5.703125 4.796875 -5.390625 4.8125 -4.765625 Z M 6.5625 -4.765625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-4">
+</g>
+<g id="eps-svg-1-glyph-0-5">
+<path d="M 3.90625 -6.875 L 2.90625 -6.875 L 2.90625 -8.765625 L 1.078125 -8.765625 L 1.078125 -6.875 L 0.1875 -6.875 L 0.1875 -5.671875 L 1.078125 -5.671875 L 1.078125 -1.359375 C 1.078125 -0.25 1.65625 0.296875 2.859375 0.296875 C 3.28125 0.296875 3.578125 0.265625 3.90625 0.15625 L 3.90625 -1.125 C 3.734375 -1.09375 3.640625 -1.078125 3.5 -1.078125 C 3.015625 -1.078125 2.90625 -1.21875 2.90625 -1.84375 L 2.90625 -5.671875 L 3.90625 -5.671875 Z M 3.90625 -6.875 "/>
+</g>
+<g id="eps-svg-1-glyph-0-6">
+<path d="M 9.25 -5.09375 L 5.453125 -5.09375 L 5.453125 -3.46875 L 7.609375 -3.46875 C 7.546875 -2.9375 7.421875 -2.609375 7.140625 -2.28125 C 6.671875 -1.703125 5.9375 -1.359375 5.203125 -1.359375 C 3.609375 -1.359375 2.5 -2.75 2.5 -4.6875 C 2.5 -6.734375 3.484375 -7.96875 5.140625 -7.96875 C 5.828125 -7.96875 6.390625 -7.78125 6.828125 -7.390625 C 7.09375 -7.15625 7.234375 -6.9375 7.40625 -6.453125 L 9.25 -6.453125 C 9.015625 -8.40625 7.421875 -9.640625 5.140625 -9.640625 C 2.40625 -9.640625 0.546875 -7.625 0.546875 -4.671875 C 0.546875 -1.796875 2.421875 0.296875 4.984375 0.296875 C 6.25 0.296875 7.109375 -0.15625 7.84375 -1.21875 L 8.078125 0.03125 L 9.25 0.03125 Z M 9.25 -5.09375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-7">
+<path d="M 0.8125 -7.015625 L 0.8125 0 L 2.640625 0 L 2.640625 -4.21875 C 2.640625 -5.046875 3.21875 -5.59375 4.109375 -5.59375 C 4.890625 -5.59375 5.28125 -5.15625 5.28125 -4.328125 L 5.28125 0 L 7.09375 0 L 7.09375 -4.703125 C 7.09375 -6.265625 6.25 -7.140625 4.75 -7.140625 C 3.796875 -7.140625 3.15625 -6.796875 2.640625 -6 L 2.640625 -7.015625 Z M 0.8125 -7.015625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-8">
+<path d="M 6.78125 -4.390625 C 6.65625 -6.109375 5.53125 -7.140625 3.75 -7.140625 C 1.65625 -7.140625 0.4375 -5.765625 0.4375 -3.359375 C 0.4375 -1.046875 1.65625 0.296875 3.734375 0.296875 C 5.4375 0.296875 6.609375 -0.75 6.78125 -2.4375 L 5.046875 -2.4375 C 4.828125 -1.515625 4.453125 -1.171875 3.734375 -1.171875 C 2.8125 -1.171875 2.265625 -1.984375 2.265625 -3.359375 C 2.265625 -4.046875 2.390625 -4.65625 2.609375 -5.0625 C 2.828125 -5.453125 3.21875 -5.671875 3.75 -5.671875 C 4.484375 -5.671875 4.84375 -5.3125 5.046875 -4.390625 Z M 6.78125 -4.390625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-9">
+<path d="M 6.8125 -2.9375 C 6.828125 -3.09375 6.828125 -3.15625 6.828125 -3.25 C 6.828125 -3.953125 6.71875 -4.609375 6.546875 -5.09375 C 6.078125 -6.375 4.953125 -7.140625 3.53125 -7.140625 C 1.515625 -7.140625 0.28125 -5.6875 0.28125 -3.328125 C 0.28125 -1.078125 1.515625 0.296875 3.5 0.296875 C 5.0625 0.296875 6.34375 -0.578125 6.75 -1.96875 L 4.953125 -1.96875 C 4.734375 -1.421875 4.21875 -1.09375 3.5625 -1.09375 C 3.046875 -1.09375 2.625 -1.3125 2.359375 -1.703125 C 2.203125 -1.96875 2.125 -2.28125 2.109375 -2.9375 Z M 2.125 -4.140625 C 2.25 -5.21875 2.703125 -5.75 3.515625 -5.75 C 4.34375 -5.75 4.84375 -5.1875 4.921875 -4.140625 Z M 2.125 -4.140625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-10">
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 21.5 L 595.5 1.5 L 49.5 1.5 L 49.5 21.5 L 595.5 21.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 200 L 20 200 " transform="matrix(0.1, 0, 0, -0.1, 0, 22)"/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-0" x="67" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="76.386" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="80" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="87.228" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="94.456" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="101.684" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="105.298" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-5" x="112.526" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="116.855" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="120.469" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="127.697" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-6" x="131.311" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="141.425" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="145.039" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-7" x="152.267" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-8" x="160.21" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-9" x="167.438" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-10" x="174.666" y="17"/>
+</g>
+</svg></b><b></b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>Purpose</b></p>
+<p class="p16">An NSRulerView displays a ruler and markers above or to the side of an NSScrollView's document view. Views within the NSScrollView can become clients of the ruler view, having it display markers for their elements, and receiving messages from the ruler view when the user manipulates the markers.</p>
+<p class="p17"><br></p>
+<p class="p15"><b>Principal Attributes</b></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Displays markers that represent elements of the client view</p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Displays in arbitrary units</p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Provides for an accessory view containing extra controls</p>
+<p class="p17"><br></p>
+<p class="p15"><b>Creation</b></p>
+<p class="p18"><span class="s4">-</span> setHasHorizontalRuler: (NSScrollView)</p>
+<p class="p18"><span class="s4">-</span> setHasVerticalRuler: (NSScrollView)</p>
+<p class="p18"><span class="s4">-</span> initWithScrollView:orientation:<span class="Apple-tab-span">	</span>Designated initializer.<span class="Apple-converted-space"> </span></p>
+<p class="p19"><br></p>
+<p class="p15"><b>Commonly Used Methods</b></p>
+<p class="p18"><span class="s4">-</span> setClientView:<span class="Apple-tab-span">	</span>Changes the ruler's client view.</p>
+<p class="p18"><span class="s4">-</span> setMarkers:<span class="Apple-tab-span">	</span>Sets the markers displayed by the ruler view.</p>
+<p class="p18"><span class="s4">-</span> setAccessoryView:<span class="Apple-tab-span">	</span>Sets the accessory view.</p>
+<p class="p18"><span class="s4">-</span> trackMarker:withMouseEvent:<span class="Apple-tab-span">	</span>Allows the user to add a new marker.</p>
+<p class="p20"><br></p>
+<p class="p21"><b></b><br></p>
+<p class="p22"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="9pt" viewBox="0 0 597 9" role="img" aria-labelledby="eps-svg-2-title" data-source="NSRulerView.rtfd/AtaGlanceClose.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-2-title">AtaGlanceClose.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 7.5 L 595.5 0.25 L 49.5 0.25 L 49.5 7.5 L 595.5 7.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 20 L 20 20 " transform="matrix(0.1, 0, 0, -0.1, 0, 9)"/>
+</svg></b><b></b></p>
+<p class="p23"><b></b><br></p>
+<p class="p24"><b></b><br></p>
+<p class="p25"><b>Class Description</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p16">An NSRulerView resides in an NSScrollView, displaying a labeled ruler and markers for its client, the document view of the NSScrollView or a subview of the document view. The client view can add and remove markers representing its contents, such as graphic elements, margins, and text tabs. The NSRulerView tracks user manipulation of the markers and informs the client view of those actions. NSRulerView handles both horizontal and vertical rulers, which are tiled in the scroll view above and to the side of the content view, respectively. NSRulerViews are sometimes called simply <i>ruler views</i> or even <i>rulers</i>.</p>
+<p class="p27"><br></p>
+<p class="p16">A ruler view comprises three regions. First is the <i>ruler area</i>, where the ruler's baseline, hash marks, and labels are drawn. The ruler area is largely static, but it scales its hash marks to document view's coordinate system, and can display the hash marks in arbitrary units. The second region is the <i>marker area</i>, where ruler markers (NSRulerMarker objects) representing elements of the client view are displayed. This is a more dynamic area, changing with the selection and state of the client view. The final region is the <i>accessory view area</i>, which is by default not present but appears when you add an accessory view to the ruler view. An accessory view can contain additional controls for manipulating the ruler's client view, such as alignment buttons or a set of markers that can be dragged onto the ruler.</p>
+<p class="p27"><br></p>
+<p class="p16">A ruler view interacts with its client view in several ways. On appropriating the ruler view, the client view usually sets it up according to its needs. The client view can also dynamically update the ruler view's markers as its layout changes. In its turn, the ruler view informs the client view of actions the user takes on the ruler markers, allowing the client view to approve or limit the actions and to update its state based on the results of the actions.</p>
+<p class="p27"><br></p>
+<p class="p16">The appearance of a ruler is based on both the document view and the client view. The document view, as the backdrop within the scroll view, serves as the canvas on which any client views are laid. Because of the document view's anchoring role, a ruler always draws its hash marks and labels relative to the document view's coordinate system. A vertical ruler also checks whether the document view is flipped and acts accordingly. However, the ruler view treats subviews of the document view as items laid out within the coordinate system defined by the document view, and so doesn't change its hash marks when a client view other than the document view is moved or scaled. For the client view's convenience it does, however, express marker locations in the client view's coordinate system. A few other operations that ruler views perform are defined in terms of the ruler's own coordinate system. The discussion of a feature or method makes clear which coordinate system applies. For reference, this table summarizes all of the coordinate systems involved in using ruler views, and the operations based on them:</p>
+<p class="p27"><br></p>
+<p class="p28"><b>Coordinate System<span class="Apple-tab-span">	</span>Used for</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p30">Client view<span class="Apple-tab-span">	</span>Marker locations</p>
+<p class="p30">Document view<span class="Apple-tab-span">	</span>Calculating hash marks based on measurement units and scaling,</p>
+<p class="p30"><span class="Apple-tab-span">	</span>origin offset for zero marks</p>
+<p class="p30">Ruler view<span class="Apple-tab-span">	</span>Temporary rulerlines, component layout</p>
+<p class="p30">Marker image<span class="Apple-tab-span">	</span>Image origin (which locates the image relative to the marker location)</p>
+<p class="p31"><br></p>
+<p class="p32"><br></p>
+<p class="p33"><b>Measurement Units</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16">A new ruler view automatically uses the user's preferred measurement units for drawing hash marks and labels, as stored in the user defaults system under the key “NSMeasurementUnit”. If your application allows the user to change his preferred measurement units, you can change them at run time using <b>setMeasurementUnits:</b>, which<b> </b>takes the name of the units to use, such as “Inches” or “Centimeters”, and causes the ruler view to use that unit definition in spacing its hash marks and labels.</p>
+<p class="p27"><br></p>
+<p class="p16">NSRulerView supports the units Inches, Centimeters, Points, and Picas by default. If your application uses other measurement units, your application should define and register them before creating any ruler views. To do, use the class method <b>registerUnitWithName:abbreviation:unitsToPointsConversionFactor: stepUpCycle:stepDownCycle:</b>. Your application can register these wherever it's most convenient, such as in the NSApplication delegate method <b>applicationDidFinishLaunching:</b>. This code fragment registers a new unit called Grummets, with the abbreviation gt:</p>
+<p class="p27"><br></p>
+<p class="p36">NSArray *upArray;</p>
+<p class="p36">NSArray *downArray;</p>
+<p class="p37"><br></p>
+<p class="p36">upArray = [NSArray arrayWithObjects:[NSNumber numberWithFloat:2.0], nil];</p>
+<p class="p36">downArray = [NSArray arrayWithObjects:[NSNumber numberWithFloat:0.5],</p>
+<p class="p36"><span class="Apple-converted-space">    </span>[NSNumber numberWithFloat:0.2], nil];</p>
+<p class="p36">[NSRulerView registerUnitWithName:@"Grummets"</p>
+<p class="p36"><span class="Apple-converted-space">    </span>abbreviation:NSLocalizedString(@"gt", @"Grummets abbreviation string")</p>
+<p class="p36"><span class="Apple-converted-space">    </span>unitToPointsConversionFactor:100.0</p>
+<p class="p36"><span class="Apple-converted-space">    </span>stepUpCycle:upArray stepDownCycle:downArray];</p>
+<p class="p38"><br></p>
+<p class="p16">A Grummet is 100.0 PostScript units (points) in length, so a ruler view using it draws a major hash mark every 100.0 points when its document view is unscaled. If the document view is scaled, the ruler view spaces its hash marks accordingly.</p>
+<p class="p27"><br></p>
+<p class="p16">The step-up and step-down cycles control how hash marks are drawn for fractions and multiples of units. NSRulerView attempts to place hash marks so that they're neither too crowded nor too sparse based on the current scale of the document view. It does so by drawing smaller hash marks for fractions of units where possible, and by removing hash marks for whole units where necessary.</p>
+<p class="p27"><br></p>
+<p class="p16">The step-down cycle determines the fractional units checked by the ruler view. For example, with the unit Grummets defined above, the step down cycle is 0.5, then 0.2. With this cycle, the ruler view first checks to see if there's room for marks every half Grummet, placing them if there is. Then, it checks every fifth of the remaining space, or a tenth of a full Grummet, placing further hash marks there if there's room. Then it returns to the first step in the cycle to further subdivide the ruler, and so on.</p>
+<p class="p27"><br></p>
+<p class="p16">The step-up cycle determines how many full unit marks get dropped when there isn't room for each one. The example uses a single-step cycle of 2.0, which means that each second Grommet's hash mark is displayed if there isn't room for every one, then every fourth if there still isn't room, and so on.</p>
+<p class="p27"><br></p>
+<p class="p39"><br></p>
+<p class="p33"><b>Preparing a Ruler View for Use</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16">Adding a ruler view to a scroll view can be as simple as invoking NSScrollView's <b>setHasHorizontalRuler:</b> and <b>setHasVerticalRuler:</b> methods. These create instances of the default ruler view class, which you can change using the NSScrollView class method <b>setRulerViewClass:</b>. You can also set ruler views directly on a per-instance basis using <b>setHorizontalRulerView:</b> and <b>setVerticalRulerView:</b>. Once you've added rulers to a scroll view, you can hide and reveal them using <b>setRulersVisible:</b>.</p>
+<p class="p27"><br></p>
+<p class="p16">Beyond creating the rulers, you need take only a few steps to set them up properly for use by the views contained within the scroll view: locating the zero marks of the rulers, and reserving room for accessory views. You normally perform these steps only once, when setting up the NSScrollView with rulers. However, if you allow the user to reset document attributes such as margins, you should change the zero mark locations as well. Also, if you reuse the scroll view by swapping in a new document view you may need to set up the rulers again with different settings.</p>
+<p class="p27"><br></p>
+<p class="p16">The first step is to determine where you want the zero marks of the rulers to be located relative to the bounds origin of the document view. The zero marks are coincident with the bounds origin by default, but you can change this with the method <b>setOriginOffset:</b>. This method takes an offset specified in the document view's coordinate system. If you need to set the origin offset based on a point in a subview of the document view, such as a text view that's inset on a page, use <b>convertPoint:fromView:</b> to realize it in the document view's coordinate system. This code fragment places the zero marks at the bounds origin of a client view, which lies somewhere inside the document view:</p>
+<p class="p27"><br></p>
+<p class="p36">zero = [docView convertPoint:[clientView bounds].origin fromView:clientView];</p>
+<p class="p36">[horizRuler setOriginOffset:zero.x - [docView bounds].origin.x];</p>
+<p class="p38"><br></p>
+<p class="p16">After placing the zero marks, you should set up your rulers so that they don't change in size as the user works within the document view. For example, if two different subviews of the document view use different accessory views, the ruler view enlarges itself as necessary each time you change the accessory view. Such changes are at best unsightly and at worst confusing to the user. To avoid this problem, calculate ahead of time the sizes of the largest accessory view and the largest markers, and set the ruler view's required thickness for these elements using <b>setReservedThicknessForAccessoryView:</b> and <b>setReservedThicknessForMarkers:</b>. For example, if you have two accessory views for the horizontal ruler, one 16.0 PostScript units high and the other 24.0, invoke <b>setReservedThicknessForAccessoryView:</b> with an argument of 24.0.</p>
+<p class="p27"><br></p>
+<p class="p39"><br></p>
+<p class="p33"><b>Changing the Client</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16">Once the ruler view is fully set up, the scroll view's document view, or any subview of the document view, can become its client by sending it a <b>setClientView:</b> message. This method notifies the prior client that it's losing the ruler view using the <b>rulerView:willSetClientView:</b> method, removes all of the ruler view's markers, and sets the new client view. A client view normally appropriates the ruler when it becomes first responder and keeps it until some other view appropriates it. After appropriating the ruler view, the client needs to set up its layout and markers.</p>
+<p class="p27"><br></p>
+<p class="p39"><br></p>
+<p class="p15"><b>Adjusting the Layout</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16">If the client has a custom accessory view, it sets that using <b>setAccessoryView:</b>. Clients without accessory views should avoid removing the ruler view's accessory view when appropriating the ruler, as this can cause unsightly screen flicker as the ruler is redrawn. It's better in this case for a client view that has an accessory view to implement <b>rulerView:willSetClientView:</b>, disabling the controls in the accessory view so that they're not active when other clients are using the ruler. Then, when the client view with the accessory view appropriates the ruler, it should set its accessory view again in case another client swapped the accessory view out, and reenable the controls.</p>
+<p class="p27"><br></p>
+<p class="p39"><br></p>
+<p class="p15"><b>Setting Ruler Markers</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16">Aside from the layout of the ruler view itself, the client can also add markers to indicate the positions of its graphic elements, such as tabs and margins in text or the bounding boxes of drawn shapes or images. Each marker is an NSRulerMarker object, which displays a graphic image on the ruler at its given location, and can be associated with an object that identifies the attribute indicated by the marker. You initialize an NSRulerMarker using its <b>initWithRulerView:markerLocation:image:imageOrigin:</b> method, which takes as arguments the NSRulerView where the marker will be displayed, its location on the ruler in the client view's coordinate system, the image to display, and the point within the image that lies on the ruler's baseline. Once you've created the markers, you can use NSRulerView's <b>addMarker:</b> or <b>setMarkers:</b> methods to put them on the ruler. This code fragment, for example, sets up markers denoting the left and right edges of the selected object's frame rectangle:</p>
+<p class="p27"><br></p>
+<p class="p36">NSRulerMarker *leftMarker;</p>
+<p class="p36">NSRulerMarker *rightMarker;</p>
+<p class="p37"><br></p>
+<p class="p36">leftMarker = [[NSRulerMarker alloc] initWithRulerView:horizRuler</p>
+<p class="p36"><span class="Apple-converted-space">    </span>markerLocation:NSMinX([selectedItem frame]) image:leftImage</p>
+<p class="p36"><span class="Apple-converted-space">    </span>imageOrigin:NSMakePoint(0.0, 0.0)];</p>
+<p class="p37"><br></p>
+<p class="p36">rightMarker = [[NSRulerMarker alloc] initWithRulerView:horizRuler</p>
+<p class="p36"><span class="Apple-converted-space">    </span>markerLocation:NSMaxX([selectedItem frame]) image:rightImage</p>
+<p class="p36"><span class="Apple-converted-space">    </span>imageOrigin:NSMakePoint(8.0, 0.0)];</p>
+<p class="p37"><br></p>
+<p class="p36">[horizRuler setMarkers:[NSArray arrayWithObjects:leftMarker, rightMarker, nil]];</p>
+<p class="p38"><br></p>
+<p class="p16">The images used for this example are 8 pixels square, and lie just inside of their relevant positions. The figure below shows the left and right marker images, enlarged and with gray bounding boxes. Thus, the left marker's image must be placed with its lower left corner, or (0.0, 0.0), at the marker location, while the lower right corner of the right marker, at (8.0, 0.0), is used. The image origin is always expressed in the coordinate system of the image itself, just as an NSCursor's hot spot is.</p>
+<p class="p27"><br></p>
+<p class="p39"><br></p>
+<p class="p40"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300pt" height="126pt" viewBox="0 0 300 126" role="img" aria-labelledby="eps-svg-3-title" data-source="NSRulerView.rtfd/NSRulerView-MarkerImageOrigin.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-3-title">NSRulerView-MarkerImageOrigin.eps</title><defs>
+<g>
+<g id="eps-svg-3-glyph-0-0">
+<path d="M 3.296875 -8.671875 C 2.515625 -8.671875 1.78125 -8.3125 1.34375 -7.734375 C 0.796875 -6.953125 0.515625 -5.8125 0.515625 -4.203125 C 0.515625 -1.265625 1.46875 0.28125 3.296875 0.28125 C 5.09375 0.28125 6.078125 -1.265625 6.078125 -4.125 C 6.078125 -5.8125 5.8125 -6.9375 5.25 -7.734375 C 4.8125 -8.328125 4.109375 -8.671875 3.296875 -8.671875 Z M 3.296875 -7.734375 C 4.4375 -7.734375 5 -6.578125 5 -4.21875 C 5 -1.75 4.453125 -0.59375 3.28125 -0.59375 C 2.15625 -0.59375 1.59375 -1.796875 1.59375 -4.1875 C 1.59375 -6.578125 2.15625 -7.734375 3.296875 -7.734375 Z M 3.296875 -7.734375 "/>
+</g>
+<g id="eps-svg-3-glyph-0-1">
+<path d="M 2.296875 -1.25 L 1.046875 -1.25 L 1.046875 0 L 2.296875 0 Z M 2.296875 -1.25 "/>
+</g>
+<g id="eps-svg-3-glyph-0-2">
+<path d="M 1.046875 -1.25 L 1.046875 0 L 1.765625 0 L 1.765625 0.21875 C 1.765625 1.046875 1.609375 1.28125 1.046875 1.3125 L 1.046875 1.765625 C 1.84375 1.78125 2.296875 1.21875 2.296875 0.1875 L 2.296875 -1.25 Z M 1.046875 -1.25 "/>
+</g>
+<g id="eps-svg-3-glyph-0-3">
+</g>
+<g id="eps-svg-3-glyph-0-4">
+</g>
+<g id="eps-svg-3-glyph-0-5">
+<path d="M 4.6875 -4.578125 C 5.578125 -5.109375 5.859375 -5.546875 5.859375 -6.359375 C 5.859375 -7.734375 4.8125 -8.671875 3.296875 -8.671875 C 1.796875 -8.671875 0.75 -7.734375 0.75 -6.375 C 0.75 -5.546875 1.015625 -5.125 1.890625 -4.578125 C 0.921875 -4.078125 0.4375 -3.375 0.4375 -2.40625 C 0.4375 -0.828125 1.609375 0.28125 3.296875 0.28125 C 4.984375 0.28125 6.15625 -0.828125 6.15625 -2.40625 C 6.15625 -3.375 5.671875 -4.078125 4.6875 -4.578125 Z M 3.296875 -7.734375 C 4.203125 -7.734375 4.78125 -7.203125 4.78125 -6.34375 C 4.78125 -5.515625 4.1875 -4.984375 3.296875 -4.984375 C 2.40625 -4.984375 1.828125 -5.515625 1.828125 -6.359375 C 1.828125 -7.203125 2.40625 -7.734375 3.296875 -7.734375 Z M 3.296875 -4.09375 C 4.359375 -4.09375 5.078125 -3.390625 5.078125 -2.390625 C 5.078125 -1.34375 4.375 -0.65625 3.28125 -0.65625 C 2.25 -0.65625 1.53125 -1.375 1.53125 -2.375 C 1.53125 -3.40625 2.234375 -4.09375 3.296875 -4.09375 Z M 3.296875 -4.09375 "/>
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(66.796875%, 66.796875%, 66.796875%)" fill-opacity="1" d="M 288 1 L 288 97 L 192 97 L 192 1 L 288 1 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 284 5 L 284 93 L 196 93 L 196 5 L 284 5 "/>
+<path fill-rule="nonzero" fill="rgb(66.796875%, 66.796875%, 66.796875%)" fill-opacity="1" d="M 108 1 L 108 97 L 12 97 L 12 1 L 108 1 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 104 5 L 104 93 L 16 93 L 16 5 L 104 5 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 24 97 L 24 85 L 12 85 L 12 97 L 24 97 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 36 85 L 36 73 L 12 73 L 12 85 L 36 85 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 48 73 L 48 61 L 12 61 L 12 73 L 48 73 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 60 61 L 60 49 L 12 49 L 12 61 L 60 61 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 72 49 L 72 37 L 12 37 L 12 49 L 72 49 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 84 37 L 84 25 L 12 25 L 12 37 L 84 37 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 96 25 L 96 13 L 12 13 L 12 25 L 96 25 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 108 13 L 108 1 L 12 1 L 12 13 L 108 13 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 276 97 L 276 85 L 288 85 L 288 97 L 276 97 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 264 85 L 264 73 L 288 73 L 288 85 L 264 85 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 252 73 L 252 61 L 288 61 L 288 73 L 252 73 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 240 61 L 240 49 L 288 49 L 288 61 L 240 61 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 228 49 L 228 37 L 288 37 L 288 49 L 228 49 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 216 37 L 216 25 L 288 25 L 288 37 L 216 37 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 204 25 L 204 13 L 288 13 L 288 25 L 204 25 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 192 13 L 192 1 L 288 1 L 288 13 L 192 13 "/>
+<g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
+<use xlink:href="#eps-svg-3-glyph-0-0" x="12" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-1" x="18.672" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-0" x="22.008" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="28.68" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-3" x="32.016" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-0" x="35.352" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-1" x="42.024" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-0" x="45.36" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-4" x="52.032" y="124"/>
+</g>
+<g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
+<use xlink:href="#eps-svg-3-glyph-0-5" x="247.968" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-1" x="254.64" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-0" x="257.976" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="264.648" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-3" x="267.984" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-0" x="271.32" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-1" x="277.992" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-0" x="281.328" y="124"/>
+<use xlink:href="#eps-svg-3-glyph-0-4" x="288" y="124"/>
+</g>
+<path fill="none" stroke-width="20" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 2880 192.5 L 2880 117.5 " transform="matrix(0.1, 0, 0, -0.1, 0, 126)"/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 288 100 L 285.75 109 L 288 108 L 290.25 109 L 288 100 "/>
+<path fill="none" stroke-width="20" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 120 192.5 L 120 117.5 " transform="matrix(0.1, 0, 0, -0.1, 0, 126)"/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 12 100 L 9.75 109 L 12 108 L 14.25 109 L 12 100 "/>
+</svg></p>
+<p class="p41"><br></p>
+<p class="p42"><br></p>
+<p class="p16">A new NSRulerMarker allows the user to drag it around on its ruler, but not to remove it. You can change these defaults by sending it <b>setMovable:</b> and <b>setRemovable:</b> messages. For example, you might make markers representing tabs in text removable to allow the user to edit the paragraph settings.</p>
+<p class="p27"><br></p>
+<p class="p16">Markers bear one additional attribute, which allows you to distinguish among multiple markers, specifically markers that share the same image. This is the <i>represented object</i>, set with NSRulerMarker's <b>setRepresentedObject:</b> method. A represented object can simply be a string identifying a generic attribute, such as “Left Margin” or “Right Margin”. It can also be an object stored in the client view or in the selection; for example, the OPENSTEP text system records tab stops as NSTextTab objects, which include the tab location and its alignment. When the user manipulates a tab marker, the client can simply retrieve its represented object to get the tab being affected.</p>
+<p class="p27"><br></p>
+<p class="p39"><br></p>
+<p class="p33"><b>Updating the Ruler View</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16">A single client view may contain many selectable items, such as graphic shapes or paragraphs of text with different ruler settings. When the selection changes, the client must reset the ruler view's markers based on the new selection. This kind of updating is fairly straightforward and can be performed as described above for situations where the client view itself changes.</p>
+<p class="p27"><br></p>
+<p class="p16">Another kind of updating is needed when you wish to support dynamic updating of ruler markers as the user manipulates the elements of the client view. For example, when the user moves a shape, you want the ruler markers to relocate when the user finishes moving it. Any method that changes relevant attributes of the selection should update the ruler markers, whether by replacing them wholesale or by checking each one present and updating its location.</p>
+<p class="p27"><br></p>
+<p class="p16">You can even put such updating code within a modal loop that handles dragging items around in the client view, so that the markers track the position of the selected item. This can be a fairly heavyweight operation to perform while also handling movement of the selected item, however. In support of a lighter weight means of showing this information, NSRulerView allows you to draw temporary <i>rulerlines</i> that can be drawn and erased very quickly. One method, <b>moveRulerlineFromLocation:toLocation:</b>, controls the drawing of rulerlines. It takes two locations expressed in the NSRulerView's coordinate system, erasing the rulerline at the old location and redrawing it at the new. To create a new rulerline, specify <span class="s4">-</span>1.0 as the old location; to erase one completely, specify <span class="s4">-</span>1.0 as the new location. Although you're responsible for keeping track of the locations to erase and redraw, this isn't as cumbersome or inefficient as sifting through or replacing the markers themselves.</p>
+<p class="p27"><br></p>
+<p class="p39"><br></p>
+<p class="p33"><b>User Manipulation of Markers</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16">While a ruler's client view must perform the work of determining marker locations and placing them on the ruler, the ruler itself handles all the work of tracking user manipulations of the markers, sending messages to the client view that inform it of the changes before they begin, as they occur, and after they finish. The client view can use these messages to update its own state. The following sections describe the individual processes of moving, removing, and adding markers, along with a special method for handling mouse events in the ruler area.</p>
+<p class="p27"><br></p>
+<p class="p39"><br></p>
+<p class="p15"><b>Moving Markers</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16">When the user presses the mouse button over a ruler marker, NSRulerView sends the marker a <b>trackMouse:adding:</b> message. If the marker isn't movable this method does nothing and immediately returns NO. If it is movable, then it sends the client a series of messages allowing it to determine how the user can move the marker around on the ruler.</p>
+<p class="p27"><br></p>
+<p class="p16">First of these messages is <b>rulerView:shouldMoveMarker:</b>, which allows the client view to prevent an otherwise movable marker from being moved. Normally, whether a marker can be moved should be set on the marker itself, but there are situations, such as where items can be locked in place, where this is more properly tracked by the client view instead. If the client view returns YES, allowing the movement, then it receives a series of <b>rulerView:willMoveMarker:toLocation:</b> messages as the user drags the marker around. Each message identifies the marker being moved and its proposed new location in the client view's coordinate system. The client view can return an altered location to restrict the marker's movement, or update its display to reflect the new location. Finally, when the user releases the mouse button, the client receives a <b>rulerView:didMoveMarker:</b>, on which it can update its state and clean up any information it may have used while tracking the marker's movements.</p>
+<p class="p27"><br></p>
+<p class="p39"><br></p>
+<p class="p15"><b>Removing Markers</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16">Removal of markers is handled by a similar set of messages. However, these are always sent during a movement operation, as the user must first be dragging a marker within the ruler to be able to drag it off the ruler. If a marker isn't set to be removable, the user simply can't drag it off. If the marker is removable, then when the user drags the mouse far enough away from the ruler's baseline, it sends the client view a <b>rulerView:shouldRemoveMarker:</b> message, allowing the client to approve or veto the removal. No messages are necessary for new locations, of course, but if the user returns the marker to the ruler then it resumes sending <b>rulerView:willMoveMarker:toLocation:</b> messages as before. If the user releases the mouse with the marker dragged away from the ruler, the marker sends the client view a <b>rulerView:didRemoveMarker:</b> message, so the user can delete the item or attribute represented by the marker.</p>
+<p class="p27"><br></p>
+<p class="p39"><br></p>
+<p class="p15"><b>Adding Markers</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16">User addition of a marker must be initiated by the application, of course, since there is no marker yet for the ruler to track. The first step in adding a marker, then, is to create one, using NSRulerMarker's <b>initWithRulerView:markerLocation:image:imageOrigin:</b> method. Once the new marker is created, you instruct the ruler view to handle dragging it onto itself by sending it a <b>trackMarker:withMouseEvent:</b> message. One means of doing this is to use the mouse event from the client view method <b>rulerView:handleMouseDown:</b>, as described below under “Handling Mouse Events in the Ruler Area.” Another is to create a custom view object—which typically resides in the ruler's accessory view—that displays prototype markers, and that handles a mouse-down event by creating a new marker for the ruler and invoking <b>trackMarker:withMouseEvent:</b> with the new marker and that mouse-down event.</p>
+<p class="p27"><br></p>
+<p class="p16">Once you've initiated the addition process, things proceed in the same manner as for moving a marker. The ruler view sends the new marker a <b>trackMouse:adding:</b> message, with YES as the second argument to indicate that the marker isn't merely being moved. The marker being added then sends the client view a <b>rulerView:shouldAddMarker:</b> message, and if the client approves then it repeatedly sends <b>rulerView:willAddMarker:atLocation:</b> messages as the user moves the marker around on the ruler. The user can drag the marker away to avoid adding it, or release the mouse button over the ruler, in which case the client receives a <b>rulerView:didAddMarker:</b> message.</p>
+<p class="p27"><br></p>
+<p class="p16">As with moving a marker, you should consider enabling and disabling in a more immediate fashion than by the client view method if possible. If the user shouldn't be able to drag a marker from the accessory view, for example, the view containing the prototype marker should disable itself and indicate this in its appearance, rather than allowing the user to drag a marker out only to discover that the ruler won't accept it.</p>
+<p class="p27"><br></p>
+<p class="p39"><br></p>
+<p class="p15"><b>Handling Mouse Events in the Ruler Area</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16">In addition to handling user manipulation of markers, a ruler informs its client view when the user presses the mouse button while the mouse is inside the ruler area (where hash marks are drawn), by sending it a <b>rulerView:handleMouseDown:</b> message. This allows the client view to take some special action, such as adding a new marker to the ruler, as described above. This approach works well when it's quite clear what kind of marker will be created. The client view can also use this message as a cue to change its display in some way; for example to add or remove a guideline that assists the user in laying out and aligning items in the view.</p>
+<p class="p27"><br></p>
+<p class="p43"><br></p>
+<p class="p44"><b>Method Types</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p45">Creating instances<span class="Apple-tab-span">	</span><span class="s4">-</span> initWithScrollView:orientation:</p>
+<p class="p46"><br></p>
+<p class="p45">Altering measurement units<span class="Apple-tab-span">	</span>+ registerUnitWithName:abbreviation:</p>
+<p class="p47">unitToPointsConversionFactor:</p>
+<p class="p47">stepUpCycle:stepDownCycle:</p>
+<p class="p48"><span class="s4">-</span> setMeasurementUnits:</p>
+<p class="p48"><span class="s4">-</span> measurementUnits</p>
+<p class="p49"><br></p>
+<p class="p45">Setting the client view<span class="Apple-tab-span">	</span><span class="s4">-</span> setClientView:</p>
+<p class="p48"><span class="s4">-</span> clientView</p>
+<p class="p49"><br></p>
+<p class="p45">Setting an accessory view<span class="Apple-tab-span">	</span><span class="s4">-</span> setAccessoryView:</p>
+<p class="p48"><span class="s4">-</span> accessoryView</p>
+<p class="p49"><br></p>
+<p class="p45">Setting the zero mark position<span class="Apple-tab-span">	</span><span class="s4">-</span> setOriginOffset:</p>
+<p class="p48"><span class="s4">-</span> originOffset</p>
+<p class="p49"><br></p>
+<p class="p45">Adding and removing markers<span class="Apple-tab-span">	</span><span class="s4">-</span> setMarkers:</p>
+<p class="p48"><span class="s4">-</span> markers</p>
+<p class="p48"><span class="s4">-</span> addMarker:</p>
+<p class="p48"><span class="s4">-</span> removeMarker:</p>
+<p class="p48"><span class="s4">-</span> trackMarker:withMouseEvent:</p>
+<p class="p49"><br></p>
+<p class="p45">Drawing temporary rulerlines<span class="Apple-tab-span">	</span><span class="s4">-</span> moveRulerlineFromLocation:toLocation:</p>
+<p class="p46"><br></p>
+<p class="p45">Drawing<span class="Apple-tab-span">	</span><span class="s4">-</span> drawHashMarksAndLabelsInRect:</p>
+<p class="p48"><span class="s4">-</span> drawMarkersInRect:</p>
+<p class="p48"><span class="s4">-</span> invalidateHashMarks</p>
+<p class="p49"><br></p>
+<p class="p45">Ruler layout<span class="Apple-tab-span">	</span><span class="s4">-</span> setScrollView:</p>
+<p class="p48"><span class="s4">-</span> scrollView</p>
+<p class="p48"><span class="s4">-</span> setOrientation:</p>
+<p class="p48"><span class="s4">-</span> orientation</p>
+<p class="p48"><span class="s4">-</span> setReservedThicknessForAccessoryView:</p>
+<p class="p48"><span class="s4">-</span> reservedThicknessForAccessoryView</p>
+<p class="p48"><span class="s4">-</span> setReservedThicknessForMarkers:</p>
+<p class="p48"><span class="s4">-</span> reservedThicknessForMarkers</p>
+<p class="p48"><span class="s4">-</span> setRuleThickness:</p>
+<p class="p48"><span class="s4">-</span> ruleThickness</p>
+<p class="p48"><span class="s4">-</span> requiredThickness</p>
+<p class="p48"><span class="s4">-</span> baselineLocation</p>
+<p class="p48"><span class="s4">-</span> isFlipped</p>
+<p class="p50"><br></p>
+<p class="p44"><b>Class Methods</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b></b><b>registerUnitWithName:abbreviation:unitToPointsConversionFactor:</b></p>
+<p class="p33"><b>stepUpCycle:stepDownCycle:</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p52">+ (void)<b>registerUnitWithName:</b>(NSString *)<i>unitName</i></p>
+<p class="p53"><b>abbreviation:</b>(NSString *)<i>abbreviation</i></p>
+<p class="p53"><b>unitToPointsConversionFactor:</b>(float)<i>conversionFactor</i></p>
+<p class="p53"><b>stepUpCycle:</b>(NSArray *)<i>stepUpCycle</i></p>
+<p class="p53"><b>stepDownCycle:</b>(NSArray *)<i>stepDownCycle</i></p>
+<p class="p54"><i></i><br></p>
+<p class="p16">Registers a new unit of measurement with the NSRulerView class, making it available to all instances of NSRulerView. <i>unitName</i> is the name of the unit in English, in plural form and capitalized by convention; “Inches”, for example. The unit name is used as a key to identify the measurement units, and so shouldn't be localized. <i>abbreviation</i> is a localized short form of the unit name, such as “in” for Inches. <i>conversionFactor</i> is the number of PostScript points in the specified unit; there are 72.0 points per inch, for example. <i>stepUpCycle</i> and <i>stepDownCycle</i> are arrays of NSNumbers that specify how hash marks are calculated, as explained in the class description under “Preparing a Ruler View for Use.” All numbers in <i>stepUpCycle</i> should be greater than 1.0, those in <i>stepDownCycle</i> should be less than 1.0.</p>
+<p class="p27"><br></p>
+<p class="p16">NSRulerView supports these units by default:</p>
+<p class="p27"><br></p>
+<p class="p28"><b>Unit Name<span class="Apple-tab-span">	</span>Abbreviation<span class="Apple-tab-span">	</span>Points/Unit<span class="Apple-tab-span">	</span>Step-up Cycle<span class="Apple-tab-span">	</span>Step-down Cycle</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p30">Inches<span class="Apple-tab-span">	</span>in<span class="Apple-tab-span">	</span>72.0<span class="Apple-tab-span">	</span>2.0<span class="Apple-tab-span">	</span>0.5</p>
+<p class="p30">Centimeters<span class="Apple-tab-span">	</span>cm<span class="Apple-tab-span">	</span>28.35<span class="Apple-tab-span">	</span>2.0<span class="Apple-tab-span">	</span>0.5, 0.2</p>
+<p class="p30">Points<span class="Apple-tab-span">	</span>pt<span class="Apple-tab-span">	</span>1.0<span class="Apple-tab-span">	</span>10.0<span class="Apple-tab-span">	</span>0.5</p>
+<p class="p30">Picas<span class="Apple-tab-span">	</span>pc<span class="Apple-tab-span">	</span>12.0<span class="Apple-tab-span">	</span>10.0<span class="Apple-tab-span">	</span>0.5</p>
+<p class="p31"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setMeasurementUnits:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p57"><b></b><br></p>
+<p class="p44"><b>Instance Methods</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>accessoryView</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (NSView *)<b>accessoryView</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Returns the receiver's accessory view, if it has one.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s4">-</span> <b>setAccessoryView:</b>, <span class="s4">-</span> <b>reservedThicknessForAccessoryView:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>addMarker:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>addMarker:</b>(NSRulerMarker *)<i>aMarker</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Adds <i>aMarker</i> to the receiver, without consulting the client view for approval. Raises NSInternalInconsistencyException if the receiver has no client view.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setMarkers:</b>, <span class="s4">-</span> <b>removeMarker:</b>, <span class="s4">-</span> <b>markers</b>, <span class="s4">-</span> <b>trackMarker:withMouseEvent:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>baselineLocation</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (float)<b>baselineLocation</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Returns the location of the receiver's baseline, in its own coordinate system. This is a <i>y</i> position for horizontal rulers and an <i>x</i> position for vertical ones.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>ruleThickness</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>clientView</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (NSView *)<b>clientView</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Returns the receiver's client view, if it has one.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setClientView:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>drawHashMarksAndLabelsInRect:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>drawHashMarksAndLabelsInRect:</b>(NSRect)<i>aRect</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Draws the receiver's hash marks and labels in <i>aRect</i>, which is expressed in the receiver's coordinate system. This method is invoked by <b>drawRect:</b>—you should never need to invoke it directly. You can define custom measurement units using the class method <b>registerUnitWithName:...</b>. Override this method if you want to customize the appearance of the hash marks themselves.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>invalidateHashMarks</b>, <span class="s4">-</span> <b>drawMarkersInRect:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>drawMarkersInRect:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>drawMarkersInRect:</b>(NSRect)<i>aRect</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Draws the receiver's markers in <i>aRect</i>, which is expressed in the receiver's coordinate system. This method is invoked by <b>drawRect:</b>; you should never need to invoke it directly, but you might want to override it if you want to do something different when drawing markers.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>reservedThicknessForMarkers</b>, <span class="s4">-</span> <b>drawHashMarksAndLabelsInRect:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>initWithScrollView:orientation:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (id)<b>initWithScrollView:</b>(NSScrollView *)<i>aScrollView</i> <b>orientation:</b>(NSRulerOrientation)<i>orientation</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Initializes a newly allocated NSRulerView to have <i>orientation</i> (NSHorizontalRuler or NSVerticalRuler) within <i>aScrollView</i>. The new ruler view displays the user's preferred measurement units, and has no client, markers, or accessory view. Unlike most subclasses of NSView, no initial frame rectangle is given for NSRulerView; its containing NSScrollView adjusts its frame rectangle as needed.</p>
+<p class="p27"><br></p>
+<p class="p16">This is the designated initializer for the NSRulerView class. Returns <b>self</b>.</p>
+<p class="p27"><br></p>
+<p class="p61"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>invalidateHashMarks</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>invalidateHashMarks</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Forces recalculation of the hash mark spacing for the next time the receiver is displayed. You should never need to invoke this method directly, but might need to override it if you override <b>drawHashMarksAndLabelsInRect:</b>.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>drawHashMarksAndLabelsInRect:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>isFlipped</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (BOOL)<b>isFlipped</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Returns YES if the NSRulerView's coordinate system is flipped, NO otherwise. A vertical ruler takes into account whether the coordinate system of the NSScrollView's document view—<i>not</i> the receiver's client view—is flipped. A horizontal ruler is always flipped.</p>
+<p class="p27"><br></p>
+<p class="p61"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>markers</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (NSArray *)<b>markers</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Returns the receiver's NSRulerMarkers. The markers aren't guaranteed to be sorted in any particular order.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setMarkers:</b>, <span class="s4">-</span> <b>addMarker:</b>, <span class="s4">-</span> <b>removeMarker:</b>, <span class="s4">-</span> <b>markerLocation</b> (NSRulerMarker)</p>
+<p class="p56"><br></p>
+<p class="p60"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>measurementUnits</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (NSString *)<b>measurementUnits</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Returns the full name of the measurement units in effect for the receiver.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setMeasurementUnits:</b>, + <b>registerUnitWithName:...</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>moveRulerlineFromLocation:toLocation:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>moveRulerlineFromLocation:</b>(float)<i>oldLoc</i> <b>toLocation:</b>(float)<i>newLoc</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Draws temporary lines in the ruler area. If <i>oldLoc</i> is zero or greater, erases the rulerline at that location; if <i>newLoc</i> is zero or greater, draws a new rulerline at that location. <i>oldLoc</i> and <i>newLoc</i> are expressed in the coordinate system of the NSRulerView, <i>not</i> of the client or document view, and are <i>x</i> coordinates for horizontal rulers and <i>y</i> coordinates for vertical rulers. Use NSView's <b>convert...</b> methods to convert coordinates from the client or document view's coordinate system to that of the NSRulerView.</p>
+<p class="p27"><br></p>
+<p class="p16">This method is useful for drawing highlight lines in the ruler to show the position or extent of an object while it's being dragged in the client view. The sender is responsible for keeping track of the number and positions of temporary lines—the NSRulerView only does the drawing.</p>
+<p class="p27"><br></p>
+<p class="p61"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>orientation</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (NSRulerOrientation)<b>orientation</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Returns the orientation of the NSRulerView, either NSHorizontalRuler or NSVerticalRuler.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setOrientation:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>originOffset</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (float)<b>originOffset</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Returns the distance from the receiver's zero hash mark to the bounds origin of the NSScrollView's document view (<i>not</i> the receiver's client view), in the document view's coordinate system.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setOriginOffset:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>removeMarker:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>removeMarker:</b>(NSRulerMarker *)<i>aMarker</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Removes <i>aMarker</i> from the receiver, without consulting the client view for approval.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s4">-</span> <b>setMarkers:</b>, <span class="s4">-</span> <b>addMarker:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>requiredThickness</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (float)<b>requiredThickness</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Returns the thickness needed for proper tiling of the receiver within an NSScrollView. This is the height of a horizontal ruler and the width of a vertical ruler. The required thickness is the sum of the thicknesses of the ruler area, the marker area, and the accessory view.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>rulerThickness</b>, <span class="s4">-</span> <b>reservedThicknessForMarkers</b>, <span class="s4">-</span> <b>reservedThicknessForAccessoryView</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>reservedThicknessForAccessoryView</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (float)<b>reservedThicknessForAccessoryView</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Returns the thickness reserved to contain the receiver's accessory view, its height or width depending on the receiver's orientation. This is automatically enlarged as necessary to the accessory view's thickness (but never automatically reduced). To prevent retiling of a ruler view's scroll view, you should set its maximal thickness upon creating using <b>setReservedThicknessForAccessoryView:</b>.</p>
+<p class="p27"><br></p>
+<p class="p61"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>reservedThicknessForMarkers</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (float)<b>reservedThicknessForMarkers</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Returns the thickness reserved to contain the images of the receiver's ruler markers, the height or width depending on the receiver's orientation. This is automatically enlarged as necessary to accommodate the thickest ruler marker image (but never automatically reduced). To prevent retiling of a ruler view's scroll view, you should set its maximal thickness upon creating using <b>setReservedThicknessForMarkers:</b>.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>thicknessRequiredInRulerView</b> (NSRulerMarker)</p>
+<p class="p56"><br></p>
+<p class="p60"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>ruleThickness</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (float)<b>ruleThickness</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Returns the thickness of the receiver's ruler area (the area where hash marks and labels are drawn), its height or width depending on the receiver's orientation.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setRuleThickness:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>scrollView</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (NSScrollView *)<b>scrollView</b></p>
+<p class="p59"><b></b><br></p>
+<p class="p16">Returns the NSScrollView object that contains the receiver.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setScrollView:</b>, <span class="s4">-</span> <b>setHorizontalRuler:</b> (NSScrollView), <span class="s4">-</span> <b>setVerticalRuler:</b> (NSScrollView)</p>
+<p class="p56"><br></p>
+<p class="p60"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setAccessoryView:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>setAccessoryView:</b>(NSView *)<i>aView</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Sets the receiver's accessory view to <i>aView</i>. Raises an NSInternalInconsistencyException if <i>aView</i> is non-<b>nil</b> and the receiver has no client view.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>accessoryView</b>, <span class="s4">-</span> <b>reservedThicknessForAccessoryView</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setClientView:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>setClientView:</b>(NSView *)<i>aView</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Sets the receiver's client view to <i>aView</i>, without retaining it, and removes its ruler markers, after informing the prior client of the change using <b>rulerView:willSetClientView:</b>. <i>aView</i> must be either the document view of the NSScrollView that contains the receiver, or a subview of the document view.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>clientView</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setMarkers:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>setMarkers:</b>(NSArray *)<i>markers</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Sets the receiver's ruler markers to <i>markers</i>, removing any existing ruler markers and not consulting with the client view about the new markers. <i>markers</i> can be <b>nil</b> or empty to remove all ruler markers. Raises an NSInternalInconsistencyException if <i>markers</i> is non-<b>nil</b> and the receiver has no client view.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>addMarker:</b>, <span class="s4">-</span> <b>removeMarker:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setMeasurementUnits:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>setMeasurementUnits:</b>(NSString *)<i>unitName</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Sets the measurement units used by the ruler to <i>unitName</i>. <i>unitName</i> must have been registered with the NSRulerView class object prior to invoking this method. See the description of the class method <b>registerUnitWithName:...</b> for a list of predefined units.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>measurementUnits</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setOrientation:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>setOrientation:</b>(NSRulerOrientation)<i>orientation</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Sets the orientation of the receiver to <i>orientation</i>, which may be NSHorizontalRuler or NSVerticalRuler. You should never need to invoke this method directly—it's automatically invoked by the containing NSScrollView.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>orientation</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setOriginOffset:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>setOriginOffset:</b>(float)<i>offset</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Sets the distance to the zero hash mark from the bounds origin of the NSScrollView's document view (<i>not</i> of the receiver's client view), in the document view's coordinate system. The default offset is 0.0, meaning that the ruler origin coincides with the bounds origin of the document view.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>originOffset</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setReservedThicknessForAccessoryView:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>setReservedThicknessForAccessoryView:</b>(float)<i>thickness</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Sets the room available for the NSRulerView's accessory view to <i>thickness</i>. If the ruler is horizontal, <i>thickness</i> is the height of the accessory view; otherwise, it's the width. NSRulerViews by default reserve no space for an accessory view.</p>
+<p class="p27"><br></p>
+<p class="p16">An NSRulerView automatically increases the reserved thickness as necessary to that of the accessory view. When the accessory view is thinner than the reserved space, it's centered in that space. If you plan to use several accessory views of different sizes, you should set the reserved thickness beforehand to that of the thickest accessory view, in order to avoid retiling of the NSScrollView.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>reservedThicknessForAccessoryView</b>, <span class="s4">-</span> <b>setAccessoryView:</b>, <span class="s4">-</span> <b>setReservedThicknessForMarkers:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setReservedThicknessForMarkers:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>setReservedThicknessForMarkers:</b>(float)<i>thickness</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Sets the room available for ruler markers to <i>thickness</i>. The default thickness reserved for markers is 15.0 PostScript units for a horizontal ruler and 0.0 PostScript units for a vertical ruler (under the assumption that vertical rulers rarely contain markers). If you don't expect to have any markers on the ruler, you can set the reserved thickness<i> </i>to 0.0.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p16">An NSRulerView automatically increases the reserved thickness as necessary to that of its thickest marker. If you plan to use markers of varying sizes, you should set the reserved thickness beforehand to that of the thickest one in order to avoid retiling of the NSScrollView.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>reservedThicknessForMarkers</b>, <span class="s4">-</span> <b>setMarkers:</b>, <span class="s4">-</span> <b>setReservedThicknessForAccessoryView:</b>, <span class="s4">-</span> <b>thicknessRequiredInRulerView</b> (NSRulerMarker)</p>
+<p class="p56"><br></p>
+<p class="p60"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setRuleThickness:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>setRuleThickness:</b>(float)<i>thickness</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Sets to <i>thickness</i> the thickness of the area where ruler hash marks and labels are drawn. This value is the height of the ruler area for a horizontal ruler or the width of the ruler area for a vertical ruler. Rulers are by default 16.0 PostScript units thick. You should rarely need to change this layout attribute, but subclasses might do so to accommodate custom drawing.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>ruleThickness</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setScrollView:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>setScrollView:</b>(NSScrollView *)<i>scrollView</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Sets the NSScrollView that owns the receiver to <i>scrollView</i>, without retaining it. This method is generally invoked only by the ruler's scroll view; you should rarely need to invoke it directly.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>scrollView</b>, <span class="s4">-</span> <b>setHorizontalRuler:</b> (NSScrollView), <span class="s4">-</span> <b>setVerticalRuler:</b> (NSScrollView)</p>
+<p class="p56"><br></p>
+<p class="p60"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>trackMarker:withMouseEvent:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (BOOL)<b>trackMarker:</b>(NSRulerMarker *)<i>aMarker</i> <b>withMouseEvent:</b>(NSEvent *)<i>theEvent</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Tracks the mouse to add <i>aMarker</i> based on the initial mouse-down or mouse-dragged event <i>theEvent</i>. Returns YES if the receiver adds <i>aMarker</i>, NO if it doesn't. This method works by sending <b>trackMouse:adding:</b> to <i>aMarker</i> with <i>theEvent</i> and YES as arguments.</p>
+<p class="p27"><br></p>
+<p class="p16">An application typically invokes this method in one of two cases. In the simpler case, the client view can implement <b>rulerView:handleMouseDown:</b> to invoke this method when the user presses the mouse button in the NSRulerView's ruler area. This technique is appropriate when it's clear what kind of marker will be added by clicking in the ruler area. The second, more general, case involves the application providing a palette of different kinds of markers that can be dragged onto the ruler, from the ruler's accessory view or from some other place. With this technique the palette tracks the mouse until it enters the ruler view, at which time it hands over control to the ruler view by invoking <b>trackMarker:withMouseEvent:</b>.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>addMarker:</b>, <span class="s4">-</span> <b>setMarkers:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p62"><b></b><br></p>
+<p class="p44"><b>Methods Implemented by the NSRulerView's Client</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerView:didAddMarker:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>rulerView:</b>(NSRulerView *)<i>aRulerView</i> <b>didAddMarker:</b>(NSRulerMarker *)<i>aMarker</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Informs the client that <i>aRulerView</i> allowed the user to add <i>aMarker</i>. The client can take whatever action it needs based on this message, such as adding a new tab stop to the selected paragraph or creating a layout guideline.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>representedObject</b> (NSRulerMarker), <span class="s4">-</span> <b>markerLocation</b> (NSRulerMarker)</p>
+<p class="p56"><br></p>
+<p class="p60"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerView:didMoveMarker:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>rulerView:</b>(NSRulerView *)<i>aRulerView</i> <b>didMoveMarker:</b>(NSRulerMarker *)<i>aMarker</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Informs the client that <i>aRulerView</i> allowed the user to move <i>aMarker</i>. The client can take whatever action it needs based on this message, such as updating the location of a tab stop in the selected paragraph, moving a layout guideline, or resizing a graphic element.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>representedObject</b> (NSRulerMarker), <span class="s4">-</span> <b>markerLocation</b> (NSRulerMarker)</p>
+<p class="p56"><br></p>
+<p class="p60"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerView:didRemoveMarker:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>rulerView:</b>(NSRulerView *)<i>aRulerView</i> <b>didRemoveMarker:</b>(NSRulerMarker *)<i>aMarker</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Informs the client that <i>aRulerView</i> allowed the user to remove <i>aMarker</i>. The client can take whatever action it needs based on this message, such as deleting a tab stop from the paragraph style or removing a layout guideline.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>representedObject</b> (NSRulerMarker)</p>
+<p class="p56"><br></p>
+<p class="p60"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerView:handleMouseDown:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>rulerView:</b>(NSRulerView *)<i>aRulerView</i> <b>handleMouseDown:</b>(NSEvent *)<i>theEvent</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Informs the client that the user has pressed the mouse button while the cursor is in the ruler area of <i>aRulerView</i>. <i>theEvent</i> is the mouse-down event that triggered the message. The client view can implement this method to perform an action such as adding a new marker using <b>trackMarker:withMouseEvent:</b> or adding layout guidelines.</p>
+<p class="p27"><br></p>
+<p class="p61"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerView:shouldAddMarker:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (BOOL)<b>rulerView:</b>(NSRulerView *)<i>aRulerView</i> <b>shouldAddMarker:</b>(NSRulerMarker *)<i>aMarker</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Requests permission for <i>aRulerView</i> to add <i>aMarker</i>, an NSRulerMarker being dragged onto the ruler by the user. If the client returns YES then the ruler view accepts the new marker and begins tracking its movement; if the client returns NO then the ruler view refuses the new marker.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>rulerView:willAddMarker:atLocation:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerView:shouldMoveMarker:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (BOOL)<b>rulerView:</b>(NSRulerView *)<i>aRulerView</i> <b>shouldMoveMarker:</b>(NSRulerMarker *)<i>aMarker</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Requests permission for <i>aRulerView</i> to move <i>aMarker</i>. If the client returns YES then the ruler view allows the user to move the marker; if the client returns NO then the marker doesn't move.</p>
+<p class="p27"><br></p>
+<p class="p16">The user's ability to move a marker is typically set on the marker itself, using NSRulerMarker's <b>setMovable:</b> method. You should use this client view method only when the marker's movability can vary depending on a variable condition (for example, if graphic items can be locked down to prevent them from being inadvertently moved).</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>rulerView:willMoveMarker:toLocation:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerView:shouldRemoveMarker:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (BOOL)<b>rulerView:</b>(NSRulerView *)<i>aRulerView</i> <b>shouldRemoveMarker:</b>(NSRulerMarker *)<i>aMarker</i></p>
+<p class="p59"><i></i><br></p>
+<p class="p16">Requests permission for <i>aRulerView</i> to remove <i>aMarker</i>. If the client returns YES then the ruler view allows the user to remove the marker; if the client returns NO then the marker is kept pinned to the ruler's baseline. This message is sent as many times as needed while the user drags the marker.</p>
+<p class="p27"><br></p>
+<p class="p16">The user's ability to remove a marker is typically set on the marker itself, using NSRulerMarker's <b>setRemovable:</b> method. You should use this client view method only when the marker's removability can vary while the user drags it (for example, if the user must press the Shift key to remove a marker).</p>
+<p class="p27"><br></p>
+<p class="p61"><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerView:willAddMarker:atLocation:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (float)<b>rulerView:</b>(NSRulerView *)<i>aRulerView</i></p>
+<p class="p53"><b>willAddMarker:</b>(NSRulerMarker *)<i>aMarker</i></p>
+<p class="p53"><b>atLocation:</b>(float)<i>location</i></p>
+<p class="p54"><i></i><br></p>
+<p class="p16">Informs the client that <i>aRulerView</i> will add the new NSRulerMarker, <i>aMarker</i>. <i>location</i> is the marker's tentative new location, expressed in the client view's coordinate system. The value returned by the client view is actually used; the client can simply return <i>location</i> unchanged, or adjust it as needed. For example, it may snap the location to a grid. This message is sent repeatedly to the client as the user drags the marker.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>rulerView:willMoveMarker:toLocation:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerView:willMoveMarker:toLocation:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (float)<b>rulerView:</b>(NSRulerView *)<i>aRulerView</i></p>
+<p class="p53"><b>willMoveMarker:</b>(NSRulerMarker *)<i>aMarker</i></p>
+<p class="p53"><b>toLocation:</b>(float)<i>location</i></p>
+<p class="p54"><i></i><br></p>
+<p class="p16">Informs the client that <i>aRulerView</i> will move <i>aMarker</i>, an NSRulerMarker already on the ruler view. <i>location</i> is the marker's tentative new location, expressed in the client view's coordinate system. The value returned by the client view is actually used; the client can simply return <i>location</i> unchanged, or adjust it as needed. For example, it may snap the location to a grid. This message is sent repeatedly to the client as the user drags the marker.</p>
+<p class="p27"><br></p>
+<p class="p55"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>rulerView:willAddMarker:atLocation:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p51"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerView:willSetClientView:</b></p>
+<p class="p58"><b></b><br></p>
+<p class="p52"><span class="s4">-</span> (void)<b>rulerView:</b>(NSRulerView *)<i>aRulerView</i></p>
+<p class="p53"><b>willSetClientView:</b>(NSView *)<i>newClient</i></p>
+<p class="p54"><i></i><br></p>
+<p class="p16">Informs the client view that <i>aRulerView</i> is about to be appropriated by <i>newClient</i>. The client view can use this opportunity to clear any cached information related to the ruler.</p>
+<p class="p27"><br></p>
+</body>
+</html>

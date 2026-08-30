@@ -1,0 +1,250 @@
+.\" @(#)find.1 1.4 87/02/12 SMI; from UCB 4.3 BSD and S5
+.TH FIND 1  "20 June 1986"
+.SH NAME
+find \- find files
+.SH SYNOPSIS
+.B find
+.I pathname-list  expression
+.SH DESCRIPTION
+.IX "find command"  ""  "\fLfind\fP \(em find files"
+.IX files  find
+.IX "search for files"
+\fIfind\fR recursively descends the directory hierarchy for each 
+pathname in the \fIpathname-list\fR, seeking files that match a boolean 
+(logical) \fIexpression\fR written in the primaries given below.  
+In the descriptions, the argument \fIn\fR 
+is used as a decimal integer where \fB+\fIn\fR means more than \fIn\fR, 
+\fB\-\fIn\fR means less than \fIn\fR, and \fIn\fR means exactly
+.IR n .
+.IP "\fB\-fstype \fItype\fR" 1i
+True if the filesystem to which the
+the file belongs is of type \fItype\fP, where \fItype\fP is
+typically
+.B "4.3"
+or
+.BR "nfs" .
+.IP "\fB\-name \fIfilename\fR" 
+True if the \fIfilename\fP argument matches the current file name.
+Shell argument syntax can be used if escaped (watch out for
+.BR [ ", "
+.BR ? " and "
+.BR * ).
+.IP "\fB\-perm \fIonum\fR"
+True if the file permission flags exactly match the octal number \fIonum\fP
+(see
+.IR  chmod (1V)).
+If \fIonum\fP is prefixed by a minus sign, more flag bits (017777, see
+.IR  stat (2))
+become significant and the flags are compared:
+.IR (flags&onum)==onum .
+.IP \fB\-prune
+Always yields true.  Has the side effect of pruning the search
+tree at the file.  That is, if the current path name is a directory,
+\fIfind\fP will not descend into that directory.
+.IP "\fB\-type \fIc\fR"
+True if the type of the file is \fIc\fP, where \fIc\fP is one of:
+.RS
+.IP \fBb\fR
+for block special file,
+.IP \fBc\fR 
+for character special file,
+.IP \fBd\fR 
+for directory, 
+.IP \fBf\fR
+for plain file,
+.IP \fBp\fR
+for named pipe (FIFO),
+.IP  \fBl\fR
+for symbolic link, or
+.IP  \fBs\fR
+for socket.
+.RE
+.IP "\fB\-links \fIn\fR" 1i
+True if the file has \fIn\fP links.
+.IP "\fB\-user \fIuname"
+True if the file belongs to the user \fIuname\fP.
+If \fIuname\fP is numeric and does not appear as a login name in the
+.I passwd(5)
+database, it is taken as a user \s-1ID\s0.
+.IP \fB\-nouser\fR
+True if the file belongs to a user
+.I not
+in the
+.I passwd
+database.
+.IP "\fB\-group \fIgname\fR"
+True if the file belongs to group \fIgname\fP.
+If \fIgname\fP is numeric and does not appear as a login name in the
+.I group(5)
+database, it is taken as a group \s-1ID\s0.
+.IP \fB\-nogroup\fR
+True if the file belongs to a group
+.I not
+in the
+.I group
+database.
+.IP "\fB\-size \fIn\fR"
+True if the file is \fIn\fP blocks long (512 bytes per block).
+If
+.I n
+is followed by a
+.BR c ,
+the size is in characters.
+.IP "\fB\-inum \fIn\fR"
+True if the file has inode number \fIn\fP.
+.IP "\fB\-atime \fIn\fR"
+True if the file has been accessed in \fIn\fP days.
+Note that the access time of directories in 
+.I path-name-list
+is changed by 
+.I find
+itself.
+.IP "\fB\-mtime \fIn\fR"
+True if the file has been modified in \fIn\fP days.
+.IP "\fB\-ctime \fIn\fR"
+True if the file has been changed in \fIn\fP days.
+``Changed'' means either that the file has been modified or some attribute
+of the file (its owner, its group, the number of links to it, etc.) has been
+changed.
+.IP "\fB\-exec \fIcommand\fR"
+True if the executed \fIcommand\fP returns a zero value as exit status.
+The end of \fIcommand\fP must be punctuated by an escaped semicolon.
+A command argument \fB{}\fP is replaced by the current pathname.
+.IP "\fB\-ok \fIcommand\fR"
+Like
+.B \-exec
+except that the generated command is written on
+the standard output, then the standard input is read
+and the command executed only upon response
+.BR y .
+.IP \fB\-print\fR
+Always true; the current pathname is printed.
+.IP \fB\-ls\fR
+Always true;
+causes current pathname to be printed together
+with its associated statistics.
+These include (respectively) inode number,
+size in kilobytes (1024 bytes),
+protection mode,
+number of hard links,
+user,
+group,
+size in bytes,
+and modification time.
+If the file is a special file
+the size field will instead contain the major and minor
+device numbers.
+If the file is a symbolic link the
+pathname of the linked-to file is printed preceded by ``->''.
+The format is identical to that of ``ls -gilds''
+(note however that formatting is done internally,
+without executing the ls program).
+.IP "\fB\-cpio \fIdevice\fR"
+Always true;
+write the current file on
+.I device
+in
+.IR cpio
+format (5120-byte records).
+.IP "\fB\-ncpio \fIdevice\fR"
+Always true;
+write the current file on
+.I device
+in
+.IR cpio -c
+format (5120-byte records).
+.IP "\fB\-newer \fIfile\fR"
+True if the current file has been modified more recently than the
+argument \fIfile\fP.
+.IP \fB\-xdev\fR
+Always true;
+causes find
+.I not
+to traverse down into a file system different
+from the one on which current
+.I argument
+pathname resides.
+.IP \fB\-depth\fR
+Always true;
+causes descent of the directory hierarchy to be done
+so that all entries in a directory are
+acted on 
+before the directory itself.
+.IP "\fB( \fIexpression \fB)\fR"
+True if the parenthesized \fIexpression\fR is true
+(parentheses are special to the shell and must be escaped).
+.IP \fB!\fIprimary\fR
+True if the \fIprimary\fR is false (`!' is the unary \fInot\fP operator).
+.IP "\fIprimary1 \fR[ \fB\-a \fR] \fIprimary2\fR"
+True if both \fIprimary1\fR and \fIprimary2\fR are true.
+The 
+.B \-a
+is not required.  It is implied by the juxtaposition of two 
+primaries.
+.IP "\fIprimary1 \fB\-o \fIprimary2\fR"
+True if either \fIprimary1\fR or \fIprimary2\fR is true
+.RB "(`" \-o "' is the"
+\fIor\fP operator).
+.SH EXAMPLE
+.LP
+In our local development system, we keep a file called \fITIMESTAMP\fP in
+all the manual page directories.  Here is how to find all entries that have
+been updated since \fITIMESTAMP\fP was created:
+.RS
+.nf
+angel% \fBfind /usr/man/man2 \-newer /usr/man/man2/TIMESTAMP \-print\fP
+/usr/man/man2
+/usr/man/man2/socket.2
+angel%
+.fi
+.RE
+.LP
+To find all the files called \fIintro.ms\fP starting from the current
+directory:
+.RS
+.nf
+angel% \fBfind . \-name intro.ms \-print\fP
+\&./manuals/assembler/intro.ms
+\&./manuals/sun.core/intro.ms
+\&./manuals/driver.tut/intro.ms
+\&./manuals/sys.manager/uucp.impl/intro.mss
+\&./supplements/general.works/unix.introduction/intro.mss
+\&./supplements/programming.tools/sccs/intro.mss
+angel%
+.fi
+.RE
+.LP
+To recursively print all files names in the current directory and below,
+but skipping SCCS directories:
+.RS
+.nf
+angel% \fBfind . -name SCCS -prune -o -print\fP
+angel%
+.fi
+.RE
+.LP
+To recursively print all files names in the current directory and below,
+skipping the contents of SCCS directories, but printing out the
+SCCS directory name:
+.RS
+.nf
+angel% \fBfind . -print -name SCCS -prune\fP
+angel%
+.fi
+.RE
+.LP
+To remove files beneath your home directory named `a.out' or `*.o' 
+that have not been accessed for a week
+and that aren't mounted using NFS:
+.RS
+.nf
+angel% cd
+angel% \fBfind . \e( \-name a.out \-o \-name '*.o' \e) \-atime +7 \-exec rm {} \e; -o -fstype nfs -prune\fP
+.fi
+.RE
+.SH FILES
+/etc/passwd - if NetInfo is not running
+.br
+/etc/group - if NetInfo is not running
+.SH "SEE ALSO"
+chmod(1V), sh(1), test(1V), fs(5), netinfo(5)

@@ -1,0 +1,26 @@
+.TH HOSTCONFIG 8 "September 9, 1994" "NeXT Computer, Inc."
+.SH NAME
+hostconfig \- configure host shell variables
+.SH SYNOPSIS
+.B \/etc\/hostconfig
+.SH "DESCRIPTION
+.I \/etc\/hostconfig 
+sets up shell variables used by the various \fBrc\fR(8) command scripts to configure the host. You should use either HostManager or SimpleNetworkStarter
+to edit this file.
+.PP
+You should edit \fI\/etc\/hostconfig\fR instead of \fI\/etc\/rc.boot\fR. However, you 
+should be aware of special keywords used by \fI/etc\/rc.boot\fR and 
+the programs it calls:
+.TP 20
+-AUTOMATIC-	
+Configure automatically
+.TP 20
+-YES-		
+Turn a feature on
+.TP 20
+-NO-		
+Leave a feature off or do not configure
+.PP
+Make sure there are no spaces on either side of the equal sign (=).
+.SH "SEE ALSO"
+rc(8)

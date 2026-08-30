@@ -1,0 +1,129 @@
+.TH SYSCONF 2P "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+sysconf \- (POSIX only) get configurable system variables
+.SH SYNOPSIS
+.nf
+.ft B
+#include <unistd.h>
+.PP
+.ft B
+long sysconf(int \fIname\fR);
+.ft R
+.fi
+.SH DESCRIPTION
+The information in this specification applies
+only to POSIX applications.
+.PP
+The
+.IR sysconf 
+function provides a method for an application to determined the current
+value of a configurable system limit or option.
+.PP
+The
+.I name 
+argument represents the system variable to be queried.  The
+following variables are supported:
+.PP
+.bd I 3
+.RS
+.TP 35
+\fBVariable\fP
+\fIname\fP \fBValue\fP			
+.TP 35
+{ARG_MAX}
+{_SC_ARG_MAX}		
+.TP 35
+{CHILD_MAX}
+{_SC_CHILD_MAX}		
+.TP 35
+{clock ticks/second}
+{_SC_CLK_TCK}	
+.TP 35
+{NGROUPS_MAX}
+{_SC_NGROUPS_MAX}		
+.TP 35
+{OPEN_MAX}
+{_SC_OPEN_MAX}
+.TP 35
+{STREAM_BUF}
+{_SC_STREAM_BUF}
+.TP 35
+{TZNAME_MAX}
+{_SC_TZNAME_MAX}
+.TP 35
+{_POSIX_JOB_CONTROL}
+{_SC_JOB_CONTROL}
+.TP 35
+{_POSIX_SAVED_IDS}
+{_SC_SAVED_IDS}
+.TP 35
+{_POSIX_VERSION}
+{_SC_VERSION}
+.RE
+.bd I
+.IP
+.PP
+The meaning of each variable is as follows:
+.PP
+.RS
+.TP 35
+\fBVariable\fP
+\fBDescription\fP
+.TP 35
+{ARG_MAX}
+Maximum length of all arguments + environment strings to \fIexec()\fR.
+.TP 35
+{CHILD_MAX}
+Maximum number of simultaneous processes per real user ID.
+.TP 35
+{clock ticks/second}
+The number of clock ticks per second.
+.TP 35
+{NGROUPS_MAX}
+Maximum number of simultaneous supplementary group IDs per process.
+.TP 35
+{OPEN_MAX}
+Maximum number of simultaneous open files per process.
+.TP 35
+{STREAM_BUF}
+The number of streams that one process can have open at one time.
+.TP 35
+{TZNAME_MAX}
+The maximum number of bytes supported for the name of a time zone.
+.TP 35
+{_POSIX_JOB_CONTROL}
+If defined, the system supports POSIX job control.
+.TP 35
+{_POSIX_SAVED_IDS}
+If defined, saved set-user-IDs and set-group-IDS are supported.
+.TP 35
+{_POSIX_VERSION}
+The version of POSIX supported by the system.
+.RE
+.RE
+.PP
+The values for the variables above are given in the headers 
+<limits.h> or <unistd.h>.  The symbolic constants used as values for
+.I name
+are given in <unistd.h>.
+.SH "RETURN VALUE"
+Upon successful completion 
+.IR sysconf 
+returns the current variable value on the system.  If 
+.I name
+is an invalid value, 
+.IR sysconf 
+returns \-1.  If the variable corresponding to
+.I name
+is associated with functionality that is not supported by the system,
+.IR sysconf 
+shall return \-1 without changing the value of 
+.I errno.
+.SH "ERRORS"
+If any of the following conditions occur, 
+.IR sysconf
+returns \-1 and set \fIerrno\fP to the corresponding value:
+.TP 15
+[EINVAL]
+The value of \fIname\fP is invalid.

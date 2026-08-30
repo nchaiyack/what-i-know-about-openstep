@@ -1,0 +1,20 @@
+.TH GETMACHHEADERS 3  "March 1, 1989" "NeXT Computer, Inc."
+.SH NAME
+getmachheaders \- get the Mach headers for the executable
+.SH SYNOPSIS
+.nf
+\fB#include <ldsyms.h>\fR
+\fB#include <sys/loader.h>\fR
+.PP
+struct mach_header **\fBgetmachheaders()\fR
+.fi
+.SH DESCRIPTION
+This routine returns an array of pointers to Mach headers (the executable
+and the shared libraries) in the Mach executable it is linked into.  It returns
+NULL if the
+.IR malloc (3)
+it uses for the array fails.  The last entry in the
+array is zero.  It uses the link editor defined symbol _mh_execute_header
+and just looks through the load commands.
+.SH "SEE ALSO"
+end(3), getsectbyname(3), getsegbyname(3)

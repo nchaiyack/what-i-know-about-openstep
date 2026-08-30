@@ -1,0 +1,352 @@
+.TH TERMIOS 4P  "August 1, 1992"
+.UC 4
+.SH NAME
+termios \-  the termios structure and header file
+.SH SYNOPSIS
+.B #include <termios.h>
+.SH DESCRIPTION
+The header
+.I <termios.h>
+contains the definition of the \fItermios\fR
+structure and associated constants.  The \fItermios\fR structure is
+passed as an argument to the \fItcgetattr\fR,
+\fItcsetattr\fR, \fItcdrain\fR, \fItcflow\fR, \fItcflush\fR,
+\fItcsendbreak\fR, \fIcfgetispeed\fR, \fIcfgetospeed\fR,
+\fIcfsetispeed\fR and \fIcfsetospeed\fR functions. 
+.LP
+.B The \fItermios\fP Structure
+.PP
+The \fItermios\fR structure contains the following members:
+.PP
+.nf
+	\fBMember	Type		Description\fP
+.sp
+	c_iflag	 	tcflag_t		Input modes
+	c_oflag		tcflag_t		Output modes
+	c_cflag		tcflag_t		Control modes
+	c_lflag		tcflag_t		Local modes
+	c_cc[NCCS]	cc_t		Control characters
+.fi
+.LP
+.B Special Characters
+.PP
+Some characters have special functions on input or output or both.
+Some special characters are constants; others are defined
+in the \fIc_cc\fR array (indexed by defined constants).  The interpretation
+of these characters is described in the following subsections.
+The characters and their values (as constants or \fIc_cc\fR expressions)
+are as follows:
+.IP CR 10
+The carriage-return character: '\\r'.
+.IP NL 10
+The new-line character: '\\n'.
+.IP EOF 10
+The end-of-file character: \fIc_cc[VEOF]\fR.
+.IP EOL 10
+The alternate end-of-line character: \fIc_cc[VEOL]\fR.
+.IP ERASE 10
+The erase character: \fIc_cc[VERASE]\fR.
+.IP KILL 10 
+The erase-line character: \fIc_cc[VKILL]\fR.
+.IP WERASE 10
+The erase character: \fIc_cc[VWERASE]\fR.
+.IP REPRINT 10
+The redisplay-input character: \fIc_cc[VREPRINT]\fR.
+.IP INTR 10
+The interrupt character (generates SIGINT): \fIc_cc[VINTR]\fR.
+.IP QUIT 10
+The quit character (generates SIGQUIT): \fIc_cc[VQUIT]\fR.
+.IP SUSP 10
+The suspend character (generates SIGTSTP): \fIc_cc[VSUSP]\fR.
+.IP DSUSP 10
+The delayed-suspend character (generates SIGTSTP): \fIc_cc[VDSUSP]\fR.
+.IP STOP 10
+The stop-output character: \fIc_cc[VSTOP]\fR.
+.IP START 10
+The start-output character: \fIc_cc[VSTART]\fR.
+.IP DISCARD 10
+The flush-output character: \fIc_cc[VDISCARD]\fR.
+.IP LNEXT 10
+The literal-next character: \fIc_cc[VLNEXT]\fR.
+.IP QUOTE 10
+The quote character: \fIc_cc[VQUOTE]\fR.
+.IP "MIN, TIME" 10
+MIN and TIME are not special characters, but are nevertheless
+stored in the \fIc_cc\fR array.  They are, respectively, \fIc_cc[VMIN]\fR
+and \fIc_cc[VTIME]\fR.
+.PP
+These special characters are only meaningful when specific flags
+are set.  The NL, EOF, EOL, ERASE, KILL, QUOTE, WERASE, and REPRINT
+special characters are enabled when ICANON (in \fIc_lflag\fR) is set.
+The INTR, QUIT, SUSP, and DSUSP characters are enabled when ISIG
+(in \fIc_lflag\fR) is set.  The START and STOP special characters
+are enabled when IXON or IXOFF (in \fIc_iflag\fR) is set.
+LNEXT and DISCARD are enabled by IEXTEN (in \fIc_lflag\fR).
+.LP
+.B Input Processing Modes 
+.PP
+Each terminal device has associated with it an input queue, into
+which incoming data is stored by the system before being read by a
+process.  Two styles of input processing are available, determined by
+whether the terminal device is in canonical mode (ICANON set)
+or noncanonical mode (ICANON not set).
+.PP
+In canonical mode input processing, terminal input is processed in units of
+lines.  A line is delimited by the NL character, the EOF character,
+or the EOL character.  This means that a read request will not return
+until an entire line has been typed (or a signal has been received).
+Also, no matter how many bytes are requested in the read call,
+at most one line will be returned.  It is not, however, necessary
+to read a whole line at once; any number of bytes, even one, may be requested
+in a read without losing information.  NL and EOL, when entered,
+are considered part of the line.  EOF, on the other hand, terminates
+a line, but is not passed to the reader.  As a consequence, an EOF
+received at the beginning of a line marks an empty line, which causes
+a read to return zero bytes (the empty line), simulating an end-of-file
+condition.
+.PP
+A line can be edited as it is entered, with the ERASE, KILL, and WERASE
+characters.  Editing is limited to the current line, consisting of
+characters in the input queue that have not yet been delimited by NL,
+EOF, or EOL.
+The ERASE character deletes the last character in the current
+line, if there is any.  The KILL character deletes all characters
+in the current line.  The WERASE character deletes the last word
+in the current line.
+In addition, the REPRINT character causes the input queue to be
+redisplayed.
+.PP
+The QUOTE character followed by the ERASE enters the ERASE character
+into the input queue.  The sequence QUOTE followed by KILL enters
+the KILL character.  QUOTE has no special meaning when followed
+by any other character (include WERASE).  (QUOTE provides
+compatibility with older terminal interfaces.)
+.PP
+In noncanonical mode input processing, input bytes are not assembled
+into lines, and line editing is not allowed.  The values of
+MIN and TIME are used to determine how to process the bytes
+received.
+.PP
+MIN represents the minimum number of bytes that must be entered before a
+read will return.  The TIME parameter gives the amount of delay, in
+1/10-second increments, before a read times out and returns.  There are
+four different cases to be considered:
+.IP "MIN > 0 and TIME = 0" 25
+TIME is ignored.  Data is not made available to a
+read request until MIN bytes have been received.  A read
+can block indefinitely.
+.IP "MIN > 0 and TIME > 0" 25
+TIME acts as an inter-byte timer that is not set
+until the first byte is entered and is reset after each byte.  If MIN
+characters are received before the timer expires, the data becomes
+available and a read will return.  It will return the smaller of MIN and
+the number of bytes actually read.  Because the timers does not start
+until the first byte is received, a read can block indefinitely.
+Moreover, a read will always return at least 1 byte, unless interrupted
+by a signal.
+.IP "MIN = 0 and TIME = 0" 25
+A read always returns immediately.  If data has
+already been entered, it is available, and (up to the number of bytes
+requested) is returned.  
+.IP "MIN = 0 and TIME > 0" 25
+TIME is a timer activated as soon as the process
+reads.  Data is made available as soon as a single byte is entered.  It
+is not possible for a read to block indefinitely - after TIME/10
+seconds, if no data has been entered, a read will return 0.
+.PP
+In both canonical and noncanonical modes, other special characters
+are available.  INTR, QUIT, and SUSP generate signals (SIGINT, SIGQUIT,
+and SIGTSTP, respectively) to the current process group.
+When entered, DSUSP is placed in the input queue.  When it is read
+by a process, SIGTSTP is generated and the DSUSP character is not passed to
+the process.  START and STOP are used for flow control for both
+input and output (see IXON and IXOFF below). DISCARD causes
+further output to the terminal to be discarded, until another character
+is entered.  LNEXT followed by any other character (including
+special characters, including LNEXT) enters that character
+into the input queue, disregarding any special meaning that
+character may have.
+.LP
+.B "Input Modes"
+.PP
+The bit-masks in \fIc_iflag\fR describe basic terminal input control
+and are composed of the bitwise inclusive OR of the following masks:
+.PP
+.IP IGNCR 10
+A received CR character is ignored (not placed on the input queue)
+.IP ICRNL 10
+If IGNCR is not set, then a received CR is translated into NL.
+.IP INLCR 10
+A received NL is translated into CR.
+.IP INPCK 10
+Input parity checking is enabled.  The type of parity is
+determined by flags in \fIc_cflag\fR.
+.IP IGNPAR 10
+Characters with parity errors are ignored.
+.IP PARMRK 10
+If IGNPAR is not set, then a byte with a framing or parity error
+is placed in the input queue as the 3-byte sequence: '\\377', '\\000',
+X, where X is the erroneous character.
+.IP ISTRIP 10
+Valid input characters are first stripped to seven bits before being
+placed in the input queue; otherwise, all eight bits are processed.
+.IP IGNBRK 10
+A break condition detected on input is ignored (not placed on
+the input queue).
+.IP BRKINT 10
+If IGNBRK is clear, a break causes the input and output queues
+to be flushed.  A SIGINT signal is sent to the terminal's process group.
+If neither IGNBRK nor BRKINT is set, a break condition is read
+as a single '\\0'.
+.IP IXON 10
+Start-stop output control is enabled.  A received STOP character
+suspends output, and a received START character restarts output.  When
+IXON is set, START and STOP characters are not read, but merely perform
+flow control functions.  When IXON is not set, the START and STOP
+characters are read but have no special functions.
+.IP IXANY 10
+When IXANY is set and output is stopped (from receiving the STOP
+character), output is be restarted by receiving any character.
+That character is processed normally.
+.IP IXOFF 10
+If IXOFF is set, start-stop input control is enabled.  The
+system sends one or more STOP characters to cause the terminal to stop
+transmitting data, to avoid overflowing the input buffer.
+The system also sends one or more START characters to cause the terminal
+to restart transmission.
+.IP IMAXBEL 10
+If IMAXBEL is set and a character is received when the input queue
+is full, then a bell character (control-G) is written to the output.
+.LP
+.B Output Modes
+.PP
+The bit-masks in \fIc_oflag\fR describe the basic terminal output control
+and are composed of the bitwise inclusive OR of the following masks:
+.IP OPOST 10
+If OPOST is clear, output characters are transmitted unchanged.
+If OPOST is set, then output processing is performed, as dictated
+by other \fIc_oflag\fR bits.
+In addition, if OPOST is set and the device is in canonical mode,
+then the ASCII EOT character (control-D) is never transmitted
+(for compatibility with older interfaces).
+.IP ONLCR 10
+If ONLCR is set, an NL character is expanded into CR and NL on output.
+.IP "NLDELAY, TBDELAY, ..." 10
+The delay flags supported by the tty interface (see tty(4))
+are also valid as \fIc_oflag\fR values.
+Delays, however, are not supported when outputting 8-bit characters
+(see CSIZE below).
+.LP
+.B Control Modes
+.PP
+.IP CLOCAL 10
+The modem status lines are ignored (the terminal is assumed to
+be connected to the system locally).  If CLOCAL is clear, the modem
+status lines are monitored.
+.IP CREAD 10
+Reception of characters is enabled.  Otherwise, characters will
+not be received.
+.IP CSTOPB 10
+Two stop bits are sent after each character.  Otherwise, only
+one is sent.
+.IP CSTOPB110 10
+Two stop bits are sent if output speed is 110 baud.
+.IP CSIZE 10
+The CSIZE bits specify the byte size in bits for both
+transmission and reception.  Valid values are CS5, CS6, CS7 or CS8 for
+5, 6, 7 or 8 bit per byte respectively.
+.IP PARENB 10
+Parity generation and detection are enabled.
+.IP PARODD 10
+If PARENB is set, odd parity is generated and expected.  If
+PARODD is clear and PARENB is set, even parity is generated and
+expected.
+.IP PAR0 10
+If PARODD is not set, IEXTEN (in \fIc_lflag\fR) is set, and PAR0 is set,
+then space (zero) parity is generated on output, and parity is expected
+on input but not checked.  (PAR0 is meant to emulate the behavior
+of the tty(4) interface when neither EVENP nor ODDP is set.)
+.IP PAR1 10
+If PARODD is not set, IEXTEN is set, and PAR1 is set, then
+even parity is generated on output, and parity is expect but
+unchecked on input.  (PAR1 is meant to be equivalent to setting
+both EVENP and ODDP through the tty(4) interface.)  The effect
+of setting both PAR0 and PAR1 is undefined.
+.IP HUPCL 10
+When the last process that has the terminal file open terminates
+or closes the file, the modem control lines will be lowered and
+the modem connection is broken.
+.LP
+.B Local Modes
+.PP
+.IP ECHO 10
+Echoing of characters is enabled.  Otherwise, characters are not
+echoed back to the terminal.
+.IP ECHONL 10
+A received NL character is echoed even if ECHO is not set.
+.IP ECHOCTL 10
+If ECHOCTL and ECHO are set, control characters will be echoed as ^\fIX\fR.
+.IP ECHOE 10
+In canonical mode, an ERASE character will erase the previous
+character from the display, in a way determined by the flags
+ECHOCRT and ECHOPRT (see below).  If neither ECHOCRT nor ECHOPRT is set,
+then a backspace character (`\\b') is echoed.
+.IP ECHOCRT 10
+If ECHOCRT is set, then erasing a deleted character will be accomplished
+by sending the sequence \*(lq\\b \\b\*(rq (suitable for a CRT display).
+.IP ECHOPRT 10
+If ECHOPRT is set, deleted characters will be erased in a way appropriate
+for a hard-copy terminal.
+.IP ECHOK 10
+In canonical mode, a KILL character will cause the
+terminal to echo the KILL character followed by a newline
+(unless ECHOKE is set).
+.IP ECHOKE 10
+In canonical mode, a KILL character will cause the
+terminal to erase the current line from the display.
+.IP ICANON 10
+If ICANON is set, the device is in canonical input mode.
+Otherwise, the device is in noncanonical input mode.
+.IP IEXTEN 10
+IEXTEN enables the special characters LNEXT and DISCARD, as well
+as certain other features as described.
+.IP ISIG 10
+If ISIG is set, the characters INTR, QUIT, SUSP, and DSUSP
+take on their special meaning.
+.IP NOFLSH 10
+The input and output queues are not flushed when a signal is
+generated due to receipt of an INTR, QUIT, or SUSP character.
+If NOFLSH is clear, then generation of such a signal causes
+the input and output queues to be flushed.
+.IP TOSTOP 10
+A SIGTTOU signal is generated for the process group of any
+background process that attempts to write to its controlling terminal.
+However, if the writing process has arranged to block or ignore SIGTTOU,
+then the signal is not generated and the output is sent.  If TOSTOP is
+not set, then data transmitted by a write to the controlling terminal
+from a background process is put on the output stream.
+.LP
+.B Compatibility
+.PP
+The features supported by \fItermios\fR are a superset
+of those implemented by the older tty(4) interface.
+The two interfaces can coexist on the same device.
+However, mixing uses of both interfaces in the same
+program (e.g., using both tcsetattr and ioctl(TIOCSETP))
+is not recommended.
+.SH "SEE ALSO"
+stty(1),
+read(2P),
+sigvec(2),
+write(2P),
+cfgetispeed(3P), 
+cfgetospeed(3P),
+cfsetispeed(3P),
+cfsetospeed(3P),
+tcdrain(3P), 
+tcflow(3P), 
+tcflush(3P),
+tcgetattr(3P),
+tcsetattr(3P), 
+tcsendbreak(3P),
+tty(4)

@@ -1,0 +1,97 @@
+.TH DUP 2 "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+dup, dup2 \- duplicate a descriptor
+.SH SYNOPSIS
+.nf
+.ft B
+int dup(int \fIfd\fP);
+.PP
+.ft B
+int dup2(int \fIfd\fP, int \fIfd2\fP);
+.fi
+.SH DESCRIPTION
+The
+.I dup 
+function duplicates an existing object descriptor.
+The argument
+.I fd
+is a small non-negative integer index
+in the per-process descriptor table.  
+The value must be less than the size of the table.
+The size of the table for POSIX programs
+is OPEN_MAX;
+for other programs the size of the table
+is the value returned by
+.IR getdtablesize (2).
+The new
+descriptor returned by 
+.IR dup 
+is the lowest numbered descriptor that is not currently in use by the process.
+.PP
+The object referenced by the descriptor does not distinguish, in any way,
+between references using
+.I fd
+and the new descriptor returned.
+Thus, if the returned descriptor and
+.Ifd
+are duplicate references to an open file,
+.IR read (2),
+.IR write (2),
+and
+.IR lseek (2)
+calls all move a single pointer into the file,
+and append mode, non-blocking I/O and asynchronous I/O options
+are shared between the references.
+If a separate pointer into the file is desired, a different
+object reference to the file must be obtained by issuing an
+additional
+.IR open (2)
+call.
+The close-on-exec flag on the new file descriptor is unset.
+.PP
+With
+.IR dup2 ,
+.I fd2
+specifies the desired value of the new
+descriptor. If the descriptor 
+.IR fd2
+is already in use, it is first deallocated as if a
+.IR close (2)
+call had been performed on it.
+.SH "RETURN VALUE
+The value \-1 is returned if an error occurs in either call.
+The external variable
+.I errno
+indicates the cause of the error.
+.SH ERRORS
+The
+.IR dup 
+and
+.IR dup2 
+functions fail if:
+.TP 15
+[EBADF]
+.I fd
+or
+.I fd2
+is not a valid active descriptor
+.TP 15
+[EMFILE]
+Too many descriptors are active.
+.LP
+Additionally,
+.I dup2
+fails if:
+.TP 15
+[EINTR]
+The
+.I dup2
+function was interrupted by a signal.
+.SH "SEE ALSO"
+close(2),
+creat(2),
+exec(2),
+fcntl(2),
+open(2),
+pipe(2)

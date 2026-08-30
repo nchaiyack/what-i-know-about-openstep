@@ -1,0 +1,256 @@
+.TH EXECVE 2 "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+execve, execv \- execute a file
+.SH SYNOPSIS
+.ft B
+int execve(const char*\fIpath\fP, char *const \fIargv[]\fP, char *const
+\fIenvp\fP);
+.PP
+.ft B
+int execv(const char*\fIpath\fP, char *const \fIargv[]\fP);
+.PP
+.ft B
+extern char **environ;
+.fi
+.SH DESCRIPTION
+The
+.I execve
+and
+.I execv
+functions transform the calling process into a new process.
+The new process is constructed from an ordinary file
+called the \fI new process file\fP.
+This file is either an executable object file,
+or a file of data for an interpreter.
+An executable object file consists
+of an identifying header,
+followed by pages of data representing
+the initial program (text) and initialized data pages.
+Additional pages may be specified
+by the header to be initialized with zero data.
+See
+.IR a.out (5).
+.PP
+An interpreter file begins with
+a line of the form ``#! \fIinterpreter\fP''.
+When an interpreter file is
+.IR exec 'd,
+the system runs the specified
+.IR interpreter , giving
+it the name of the originally
+.IR exec 'd file as an argument and
+shifting over the rest of the original arguments.
+.PP
+There can be no return from a successful
+.Iexecve
+or
+.IR execv ,
+since the calling core image is lost.
+This is the mechanism whereby
+different process images become active.
+.PP
+The argument
+.I argv
+is a null-terminated array
+of character pointers
+to null-terminated character strings.
+These strings constitute the argument list
+to be made available to the new process.
+By convention, at least one argument
+must be present in this array,
+and the first element of this array should be
+the name of the executed program
+(that is, the last component of
+.IR path ).
+.PP
+The
+.I execve
+function takes an additional argument
+.I envp
+which is a
+null-terminated array of character pointers to null-terminated strings.  These
+strings pass information to the new process that is not directly an argument
+to the command (see
+.IR environ (7)).
+.PP
+Descriptors open in the calling process remain open in
+the new process, except for those for which the close-on-exec
+flag is set (see
+.IR fcntl (2)).
+Descriptors that remain open are unaffected by
+.I execve
+or
+.IR execv .
+.PP
+Directory streams open in the calling process image are closed in the new
+process image.
+.PP
+Ignored signals remain ignored across an
+.I execve
+or
+.IR execv ,
+but signals that are caught are reset to their default values.
+Blocked signals remain blocked regardless of changes to the signal action.
+The signal stack is reset to be undefined (see
+.IR sigvec (2) 
+for more information).
+.PP
+Each process has real user and group IDs and effective user and group IDs.  The
+real ID identifies the person using the system; the effective ID determines his
+access privileges.
+The
+.I execve
+and
+.I execv
+functions change the effective user and group ID to
+the owner of the executed file if the file has the \*(lqset-user-ID\*(rq
+or \*(lqset-group-ID\*(rq modes.  The real user ID is not affected.  The
+effective user ID and effective group ID of the new process image will be
+saved (as the saved set-user-ID and the saved set-group-ID) for use by the
+.IR setuid (2) function.
+.PP
+The new process also inherits the following attributes from
+the calling process:
+.PP
+.nf
+.RS
+.ta 3i
+process ID	see \fIgetpid\fP\|(2)
+parent process ID	see \fIgetppid\fP\|(2)
+process group ID	see \fIgetpgrp\fP\|(2)
+session membership	see \fIsetsid\fP\|(2)
+real user ID	see \fIgetuid\fP\|(2)
+real group ID	see \fIgetgid\fP\|(2)
+supplementary group IDs	see \fIgetgroups\fP\|(2)
+time left until an alarm clock signal	see \fIgetitimer\fP\|(2)
+current working directory	see \fIgetwd\fP\|(3) or \fIgetcwd\fP\|(3P)
+root directory	see \fIchroot\fP\|(2)
+file mode mask	see \fIumask\fP\|(2)
+signal mask	see \fIsigprocmask\fP\|(2)
+pending signals	see \fIsigpending\fP\|(2)
+\fItms_utime, tms_stime, tms_cutime, tms_cstime\fP	see \fItimes\fP\|(2)
+controlling terminal	see \fItty\fP\|(4)
+resource usages	see \fIgetrusage\fP\|(2)
+resource limits	see \fIgetrlimit\fP\|(2)
+.RE
+.fi
+.PP
+When the executed program begins, it is called as follows:
+.PP
+.DT
+.nf
+	main(int \fIargc\fP, char *\fIargv\fP);
+.fi
+.PP
+where
+.I argc
+is the number of elements in
+.I argv
+(the ``arg count'')
+and
+.I argv
+is the array of character pointers
+to the arguments themselves.
+.PP
+.I Envp
+is a pointer to an array of strings that constitute
+the
+.I environment
+of the process.
+A pointer to this array is also stored in the global variable ``environ''.
+Each string consists of a name, an \*(lq=\*(rq, and a null-terminated value.
+The array of pointers is terminated by a null pointer.
+The shell
+.IR sh (1)
+passes an environment entry for each global shell variable
+defined when the program is called.
+See
+.IR environ (7)
+for some conventionally
+used names.
+.SH "RETURN VALUE
+If
+.I execve
+or
+.I execv
+returns to the calling process an error has occurred; the
+return value will be \-1 and the global variable
+.I errno
+will contain an error code.
+.SH ERRORS
+The
+.I execve
+and
+.I execv
+functions will fail and return to the calling process if one or more
+of the following are true:
+.TP 15
+[ENOTDIR]
+A component of the path prefix is not a directory.
+.TP 15
+[EINVAL]
+The pathname contains a character with the high-order bit set.
+.TP 15
+[ENAMETOOLONG]
+A component of
+.I path
+exceeds 255 characters,
+or the entire pathname exceeds 1023 characters.
+For POSIX applications these values are given
+by the constants {NAME_MAX} and {PATH_MAX}, respectively.
+.TP 15
+[ENOENT]
+The new process file does not exist or
+.I path
+points to an empty string.
+.TP 15
+[ELOOP]
+Too many symbolic links were encountered in translating the pathname.
+.TP 15
+[EACCES]
+Search permission is denied for a component of the path prefix.
+.TP 15
+[EACCES]
+The new process file is not an ordinary file.
+.TP 15
+[EACCES]
+The new process file mode denies execute permission.
+.TP 15
+[ENOEXEC]
+The new process file has the appropriate access
+permission, but has an invalid magic number in its header.
+.TP 15
+[ETXTBSY]
+The new process file is a pure procedure (shared text)
+file that is currently open for writing or reading by some process.
+.TP 15
+[E2BIG]
+The number of bytes in the new process's argument list
+is larger than the system-imposed limit.
+The limit in the system as released is 20480 bytes
+(NCARGS in
+.IR <sys/param.h> .
+.TP 15
+[EFAULT]
+The new process file is not as long as indicated by
+the size values in its header.
+.TP 15
+[EFAULT]
+.IR path ,
+.IR argv ,
+or
+.I envp
+point
+to an illegal address.
+.TP 15
+[EIO]
+An I/O error occurred while reading from the file system.
+.SH CAVEATS
+If a program is
+.I setuid
+to a non-super-user, but is executed when
+the real uid is ``root'', then the program has some of the powers
+of a super-user as well.
+.SH "SEE ALSO"
+exit(2), fork(2), execl(3P), environ(7)

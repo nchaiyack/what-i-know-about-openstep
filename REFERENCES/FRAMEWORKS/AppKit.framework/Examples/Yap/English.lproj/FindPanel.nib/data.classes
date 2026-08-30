@@ -1,0 +1,21 @@
+"ResponderText" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSCStringText; };
+"TextFinder" = {
+    ACTIONS = {
+        "findNext:" = id; 
+        "findNextAndOrderFindPanelOut:" = id; 
+        "findPrevious:" = id; 
+        "replace:" = id; 
+        "replaceAll:" = id; 
+        "replaceAndFind:" = id; 
+    }; 
+    OUTLETS = {
+        findNextButton = id; 
+        findTextField = id; 
+        ignoreCaseButton = id; 
+        replaceAllScopeMatrix = id; 
+        replaceTextField = id; 
+        statusField = id; 
+    }; 
+    SUPERCLASS = NSObject; 
+};
+"FirstResponder" = {ACTIONS = {}; CATEGORY = LocalActions; OUTLETS = {}; };

@@ -1,0 +1,248 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)ctime.3	6.7 (Berkeley) 3/22/87
+.\"
+.TH CTIME 3  "August 1, 1992"
+.UC 4
+.SH NAME
+ctime, asctime, localtime, gmtime, mktime, strftime, tzset \-  convert date and time to ASCII
+.SH SYNOPSIS
+.nf
+.B #include <time.h>
+.PP
+.B char *ctime(const time_t *\fItimer\fP);
+.PP
+.B char *asctime(const struct tm *\fItimeptr\fP);
+.PP
+.B struct tm *localtime(const time_t *\fItimer\fP);
+.PP
+.B struct tm *gmtime(const time_t *\fItimer\fP);
+.PP
+.B char *timezone(ing \fIzone\fP, int \fIdst\fP);
+.PP
+.B time_t mktime(struct tm *\fItimeptr\fP);
+.PP
+.B size_t strftime(char *\fIs\fP, size_t \fImaxsize\fP,
+.B "     const char *\fIformat\fP, const struct tm *\fItimeptr\fP);"
+.PP
+.B void tzset(void);
+.PP
+.B extern char *tzname[2]; 
+.fi
+.SH DESCRIPTION
+\fITzset\fP uses the value of the environment variable \fBTZ\fP to
+set up the time conversion information used by \fIlocaltime\fP,
+\fIctime\fP, \fIstrftime\fP and \fImktime\fP.
+.PP
+If \fBTZ\fP does not appear in the environment, the \fBTZDEFAULT\fP
+file (as defined in \fItzfile.h\fP) is used.  If
+this file fails for any reason, the Greenwich Mean Time (GMT) offset 
+as provided by the
+kernel is used.  In this case, DST is ignored, resulting in the time
+being incorrect by some amount if DST is currently in effect.  If
+this fails for any reason, GMT is used.
+.PP
+If \fBTZ\fP appears in the environment but its value is a null string,
+GMT is used; if \fBTZ\fP appears and begins with a
+slash, it is used as the absolute pathname of the \fItzfile\fP(5)-format
+file from which to read the time conversion information; if \fBTZ\fP
+appears and begins with a character other than a slash, it's used as
+a pathname relative to the system time conversion information directory,
+defined as \fBTZDIR\fP in the include file \fItzfile.h\fP.  If
+this file fails for any reason, GMT is used.
+.PP
+Programs that always wish to use local wall clock time should explicitly
+remove the environmental variable \fBTZ\fP with \fIunsetenv\fP(3).
+.PP
+\fICtime\fP converts the calendar time  pointed to by \fItimer\fP,
+such as returned by \fItime\fP(2) into ASCII and returns a pointer
+to a 26-character string in the following form
+(all the fields have constant width):
+.PP
+    Sun Sep 16 01:03:52 1973\\n\\0
+.PP
+.I Asctime
+converts the broken-down time in the structure pointed to by 
+.I timeptr
+into a string as returned by
+.I ctime.
+.PP
+.I Localtime
+and
+.I gmtime
+return pointers to structures containing
+the broken-down time.
+.I Localtime
+corrects for the time zone and possible daylight savings time;
+.I gmtime
+converts directly to GMT, which is the time UNIX uses.
+.PP
+The 
+.I tm
+structure declaration from the 
+.I <time.h>
+file is:
+.PP
+.RS
+.nf
+.nr .0 .8i+\w'int tm_isdst'u
+.ta .5i \n(.0u \n(.0u+\w'/* 0-000'u+1n
+\fBstruct tm {\fR
+	\fBint tm_sec;\fR	/* seconds after the minute (0-59) */
+	\fBint tm_min;\fR	/* minutes after the hour (0-59) */
+	\fBint tm_hour;\fR	/* hours since midnight (0-23) */
+	\fBint tm_mday;\fR	/* day of the month (1-31) */
+	\fBint tm_mon;\fR	/* months since January (0-11) */
+	\fBint tm_year;\fR	/* years since 1900 */
+	\fBint tm_wday;\fR	/* days since Sunday (0-6) */
+	\fBint tm_yday;\fR	/* days since Jan. 1 (0-365) */
+	\fBint tm_isdst;\fR	/* flag; daylight savings time in effect */
+	\fBlong tm_gmtoff;\fR	/* offset from GMT in seconds */
+	\fBchar *tm_zone;\fR	/* abbreviation of timezone name */
+};
+.fi
+.RE
+.PP
+\fITm_isdst\fP is non-zero if a time zone adjustment such as Daylight
+Savings time is in effect.
+.PP
+\fITm_gmtoff\fP is the offset (in seconds) of the time represented
+from GMT, with positive values indicating East of Greenwich.
+.PP
+\fITimezone\fP remains for compatibility reasons only; it's impossible to
+reliably map timezone's arguments (\fIzone\fP, a \*(lqminutes west of GMT\*(rq value
+and \fIdst\fP, a \*(lqdaylight saving time in effect\*(rq flag) to a time zone
+abbreviation.
+.PP
+.I Mktime
+converts the broken-down time, expressed as local time, in the
+structure pointed to by
+.I timeptr 
+into a calendar time value with the same encoding as that of
+the values returned by
+.I time(3).
+The original values of the 
+tm
+structure members
+.I tm_wday
+and 
+.I tm_yday
+are ignored.  On successful completion of 
+.I mktime
+these values are set appropriately.  The values for the
+\fItm_year\fR, \fItm_mon\fR, \fItm_mday\fR, \fItm_hour\fR, 
+\fItm_min\fR, and \fItm_sec\fR may be outside the ranges described
+above and will be adjusted appropriately to reflect the correct time.
+For example,  if \fItm_year\fR is set to 1980 and \fItm_mon\fR is
+set to \-2 the return value would reflect November 1979.
+.PP
+.I Strftime
+places characters into the array pointed to by \fIs\fR as 
+controlled by the string pointed to by \fIformat\fR.  The \fIformat\fR
+string consists of zero or more conversion specifiers and ordinary
+characters.  A conversion specifier consists of a \fB%\fR character 
+followed by a character that determines the behavior of the conversion
+specifier.  All ordinary characters (including the terminating null
+character) are copied unchanged into the array.  Each conversion
+specifier is replaced by appropriate characters as described in the
+following list.  The appropriate characters are determined by the
+values contained in the structure pointed to by \fItimeptr\fR.
+Below is a list of conversion specifiers:
+.RS
+.TP
+.B %%
+identical to %
+.TP 
+.B %a
+abbreviated weekday name
+.TP
+.B %A
+full weekday name
+.TP
+.B %b 
+abbreviated month name
+.TP
+.B %B
+full month name
+.TP
+.B %c
+time and date using the time and date representation for the locale 
+(\fB%X %x\fR)
+.TP
+.B %d
+day of the month as a decimal number \fB(01-31)\fR
+.TP
+.B %H
+hour based on a 24-hour clock as a decimal number \fB(00-23)\fR
+.TP
+.B %I
+hour based on a 12-hour clock as a decimal number \fB(01-12)\fR
+.TP
+.B %j
+day of the year as a decimal number \fB(001-366)\fR
+.TP
+.B %m
+month as a decimal number \fB(01-12)\fR 
+.TP
+.B %M
+minute as a decimal number \fB(00-59)\fR
+.TP
+.B %p
+AM/PM designation associated with a 12-hour clock
+.TP
+.B %S
+second as a decimal number \fB(00-61)\fR
+.TP
+.B %w
+weekday as a decimal number \fB(0-6)\fR, where Sunday is 0
+.TP
+.B %x
+date using the date representation for the locale
+.TP
+.B %X
+time using the time representation for the locale
+.TP
+.B %y
+year without century \fB(00-99)\fR
+.TP
+.B %Y
+year with century (e.g. 1990)
+.TP
+.B %Z
+time zone name or abbreviation, or no characters if no time zone is determinable.
+.RE
+.SH "RETURN VALUE"
+.I Ctime
+returns the pointer returned by \fIasctime\fR with that broken-down
+time as argument.
+.PP
+.I Asctime
+returns a pointer to a string.
+.PP
+.I Localtime
+returns a pointer to a \fBtm\fR structure.
+.PP
+.I Gmtime
+returns a pointer to a \fBtm\fR structure, or a null pointer if
+GMT is not available.
+.PP
+.I Mktime
+returns the specified calendar time encoded as a value of type 
+\fBtime_t\fR.  If the calendar time cannot be represented, the
+value (time_t)\-1 is returned.
+.PP
+.I Strftime
+returns the number of characters placed into the array pointed to
+by \fBs\fR not including the terminating null character if the total
+number of resulting characters including the terminating null
+character is not more than \fBmaxsize\fR.  Otherwise, zero is
+returned.
+.SH NOTE
+The return values point to static data whose content is overwritten by
+each call.  The \fBtm_zone\fP field of a returned \fBstruct tm\fP
+points to a static array of characters, which will also be overwritten
+at the next call (and by calls to \fItzset\fP).
+.SH "SEE ALSO" 
+gettimeofday(2), getenv(3), time(3), tzfile(5), environ(7)

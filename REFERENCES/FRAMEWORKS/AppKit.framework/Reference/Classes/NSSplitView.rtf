@@ -1,0 +1,445 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+{\colortbl;\red0\green0\blue0;}
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\f2\b\fs52\li1460{\NeXTHelpMarker62 \markername NS_DEV_DOCFOR:objc_class:NSSplitView;}
+¬}\f2\b\i0\ulnone\ql\fs52\fi0\li1460\gray0\fc0\cf0\up0\dn0 NSSplitView\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSView€: NSResponder€: NSObject\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding (from NSResponder)\
+
+\fi0 NSObject (from NSObject)\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 AppKit/NSSplitView.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 An NSSplitView object lets several views share a region within a window. The NSSplitView resizes its subviews so that each subview is the same width as the NSSplitView, and the total of the subviews' heights (plus the total of the dividers' thicknesses) is equal to the height of the NSSplitView. The NSSplitView positions its subviews so that the first subview is at the top of the NSSplitView, and each successive subview is positioned below the previous one. The user can set the height of two subviews by moving a horizontal bar called the 
+\i divider
+\i0 , which makes one subview smaller and the other larger. Programmatically, you adjust the relative height of subviews simply by modifying the frame of each of the subviews.\
+
+\fs14 \
+
+\fs28 To add a view to an NSSplitView, you use the NSView method
+\b  addSubview:
+\b0 . When the NSSplitView is displayed, it checks to see if its subviews are properly tiled. If not, it invokes the delegate method
+\b  splitView:resizeSubviewsWithOldSize:
+\b0 , allowing the delegate to specify the heights of specific subviews. If the delegate doesn't implement this method,
+\b  
+\b0 the NSSplitView
+\b  
+\b0 sends
+\b  adjustSubviews
+\b0  to itself to yield the default tiling behavior.\
+
+\fs14 \
+
+\fs28 When a mouse-down occurs in an NSSplitView's divider, the NSSplitView determines the limits of the divider's travel and tracks the mouse to allow the user to drag the divider within these limits. With the following mouse-up, the NSSplitView resizes the two affected subviews, informs the delegate that the subviews were resized, and displays the affected views and divider. The NSSplitView's delegate can constrain the travel of specific dividers by implementing the method 
+\b splitView:constrainMinCoordinate:maxCoordinate:ofSubviewAt:
+\b0 .\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Managing component views	
+\f1 -
+\f0 €adjustSubviews\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €dividerThickness\
+
+\f1 -
+\f0 €drawDividerInRect:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Assigning a delegate	
+\f1 -
+\f0 €delegate\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €setDelegate:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Notifications\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 When the subviews within a split view have been resized\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 NSSplitViewDidResizeSubviewsNotification\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 When the subviews within a split view are about to be resized\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 NSSplitViewWillResizeSubviewsNotification\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker2326 \markername NS_DEV_DOCFOR:objc_method:[NSSplitView-adjustSubviews];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 adjustSubviews\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0  (void)
+\b adjustSubviews
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Adjusts the heights of the NSSplitView's subviews so the total height (including the dividers) fills the NSSplitView. The subviews are resized proportionally; the size of a subview relative to the other subviews doesn't change.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b setDelegate:
+\b0 , 
+\f1 -
+\f0 €
+\b setFrame:€
+\b0 (NSView)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker2646 \markername NS_DEV_DOCFOR:objc_method:[NSSplitView-delegate];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 delegate\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b delegate
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the NSSplitView's delegate.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker2712 \markername NS_DEV_DOCFOR:objc_method:[NSSplitView-dividerThickness];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 dividerThickness\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (float)
+\b dividerThickness
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the thickness of the divider. By default, this size is the height of the ªdimpleº + 1.0. You can override this method to change the divider's height, if necessary.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b drawDividerInRect:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker2965 \markername NS_DEV_DOCFOR:objc_method:[NSSplitView-drawDividerInRect:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 drawDividerInRect:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b drawDividerInRect:
+\b0 (NSRect)
+\i aRect
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Draws a divider between two of the NSSplitView's subviews. 
+\i aRect
+\i0  describes the entire divider rectangle in the NSSplitView's coordinates, which are flipped. The default implementation composites a default ªdimpleº image to the center of 
+\i aRect
+\i0 ; if you override this method and use a different icon to identify the divider, you may want to change the height of the divider.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b dividerThickness,
+\b0  
+\f1 -
+\f0 €
+\b composite:toPoint:€
+\b0 (NSImage)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker3464 \markername NS_DEV_DOCFOR:objc_method:[NSSplitView-setDelegate:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setDelegate:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setDelegate:
+\b0 (id)
+\i anObject
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Makes 
+\i anObject
+\i0  the NSSplitView's delegate. The notification messages that the delegate can expect to receive are listed at the end of the NSSplitView class specification. The delegate doesn't need to implement all of the delegate methods.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc1\cf1 Methods Implemented by the Delegate\
+
+\
+
+{\pard\tx8260\li1500\fc0\cf0{\NeXTHelpMarker3792 \markername NS_DEV_DOCFOR:objc_method:[NSSplitView-splitView:constrainMinCoordinate:maxCoordinate:ofSubviewAt:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 splitView:constrainMinCoordinate:maxCoordinate:ofSubviewAt:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b splitView:
+\b0 (NSSplitView *)
+\i sender
+\i0  
+\b constrainMinCoordinate:
+\b0 (float *)
+\i min
+\i0  
+\b maxCoordinate:
+\b0 (float *)
+\i max
+\i0  
+\b ofSubviewAt:
+\b0 (int)
+\i offset\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Allows the delegate to constrain the 
+\i y
+\i0  coordinate limits of a divider when the user drags the mouse. This method is invoked before the NSSplitView begins tracking the mouse to position a divider. When this method is invoked, the limits have already been set and are stored in 
+\i min
+\i0  (the topmost limit) and 
+\i max
+\i0  (the bottommost limit). You may further constrain the limits by setting the variables indicated by 
+\i min
+\i0  and 
+\i max
+\i0 , but you cannot extend the divider limits. 
+\i min
+\i0  and 
+\i max
+\i0  are specified in the NSSplitView's flipped coordinate system. The divider to be repositioned is indicated by 
+\i offset
+\i0 , an index that counts the dividers from top to bottom starting with divider 0.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker4653 \markername NS_DEV_DOCFOR:objc_method:[NSSplitView-splitView:resizeSubviewsWithOldSize:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 splitView:resizeSubviewsWithOldSize:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b splitView:
+\b0 (NSSplitView *)
+\i sender
+\i0  
+\b resizeSubviewsWithOldSize:
+\b0 (NSSize)
+\i oldSize\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Allows the delegate to specify custom sizing behavior for the subviews of the NSSplitView. If the delegate implements this method, 
+\b splitView:resizeSubviewsWithOldSize:
+\b0  is invoked after the NSSplitView is resized. The size of the NSSplitView before the user resized it is indicated by 
+\i oldSize
+\i0 ; the subviews should be resized such that the sum of the heights of the subviews plus the sum of the thickness of the dividers equals the height of the NSSplitView's new frame. You can get the height of a divider through the 
+\b dividerThickness
+\b0  method.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b adjustSubviews
+\b0 , 
+\f1 -
+\f0 €
+\b setFrame:€
+\b0 (NSView)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5369 \markername NS_DEV_DOCFOR:objc_method:[NSSplitView-splitViewDidResizeSubviews:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 splitViewDidResizeSubviews:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b splitViewDidResizeSubviews:
+\b0 (NSNotification *)
+\i aNotification
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sent by the default notification center to the delegate; 
+\i aNotification
+\i0  is always an NSSplitViewDidResizeSubviewsNotification. If the delegate implements this method, the delegate is automatically registered to receive this notification. This method is invoked after the NSSplitView resizes two of its subviews in response to the repositioning of a divider.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5827 \markername NS_DEV_DOCFOR:objc_method:[NSSplitView-splitViewWillResizeSubviews:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 splitViewWillResizeSubviews:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b splitViewWillResizeSubviews:
+\b0 (NSNotification *)
+\i aNotification
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sent by the default notification center to the delegate; 
+\i aNotification
+\i0  is always an NSSplitViewWillResizeSubviewsNotification. If the delegate implements this method, the delegate is automatically registered to receive this notification. This method is invoked before the NSSplitView resizes two of its subviews in response to the repositioning of a divider.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Notifications\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSSplitView declares and posts the following notifications. In addition, it posts notifications that are declared by its superclass, NSView. See the NSView class specification for more information.\
+
+\fs14 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 NSSplitViewDidResizeSubviewsNotification\
+
+\fs6 \
+
+\fs4 \
+
+\pard\tx6080\tx11280\f0\fs28\fi-4840\li6320\fc0\cf0 Notification Object
+\b0 	The notifying NSSplitView.\
+
+\fs10 \
+
+\b\fs28 Userinfo
+\b0 	none\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Posted after the NSSplitView changes the sizes of some or all of its subviews.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €splitViewDidResizeSubviews:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx8260\f2\b\fs28\li1500\fc0\cf0 NSSplitViewWillResizeSubviewsNotification\
+
+\fs6 \
+
+\fs4 \
+
+\pard\tx6080\tx11280\f0\fs28\fi-4840\li6320\fc0\cf0 Notification Object
+\b0 	The notifying NSSplitView.\
+
+\fs10 \
+
+\b\fs28 Userinfo
+\b0 	none\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Posted before the NSSplitView changes the sizes of some or all of its subviews.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €splitViewWillResizeSubviews:\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 \
+
+\fs14 \
+
+}

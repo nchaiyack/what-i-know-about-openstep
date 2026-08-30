@@ -1,0 +1,64 @@
+.TH TCGETPGRP 3P  "August 1, 1992"
+.UC 4
+.SH NAME
+tcgetpgrp, tcsetpgrp \- get and set foreground process group ID
+.SH SYNOPSIS
+.nf
+.B #include <sys/types.h>
+.PP
+.B int tcgetpgrp(int \fIfildes\fP);
+.PP
+.B int tcsetpgrp(int \fIfildes\fP, pid_t \fIpgrp_id\fP);
+.fi
+.fi
+.SH DESCRIPTION
+\fITcgetpgrp\fR returns the value of the process group ID of the
+foreground process group associated with the terminal, indicated through
+\fIfildes\fR.  It may be 
+called from a process that is a member of a background process group;
+however, the information may be changed by a process that is a member 
+of a foreground process group. 
+.PP
+\fITcsetpgrp\fR sets the foreground process group ID associated with
+the controlling terminal, indicated through \fIfildes\fR, to \fIpgrp_id\fR.  
+The controlling terminal must be currently associated with the session 
+of the calling process.  The value of \fIpgrp_id\fR must match a process
+group ID of a process in the same session as the calling process.
+.SH "RETURN VALUE"
+Upon successful completion \fItcgetpgrp\fR and \fItcsetpgrp\fR 
+return a value of zero.  Otherwise, a value of -1 is returned and 
+\fIerrno\fR is set to indicate the error.
+.SH "ERRORS"
+.I Tcgetpgrp
+and 
+.I tcsetpgrp
+shall return \-1 and set 
+.I errno 
+to the corresponding value:
+.TP 15
+[EBADF]
+The 
+.I fildes
+argument is not a valid file descriptor.
+.TP 15
+[ENOTTY]
+The calling process does not have a controlling terminal.
+.TP 15
+[ENOTTY]
+The file given through \fIfildes\fR is not the controlling terminal.
+.PP
+The following errors may be associated with \fItcsetpgrp\fR:
+.TP 15
+[EINVAL]
+The value of the \fIpgrp_id\fR argument is not valid.
+.TP 15
+[ENOTTY]
+The controlling terminal is no longer associated with the session of
+the calling process.
+.TP 15
+[EPERM]
+The value of \fIpgrp_id\fR is a valid value, but does not match the
+process group ID of a process in the same session as the calling 
+process.
+.SH "SEE ALSO"
+setsid(2P), setpgid(2P)

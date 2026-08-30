@@ -1,0 +1,17 @@
+{
+    FILESTABLE = {
+        CLASSES = (TargetProxy.m); 
+        FRAMEWORKS = (Foundation.framework); 
+        H_FILES = (TargetProxy.h); 
+        OTHER_LINKED = (ForwardInvocation_main.m); 
+        OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble, m.template, h.template); 
+    }; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {}; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    PDO_UNIX_BUILDTOOL = $NEXT_ROOT/NextDeveloper/bin/make; 
+    PROJECTNAME = ForwardInvocation; 
+    PROJECTTYPE = Tool; 
+    PROJECTVERSION = 2.5; 
+    WINDOWS_BUILDTOOL = $NEXT_ROOT/NextDeveloper/Executables/make; 
+}

@@ -1,0 +1,81 @@
+.\"	@(#)gets.3s	6.1 (Berkeley) 5/15/85
+.\"
+.TH GETS 3S  "August 1, 1992"
+.ds ]W ANSI C
+.SH NAME
+gets, fgets \- get a string from a stream
+.SH SYNOPSIS
+.ft B
+#include <stdio.h>
+.PP
+.ft B
+char *gets(char *\fIs\fP);
+.PP
+.ft B
+char *fgets(char *\fIs\fP, int \fIn\fP, FILE *\fIstream\fP);
+.SH DESCRIPTION
+.I Gets
+reads a string into
+.I s
+from the standard input stream
+.IR stdin , 
+until end-of-file is encountered or a new-line 
+character is read.
+The string is terminated by a newline
+character, which is replaced in
+.I s
+by a null character.
+.PP
+.I Fgets
+reads 
+.IR n \-1
+characters, or up through a newline
+character, whichever comes first,
+from the
+.I stream
+into the string
+.IR s .
+No additional characters are read after a new-line character
+(which is retained) or after end-of-file.
+The last character read into
+.I s
+is followed by a null character.
+.SH "RETURN VALUE"
+.I Fgets
+and
+.I gets
+returns \fIs\fR if successful.  If unsuccessful, a null pointer
+is returned and an error code is stored in \fIerrno\fR.
+.SH "ERRORS"
+The underlying function of
+.I fgets
+and
+.I gets
+is \fIread\fR(2).
+The error conditions specified for
+.IR read (2)
+apply to 
+.IR fgets
+and
+.I gets.
+.SH "SEE ALSO"
+read(2),
+puts(3S),
+getc(3S),
+scanf(3S),
+fread(3S),
+ferror(3S)
+.SH DIAGNOSTICS
+.I Gets
+and
+.I fgets
+return the constant pointer 
+.SM
+.B NULL
+upon end of file or error.
+.SH BUGS
+.I Gets
+deletes a newline,
+.I fgets
+keeps it,
+all in the name of backward compatibility.

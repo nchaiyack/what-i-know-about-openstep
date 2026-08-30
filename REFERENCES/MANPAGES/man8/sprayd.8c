@@ -1,0 +1,22 @@
+.\" @(#)sprayd.8c	1.2 87/08/23 3.2/4.3NFSSRC
+.\" @(#)sprayd.8c	1.2 87/02/10 NFSSRC
+.\" @(#)sprayd.8c 1.1 86/09/25 SMI;
+.TH SPRAYD 8C "19 February 1986"
+.SH NAME
+sprayd \- spray server
+.SH SYNOPSIS
+.B /usr/etc/rpc.sprayd
+.SH DESCRIPTION
+.IX  "sprayd daemon"  ""  "\fLsprayd\fP \(em spray server"
+.IX  "daemons"  "sprayd"  ""  "\fLsprayd\fP \(em spray server"
+.IX  "remote procedure call services"  "sprayd"  ""  "\fLsprayd\fP \(em spray server"
+.LP
+.I rpc.sprayd
+is a server which records the packets sent by
+.IR spray (8).
+The 
+.I rpc.sprayd
+daemon is normally invoked by
+.IR inetd (8).
+.SH "SEE ALSO"
+spray(8)

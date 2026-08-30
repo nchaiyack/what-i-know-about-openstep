@@ -1,0 +1,52 @@
+.\" Copyright (c) 1988 NeXT Computer, Inc.
+.\" All rights reserved.
+.\"
+.\"	@(#)msgwrap.8
+.\"
+.TH MSGWRAP 8 "Nov 1, 1988"
+.UC 4
+.SH NAME
+msgwrap \- generate remote message classes
+.SH SYNOPSIS
+.B msgwrap
+file.msg
+.br
+.SH DESCRIPTION
+.I Msgwrap
+reads
+.I file.msg
+and produces fileSpeaker.m fileSpeaker.h fileListener.m fileListener.h,
+which define Speaker and Listener subclasses for the list of
+messages in file.msg.
+.PP
+The list of messages has the same syntax as the
+list of messages in a header file for a class.
+For example:
+.PP
+- aMethod : (int) i returnResult : (int *) i;
+.PP
+Input parameter types are (int), (double), (char *), (port_t_send),
+(port_t_rcv), (byte *).
+.PP
+The corresponding return
+parameter types are (int *), (double *), (char **), (port_t_send *),
+(port_t_rcv *), (byte **).
+.PP
+Each (byte *) parameter must be followed by an (int)
+parameter, which gives the number of bytes. For example:
+.PP
+- sendByteArray : (byte *) bytes length : (int) len;
+.PP
+Each (byte **) parameter must be followed by an (int *)
+parameter, which returns the number of bytes.
+.PP
+- returnByteArray : (byte **) bytes length : (int *) len;
+.PP
+Port_t_send corresponds to port send rights. Port_t_rcv corresponds
+to port receive rights.
+.PP
+.PP
+.SH "SEE ALSO"
+Appkit documentation for Listener and Speaker classes.
+.SH BUGS
+

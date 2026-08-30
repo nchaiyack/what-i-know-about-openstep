@@ -1,0 +1,124 @@
+.\" Copyright (c) 1983 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)install.1	6.1 (Berkeley) 4/29/85
+.\"
+.TH INSTALL 1 "April 29, 1985"
+.UC 5
+.SH NAME
+install \- install binaries
+.SH SYNOPSIS
+.B install
+[
+.B \-c
+] [
+.B \-q
+] [
+.B \-r
+] [
+.B \-m
+mode ] [
+.B \-o
+owner ] [
+.B \-g
+group ] [
+.B \-s
+] binary destination
+.SH DESCRIPTION
+.I Install
+copies
+.I binary
+to
+.IR destination .
+If
+.I destination
+already exists,
+it is removed before
+.I binary
+is copied.
+If the destination is a directory then
+.I binary
+is copied into the
+.I destination
+directory with its original file-name.
+The \fB\-c\fR option is kept for backward compatibility with older shell scripts that invoke the \fIinstall\fR command.
+The
+.B \-q
+flag sets install in "quick" mode.
+The
+.B \-r
+flag causes
+.I install
+to run
+.I ranlib
+on
+.I binary
+(an archive) after installing it in
+.IR destination .
+.PP
+The mode for
+.I destination
+is set to 755; the
+.B \-m
+.I mode
+option may be used to specify a different mode.
+.PP
+The
+.I destination
+file
+is changed to owner root; the
+.B \-o
+.I owner
+option may be used to specify a different owner.
+.PP
+The
+.I destination
+file
+is changed to group staff; the
+.B \-g
+.I group
+option may be used to specify a different group.
+.PP
+If the
+.B \-s
+option is specified the binary is stripped after being installed.
+Additional options to the
+.B \-s
+option are specified
+.BR \-s\fIX\fR ,
+where
+.I X
+is chosen among the options available via the
+.IR strip (1)
+command.
+Currently implemented are:
+.RS
+.B -sX
+\(em see strip -X
+.br
+.B -sx
+\(em see strip -x
+.br
+.B -sA
+\(em see strip -A
+.br
+.B -sS
+\(em see strip -S
+.B -sSd
+\(em see strip -S -d
+.br
+.B -sgg
+\(em see strip -gg
+.br
+.B -sAn
+\(em see strip -A -n
+.br
+.RE
+.PP
+The
+.I install
+utility
+refuses to move a file onto itself.
+.SH "SEE ALSO"
+chgrp(1), chmod(1), cp(1), mv(1), strip(1), chown(8)

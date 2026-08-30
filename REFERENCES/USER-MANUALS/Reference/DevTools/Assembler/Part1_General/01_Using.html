@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 50.0px; font: 10.0px Helvetica; color: #0000ff; min-height: 12.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 50.0px; font: 42.0px Helvetica; color: #0000ff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 50.0px; font: 24.0px Helvetica; color: #0000ff; min-height: 29.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 12.0px; font: 44.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 12.0px; font: 60.0px Times; min-height: 72.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 151.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 151.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 50.0px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 50.0px; font: 26.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 50.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 170.0px; font: 12.0px Courier}
+    p.p14 {margin: 0.0px 0.0px 0.0px 226.0px; text-indent: -76.0px; font: 3.0px Times; min-height: 4.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 226.0px; text-indent: -76.0px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 226.0px; text-indent: -76.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 189.0px; font: 12.0px Courier}
+    p.p18 {margin: 0.0px 0.0px 0.0px 151.0px; font: 26.0px Helvetica; min-height: 31.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 151.0px; font: 24.0px Helvetica}
+    p.p20 {margin: 0.0px 0.0px 0.0px 151.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 226.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 226.0px; font: 12.0px Times; min-height: 14.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><br></p>
+<p class="p4"><b>1</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><i>Using the Assembler</i></p>
+<p class="p7"><i></i><br></p>
+<p class="p8">This chapter describes how to run the <b>as</b> assembler, which produces an object file from one or more files of assembly language source code.</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="s2"><b>Note:<span class="Apple-converted-space">  </span></b></span>Although <b>a.out</b> is the default file name that <b>as</b> gives to the object file that's created (as is conventional with most UNIX-style compiler systems), the format of the object file is not standard UNIX 4.3BSD <b>a.out</b> format.<span class="Apple-converted-space">  </span>Object files produced by the assembler are in Mach-O (Mach object) file format.<span class="Apple-converted-space">  </span>For more information about the Mach-O file format, see the <i>NEXTSTEP Development Tools and Techniques</i> manual.</p>
+<p class="p9"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b>Command Syntax</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p8">To run the assembler, type the following command in a shell window:</p>
+<p class="p9"><br></p>
+<p class="p13">as [ <i>option</i> ] ... [ <i>file</i> ] ...</p>
+<p class="p9"><br></p>
+<p class="p8">You can specify one or more command-line options.<span class="Apple-converted-space">  </span>These assembler options are described in the following section.</p>
+<p class="p9"><br></p>
+<p class="p8">You can specify one or more files containing assembly language source code.<span class="Apple-converted-space">  </span>If no files are specified, <b>as</b> uses the standard input (stdin) for the assembly source input. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8"><span class="s2"><b>Note:<span class="Apple-converted-space">  </span></b></span>By convention,<span class="Apple-converted-space">  </span>files containing assembly language source code should have a <b>.s</b> extension.</p>
+<p class="p9"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b>Assembler Options</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p8">The following command-line options are recognized by the assembler:</p>
+<p class="p9"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><b>-o</b> <i>name</i><span class="Apple-tab-span">	</span>The <i>name</i> argument after <b>-o</b> is used as the name of the <b>as</b> output file, instead of <b>a.out</b>.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>--</b><span class="Apple-tab-span">	</span>Use the standard input (stdin) for the assembly source input.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>-f</b><span class="Apple-tab-span">	</span>Fast; no need to run<span class="Apple-converted-space">  </span><b>app</b> (the assembler preprocessor).<span class="Apple-converted-space">  </span>This option is intended for use by compilers that produce assembly code in a strict “clean” format that specifies exactly where whitespace can go.<span class="Apple-converted-space">  </span>The <b>app</b> preprocessor needs to be run on handwritten assembly files and on file that have been preprocessed by<span class="Apple-converted-space">  </span><b>cpp</b> (the C preprocessor).<span class="Apple-converted-space">  </span>This typically is needed when assembler files are assembled through the use of the <b>cc</b>(1) command, which automatically runs the C preprocessor on assembly source files.<span class="Apple-converted-space">  </span>The assembler preprocessor strips out excess spaces, turns each single-quoted character into a decimal constant, and turns occurrences of<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p17"><b><span class="Apple-converted-space">        </span># </b><i>number</i><b> </b><i>filename</i><b> </b><i>level</i><span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p15"><span class="Apple-tab-span">	</span>into:<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p17"><span class="Apple-converted-space">        </span>.line<b> </b><i>number</i><b>;</b>.file<b> </b><i>filename</i><span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p15"><span class="Apple-tab-span">	</span>The assembler preprocessor can also be turned off by starting the assembly file with <b>#NO_APP\n</b>.<span class="Apple-converted-space">  </span>When the assembler preprocessor has been turned off in this way, it can be turned on and off with pairs of <b>#APP\n</b> and <b>#NO_APP\n</b> at the beginning of lines.<span class="Apple-converted-space">  </span>This is used by the compiler to wrap assembly statements produced from <b>asm</b>() statements.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>-g</b><span class="Apple-tab-span">	</span>Produce debugging information for the symbolic debugger <b>gdb</b>(1) so the the assembly source can be debugged symbolically.<span class="Apple-converted-space">  </span>For include files (included by the C preprocessor's <b>#include</b> or by the assembler<span class="Apple-converted-space">  </span>directive <b>.include</b>) that produce instructions in the (__TEXT,__text) section, the include file must be included while a <b>.text</b> directive is in effect (that is, there must be a <b>.text</b> directive before the include) and end with the a <b>.text</b> directive in effect (at the end of the include file).<span class="Apple-converted-space">  </span>Otherwise the debugger will have trouble dealing with that assembly file.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>-v</b><span class="Apple-tab-span">	</span>Print the version of the assembler (both the NeXT version and the GNU version that it is based on).</p>
+<p class="p16"><br></p>
+<p class="p15"><b>-n</b><span class="Apple-tab-span">	</span>Don't assume that the assembly file starts with a <b>.text</b> directive.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>-I</b><i>dir</i><span class="Apple-tab-span">	</span>Add <i>dir</i> to the list of directories to search for files included with the <b>.include</b> directive.<span class="Apple-converted-space">  </span>The default places to search are the current directory, and then <b>/usr/include</b>.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>-L</b><span class="Apple-tab-span">	</span>Save defined labels beginning with an `L' (the compiler generates these temporary labels).<span class="Apple-converted-space">  </span>Temporary labels are normally discarded to save space in the resulting symbol table.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>-W</b><span class="Apple-tab-span">	</span>Suppress warnings.</p>
+<p class="p16"><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><b>Architecture Options</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p8">The program <b>/bin/as</b> is a driver that executes assemblers for specific target architectures.<span class="Apple-converted-space">  </span>If no target architecture is specified, it defaults to the architecture of the host it is running on.</p>
+<p class="p9"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><b>-arch</b> <i>arch_type</i></p>
+<p class="p21">Specifies to the target architecture, <i>arch_type</i>, the assembler to be executed.<span class="Apple-converted-space">  </span>The target assemblers for each architecture are in <b>/lib/</b><i>arch_type</i><b>/as</b>.</p>
+<p class="p22"><br></p>
+<p class="p15"><b>-arch_multiple</b></p>
+<p class="p21">This is used by the <b>cc</b>(1) driver program when it is run with multiple <b>-arch</b> <i>arch_type</i> flags and instructs programs like <b>as</b>(1) that if it prints any messages to precede the messages with one line stating the program name—in this case <b>as</b>—and the architecture (from the <b>-arch</b> <i>arch_type</i> flag) to distinguish which architecture the error messages refer to.<span class="Apple-converted-space">  </span>This flag is accepted only by the actual assemblers (in <b>/lib/</b><i>arch_type</i><b>/as</b>) and not by the assembler driver, <b>/bin/as</b>.</p>
+<p class="p22"><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><b>M68000-Specific Options</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p14"><br></p>
+<p class="p15"><b>-l</b><span class="Apple-tab-span">	</span>For offsets from an address register that refers to an undefined symbol (as in <b>a6@(var</b>) where <b>var</b> is not defined in the assembly file), make the offset and the relocation entry width 32 bits rather than 16 bits.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>-k</b><span class="Apple-tab-span">	</span>Produce a warning when a statement of the form</p>
+<p class="p16"><br></p>
+<p class="p17"><span class="Apple-converted-space">        </span>.word <i>symbol1</i>-<i>symbol2</i>+<i>offset</i><span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p15"><span class="Apple-tab-span">	</span>does not fit in a 16-bit word.<span class="Apple-converted-space">  </span>This is only applicable on the 68000 processor, where <b>.word</b> is 16 bits and all addresses are 16 bits; therefore, this option isn't applicable on NeXT computers.</p>
+<p class="p16"><br></p>
+<p class="p15"><b>-mc68000</b> and <b>-mc68010</b><span class="Apple-tab-span">	</span><span class="Apple-converted-space"> </span></p>
+<p class="p21">Don't generate branches that use 32-bit <b>pc</b>-relative displacements (which aren't implemented on the 68000 and 68010 processors).<span class="Apple-converted-space">  </span>These options aren't applicable on NeXT computers.</p>
+<p class="p22"><br></p>
+<p class="p15"><b>-mc68020</b><span class="Apple-tab-span">	</span>Generate branches that use 32-bit <b>pc</b>-relative displacements.<span class="Apple-converted-space">  </span>This is the default behavior.</p>
+<p class="p16"><br></p>
+</body>
+</html>

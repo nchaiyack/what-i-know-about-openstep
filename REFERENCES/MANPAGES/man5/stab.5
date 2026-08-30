@@ -1,0 +1,138 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)stab.5	6.3 (Berkeley) 5/19/86
+.\"
+.TH STAB 5 "March 1, 1989"
+.UC 4
+.SH NAME
+stab \- symbol table types
+.SH SYNOPSIS
+.B "#include <stab.h>"
+.SH DESCRIPTION
+.I Stab.h
+defines some values of the n_type field of the symbol table of Mach-O
+(Mach object) files.
+These are the types for permanent symbols (i.e., not local labels, etc.)
+used by the symbolic debugger
+.I gdb
+(when the 
+.B \-g
+option of the compiler
+.IR cc (1)
+is used).
+Symbol table entries can be produced by the
+.I .stabs
+assembler directive.
+This allows one to specify a double-quote delimited name, a symbol type,
+one char and one short of information about the symbol, and an unsigned
+long (usually an address).
+To avoid having to produce an explicit label for the address field,
+the
+.I .stabd
+directive can be used to implicitly address the current location.
+If no name is needed, symbol table entries can be generated using the
+.I .stabn
+directive.
+The loader promises to preserve the order of symbol table entries produced
+by
+.I .stab
+directives.
+As described in
+.IR Mach-O (5),
+an element of the symbol table
+consists of the following structure:
+.PP
+.nf
+.ta \w'#define  'u +\w'char'u-1u +\w'unsigned  'u+1u +\w'*n_name  'u
+/*
+.in +\w'/'u
+* Format of a symbol table entry.
+*/
+.in -\w'/'u
+struct nlist {
+	union {
+		char	*n_name;	/* for use when in-core */
+		long	n_strx;	/* index into file string table */
+	} n_un;
+	unsigned char	n_type;	/* type flag, see below */
+	char	n_sect;	/* section number or NO_SECT */
+	short	n_desc;	/* see below for specific n_type values */
+	unsigned	n_value;	/* value of this symbol (or stab offset) */
+};
+.fi
+.PP
+The value of the n_sect field is used to place a symbol into
+at most one section.  The value of the n_sect field is an ordinal refering
+to the section the symbol is in.  The sections are numbered from 1 and 
+refer to sections in the order their section structures appear in the headers
+of the file that
+contains the symbol table entry.  This means the same ordinal may very well
+refer to different sections in different files.
+A symbol can be in none of these sections by having an n_sect value of
+NO_SECT.
+.PP
+The n_value field of a symbol is relocated by the linker
+.IR ld (1)
+as an address within the appropriate section.
+N_value fields of symbols not in any section are unchanged by the linker.
+In addition, the linker will discard certain symbols, according to rules
+of its own, unless the n_type field has one of the following bits set:
+.PP
+.nf
+/*
+.in +\w'/'u
+* Other permanent symbol table entries have some of the N_STAB bits set.
+* These are given in <stab.h>
+*/
+.in -\w'/'u
+.ta \w'#define\ 'u +\w'N_BCOMM\ 'u +\w'0x00\ \ \ 'u
+#define	N_STAB		0xe0		/* if any of these bits set, don't discard */
+.fi
+.PP
+This allows up to 112 (7 \(** 16) symbol types, split between the various
+sections.
+Some of these have already been claimed.
+The symbolic debugger,
+.IR gdb ,
+uses the following n_type values: 
+.PP
+.nf
+#define	N_GSYM	0x20	/* global symbol: name,,NO_SECT,type,0 */
+#define	N_FNAME	0x22	/* procedure name (f77 kludge): name,,NO_SECT,0,0 */
+#define	N_FUN	0x24	/* procedure: name,,n_sect,linenumber,address */
+#define	N_STSYM	0x26	/* static symbol: name,,n_sect,type,address */
+#define	N_LCSYM	0x28	/* .lcomm symbol: name,,n_sect,type,address */
+#define	N_RSYM	0x40	/* register sym: name,,NO_SECT,type,register */
+#define	N_SLINE	0x44	/* src line: 0,,n_sect,linenumber,address */
+#define	N_SSYM	0x60	/* structure elt: name,,NO_SECT,type,struct_offset */
+#define	N_SO	0x64	/* source file name: name,,n_sect,0,address */
+#define	N_LSYM	0x80	/* local sym: name,,NO_SECT,type,offset */
+#define	N_SOL	0x84	/* #included file name: name,,n_sect,0,address */
+#define	N_PSYM	0xa0	/* parameter: name,,NO_SECT,type,offset */
+#define	N_ENTRY	0xa4	/* alternate entry: name,,n_sect,linenumber,address */
+#define	N_LBRAC	0xc0	/* left bracket: 0,,NO_SECT,nesting level,address */
+#define	N_RBRAC	0xe0	/* right bracket: 0,,NO_SECT,nesting level,address */
+#define	N_BCOMM	0xe2	/* begin common: name,,NO_SECT,0,0 */
+#define	N_ECOMM	0xe4	/* end common: name,,n_sect,0,0 */
+#define	N_ECOML	0xe8	/* end common (local name): 0,,n_sect,0,address */
+#define	N_LENG	0xfe	/* second stab entry with length information */
+.fi
+.PP
+where the comments give the conventional use for:
+.PP
+.nf
+	.stabs "n_name", n_type, n_sect, n_desc, n_value
+.fi
+.PP
+where n_type is the defined constant and not listed in the comment.
+N_sect is the section ordinal the entry is refering to.
+.IR Gdb (1)
+uses the n_desc field to hold a type specifier in the form used
+by the Portable C Compiler
+.IR cc (1);
+see the header file \fIpcc.h\fP
+for details on the format of these type values.
+.SH "SEE ALSO"
+as(1), ld(1), gdb(1), Mach-O(5)

@@ -1,0 +1,77 @@
+.\" Copyright (c) 1992 NeXT Computer, Inc.
+.\" All rights reserved.
+.\"
+.\"	@(#)screenafm.1	1.0 (NeXT) 07/14/89
+.\"
+.TH SCREENAFM 1 "July 14, 1989" "NeXT Computer, Inc."
+.UC 4
+.SH NAME
+screenafm \- Build screen font metric file from bitmap description files
+.SH SYNOPSIS
+.B /usr/bin/screenafm
+.I fontname
+.I bdffile ...
+.SH DESCRIPTION
+.B screenafm
+is used to build Adobe Font Metric (AFM) files for the screen-width
+versions of a particular font.
+.B screenafm 
+is usually executed as part of the font installation procedure
+for a font.
+It takes as input a font metric file for the font
+as a whole, and a number of standard
+Adobe Bitmap Description format (BDF) files.
+It produces one font metrics file for each BDF file it is
+given, describing the character widths for that size of that
+font if screen widths are being used.
+The Bitmap Distribution
+Format files provided as input to
+.B screenafm
+must be given in order from smallest to largest.
+.PP
+The AFM files output by
+.B screenafm
+should be placed in the directory of the font itself.
+.PP
+For more information about how to create and install fonts,
+see the document
+\fIPreparing Fonts\fR,
+available on-line in /NextLibrary/Documentation/NextDev/Concepts.
+.PP
+When
+.B screenafm
+is run, it looks for the AFM file for the given font in the
+current directory, in the directory
+.BR ../afm ,
+and then in the three standard AFM file
+directories (see below).  The inclusion of
+.B ../afm
+is often helpful when working in a conventional font source tree.
+.LP
+.SH FILES
+.ta \w'/LocalLibrary/Fonts/{outline,bitmap,afm}   'u
+.nf
+/NextLibrary/Fonts/	location of NeXT-provided fonts
+/LocalLibrary/Fonts/	location of local fonts
+~/Library/Fonts/	location of user fonts
+.PP
+Obsolete directories still searched by \fBscreenafm\fR:
+.PP
+/NextLibrary/Fonts/{outline, bitmap, afm}	location of NeXT-provided fonts
+/LocalLibrary/Fonts/{outline, bitmap, afm}	location of local fonts
+~/Library/Fonts/{outline, bitmap, afm}	location of user fonts
+.fi
+.DT
+.SH SEE ALSO
+prebuild (1)
+.SH BUGS
+.B screenafm
+shouldn't exist at all.  This information could be directly
+obtained from the output files produced by 
+.BR prebuild .
+.PP
+.B screenafm
+shouldn't look in \fB../afm\fR or the afm subdirectory of the 
+standard font directories, since they're not supposed to be used
+anymore.
+

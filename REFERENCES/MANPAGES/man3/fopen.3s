@@ -1,0 +1,136 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)fopen.3s	6.3 (Berkeley) 5/27/86
+.\"
+.TH FOPEN 3S "August 1, 1992"
+.ds ]W ANSI C
+.SH NAME
+fopen, freopen, fdopen \- open a stream
+.SH SYNOPSIS
+.B #include <stdio.h>
+.PP
+.SM
+\fBFILE *fopen(const char *\fIfilename\fP, const char *\fItype\fP);
+.PP
+.SM
+.B FILE
+\fB*freopen(const char *\fIfilename\fP, const char *\fItype\fP, FILE *\fIstream\fP);
+.PP
+.SM
+\fBFILE *fdopen(int fildes, char *\fItype\fP);
+.SH DESCRIPTION
+.I Fopen
+opens the file named by
+.I filename
+and associates a stream with it.
+.I Fopen
+returns a pointer to be used to identify the stream in subsequent operations.
+.PP
+.I Type
+is a character string having one of the following values:
+.TP 5
+\*(lqr\*(rq
+open for reading
+.ns
+.TP 5
+\*(lqw\*(rq
+truncate to zero length or create for writing
+.ns
+.TP 5
+\*(lqa\*(rq
+append: open for writing at end of file, or create for writing
+.PP
+In addition, each
+.I type
+may be followed by a \*(lq+\*(rq to have the file opened for reading and writing.
+\*(lqr+\*(rq positions the stream at the beginning of the file, \*(lqw+\*(rq creates
+or truncates it, and \*(lqa+\*(rq positions it at the end.  Both reads and writes
+may be used on read/write streams, with the limitation that an
+.IR fseek ,
+.IR rewind ,
+or reading an end-of-file must be used between a read and a write or vice-versa.
+.PP
+.I Type
+may also be followed by a \*(lqb\*(rq to denote a binary file, though this
+has no effect on this system.
+.PP
+.I Freopen
+substitutes the named file in place of the open
+.IR stream .
+It returns the original value of
+.IR stream .
+The original stream is closed.  The 
+.I type
+argument is used just as in the 
+.I fopen
+function.
+.PP
+.I Freopen
+is typically used to attach the preopened constant names,
+.B stdin, stdout, stderr,
+to specified files.
+.PP
+.I Fdopen
+associates a stream with a file descriptor obtained from
+.IR open ,
+.IR dup ,
+.IR creat ,
+or
+.IR pipe (2).
+The
+.I type
+of the stream must agree with the mode of the open file.
+The meaning of the 
+.I type
+flag is exactly as specified for 
+.IR fopen ,
+except that \*(lqw\*(rq and \*(lqw+\*(rq do not cause truncation
+of the file.  The file position indicator associated with the
+new stream is set to the position indicated by the file 
+offset associated with the file descriptor.
+.SH "RETURN VALUE"
+If successful,
+.IR fopen ,
+.IR freopen ,
+and
+.I fdopen
+returns a pointer to a stream.  Otherwise
+a 
+.SM
+.B NULL
+pointer is returned
+if
+.I filename
+cannot be accessed,
+if too many files are already open,
+or if other resources needed cannot be allocated.
+.SH NOTES
+.I Fdopen
+is not portable to systems other than UNIX
+(and is neither ANSI- nor POSIX-compliant).
+.PP
+The read/write 
+.I types
+do not exist on all systems.  Those systems without
+read/write modes will probably treat the 
+.I type
+as if the \*(lq+\*(rq was not present.  These are unreliable in any event.
+.PP
+The current directory is specified when the string "" is given as 
+\fIfilename\fR.
+.SH BUGS
+In order to support the same number of open files as does the system,
+.I fopen
+must allocate additional memory for data structures using
+.I calloc
+after 20 files have been opened.
+This confuses some programs which use their own memory allocators.
+An undocumented routine,
+.IR f_prealloc ,
+may be called to force immediate allocation of all internal memory
+except for buffers.
+.SH "SEE ALSO"
+open(2),
+fclose(3S)

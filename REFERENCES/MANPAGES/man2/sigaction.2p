@@ -1,0 +1,70 @@
+.TH SIGACTION 2P "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+sigaction \- (POSIX only) examine or specify the action to be associated with a specific
+signal.
+.SH SYNOPSIS
+.nf
+.ft B
+#include <signal.h>
+.sp
+int sigaction(int \fIsig\fP, const struct sigaction *\fIact\fP, struct sigaction *\fIoact\fP)
+.fi
+.SH DESCRIPTION
+The information in this specification applies
+only to POSIX applications.
+.PP
+The \fIsigaction\fP function allows the calling process to examine or specify
+(or both) the action to be associated with a specific signal.  The argument
+\fIsig\fR specifies the signal.
+.PP
+If the argument \fIact\fR is not NULL, it points to a structure
+specifying the action to be associated with the specified signal.
+If the argument \fIoact\fR is not NULL, the action previously
+associated with the signal is stored in the location pointed to by
+the argument \fIoact\fR. If the argument \fIact\fR is NULL,
+signal handling is unchanged by this function call.
+.PP
+The \fIsa_handler\fR field of the \fIsigaction\fR structure identifies
+the action to be associated with the specified signal.  If the
+\fIsa_handler\fR field specifies a signal-catching function, the
+\fIsa_mask\fR field identifies a set of signals that shall be added
+to the signal mask of the process before the signal-catching function
+is invoked.  Ths SIGKILL and SIGSTOP signals shall not be added to
+the signal mask using this mechanism.
+.PP
+The SA_NOCLDSTOP bit of the \fIsa_flags\fR field may be used to
+modify the behavior of the specified signal.  If \fIsig\fR is
+SIGCHLD and the SA_NOCLDSTOP flag is not set in \fIsa_flags\fR, a
+SIGCHLD signal shall be generated for the calling process whenever
+any of its child processes stop.
+.PP
+When a signal is caught by a signal-catching function installed by
+the \fIsigaction\fR function, a new signal mask is calculated
+and installed for the duration of the signal-catching function (or
+until a call to either the \fIsigprocmask(2P)\fR or \fIsigsuspend(2P)\fR
+function is made).  This mask is formed by taking the union of the
+current signal mask and the value of the \fIsa_mask\fR for the
+signal being delivered and then including the signal being delivered.
+If and when the signal handler returns normally, the original signal
+mask is restored.
+.PP
+Once an action is installed for a specific signal, it remains
+installed until another action is explicitly requested (by another
+call to the \fIsigaction\fR function) or until one of the
+\fIexec(2)\fR functions is called.
+.SH RETURNS
+Upon successful completion, a value of zero is returned. Otherwise, a value of
+\-1 is returned and \fIerrno\fR is set to indicate the error.
+.SH ERRORS
+.TP 15
+[EINVAL]
+The value of the \fIsig\fR argument is invalid. 
+.TP 15
+[EINVAL]
+An attempt was made to catch, ignore, or set SIG_DFL for SIGKILL or SIGSTOP.
+.SH SEE ALSO
+kill(2),
+sigprocmask(2P),
+sigsetops(2P),
+sigsuspend(2P)

@@ -1,0 +1,81 @@
+.\"
+.\"	@(#)setuid.3	
+.\"
+.TH SETUID 3 "August 1, 1992" 
+.UC 5
+.SH NAME
+setuid, setgid\- set user and group ID
+.SH SYNOPSIS
+.nf
+.ft B
+#include <sys/types.h>
+.PP
+.ft B
+.nf
+int setuid(uid_t \fIuid\fP);
+.PP
+.ft B
+.nf
+int setgid(gid_t \fIgid\fP);
+.fi
+.SH "(ALSO AVAILABLE IN BSD)"
+.nf
+.ft B
+int seteuid(uid_t \fIeuid\fP);
+.PP
+.ft B
+int setruid(uid_t \fIruid\fP);
+.PP
+int setegid(gid_t \fIegid\fP);
+.PP
+.ft B
+int setrgid(gid_t \fIrgid\fP);
+.PP
+.fi
+.SH DESCRIPTION
+.I Setuid
+.RI ( setgid )
+sets the real and effective 
+user ID (group ID) and saved set-user-ID (set-group-ID) of the current 
+process to \fIuid\fR (\fIgid\fR) if the calling process is super-user.
+If the process is not super-user, but \fIuid\fR (\fIgid\fR) is equal
+to the real user ID or the saved set-user-ID, 
+.I setuid
+.RI (setgid)
+sets the effective user ID to \fIuid\fR (\fIgid\fR).
+.PP
+The BSD routines
+.IR seteuid ,
+.IR setruid ,
+.IR setegid ,
+and
+.I setrgid
+set either just the effective
+or just the real
+user or group ID as above.
+.SH "RETURN VALUE"
+Upon successful completion a value of zero is returned.  Otherwise a
+\-1 is returned and 
+.I errno
+is set to indicate the error.
+.SH ERRORS
+.I Setuid
+and 
+.I setgid
+shall return \-1 and set 
+.I errno 
+to the corresponding value:
+.TP 15
+[EINVAL]
+The value of the
+.I uid
+.I (gid)
+argument is invalid and not supported by the implementation.
+.TP
+[EPERM]
+The process does not have appropriate privileges and
+.I uid
+.I (gid)
+does not match the real user ID or the saved set-user-ID.
+.SH "SEE ALSO"
+setreuid(2), setregid(2), getuid(2), getgid(2)

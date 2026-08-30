@@ -1,0 +1,2316 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f5\fnil NeXTdoc;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+{\colortbl;\red0\green0\blue0;}
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\f2\b\fs52\li1460{\NeXTHelpMarker62 \markername NS_DEV_DOCFOR:objc_class:NSImage;}
+¬}\f2\b\i0\ulnone\ql\fs52\fi0\li1460\gray0\fc0\cf0\up0\dn0 NSImage\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding\
+
+\fi0 NSCopying\
+NSObject (from NSObject)\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 AppKit/NSImage.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 An NSImage object contains an image that can be composited anywhere without first being drawn in any particular view. It manages the image by:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	Reading image data from the application bundle, from an NSPasteboard, or from an NSData object.\
+
+\fs14 \
+
+\fs28 ·	Keeping multiple representations of the same image.\
+
+\fs14 \
+
+\fs28 ·	Choosing the representation that's appropriate for a particular data type.\
+
+\fs14 \
+
+\fs28 ·	Choosing the representation that's appropriate for any given display device.\
+
+\fs14 \
+
+\fs28 ·	Caching the representations it uses by rendering them in off-screen windows.\
+
+\fs14 \
+
+\fs28 ·	Optionally retaining the data used to draw the representations, so that they can be reproduced when needed.\
+
+\fs14 \
+
+\fs28 ·	Compositing the image from the off-screen cache to where it's needed on-screen.\
+
+\fs14 \
+
+\fs28 ·	Reproducing the image for the printer so that it matches what's displayed on-screen, yet is the best representation possible for the printed page.\
+
+\fs14 \
+
+\fs28 ·	Automatically using any filtering services installed by the user to convert image data from unsupported formats to supported formats. \
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Defining an Image\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 An image can be created from various types of data:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	Encapsulated PostScript code (EPS)\
+
+\fs14 \
+
+\fs28 ·	Bitmap data in Tag Image File Format (TIFF)\
+
+\fs14 \
+
+\fs28 ·	Bitmap data in Windows Bitmap format (BMP)\
+
+\fs14 \
+
+\fs28 ·	Untagged (raw) bitmap data \
+
+\fs14 \
+
+\fs28 ·	Other image data supported by an NSImageRep subclass registered with the NSImage€class\
+
+\fs14 \
+
+\fs28 ·	Data that can be filtered to a supported type by a user-installed filter service\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If data is placed in a file (for example, in an application bundle), the NSImage object can access the data whenever it's needed to create the image. If data is read from an NSData object, the NSImage object may need to store the data itself.\
+
+\fs14 \
+
+\fs28 Images can also be defined by the program, in two ways:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	By drawing the image in an off-screen window maintained by the NSImage object. In this case, the NSImage maintains only the cached image.\
+
+\fs14 \
+
+\fs28 ·	By defining a method that can be used to draw the image when needed. This allows the NSImage to delegate responsibility for producing the image to some other object.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Image Representations\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 An NSImage object can keep more than one representation of an image. Multiple representations permit the image to be customized for the display device. For example, different hand-tuned TIFF images can be provided for monochrome and color screens, and an EPS representation or a custom method might be used for printing. All representations are versions of the same image.\
+
+\fs14 \
+
+\fs28 An NSImage returns an NSArray of its representations in response to a 
+\b representations
+\b0  message. Each representation is a kind of NSImageRep object:\
+
+\fs14 \
+
+\pard\tx6740\tx9520\fs28\fi-4840\li6740\fc0\cf0 NSEPSImageRep	An image that can be recreated from EPS data that's either stored by the object or at a known location in the file system.\
+
+\fs14 \
+
+\fs28 NSBitmapImageRep	An image that can be recreated from bitmap or TIFF data.\
+
+\fs14 \
+
+\fs28 NSCustomImageRep	An image that can be redrawn by a method defined in the application.\
+
+\fs14 \
+
+\fs28 NSCachedImageRep	An image that has been rendered in an off-screen cache from data or instructions that are no longer available. The image in the cache provides the only data from which the image can be reproduced.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 You can define other NSImageRep subclasses for objects that render images from other types of source data. To make these new subclasses available to an NSImage object, they need to be added to the NSImageRep class registry by invoking the 
+\b registerImageRepClass:
+\b0  class method. NSImage determines the data types that each subclass can support by invoking its 
+\b imageUnfilteredFileTypes
+\b0  and 
+\b imageUnfilteredPasteboardTypes
+\b0  methods.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Choosing Representations\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 The NSImage object will choose the representation that best matches the rendering device. By default, the choice is made according to the following set of ordered rules. Each rule is applied in turn until the choice of representation is narrowed to one.\
+
+\fs14 \
+
+\fs2 \
+
+\pard\tx2340\tx3980\tx4340\fs28\fi-380\li2340\fc0\cf0 1.	Choose a color representation for a color device, and a gray-scale representation for a monochrome device.\
+
+\fs16 \
+
+\fs28 2.	Choose a representation with a resolution that matches the resolution of the device, or if no representation matches, choose the one with the highest resolution.\
+
+\fs16 \
+
+\pard\tx2320\tx3740\tx4140\fs28\li2320\fc0\cf0 By default, any image representation with a resolution that's an integer multiple of the device resolution is considered to match. If more than one representation matches, the NSImage will choose the one that's closest to the device resolution. However, you can force resolution matches to be exact by passing NO to the 
+\b setMatchesOnMultipleResolution:
+\b0  method.\
+
+\fs14 \
+
+\fs28 Rule 2 prefers TIFF and bitmap representations, which have a defined resolution, over EPS representations, which don't. However, you can use the 
+\b setUsesEPSOnResolutionMismatch:
+\b0  method to have the NSImage choose an EPS representation in case a resolution match isn't possible.\
+
+\fs14 \
+
+\fs2 \
+
+\pard\tx2340\tx3980\tx4340\fs28\fi-380\li2340\fc0\cf0 3.	If all else fails, choose the representation with a specified bits per sample that matches the depth of the device. If no representation matches, choose the one with the highest bits per sample.\
+
+\fs16 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 By passing NO to the 
+\b setPrefersColorMatch:
+\b0  method, you can have the NSImage try for a resolution match before a color match. This essentially inverts the first and second rules above.\
+
+\fs14 \
+
+\fs28 If these rules fail to narrow the choice to a single representationÐfor example, if the NSImage has two color TIFF representations with the same resolution and depthÐthe one that will be chosen is system dependent.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Caching Representations\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 When first asked to composite the image, the NSImage object chooses the representation that's best for the destination display device, as outlined above. It renders the representation in an off-screen window on the same device, then composites it from this cache to the desired location. Subsequent requests to composite the image use the same cache. Representations aren't cached until they're needed for compositing.\
+
+\fs14 \
+
+\fs28 When printing, the NSImage tries not to use the cached image. Instead, it attempts to render on the printerÐusing the appropriate image data, or a delegated methodÐthe best version of the image that it can. Only as a last resort will it image the cached bitmap.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Image Size\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Before an NSImage can be used, the size of the image must be set, in units of the base coordinate system. If a representation is smaller or larger than the specified size, it can be scaled to fit.\
+
+\fs14 \
+
+\fs28 If the size of the image hasn't already been set when the NSImage is provided with a representation, the size will be set from the data. The bounding box is used to determine the size of an NSEPSImageRep. The TIFF fields ªImageLengthº and ªImageWidthº are used to determine the size of an NSBitmapImageRep.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Coordinate Systems\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Images have the horizontal orientation of the base coordinate system; they can't be rotated or horizontally flipped. When composited, an image maintains this orientation, no matter what coordinate system it's composited to. (The destination coordinate system is used only to determine the location of a composited image, not its size or orientation.) Images can be flipped in the vertical direction by using 
+\b setFlipped:
+\b0 .\
+
+\fs14 \
+
+\fs28 It's possible to refer to portions of an image when compositing by specifying a rectangle in the image's coordinate system, which is identical to the base coordinate system, except that the origin is at the lower left corner of the image.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Named Images\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 An NSImage object can be identified either by its 
+\b id
+\b0  or by a name. Assigning an NSImage a name adds it to a table kept by the class object; each name in the database identifies one and only one instance of the class. When you ask for an NSImage object by name (with the 
+\b imageNamed:
+\b0  method), the class object returns the one from its database, which also includes all the system bitmaps provided by the Application Kit. If there's no object in the database for the specified name, the class object tries to create one by checking for a system bitmap of the same name, checking the name of the application's own image, and then checking for the image in the application's main bundle.\
+
+\fs14 \
+
+\fs28 If a file matches the name, an NSImage is created from the data stored there. You can therefore create NSImage objects simply by including EPS, BMP, or TIFF data for them within the executable file, or in files inside the application's file package.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Image Filtering Services\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSImage is designed to automatically take advantage of user-installed filter services for converting unsupported image file types to supported image file types. The class method 
+\b imageFileTypes
+\b0  returns an array of all file types from which NSImage can create an instance of itself. This list includes all file types supported by registered subclasses of NSImageRep, and those types that can be converted to supported file types through a user-installed filter service.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Adopted Protocols \
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 NSCoding	
+\f1 -
+\f0 €encodeWithCoder:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €initWithCoder:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 NSCopying	
+\f1 -
+\f0 €copyWithZone:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types \
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0  Initializing a new NSImage instance\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €initByReferencingFile:\
+
+\f1 -
+\f0 €initWithBitmapHandle:\
+
+\f1 -
+\f0 €initWithContentsOfFile:\
+
+\f1 -
+\f0 €initWithData:\
+
+\f1 -
+\f0 €initWithIconHandle:\
+
+\f1 -
+\f0 €initWithPasteboard:\
+
+\f1 -
+\f0 €initWithSize:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Setting the size of the image	
+\f1 -
+\f0 €setSize:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €size\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Referring to images by name	+€imageNamed:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €setName:\
+
+\f1 -
+\f0 €name\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Specifying the image	
+\f1 -
+\f0 €addRepresentation:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €addRepresentations:\
+
+\f1 -
+\f0 €lockFocus\
+
+\f1 -
+\f0 €lockFocusOnRepresentation:\
+
+\f1 -
+\f0 €unlockFocus\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Using the image	
+\f1 -
+\f0 €compositeToPoint:operation:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €compositeToPoint:fromRect:operation:\
+
+\f1 -
+\f0 €dissolveToPoint:fraction:\
+
+\f1 -
+\f0 €dissolveToPoint:fromRect:fraction:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Choosing which image representation to use\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €setPrefersColorMatch:\
+
+\f1 -
+\f0 €prefersColorMatch\
+
+\f1 -
+\f0 €setUsesEPSOnResolutionMismatch:\
+
+\f1 -
+\f0 €usesEPSOnResolutionMismatch\
+
+\f1 -
+\f0 €setMatchesOnMultipleResolution:\
+
+\f1 -
+\f0 €matchesOnMultipleResolution\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting the representations	
+\f1 -
+\f0 €bestRepresentationForDevice:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €representations\
+
+\f1 -
+\f0 €removeRepresentation:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Determining how the image is stored\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €setCachedSeparately:\
+
+\f1 -
+\f0 €isCachedSeparately\
+
+\f1 -
+\f0 €setDataRetained:\
+
+\f1 -
+\f0 €isDataRetained\
+
+\f1 -
+\f0 €setCacheDepthMatchesImageDepth:\
+
+\f1 -
+\f0 €cacheDepthMatchesImageDepth\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Determining how the image is drawn\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €isValid\
+
+\f1 -
+\f0 €setScalesWhenResized:\
+
+\f1 -
+\f0 €scalesWhenResized\
+
+\f1 -
+\f0 €setBackgroundColor:\
+
+\f1 -
+\f0 €backgroundColor\
+
+\f1 -
+\f0 €setFlipped:\
+
+\f1 -
+\f0 €isFlipped\
+
+\f1 -
+\f0 €drawRepresentation:inRect:\
+
+\f1 -
+\f0 €recache\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Assigning a delegate	
+\f1 -
+\f0 €setDelegate:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €delegate\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Producing TIFF data for the image	
+\f1 -
+\f0 €TIFFRepresentation\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €TIFFRepresentationUsingCompression:factor:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Managing NSImageRep subclasses	+€imageUnfilteredFileTypes\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€imageUnfilteredPasteboardTypes\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Testing image data sources	+€canInitWithPasteboard:\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€imageFileTypes\
++€imagePasteboardTypes\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods \
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker10620 \markername NS_DEV_DOCFOR:objc_method:[NSImage-canInitWithPasteboard:];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 canInitWithPasteboard:\
+
+\fs6 \
+
+\f0\b0\fs28\fi-620\li2520 + (BOOL)
+\b canInitWithPasteboard:
+\b0 (NSPasteboard *)
+\i pasteboard
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Tests whether the receiver can create an instance of itself from the data represented by pasteboard. Returns YES if the receiver's list of registered NSImageReps includes a class that can handle the data represented by pasteboard. \
+
+\fs14 \
+
+\fs28 NSImage uses the NSImageRep class method 
+\b imageUnfilteredPasteboardTypes
+\b0  to find a class that can handle the data in 
+\i pasteboard
+\i0 . When creating a subclass of NSImageRep that accepts image data from a non-default pasteboard type, override the 
+\b imageUnfilteredPasteboardTypes
+\b0  method to notify NSImage of the pasteboard types your class supports. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\b\i0 + imagePasteboardTypes\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker11316 \markername NS_DEV_DOCFOR:objc_method:[NSImage-imageFileTypes];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageFileTypes\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSArray *)
+\b imageFileTypes
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an array of strings representing those file types for which a registered NSImageRep exists. This list includes all file types supported by registered subclasses of NSImageRep, plus those types that can be converted to supported file types through a user-installed filter service. The array returned by this method may be passed directly to the NSOpenPanel's 
+\b runModalForTypes:
+\b0  method.\
+
+\fs14 \
+
+\fs28 File types are identified by extension. By default, the list returned by this method contains ªtiffº, ªtifº, ªbmpº, and ªepsº.\
+
+\fs14 \
+
+\fs28 When creating a subclass of NSImageRep that accepts image data from non-default file types, override NSImageRep's 
+\b imageUnfilteredFileTypes
+\b0  method to notify NSImage of the file types your class supports. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\i0 +€
+\b imageUnfilteredFileTypes\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12129 \markername NS_DEV_DOCFOR:objc_method:[NSImage-imageNamed:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageNamed:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (id)
+\b imageNamed:
+\b0 (NSString *)
+\i name
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the NSImage instance associated with 
+\i name
+\i0 . The returned object can be:\
+
+\fs14 \
+
+\pard\tx1800\tx3360\tx3740\fs28\fi-300\li1800\fc0\cf0 ·	One that's been assigned a name with the 
+\b setName:
+\b0  method\
+·	One of the named system bitmaps provided by the Application Kit\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If there's no known NSImage with 
+\i name
+\i0 , this method tries to create one by searching for image data in the application's executable file and in the main bundle (see NSBundle's class description for a description of how the bundle's contents are searched). If a file contains data for more than one image, a separate representation is created for each. If an image representation can't be found for 
+\i name
+\i0 , no object is created and 
+\b nil
+\b0  is returned.\
+
+\fs14 \
+
+\fs28 The preferred way to name an image is to ask for a 
+\i name
+\i0  without the extension, but to include the extension for a file name.\
+
+\fs14 \
+
+\fs28 One particularly useful image is referenced by the string ªNSApplicationIconº. If you supply this string to 
+\b imageNamed:
+\b0 , the returned image will be the application's own icon. Icons for other applications can be obtained through the use of methods declared in the NSWorkspace class.\
+
+\fs14 \
+
+\fs28 The image returned by this method should not be freed, unless it's certain that no other objects reference it.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0 - 
+\f0\b\fs28 setName:
+\b0 , 
+\f1\fs24 - 
+\f0\b\fs28 name
+\b0 , 
+\f1 -
+\f0\b €iconForFile: 
+\b0 (NSWorkspace), 
+\b + imageFileTypes\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker13432 \markername NS_DEV_DOCFOR:objc_method:[NSImage-imagePasteboardTypes];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imagePasteboardTypes\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSArray *)
+\b imagePasteboardTypes
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a null-terminated list of pasteboard types for which a registered NSImageRep exists. This list includes all pasteboard types supported by registered subclasses of NSImageRep, and those that can be converted to supported pasteboard types through a user-installed filter service.\
+
+\fs14 \
+
+\fs28 By default, the list returned by this method contains ªNSPostScriptPboardTypeº and ªNSTIFFPboardTypeº.\
+
+\fs14 \
+
+\fs28 When creating a subclass of NSImageRep that accepts image data from non-default pasteboard types, override NSImageRep's 
+\b imageUnfilteredPasteboardTypes
+\b0  method to notify NSImage of the pasteboard types your class supports. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b imageUnfilteredPasteboardTypes\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker14150 \markername NS_DEV_DOCFOR:objc_method:[NSImage-imageUnfilteredFileTypes];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageUnfilteredFileTypes\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSArray *)
+\b imageUnfilteredFileTypes
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a null-terminated array of strings representing those file types for which a registered NSImageRep exists. This list consists of all file types supported by registered subclasses of NSImageRep, and doesn't include those types that can be converted to supported file types through a user-installed filter service. The array returned by this method may be passed directly to the NSOpenPanel's 
+\b runModalForTypes:
+\b0  method.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b imageFileTypes\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker14672 \markername NS_DEV_DOCFOR:objc_method:[NSImage-imageUnfilteredPasteboardTypes];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 imageUnfilteredPasteboardTypes\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSArray *)
+\b imageUnfilteredPasteboardTypes
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a null-terminated list of pasteboard types for which a registered NSImageRep exists. This list consists of all pasteboard types supported by registered subclasses of NSImageRep, and doesn't include those that can be converted to supported pasteboard types through a user-installed filter service.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b imagePasteboardTypes\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker15110 \markername NS_DEV_DOCFOR:objc_method:[NSImage-addRepresentation:];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 addRepresentation:\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0  (void)
+\b addRepresentation:
+\b0 (NSImageRep *)
+\i imageRep
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Adds 
+\i imageRep
+\i0  to the receiver's list of representations. After invoking this method, you may need to explicitly set features of the new representation, such as size, number of colors, and so on. This is true in particular if the NSImage has multiple image representations to choose from. See NSImageRep and its subclasses for the methods you use to complete initialization.\
+
+\fs14 \
+
+\fs28 Any representation that's added by this method is retained by the NSImage. Note that representations can't be shared among NSImages. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €representations
+\b0 , 
+\f1 -
+\f0\b €removeRepresentation:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker15747 \markername NS_DEV_DOCFOR:objc_method:[NSImage-addRepresentations:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 addRepresentations:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b addRepresentations:
+\b0 (NSArray *)
+\i imageReps
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Adds each of the representations in 
+\i imageReps
+\i0  to the receiver's list of representations. After invoking this method, you may need to explicitly set features of the new representations, such as size, number of colors, and so on. This is true in particular if the NSImage has multiple image representations to choose from. See NSImageRep and its subclasses for the methods you use to complete initialization.\
+
+\fs14 \
+
+\fs28 Representations added by this method are retained by the NSImage. Note that representations can't be shared among NSImages. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €representations
+\b0 , 
+\f1 -
+\f0\b €removeRepresentation:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker16408 \markername NS_DEV_DOCFOR:objc_method:[NSImage-backgroundColor];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 backgroundColor\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSColor *)
+\b backgroundColor
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the background color of the rectangle where the image is cached. If no background color has been specified, NSColor's 
+\b clearColor
+\b0  is returned, indicating a transparent€background.\
+
+\fs14 \
+
+\fs28 The background color will be visible when the image is composited only if the image doesn't completely cover all the pixels within the area specified for its size.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker16811 \markername NS_DEV_DOCFOR:objc_method:[NSImage-bestRepresentationForDevice:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 bestRepresentationForDevice:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSImageRep *)
+\b bestRepresentationForDevice:
+\b0 (NSDictionary *)
+\i deviceDescription
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the best representation for the device described by 
+\i deviceDescription
+\i0 . If 
+\i deviceDescription
+\i0  is 
+\b nil
+\b0 , the current device is assumed. ªChoosing Representationsº in the class introduction outlines the process NSImage goes through in order to determine the ªbestº representation for a given device. For a list of dictionary keys and values appropriate to display and print devices, see NSGraphics.h. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €representations
+\b0 , 
+\f1 -
+\f0\b €prefersColorMatch\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker17378 \markername NS_DEV_DOCFOR:objc_method:[NSImage-cacheDepthMatchesImageDepth];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 cacheDepthMatchesImageDepth\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b cacheDepthMatchesImageDepth
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns NO if the application's default depth limit applies to the off-screen windows where the NSImage's representations are cached. If window depths are instead determined by the specifications of the representations, 
+\b cacheDepthMatchesImageDepth
+\b0  returns YES.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker17709 \markername NS_DEV_DOCFOR:objc_method:[NSImage-compositeToPoint:fromRect:operation:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 compositeToPoint:fromRect:operation:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b compositeToPoint:
+\b0 (NSPoint)
+\i aPoint 
+\b\i0 fromRect:
+\b0 (NSRect)
+\i aRect 
+\b\i0 operation:
+\b0 (NSCompositingOperation)
+\i op
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Composites the portion of the image enclosed by the 
+\i aRect
+\i0  rectangle to the location specified by 
+\i aPoint
+\i0  in the current coordinate system. 
+\i aRect
+\i0  must be a valid (non-null) rectangle. The 
+\i aPoint
+\i0  argument is the same as for 
+\b compositeToPoint:operation:
+\b0 . 
+\i op
+\i0  should be one of the compositing operations as defined in 
+\b dpsOpenStep.h
+\b0 .\
+
+\fs14 \
+
+\fs28 The source rectangle is specified relative to a coordinate system that has its origin at the lower left corner of the image, but is otherwise the same as the base coordinate system. \
+
+\fs14 \
+
+\fs28 This method doesn't check to be sure that the rectangle encloses only portions of the image. Therefore, it can conceivably composite areas that don't properly belong to the image, if the 
+\i aRect
+\i0  rectangle happens to include them. If this turns out to be a problem, you can prevent it from happening by having the NSImage cache its representations in their own individual windows (with the 
+\b setCachedSeparately:
+\b0  method). In this case, the window's clipping path will prevent anything but the image from being composited.\
+
+\fs14 \
+
+\fs28 Compositing part of an image is as efficient as compositing the whole image, but printing just part of an image is not. When printing, it's necessary to draw the whole image and rely on a clipping path to be sure that only the desired portion appears.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €dissolveToPoint:fromRect:fraction:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker19182 \markername NS_DEV_DOCFOR:objc_method:[NSImage-compositeToPoint:operation:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 compositeToPoint:operation:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b compositeToPoint:
+\b0 (NSPoint)
+\i aPoint 
+\b\i0 operation:
+\b0 (NSCompositingOperation)
+\i op
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Composites the image to the location specified by 
+\i aPoint
+\i0  using the specified compositing operation, 
+\i op
+\i0 .\
+
+\fs14 \
+
+\i\fs28 aPoint
+\i0  is specified in the current coordinate systemÐthe coordinate system of the currently focused NSViewÐand designates where the lower left corner of the image will appear. The image will have the orientation of the base coordinate system, regardless of the destination coordinates. 
+\i op
+\i0  should be one of the compositing operations as defined in 
+\b dpsOpenStep.h
+\b0 .\
+
+\fs14 \
+
+\fs28 The image is composited from its off-screen window cache. Since the cache isn't created until the image representation is first used, this method may need to render the image before compositing.\
+
+\fs14 \
+
+\fs28 When printing, the compositing methods do not composite, but attempt to render the same image on the page that compositing would render on the screen, choosing the best available representation for the printer. The 
+\i op
+\i0  argument is ignored.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €dissolveToPoint:fraction:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker20236 \markername NS_DEV_DOCFOR:objc_method:[NSImage-delegate];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 delegate\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b delegate
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the delegate of the NSImage object, or 
+\b nil
+\b0  if no delegate has been set.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker20346 \markername NS_DEV_DOCFOR:objc_method:[NSImage-dissolveToPoint:fraction:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 dissolveToPoint:fraction:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b dissolveToPoint:
+\b0 (NSPoint)
+\i aPoint 
+\b\i0 fraction:
+\b0 (float)
+\i aFloat
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Composites the image to the location specified by 
+\i aPoint
+\i0 , just as 
+\b compositeToPoint:operation:
+\b0  does, but uses the 
+\b dissolve
+\b0  operator rather than 
+\b composite
+\b0 . 
+\i aFloat
+\i0  is a fraction between 0.0 and 1.0 that specifies how much of the resulting composite will come from the NSImage. If the source image contains alpha, this operation may promote the destination NSWindow to contain alpha.\
+
+\fs14 \
+
+\fs28 To slowly dissolve one image into another, this method (or 
+\b dissolveToPoint:fromRect:fraction:
+\b0 ) needs to be invoked repeatedly with an ever-increasing 
+\i aFloat
+\i0 . Since 
+\i aFloat
+\i0  refers to the fraction of the source image that's combined with the original destination (not the destination image after some of the source has been dissolved into it), the destination image should be replaced with the original destination before each invocation. This is best done in a buffered window before the results of the composite are flushed to the screen. \
+
+\fs14 \
+
+\fs28 When printing, this method is identical to 
+\b compositeToPoint:operation:
+\b0 . The 
+\i delta
+\i0  argument is€ignored.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker21465 \markername NS_DEV_DOCFOR:objc_method:[NSImage-dissolveToPoint:fromRect:fraction:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 dissolveToPoint:fromRect:fraction:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b dissolveToPoint:
+\b0 (NSPoint)
+\i aPoint 
+\b\i0 fromRect:
+\b0 (NSRect)
+\i aRect 
+\b\i0 fraction:
+\b0 (float)
+\i aFloat
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Composites the 
+\i aRect
+\i0  portion of the image to the location specified by 
+\i aPoint
+\i0 , just as 
+\b compositeToPoint:fromRect:operation:
+\b0  does, but uses the 
+\b dissolve
+\b0  operator rather than 
+\b composite
+\b0 . 
+\i aFloat
+\i0  is a fraction between 0.0 and 1.0 that specifies how much of the resulting composite will come from the NSImage. If the source image contains alpha, this operation may promote the destination NSWindow.\
+
+\fs14 \
+
+\fs28 When printing, this method is identical to 
+\b compositeToPoint:fromRect:operation:
+\b0 . The 
+\i aFloat
+\i0  argument is ignored.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker22099 \markername NS_DEV_DOCFOR:objc_method:[NSImage-drawRepresentation:inRect:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 drawRepresentation:inRect:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b drawRepresentation:
+\b0 (NSImageRep *)
+\i imageRep 
+\b\i0 inRect:
+\b0 (NSRect)
+\i rect
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Fills the specified rectangle with the background color, then sends the
+\i  imageRep
+\i0  a 
+\b drawInRect:
+\b0\i  
+\i0 message to draw itself inside the rectangle (if the NSImage is scalable), or a
+\i  
+\b\i0 drawAtPoint:
+\b0\i  
+\i0 message to draw itself at the location of the rectangle (if the NSImage is not scalable). The rectangle is located in the current window and is specified in the current coordinate system. This method returns the value returned by the 
+\b drawInRect:
+\b0  or 
+\b drawAtPoint:
+\b0  method, which indicates whether or not the representation was successfully drawn.\
+
+\fs14 \
+
+\fs28 This method shouldn't be called directly; the NSImage uses it to cache and print its representations. By overriding it in a subclass, you can change how representations appear in the cache, and thus how they'll appear when composited. For example, your version of the method could scale or rotate the coordinate system, then send a message to 
+\b super
+\b0  to perform this version.\
+
+\fs14 \
+
+\fs28 If the background color is fully transparent and the image isn't being cached by the NSImage, the rectangle won't be filled before the representation draws.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker23266 \markername NS_DEV_DOCFOR:objc_method:[NSImage-initByReferencingFile:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 initByReferencingFile:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b initByReferencingFile:
+\b0 (NSString *)
+\i filename
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Initializes the receiver, a newly allocated NSImage instance, for the file 
+\i filename
+\i0 . This method initializes lazily: the NSImage doesn't actually open 
+\i filename
+\i0  or create image representations from its data until an application attempts to composite or requests information about the NSImage.\
+
+\fs14 \
+
+\i\fs28 filename
+\i0  may be a full or relative pathname, and should include an extension that identifies the data type in the file. The mechanism that actually creates the image representation for 
+\i filename
+\i0  will look for an NSImageRep subclass that handles that data type from among those registered with NSImage. By default, the files handled are those with the extensions ªtiffº, ªtifº, ªbmpº, and ªepsº. \
+
+\fs14 \
+
+\fs28 After finishing the initialization, this method returns 
+\b self
+\b0 . However, if the new instance can't be initialized, it's freed and 
+\b nil
+\b0  is returned. Since this method doesn't actually create image representations for the data, your application should do error checking before attempting to use the image; one way to do so is by invoking the 
+\b isValid
+\b0  method to check whether the image can be drawn.\
+
+\fs14 \
+
+\fs28 This method invokes 
+\b setDataRetained:
+\b0 YES, thus enabling it to hold onto its file name. Note that if an image created with this method is archived, only the file name will be saved.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker24609 \markername NS_DEV_DOCFOR:objc_method:[NSImage-initWithBitmapHandle:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 initWithBitmapHandle:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b initWithBitmapHandle:
+\b0 (void *)
+\i bitmap
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 On Microsoft Windows platforms, 
+\b initWithBitmapHandle:
+\b0  initializes the receiver, a newly allocated NSImage instance, with the contents of the Windows bitmap indicated by 
+\i bitmap
+\i0 . If 
+\b initWithBitmapHandle:
+\b0  is able to create one or more image representations, it returns 
+\b self
+\b0 . Otherwise, the receiver is freed and 
+\b nil
+\b0  is returned.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker25005 \markername NS_DEV_DOCFOR:objc_method:[NSImage-initWithContentsOfFile:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithContentsOfFile:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b initWithContentsOfFile:
+\b0 (NSString *)
+\i filename
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Initializes the receiver, a newly allocated NSImage instance, with the contents of the file 
+\i filename
+\i0 . Unlike 
+\b initByReferencingFile:
+\b0 , this method opens 
+\i filename
+\i0  and creates one or more image representations from its data.\
+
+\fs14 \
+
+\i\fs28 filename
+\i0  may be a full or relative pathname, and should include an extension that identifies the data type in the file. 
+\b initWithContentsOfFile: 
+\b0 will look for an NSImageRep subclass that handles that data type from among those registered with NSImage. By default, the files handled are those with the extensions ªtiffº, ªtifº, ªbmpº, and ªepsº. \
+
+\fs14 \
+
+\fs28 After finishing the initialization, this method returns 
+\b self
+\b0 . However, if at least one image representation can't be created from the contents of the specified file, the receiver is freed and 
+\b nil
+\b0  is returned.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker25862 \markername NS_DEV_DOCFOR:objc_method:[NSImage-initWithData:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithData:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b initWithData:
+\b0 (NSData *)
+\i data
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Initializes the receiver, a newly allocated NSImage instance, with the contents of the data object 
+\i data
+\i0 . If 
+\b initWithData:
+\b0  is able to create one or more image representations, it returns 
+\b self
+\b0 . Otherwise, the receiver is freed and 
+\b nil
+\b0  is returned.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker26164 \markername NS_DEV_DOCFOR:objc_method:[NSImage-initWithIconHandle:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 initWithIconHandle:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b initWithIconHandle:
+\b0 (void *)
+\i icon
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 On Microsoft Windows platforms, 
+\b initWithIconHandle:
+\b0  initializes the receiver, a newly allocated NSImage instance, with the contents of the Windows icon indicated by 
+\i icon
+\i0 . If 
+\b initWithIconHandle:
+\b0  is able to create one or more image representations, it returns 
+\b self
+\b0 . Otherwise, the receiver is freed and 
+\b nil
+\b0  is returned.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker26546 \markername NS_DEV_DOCFOR:objc_method:[NSImage-initWithPasteboard:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithPasteboard:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b initWithPasteboard:
+\b0 (NSPasteboard *)
+\i pasteboard
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Initializes and returns the receiver, a newly allocated NSImage instance, from 
+\i pasteboard
+\i0 . 
+\i pasteboard
+\i0  should contain a type returned by one of the registered NSImageRep's 
+\b imageUnfilteredPasteboardTypes
+\b0  methods; the default types supported are NSPostscriptPboardType (NSEPSImageRep) and NSTIFFPboardType (NSBitmapImageRep). If 
+\i pasteboard
+\i0  contains an NSFilenamesPboardType, the file name should have an extension returned by one of the registered NSImageRep's 
+\b imageUnfilteredFileTypes
+\b0  methods; the default types supported are ªtiffº, ªtifº, ªbmpº, (all in NSBitmapImageRep) and ªepsº (NSEPSImageRep). \
+
+\fs14 \
+
+\fs28 If 
+\b initWithPasteboard:
+\b0  is able to create one or more image representations, it returns 
+\b self
+\b0 . Otherwise, the receiver is freed and 
+\b nil
+\b0  is returned.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker27372 \markername NS_DEV_DOCFOR:objc_method:[NSImage-initWithSize:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithSize:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b initWithSize:
+\b0 (NSSize)
+\i aSize
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Initializes the receiver, a newly allocated NSImage instance, to 
+\i aSize
+\i0  and returns 
+\b self
+\b0 . The size should be specified in units of the base coordinate system. Although you can initialize the receiver without specifying a size by passing a size of (0.0, 0.0) to 
+\b initWithSize:
+\b0 , the receiver's size must be set before the NSImage can be used.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €setSize:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker27786 \markername NS_DEV_DOCFOR:objc_method:[NSImage-isCachedSeparately];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isCachedSeparately\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isCachedSeparately
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if each representation of the image is cached separately in an off-screen window of its own, and NO if they can be cached in off-screen windows together with other images. A return of NO doesn't mean that the windows are, in fact, shared, just that they can be. The default is NO.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker28131 \markername NS_DEV_DOCFOR:objc_method:[NSImage-isDataRetained];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isDataRetained\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isDataRetained
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the NSImage retains the data needed to render the image, and NO if it doesn't. The default is NO, except for images created with 
+\b initByReferencingFile:
+\b0 , which should hold onto their file names. If the data is available in a file that won't be moved or deleted, or if responsibility for drawing the image is delegated to another object with a custom method, there's no reason for the NSImage to retain the data. However, if the NSImage reads image data from a file created with 
+\b initWithContentsOfFile:
+\b0 , you may want to have it keep the data itself; for example, to render the same image on another device at a different resolution.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker28821 \markername NS_DEV_DOCFOR:objc_method:[NSImage-isFlipped];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isFlipped\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isFlipped
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if a vertically flipped coordinate system is used when locating the image, and NO if it isn't. The default is NO.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker28981 \markername NS_DEV_DOCFOR:objc_method:[NSImage-isValid];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isValid\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isValid
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if a representation for the receiver can drawn in the cache, and NO if it can't; for example, because the file from which it was initialized is non-existent, or the data in that file is invalid. \
+
+\fs14 \
+
+\fs28 If no representations exist for the receiver, 
+\b isValid
+\b0  first creates a cache with the default depth.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €initByReferencingFile:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker29356 \markername NS_DEV_DOCFOR:objc_method:[NSImage-lockFocus];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 lockFocus\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b lockFocus
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Prepares for drawing of the best representation of the NSImage for the current device by making the off-screen window where the representation will be cached the current window and a coordinate system specific to the area where the image will be drawn the current coordinate system. If the receiver has no representations, 
+\b lockFocus
+\b0  first creates one with the default depth. See ªChoosing Representationsº in the class description for information on how the ªbestº representation is chosen.\
+
+\fs14 \
+
+\fs28 A successful 
+\b lockFocus
+\b0  message must be balanced by a subsequent 
+\b unlockFocus
+\b0  message to the same NSImage. These messages bracket the code that draws the image.\
+
+\fs14 \
+
+\fs28 If 
+\b lockFocus
+\b0  is unable to focus on the representation, it raises an NSImageCacheException.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €bestRepresentationForDevice:
+\b0 , 
+\f1 -
+\f0\b €isValid
+\b0 , 
+\f1 -
+\f0\b €prefersColorMatch
+\b0 , 
+\f1 -
+\f0\b €representations\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker30226 \markername NS_DEV_DOCFOR:objc_method:[NSImage-lockFocusOnRepresentation:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 lockFocusOnRepresentation:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b lockFocusOnRepresentation:
+\b0 (NSImageRep *)
+\i imageRepresentation
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Prepares for drawing of the 
+\i imageRepresentation
+\i0  representation by making the off-screen window where it will be cached the current window and a coordinate system specific to the area where the image will be drawn the current coordinate system. If 
+\i imageRepresentation
+\i0  is 
+\b nil
+\b0 , 
+\b lockFocusOnRepresentation:
+\b0  acts like 
+\b lockFocus
+\b0 , setting focus to the best representation for the NSImage. Otherwise, 
+\i imageRepresentation
+\i0  must be one of the representations in the NSImage.\
+
+\fs14 \
+
+\fs28 A successful 
+\b lockFocusOnRepresentation:
+\b0  message must be balanced by a subsequent 
+\b unlockFocus
+\b0  message to the same NSImage. These messages bracket the code that draws the image.\
+
+\fs14 \
+
+\fs28 If 
+\b lockFocusOnRepresentation:
+\b0  is unable to focus on the representation, it raises an NSImageCacheException.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €isValid\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker31097 \markername NS_DEV_DOCFOR:objc_method:[NSImage-matchesOnMultipleResolution];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 matchesOnMultipleResolution\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b matchesOnMultipleResolution
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the resolution of the device and the resolution specified for the image are considered to match if one is an integer multiple of the other, and NO if device and image resolutions are considered to match only if they are exactly the same. The default is YES.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker31440 \markername NS_DEV_DOCFOR:objc_method:[NSImage-name];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 name\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b name
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the name assigned to the receiver, or 
+\b nil
+\b0  if no name has been assigned.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker31550 \markername NS_DEV_DOCFOR:objc_method:[NSImage-prefersColorMatch];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 prefersColorMatch\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b prefersColorMatch
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if, when selecting the representation it will use, the NSImage first looks for one that matches the color capability of the rendering device (choosing a gray-scale representation for a monochrome device and a color representation for a color device), then if necessary narrows the selection by looking for one that matches the resolution of the device. If the return is NO, the NSImage first looks for a representation that matches the resolution of the device, then tries to match the representation to the color capability of the device. The default is YES.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker32172 \markername NS_DEV_DOCFOR:objc_method:[NSImage-recache];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 recache\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b recache
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Invalidates the off-screen caches of all representations and frees them. The next time any representation is composited, it will first be asked to redraw itself in the cache. NSCachedImageReps aren't destroyed by this method.\
+
+\fs14 \
+
+\fs28 If an image is likely not to be used again, it's a good idea to free its caches, since that will€reduce that amount of memory consumed by your program and therefore improve€performance.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker32615 \markername NS_DEV_DOCFOR:objc_method:[NSImage-removeRepresentation:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 removeRepresentation:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b removeRepresentation:
+\b0 (NSImageRep *)
+\i imageRep
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Removes and releases the 
+\i imageRep
+\i0  representation from the NSImage's list of representations.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €representations\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker32817 \markername NS_DEV_DOCFOR:objc_method:[NSImage-representations];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 representations\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSArray *)
+\b representations
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an array containing all of the representations of the receiver.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker32940 \markername NS_DEV_DOCFOR:objc_method:[NSImage-scalesWhenResized];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 scalesWhenResized\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b scalesWhenResized
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if image representations are scaled to fit the size specified for the NSImage. If representations are not scalable, this method returns NO. The default is NO.\
+
+\fs14 \
+
+\fs28 Representations created from data that specifies a size (for example, the ªImageLengthº and ªImageWidthº fields of a TIFF representation or the bounding box of an EPS representation) will have the size the data specifies, which may differ from the size of the NSImage.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €setSize:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker33453 \markername NS_DEV_DOCFOR:objc_method:[NSImage-setBackgroundColor:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setBackgroundColor:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setBackgroundColor:
+\b0 (NSColor *)
+\i aColor
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the background color of the image. The default is NSColor's 
+\b clearColor
+\b0 , indicating a transparent background. The background color will be visible only for representations that don't completely cover all the pixels within the image when drawing. This method doesn't cause the receiver to recache itself.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €recache\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker33853 \markername NS_DEV_DOCFOR:objc_method:[NSImage-setCacheDepthMatchesImageDepth:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setCacheDepthMatchesImageDepth:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setCacheDepthMatchesImageDepth:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets whether the application's default depth limit applies to the off-screen windows where the NSImage's representations are cached. If 
+\i flag
+\i0  is NO (the default), window depths are instead determined by the specifications of the representations. This method doesn't cause the receiver to recache itself.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €lockFocus
+\b0 , 
+\f1 -
+\f0\b €recache\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker34278 \markername NS_DEV_DOCFOR:objc_method:[NSImage-setCachedSeparately:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setCachedSeparately:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setCachedSeparately:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets whether each image representation will be cached in its own off-screen window or in a window shared with other images. If 
+\i flag
+\i0  is YES, each representation is guaranteed to be in a separate window. If 
+\i flag
+\i0  is NO (the default), a representation can be cached together with other images, though in practice it might not be.\
+
+\fs14 \
+
+\fs28 If an NSImage is to be resized frequently, it's more efficient to cache its representations separately.\
+
+\fs14 \
+
+\fs28 This method doesn't invalidate any existing caches.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €recache\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker34849 \markername NS_DEV_DOCFOR:objc_method:[NSImage-setDataRetained:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setDataRetained:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setDataRetained:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets whether the NSImage retains the data needed to render the image. The default is NO. If the data is available in a file that won't€be moved or deleted, or if responsibility for drawing the image is delegated to another object with a custom method, there's no reason for the NSImage to retain the data.€However, if the NSImage reads image data from a file that could change, you may want to have it keep the data itself. Generally, this is useful to redraw the image to a device of different€resolution. \
+
+\fs14 \
+
+\fs28 If an image representation is created using 
+\b initByReferencingFile:
+\b0 , the only data retained is the name of the source file. \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker35540 \markername NS_DEV_DOCFOR:objc_method:[NSImage-setDelegate:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setDelegate:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setDelegate:
+\b0 (id)
+\i anObject
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Makes 
+\i anObject
+\i0  the delegate of the receiver.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker35637 \markername NS_DEV_DOCFOR:objc_method:[NSImage-setFlipped:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setFlipped:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setFlipped:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Determines whether the polarity of the y-axis is inverted when drawing an image. If 
+\i flag
+\i0  is YES, the image will have its coordinate origin in the upper left corner and the positive y-axis will extend downward. This method affects only the coordinate system used to draw the image; it doesn't affect the coordinate system for specifying portions of the image for methods like 
+\b compositeToPoint:fromRect:operation:
+\b0  or 
+\b dissolveToPoint:fromRect:fraction:
+\b0 .This method doesn't cause the receiver to recache itself.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €recache\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker36214 \markername NS_DEV_DOCFOR:objc_method:[NSImage-setMatchesOnMultipleResolution:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setMatchesOnMultipleResolution:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setMatchesOnMultipleResolution:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets whether image representations with resolutions that are integral multiples of the resolution of the device are considered to match the device. The default is YES.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker36470 \markername NS_DEV_DOCFOR:objc_method:[NSImage-setName:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setName:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b setName:
+\b0 (NSString *)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Registers the receiver under the name specified by 
+\i aString
+\i0 , provided that no other NSImage is registered using that name. If the receiver is already registered under another name, 
+\b setName:
+\b0  first unregisters the prior name. 
+\b setName:
+\b0  returns YES unless another NSImage is registered using the name specified by 
+\i aString
+\i0 , in which case 
+\b setName: 
+\b0 simply returns NO.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€imageNamed:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker36905 \markername NS_DEV_DOCFOR:objc_method:[NSImage-setPrefersColorMatch:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setPrefersColorMatch:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setPrefersColorMatch:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets whether color matches are preferred over resolution matches when determining which representation to use. If 
+\i flag
+\i0  is YES, the NSImage first tries to match the representation to the color capability of the rendering device (choosing a color representation for a color device and a gray-scale representation for a monochrome device), and then if necessary narrows the selection by trying to match the resolution of the representation to the resolution of the device. If 
+\i flag
+\i0  is NO, the NsImage first tries to match the representation to the resolution of the device, and then tries to match it to the color capability of the device. The default is YES.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker37629 \markername NS_DEV_DOCFOR:objc_method:[NSImage-setScalesWhenResized:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setScalesWhenResized:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setScalesWhenResized:
+\b0 (BOOL)
+\i flag\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sets whether representations with sizes that differ from the size of the NSImage will be scaled to fit. If flag is YES, representations are scaled to fit. The default is NO.\
+
+\fs14 \
+
+\fs28 Generally, representations that are created through NSImage methods (such as 
+\b initByReferencingFile:
+\b0 ) have the same size as the NSImage. However, a representation that's added with either 
+\b addRepresentation:
+\b0  or 
+\b addRepresentations:
+\b0  may have a different size, and representations created from data that specifies a size (for example, the ªImageLengthº and ªImageWidthº fields of a TIFF representation or the bounding box of an EPS representation) will have the size specified. \
+
+\fs14 \
+
+\fs28 This method doesn't cause the receiving NSImage to recache itself when it is next composited. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €setSize:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker38463 \markername NS_DEV_DOCFOR:objc_method:[NSImage-setSize:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setSize:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setSize:
+\b0 (NSSize)
+\i aSize\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sets the width and height of the image. The size referred to by 
+\i aSize
+\i0  should be in units of the base coordinate system. \
+
+\fs14 \
+
+\fs28 The size of an NSImage must be set before it can be used. You can change the size of an NSImage after it has been used, but changing it invalidates all its caches and frees them. When the image is next composited, the selected representation will draw itself in an off-screen window to recreate the cache.\
+
+\fs14 \
+
+\fs28 If the size of the image hasn't already been set when the NSImage is provided with a representation, the size will be set from the data. The bounding box is used to determine the size of an NSEPSImageRep. The TIFF fields ªImageLengthº and ªImageWidthº are used to determine the size of an NSBitmapImageRep.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €initWithSize:
+\b0 , 
+\f1 -
+\f0\b  setScalesWhenResized:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker39295 \markername NS_DEV_DOCFOR:objc_method:[NSImage-setUsesEPSOnResolutionMismatch:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setUsesEPSOnResolutionMismatch:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setUsesEPSOnResolutionMismatch:
+\b0 (BOOL)
+\i flag\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sets whether EPS representations are preferred when there are no representations that match the resolution of the device. The default is NO.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €setMatchesOnMultipleResolution:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker39568 \markername NS_DEV_DOCFOR:objc_method:[NSImage-size];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 size\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSSize)
+\b size
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the size of the image. If no size has been set, and no size can be determined from any of the NSImage's representations, the returned NSSize will have a width and height of 0.0.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker39780 \markername NS_DEV_DOCFOR:objc_method:[NSImage-TIFFRepresentation];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 TIFFRepresentation\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSData *)
+\b TIFFRepresentation\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a data object containing TIFF for all representations, using their default compressions.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker39932 \markername NS_DEV_DOCFOR:objc_method:[NSImage-TIFFRepresentationUsingCompression:factor:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 TIFFRepresentationUsingCompression:factor:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSData *)
+\b TIFFRepresentationUsingCompression:
+\b0 (NSTIFFCompression)
+\i comp 
+\b\i0 factor:
+\b0 (float)
+\i aFloat
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a data object containing TIFF for all representations, using the specified compression type and compression factor. Legal values for 
+\i comp
+\i0  can be found in 
+\b NSBitmapImageRep.h
+\b0 , and are described in ªTiff Compressionº in NSBitmapImageRep's class description. 
+\i aFloat
+\i0  provides a hint for those compression types that implement variable compression ratios; currently only JPEG compression uses a compression factor.\
+
+\fs14 \
+
+\fs28 If the specified compression isn't applicable, no compression is used. If a problem is encountered during generation of the TIFF, 
+\b TIFFRepresentationUsingCompression:factor:
+\b0  raises an exception.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €TIFFRepresentationUsingCompression:factor:
+\b0  (NSBitmapImageRep)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker40760 \markername NS_DEV_DOCFOR:objc_method:[NSImage-unlockFocus];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 unlockFocus\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b unlockFocus
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Balances a previous 
+\b lockFocus
+\b0  or 
+\b lockFocusOnRepresentation:
+\b0  message. All successful 
+\b lockFocus
+\b0  and 
+\b lockFocusOnRepresentation:
+\b0  messages (those that don't raise an NSImageCacheException) must be followed by a subsequent 
+\b unlockFocus
+\b0  message. Those that raise should never be followed by 
+\b unlockFocus
+\b0 .\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker41094 \markername NS_DEV_DOCFOR:objc_method:[NSImage-usesEPSOnResolutionMismatch];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 usesEPSOnResolutionMismatch\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b usesEPSOnResolutionMismatch
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns whether EPS representations are preferred when there are no representations that match the resolution of the device. The default is NO.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €matchesOnMultipleResolution:\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc1\cf1 Methods Implemented by the Delegate\
+
+\fs14\fi-920\li2200\fc0\cf0 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker41387 \markername NS_DEV_DOCFOR:objc_method:[NSImage-imageDidNotDraw:inRect:];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 imageDidNotDraw:inRect:\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0 €(NSImage *)
+\b imageDidNotDraw:
+\b0 (id)
+\i sender
+\i0  
+\b inRect:
+\b0 (NSRect)
+\i aRect\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Implemented by the delegate to respond to a message sent by the 
+\i sender
+\i0  (an NSImage) when the 
+\i sender
+\i0  was unable, for whatever reason, to composite or lock focus on its image. The delegate can:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	return another NSImage to draw in the 
+\i sender
+\i0 's place,\
+
+\fs14 \
+
+\fs28 ·	draw the image itself and return 
+\b nil
+\b0 , or\
+
+\fs14 \
+
+\fs28 ·	simply return 
+\b nil
+\b0  to indicate that 
+\i sender
+\i0  should give up the attempt at drawing the image.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 \
+
+\fs14 \
+
+}

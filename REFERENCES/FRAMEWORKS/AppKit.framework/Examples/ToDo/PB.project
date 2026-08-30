@@ -1,0 +1,96 @@
+{
+    APPCLASS = NSApplication; 
+    DEBUGTARGETS = (
+        {
+            ExecInfo = (
+                {
+                    args = (); 
+                    asrcDirs = (); 
+                    env = (); 
+                    execPath = ./ToDo.app/ToDo; 
+                    name = ToDo.app; 
+                    psrcDirs = (); 
+                    srcPath = .; 
+                }, 
+                {
+                    args = (); 
+                    asrcDirs = (); 
+                    env = (); 
+                    execPath = ./ToDo.debug/ToDo; 
+                    name = ToDo.debug; 
+                    psrcDirs = (); 
+                    srcPath = .; 
+                }
+            ); 
+        }
+    ); 
+    DYNAMIC_CODE_GEN = YES; 
+    FILESTABLE = {
+        BUNDLES = (); 
+        CLASSES = (
+            ToDoController.m, 
+            ToDoDoc.m, 
+            ToDoInspector.m, 
+            ToDoCell.m, 
+            ToDoItem.m, 
+            CalendarMatrix.m, 
+            SelectionNotifMatrix.m
+        ); 
+        FRAMEWORKS = (AppKit.framework, Foundation.framework); 
+        HELP_RESOURCES = (); 
+        H_FILES = (
+            ToDoCell.h, 
+            ToDoController.h, 
+            ToDoDoc.h, 
+            ToDoItem.h, 
+            CalendarMatrix.h, 
+            SelectionNotifMatrix.h, 
+            ToDoInspector.h
+        ); 
+        IMAGES = (
+            calendar.tiff, 
+            checkMark.tiff, 
+            left_arrow.tiff, 
+            right_arrow.tiff, 
+            ToDo.tiff, 
+            X.tiff
+        ); 
+        INTERFACES = (ToDo.nib, ToDoDoc.nib, ToDoInspector.nib); 
+        LIBRARYSEARCH = (/usr/lib); 
+        LIBS = (); 
+        M_FILES = (); 
+        OTHER_LIBS = (); 
+        OTHER_LINKED = (ToDo_main.m); 
+        OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble, m.template, h.template); 
+        PRECOMPILED_HEADERS = (); 
+        PROJECT_HEADERS = (); 
+        PUBLIC_HEADERS = (); 
+        SUBPROJECTS = (); 
+        TOOLS = (); 
+    }; 
+    GENERATEMAIN = YES; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {
+        ToDo.nib = ToDo.nib; 
+        ToDoDoc.nib = ToDoDoc.nib; 
+        ToDoInspector.nib = ToDoInspector.nib; 
+    }; 
+    MAKEFILEDIR = "$(NEXT_ROOT)/NextDeveloper/Makefiles/pb_makefiles"; 
+    NEXTSTEP_APPICON = ToDo.tiff; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    NEXTSTEP_DOCUMENTEXTENSIONS = ({Extension = td; Image = calendar.tiff; }); 
+    NEXTSTEP_INSTALLDIR = "$(HOME)/Apps"; 
+    NEXTSTEP_MAINNIB = ToDo; 
+    PDO_UNIX_BUILDTOOL = $NEXT_ROOT/NextDeveloper/bin/make; 
+    PDO_UNIX_MAINNIB = ToDo; 
+    PROJECTNAME = ToDo; 
+    PROJECTTYPE = Application; 
+    PROJECTVERSION = 2.6; 
+    SYSTEMEXTENSIONS = (); 
+    WINDOWS_BUILDDIR = ""; 
+    WINDOWS_BUILDTOOL = $NEXT_ROOT/NextDeveloper/Executables/make; 
+    WINDOWS_COMPILEROPTIONS = ""; 
+    WINDOWS_INSTALLDIR = "$(HOME)/Apps"; 
+    WINDOWS_LINKEROPTIONS = ""; 
+    WINDOWS_MAINNIB = ToDo; 
+}

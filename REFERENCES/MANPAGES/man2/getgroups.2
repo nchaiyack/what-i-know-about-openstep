@@ -1,0 +1,83 @@
+.\" Copyright (c) 1983 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)getgroups.2	6.3 (Berkeley) 5/13/86
+.\"
+.TH GETGROUPS 2 "August 1, 1992"
+.UC 5
+.SH NAME
+getgroups \- get group access list
+.SH BSD SYNOPSIS
+.nf
+.ft B
+#include <sys/types.h>
+.PP
+.ft B
+int getgroups(int \fIgidsetlen\fP, int *\fIgidset\fP);
+.ft R
+.fi
+.SH POSIX SYNOPSIS
+.nf
+.ft B
+#include <sys/types.h>
+.PP
+.ft B
+int getgroups(int \fIgidsetlen\fP, gid_t \fIgidset[]\fP);
+.ft R
+.fi
+.SH DESCRIPTION
+.I Getgroups
+gets the supplementary group IDs of the user process
+and stores it in the array 
+.IR gidset .
+The parameter
+.I gidsetlen
+indicates the number of entries that may be placed in 
+.IR gidset.
+.I Getgroups
+returns the actual number of groups returned in
+.IR gidset .
+.PP
+For BSD applications,
+no more than NGROUPS,
+as defined in
+.I <sys/param.h>
+will ever be returned.
+For POSIX applications,
+no more than {NGROUPS_MAX} (see 
+.IR <limits.h> )
+will ever be returned.
+.PP
+If the 
+.I gidsetlen
+parameter is zero,
+.I getgroups
+returns the number of supplemental group IDs associated with
+the user process without modifying the 
+.I gidset
+array.
+.SH "RETURN VALUE"
+A successful call returns the number of supplementary group IDs.
+A value of \-1 indicates that an error occurred, and the error
+code is stored in the global variable
+.IR errno .
+.SH "ERRORS"
+The possible errors for \fIgetgroups\fP are:
+.TP 15
+[EINVAL]
+The argument
+.I gidsetlen
+is not zero and is less than the number of groups in the group set.
+.TP
+[EFAULT]
+The argument \fIgidset\fP specifies
+an invalid address.
+.SH "SEE ALSO
+setgroups(2), initgroups(3X), sysconf(2P)
+.SH BUGS (BSD-SPECIFIC)
+The
+.I gidset
+array should be of type
+.BR gid_t ,
+but remains integer for compatibility with earlier systems.

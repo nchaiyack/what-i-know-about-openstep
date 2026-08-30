@@ -1,0 +1,36 @@
+{
+    NTComponentTypeName = (NTDecompressor, NTCompressor);
+    NTComponentSubtypeName = NullVideo;
+    NTVendor = "NeXT Computer, Inc.";
+    NTMediaType = NTVideo;
+    
+    
+    NTDecompressor = {
+	NTConfiguration = {
+	    NTSampleInput = {
+		NTFormatType = NTCompressed;
+		NTFormatSubtype = NullVideo;
+	    };
+	    NTSampleOutput = {
+		NTFormatType = NTRaw;
+		NTFormatSubtype = NTRaw;
+	    };
+	};
+	NTComponentPrincipalClass = NullDecoder;
+    };
+    
+    NTCompressor = {
+	NTConfiguration = {
+	    NTSampleInput = {
+		NTFormatType = NTRaw;
+		NTFormatSubtype = NTRaw;
+	    };
+	    NTSampleOutput = {
+		NTFormatType = NTCompressed;
+		NTFormatSubtype = NullVideo;
+	    };
+	};
+	NTComponentPrincipalClass = NullEncoder;
+    };
+}
+    

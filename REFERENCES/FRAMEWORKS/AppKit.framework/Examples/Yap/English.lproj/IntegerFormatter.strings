@@ -1,0 +1,9 @@
+/* Message shown when an integer that is out of range is entered by the user. */
+"Value out of allowed range" = "Value out of allowed range";
+
+/* Message shown the integer entered by the user has extra characters at the end. */
+"Junk at end" = "Junk at end";
+
+/* Message shown when the user's input is not an integer */
+"Need an integer" = "Need an integer";
+

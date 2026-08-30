@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 32.0px Times; min-height: 38.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 19.0px Helvetica; min-height: 23.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 12.0px Helvetica; color: #0000ff}
+    p.p7 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 5.0px Helvetica; color: #0000ff; min-height: 6.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 40.0px; font: 12.0px Helvetica; color: #0000ff}
+    p.p9 {margin: 0.0px 0.0px 0.0px 40.0px; font: 5.0px Helvetica; color: #0000ff; min-height: 6.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 25.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 14.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 25.0px; font: 5.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 25.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 25.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 25.0px; font: 4.0px Times; min-height: 5.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 25.0px; font: 6.0px Times; min-height: 8.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Times}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>Next Section<span class="Apple-tab-span">	</span><span class="Apple-converted-space">  </span>Previous Section</p>
+<p class="p3"><br></p>
+<p class="p4"><b></b><b>Making interface objects the same size</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b>1<span class="Apple-tab-span">	</span>Select the reference object.</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p6"><b>2<span class="Apple-tab-span">	</span>Add to the same selection the objects that you want resized.</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><b>3<span class="Apple-tab-span">	</span>Choose Format </b><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8pt" height="6pt" viewBox="0 0 8 6" role="img" aria-labelledby="manual-svg-1-title" data-source="MakingInterfaceObjectsTheSameSize.rtfd/arrow.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-1-title">arrow.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 1.011719 0.1875 L 6.582031 2.964844 L 1.011719 5.757812 Z M 1.011719 0.1875 "/>
+</svg></b><b> Size </b><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8pt" height="6pt" viewBox="0 0 8 6" role="img" aria-labelledby="manual-svg-2-title" data-source="MakingInterfaceObjectsTheSameSize.rtfd/arrow.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-2-title">arrow.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 1.011719 0.1875 L 6.582031 2.964844 L 1.011719 5.757812 Z M 1.011719 0.1875 "/>
+</svg></b><b> Same Size.</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">To lend a look of consistency to your interface, you often want to make similar objects have the same size. Buttons across the bottom of an attention panel, for instance, should be the same exact size. Interface Builder gives you an easy way to do this, allowing you resize selected objects to a <i>reference</i> object. You designate the reference object differently, depending on your method of selection:</p>
+<p class="p11"><br></p>
+<p class="p12"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-3-title" data-source="MakingInterfaceObjectsTheSameSize.rtfd/SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-3-title">SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>If you press the Shift key while clicking objects in succession, the first object clicked is the reference object.</p>
+<p class="p13"><br></p>
+<p class="p12"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-4-title" data-source="MakingInterfaceObjectsTheSameSize.rtfd/SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-4-title">SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>If you draw a selection rectangle around a group of objects, selecting the objects simultaneously, the topmost object in the selection (often the most recently added object) is the reference object.</p>
+<p class="p13"><br></p>
+<p class="p14"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="584pt" height="215pt" viewBox="0 0 584 215" role="img" aria-labelledby="manual-svg-5-title" data-source="MakingInterfaceObjectsTheSameSize.rtfd/_MakingObjectsSameSize.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-5-title">_MakingObjectsSameSize.eps</title><defs>
+<g>
+<g id="manual-svg-5-glyph-0-0">
+<path d="M 1.203125 -2.515625 C 1.109375 -2.09375 0.96875 -1.40625 1.328125 -0.78125 C 1.828125 0.09375 3.125 0.203125 3.78125 0.203125 C 5.984375 0.203125 7.421875 -0.953125 7.75 -2.46875 C 7.828125 -2.828125 7.9375 -3.671875 7.265625 -4.1875 C 6.828125 -4.53125 6.625 -4.578125 4.671875 -5.09375 C 3.671875 -5.34375 3.234375 -5.609375 3.40625 -6.375 C 3.578125 -7.234375 4.421875 -7.765625 5.609375 -7.765625 C 6.453125 -7.765625 7.296875 -7.53125 7.125 -6.453125 L 8.375 -6.453125 C 8.421875 -6.8125 8.53125 -7.390625 8.15625 -7.921875 C 7.625 -8.671875 6.484375 -8.765625 5.921875 -8.765625 C 4.296875 -8.765625 2.484375 -8 2.125 -6.25 C 1.984375 -5.671875 2.046875 -5.03125 2.640625 -4.5625 C 3.03125 -4.265625 3.578125 -4.125 4.828125 -3.796875 C 5.953125 -3.5 6.6875 -3.3125 6.484375 -2.34375 C 6.390625 -1.921875 5.921875 -0.8125 4.140625 -0.8125 C 2.171875 -0.8125 2.328125 -1.921875 2.4375 -2.515625 Z M 1.203125 -2.515625 "/>
+</g>
+<g id="manual-svg-5-glyph-0-1">
+<path d="M 6.625 -2.78125 C 6.84375 -3.765625 7.40625 -6.125 4.734375 -6.125 C 4.375 -6.125 3.671875 -6.09375 3.015625 -5.6875 C 1.921875 -5.03125 1.46875 -4.0625 1.21875 -2.875 C 0.828125 -0.984375 1.46875 0.171875 3.359375 0.171875 C 4.5625 0.171875 5.265625 -0.328125 5.578125 -0.625 C 6.109375 -1.078125 6.265625 -1.578125 6.359375 -1.875 L 5.234375 -1.875 C 4.96875 -1.015625 4.296875 -0.625 3.578125 -0.625 C 2.34375 -0.625 2.03125 -1.546875 2.328125 -2.78125 Z M 2.53125 -3.578125 C 2.828125 -4.890625 3.8125 -5.328125 4.53125 -5.328125 C 5.921875 -5.328125 5.78125 -4.140625 5.640625 -3.578125 Z M 2.53125 -3.578125 "/>
+</g>
+<g id="manual-svg-5-glyph-0-2">
+<path d="M 1.078125 0 L 2.1875 0 L 4.015625 -8.578125 L 2.890625 -8.578125 Z M 1.078125 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-3">
+<path d="M 6.4375 -4.0625 C 6.484375 -4.390625 6.5625 -4.875 6.234375 -5.390625 C 5.828125 -6.046875 4.9375 -6.125 4.546875 -6.125 C 3.359375 -6.125 1.671875 -5.390625 1.15625 -2.90625 C 0.890625 -1.671875 1.109375 -1.03125 1.375 -0.625 C 1.875 0.078125 2.78125 0.15625 3.171875 0.15625 C 4.65625 0.15625 5.734375 -0.828125 6.046875 -1.984375 L 4.921875 -1.984375 C 4.78125 -1.40625 4.296875 -0.6875 3.34375 -0.6875 C 2.15625 -0.6875 2.109375 -1.828125 2.375 -3.0625 C 2.46875 -3.515625 2.84375 -5.3125 4.390625 -5.3125 C 5.484375 -5.3125 5.34375 -4.328125 5.3125 -4.0625 Z M 6.4375 -4.0625 "/>
+</g>
+<g id="manual-svg-5-glyph-0-4">
+<path d="M 1.21875 -5.171875 L 2.28125 -5.171875 L 1.4375 -1.1875 C 1.234375 -0.21875 1.671875 0.078125 2.6875 0.078125 C 3.09375 0.078125 3.421875 0.046875 3.625 0.015625 L 3.8125 -0.859375 C 3.71875 -0.828125 3.484375 -0.796875 3.265625 -0.796875 C 2.46875 -0.796875 2.578125 -1.296875 2.625 -1.59375 L 3.390625 -5.171875 L 4.734375 -5.171875 L 4.90625 -6 L 3.578125 -6 L 3.921875 -7.609375 L 2.71875 -7.25 L 2.46875 -6 L 1.40625 -6 Z M 1.21875 -5.171875 "/>
+</g>
+<g id="manual-svg-5-glyph-0-5">
+</g>
+<g id="manual-svg-5-glyph-0-6">
+<path d="M 1.046875 0 L 2.171875 0 L 2.859375 -3.171875 C 2.921875 -3.53125 3.046875 -4.09375 3.3125 -4.421875 C 3.53125 -4.71875 4.046875 -5.234375 4.875 -5.234375 C 6.171875 -5.234375 5.921875 -4.078125 5.8125 -3.53125 L 5.0625 0 L 6.203125 0 L 7 -3.734375 C 7.171875 -4.609375 7.15625 -4.890625 7.09375 -5.125 C 6.90625 -5.859375 6.046875 -6.078125 5.421875 -6.078125 C 4.578125 -6.078125 3.765625 -5.734375 3.265625 -5.09375 L 4 -8.578125 L 2.875 -8.578125 Z M 1.046875 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-7">
+<path d="M 1.109375 0 L 2.234375 0 L 2.921875 -3.171875 C 3.125 -4.203125 3.609375 -4.984375 4.921875 -4.984375 C 5.0625 -4.984375 5.171875 -4.984375 5.25 -4.984375 C 5.328125 -4.96875 5.390625 -4.953125 5.453125 -4.921875 L 5.6875 -6.03125 C 5.5 -6.03125 5.25 -6.046875 4.90625 -6 C 4.390625 -5.921875 3.625 -5.65625 3.234375 -4.828125 L 3.453125 -5.984375 L 2.328125 -5.984375 C 2.28125 -5.578125 2.203125 -5.171875 2.125 -4.765625 Z M 1.109375 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-8">
+<path d="M 5.875 -8.65625 C 5.640625 -8.6875 5.296875 -8.734375 4.984375 -8.734375 C 4.203125 -8.734375 3.671875 -8.46875 3.328125 -8.078125 C 3.078125 -7.78125 2.953125 -7.484375 2.78125 -6.65625 L 2.640625 -5.984375 L 1.46875 -5.984375 L 1.28125 -5.171875 L 2.46875 -5.171875 L 1.375 0 L 2.46875 0 L 3.578125 -5.171875 L 4.96875 -5.171875 L 5.140625 -5.984375 L 3.75 -5.984375 L 3.9375 -6.921875 C 4.03125 -7.328125 4.125 -7.78125 5.03125 -7.78125 C 5.265625 -7.78125 5.5 -7.78125 5.6875 -7.765625 Z M 5.875 -8.65625 "/>
+</g>
+<g id="manual-svg-5-glyph-0-9">
+<path d="M 1.078125 0 L 2.203125 0 L 2.921875 -3.4375 C 3.1875 -4.640625 4.0625 -5.234375 4.875 -5.234375 C 5.25 -5.234375 5.625 -5.09375 5.84375 -4.828125 C 6.0625 -4.546875 6.03125 -4.1875 5.953125 -3.796875 L 5.140625 0 L 6.28125 0 L 7.140625 -4.0625 C 7.53125 -5.890625 5.953125 -6.09375 5.421875 -6.09375 C 4.0625 -6.09375 3.453125 -5.265625 3.265625 -5.015625 L 3.46875 -5.984375 L 2.34375 -5.984375 L 2.203125 -5.28125 Z M 1.078125 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-10">
+<path d="M 1.21875 -2.921875 C 0.859375 -1.171875 1.53125 0.203125 3.5 0.203125 C 5.53125 0.203125 6.828125 -1.25 7.21875 -3 C 7.484375 -4.25 7.328125 -6.125 4.9375 -6.125 C 2.59375 -6.125 1.53125 -4.390625 1.21875 -2.921875 Z M 2.40625 -2.984375 C 2.8125 -4.859375 4.0625 -5.3125 4.78125 -5.3125 C 5.828125 -5.3125 6.34375 -4.53125 6.03125 -3.03125 C 5.640625 -1.234375 4.546875 -0.625 3.703125 -0.625 C 2.421875 -0.625 2.140625 -1.765625 2.40625 -2.984375 Z M 2.40625 -2.984375 "/>
+</g>
+<g id="manual-svg-5-glyph-0-11">
+<path d="M 3.984375 -8.59375 L 2.875 -8.59375 L 1.28125 -1.078125 L 1.03125 0 L 2.109375 0 L 2.328125 -0.90625 C 2.40625 -0.71875 2.484375 -0.53125 2.78125 -0.296875 C 3.21875 0.046875 3.75 0.078125 4.03125 0.078125 C 4.859375 0.078125 5.734375 -0.265625 6.34375 -0.9375 C 6.734375 -1.328125 7.125 -1.96875 7.375 -3.125 C 7.65625 -4.421875 7.375 -5.03125 7.15625 -5.375 C 6.734375 -5.984375 6.015625 -6.125 5.421875 -6.125 C 4.0625 -6.125 3.46875 -5.375 3.25 -5.109375 Z M 6.171875 -3.046875 C 5.984375 -2.078125 5.34375 -0.71875 3.96875 -0.71875 C 2.296875 -0.71875 2.6875 -2.59375 2.78125 -2.984375 C 2.859375 -3.375 3.28125 -5.375 5 -5.375 C 6.5625 -5.375 6.3125 -3.640625 6.171875 -3.046875 Z M 6.171875 -3.046875 "/>
+</g>
+<g id="manual-svg-5-glyph-0-12">
+<path d="M 2.53125 -7.328125 L 3.890625 -7.328125 L 4.15625 -8.578125 L 2.796875 -8.578125 Z M -0.5 2.296875 C -0.203125 2.328125 0.03125 2.34375 0.171875 2.34375 C 1.671875 2.34375 1.96875 1.125 2.078125 0.5625 L 3.484375 -5.984375 L 2.359375 -5.984375 L 0.984375 0.421875 C 0.78125 1.375 0.546875 1.53125 -0.328125 1.5 Z M -0.5 2.296875 "/>
+</g>
+<g id="manual-svg-5-glyph-0-13">
+<path d="M 0.96875 0 L 2.28125 0 L 2.59375 -1.421875 L 1.28125 -1.421875 Z M 0.96875 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-14">
+<path d="M 8.828125 -6.28125 C 9.09375 -8.234375 7.484375 -8.71875 6.28125 -8.71875 C 3.21875 -8.71875 1.921875 -6.015625 1.546875 -4.203125 C 1.1875 -2.53125 1.21875 0.125 4.234375 0.125 C 5.71875 0.125 7.421875 -0.578125 7.953125 -2.265625 L 6.640625 -2.265625 C 6.578125 -2.0625 6.421875 -1.6875 6.03125 -1.359375 C 5.578125 -0.96875 5.0625 -0.84375 4.53125 -0.84375 C 2.578125 -0.84375 2.46875 -2.59375 2.828125 -4.21875 C 3.125 -5.640625 3.953125 -7.765625 6.03125 -7.765625 C 7.671875 -7.765625 7.578125 -6.578125 7.5625 -6.28125 Z M 8.828125 -6.28125 "/>
+</g>
+<g id="manual-svg-5-glyph-0-15">
+<path d="M 0.890625 -1.78125 C 0.578125 -0.328125 1.59375 0.171875 2.8125 0.171875 C 3.421875 0.171875 4.078125 0.078125 4.671875 -0.234375 C 5.171875 -0.515625 5.65625 -1.078125 5.796875 -1.75 C 5.875 -2.125 5.84375 -2.546875 5.578125 -2.859375 C 5.296875 -3.1875 4.96875 -3.28125 3.390625 -3.671875 C 3.09375 -3.765625 2.59375 -3.890625 2.703125 -4.4375 C 2.890625 -5.296875 3.9375 -5.296875 4.109375 -5.296875 C 4.515625 -5.296875 5.28125 -5.234375 5.046875 -4.328125 L 6.1875 -4.328125 C 6.25 -4.578125 6.3125 -4.859375 6.234375 -5.1875 C 6.015625 -5.90625 5.015625 -6.125 4.265625 -6.125 C 2.875 -6.125 1.78125 -5.40625 1.546875 -4.3125 C 1.28125 -3.0625 2.28125 -2.8125 3.46875 -2.53125 C 4.3125 -2.328125 4.71875 -2.21875 4.578125 -1.625 C 4.546875 -1.421875 4.421875 -1.21875 4.28125 -1.078125 C 3.984375 -0.78125 3.609375 -0.6875 3.140625 -0.6875 C 2.0625 -0.6875 1.96875 -1.328125 2.078125 -1.78125 Z M 0.890625 -1.78125 "/>
+</g>
+<g id="manual-svg-5-glyph-0-16">
+<path d="M 1.125 0 L 2.34375 0 L 3.171875 -3.90625 L 6.859375 -3.90625 L 7.078125 -4.90625 L 3.390625 -4.90625 L 3.953125 -7.578125 L 7.859375 -7.578125 L 8.078125 -8.59375 L 2.953125 -8.59375 Z M 1.125 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-17">
+<path d="M 1.03125 0 L 2.171875 0 L 2.890625 -3.390625 C 2.96875 -3.78125 3.078125 -4.265625 3.40625 -4.609375 C 3.578125 -4.78125 4.09375 -5.265625 4.859375 -5.265625 C 5.734375 -5.265625 6.046875 -4.6875 5.890625 -3.953125 L 5.046875 0 L 6.171875 0 L 6.890625 -3.34375 C 6.9375 -3.609375 7.078125 -4.265625 7.421875 -4.625 C 7.625 -4.84375 8.109375 -5.265625 8.828125 -5.265625 C 9.40625 -5.265625 9.734375 -5.015625 9.875 -4.734375 C 9.9375 -4.578125 9.984375 -4.359375 9.875 -3.828125 L 9.0625 0 L 10.1875 0 L 11.046875 -4.015625 C 11.421875 -5.78125 10.15625 -6.125 9.296875 -6.125 C 7.984375 -6.125 7.328125 -5.34375 7.046875 -5.015625 C 6.921875 -5.453125 6.65625 -6.125 5.328125 -6.125 C 4.828125 -6.125 4 -6.046875 3.234375 -5.109375 L 3.421875 -5.984375 L 2.28125 -5.984375 L 2.125 -5.171875 Z M 1.03125 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-18">
+<path d="M 5.703125 0 C 5.75 -0.609375 5.90625 -1.40625 5.921875 -1.5 L 6.578125 -4.359375 C 6.640625 -4.625 6.6875 -4.921875 6.578125 -5.28125 C 6.375 -5.875 5.515625 -6.15625 4.640625 -6.15625 C 4.015625 -6.15625 3.125 -6.015625 2.578125 -5.515625 C 2.140625 -5.109375 2.03125 -4.6875 1.921875 -4.375 L 3.03125 -4.375 C 3.09375 -4.625 3.328125 -5.390625 4.453125 -5.390625 C 4.78125 -5.390625 5.25 -5.296875 5.40625 -5 C 5.578125 -4.734375 5.5 -4.421875 5.34375 -3.671875 C 5 -3.703125 4.828125 -3.71875 4.53125 -3.71875 C 4.0625 -3.71875 3.109375 -3.671875 2.375 -3.328125 C 1.390625 -2.8125 1.078125 -2.046875 0.96875 -1.578125 C 0.75 -0.578125 1.328125 0.1875 2.703125 0.1875 C 3.203125 0.1875 4.03125 0.09375 4.78125 -0.890625 C 4.703125 -0.578125 4.671875 -0.296875 4.6875 0 Z M 5.171875 -2.90625 C 4.984375 -2.078125 4.890625 -1.734375 4.5625 -1.328125 C 4.1875 -0.921875 3.71875 -0.6875 3.140625 -0.6875 C 2.140625 -0.6875 2.046875 -1.34375 2.125 -1.71875 C 2.390625 -2.9375 4.09375 -2.9375 4.546875 -2.9375 C 4.828125 -2.9375 4.984375 -2.921875 5.171875 -2.90625 Z M 5.171875 -2.90625 "/>
+</g>
+<g id="manual-svg-5-glyph-0-19">
+<path d="M 2.5 -7.34375 L 3.84375 -7.34375 L 4.109375 -8.578125 L 2.765625 -8.578125 Z M 1.0625 0 L 2.171875 0 L 3.453125 -5.984375 L 2.328125 -5.984375 Z M 1.0625 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-20">
+<path d="M 0.359375 0 L 4.828125 0 L 5.015625 -0.875 L 1.71875 -0.875 L 5.890625 -5.03125 L 6.09375 -5.984375 L 1.796875 -5.984375 L 1.625 -5.125 L 4.640625 -5.125 L 0.609375 -1.15625 Z M 0.359375 0 "/>
+</g>
+<g id="manual-svg-5-glyph-0-21">
+<path d="M 4.3125 0 L 5.921875 -7.578125 L 8.796875 -7.578125 L 9.015625 -8.59375 L 2.078125 -8.59375 L 1.859375 -7.578125 L 4.734375 -7.578125 L 3.125 0 Z M 4.3125 0 "/>
+</g>
+<g id="manual-svg-5-glyph-1-0">
+<path d="M 2.03125 -2.6875 L 3.53125 -2.6875 C 4.921875 -2.6875 6.015625 -3.578125 6.015625 -4.71875 C 6.015625 -5.828125 5 -6.703125 3.703125 -6.703125 L 0.828125 -6.703125 C 0.578125 -6.703125 0.453125 -6.609375 0.453125 -6.40625 C 0.453125 -6.203125 0.578125 -6.09375 0.828125 -6.09375 L 1.421875 -6.09375 L 1.421875 -0.609375 L 0.828125 -0.609375 C 0.578125 -0.609375 0.453125 -0.5 0.453125 -0.3125 C 0.453125 -0.109375 0.578125 0 0.828125 0 L 3.625 0 C 3.875 0 4.015625 -0.109375 4.015625 -0.3125 C 4.015625 -0.5 3.875 -0.609375 3.625 -0.609375 L 2.03125 -0.609375 Z M 2.03125 -3.296875 L 2.03125 -6.09375 L 3.734375 -6.09375 C 4.65625 -6.09375 5.390625 -5.484375 5.390625 -4.71875 C 5.390625 -3.9375 4.578125 -3.296875 3.578125 -3.296875 Z M 2.03125 -3.296875 "/>
+</g>
+</g>
+<image id="manual-svg-5-source-5" x="0" y="0" width="285" height="181" xlink:href="data:image/png;base64,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"/>
+<image id="manual-svg-5-source-8" x="0" y="0" width="285" height="181" xlink:href="data:image/png;base64,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"/>
+</defs>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-0-0" x="3.20469" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="11.14199" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-2" x="17.75839" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="21.06659" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="27.68299" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="33.63299" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="37.59569" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="40.90389" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-6" x="44.86659" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="52.13749" y="187.0508"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-0-7" x="3.20469" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="7.83379" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-8" x="14.45019" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="18.41289" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="25.02929" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="29.65839" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-9" x="36.27479" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="43.54569" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="49.49569" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="56.11209" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="59.42029" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-11" x="66.69119" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-12" x="73.96209" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="77.27029" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="83.88669" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="89.83669" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-13" x="93.79939" y="198.9508"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-0-14" x="244.90869" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-6" x="252.760114" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="259.945138" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="267.130162" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-15" x="274.315186" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="280.17931" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="286.709834" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-16" x="289.846282" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="296.376806" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="303.56183" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-17" x="308.105054" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-18" x="319.252778" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="325.783302" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="329.660126" y="187.0508"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-1-0" x="332.79619" y="187.0508"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-0-0" x="244.90869" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-19" x="252.805356" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-20" x="256.072922" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="261.315888" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="267.891654" y="198.9508"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-1-0" x="271.11849" y="198.9508"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-0-5" x="278.21771" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-0" x="281.444627" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-18" x="289.341293" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-17" x="295.917059" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="307.110025" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="313.685791" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-0" x="316.912708" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-19" x="324.809374" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-20" x="328.07694" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="333.319906" y="198.9508"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-0-21" x="389.07071" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-6" x="396.34161" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="403.61251" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="410.22891" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="413.53711" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-11" x="420.80801" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-12" x="428.07891" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="431.38711" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="438.00351" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="443.95351" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-15" x="447.91621" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="453.86621" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-11" x="457.17441" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="464.44531" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="471.06171" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="477.01171" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-17" x="484.28261" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="495.51621" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="502.13261" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="505.44081" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-6" x="509.40351" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="516.67441" y="187.0508"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-0-15" x="389.07071" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-18" x="395.02071" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-17" x="401.63711" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="412.87071" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="419.48711" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-15" x="422.79531" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-19" x="428.74531" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-20" x="432.05351" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="437.33711" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-13" x="443.95351" y="198.9508"/>
+</g>
+<path fill="none" stroke-width="28.898" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(18.03894%, 19.219971%, 57.249451%)" stroke-opacity="1" stroke-miterlimit="3.89999" d="M 2569.882812 1707.304688 L 3132.5 1699.960938 " transform="matrix(0.1, 0, 0, -0.1, 0, 215)"/>
+<path fill="none" stroke-width="28.898" stroke-linecap="square" stroke-linejoin="miter" stroke="rgb(18.03894%, 19.219971%, 57.249451%)" stroke-opacity="1" stroke-miterlimit="3.86371" d="M 3044.21875 1737.070312 L 3145.859375 1699.726562 L 3042.96875 1665.9375 " transform="matrix(0.1, 0, 0, -0.1, 0, 215)"/>
+<use xlink:href="#manual-svg-5-source-5" transform="matrix(0.850004, 0, 0, 0.85, 0.87328, 2.0778)"/>
+<use xlink:href="#manual-svg-5-source-8" transform="matrix(0.850004, 0, 0, 0.85, 340.878, 0.3778)"/>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-0-0" x="125.501" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="133.4383" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-2" x="140.0547" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="143.3629" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="149.9793" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="155.9293" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="159.892" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="163.2002" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-6" x="167.1629" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="174.4338" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-5" x="181.0502" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-10" x="184.3584" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="191.6293" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-6" x="195.592" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="202.8629" y="187.0508"/>
+<use xlink:href="#manual-svg-5-glyph-0-7" x="209.4793" y="187.0508"/>
+</g>
+<g fill="rgb(13.729858%, 12.159729%, 12.548828%)" fill-opacity="1">
+<use xlink:href="#manual-svg-5-glyph-0-10" x="125.501" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-11" x="132.7719" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-12" x="140.0428" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-1" x="143.351" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-3" x="149.9674" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-4" x="155.9174" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-15" x="159.8801" y="198.9508"/>
+<use xlink:href="#manual-svg-5-glyph-0-13" x="165.8301" y="198.9508"/>
+</g>
+<path fill="none" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(18.03894%, 19.219971%, 57.249451%)" stroke-opacity="1" stroke-miterlimit="3.89999" d="M 429.492188 764.960938 L 429.492188 441.953125 " transform="matrix(0.1, 0, 0, -0.1, 0, 215)"/>
+<path fill="none" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(18.03894%, 19.219971%, 57.249451%)" stroke-opacity="1" stroke-miterlimit="3.89999" d="M 1530.234375 441.953125 L 1530.234375 637.460938 " transform="matrix(0.1, 0, 0, -0.1, 0, 215)"/>
+<path fill="none" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(18.03894%, 19.219971%, 57.249451%)" stroke-opacity="1" stroke-miterlimit="3.89999" d="M 2227.265625 777.695312 L 2227.265625 637.460938 L 824.726562 637.460938 L 824.726562 777.695312 " transform="matrix(0.1, 0, 0, -0.1, 0, 215)"/>
+<path fill="none" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(18.03894%, 19.219971%, 57.249451%)" stroke-opacity="1" stroke-miterlimit="3.89999" d="M 4628.515625 444.0625 L 4628.515625 639.570312 " transform="matrix(0.1, 0, 0, -0.1, 0, 215)"/>
+<path fill="none" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(18.03894%, 19.219971%, 57.249451%)" stroke-opacity="1" stroke-miterlimit="3.89999" d="M 5729.257812 771.328125 L 5729.257812 652.304688 L 3519.257812 652.304688 L 3519.257812 771.328125 " transform="matrix(0.1, 0, 0, -0.1, 0, 215)"/>
+</svg></p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p15"><br></p>
+<p class="p17"><br></p>
+<p class="p10"><span class="s2"><b>Tip: </b></span>In most situations, you should select multiple objects by Shift-clicking them because this method gives you more control (you know which object will be the reference object).</p>
+<p class="p18"><br></p>
+</body>
+</html>

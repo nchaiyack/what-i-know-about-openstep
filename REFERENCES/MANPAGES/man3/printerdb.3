@@ -1,0 +1,88 @@
+.TH PRINTERDB 3  "June 21, 1989"
+.AT 3
+.SH NAME
+prdb_set, prdb_get, prdb_getbyname, prdb_end \- get printer database entry
+.SH SYNOPSIS
+.nf
+.B #include <printerdb.h>
+.PP
+.B void prdb_set(char *domain);
+.PP
+.B prdb_ent *prdb_get(void);
+.PP
+.B prdb_ent *prdb_getbyname(const char *name);
+.PP
+.B void prdb_end(void);
+.PP
+.SH DESCRIPTION
+These routines retrieve information from the printer entry database. 
+.I prdb_getbyname
+is useful for looking up a single printer entry.
+The other routines are used for getting all of the printer entries.
+.I prdb_set
+initializes the library to point to the beginning of the printer entry
+list. 
+.I prdb_get
+returns the next printer entry, or NULL for end of list.
+.I prdb_end
+is called to free up any resources that may have been allocated during
+lookups. The following example illustrates how these latter three routines
+are typically used:
+.PP
+.RS
+.nf
+prdb_ent *prdb;
+prdb_set(NULL);
+while (prdb = prdb_get()) {
+	handle(prdb);
+}
+prdb_end();
+.fi
+.RE
+.PP
+The structure returned by 
+.I prdb_getbyname
+and
+.I prdb_get
+is defined as follows:
+.PP
+.RS
+.nf
+typedef struct prdb_property {
+	char *pp_key;
+	char *pp_value;
+} prdb_property;
+
+typedef struct prdb_ent {
+	char **pe_name;
+	unsigned pe_nprops;
+	prdb_property *pe_prop;
+} prdb_ent;
+.fi
+.RE
+.PP
+.I pe_name
+the name of the printer entry.
+.I pe_nprops
+is the number of members of this printer entry.
+.I pe_props
+is an array of 
+.I prdb_property
+structures, which each contain the name and value for various properties
+of the printer. See 
+.I printcap(5)
+for a description of these values.
+.PP
+A call to any of the printerdb(3) routines
+invalidates the information returned from a previous call.
+.SH "SEE ALSO"
+.I printcap(5)
+.SH BUGS
+The 
+.I domain
+argument to
+.I prdb_set()
+is ignored. It should always be set to NULL for compatibility with
+future releases.
+
+

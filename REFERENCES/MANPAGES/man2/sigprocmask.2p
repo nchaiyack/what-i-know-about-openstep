@@ -1,0 +1,58 @@
+.\"	@(#)sigprocmask.2	8/16/92
+.\"
+.TH SIGPROCMASK 2P "August 1, 1992"
+.UC 4
+.SH NAME
+sigprocmask \- (POSIX only) examine or change the signal mask of the calling process.
+.SH SYNOPSIS
+.ft B
+#include <signal.h>
+.PP
+.B sigprocmask(int \fIhow\fP, const sigset_t *\fIset\fP, 
+.B sigset_t *\fIoset\fP);
+.SH DESCRIPTION
+The information in this specification applies
+only to POSIX applications.
+.PP
+The
+.I sigprocmask
+function is used to examine or change (or both) the signal mask of
+the calling process. If the value of the argument \fIset\fR is not
+\fBNULL\fR, it points to a set of signals to be used to change the
+currently blocked set.
+.PP
+The value of the argument \fIhow\fR indicates the manner in which 
+the set is changed.  The following values are accepted:
+.TP 15
+SIG_BLOCK
+The resulting set shall be the union of the current set and the
+signal set pointed to by the argument \fIset\fR.
+.TP 15
+SIG_UNBLOCK
+The resulting set shall be the intersection of the current set and
+the complement of the signal set pointed to by the argument \fIset\fR.
+.TP 15
+SIG_SETMASK
+The resulting set shall be the signal set ponted to by the argument \fIset\fR.
+.PP
+If the argument \fIoset\fR is not \fBNULL\fR, the previous mask is
+stored in the space pointed to by \fIoset\fR.  If the value of the
+argument \fIset\fR is \fBNULL\fR, the value of the argument \fIhow\fR
+is not significant and the signal mask of the process is unchanged.
+.PP
+If there are any pending unblocked signals after the call to 
+.I sigprocmask
+at least one of those signals shall be delivered before 
+.I sigprocmask 
+returns.
+.PP
+It is not possible to block the SIGKILL and SIGSTOP signals.
+.SH "RETURN VALUE"
+Upon successful completion a value of zero is returned.  Otherwise, a value
+of \-1 is returned and \fIerrno\fR is set to indicate the error.
+.SH ERRORS
+.TP 15
+[EINVAL]
+The value of the \fIhow\fR argument is not equal to one of the defined values.
+.SH "SEE ALSO"
+sigaction(2P), sigpending(2P),  sigsuspend(2P), sigsetops(3P)

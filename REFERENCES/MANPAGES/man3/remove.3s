@@ -1,0 +1,87 @@
+.TH REMOVE 3S "August 1, 1992"
+.ds ]W ANSI C
+.SH NAME
+remove \- remove directory entry
+.SH SYNOPSIS
+.B #include <stdio.h>
+.PP
+.B int remove(const char *\fIfilename\fR);
+.SH DESCRIPTION
+.I Remove
+causes the file whose name is the string pointed to by
+.I filename
+to be no longer accessible by that name.
+A subsequent attempt to open that file using that name
+will fail, unless it is created anew.
+.PP
+If this is the only name for the file, and
+no process has the file open, the contents
+of the file is removed. If a process has the
+file open, this process is deferred until the file is closed.
+.SH "RETURN VALUE"
+.I Remove
+returns zero if the operation succeeds,
+nonzero if it fails.
+.PP
+If it fails,
+.I errno
+is set to indicate the cause of the failure.
+.SH "ERRORS
+If any of the following conditions occur, 
+.I remove
+sets 
+.I errno 
+to the corresponding value:
+.TP 15
+[ENOTDIR]
+A component of the path prefix is not a directory.
+.TP 15
+[EINVAL]
+The pathname contains a character with the high-order bit set.
+.TP 15
+[ENAMETOOLONG]
+A component of
+.I filename
+exceeds 255 characters,
+or the entire filename exceeds 1023 characters.
+For POSIX applications these values are given
+by the constants {NAME_MAX} and {PATH_MAX}, respectively.
+.TP 15
+[ENOENT]
+The named file does not exist.
+.TP 15
+[EACCES]
+Search permission is denied for a component of the path prefix.
+.TP 15
+[EACCES]
+Write permission is denied on the directory containing the link
+to be removed.
+.TP 15
+[ELOOP]
+Too many symbolic links were encountered in translating the pathname.
+.TP 15
+[EPERM]
+The named file is a directory and the effective user ID
+of the process is not the super-user.
+.TP 15
+[EPERM]
+The directory containing the file is marked sticky,
+and neither the containing directory nor the file to be removed
+are owned by the effective user ID.
+.TP 15
+[EBUSY]
+The entry to be unlinked is the mount point for a
+mounted file system.
+.TP 15
+[EIO]
+An I/O error occurred while deleting the directory entry
+or deallocating the inode.
+.TP 15
+[EROFS]
+The named file resides on a read-only file system.
+.TP 15
+[EFAULT]
+.I Path
+points outside the process's allocated address space.
+.SH "SEE ALSO"
+unlink(2)

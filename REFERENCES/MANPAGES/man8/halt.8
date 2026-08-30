@@ -1,0 +1,57 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)halt.8	6.2 (Berkeley) 5/24/86
+.\"
+.TH HALT 8 "June 19, 1989"
+.UC 4
+.SH NAME
+halt \- stop the processor
+.SH SYNOPSIS
+.B /usr/etc/halt
+[
+.B \-e
+]
+[
+.B \-n
+]
+[
+.B \-p
+]
+[
+.B \-q
+]
+[
+.B \-y
+]
+.SH DESCRIPTION
+.I Halt
+flushes internal caches, ensures that all remaining disk writes have
+been completed, and then stops
+the processor.  The machine doesn't reboot.
+.PP
+The
+.B \-e
+option causes the optical drive to eject any disk contained in it.  The
+.B \-n
+option prevents the sync before stopping.  The
+.B \-p
+option causes the machine to be powered down after shutdown.
+.B \-q
+option causes a quick halt, no graceful shutdown is attempted.  The
+.B \-y
+option is needed if you are trying to halt the system from a dialup.
+.PP
+.I Halt
+normally logs the shutdown using
+.IR syslog (8)
+and places a shutdown record in the login accounting file
+/usr/adm/wtmp.
+These actions are inhibited if the
+.B \-n
+or
+.B \-q
+options are present.
+.SH SEE ALSO
+reboot(8), shutdown(8), syslogd(8)

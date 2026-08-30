@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 12.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 10.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 12.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 388.0px; text-indent: -313.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 388.0px; text-indent: -313.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 10.0px; font: 9.0px Helvetica; min-height: 11.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 9.0px Helvetica}
+    p.p21 {margin: 0.0px 0.0px 0.0px 10.0px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 10.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 12.0px Helvetica}
+    p.p24 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p28 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 116.0px; font: 14.0px Times}
+    p.p31 {margin: 0.0px 0.0px 0.0px 116.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p33 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p36 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p39 {margin: 0.0px 0.0px 0.0px 110.0px; text-indent: -51.0px; font: 5.0px Helvetica; min-height: 6.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p41 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p44 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 316.0px; font: 14.0px Times}
+    p.p47 {margin: 0.0px 0.0px 0.0px 316.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p48 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p49 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p50 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 12.0px Helvetica}
+    p.p51 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p52 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p53 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 12.0px Helvetica}
+    p.p54 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p55 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p56 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p57 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p58 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p59 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Helvetica}
+    span.s3 {font: 14.0px Times}
+    span.s4 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSObject</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><span class="s2"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>none <i>(NSObject is a root class)</i></p>
+<p class="p6"><i></i><br></p>
+<p class="p7"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s3">NSObject</span></p>
+<p class="p8"><br></p>
+<p class="p9"><span class="s2"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSObject.h</p>
+<p class="p8"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="22pt" viewBox="0 0 597 22" role="img" aria-labelledby="eps-svg-1-title" data-source="NSObject.rtfd/AtaGlance.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">AtaGlance.eps</title><defs>
+<g>
+<g id="eps-svg-1-glyph-0-0">
+<path d="M 8.859375 -6.265625 C 8.796875 -7.078125 8.625 -7.609375 8.234375 -8.140625 C 7.5 -9.09375 6.328125 -9.640625 4.90625 -9.640625 C 2.234375 -9.640625 0.578125 -7.71875 0.578125 -4.65625 C 0.578125 -1.59375 2.21875 0.296875 4.859375 0.296875 C 7.234375 0.296875 8.78125 -1.0625 8.90625 -3.234375 L 7 -3.234375 C 6.875 -2.03125 6.125 -1.34375 4.90625 -1.34375 C 3.40625 -1.34375 2.515625 -2.5625 2.515625 -4.625 C 2.515625 -6.71875 3.4375 -7.96875 4.984375 -7.96875 C 6.109375 -7.96875 6.75 -7.421875 7 -6.265625 Z M 8.859375 -6.265625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-1">
+<path d="M 2.6875 -9.484375 L 0.875 -9.484375 L 0.875 0 L 2.6875 0 Z M 2.6875 -9.484375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-2">
+<path d="M 6.8125 -0.21875 C 6.5 -0.515625 6.390625 -0.734375 6.390625 -1.078125 L 6.390625 -4.984375 C 6.390625 -6.40625 5.421875 -7.140625 3.515625 -7.140625 C 1.625 -7.140625 0.640625 -6.328125 0.515625 -4.703125 L 2.28125 -4.703125 C 2.359375 -5.4375 2.671875 -5.671875 3.5625 -5.671875 C 4.265625 -5.671875 4.609375 -5.4375 4.609375 -4.96875 C 4.609375 -4.734375 4.5 -4.53125 4.296875 -4.421875 C 4.0625 -4.296875 4.0625 -4.296875 3.15625 -4.140625 L 2.4375 -4.015625 C 1.046875 -3.78125 0.359375 -3.0625 0.359375 -1.8125 C 0.359375 -0.546875 1.203125 0.296875 2.5 0.296875 C 3.28125 0.296875 3.984375 -0.03125 4.625 -0.703125 C 4.625 -0.34375 4.671875 -0.203125 4.84375 0 L 6.8125 0 Z M 4.609375 -2.828125 C 4.609375 -1.765625 4.09375 -1.171875 3.171875 -1.171875 C 2.5625 -1.171875 2.1875 -1.5 2.1875 -2.015625 C 2.1875 -2.5625 2.46875 -2.828125 3.21875 -2.984375 L 3.84375 -3.09375 C 4.328125 -3.1875 4.40625 -3.21875 4.609375 -3.3125 Z M 4.609375 -2.828125 "/>
+</g>
+<g id="eps-svg-1-glyph-0-3">
+<path d="M 6.5625 -4.765625 C 6.53125 -6.234375 5.390625 -7.140625 3.515625 -7.140625 C 1.734375 -7.140625 0.625 -6.234375 0.625 -4.796875 C 0.625 -4.328125 0.765625 -3.921875 1.015625 -3.65625 C 1.265625 -3.40625 1.484375 -3.28125 2.15625 -3.0625 L 4.328125 -2.390625 C 4.78125 -2.25 4.9375 -2.109375 4.9375 -1.8125 C 4.9375 -1.390625 4.4375 -1.125 3.59375 -1.125 C 3.109375 -1.125 2.75 -1.203125 2.515625 -1.375 C 2.3125 -1.515625 2.234375 -1.65625 2.15625 -2.046875 L 0.375 -2.046875 C 0.421875 -0.5 1.5625 0.296875 3.6875 0.296875 C 4.671875 0.296875 5.40625 0.09375 5.921875 -0.328125 C 6.453125 -0.734375 6.765625 -1.390625 6.765625 -2.078125 C 6.765625 -2.984375 6.3125 -3.578125 5.375 -3.84375 L 3.078125 -4.515625 C 2.578125 -4.671875 2.4375 -4.765625 2.4375 -5.0625 C 2.4375 -5.453125 2.859375 -5.703125 3.5 -5.703125 C 4.375 -5.703125 4.796875 -5.390625 4.8125 -4.765625 Z M 6.5625 -4.765625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-4">
+</g>
+<g id="eps-svg-1-glyph-0-5">
+<path d="M 3.90625 -6.875 L 2.90625 -6.875 L 2.90625 -8.765625 L 1.078125 -8.765625 L 1.078125 -6.875 L 0.1875 -6.875 L 0.1875 -5.671875 L 1.078125 -5.671875 L 1.078125 -1.359375 C 1.078125 -0.25 1.65625 0.296875 2.859375 0.296875 C 3.28125 0.296875 3.578125 0.265625 3.90625 0.15625 L 3.90625 -1.125 C 3.734375 -1.09375 3.640625 -1.078125 3.5 -1.078125 C 3.015625 -1.078125 2.90625 -1.21875 2.90625 -1.84375 L 2.90625 -5.671875 L 3.90625 -5.671875 Z M 3.90625 -6.875 "/>
+</g>
+<g id="eps-svg-1-glyph-0-6">
+<path d="M 9.25 -5.09375 L 5.453125 -5.09375 L 5.453125 -3.46875 L 7.609375 -3.46875 C 7.546875 -2.9375 7.421875 -2.609375 7.140625 -2.28125 C 6.671875 -1.703125 5.9375 -1.359375 5.203125 -1.359375 C 3.609375 -1.359375 2.5 -2.75 2.5 -4.6875 C 2.5 -6.734375 3.484375 -7.96875 5.140625 -7.96875 C 5.828125 -7.96875 6.390625 -7.78125 6.828125 -7.390625 C 7.09375 -7.15625 7.234375 -6.9375 7.40625 -6.453125 L 9.25 -6.453125 C 9.015625 -8.40625 7.421875 -9.640625 5.140625 -9.640625 C 2.40625 -9.640625 0.546875 -7.625 0.546875 -4.671875 C 0.546875 -1.796875 2.421875 0.296875 4.984375 0.296875 C 6.25 0.296875 7.109375 -0.15625 7.84375 -1.21875 L 8.078125 0.03125 L 9.25 0.03125 Z M 9.25 -5.09375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-7">
+<path d="M 0.8125 -7.015625 L 0.8125 0 L 2.640625 0 L 2.640625 -4.21875 C 2.640625 -5.046875 3.21875 -5.59375 4.109375 -5.59375 C 4.890625 -5.59375 5.28125 -5.15625 5.28125 -4.328125 L 5.28125 0 L 7.09375 0 L 7.09375 -4.703125 C 7.09375 -6.265625 6.25 -7.140625 4.75 -7.140625 C 3.796875 -7.140625 3.15625 -6.796875 2.640625 -6 L 2.640625 -7.015625 Z M 0.8125 -7.015625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-8">
+<path d="M 6.78125 -4.390625 C 6.65625 -6.109375 5.53125 -7.140625 3.75 -7.140625 C 1.65625 -7.140625 0.4375 -5.765625 0.4375 -3.359375 C 0.4375 -1.046875 1.65625 0.296875 3.734375 0.296875 C 5.4375 0.296875 6.609375 -0.75 6.78125 -2.4375 L 5.046875 -2.4375 C 4.828125 -1.515625 4.453125 -1.171875 3.734375 -1.171875 C 2.8125 -1.171875 2.265625 -1.984375 2.265625 -3.359375 C 2.265625 -4.046875 2.390625 -4.65625 2.609375 -5.0625 C 2.828125 -5.453125 3.21875 -5.671875 3.75 -5.671875 C 4.484375 -5.671875 4.84375 -5.3125 5.046875 -4.390625 Z M 6.78125 -4.390625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-9">
+<path d="M 6.8125 -2.9375 C 6.828125 -3.09375 6.828125 -3.15625 6.828125 -3.25 C 6.828125 -3.953125 6.71875 -4.609375 6.546875 -5.09375 C 6.078125 -6.375 4.953125 -7.140625 3.53125 -7.140625 C 1.515625 -7.140625 0.28125 -5.6875 0.28125 -3.328125 C 0.28125 -1.078125 1.515625 0.296875 3.5 0.296875 C 5.0625 0.296875 6.34375 -0.578125 6.75 -1.96875 L 4.953125 -1.96875 C 4.734375 -1.421875 4.21875 -1.09375 3.5625 -1.09375 C 3.046875 -1.09375 2.625 -1.3125 2.359375 -1.703125 C 2.203125 -1.96875 2.125 -2.28125 2.109375 -2.9375 Z M 2.125 -4.140625 C 2.25 -5.21875 2.703125 -5.75 3.515625 -5.75 C 4.34375 -5.75 4.84375 -5.1875 4.921875 -4.140625 Z M 2.125 -4.140625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-10">
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 21.5 L 595.5 1.5 L 49.5 1.5 L 49.5 21.5 L 595.5 21.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 200 L 20 200 " transform="matrix(0.1, 0, 0, -0.1, 0, 22)"/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-0" x="67" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="76.386" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="80" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="87.228" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="94.456" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="101.684" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="105.298" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-5" x="112.526" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="116.855" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="120.469" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="127.697" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-6" x="131.311" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="141.425" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="145.039" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-7" x="152.267" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-8" x="160.21" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-9" x="167.438" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-10" x="174.666" y="17"/>
+</g>
+</svg></b><b></b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b>Purpose</b></p>
+<p class="p15">NSObject is the root class of most Objective-C class hierarchies. Through NSObject, objects inherit a basic interface to the run-time system and the ability to behave as Objective-C objects.</p>
+<p class="p16"><br></p>
+<p class="p14"><b>Principal Attributes</b></p>
+<p class="p15">•<span class="Apple-tab-span">	</span><b>isa </b>pointer</p>
+<p class="p16"><br></p>
+<p class="p14"><b>Creation</b></p>
+<p class="p17">+ alloc</p>
+<p class="p17">+ allocWithZone:</p>
+<p class="p17"><span class="s4">-</span> init<span class="Apple-tab-span">	</span>(designated initializer)</p>
+<p class="p18"><br></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="9pt" viewBox="0 0 597 9" role="img" aria-labelledby="eps-svg-2-title" data-source="NSObject.rtfd/AtaGlanceClose.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-2-title">AtaGlanceClose.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 7.5 L 595.5 0.25 L 49.5 0.25 L 49.5 7.5 L 595.5 7.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 20 L 20 20 " transform="matrix(0.1, 0, 0, -0.1, 0, 9)"/>
+</svg></b><b></b></p>
+<p class="p21"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><b>Class Description</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p15">NSObject is the root class of most Objective-C class hierarchies; it has no superclass. From NSObject, other classes inherit a basic interface to the run-time system for the Objective-C language, and its instances obtain their ability to behave as objects.</p>
+<p class="p25"><br></p>
+<p class="p15">NSObject adopts the NSObject protocol. The NSObject protocol allows for multiple root objects. For example, NSProxy is another root class—it does not inherit from NSObject but adopts the NSObject protocol so that it shares a common interface with other Objective-C objects. Some of the methods discussed below are declared by NSObject protocol, not this class.</p>
+<p class="p25"><br></p>
+<p class="p15">Among other things, the NSObject class provides inheriting classes with a framework for creating, initializing, deallocating, copying, comparing, archiving and distributing objects, for performing methods selected at run-time, for querying an object about its methods and its position in the inheritance hierarchy, and for forwarding messages to other objects. For example, to ask an object what class it belongs to, you'd send it a <b>class</b> message. To find out whether it implements a particular method, you'd send it a <b>respondsToSelector:</b> message.</p>
+<p class="p25"><br></p>
+<p class="p15">The NSObject class is mostly an abstract class; programs use instances of classes that inherit from NSObject, but rarely instances of NSObject itself.</p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p27"><b>Initializing an Object to Its Class</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b></b><br></p>
+<p class="p15">Every object that inherits directly or indirectly from NSObject is connected to the run-time system through its <b>isa</b> instance variable. <b>isa</b> identifies the object's class; it references a structure that's compiled from the class definition. Through <b>isa</b>, an object can find whatever information it needs at run-time—such as its place in the inheritance hierarchy, the size and structure of its instance variables, and the location of the method implementations it can perform in response to messages.</p>
+<p class="p25"><br></p>
+<p class="p15">The installation of the class structure—the initialization of <b>isa</b>—is one of the responsibilities of class methods that create (allocate memory for) new instances: <b>alloc</b>, <b>allocWithZone:</b> and <b>new</b>. In other words, a small part of instance initialization is taken care of by these creation methods; it's not left to the methods, such as <b>init</b>, that initialize individual objects with their particular characteristics.</p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p27"><b>Instance and Class Methods</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b></b><br></p>
+<p class="p15">The run-time system treats methods defined in the root class in a special way:</p>
+<p class="p25"><br></p>
+<p class="p30">Instance methods defined in a root class can be performed both by instances and by class objects.<span class="Apple-converted-space"> </span></p>
+<p class="p31"><br></p>
+<p class="p15">Therefore, all class objects have access to the instance methods defined in the root class. Any class object can perform any root instance method, provided it doesn't have a class method with the same name.</p>
+<p class="p25"><br></p>
+<p class="p15">For example, a class object could be sent messages to perform NSObject's <b>respondsToSelector:</b> and <b>performSelector:withObject:</b> instance methods:</p>
+<p class="p25"><br></p>
+<p class="p32">SEL method = @selector(riskAll:);</p>
+<p class="p33"><br></p>
+<p class="p32">if ( [MyClass respondsToSelector:method] )</p>
+<p class="p32"><span class="Apple-converted-space">    </span>[MyClass performSelector:method withObject:self];</p>
+<p class="p34"><br></p>
+<p class="p15">Note that the only instance methods available to a class object are those defined in its root class. In the example above, if MyClass had reimplemented either <b>respondsToSelector:</b> or <b>performSelector:withObject:</b>, those new versions would be available only to instances. The class object for MyClass could perform only the versions defined in the NSObject class. (Of course, if MyClass had implemented <b>respondsToSelector:</b> or <b>performSelector:withObject:</b> as class methods rather than instance methods, the class would perform those new versions.)</p>
+<p class="p25"><br></p>
+<p class="p26"><br></p>
+<p class="p27"><b>Interface Conventions</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b></b><br></p>
+<p class="p15">The NSObject class defines a number of methods that subclasses are expected to override. Often, NSObject's default implementation simply returns <b>self</b>. Putting these “empty” methods in the NSObject class serves two purposes:</p>
+<p class="p25"><br></p>
+<p class="p35">•<span class="Apple-tab-span">	</span>It means that every object can readily respond to certain standard messages, such as <b>init</b>, even if the response is to do nothing. It's not necessary to check (using <b>respondsToSelector:</b>) before sending the message.</p>
+<p class="p36"><br></p>
+<p class="p35">•<span class="Apple-tab-span">	</span>It establishes conventions that, when followed by all classes, make object interactions more reliable. These conventions are explained in full under the method descriptions.</p>
+<p class="p36"><br></p>
+<p class="p37"><br></p>
+<p class="p38"><b>Instance Variables<span class="Apple-converted-space"> </span></b></p>
+<p class="p39"><b></b><br></p>
+<p class="p40">Class <b>isa</b>;</p>
+<p class="p41"><br></p>
+<p class="p40">isa <span class="Apple-tab-span">	</span>A pointer to the instance's class structure.</p>
+<p class="p42"><br></p>
+<p class="p38"><b>Adopted Protocols</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p40">NSObject<span class="Apple-tab-span">	</span><span class="s4">-</span> autorelease</p>
+<p class="p43"><span class="s4">-</span> class</p>
+<p class="p43"><span class="s4">-</span> conformsToProtocol:</p>
+<p class="p43"><span class="s4">-</span> description</p>
+<p class="p43"><span class="s4">-</span> hash</p>
+<p class="p43"><span class="s4">-</span> isEqual:</p>
+<p class="p43"><span class="s4">-</span> isKindOfClass:</p>
+<p class="p43"><span class="s4">-</span> isMemberOfClass:</p>
+<p class="p43"><span class="s4">-</span> isProxy</p>
+<p class="p43"><span class="s4">-</span> performSelector:</p>
+<p class="p43"><span class="s4">-</span> performSelector:withObject:</p>
+<p class="p43"><span class="s4">-</span> performSelector:withObject:withObject:</p>
+<p class="p43"><span class="s4">-</span> release</p>
+<p class="p43"><span class="s4">-</span> respondsToSelector:</p>
+<p class="p43"><span class="s4">-</span> retain</p>
+<p class="p43"><span class="s4">-</span> retainCount</p>
+<p class="p43"><span class="s4">-</span> self</p>
+<p class="p43"><span class="s4">-</span> superclass</p>
+<p class="p43"><span class="s4">-</span> zone</p>
+<p class="p44"><br></p>
+<p class="p38"><b>Method Types</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p40">Initializing the class<span class="Apple-tab-span">	</span>+ initialize</p>
+<p class="p41"><br></p>
+<p class="p40">Creating, copying, and deallocating objects<span class="Apple-tab-span">	</span></p>
+<p class="p43">+ new</p>
+<p class="p43">+ alloc</p>
+<p class="p43">+ allocWithZone:</p>
+<p class="p43"><span class="s4">-</span> init</p>
+<p class="p43"><span class="s4">-</span> copy</p>
+<p class="p43"><span class="s4">-</span> mutableCopy</p>
+<p class="p43"><span class="s4">-</span> dealloc</p>
+<p class="p45"><br></p>
+<p class="p40">Identifying classes<span class="Apple-tab-span">	</span>+ class</p>
+<p class="p43">+ superclass</p>
+<p class="p45"><br></p>
+<p class="p40">Comparing objects<span class="Apple-tab-span">	</span><span class="s4">-</span> isEqual:</p>
+<p class="p43"><span class="s4">-</span> hash</p>
+<p class="p45"><br></p>
+<p class="p40">Testing class functionality<span class="Apple-tab-span">	</span>+ instancesRespondToSelector:</p>
+<p class="p41"><br></p>
+<p class="p40">Testing protocol conformance<span class="Apple-tab-span">	</span>+ conformsToProtocol:</p>
+<p class="p41"><br></p>
+<p class="p40">Obtaining method information<span class="Apple-tab-span">	</span><span class="s4">-</span> methodForSelector:</p>
+<p class="p43">+ instanceMethodForSelector:</p>
+<p class="p43"><span class="s4">-</span> methodSignatureForSelector:</p>
+<p class="p45"><br></p>
+<p class="p40">Describing objects<span class="Apple-tab-span">	</span>+ description</p>
+<p class="p43"><span class="s4">-</span> description</p>
+<p class="p45"><br></p>
+<p class="p40">Posing<span class="Apple-tab-span">	</span>+ poseAsClass:</p>
+<p class="p41"><br></p>
+<p class="p40">Sending messages<span class="Apple-tab-span">	</span><span class="s4">-</span> performSelector:withObject:afterDelay:</p>
+<p class="p43">+ cancelPreviousPerformRequestsWithTarget:</p>
+<p class="p46">selector:object:</p>
+<p class="p47"><br></p>
+<p class="p40">Forwarding messages<span class="Apple-tab-span">	</span><span class="s4">-</span> forwardInvocation:</p>
+<p class="p41"><br></p>
+<p class="p40">Error handling<span class="Apple-tab-span">	</span><span class="s4">-</span> doesNotRecognizeSelector:</p>
+<p class="p41"><br></p>
+<p class="p40">Archiving<span class="Apple-tab-span">	</span><span class="s4">-</span> awakeAfterUsingCoder:</p>
+<p class="p43"><span class="s4">-</span> classForArchiver</p>
+<p class="p43"><span class="s4">-</span> classForCoder</p>
+<p class="p43"><span class="s4">-</span> classForPortCoder</p>
+<p class="p43"><span class="s4">-</span> replacementObjectForArchiver:</p>
+<p class="p43"><span class="s4">-</span> replacementObjectForCoder:</p>
+<p class="p43"><span class="s4">-</span> replacementObjectForPortCoder:</p>
+<p class="p43">+ setVersion:</p>
+<p class="p43">+ version</p>
+<p class="p44"><br></p>
+<p class="p38"><b>Class Methods</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p27"><b></b><b>alloc</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">+ (id)<b>alloc</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Returns a new instance of the receiving class. The <b>isa</b> instance variable of the new instance is initialized to a data structure that describes the class; memory for all other instance variables is set to 0. The new instance will be allocated from the default zone—use <b>allocWithZone:</b> to specify a particular zone.</p>
+<p class="p25"><br></p>
+<p class="p15">An <b>init...</b> method should be used to complete the initialization process. For example:</p>
+<p class="p25"><br></p>
+<p class="p32">TheClass *newObject = [[TheClass alloc] init];</p>
+<p class="p34"><br></p>
+<p class="p15">Subclasses shouldn't override <b>alloc</b> to include initialization code. Instead, class-specific versions of <b>init...</b> methods should be implemented for that purpose. Class methods can also be implemented to combine allocation and initialization, similar to the <b>new</b> class method.</p>
+<p class="p25"><br></p>
+<p class="p15">Note that it's your responsibility to release objects (with either <b>release</b> or <b>autorelease</b>) returned by <b>alloc...</b> methods.</p>
+<p class="p25"><br></p>
+<p class="p50"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s3"> <b>init</b></span></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>allocWithZone:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p53"><span class="s3">+ </span><b>(id)allocWithZone:</b><span class="s3">(NSZone *)<i>zone</i></span></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Returns a new instance of the receiving class where memory for the new instance is allocated from <i>zone</i>. The <b>isa</b> instance variable of the new instance is initialized to a data structure that describes the class; memory for its other instance variables is set to 0.<i> If zone is NULL,</i> the new instance will be allocated from the default zone (as returned by <b>NSDefaultMallocZone()</b>).</p>
+<p class="p25"><br></p>
+<p class="p15">An <b>init...</b> method should be used to complete the initialization process. For example:</p>
+<p class="p25"><br></p>
+<p class="p32">TheClass *newObject = [[TheClass allocWithZone:someZone] init];</p>
+<p class="p34"><br></p>
+<p class="p15">Subclasses shouldn't override <b>allocWithZone:</b> to include any initialization code. Instead, class-specific versions of <b>init...</b> methods should be implemented for that purpose.</p>
+<p class="p25"><br></p>
+<p class="p15">When one object creates another, it's often a good idea to make sure they're both allocated from the same region of memory. The <b>zone</b> method (declared in the NSObject protocol) can be used for this purpose; it returns the zone where the receiver is located. For example:</p>
+<p class="p25"><br></p>
+<p class="p32">id myCompanion = [[TheClass allocWithZone:[self zone]] init];</p>
+<p class="p34"><br></p>
+<p class="p15">Note that it's your responsibility to release objects (with either <b>release</b> or <b>autorelease</b>) returned by <b>alloc...</b> methods.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>alloc</b>, <span class="s4">-</span> <b>init</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>cancelPreviousPerformRequestsWithTarget:selector:object:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">+ (void)<b>cancelPreviousPerformRequestsWithTarget:</b>(id)<i>aTarget</i></p>
+<p class="p55"><b>selector:</b>(SEL)<i>aSelector</i></p>
+<p class="p55"><b>object:</b>(id)<i>anArgument</i></p>
+<p class="p56"><i></i><br></p>
+<p class="p15">Cancels perform requests previously registered with the <b>performSelector:withObject:afterDelay:</b> instance method. All perform requests having the same target <i>aTarget</i>, and argument <i>anArgument</i>, (determined using <b>isEqual:</b>), and the same selector <i>aSelector</i>, will be canceled. This method removes perform requests only in the current run loop, not all run loops.</p>
+<p class="p25"><br></p>
+<p class="p57"><br></p>
+<p class="p27"><b></b><b>class</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">+ (Class)<b>class</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Returns the class object.</p>
+<p class="p25"><br></p>
+<p class="p15">Only refer to a class by name when it is the receiver of a message. In all other cases, the class object must be obtained through this, or a similar method. For example, here SomeClass is passed as an argument to the <b>isKindOfClass:</b> method (declared in the NSObject protocol):</p>
+<p class="p25"><br></p>
+<p class="p32">BOOL test = [self isKindOfClass:[SomeClass class]];</p>
+<p class="p34"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>class</b> (NSObject protocol)</p>
+<p class="p51"><br></p>
+<p class="p52"><br></p>
+<p class="p27"><b></b><b>conformsToProtocol:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">+ (BOOL)<b>conformsToProtocol:</b>(Protocol *)<i>aProtocol</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Returns YES if the receiving class conforms to <i>aProtocol</i>, NO otherwise.</p>
+<p class="p25"><br></p>
+<p class="p15">A class is said to “conform to” a protocol if it adopts the protocol or inherits from another class that adopts it. Protocols are adopted by listing them within angle brackets after the interface declaration. For example, here MyClass adopts the fictitious AffiliationRequests and Normalization protocols:</p>
+<p class="p25"><br></p>
+<p class="p32">@interface MyClass : NSObject &lt;AffiliationRequests, Normalization&gt;</p>
+<p class="p34"><br></p>
+<p class="p15">A class also conforms to any protocols that are incorporated in the protocols it adopts or inherits. Protocols incorporate other protocols in the same way that classes adopt them. For example, here the AffiliationRequests protocol incorporates the Joining protocol:</p>
+<p class="p25"><br></p>
+<p class="p32">@protocol AffiliationRequests &lt;Joining&gt;</p>
+<p class="p34"><br></p>
+<p class="p15">If a class adopts a protocol that incorporates another protocol, it must also implement all the methods in the incorporated protocol or inherit those methods from a class that adopts it.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p15">This method determines conformance solely on the basis of the formal declarations in header files, as illustrated above. It doesn't check to see whether the methods declared in the protocol are actually implemented—that's the programmer's responsibility.</p>
+<p class="p25"><br></p>
+<p class="p15">The Protocol required as this method's argument can be specified using the <b>@protocol()</b> directive:</p>
+<p class="p25"><br></p>
+<p class="p32">BOOL canJoin = [MyClass conformsToProtocol:@protocol(Joining)];</p>
+<p class="p34"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>conformsToProtocol:</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>description</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">+ (NSString *)<b>description</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Returns an NSString that represents the contents of the receiving class. The debugger's <b>print-object</b> command invokes this method to produce a textual description of an object.</p>
+<p class="p25"><br></p>
+<p class="p15">NSObject's implementation of this method simply prints the name of the class.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>description</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>initialize</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">+ (void)<b>initialize</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Initializes the class before it's used (before it receives its first message). The run-time system sends an <b>initialize</b> message to each class just before the class, or any class that inherits from it, is sent its first message from within the program. Each class receives the <b>initialize</b> message just once from the run-time system. Superclasses will receive this message before subclasses.</p>
+<p class="p25"><br></p>
+<p class="p15">For example, if the first message your program sends is this:</p>
+<p class="p25"><br></p>
+<p class="p32">[NSApplication new]</p>
+<p class="p34"><br></p>
+<p class="p15">the run-time system invokes these three <b>initialize</b> messages:</p>
+<p class="p25"><br></p>
+<p class="p32">[NSObject initialize];</p>
+<p class="p32">[NSResponder initialize];</p>
+<p class="p32">[NSApplication initialize];</p>
+<p class="p34"><br></p>
+<p class="p15">because NSApplication is a subclass of NSResponder and NSResponder is a subclass of NSObject. All the <b>initialize</b> messages precede the <b>new</b> message.</p>
+<p class="p25"><br></p>
+<p class="p15">If your program later begins to use the NSText class,</p>
+<p class="p25"><br></p>
+<p class="p32">[NSText instancesRespondToSelector:someSelector]</p>
+<p class="p34"><br></p>
+<p class="p15">the run-time system invokes these additional <b>initialize</b> messages:</p>
+<p class="p25"><br></p>
+<p class="p32">[NSView initialize];</p>
+<p class="p32">[NSText initialize];</p>
+<p class="p34"><br></p>
+<p class="p15">because NSText inherits from NSObject, NSResponder, and NSView. The <b>instancesRespondToSelector:</b> message is sent only after all these classes are initialized. Note that the <b>initialize</b> messages to NSObject and NSResponder aren't repeated.</p>
+<p class="p25"><br></p>
+<p class="p15">You can implement your own versions of <b>initialize</b> to provide class-specific initialization as needed.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p15">Normally the run-time system sends a class just one <b>initialize</b> message. However, if for some reason an application or the run-time system generates additional <b>initialize</b> messages, it is a good idea to prevent code from being invoked more than once:</p>
+<p class="p25"><br></p>
+<p class="p32">+ (void)initialize</p>
+<p class="p32">{</p>
+<p class="p32"><span class="Apple-converted-space">    </span>static BOOL tooLate = NO;</p>
+<p class="p32"><span class="Apple-converted-space">    </span>if ( !tooLate ) {</p>
+<p class="p32"><span class="Apple-converted-space">        </span>/* put initialization code here */</p>
+<p class="p32"><span class="Apple-converted-space">        </span>tooLate = YES;</p>
+<p class="p32"><span class="Apple-converted-space">    </span>}</p>
+<p class="p32">}</p>
+<p class="p34"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>init</b>, <span class="s4">-</span> <b>class</b> (NSObject protocol)</p>
+<p class="p51"><br></p>
+<p class="p52"><br></p>
+<p class="p27"><b></b><b>instanceMethodForSelector:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">+ (IMP)<b>instanceMethodForSelector:</b>(SEL)<i>aSelector</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Locates and returns the address of the implementation for the <i>aSelector</i> instance method. An error is generated if instances of the receiver can't respond to <i>aSelector</i> messages.</p>
+<p class="p25"><br></p>
+<p class="p15">Use this method to ask the class object for the implementation of instance methods only. To ask the class for the implementation of a class methods, send the <b>methodForSelector:</b> instance method to the class instead.</p>
+<p class="p25"><br></p>
+<p class="p15"><b>instanceMethodForSelector:</b>, and the function pointer it returns, are subject to the same constraints as those described for <b>methodForSelector:</b>. See <b>methodForSelector:</b> for description of the IMP return value.</p>
+<p class="p25"><br></p>
+<p class="p57"><br></p>
+<p class="p27"><b></b><b>instancesRespondToSelector:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">+ (BOOL)<b>instancesRespondToSelector:</b>(SEL)<i>aSelector</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Returns YES if instances of the class are capable of responding to <i>aSelector</i> messages, NO otherwise. To ask the class whether it, rather than its instances, can respond to a particular message, send the <b>respondsToSelector:</b> NSObject protocol instance method to the class instead.</p>
+<p class="p25"><br></p>
+<p class="p15">If<i> aSelector</i> messages are forwarded to other objects, instances of the class will be able to receive those messages without error even though this method returns NO.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>forwardInvocation:</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>new</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">+ (id)<b>new</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Allocates a new instance of the receiving class, sends it an <b>init</b> message, and returns the initialized object.</p>
+<p class="p25"><br></p>
+<p class="p15">This method is a combination of <b>alloc</b> and <b>init</b>. Like <b>alloc</b>, it initializes the <b>isa</b> instance variable of the new object so that it points to the class data structure. It then invokes the <b>init</b> method to complete the initialization process.</p>
+<p class="p25"><br></p>
+<p class="p15">Unlike <b>alloc</b>, <b>new</b> is sometimes reimplemented in subclasses to have it invoke a class-specific initialization method. If the <b>init...</b> method includes arguments, they're typically reflected in a <b>new...</b> method as well. For example:</p>
+<p class="p25"><br></p>
+<p class="p32">+ newArg:(int)tag arg:(struct info *)data</p>
+<p class="p32">{</p>
+<p class="p32"><span class="Apple-converted-space">    </span>return [[self alloc] initArg:tag arg:data];</p>
+<p class="p32">}</p>
+<p class="p34"><br></p>
+<p class="p15">However, there's little point in implementing a <b>new...</b> method if it's simply a shorthand for <b>alloc</b> and <b>init...</b>, as shown above. Often <b>new...</b> methods will do more than just allocation and initialization. In some classes, they manage a set of instances, returning the one with the requested properties if it already exists, allocating and initializing a new instance only if necessary. For example:</p>
+<p class="p25"><br></p>
+<p class="p32">+ newArg:(int)tag arg:(struct info *)data</p>
+<p class="p32">{</p>
+<p class="p32"><span class="Apple-converted-space">    </span>MyClass *theInstance;</p>
+<p class="p33"><br></p>
+<p class="p32"><span class="Apple-converted-space">    </span>if ( theInstance = findTheObjectWithTheTag(tag) )</p>
+<p class="p32"><span class="Apple-converted-space">        </span>return theInstance;</p>
+<p class="p32"><span class="Apple-converted-space">    </span>return [[self alloc] initArg:tag arg:data];</p>
+<p class="p32">}</p>
+<p class="p34"><br></p>
+<p class="p15">Although it's appropriate to define new <b>new...</b> methods in this way, the <b>alloc</b> and <b>allocWithZone:</b> methods should never be augmented to include initialization code.</p>
+<p class="p25"><br></p>
+<p class="p57"><br></p>
+<p class="p27"><b></b><b>poseAsClass:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">+ (void)<b>poseAsClass:</b>(Class)<i>aClass</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Causes the receiving class to “pose as” its <i>aClass</i> superclass. The receiver takes the place of <i>aClass</i> in the inheritance hierarchy; all messages sent to <i>aClass</i> will actually be delivered to the receiver. The receiver must be defined as a subclass of <i>aClass</i>. It can't declare any new instance variables of its own, but it can define new methods and override methods defined in <i>aClass</i>. The <b>poseAsClass:</b> message should be sent before any messages are sent to <i>aClass</i> and before any instances of <i>aClass</i> are created.</p>
+<p class="p25"><br></p>
+<p class="p15">This facility allows you to add methods to an existing class by defining them in a subclass and having the subclass substitute for the existing class. The new method definitions will be inherited by all subclasses of the superclass. Care should be taken to ensure that this doesn't generate errors.</p>
+<p class="p25"><br></p>
+<p class="p15">A subclass that poses as its superclass still inherits from the superclass. Therefore, none of the functionality of the superclass is lost in the substitution. Posing doesn't alter the definition of either class.</p>
+<p class="p25"><br></p>
+<p class="p15">Posing is useful as a debugging tool, but category definitions are a less complicated and more efficient way of augmenting existing classes. Posing admits only two possibilities that are absent from categories:</p>
+<p class="p25"><br></p>
+<p class="p35">•<span class="Apple-tab-span">	</span>A method defined by a posing class can override any method defined by its superclass. Methods defined in categories can replace methods defined in the class proper, but they cannot reliably replace methods defined in other categories. If two categories define the same method, one of the definitions will prevail, but there's no guarantee which one.</p>
+<p class="p36"><br></p>
+<p class="p35">•<span class="Apple-tab-span">	</span>A method defined by a posing class can, through a message to <b>super</b>, incorporate the superclass method it overrides. A method defined in a category can replace a method defined elsewhere by the class, but it can't incorporate the method it replaces.</p>
+<p class="p36"><br></p>
+<p class="p58"><br></p>
+<p class="p27"><b></b><b>setVersion:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">+ (void)<b>setVersion:</b>(int)<i>aVersion</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Sets the class version number to <i>aVersion</i>. The version number is helpful when instances of the class are to be archived and reused later. The default version is 0.</p>
+<p class="p25"><br></p>
+<p class="p50"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s3">+ <b>version</b></span></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>superclass</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">+ (Class)<b>superclass</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Returns the class object for the receiver's superclass.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>class</b>, <span class="s4">-</span> <b>superclass </b>(NSObject protocol)</p>
+<p class="p51"><br></p>
+<p class="p52"><br></p>
+<p class="p27"><b></b><b>version</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">+ (int)<b>version</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Returns the version number assigned to the class. If no version has been set, the default is 0.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p15">Version numbers are needed for decoding or unarchiving, so that older versions of an object can be detected and decoded correctly.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p15">Caution should be taken when obtaining the version from within NSCoding protocol or other methods. Use the class name explicitly when getting a class version number:</p>
+<p class="p25"><br></p>
+<p class="p32">version = [MyClass version];</p>
+<p class="p34"><br></p>
+<p class="p15">Don't simply send <b>version</b> to the return value of <b>class</b>—a subclass version number may be returned instead.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>setVersion:, versionForClassName: </b>(NSCoder)</p>
+<p class="p51"><br></p>
+<p class="p59"><br></p>
+<p class="p38"><b>Instance Methods</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p27"><b></b><b>awakeAfterUsingCoder:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (id)<b>awakeAfterUsingCoder:</b>(NSCoder *)<i>aDecoder</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Overridden by subclasses to return another object in its place after being decoded. Perhaps this object was just unarchived and an equivalent object already exists (such as a font or image). By returning a replacement object, redundant objects can be eliminated. If a replacement is returned, this method implementation is responsible for releasing the receiver. This method is invoked by NSCoder. NSObject's implementation simply returns <b>self</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>classForCoder</b>, <span class="s4">-</span> <b>replacementObjectForCoder:</b>, <span class="s4">-</span> <b>initWithCoder:</b>(NSCoding protocol)</p>
+<p class="p51"><br></p>
+<p class="p52"><br></p>
+<p class="p27"><b></b><b>classForArchiver</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (Class)<b>classForArchiver</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Overridden by subclasses to substitute a class other than its own during archiving. For example, the private subclasses of a class cluster substitute the name of their public superclass when being archived. This method allows specialized behavior for archiving—override <b>classForCoder</b> to add general coding behavior. This method is invoked by NSArchiver. NSObject's implementation returns the object returned by<b> classForCoder</b>.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>replacementObjectForArchiver:</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>classForCoder</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (Class)<b>classForCoder</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Overridden by subclasses to substitute a class other than its own during coding. For example, the private subclasses of a class cluster substitute the name of their public superclass when being archived. This method is invoked by NSCoder. NSObject's implementation returns the receiver's class.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s4">-</span> <b>awakeAfterUsingCoder:</b>, <span class="s4">-</span> <b>replacementObjectForCoder:</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>classForPortCoder</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (Class)<b>classForPortCoder</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Overridden by subclasses to substitute a class other than its own for distribution encoding. This method allows specialized behavior for distributed objects—override <b>classForCoder</b> to add general coding behavior. This method is invoked by NSPortCoder. NSObject's implementation returns the class returned by <b>classForCoder</b>.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>replacementObjectForPortCoder:</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>copy</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (id)<b>copy</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Convenience method for classes that adopt the NSCopying protocol. This method returns the object returned by the NSCopying protocol method <b>copyWithZone:</b> where the zone is NULL. An exception is raised if there is no implementation for <b>copyWithZone:</b>.</p>
+<p class="p25"><br></p>
+<p class="p57"><br></p>
+<p class="p27"><b></b><b>dealloc</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (void)<b>dealloc</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Deallocates the memory occupied by the receiver. Subsequent messages to the object will generate an error indicating that a message was sent to a deallocated object (provided that the deallocated memory hasn't been reused yet).</p>
+<p class="p25"><br></p>
+<p class="p15">You never send a <b>dealloc</b> message directly. Instead, an object's <b>dealloc</b> method is invoked indirectly through the <b>release</b> NSObject protocol method. See the introduction to the Foundation Kit for more details on the use of these methods.</p>
+<p class="p25"><br></p>
+<p class="p15">Subclasses must implement their own versions of <b>dealloc</b> to allow the deallocation of any additional memory consumed by the object—such as dynamically allocated storage for data, or object instance variables that are owned by the deallocated object. After performing the class-specific deallocation, the subclass method should incorporate superclass versions of <b>dealloc</b> through a message to <b>super</b>:</p>
+<p class="p25"><br></p>
+<p class="p32">- (void)dealloc {</p>
+<p class="p32"><span class="Apple-converted-space">    </span>[companion release];</p>
+<p class="p32"><span class="Apple-converted-space">    </span>NSZoneFree(private, [self zone])</p>
+<p class="p32"><span class="Apple-converted-space">    </span>[super dealloc];</p>
+<p class="p32">}</p>
+<p class="p34"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>autorelease</b> (NSObject protocol), <span class="s4">-</span> <b>release</b> (NSObject protocol)</p>
+<p class="p51"><br></p>
+<p class="p52"><br></p>
+<p class="p27"><b></b><b>description</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">@protocol NSObject</p>
+<p class="p48"><span class="s4">-</span> (NSString *)<b>description</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Returns a NSString that represents the contents of the receiver. The debugger's <b>print-object</b> command indirectly invokes this method to produce a textual description of an object. NSObject's implementation of this method simply prints the name of the receiver's class and the hexadecimal value of its <b>id</b>.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>description</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>doesNotRecognizeSelector:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (void)<b>doesNotRecognizeSelector:</b>(SEL)<i>aSelector</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Handles <i>aSelector</i> messages that the receiver doesn't recognize. The run-time system invokes this method whenever an object receives an <i>aSelector</i> message that it can't respond to or forward. This method, in turn, raises an NSInvalidArgumentException, and generates an error message.</p>
+<p class="p25"><br></p>
+<p class="p15"><b>doesNotRecognizeSelector:</b> messages are generally sent only by the run-time system. However, they can be used in program code to prevent a method from being inherited. For example, an NSObject subclass might renounce the <b>copy</b> or <b>init</b> method by reimplementing it to include a <b>doesNotRecognizeSelector:</b> message as follows:</p>
+<p class="p25"><br></p>
+<p class="p32">- copy</p>
+<p class="p32">{</p>
+<p class="p32"><span class="Apple-converted-space">    </span>[self doesNotRecognizeSelector:_cmd];</p>
+<p class="p32">}</p>
+<p class="p34"><br></p>
+<p class="p15">The <b>_cmd</b> variable identifies the current selector; in this example, it identifies the selector for the <b>copy</b> method. This code prevents instances of the subclass from responding to <b>copy</b> messages or superclasses from forwarding <b>copy</b> messages—although <b>respondsToSelector:</b> will still report that the receiver has access to a <b>copy</b> method.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>forwardInvocation:</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>forwardInvocation:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (void)<b>forwardInvocation:</b>(NSInvocation *)<i>anInvocation</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Overridden by subclasses to forward messages to other objects. When an object is sent a message for which it has no corresponding method, the run-time system gives the receiver an opportunity to delegate the message to another receiver. It does this by creating an NSInvocation object representing the message and sending the receiver a <b>forwardInvocation:</b> message containing this NSInvocation as the argument. The receiver's <b>forwardInvocation:</b> method can then choose to forward the message to another object. (If the that object can't respond to the message either, it too will be given a chance to forward it.)</p>
+<p class="p25"><br></p>
+<p class="p15">The <b>forwardInvocation:</b> message thus allows an object to establish relationships with other objects that will, for certain messages, act on its behalf. The forwarding object is, in a sense, able to “inherit” some of the characteristics of the object it forwards the message to.</p>
+<p class="p25"><br></p>
+<p class="p15">An implementation of the <b>forwardInvocation:</b> method has two tasks:</p>
+<p class="p25"><br></p>
+<p class="p35">•<span class="Apple-tab-span">	</span>To locate an object that can respond to the message encoded in <i>anInvocation</i>. This need not be the same object for all messages.</p>
+<p class="p36"><br></p>
+<p class="p35">•<span class="Apple-tab-span">	</span>To send the message to that object using <i>anInvocation</i>. <i>anInvocation</i> will hold the result, and the run-time system will extract and deliver this result to the original sender.</p>
+<p class="p36"><br></p>
+<p class="p15">In the simple case, in which an object forwards messages to just one destination (such as the hypothetical <b>friend</b> instance variable in the example below), a <b>forwardInvocation:</b> method could be as simple as this:</p>
+<p class="p25"><br></p>
+<p class="p32">- (void)forwardInvocation:(NSInvocation *)invocation</p>
+<p class="p32">{</p>
+<p class="p32"><span class="Apple-converted-space">    </span>if ([friend respondsToSelector:[invocation selector]])</p>
+<p class="p32"><span class="Apple-converted-space">        </span>[invocation invokeWithTarget:friend];</p>
+<p class="p32"><span class="Apple-converted-space">    </span>else</p>
+<p class="p32"><span class="Apple-converted-space">        </span>[self doesNotRecognizeSelector:aSelector];</p>
+<p class="p32">}</p>
+<p class="p34"><br></p>
+<p class="p15">The message that's forwarded must have a fixed number of arguments; variable numbers of arguments (in the style of printf()) are not supported.</p>
+<p class="p25"><br></p>
+<p class="p15">The return value of the message that's forwarded is returned to the original sender. All types of return values can be delivered to the sender: <b>id</b>s, structures, double-precision floating point numbers.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p15">Implementations of the <b>forwardInvocation:</b> method can do more than just forward messages. <b>forwardInvocation:</b> can, for example, be used to consolidate code that responds to a variety of different messages, thus avoiding the necessity of having to write a separate method for each selector. A <b>forwardInvocation:</b> method might also involve several other objects in the response to a given message, rather than forward it to just one.</p>
+<p class="p25"><br></p>
+<p class="p15">NSObject's implementation of <b>forwardInvocation:</b> simply invokes the <b>doesNotRecognizeSelector:</b> method; it doesn't forward any messages. Thus, if you choose not to implement <b>forwardInvocation:</b>, unrecognized messages will raise an exception.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p57"><br></p>
+<p class="p27"><b></b><b>hash</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">@protocol NSObject</p>
+<p class="p48"><span class="s4">-</span> (unsigned)<b>hash</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Returns an integer that can be used as a table address in a hash table structure. NSObject's implementation returns a value based on the object's<b> id</b>. If two objects are equal (as determined by the <b>isEqual:</b> method), they must return the same hash value. This last point is particularly important if you define <b>hash</b> in a subclass and intend to put instances of that subclass into a collection.</p>
+<p class="p25"><br></p>
+<p class="p57"><br></p>
+<p class="p27"><b></b><b>init</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (id)<b>init</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Implemented by subclasses to initialize a new object (the receiver) immediately after memory for it has been allocated. An <b>init</b> message is generally coupled with an <b>alloc</b> or <b>allocWithZone:</b> message in the same line of code:</p>
+<p class="p25"><br></p>
+<p class="p32">TheClass *newObject = [[TheClass alloc] init];</p>
+<p class="p34"><br></p>
+<p class="p15">An object isn't ready to be used until it has been initialized. The version of the <b>init</b> method defined in the NSObject class does no initialization; it simply returns <b>self</b>.</p>
+<p class="p25"><br></p>
+<p class="p15">Subclass versions of this method should return the new object (<b>self</b>) after it has been successfully initialized. If it can't be initialized, they should release the object and return <b>nil</b>. In some cases, an <b>init</b> method might release the new object and return a substitute. Programs should therefore always use the object returned by <b>init</b>, and not necessarily the one returned by <b>alloc</b> or <b>allocWithZone:</b>, in subsequent code.</p>
+<p class="p25"><br></p>
+<p class="p15">Every class must guarantee that the <b>init</b> method either returns a fully functional instance of the class or raises an exception. Typically this means overriding the method to add class-specific initialization code. Subclass versions of <b>init</b> need to incorporate the initialization code for the classes they inherit from, through a message to <b>super</b>:</p>
+<p class="p25"><br></p>
+<p class="p32">- init</p>
+<p class="p32">{</p>
+<p class="p32"><span class="Apple-tab-span">	</span>if (self = [super init]) {</p>
+<p class="p32"><span class="Apple-tab-span">	</span>/* class-specific initialization goes here */</p>
+<p class="p32"><span class="Apple-tab-span">	</span>}</p>
+<p class="p32"><span class="Apple-tab-span">	</span>return self;</p>
+<p class="p32">}</p>
+<p class="p34"><br></p>
+<p class="p15">Note that the message to <b>super</b> precedes the initialization code added in the method. This ensures that initialization proceeds in the order of inheritance.</p>
+<p class="p25"><br></p>
+<p class="p15">Subclasses often define <b>init...</b> methods with additional arguments to allow specific values to be set. The more arguments a method has, the more freedom it gives you to determine the character of initialized objects. Classes often have a set of <b>init...</b> methods, each with a different number of arguments. For example:</p>
+<p class="p25"><br></p>
+<p class="p32">- init;</p>
+<p class="p32">- initArg:(int)tag;</p>
+<p class="p32">- initArg:(int)tag arg:(struct info *)data;</p>
+<p class="p34"><br></p>
+<p class="p15">The convention is that at least one of these methods, usually the one with the most arguments, includes a message to <b>super</b> to incorporate the initialization of classes higher up the hierarchy. This method is called the <i>designated initializer</i> for the class. The other <b>init...</b> methods defined in the class directly or indirectly invoke the designated initializer through messages to <b>self</b>. In this way, all <b>init...</b> methods are chained together. For example:</p>
+<p class="p25"><br></p>
+<p class="p32">- init</p>
+<p class="p32">{</p>
+<p class="p32"><span class="Apple-converted-space">    </span>return [self initArg:-1];</p>
+<p class="p32">}</p>
+<p class="p33"><br></p>
+<p class="p32">- initArg:(int)tag</p>
+<p class="p32">{</p>
+<p class="p32"><span class="Apple-converted-space">    </span>return [self initArg:tag arg:NULL];</p>
+<p class="p32">}</p>
+<p class="p33"><br></p>
+<p class="p32">- initArg:(int)tag arg:(struct info *)data</p>
+<p class="p32">{</p>
+<p class="p32"><span class="Apple-converted-space">    </span>[super init. . .];</p>
+<p class="p32"><span class="Apple-converted-space">    </span>/* class-specific initialization goes here */</p>
+<p class="p32">}</p>
+<p class="p34"><br></p>
+<p class="p15">In this example, the <b>initArg:arg:</b> method is the designated initializer for the class.</p>
+<p class="p25"><br></p>
+<p class="p15">If a subclass does any initialization of its own, it must define its own designated initializer. This method should begin by sending a message to <b>super</b> to perform the designated initializer of its superclass. Suppose, for example, that the three methods illustrated above are defined in the B class. The C class, a subclass of B, might have this designated initializer:</p>
+<p class="p25"><br></p>
+<p class="p32">- initArg:(int)tag arg:(struct info *)data arg:anObject</p>
+<p class="p32">{</p>
+<p class="p32"><span class="Apple-converted-space">    </span>[super initArg:tag arg:data];</p>
+<p class="p32"><span class="Apple-converted-space">    </span>/* class-specific initialization goes here */</p>
+<p class="p32">}</p>
+<p class="p34"><br></p>
+<p class="p15">If inherited <b>init...</b> methods are to successfully initialize instances of the subclass, they must all be made to (directly or indirectly) invoke the new designated initializer. To accomplish this, the subclass is obliged to cover (override) only the designated initializer of the superclass. For example, in addition to its designated initializer, the C class would also implement this method:</p>
+<p class="p25"><br></p>
+<p class="p32">- initArg:(int)tag arg:(struct info *)data</p>
+<p class="p32">{</p>
+<p class="p32"><span class="Apple-converted-space">    </span>return [self initArg:tag arg:data arg:nil];</p>
+<p class="p32">}</p>
+<p class="p34"><br></p>
+<p class="p15">This ensures that all three methods inherited from the B class also work for instances of the C class.</p>
+<p class="p25"><br></p>
+<p class="p15">Often the designated initializer of the subclass overrides the designated initializer of the superclass. If so, the subclass need only implement the one <b>init...</b> method.</p>
+<p class="p25"><br></p>
+<p class="p15">These conventions maintain a direct chain of <b>init...</b> links, and ensure that the <b>new</b> method and all inherited <b>init...</b> methods return usable, initialized objects. They also prevent the possibility of an infinite loop wherein a subclass method sends a message (to <b>super</b>) to perform a superclass method, which in turn sends a message (to <b>self</b>) to perform the subclass method.</p>
+<p class="p25"><br></p>
+<p class="p15">This <b>init</b> method is the designated initializer for the NSObject class. Subclasses that do their own initialization should override it, as described above.</p>
+<p class="p25"><br></p>
+<p class="p57"><br></p>
+<p class="p27"><b></b><b>isEqual:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48">@protocol NSObject</p>
+<p class="p48"><span class="s4">-</span> (BOOL)<b>isEqual:</b>(id)<i>anObject</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Returns YES if the receiver and <i>anObject</i> are equal, NO otherwise. NSObject's implementation compares the <b>id</b> of <i>anObject</i> and the receiver to determine equality. Subclasses can override this method to redefine what it means for objects to be equal. For example, a container object might define two containers as equal if they contain the same contents. See the NSData, NSDictionary, NSArray, and NSString class specifications for examples of the use of this method. Note that equality as defined by this method is not necessarily reflexive. For example, A is equal to B, does not imply B is equal to A, especially if B is a subclass of A.</p>
+<p class="p25"><br></p>
+<p class="p57"><br></p>
+<p class="p27"><b></b><b>methodForSelector:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (IMP)<b>methodForSelector:</b>(SEL)<i>aSelector</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Locates and returns the address of the receiver's implementation for the <i>aSelector</i> method so that it can be called as a function. If the receiver is an instance, <i>aSelector</i> should refer to an instance method; if the receiver is a class, it should refer to a class method.</p>
+<p class="p25"><br></p>
+<p class="p15"><i>aSelector</i> must be a valid, non-NULL selector. If in doubt, use the <b>respondsToSelector:</b> method to check before passing the selector to <b>methodForSelector:</b>.</p>
+<p class="p25"><br></p>
+<p class="p15">IMP is defined as a pointer to a function that returns an <b>id</b> and takes a variable number of arguments (in addition to the two “hidden” arguments—<b>self</b> and <b>_cmd</b>—that are passed to every method implementation):</p>
+<p class="p25"><br></p>
+<p class="p32">typedef id (*IMP)(id, SEL, ...);</p>
+<p class="p34"><br></p>
+<p class="p15">This definition serves as a prototype for the function pointer that <b>methodForSelector:</b> returns. It's sufficient for methods that return an object and take object arguments. However, if the <i>aSelector</i> method takes different argument types or returns anything but an <b>id</b>, its function counterpart will be inadequately prototyped. Lacking a prototype, the compiler will promote <b>float</b>s to <b>double</b>s and <b>char</b>s to <b>int</b>s, which the implementation won't expect. It will therefore behave differently (and erroneously) when performed as a method.</p>
+<p class="p25"><br></p>
+<p class="p15">To remedy this situation, it's necessary to provide your own prototype. In the example below, the declaration of the <b>test</b> variable serves to prototype the implementation of the <b>isEqual:</b> method. <b>test</b> is defined as a pointer to a function that returns a BOOL and takes an <b>id</b> argument (in addition to the two “hidden” arguments). The value returned by <b>methodForSelector:</b> is then similarly cast to be a pointer to this same function type:</p>
+<p class="p25"><br></p>
+<p class="p32">BOOL (*test)(id, SEL, id);</p>
+<p class="p32">test = (BOOL (*)(id, SEL, id))[target</p>
+<p class="p32"><span class="Apple-converted-space">    </span>methodForSelector:@selector(isEqual:)];</p>
+<p class="p33"><br></p>
+<p class="p32">while ( !test(target, @selector(isEqual:), someObject) ) {<span class="Apple-converted-space"> </span></p>
+<p class="p32"><span class="Apple-converted-space">    </span>. . .</p>
+<p class="p32">}</p>
+<p class="p34"><br></p>
+<p class="p15">In some cases, it might be clearer to define a type (similar to IMP) that can be used both for declaring the variable and for casting the function pointer <b>methodForSelector:</b> returns. The example below defines the <b>EqualIMP</b> type for just this purpose:</p>
+<p class="p25"><br></p>
+<p class="p32">typedef BOOL (*EqualIMP)(id, SEL, id);</p>
+<p class="p32">EqualIMP test;</p>
+<p class="p32">test = (EqualIMP)[target methodForSelector:@selector(isEqual:)];</p>
+<p class="p33"><br></p>
+<p class="p32">while ( !test(target, @selector(isEqual:), someObject) ) {<span class="Apple-converted-space"> </span></p>
+<p class="p32"><span class="Apple-converted-space">    </span>. . .</p>
+<p class="p32">}</p>
+<p class="p34"><br></p>
+<p class="p15">Either way, it's important to cast <b>the return value of methodForSelector:</b> to the appropriate function type. It's not sufficient to simply call the function returned by <b>methodForSelector:</b> and cast the result of that call to the desired type. This can result in errors.</p>
+<p class="p25"><br></p>
+<p class="p15">The advantage of obtaining a method's implementation and calling it as a function, is that you can invoke the implementation multiple times within a loop, or similar C construct, without the overhead of Objective-C messaging.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>instanceMethodForSelector:</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>methodSignatureForSelector:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (NSMethodSignature *)<b>methodSignatureForSelector:</b>(SEL)<i>aSelector</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Returns an NSMethodSignature object that contains a description of the <i>aSelector</i> method, or <b>nil</b> if the <i>aSelector</i> method can't be found. When the receiver is an instance, <i>aSelector</i> should be an instance method; when the receiver is a class, it should be a class method. This method is used in the implementation of protocols.</p>
+<p class="p25"><br></p>
+<p class="p57"><br></p>
+<p class="p27"><b></b><b>mutableCopy</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (id)<b>mutableCopy</b></p>
+<p class="p49"><b></b><br></p>
+<p class="p15">Convenience method for classes that adopt the NSMutableCopying protocol. This method just calls the NSMutableCopying protocol method <b>mutableCopyWithZone:</b> with the zone as NULL. An exception is raised if there is no implement for <b>mutableCopyWithZone:</b>.</p>
+<p class="p25"><br></p>
+<p class="p57"><br></p>
+<p class="p27"><b></b><b>performSelector:withObject:afterDelay:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (void)<b>performSelector:</b>(SEL)<i>aSelector</i><span class="Apple-converted-space"> </span></p>
+<p class="p55"><b>withObject:</b>(id)<i>anArgument</i><b><span class="Apple-converted-space"> </span></b></p>
+<p class="p55"><b>afterDelay:</b>(NSTimeInterval)<i>delay</i>;</p>
+<p class="p56"><br></p>
+<p class="p15">Sends an <i>aSelector</i> message to the receiver sometime after <i>delay</i>. This method returns before the <i>aSelector</i> message is sent. The <i>aSelector</i> method should not have a significant return value and should take a single argument of type <b>id</b>; <i>anArgument</i> will be the argument passed in the message. Note that <b>self</b> and <i>anArgument</i> are retained until after the message is sent.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>cancelPreviousPerformRequestsWithTarget:selector:object:</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>replacementObjectForArchiver:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (id)<b>replacementObjectForArchiver:</b>(NSArchiver *)<i>anArchiver</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Overridden by subclasses to substitute another object for itself during archiving. This method is invoked by NSArchiver. NSObject's implementation returns the object returned by <b>replacementObjectForCoder:</b>.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>classForArchiver</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>replacementObjectForCoder:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (id)<b>replacementObjectForCoder:</b>(NSCoder *)<i>aCoder</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Overridden by subclasses to substitute another object for itself during encoding. For example, an object might encode itself into an archive, but encode a proxy for itself if it's being encoded for distribution. This method is invoked by NSCoder. NSObject's implementation returns <b>self</b>.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>classForCoder</b>, <span class="s4">-</span> <b>awakeAfterUsingCoder:</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p52"><b></b><br></p>
+<p class="p27"><b></b><b>replacementObjectForPortCoder:</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p48"><span class="s4">-</span> (id)<b>replacementObjectForPortCoder:</b>(NSPortCoder *)<i>aCoder</i></p>
+<p class="p49"><i></i><br></p>
+<p class="p15">Overridden by subclasses to substitute another object or a copy for itself during distribution encoding. This method is invoked by NSPortCoder. NSObject's implementation returns a NSDistantObject for the object returned by <b>replacementObjectForCoder:</b>, enabling all objects to be distributed by proxy as the default. However, if <b>replacementObjectForCoder:</b> returns <b>nil</b>, NSObject's implementation will also return <b>nil</b>.</p>
+<p class="p25"><br></p>
+<p class="p54"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>classForPortCoder</b></p>
+<p class="p51"><b></b><br></p>
+</body>
+</html>

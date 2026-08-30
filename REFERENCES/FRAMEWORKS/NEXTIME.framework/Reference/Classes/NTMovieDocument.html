@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -21.0px; font: 28.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -21.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 249.0px; text-indent: -139.0px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 249.0px; text-indent: -139.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 249.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 249.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 10.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 110.0px; font: 12.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 110.0px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 110.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 136.0px; text-indent: -26.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 136.0px; text-indent: -26.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 322.0px; text-indent: -212.0px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 322.0px; text-indent: -212.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 10.0px; font: 9.0px Helvetica; min-height: 11.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 10.0px; font: 9.0px Helvetica}
+    p.p24 {margin: 0.0px 0.0px 0.0px 10.0px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 10.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 110.0px; text-indent: -51.0px; font: 18.0px Helvetica}
+    p.p27 {margin: 0.0px 0.0px 0.0px 110.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 110.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 110.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 110.0px; font: 14.0px Helvetica}
+    p.p31 {margin: 0.0px 0.0px 0.0px 110.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 110.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 110.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 362.0px; text-indent: -232.0px; font: 14.0px Times}
+    p.p35 {margin: 0.0px 0.0px 0.0px 388.0px; text-indent: -26.0px; font: 14.0px Times}
+    p.p36 {margin: 0.0px 0.0px 0.0px 388.0px; text-indent: -26.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 388.0px; text-indent: -26.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 362.0px; text-indent: -232.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -21.0px; font: 14.0px Helvetica}
+    p.p40 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -21.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 161.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p42 {margin: 0.0px 0.0px 0.0px 161.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -21.0px; font: 14.0px Times}
+    p.p44 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -21.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -21.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -21.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 110.0px; text-indent: -46.0px; font: 18.0px Helvetica}
+    p.p48 {margin: 0.0px 0.0px 0.0px 110.0px; text-indent: -46.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p49 {margin: 0.0px 0.0px 0.0px 110.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p50 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -21.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p51 {margin: 0.0px 0.0px 0.0px 131.0px; font: 14.0px Times}
+    p.p52 {margin: 0.0px 0.0px 0.0px 131.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p53 {margin: 0.0px 0.0px 0.0px 180.0px; font: 14.0px Helvetica}
+    p.p54 {margin: 0.0px 0.0px 0.0px 180.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p55 {margin: 0.0px 0.0px 0.0px 362.0px; text-indent: -183.0px; font: 14.0px Times}
+    p.p56 {margin: 0.0px 0.0px 0.0px 362.0px; text-indent: -183.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p57 {margin: 0.0px 0.0px 0.0px 161.0px; text-indent: -101.0px; font: 14.0px Times}
+    p.p58 {margin: 0.0px 0.0px 0.0px 161.0px; text-indent: -101.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p59 {margin: 0.0px 0.0px 0.0px 161.0px; text-indent: -101.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p60 {margin: 0.0px 0.0px 0.0px 110.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NTMovieDocument</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5">Inherits From:<span class="Apple-tab-span">	</span>NSObject</p>
+<p class="p6"><br></p>
+<p class="p5">Conforms To:<span class="Apple-tab-span">	</span>NSObject (NSObject)</p>
+<p class="p7">NSCoding</p>
+<p class="p7">NTMovieDocument</p>
+<p class="p7">NTExtendedMovieDocument</p>
+<p class="p7">NTMovieDrawing</p>
+<p class="p7">NTProgressMonitor</p>
+<p class="p8"><br></p>
+<p class="p5">Declared In:<span class="Apple-tab-span">	</span>NEXTIME/NTMovieDocument.h <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="22pt" viewBox="0 0 597 22" role="img" aria-labelledby="eps-svg-1-title" data-source="NTMovieDocument.rtfd/955167_AtaGlance.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">955167_AtaGlance.eps</title><defs>
+<g>
+<g id="eps-svg-1-glyph-0-0">
+<path d="M 8.859375 -6.265625 C 8.796875 -7.078125 8.625 -7.609375 8.234375 -8.140625 C 7.5 -9.09375 6.328125 -9.640625 4.90625 -9.640625 C 2.234375 -9.640625 0.578125 -7.71875 0.578125 -4.65625 C 0.578125 -1.59375 2.21875 0.296875 4.859375 0.296875 C 7.234375 0.296875 8.78125 -1.0625 8.90625 -3.234375 L 7 -3.234375 C 6.875 -2.03125 6.125 -1.34375 4.90625 -1.34375 C 3.40625 -1.34375 2.515625 -2.5625 2.515625 -4.625 C 2.515625 -6.71875 3.4375 -7.96875 4.984375 -7.96875 C 6.109375 -7.96875 6.75 -7.421875 7 -6.265625 Z M 8.859375 -6.265625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-1">
+<path d="M 2.6875 -9.484375 L 0.875 -9.484375 L 0.875 0 L 2.6875 0 Z M 2.6875 -9.484375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-2">
+<path d="M 6.8125 -0.21875 C 6.5 -0.515625 6.390625 -0.734375 6.390625 -1.078125 L 6.390625 -4.984375 C 6.390625 -6.40625 5.421875 -7.140625 3.515625 -7.140625 C 1.625 -7.140625 0.640625 -6.328125 0.515625 -4.703125 L 2.28125 -4.703125 C 2.359375 -5.4375 2.671875 -5.671875 3.5625 -5.671875 C 4.265625 -5.671875 4.609375 -5.4375 4.609375 -4.96875 C 4.609375 -4.734375 4.5 -4.53125 4.296875 -4.421875 C 4.0625 -4.296875 4.0625 -4.296875 3.15625 -4.140625 L 2.4375 -4.015625 C 1.046875 -3.78125 0.359375 -3.0625 0.359375 -1.8125 C 0.359375 -0.546875 1.203125 0.296875 2.5 0.296875 C 3.28125 0.296875 3.984375 -0.03125 4.625 -0.703125 C 4.625 -0.34375 4.671875 -0.203125 4.84375 0 L 6.8125 0 Z M 4.609375 -2.828125 C 4.609375 -1.765625 4.09375 -1.171875 3.171875 -1.171875 C 2.5625 -1.171875 2.1875 -1.5 2.1875 -2.015625 C 2.1875 -2.5625 2.46875 -2.828125 3.21875 -2.984375 L 3.84375 -3.09375 C 4.328125 -3.1875 4.40625 -3.21875 4.609375 -3.3125 Z M 4.609375 -2.828125 "/>
+</g>
+<g id="eps-svg-1-glyph-0-3">
+<path d="M 6.5625 -4.765625 C 6.53125 -6.234375 5.390625 -7.140625 3.515625 -7.140625 C 1.734375 -7.140625 0.625 -6.234375 0.625 -4.796875 C 0.625 -4.328125 0.765625 -3.921875 1.015625 -3.65625 C 1.265625 -3.40625 1.484375 -3.28125 2.15625 -3.0625 L 4.328125 -2.390625 C 4.78125 -2.25 4.9375 -2.109375 4.9375 -1.8125 C 4.9375 -1.390625 4.4375 -1.125 3.59375 -1.125 C 3.109375 -1.125 2.75 -1.203125 2.515625 -1.375 C 2.3125 -1.515625 2.234375 -1.65625 2.15625 -2.046875 L 0.375 -2.046875 C 0.421875 -0.5 1.5625 0.296875 3.6875 0.296875 C 4.671875 0.296875 5.40625 0.09375 5.921875 -0.328125 C 6.453125 -0.734375 6.765625 -1.390625 6.765625 -2.078125 C 6.765625 -2.984375 6.3125 -3.578125 5.375 -3.84375 L 3.078125 -4.515625 C 2.578125 -4.671875 2.4375 -4.765625 2.4375 -5.0625 C 2.4375 -5.453125 2.859375 -5.703125 3.5 -5.703125 C 4.375 -5.703125 4.796875 -5.390625 4.8125 -4.765625 Z M 6.5625 -4.765625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-4">
+</g>
+<g id="eps-svg-1-glyph-0-5">
+<path d="M 3.90625 -6.875 L 2.90625 -6.875 L 2.90625 -8.765625 L 1.078125 -8.765625 L 1.078125 -6.875 L 0.1875 -6.875 L 0.1875 -5.671875 L 1.078125 -5.671875 L 1.078125 -1.359375 C 1.078125 -0.25 1.65625 0.296875 2.859375 0.296875 C 3.28125 0.296875 3.578125 0.265625 3.90625 0.15625 L 3.90625 -1.125 C 3.734375 -1.09375 3.640625 -1.078125 3.5 -1.078125 C 3.015625 -1.078125 2.90625 -1.21875 2.90625 -1.84375 L 2.90625 -5.671875 L 3.90625 -5.671875 Z M 3.90625 -6.875 "/>
+</g>
+<g id="eps-svg-1-glyph-0-6">
+<path d="M 9.25 -5.09375 L 5.453125 -5.09375 L 5.453125 -3.46875 L 7.609375 -3.46875 C 7.546875 -2.9375 7.421875 -2.609375 7.140625 -2.28125 C 6.671875 -1.703125 5.9375 -1.359375 5.203125 -1.359375 C 3.609375 -1.359375 2.5 -2.75 2.5 -4.6875 C 2.5 -6.734375 3.484375 -7.96875 5.140625 -7.96875 C 5.828125 -7.96875 6.390625 -7.78125 6.828125 -7.390625 C 7.09375 -7.15625 7.234375 -6.9375 7.40625 -6.453125 L 9.25 -6.453125 C 9.015625 -8.40625 7.421875 -9.640625 5.140625 -9.640625 C 2.40625 -9.640625 0.546875 -7.625 0.546875 -4.671875 C 0.546875 -1.796875 2.421875 0.296875 4.984375 0.296875 C 6.25 0.296875 7.109375 -0.15625 7.84375 -1.21875 L 8.078125 0.03125 L 9.25 0.03125 Z M 9.25 -5.09375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-7">
+<path d="M 0.8125 -7.015625 L 0.8125 0 L 2.640625 0 L 2.640625 -4.21875 C 2.640625 -5.046875 3.21875 -5.59375 4.109375 -5.59375 C 4.890625 -5.59375 5.28125 -5.15625 5.28125 -4.328125 L 5.28125 0 L 7.09375 0 L 7.09375 -4.703125 C 7.09375 -6.265625 6.25 -7.140625 4.75 -7.140625 C 3.796875 -7.140625 3.15625 -6.796875 2.640625 -6 L 2.640625 -7.015625 Z M 0.8125 -7.015625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-8">
+<path d="M 6.78125 -4.390625 C 6.65625 -6.109375 5.53125 -7.140625 3.75 -7.140625 C 1.65625 -7.140625 0.4375 -5.765625 0.4375 -3.359375 C 0.4375 -1.046875 1.65625 0.296875 3.734375 0.296875 C 5.4375 0.296875 6.609375 -0.75 6.78125 -2.4375 L 5.046875 -2.4375 C 4.828125 -1.515625 4.453125 -1.171875 3.734375 -1.171875 C 2.8125 -1.171875 2.265625 -1.984375 2.265625 -3.359375 C 2.265625 -4.046875 2.390625 -4.65625 2.609375 -5.0625 C 2.828125 -5.453125 3.21875 -5.671875 3.75 -5.671875 C 4.484375 -5.671875 4.84375 -5.3125 5.046875 -4.390625 Z M 6.78125 -4.390625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-9">
+<path d="M 6.8125 -2.9375 C 6.828125 -3.09375 6.828125 -3.15625 6.828125 -3.25 C 6.828125 -3.953125 6.71875 -4.609375 6.546875 -5.09375 C 6.078125 -6.375 4.953125 -7.140625 3.53125 -7.140625 C 1.515625 -7.140625 0.28125 -5.6875 0.28125 -3.328125 C 0.28125 -1.078125 1.515625 0.296875 3.5 0.296875 C 5.0625 0.296875 6.34375 -0.578125 6.75 -1.96875 L 4.953125 -1.96875 C 4.734375 -1.421875 4.21875 -1.09375 3.5625 -1.09375 C 3.046875 -1.09375 2.625 -1.3125 2.359375 -1.703125 C 2.203125 -1.96875 2.125 -2.28125 2.109375 -2.9375 Z M 2.125 -4.140625 C 2.25 -5.21875 2.703125 -5.75 3.515625 -5.75 C 4.34375 -5.75 4.84375 -5.1875 4.921875 -4.140625 Z M 2.125 -4.140625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-10">
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 21.5 L 595.5 1.5 L 49.5 1.5 L 49.5 21.5 L 595.5 21.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 200 L 20 200 " transform="matrix(0.1, 0, 0, -0.1, 0, 22)"/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-0" x="67" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="76.386" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="80" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="87.228" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="94.456" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="101.684" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="105.298" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-5" x="112.526" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="116.855" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="120.469" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="127.697" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-6" x="131.311" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="141.425" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="145.039" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-7" x="152.267" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-8" x="160.21" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-9" x="167.438" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-10" x="174.666" y="17"/>
+</g>
+</svg></b><b></b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b>Purpose</b></p>
+<p class="p15">An NTMovieDocument manages a single NEXTIME movie, usually by displaying it in an NTMovieScreen and receiving control messages from an NTMovieControlView.</p>
+<p class="p16"><br></p>
+<p class="p14"><b>Principal Attributes</b></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>Operations include play, pause, reset, fast forward or reverse, and step forward or backward.</p>
+<p class="p17">•<span class="Apple-tab-span">	</span>Notifications report changes in the movie's playback status and its position in time.</p>
+<p class="p17">•<span class="Apple-tab-span">	</span>Movies can be edited using the pasteboard.</p>
+<p class="p18"><br></p>
+<p class="p14"><b>Creation</b></p>
+<p class="p19"><b>initByReferencingFile:<span class="Apple-tab-span">	</span></b>Creates an NTMovieDocument from the specified movie file.</p>
+<p class="p19"><b>initWithPasteboard:</b><span class="Apple-tab-span">	</span>Creates an NTMovieDocument from the movie data in the pasteboard.</p>
+<p class="p20"><br></p>
+<p class="p14"><b>Commonly Used Methods</b></p>
+<p class="p19"><b>play:</b><span class="Apple-tab-span">	</span>Starts playback from the current position in time.</p>
+<p class="p19"><b>pause:</b><span class="Apple-tab-span">	</span>Stops playback, maintaining the current position.</p>
+<p class="p19"><b>setCurrentPosition:</b><span class="Apple-tab-span">	</span>Sets the position within the movie, measured in seconds.<span class="Apple-converted-space"> </span></p>
+<p class="p21"><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="9pt" viewBox="0 0 597 9" role="img" aria-labelledby="eps-svg-2-title" data-source="NTMovieDocument.rtfd/AtaGlanceClose.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-2-title">AtaGlanceClose.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 7.5 L 595.5 0.25 L 49.5 0.25 L 49.5 7.5 L 595.5 7.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 20 L 20 20 " transform="matrix(0.1, 0, 0, -0.1, 0, 9)"/>
+</svg></b><b></b></p>
+<p class="p24"><b></b><br></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p27"><b></b><br></p>
+<p class="p15">An NTMovieDocument represents a single NEXTIME movie.<span class="Apple-converted-space">  </span>This class lets you open a movie file, play back the movie, and edit the movie data.<span class="Apple-converted-space">  </span>An NTMovieDocument isn't itself a graphical object.<span class="Apple-converted-space">  </span>Instead, it functions as an easy-to-use representative of the NEXTIME server, handling the communication between the server and graphical user interface classes such as NTMovieScreen, NTMovieScreenCell, and NTMovieControlView.</p>
+<p class="p28"><br></p>
+<p class="p15">The most convenient way to create an NTMovieDocument is by invoking NTMovieScreen's <b>setMovieFile:</b> method, which in turn invokes NTMovieDocument's <b>initByReferencingFile:</b> method.<span class="Apple-converted-space">  </span>Thereafter, the movie represented by the new NTMovieDocument will be displayed in the NTMovieScreen.<span class="Apple-converted-space">  </span>To give the user buttons and a slider for controlling the movie, you can associate the NTMovieDocument with an NTMovieControlView by sending the latter object a <b>setMovieDocument:</b> message.<span class="Apple-converted-space">  </span>(See the NTMovieControlView class specification, as well as “Interacting with an NTMovieControlView” in the NTMovieDocument protocol specification.)</p>
+<p class="p28"><br></p>
+<p class="p15">However, you can also create an NTMovieDocument directly and control it from other objects in your application.</p>
+<p class="p28"><br></p>
+<p class="p29"><br></p>
+<p class="p30"><b>Editing</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p15">The NTMovieDocument class adopts several protocols whose methods specify how to play back movies.<span class="Apple-converted-space">  </span>To allow more than just playback, however, NTMovieDocument declares additional methods for editing movies, such as <b>cut:</b>,<b> copy:</b>, <b>paste:</b>, and <b>setSelectionStartingPosition:endingPosition:</b>.</p>
+<p class="p28"><br></p>
+<p class="p15">These editing operations don't immediately alter the movie file, but neither do they copy the actual edited movie frames into memory.<span class="Apple-converted-space">  </span>Multimedia data is often too immense for such an approach.<span class="Apple-converted-space">  </span>Instead, the NEXTIME server keeps information about the edits in an “edit decision list” in memory.<span class="Apple-converted-space">  </span>The edit decision list simply records the cumulative effect of the editing operations, maintaining a roster of which frames were ostensibly moved or deleted.<span class="Apple-converted-space">  </span>Some movie file formats, such as QuickTime<span class="s2">¾</span><i>,</i> themselves include an edit decision list, in which case the movie's frames don't need to be rearranged even when the file is saved.<span class="Apple-converted-space">  </span>When you save such a movie using <b>writeToFile:atomically:</b>, you can choose either to<b> </b>leave the frames untouched or to “flatten” the file, removing deleted frames.</p>
+<p class="p28"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b>Adopted Protocols<span class="Apple-converted-space"> </span></b></p>
+<p class="p27"><b></b><br></p>
+<p class="p34">NSCoding<span class="Apple-tab-span">	</span><span class="s2">-</span> encodeWithCoder:</p>
+<p class="p35"><span class="s2">-</span> initWithCoder:</p>
+<p class="p36"><br></p>
+<p class="p34">NTMovieDocument<span class="Apple-tab-span">	</span><span class="s2">-</span> currentPosition</p>
+<p class="p35"><span class="s2">-</span> setCurrentPosition:</p>
+<p class="p35"><span class="s2">-</span> maxPosition</p>
+<p class="p35"><span class="s2">-</span> minPosition</p>
+<p class="p35"><span class="s2">-</span> pause:</p>
+<p class="p35"><span class="s2">-</span> play:</p>
+<p class="p35"><span class="s2">-</span> reset:</p>
+<p class="p36"><br></p>
+<p class="p34">NTExtendedMovieDocument<span class="Apple-tab-span">	</span><span class="s2">-</span> fastForward:</p>
+<p class="p35"><span class="s2">-</span> fastReverse:</p>
+<p class="p35"><span class="s2">-</span> stepForward:</p>
+<p class="p35"><span class="s2">-</span> stepReverse:</p>
+<p class="p36"><br></p>
+<p class="p34">NTMovieDrawing<span class="Apple-tab-span">	</span><span class="s2">-</span> display</p>
+<p class="p35"><span class="s2">-</span> suspendDrawing</p>
+<p class="p35"><span class="s2">-</span> resumeDrawing</p>
+<p class="p35"><span class="s2">-</span> isDrawingSuspended</p>
+<p class="p35"><span class="s2">-</span> setViewID:</p>
+<p class="p36"><br></p>
+<p class="p34">NTProgressMonitor<span class="Apple-tab-span">	</span><span class="s2">-</span> object:beganAt:</p>
+<p class="p35"><span class="s2">-</span> object:endedAt:</p>
+<p class="p35"><span class="s2">-</span> object:progressedTo:</p>
+<p class="p37"><br></p>
+<p class="p26"><b>Method Types</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p34">Testing movie data types<span class="Apple-tab-span">	</span>+ readableMovieFileTypes</p>
+<p class="p35">+ writableMovieFileTypes</p>
+<p class="p35">+ moviePasteboardTypes</p>
+<p class="p35">+ canInitWithPasteboard:</p>
+<p class="p36"><br></p>
+<p class="p34">Initializing<span class="Apple-tab-span">	</span><span class="s2">-</span> init</p>
+<p class="p35"><span class="s2">-</span> initByReferencingFile:</p>
+<p class="p35"><span class="s2">-</span> initWithPasteboard:</p>
+<p class="p36"><br></p>
+<p class="p34">Querying the movie<span class="Apple-tab-span">	</span><span class="s2">-</span> documentState</p>
+<p class="p35"><span class="s2">-</span> filename</p>
+<p class="p35"><span class="s2">-</span> frameForPosition:</p>
+<p class="p35"><span class="s2">-</span> movieParameters</p>
+<p class="p36"><br></p>
+<p class="p34">Editing<span class="Apple-tab-span">	</span><span class="s2">-</span> cut:</p>
+<p class="p35"><span class="s2">-</span> copy:</p>
+<p class="p35"><span class="s2">-</span> paste:</p>
+<p class="p35"><span class="s2">-</span> delete:</p>
+<p class="p35"><span class="s2">-</span> setSelectionStartingPosition:endingPosition:</p>
+<p class="p35"><span class="s2">-</span> selectionStartingPosition</p>
+<p class="p35"><span class="s2">-</span> selectionEndingPosition</p>
+<p class="p35"><span class="s2">-</span> selectNull</p>
+<p class="p36"><br></p>
+<p class="p34">Saving the movie<span class="Apple-tab-span">	</span><span class="s2">-</span> writeToFile:atomically:</p>
+<p class="p38"><br></p>
+<p class="p34">Accessing related objects<span class="Apple-tab-span">	</span><span class="s2">-</span> controllerProxy</p>
+<p class="p35"><span class="s2">-</span> movieProxy</p>
+<p class="p35"><span class="s2">-</span> viewID</p>
+<p class="p37"><br></p>
+<p class="p26"><b>Class Methods</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p39"><b></b><b>canInitWithPasteboard:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41">+ (BOOL)<b>canInitWithPasteboard:</b>(NSPasteboard *)<i>pasteboard</i><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Returns YES if the receiver can initialize the receiver with movie data<i> </i>from <i>pasteboard</i>; otherwise, returns NO.<span class="Apple-converted-space">  </span>The pasteboard must contain a supported movie pasteboard type for this method to return YES.</p>
+<p class="p28"><br></p>
+<p class="p43">See also: <span class="Apple-converted-space"> </span><i> </i><b>+ moviePasteboardTypes</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p39"><b></b><b>readableMovieFileTypes</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41">+ (NSArray *)<b>readableMovieFileTypes</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p15">Returns an array of NSString objects listing all the<span class="Apple-converted-space">  </span>movie data file types that can be read.<span class="Apple-converted-space">  </span>For example, QuickTime movies are included in the list. The complete list depends on which NTFileParser objects are present in the server; new movie types can be added by installing new NTFileParser components.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><b>+ writablemovieFileTypes</b><span class="Apple-converted-space"> </span></p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>moviePasteboardTypes</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41">+ (NSArray *)<b>moviePasteboardTypes</b><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Returns an array of NSString objects listing the types of pasteboard data that can be pasted into an NTMovieDocument.<span class="Apple-converted-space"> </span><i> </i>The only one is NTMoviePboardType.</p>
+<p class="p28"><br></p>
+<p class="p43">See also: <span class="Apple-converted-space"> </span><i> </i><b>+ canInitWithPasteboard:</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p39"><b></b><b>writableMovieFileTypes</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41">+ (NSArray *)<b>writableMovieFileTypes</b><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Returns an array of NSString objects listing all the movie data file types that can be written, such as the QuickTime movie type. The complete list depends on which NTFileWriter objects are present in the server; new movie types can be added by installing new NTFileWriter components.</p>
+<p class="p28"><br></p>
+<p class="p43">See also: <span class="Apple-converted-space"> </span><i> </i><b>+ readableMovieFileTypes</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p46"><b></b><br></p>
+<p class="p47"><b>Instance Methods</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p39"><b></b><b>controllerProxy</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (id)<b>controllerProxy</b><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Returns the proxy to an object in the NEXTIME server that conforms to the NTFileBasedMediaControl protocol.<span class="Apple-converted-space">  </span>The NTMovieDocument uses this proxy to read and write the movie file.<span class="Apple-converted-space">  </span>You can use the proxy to implement more complicated sorts of editing than the <b>cut:</b>, <b>copy:</b>, and <b>paste:</b> methods provide.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span> movieProxy</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>copy:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (void)<b>copy:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Copies the selected portion of the document to the pasteboard.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span><b> cut</b>:, <span class="s2">-</span><b> paste</b>:</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>cut:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (void)<b>cut:</b>(id)<i>sender</i></p>
+<p class="p42"><i></i><br></p>
+<p class="p15">Deletes the selected portion of the document and copies it to the pasteboard. This method posts the notification NTMovieDocumentDidEditMovieNotification with the receiving object to the default notification center.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span><b> paste</b>:,<b> </b><span class="s2">-</span><b> delete</b>:</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>delete:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (void)<b>delete:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15"><i><span class="Apple-converted-space"> </span></i>Deletes the selected portion of the document. This method posts the notification<span class="Apple-converted-space">  </span>NTMovieDocumentDidEditMovieNotification<i> </i>with the receiving object to the default notification center.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span><b> cut</b>:</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>documentState</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (NTMovieState)<b>documentState</b><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Returns the current playback state of the NTMovieDocument—playing, paused, stopped, playing in fast-forward mode, or playing in fast-reverse mode.</p>
+<p class="p28"><br></p>
+<p class="p43">See also: <span class="Apple-converted-space"> </span><i> </i><span class="s2">-</span><b> play: </b>(NTMovieDocument protocol),<b> </b><span class="s2">-</span><b> fastForward: </b>(NTExtendedMovieDocument protocol)</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>filename</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (NSString *)<b>filename</b><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Returns the name of the current movie file, expressed as an absolute pathname. If the movie hasn't been explicitly stored in a file (for example, if it was initialized from the pasteboard), this method returns the name of a temporary file.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span> init</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>frameForPosition:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (int)<b>frameForPosition:</b>(double)<i>position</i><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Returns the number of the video frame at <i>position</i> seconds from the start of the movie, or <span class="s2">-</span>1 if there is no valid video frame at <i>position</i>.<span class="Apple-converted-space">  </span>Frames are numbered starting with zero at the beginning of the file.<span class="Apple-converted-space">  </span>This is method is needed if you want to retrieve the frame shown at a particular time in the movie, because NEXTIME doesn't assume a constant frame rate over time, nor does it assume that frames are ordered by time in the movie file.<span class="Apple-converted-space">  </span>(Each frame is time-stamped, allowing arbitrary ordering.)</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>init</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (id)<b>init</b><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Initializes the newly allocated NTMovieDocument without yet associating it with any movie data.<span class="Apple-converted-space">  </span>The movie is given a temporary, unique filename, such as “UNTITLED.mov”.<span class="Apple-converted-space">  </span>The NEXTIME server actually writes a temporary file with this name, deleting it when <b>writeToFile:atomically:</b> is invoked.<span class="Apple-converted-space">  </span>The temporary file is created in the current working directory (as determined by the NSFileManager object).</p>
+<p class="p28"><br></p>
+<p class="p15">The only way to associate movie data with an NTMovieDocument instance that was initialized with this method is to invoke <b>paste:</b>.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span> filename</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>initByReferencingFile:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (id)<b>initByReferencingFile:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Initializes the new NTMovieDocument from the data in the file whose absolute pathname is <i>path</i>. The file is assumed to persist and will be reread later during operations on the movie.<span class="Apple-converted-space">  </span>The notification NTMovieDocumentDidOpenMovieNotification is posted.<span class="Apple-converted-space">  </span>Returns <b>nil</b> if the file can't be opened.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>initWithPasteboard:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (id)<b>initWithPasteboard:</b>(NSPasteboard *)<i>pasteboard</i><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Initializes the new NTMovieDocument with the data in <i>pasteboard</i>.<span class="Apple-converted-space">  </span>This method invokes <b>init</b>, then pastes the data and posts the notification NTMovieDocumentDidOpenMovieNotification.<span class="Apple-converted-space">  </span>Returns <b>nil</b> if the pasteboard data is corrupt or of an inappropriate type.<span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>movieParameters</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (NSDictionary *)<b>movieParameters</b><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Returns the receiver's <b>userinfo</b> dictionary, which contains descriptive information about the current movie.<span class="Apple-converted-space">  </span>The contents of this dictionary are determined by whichever NEXTIME components are installed in the server.<i><span class="Apple-converted-space"> </span></i> Typical contents are described under “Items Common to Most NTMovieDocument Notifications” in the Notifications section of this class specification.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span> movieProxy</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>movieProxy</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (id)<b>movieProxy</b><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Returns the proxy to an object in the NEXTIME server that conforms to the NTMovie protocol.<span class="Apple-converted-space">  </span>This object represents the current movie.<span class="Apple-converted-space">  </span>You can use the proxy to obtain more information about the movie than the <b>movieParameters</b> method provides.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span> controllerProxy</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>paste:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (void)<b>paste:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Replaces the selected portion of the document with the contents of the pasteboard.<span class="Apple-converted-space">  </span>This method posts the notification NTMovieDocumentDidEditMovieNotification<i> </i>with the receiving object to the default notification center.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span><b> copy</b>, <span class="s2">-</span><b> cut:</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p39"><b></b><b>selectNull</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (void)<b>selectNull</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p15">Deselects the current selection.<span class="Apple-converted-space">  </span>This method posts the notification NTMovieDocumentDidMakeSelectionNotification with the receiving object to the default notification center.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span> setSelectionStartingPosition:endingPosition:</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>selectionEndingPosition</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (double)<b>selectionEndingPosition</b><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Returns the ending position of the current selection, expressed in seconds from the beginning of the movie. This is the time at which the final frame in the selection will start to be displayed, not the time (a fraction of a second later) at which it stops being displayed.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span> setSelectionStartingPosition:endingPosition:</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>selectionStartingPosition</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (double)<b>selectionStartingPosition</b><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Returns the starting position of the current selection, expressed in seconds from the beginning of the movie.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span> setSelectionStartingPosition:endingPosition:</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>setSelectionStartingPosition:endingPosition:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (void)<b>setSelectionStartingPosition:</b>(double)<i>start </i><b>endingPosition:</b>(double)<i>end</i><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Selects the portion of the movie from the position <i>start</i> through the position <i>end</i>.<span class="Apple-converted-space">  </span>These two positions<span class="Apple-converted-space">  </span>specify starting and ending times, expressed in seconds from the beginning of the movie.<span class="Apple-converted-space">  </span>(<i>end </i>specifies the last frame's starting time, not the time when it stops being displayed.)<span class="Apple-converted-space">  </span>If there isn't a key frame located precisely at <i>start</i>, the selection will be adjusted so that it actually starts with the last key frame prior to <i>start</i>.<span class="Apple-converted-space">  </span>Similarly, if no key frame coincides exactly with <i>end</i>, the selection is adjusted so that its final frame is the last key frame before <i>end</i>.<span class="Apple-converted-space">  </span>After any necessary adjustments have been made, the notification NTMovieDocumentDidMakeSelectionNotification is posted.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span> selectionStartingPosition, <span class="s2">-</span> selectionEndingPosition, <span class="s2">-</span> frameForPosition:</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>viewID</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (int)<b>viewID</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p15">Returns the identification number used to register the NTMovieScreenCell with the NEXTIME server.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span> setViewID: (NTMovieDrawing protocol)</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>writeToFile:atomically:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><span class="s2">-</span> (BOOL)<b>writeToFile:</b>(NSString *)<i>path </i><b>atomically:</b>(BOOL)<i>useAuxiliaryFile</i><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p15">Writes the movie contents of the receiver to <i>path</i>, which should be an absolute pathname. The suffix of <i>path</i> is used to determine the proper file format, and should be a suffix found in the NSArray returned by the <b>writableMovieFileTypes</b> class method.</p>
+<p class="p28"><br></p>
+<p class="p15">If <i>path</i> matches the current filename and <i>useAuxiliaryFile</i> is NO, the movie data is written directly to <i>path</i>.<span class="Apple-converted-space">  </span>(This operation can be very fast if the file format includes an edit decision list—as does the QuickTime format—instead of requiring any edited samples to be rewritten.)</p>
+<p class="p28"><br></p>
+<p class="p15">On the other hand, if <i>useAuxiliaryFile</i> is YES or the file is being saved to a new pathname, the data is written to an auxiliary file named <i>path</i>~, which is then “flattened” by resolving external data references and removing unused samples and tracks.<span class="Apple-converted-space">  </span>Finally, the auxiliary file gets renamed to <i>path</i>, replacing the original file with the new, flattened movie data.<i><span class="Apple-converted-space"> </span></i> In the case where <i>path </i>matches the current filename, the YES option guarantees that the original file won't be corrupted even if the system should crash during writing.<span class="Apple-converted-space">  </span>However, it's a much more time-consuming option, and if there isn't enough disk space for two copies of the movie file, the attempt to write the file will fail and this method will return NO.</p>
+<p class="p28"><br></p>
+<p class="p15">Once the file is successfully written, the name of the movie (as returned by the <b>filename</b> method) is updated to <i>path, </i>and the notification NTMovieDocumentDidRenameMovieNotification is posted. Returns YES if the file is written successfully, and NO if <i>path</i> has an invalid suffix or the file can't be saved.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span><span class="s2">-</span> init</p>
+<p class="p44"><br></p>
+<p class="p46"><br></p>
+<p class="p26"><b>Notifications<span class="Apple-converted-space"> </span></b></p>
+<p class="p27"><b></b><br></p>
+<p class="p15">NTMovieDocument uses two types of notifications: those posted synchronously to the default notification center, and those enqueued asynchronously for posting to the default notification center.<span class="Apple-converted-space">  </span>All of NTMovieDocument's asynchronous notifications are enqueued with the default NSNotificationQueue, and they all use the posting style NSPostASAP.<span class="Apple-converted-space">  </span>The descriptions below specify whether each notification is typically posted synchronously or asynchronously.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b>Items Common to Most NTMovieDocument Notifications</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Every notification posted by NTMovieDocument contains the following elements, at a minimum:</p>
+<p class="p28"><br></p>
+<p class="p51"><b>Notification Object</b><span class="Apple-tab-span">	</span>The notifying NTMovieDocument</p>
+<p class="p52"><br></p>
+<p class="p51">Userinfo</p>
+<p class="p52"><br></p>
+<p class="p53"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p55">NTFilename<span class="Apple-tab-span">	</span>An NSString object specifying the movie file associated with the NTMovieDocument</p>
+<p class="p56"><br></p>
+<p class="p15">The <b>userinfo </b>dictionary may contain a number of additional keys and values that provide information about the movie.<span class="Apple-converted-space">  </span>For all notifications other than NTMovieDocumentDidEncounterErrorNotification and NTMovieDocumentDidOpenMovieNotification, the <b>userinfo </b>dictionary will contain the following additional keys and values:</p>
+<p class="p28"><br></p>
+<p class="p53"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p55">NTMovieReferencedFiles<span class="Apple-tab-span">	</span>An NSDictionary listing other files that contain data referenced by the main movie file (the one whose name is given by NTFilename)</p>
+<p class="p56"><br></p>
+<p class="p55">NTMovieVideoFrameRate<span class="Apple-tab-span">	</span>An NSString object that specifies the number of frames per second at which this movie should normally be viewed</p>
+<p class="p56"><br></p>
+<p class="p55">NTMovieVideoBitsPerPixel<span class="Apple-tab-span">	</span>An NSString object that specifies the degree of video compression in the movie</p>
+<p class="p56"><br></p>
+<p class="p55">NTMovieDataSize<span class="Apple-tab-span">	</span>An NSString object that specifies the size in bytes of the movie data</p>
+<p class="p56"><br></p>
+<p class="p55">NTMovieDataRate<span class="Apple-tab-span">	</span>An NSString object that specifies the data rate, in bytes per second, for the movie playback</p>
+<p class="p56"><br></p>
+<p class="p55">NTWidth<span class="Apple-tab-span">	</span>An NSString object that specifies the “natural” width of the movie video area,<span class="Apple-converted-space">  </span>in pixels</p>
+<p class="p56"><br></p>
+<p class="p55">NTHeight<span class="Apple-tab-span">	</span>An NSString object that specifies the “natural” height of the movie video area, in pixels</p>
+<p class="p56"><br></p>
+<p class="p15">Each NSString object in the list of values above expresses a double-precision floating-point number.</p>
+<p class="p28"><br></p>
+<p class="p15">In addition to the above keys, which are guaranteed to be present except in the case of the notifications mentioned above, the <b>userinfo </b>dictionary can contain these optional keys:</p>
+<p class="p28"><br></p>
+<p class="p55">NTVideo<span class="Apple-tab-span">	</span>An NSDictionary object describing the video media type in detail. &lt;&lt;<i>Details later,<span class="Apple-converted-space">  </span>possibly elsewhere.&gt;&gt;</i></p>
+<p class="p56"><i></i><br></p>
+<p class="p55">NTSound<span class="Apple-tab-span">	</span>An NSDictionary object describing the sound media type in detail&lt;&lt;<i>Details later,<span class="Apple-converted-space">  </span>possibly elsewhere.&gt;&gt;</i></p>
+<p class="p56"><i></i><br></p>
+<p class="p57"><span class="Apple-tab-span">	</span>Warning:<span class="Apple-tab-span">	</span>Don't assume the presence of these optional keys.</p>
+<p class="p58"><br></p>
+<p class="p15">NTVideo and NTSound are predefined keys for the most commonly found media types.<span class="Apple-converted-space">  </span>Keys for other possible types of media are determined by the movie file; the key is the NSString associated with each NTMedia object within an NTMovie object.<span class="Apple-converted-space">  </span>Like NTVideo and NTSound, each key that represents a media type has an NSDictionary as its corresponding value.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentDidCloseMovieNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted when the NTMovieDocument is about to be deallocated.<span class="Apple-converted-space">  </span>This notification is posted synchronously to the default notification center.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentDidDrawNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted when the NEXTIME server has finished drawing the current video frame.<span class="Apple-converted-space">  </span>Receipt of this notification indicates that it's now safe to draw within the NTMovieDocument's NTMovieScreenCell using the Application Kit and Display PostScript.</p>
+<p class="p28"><br></p>
+<p class="p15">This notification is posted as a result of editing or any other operation that changes the current position in the movie, including any operation that stops playback.<span class="Apple-converted-space">  </span>In addition, it's posted by <b>suspendDrawing</b> (if the movie is currently playing), as well as by <b>display</b> (which is invoked whenever the NSCell containing the video image is redrawn).<i><span class="Apple-converted-space"> </span></i> However, if drawing is currently suspended, this notification is never posted.</p>
+<p class="p28"><br></p>
+<p class="p15">This notification is typically enqueued in the default NSNotificationQueue, not posted synchronously.</p>
+<p class="p28"><br></p>
+<p class="p43">See also:<span class="Apple-converted-space">  </span>NTMovieDocumentWillDrawNotification</p>
+<p class="p44"><br></p>
+<p class="p45"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentDidEditMovieNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted when the movie has been edited.<span class="Apple-converted-space">  </span>The <b>cut:</b>, <b>delete:</b>, and <b>paste: </b>methods post this notification, which is typically enqueued in the default NSNotificationQueue.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentDidEncounterErrorNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted when an error arises, typically reflecting a problem that the NEXTIME server has encountered.</p>
+<p class="p28"><br></p>
+<p class="p15">In addition to the NTFilename key, the <b>userinfo </b>dictionary for this notification can also contain the following keys and values: <span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p53"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p54"><b></b><br></p>
+<p class="p55">NTErrorTitle<span class="Apple-tab-span">	</span>An NSString object containing the localized error title in a form suitable for use in an alert panel</p>
+<p class="p56"><br></p>
+<p class="p55">NTErrorMessage<span class="Apple-tab-span">	</span>An NSString object containing the localized error message in a form suitable for use in an alert panel</p>
+<p class="p56"><br></p>
+<p class="p55">NTErrorDetails<span class="Apple-tab-span">	</span>An NSString object containing a more detailed message value, typically appropriate for <b>NSLog()</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p55">NTErrorCode key<span class="Apple-tab-span">	</span>An NSString object containing an error code value</p>
+<p class="p56"><br></p>
+<p class="p57"><span class="Apple-tab-span">	</span>Warning:<span class="Apple-tab-span">	</span>Do not assume the presence of these keys. The contents of the <b>userinfo</b> dictionary are determined by the behavior of installed NEXTIME components.</p>
+<p class="p58"><br></p>
+<p class="p59"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentDidMakeSelectionNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted when the NTMovieDocument's selection changes. The methods <b>setSelectionStartingPosition:endingPosition:</b> and <b>selectNull</b> cause this notification to be enqueued in the default NSNotificationQueue.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentDidOpenMovieNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted when the NTMovieDocument is initialized with movie data. The methods <b>initWithPasteboard:</b> and <b>initByReferencingFile:</b> cause this notification to be enqueued in the default NSNotificationQueue.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentDidPausePlaybackNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted when playback is paused.<span class="Apple-converted-space">  </span>The NTMovieDocument class doesn't post this notification; its <b>pause: </b>method posts the notification NTMovieDocumentDidStopPlaybackNotification instead. NTMovieDocumentDidPausePlaybackNotification is provided for classes conforming to the NTMovieDocument protocol that represent hardware movie documents.<span class="Apple-converted-space">  </span>Often, hardware devices need to distinguish between a paused and a played state.<span class="Apple-converted-space">  </span>Objects representing such devices should post the notification NTMovieDocumentDidPausePlaybackNotification when the device is paused, and the notification NTMovieDocumentDidStopPlaybackNotification when it's stopped.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentDidRenameMovieNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted when the NTMovieDocument is written to a new file.<i><span class="Apple-converted-space"> </span></i> (This notification is posted even if the old file was simply a temporary file, such as “UNTITLED.mov”.)<span class="Apple-converted-space">  </span>The method<b> writeToFile:atomically:</b> causes this notification to be enqueued in the default NSNotificationQueue.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentDidSetPositionNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted when the NTMovieDocument's current position in time changes.<span class="Apple-converted-space">  </span>This notification is posted once by each of the methods <b>setCurrentPosition:</b>,<b> reset:</b>,<b> stepForward:</b>, and<b> stepReverse:</b>.</p>
+<p class="p28"><br></p>
+<p class="p15">In addition, the methods <b>play:</b>, <b>fastForward:</b>, and<b> fastReverse: </b>indirectly cause this notification to be posted periodically during playback.<span class="Apple-converted-space">  </span>The notification is actually posted by three NTMovieDocument methods that are part of the NTProgressMonitor protocol: <b>object:beganAt:</b>, <b>object:progressedTo:</b>, and <b>object:endedAt:</b>.<span class="Apple-converted-space">  </span>The NEXTIME server invokes <b>object:beganAt:</b> when the NTMovieDocument begins playing (whether at normal speed or in fast-forward or fast-reverse mode).<span class="Apple-converted-space">  </span>Similarly, the server invokes <b>object:progressedTo:</b> periodically during playback, and<b> object:endedAt:</b> when playback finishes.</p>
+<p class="p28"><br></p>
+<p class="p15">This notification is typically enqueued in the default NSNotificationQueue.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentDidShowPosterFrameNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted when the NTMovieDocument<i> </i>is reset to the beginning of the movie.<span class="Apple-converted-space">  </span>This notification is enqueued in the default NSNotificationQueue by the method <b>reset:</b>, which stops any playback and causes the poster frame to be displayed.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentDidStopPlaybackNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted when playback is stopped.<span class="Apple-converted-space">  </span>A number of methods post this notification when they need to stop a movie that is currently playing (whether at normal speed or in fast-forward or fast-reverse mode).<span class="Apple-converted-space">  </span>These methods include <b>pause:</b>, <b>reset:</b>, <b>stepForward:</b>, and <b>stepReverse:</b>.<span class="Apple-converted-space">  </span>They also include the playback methods (<b>play:</b>, <b>fastForward:</b>, and<b> fastReverse:</b>) whenever the type of playback (normal, fast-forward, or fast-reverse) is being changed from the current type.<span class="Apple-converted-space">  </span>Usually this notification is enqueued, rather than posted synchronously.</p>
+<p class="p28"><br></p>
+<p class="p15">This notification is also posted when the movie reaches its end, even if playback is in looped mode. When the end is reached in looped mode, this notification is posted synchronously to the default notification center.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentWillDrawNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted when a new video frame is about to be displayed.<span class="Apple-converted-space">  </span>This notification is posted as a result of editing or any other operation that changes the current position in the movie, including any operation that starts playback.<span class="Apple-converted-space">  </span>In addition, it's posted by <b>resumeDrawing</b> (if the movie is currently playing), as well as by <b>display</b> (which is invoked whenever the Application Kit redraws the NSCell containing the video image).<i><span class="Apple-converted-space"> </span></i> However, if drawing by the NEXTIME server is currently suspended, this notification is never posted.</p>
+<p class="p28"><br></p>
+<p class="p15">Receipt of this notification indicates that the NEXTIME server will start drawing in the NTMovieScreenCell.<span class="Apple-converted-space">  </span>This makes it unsafe to draw in that region using the Application Kit and Display PostScript, as such drawing will be overwritten by the NEXTIME video.<span class="Apple-converted-space">  </span>Receipt of the notification NTMovieDocumentDidDrawNotification means it's safe to draw again.<span class="Apple-converted-space">  </span>These two notifications don't nest.<span class="Apple-converted-space">  </span>That is, the receipt of a single NTMovieDocumentDidDrawNotification notification means that all NEXTIME drawing is done, regardless of how many NTMovieDocumentWillDrawNotification notifications were posted previously.</p>
+<p class="p28"><br></p>
+<p class="p15">This notification is posted synchronously to the default notification center.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentWillStartFastForwardNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted just before fast-forward playback begins.<span class="Apple-converted-space">  </span>The <b>fastForward: </b>method posts this notification synchronously to the default notification center.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentWillStartFastReverseNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted just before fast-reverse playback begins.<span class="Apple-converted-space">  </span>The <b>fastReverse: </b>method posts this notification synchronously to the default notification center.</p>
+<p class="p28"><br></p>
+<p class="p49"><br></p>
+<p class="p39"><b></b><b>NTMovieDocumentWillStartPlaybackNotification</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p50"><b></b><br></p>
+<p class="p15">Posted just before normal-speed playback begins.<span class="Apple-converted-space">  </span>The <b>play: </b>method posts this notification synchronously to the default notification center.</p>
+<p class="p28"><br></p>
+<p class="p60"><br></p>
+<p class="p28"><br></p>
+</body>
+</html>

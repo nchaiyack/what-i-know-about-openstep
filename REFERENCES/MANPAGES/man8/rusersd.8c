@@ -1,0 +1,21 @@
+.\" @(#)rusersd.8c	1.2 87/08/23 3.2/4.3NFSSRC
+.\" @(#)rusersd.8c	1.2 87/02/10 NFSSRC
+.\" @(#)rusersd.8c 1.1 86/09/25 SMI;
+.TH RUSERSD 8C "29 July 1986"
+.SH NAME
+rusersd \- network username server
+.SH SYNOPSIS
+.B /usr/etc/rpc.rusersd
+.SH DESCRIPTION
+.IX  "rstatd command"  ""  "\fLrstatd\fP \(em network username server"
+.IX  statistics  rstatd  ""  "\fLrstatd\fP \(em network username server"
+.IX  servers  rstatd  ""  "\fLrstatd\fP \(em network username server"
+.LP
+.I Rusersd
+is a server that returns a list of users on the network. 
+The 
+.I rusersd
+daemon is normally invoked by
+.IR inetd (8C).
+.SH "SEE ALSO"
+perfmeter(1), rusers(1C), services(5), inetd(8)

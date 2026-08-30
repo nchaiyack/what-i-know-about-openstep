@@ -1,0 +1,155 @@
+.TH CTAGS 1 "Aug 11, 1987"
+.SH NAME
+ctags \- create a tags file
+.SH SYNOPSIS
+.B ctags
+[ 
+.B \-abdgmrstuvwx
+][
+.B -f infile
+][
+.B -o output
+][
+.B -n maxrefs
+]
+files ...
+.SH DESCRIPTION
+.I Ctags
+creates a file called \fItags\fP
+from the specified C, Objective-C, Yacc, Lex, Pascal, Fortran or Lisp source files.
+The tags file is a sorted index giving the locations of object declarations in
+\fIfiles\fP, as well as type information, cross references, etc. 
+Objects include functions, 
+procedures, global variables, macros, structs, typedefs,
+yacc tokens, methods, and classes.
+This information is used by \fIptags\fP(1), and by the editors \fIex\fP and
+\fIvi\fP to quickly find object declarations and
+trace calling relationships.
+
+Each line in the tags file contains the object name,
+the file in which it is declared,
+a \fIlocation\fR (regular expression or line number),
+the type of the object
+(\fIfunction\fP, \fImacro\fP, \fItypedef\fP, \fIstruct\fP,
+\fIglobal\fP, \fImethod\fP, \fIclass\fP, \fInull\fP),
+the length of the object (in lines),
+a caller reference list, and a callee reference list.
+Fields are separated by whitespace
+(except for the address and the rest of the line,
+which are separated by \fB";\fP to fool \fIvi\fP(1)),
+and caller/callee lists are enclosed in braces.
+
+Files whose names end in 
+.B \.c
+or
+.B \.h
+are assumed to be C source files;
+.B \.m
+are assumed to be Objective-C source files;
+.B \.l
+implies Lisp or Lex source;
+.B \.y
+implies Yacc source;
+Others are scanned for Pascal or Fortran definitions; 
+if none are found, C is assumed.
+
+Tags for \fImain\fR are treated specially in C programs:
+the tag is named \fBM\fIfile\fR, making \fIctags\fR
+useful in directories with more than one main program.
+The first \fImain\fP function found is also tagged simply as ``main.''
+
+Multiple links to a file are only indexed once.
+
+.SH OPTIONS
+.IP \fB-a\fP
+add references to the tags file (don't overwrite it).
+.IP \fB-b\fP
+use backward searching patterns (?...?, instead of the forward /.../ default).
+.IP \fB-d\fP
+create index entries for duplicate declarations
+(duplicates are ignored by default, except for Objective-C).
+.IP \fB-f\ infile\fP
+read input file names from \fIinfile\fR.
+.IP \fB-g\fP
+suppress tags for global variables.
+.IP \fB-m\fP
+suppress tags for parameterless \fB#define\fP macros.
+.IP \fB-n\ maxrefs\fP
+limit the length of callee/caller reference lists to \fBmaxrefs\fP
+(60 by default).  Longer lists are truncated,
+with \fB(etc)\fP ending the list.
+.IP \fB-o output\fP
+write tags to the file \fIoutput\fR (\fItags\fR by default).
+.IP \fB-r\fP
+suppress generation of caller/callee reference lists,
+and printing of object lengths.
+.IP \fB-s\fP
+suppress tags for \fBstructs\fP, \fBunions\fP, and \fBenums\fP
+.IP \fB-t\fP
+suppress tags for \fBtypedefs\fP
+(Note: the sense of this is reversed in older versions of \fIctags\fP).
+.IP \fB-u\fP
+update the specified files;
+that is, delete all old references in the tags file
+and append any new ones.
+(Note: simply rebuilding the tags file is usually faster.)
+.IP \fB-v\fP
+write an index for
+.IR vgrind (1)
+on the standard output.
+This listing contains object name,
+file name, and page number
+(64 line pages are assumed).
+Output is sorted lexicographically, so 
+.BR "sort \-f"
+may be useful:
+.nf
+	ctags \-v files | sort \-f > index
+	vgrind \-x index
+.fi
+This option implies \fB-g\fP, \fB-m\fP, \fB-r\fP, \fB-s\fP, \fB-t\fP,
+and \fB-x\fP.
+.IP \fB-w\fP
+suppress warning diagnostics.
+.IP \fB-x\fP
+print a list containing object names, the line number and file
+in which each is defined, and the text of that line
+on the standard output.  This is a simple index fit for humans.
+This option implies \fB-g\fP, \fB-m\fP, \fB-r\fP, \fB-s\fP, and \fB-t\fP.
+.SH FILES
+.DT
+tags		output tags file
+.SH SEE ALSO
+ptags(1), ctree(1), ex(1), vi(1)
+.SH AUTHOR
+Ken Arnold; FORTRAN added by Jim Kleckner;
+Bill Joy added Pascal and \fB-x\fR replacing \fIcxref\fR;
+C typedefs added by Ed Pelegri-Llopart;
+Ronen Barzel and Michael Hawley
+added object type and length, global variable and macro indexing,
+and callee/caller lists.
+Sam Leffler added yacc and lex knowledge.
+.SH BUGS
+Non-C languages are processed in an unsophisticated way:
+in particular,
+Pascal and FORTRAN objects are crudely located;
+no attempt is made to deal with Pascal block structure;
+global variables and Pascal types are not tagged;
+and caller/callee references are not generated.
+
+Does not handle C structs' having a separate name space;
+If a struct shares a name with any other object,
+the struct declaration will not be tagged.
+
+Callee lists are generated in a shallow way;
+if a function references a local variable or structure field which
+has the same name as a tagged object, that object will be added to the
+function's callee list.
+
+There's a hack to ignore duplicate global variables named "sccsid".
+
+Does not know about #ifdefs.
+
+The \fB-g\fP, \fB-m\fP, \fB-r\fP, \fB-s\fP and \fB-t\fP options
+should not necessarily be implied for \fB-v\fP and \fB-x\fP;
+they are present for backward compatibility.

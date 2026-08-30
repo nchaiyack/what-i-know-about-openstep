@@ -1,0 +1,1522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 28.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 35.0px Helvetica; min-height: 42.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 10.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 116.0px; font: 14.0px Times}
+    p.p10 {margin: 0.0px 0.0px 0.0px 116.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 116.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p16 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Helvetica}
+    p.p20 {margin: 0.0px 0.0px 0.0px 95.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 287.0px; text-indent: -192.0px; font: 14.0px Helvetica}
+    p.p25 {margin: 0.0px 0.0px 0.0px 287.0px; text-indent: -192.0px; font: 14.0px Times}
+    p.p26 {margin: 0.0px 0.0px 0.0px 287.0px; text-indent: -192.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Times}
+    p.p28 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 36.0px Helvetica; min-height: 43.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 26.0px Helvetica}
+    p.p33 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 12.0px Helvetica}
+    p.p35 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 12.0px Helvetica}
+    p.p37 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p38 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p40 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p41 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p44 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p45 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p48 {margin: 0.0px 0.0px 0.0px 316.0px; font: 14.0px Times}
+    p.p49 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p50 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p51 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p52 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p53 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p54 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p55 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p56 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p57 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 12.0px Helvetica}
+    p.p58 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p59 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p60 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p61 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p62 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p63 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p64 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p65 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p66 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p67 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.0px Helvetica}
+    span.s3 {font: 14.0px Symbol}
+    span.s4 {font: 12.0px Helvetica}
+    span.s5 {font: 14.0px Times}
+    span.s6 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">c<span class="Apple-tab-span">	</span></span><b>NSString Class Cluster</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Class Cluster Description</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7">NSString objects represent character strings in OpenStep frameworks. Representing strings as objects allows you to use strings wherever you use other objects. It also provides the benefits of encapsulation, so that string objects can use whatever encoding and storage is needed for efficiency while simply appearing as arrays of characters. The cluster's two public classes, NSString and NSMutableString, declare the programmatic interface for noneditable and editable strings, respectively.</p>
+<p class="p8"><br></p>
+<p class="p7">The objects you create using these classes are referred to as <i>string objects</i> (and when no confusion will result, merely as <i>strings</i>). The term <i>C string</i> refers to the standard <b>char *</b> type. Because of the nature of class clusters, string objects aren't actual instances of the NSString or NSMutableString classes but of one of their private subclasses. Although a string object's class is private, its interface is public, as declared by these abstract superclasses, NSString and NSMutableString. (See “Class Clusters” in the introduction to the Foundation Kit for more information on class clusters and on creating subclasses within a cluster.) The string classes adopt the NSCopying and NSMutableCopying protocols, making it convenient to convert a string of one type to the other.</p>
+<p class="p8"><br></p>
+<p class="p7">A string object presents itself as an array of Unicode<span class="s1">í</span> characters (Unicode is a registered trademark of Unicode, Inc.). You can determine how many characters it contains with the <b>length</b> method and can retrieve a specific character with the <b>characterAtIndex:</b> method. These two “primitive” methods provide basic access to a string object. Most use of strings, however, is at a higher level, with the strings being treated as single entities: You compare strings against one another, search them for substrings, combine them into new strings, and so on. If you need to access string objects character-by-character, you must understand the Unicode character encoding, specifically issues related to composed character sequences. For details see:</p>
+<p class="p8"><br></p>
+<p class="p9"><i>The Unicode Standard:<span class="Apple-converted-space">  </span>Worldwide Character Encoding</i>, Version 1.0, Volumes 1 and 2. The Unicode Consortium. Addison-Wesley. ISBN 0<span class="s3">-</span>201<span class="s3">-</span>56788<span class="s3">-</span>1 (Volume 1) and 0<span class="s3">-</span>201<span class="s3">-</span>60845<span class="s3">-</span>6 (Volume 2).</p>
+<p class="p10"><br></p>
+<p class="p9">Version 2.0, also published by Addison-Wesley, is forthcoming. ISBN 0<span class="s3">-</span>201<span class="s3">-</span>48345<span class="s3">-</span>9.<span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><b>Creating and Converting String Objects</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7">NSString provides several means for creating instances, most based around the various character encodings it supports. Although string objects always present their own contents as Unicode characters, they can convert their contents to and from many other encodings, such as 7-bit ASCII, ISO Latin 1, EUC, and Shift-JIS. The <b>availableStringEncodings</b> class method returns the encodings supported. You can specify an encoding explicitly when converting a C string to or from a string object, or use the <i>default C string encoding</i>, which varies from platform to platform and is returned by the <b>defaultCStringEncoding</b> class method.</p>
+<p class="p8"><br></p>
+<p class="p7">The simplest way to create a string object in source code is to use either the <b>stringWithCString:</b> class method or the <b>initWithCString:</b> instance method. Each takes a standard null-terminated C string in the default C string encoding and produces a string object. As a convenience, the Objective-C language also supports the <b>@"..."</b> construct to create a string object constant from 7-bit ASCII encoding:</p>
+<p class="p8"><br></p>
+<p class="p15">NSString *temp = @"/tmp/scratch";</p>
+<p class="p16"><br></p>
+<p class="p7">Such an object is created at compile time and exists throughout your program's execution. The compiler makes such object constants unique on a per-module basis, and they're never deallocated (though you can retain and release them as you do any other object).</p>
+<p class="p8"><br></p>
+<p class="p7">To get a C string from a string object, use the <b>cString</b> message. This returns a <b>char *</b> in the system's default string encoding, or raises an exception if it can't convert its contents to that encoding. The C string you receive is owned by a temporary object, though, so it will become invalid when automatic deallocation takes place (see “Object Ownership and Automatic Disposal” in the introduction to the Foundation Kit for further information). If you want to get a permanent C string, you must create a buffer and use one of the <b>getCString:...</b> methods to fill it. You can find out how large the buffer needs to be with the <b>cStringLength</b> method.</p>
+<p class="p8"><br></p>
+<p class="p7">Similar methods allow you to create string objects from characters in the Unicode encoding or an arbitrary encoding, and to extract data in these encodings. <b>initWithData:encoding:</b> and <b>dataUsingEncoding:</b> perform these conversions from and to NSData objects. You can also read a string directly from a file in the Unicode or default C string encoding using the <b>stringWithContentsOfFile:</b> class method, and write a string using <b>writeToFile:atomically:</b>.</p>
+<p class="p8"><br></p>
+<p class="p7">Finally, two types of method allow you to build a string from existing string objects. <b>localizedStringWithFormat:</b> and its siblings use a format string as a template into which the values you provide (string and other objects, numerics values, and so on) are inserted. The methods <b>stringByAppendingString:</b> and <b>stringByAppendingFormat:</b> create a new string by adding one string after another, in the second case using a format string.</p>
+<p class="p8"><br></p>
+<p class="p7">In format strings, a `%' character announces a placeholder for a value, with the characters that follow determining the kind of value expected and how to format it. For example, a format string of “%d houses” expects an integer value to be substituted for the format expression “%d”. NSString supports the format characters defined for the ANSI C function <b>printf()</b>, plus `@' for any object (the text representation is retrieved by sending the object a <b>description</b> message).</p>
+<p class="p8"><br></p>
+<p class="p17"><span class="s4"><b>Note:<span class="Apple-tab-span">	</span></b></span>Many compilers perform typecasting of arguments to <b>printf()</b>, so that printing an integer into a <b>%f</b> (floating-point) placeholder works as expected. This typecasting doesn't occur with NSString's formatted methods, so be sure to cast your values explicitly.</p>
+<p class="p18"><br></p>
+<p class="p7">Value formatting is affected by the user's current locale, which is an NSDictionary specifying number, date, and other kinds of formats. NSString uses only the locale's definition for the decimal separator (given by the key named NSDecimalSeparator). If you use a method that doesn't specify a locale, the string assumes the default locale. See “Locales” in the “Other Features” section of the Foundation Kit documentation for more information on locales.</p>
+<p class="p8"><br></p>
+<p class="p7">This table summarizes the most common means of creating and converting string objects:</p>
+<p class="p8"><br></p>
+<p class="p19"><b>Source<span class="Apple-tab-span">	</span>Creation Method<span class="Apple-tab-span">	</span>Extraction Method</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">Default C string encoding<span class="Apple-tab-span">	</span>stringWithCString:<span class="Apple-tab-span">	</span>getCString: (or cString)</p>
+<p class="p22"><br></p>
+<p class="p21">In code<span class="Apple-tab-span">	</span>@"..." compiler construct</p>
+<p class="p22"><br></p>
+<p class="p21">Unicode encoding<span class="Apple-tab-span">	</span>stringWithCharacters:length:<span class="Apple-tab-span">	</span>getCharacters:length:</p>
+<p class="p22"><br></p>
+<p class="p21">Arbitrary encoding<span class="Apple-tab-span">	</span>initWithData:encoding:<span class="Apple-tab-span">	</span>dataUsingEncoding:</p>
+<p class="p22"><br></p>
+<p class="p21">File contents<span class="Apple-tab-span">	</span>stringWithContentsOfFile:<span class="Apple-tab-span">	</span>writeToFile:atomically:</p>
+<p class="p22"><br></p>
+<p class="p21">Format string<span class="Apple-tab-span">	</span>localizedStringWithFormat:<span class="Apple-tab-span">	</span>initWithFormat:locale:</p>
+<p class="p22"><br></p>
+<p class="p21">Existing strings<span class="Apple-tab-span">	</span>stringByAppendingString:<span class="Apple-tab-span">	</span>stringByAppendingFormat:</p>
+<p class="p22"><br></p>
+<p class="p23"><br></p>
+<p class="p12"><b>Working with String Objects</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7">The string classes provide methods for finding characters and substrings within strings and for comparing one string to another. These methods conform to the Unicode standard for determining whether two character sequences are equivalent. The string classes provide comparison methods that handle composed character sequences properly, though you do have the option of specifying a literal search when efficiency is important and you can guarantee some canonical form for composed character sequences.</p>
+<p class="p8"><br></p>
+<p class="p7">The search and comparison methods each come in three variants. The simplest version of each searches or compares entire strings. Other variants allow you to alter the way comparison of composed character sequences is performed and to specify a specific range of characters within a string to be searched or compared. You can specify these options (not all options are available for every method):</p>
+<p class="p8"><br></p>
+<p class="p24"><b>Search Option<span class="Apple-tab-span">	</span>Effect</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p25">NSCaseInsensitiveSearch<span class="Apple-tab-span">	</span>Ignores case distinctions among characters.</p>
+<p class="p26"><br></p>
+<p class="p25">NSLiteralSearch<span class="Apple-tab-span">	</span>Performs a byte-for-byte comparison. Differing literal sequences (such as composed character sequences) that would otherwise be considered equivalent are considered not to match. Using this option can speed some operations dramatically.</p>
+<p class="p26"><br></p>
+<p class="p25">NSBackwardsSearch<span class="Apple-tab-span">	</span>Performs searching from the end of the range toward the beginning.</p>
+<p class="p26"><br></p>
+<p class="p25">NSAnchoredSearch<span class="Apple-tab-span">	</span>Performs searching only on characters at the beginning or end of the range. No match at the beginning or end means nothing is found, even if a matching sequence of characters occurs elsewhere in the string.</p>
+<p class="p26"><br></p>
+<p class="p17"><span class="s4"><b>Note:<span class="Apple-tab-span">	</span></b></span>Search and comparison are currently performed as if the NSLiteralSearch option were specified. As the Unicode encoding becomes more widely used, and the need for more flexible comparison increases, the default behavior will be changed accordingly.</p>
+<p class="p18"><br></p>
+<p class="p7">Substrings are only found if completely contained within the specified range. If you specify a range for a search or comparison method and don't request NSLiteralSearch, the range must not break composed character sequences on either end; if it does you could get an incorrect result. (See the method description for <b>rangeOfComposedCharacterSequenceAtIndex:</b> for a code sample that adjusts a range to lie on character sequence boundaries.)</p>
+<p class="p8"><br></p>
+<p class="p7">The basic search and comparison methods are these:</p>
+<p class="p8"><br></p>
+<p class="p27">rangeOfString:<span class="Apple-tab-span">	</span>compare:</p>
+<p class="p27">rangeOfString:options:<span class="Apple-tab-span">	</span>compare:options:</p>
+<p class="p27">rangeOfStrings:options:range:<span class="Apple-tab-span">	</span>compare:options:range:</p>
+<p class="p28"><br></p>
+<p class="p27">rangeOfCharacterFromSet:</p>
+<p class="p27">rangeOfCharacterFromSet:options:</p>
+<p class="p27">rangeOfCharacterFromSet:options:range:</p>
+<p class="p28"><br></p>
+<p class="p7">The <b>rangeOfString:...</b> methods search for a substring within the receiver. The <b>rangeOfCharacterFromSet:...</b> methods search for individual characters from a supplied set of characters. The <b>compare:...</b> methods return the lexical ordering of the receiver and the supplied string. Several other methods allow you to determine whether two strings are equal or whether one is the prefix or suffix of another, but they don't have variants that allow you to specify search options or ranges.</p>
+<p class="p8"><br></p>
+<p class="p7">In addition to searching and comparing strings, you can combine and divide them in various ways. The simplest way to put two strings together is to append one to the other. The <b>stringByAppendingString:</b> method returns a string object formed from the receiver and the argument supplied. You can also combine several strings according to a template with the <b>initWithFormat:</b>, <b>stringWithFormat:</b> and <b>stringByAppendingFormat:</b> methods. See “Creating and Converting String Objects” for more information.</p>
+<p class="p8"><br></p>
+<p class="p7">You can extract substrings from the beginning or end of a string to a particular index, or from a specific range, with the <b>substringToIndex:</b>, <b>substringFromIndex:</b>, and <b>substringWithRange:</b> methods. You can also split a string into substrings (based on a separator string) with the <b>componentsSeparatedByString:</b> method.</p>
+<p class="p8"><br></p>
+<p class="p7">Most of the NSString classes' remaining methods are for conveniences such as changing case, quickly extracting numeric values, and working with encodings. There's also a set of methods for treating strings as file system paths, described below in “Manipulating Paths.” An additional class cluster, NSScanner, allows you to scan a string object for numeric and string values. Both the NSString and the NSScanner class clusters use the NSCharacterSet class cluster for search operations. See the appropriate class specifications for more information.</p>
+<p class="p8"><br></p>
+<p class="p29"><br></p>
+<p class="p12"><b>Manipulating Paths</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7">In addition to all the basic methods for working with character strings merely as strings, NSString also provides a rich set of methods for manipulating strings as file system paths. A string can extract a path's directory, file name, and extension, expand a tilde expression (such as “~me”) or create one for the user's home directory, and clean up paths containing symbolic links, redundant slashes, and references to “.” (current directory) and “..” (parent directory). These methods are listed under “Working with paths” in the “MethodTypes” section.</p>
+<p class="p8"><br></p>
+<p class="p7">NSString represents paths generically with `/' as the path separator and `.' as the extension separator. Methods that accept strings as path arguments convert these generic representations to the proper system-specific form as needed. On systems with an implicit root directory, absolute paths begin with a path separator or with a tilde expression (“~/...” or “~<i>user</i>/...”). On systems that require explicit expression of root directories for different devices, such as Microsoft Windows 95, absolute paths begin with the name of the device (for example, “C:/Documents/Paper.doc” to represent the actual path “C:\Documents\Paper.doc”). Where a device must be specified, you can do that yourself—introducing a system dependency—or allow the string object to add a default device.</p>
+<p class="p8"><br></p>
+<p class="p30"><br></p>
+<p class="p8"><br></p>
+<p class="p31"><br></p>
+<p class="p32"><span class="s2">i<span class="Apple-tab-span">	</span></span><b></b><b>NSString</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s5">NSObject</span></p>
+<p class="p35"><br></p>
+<p class="p36"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s5">NSCoding</span></p>
+<p class="p37">NSCopying</p>
+<p class="p37">NSMutableCopying</p>
+<p class="p37">NSObject (NSObject)</p>
+<p class="p38"><br></p>
+<p class="p39"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSString.h</p>
+<p class="p37">Foundation/NSPathUtilities.h</p>
+<p class="p38"><br></p>
+<p class="p38"><br></p>
+<p class="p40"><b>Class Description</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p7">The NSString class declares the programmatic interface for an object that manages an immutable array of Unicode characters (in other words, a text string). NSString's two primitive methods—<b>length</b> and <b>characterAtIndex:</b>—provide the basis for all other methods in its interface. The <b>length</b> method returns the total number of Unicode characters in the string. <b>characterAtIndex:</b> gives access to each character in the string by index, with index values starting at 0.</p>
+<p class="p8"><br></p>
+<p class="p7">NSString declares methods for finding and comparing strings. It also declares methods for reading numeric values from strings, for combining strings in various ways, and for converting a string to different forms (such as encoding and case changes). General use of these methods is presented in the class cluster description under “Working with String Objects.”</p>
+<p class="p8"><br></p>
+<p class="p42"><br></p>
+<p class="p40"><b>Adopted Protocols</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p43">NSCoding<span class="Apple-tab-span">	</span><span class="s3">-</span> encodeWithCoder:</p>
+<p class="p44"><span class="s3">-</span> initWithCoder:</p>
+<p class="p45"><br></p>
+<p class="p43">NSCopying<span class="Apple-tab-span">	</span><span class="s3">-</span> copyWithZone:</p>
+<p class="p46"><br></p>
+<p class="p43">NSMutableCopying<span class="Apple-tab-span">	</span><span class="s3">-</span> mutableCopyWithZone:</p>
+<p class="p47"><br></p>
+<p class="p40"><b>Method Types</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p43">Creating temporary strings<span class="Apple-tab-span">	</span>+ stringWithCString:</p>
+<p class="p44">+ stringWithCString:length:</p>
+<p class="p44">+ stringWithFormat:</p>
+<p class="p44">+ localizedStringWithFormat:</p>
+<p class="p44">+ stringWithContentsOfFile:</p>
+<p class="p44">+ stringWithCharacters:length:</p>
+<p class="p44">+ string</p>
+<p class="p44">+ stringWithString:</p>
+<p class="p45"><br></p>
+<p class="p43">Initializing newly allocated strings<span class="Apple-tab-span">	</span><span class="s3">-</span> initWithCharactersNoCopy:length:freeWhenDone:</p>
+<p class="p44"><span class="s3">-</span> initWithCharacters:length:</p>
+<p class="p44"><span class="s3">-</span> initWithCStringNoCopy:length:freeWhenDone:</p>
+<p class="p44"><span class="s3">-</span> initWithCString:length:</p>
+<p class="p44"><span class="s3">-</span> initWithCString:</p>
+<p class="p44"><span class="s3">-</span> initWithString:</p>
+<p class="p44"><span class="s3">-</span> initWithFormat:</p>
+<p class="p44"><span class="s3">-</span> initWithFormat:arguments:</p>
+<p class="p44"><span class="s3">-</span> initWithFormat:locale:</p>
+<p class="p44"><span class="s3">-</span> initWithFormat:locale:arguments:</p>
+<p class="p44"><span class="s3">-</span> initWithData:encoding:</p>
+<p class="p44"><span class="s3">-</span> initWithContentsOfFile:</p>
+<p class="p44"><span class="s3">-</span> init</p>
+<p class="p45"><br></p>
+<p class="p43">Getting a string's length<span class="Apple-tab-span">	</span><span class="s3">-</span> length</p>
+<p class="p46"><br></p>
+<p class="p43">Accessing characters<span class="Apple-tab-span">	</span><span class="s3">-</span> characterAtIndex:</p>
+<p class="p44"><span class="s3">-</span> getCharacters:</p>
+<p class="p44"><span class="s3">-</span> getCharacters:range:</p>
+<p class="p45"><br></p>
+<p class="p43">Combining strings<span class="Apple-tab-span">	</span><span class="s3">-</span> stringByAppendingFormat:</p>
+<p class="p44"><span class="s3">-</span> stringByAppendingString:</p>
+<p class="p45"><br></p>
+<p class="p43">Dividing strings<span class="Apple-tab-span">	</span><span class="s3">-</span> componentsSeparatedByString:</p>
+<p class="p44"><span class="s3">-</span> substringFromIndex:</p>
+<p class="p44"><span class="s3">-</span> substringWithRange:</p>
+<p class="p44"><span class="s3">-</span> substringToIndex:</p>
+<p class="p45"><br></p>
+<p class="p43">Finding characters and substrings<span class="Apple-tab-span">	</span><span class="s3">-</span> rangeOfCharacterFromSet:</p>
+<p class="p44"><span class="s3">-</span> rangeOfCharacterFromSet:options:</p>
+<p class="p44"><span class="s3">-</span> rangeOfCharacterFromSet:options:range:</p>
+<p class="p44"><span class="s3">-</span> rangeOfString:</p>
+<p class="p44"><span class="s3">-</span> rangeOfString:options:</p>
+<p class="p44"><span class="s3">-</span> rangeOfString:options:range:</p>
+<p class="p45"><br></p>
+<p class="p43">Determining line ranges<span class="Apple-tab-span">	</span><span class="s3">-</span> getLineStart:end:contentsEnd:forRange:</p>
+<p class="p44"><span class="s3">-</span> lineRangeForRange:</p>
+<p class="p45"><br></p>
+<p class="p43">Determining composed character sequences</p>
+<p class="p44"><span class="s3">-</span> rangeOfComposedCharacterSequenceAtIndex:</p>
+<p class="p45"><br></p>
+<p class="p43">Converting string contents into a property list</p>
+<p class="p44"><span class="s3">-</span> propertyList</p>
+<p class="p44"><span class="s3">-</span> propertyListFromStringsFileFormat</p>
+<p class="p45"><br></p>
+<p class="p43">Identifying and comparing strings</p>
+<p class="p44"><span class="s3">-</span> caseInsensitiveCompare:</p>
+<p class="p44"><span class="s3">-</span> compare:</p>
+<p class="p44"><span class="s3">-</span> compare:options:</p>
+<p class="p44"><span class="s3">-</span> compare:options:range:</p>
+<p class="p44"><span class="s3">-</span> hasPrefix:</p>
+<p class="p44"><span class="s3">-</span> hasSuffix:</p>
+<p class="p44"><span class="s3">-</span> isEqualToString:</p>
+<p class="p44"><span class="s3">-</span> hash</p>
+<p class="p45"><br></p>
+<p class="p43">Getting a shared prefix<span class="Apple-tab-span">	</span><span class="s3">-</span> commonPrefixWithString:options:</p>
+<p class="p46"><br></p>
+<p class="p43">Changing case<span class="Apple-tab-span">	</span><span class="s3">-</span> capitalizedString</p>
+<p class="p44"><span class="s3">-</span> lowercaseString</p>
+<p class="p44"><span class="s3">-</span> uppercaseString</p>
+<p class="p45"><br></p>
+<p class="p43">Getting C strings<span class="Apple-tab-span">	</span><span class="s3">-</span> cString</p>
+<p class="p44"><span class="s3">-</span> lossyCString</p>
+<p class="p44"><span class="s3">-</span> cStringLength</p>
+<p class="p44"><span class="s3">-</span> getCString:</p>
+<p class="p44"><span class="s3">-</span> getCString:maxLength:</p>
+<p class="p44"><span class="s3">-</span> getCString:maxLength:range:remainingRange:</p>
+<p class="p45"><br></p>
+<p class="p43">Getting numeric values<span class="Apple-tab-span">	</span><span class="s3">-</span> doubleValue</p>
+<p class="p44"><span class="s3">-</span> floatValue</p>
+<p class="p44"><span class="s3">-</span> intValue</p>
+<p class="p45"><br></p>
+<p class="p43">Working with encodings<span class="Apple-tab-span">	</span>+ availableStringEncodings</p>
+<p class="p44">+ defaultCStringEncoding</p>
+<p class="p44">+ localizedNameOfStringEncoding:</p>
+<p class="p44"><span class="s3">-</span> canBeConvertedToEncoding:</p>
+<p class="p44"><span class="s3">-</span> dataUsingEncoding:</p>
+<p class="p44"><span class="s3">-</span> dataUsingEncoding:allowLossyConversion:</p>
+<p class="p44"><span class="s3">-</span> description</p>
+<p class="p44"><span class="s3">-</span> fastestEncoding</p>
+<p class="p44"><span class="s3">-</span> smallestEncoding</p>
+<p class="p45"><br></p>
+<p class="p43">Working with paths<span class="Apple-tab-span">	</span>+ pathWithComponents:</p>
+<p class="p44"><span class="s3">-</span> pathComponents</p>
+<p class="p44"><span class="s3">-</span> completePathIntoString:caseSensitive:</p>
+<p class="p48">matchesIntoArray:filterTypes:</p>
+<p class="p44"><span class="s3">-</span> fileSystemRepresentation</p>
+<p class="p44"><span class="s3">-</span> getFileSystemRepresentation:maxLength:</p>
+<p class="p44"><span class="s3">-</span> isAbsolutePath</p>
+<p class="p44"><span class="s3">-</span> lastPathComponent</p>
+<p class="p44"><span class="s3">-</span> pathExtension</p>
+<p class="p44"><span class="s3">-</span> stringByAbbreviatingWithTildeInPath</p>
+<p class="p44"><span class="s3">-</span> stringByAppendingPathComponent:</p>
+<p class="p44"><span class="s3">-</span> stringByAppendingPathExtension:</p>
+<p class="p44"><span class="s3">-</span> stringByDeletingLastPathComponent</p>
+<p class="p44"><span class="s3">-</span> stringByDeletingPathExtension</p>
+<p class="p44"><span class="s3">-</span> stringByExpandingTildeInPath</p>
+<p class="p44"><span class="s3">-</span> stringByResolvingSymlinksInPath</p>
+<p class="p44"><span class="s3">-</span> stringByStandardizingPath</p>
+<p class="p44"><span class="s3">-</span> stringsByAppendingPaths:</p>
+<p class="p45"><br></p>
+<p class="p43">Writing to a file<span class="Apple-tab-span">	</span><span class="s3">-</span> writeToFile:atomically:</p>
+<p class="p47"><br></p>
+<p class="p40"><b>Class Methods</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p12"><b></b><b>availableStringEncodings</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49">+ (const NSStringEncoding *)<b>availableStringEncodings</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns a zero-terminated list of the encodings that string objects support in the application's environment. Among the more commonly used are:</p>
+<p class="p8"><br></p>
+<p class="p9">NSASCIIStringEncoding</p>
+<p class="p9">NSNEXTSTEPStringEncoding</p>
+<p class="p9">NSUnicodeStringEncoding</p>
+<p class="p9">NSISOLatin1StringEncoding</p>
+<p class="p9">NSISOLatin2StringEncoding</p>
+<p class="p9">NSSymbolStringEncoding</p>
+<p class="p10"><br></p>
+<p class="p7">See the “Types and Constants” section of the Foundation Kit documentation for a complete list and descriptions of supported encodings.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>localizedNameOfStringEncoding:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>defaultCStringEncoding</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49">+ (NSStringEncoding)<b>defaultCStringEncoding</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns the C string encoding assumed for any method accepting a C string as an argument (these methods use <b>CString</b> in the keywords for such arguments; for example, <b>stringWithCString:</b>). The default C string encoding is determined from system information, and can't be changed programmatically for an individual process. See the description of NSStringEncoding in the “Types and Constants” section for a full list of supported encodings.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>localizedNameOfStringEncoding:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49">+ (NSString *)<b>localizedNameOfStringEncoding:</b>(NSStringEncoding)<i>encoding</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns a human-readable string giving the name of <i>encoding</i> in the current locale's language. See “Locales” in the “Other Features” section of the Foundation Kit documentation for more information on locales.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>localizedStringWithFormat:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49">+ (NSString *)<b>localizedStringWithFormat:</b>(NSString *)<i>format, ...</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns a string created by using <i>format</i> as a template into which the following argument values are substituted according to the formatting information of the current locale. For example, this code excerpt creates a string from another string and an <b>int</b>:</p>
+<p class="p8"><br></p>
+<p class="p15">NSString *myString = [NSString localizedStringWithFormat:@"%@: %d\n",</p>
+<p class="p15"><span class="Apple-converted-space">    </span>@"Cost", 32];</p>
+<p class="p16"><br></p>
+<p class="p7">The resulting string has the value “Cost: 32\n”.</p>
+<p class="p8"><br></p>
+<p class="p7">See “Creating and Converting String Objects” in the class cluster description for more information.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p55"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>pathWithComponents:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p49">+ (NSString *)<b>pathWithComponents:</b>(NSArray *)<i>components</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns a string built from the strings in <i>components</i>, by concatenating them with a path separator between each pair. To create an absolute path, use an empty string or “/” as the first component. To include a trailing path divider, use an empty string as the last component. This method doesn't clean up the path created; use <b>stringByStandardizingPath</b> to resolve empty components, references to the parent directory, and so on.</p>
+<p class="p8"><br></p>
+<p class="p7">On systems that require an explicit root device for an absolute path, this method add a default device specifier (such as “C:” on Windows systems).</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>pathComponents</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p55"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>string</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p49">+ (id)<b>string</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns an empty string.</p>
+<p class="p8"><br></p>
+<p class="p57"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s3">-</span><span class="s5"> <b>init</b></span></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringWithCharacters:length:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49">+ (id)<b>stringWithCharacters:</b>(const unichar *)<i>chars</i> <b>length:</b>(unsigned int)<i>length</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns a string containing <i>length</i> characters taken from <i>chars</i>, which may not be NULL. This method doesn't stop short at a zero character.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>initWithCharacters:length:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringWithContentsOfFile:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49">+ (id)<b>stringWithContentsOfFile:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p50"><br></p>
+<p class="p7">Returns a string created by reading characters from the file named by <i>path</i>. If the contents begin with a byte-order mark (U+FEFF or U+FFFE), interprets the contents as Unicode characters; otherwise interprets the contents as characters in the default C string encoding. Returns <b>nil</b> if the file can't be opened.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>initWithContentsOfFile:</b>, + <b>defaultCStringEncoding</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringWithCString:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49">+ (id)<b>stringWithCString:</b>(const char *)<i>cString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns a string containing derived from the characters in <i>cString</i>, which must end with a zero character and which may not be NULL. <i>cString</i> should contain characters in the default C string encoding.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>initWithCString:</b>, + <b>defaultCStringEncoding</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringWithCString:length:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49">+ (id)<b>stringWithCString:</b>(const char *)<i>cString</i> <b>length:</b>(unsigned int)<i>length</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns a string containing characters derived from <i>cString</i>, which may not be NULL. <i>cString</i> should contain characters in the default C string encoding. This method converts <i>length</i> * <b>sizeof(char)</b> bytes from <i>cString</i>, and doesn't stop short at a zero character.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>initWithCString:length:</b>, + <b>defaultCStringEncoding</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringWithFormat:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49">+ (id)<b>stringWithFormat:</b>(NSString *)<i>format</i>, <i>.</i>..</p>
+<p class="p50"><br></p>
+<p class="p7">Returns a string created in the manner of <b>localizedStringWithFormat:</b>, but using the default locale to format numbers. See “Creating and Converting String Objects” in the class cluster description for more information.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>initWithFormat:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p55"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>stringWithString:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p49">+ (id)<b>stringWithString:</b>(NSString *)<i>aString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns a string created by copying the characters from <i>aString</i>.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>initWithString:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p40"><b>Instance Methods</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p12"><b></b><b>canBeConvertedToEncoding:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (BOOL)<b>canBeConvertedToEncoding:</b>(NSStringEncoding)<i>encoding</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns YES if the receiver can be converted to <i>encoding</i> without loss of information. Returns NO if characters would have to be changed or deleted in the process of changing encodings.</p>
+<p class="p8"><br></p>
+<p class="p7">If you plan to actually convert a string, the <b>dataUsingEncoding:...</b> methods simply return <b>nil</b> on failure, so you can avoid the overhead of invoking this method yourself by simply trying to convert the string.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>dataUsingEncoding:allowLossyConversion:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>capitalizedString</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>capitalizedString</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns a string with the first character from each word in the receiver changed to its corresponding uppercase value, and all remaining characters set to their corresponding lowercase values. A “word” here is any sequence of characters delimited by spaces, tabs, or line terminators (listed under <b>getLineStart:end:contentsEnd:forRange:</b>). Other common word delimiters such as hyphens and other punctuation aren't considered, so this method may not generally produce the desired results for multi-word strings.</p>
+<p class="p8"><br></p>
+<p class="p7">Case transformations aren't guaranteed to be symmetrical or to produce strings of the same lengths as the originals. See <b>lowercaseString</b> for an example.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>lowercaseString</b>, <span class="s3">-</span> <b>uppercaseString</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>caseInsensitiveCompare:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSComparisonResult)<b>caseInsensitiveCompare:</b>(NSString *)<i>aString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">This convenience method invokes <b>compare:options:</b> with NSCaseInsensitiveSearch as the only option.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>characterAtIndex:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (unichar)<b>characterAtIndex:</b>(unsigned int)<i>index</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns the character at the array position given by <i>index</i>. Raises an NSRangeException if <i>index</i> lies beyond the end of the string.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>getCharacters:</b>, <span class="s3">-</span> <b>getCharacters:range:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>commonPrefixWithString:options:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>commonPrefixWithString:</b>(NSString *)<i>aString</i></p>
+<p class="p59"><b>options:</b>(unsigned int)<i>mask</i></p>
+<p class="p60"><i></i><br></p>
+<p class="p7">Returns a string containing characters that the receiver and <i>aString</i> have in common, starting from the beginning of each up to the first characters that aren't equivalent. The returned string is based on the characters of the receiver. For example, if the receiver is “Ma¨dchen” and <i>aString</i> is “Mädchenschule”, the string returned is “Ma¨dchen”, not “Mädchen”. The following search options may be specified in <i>mask</i> by combining them with the C bitwise OR operator:</p>
+<p class="p8"><br></p>
+<p class="p9">NSCaseInsensitiveSearch</p>
+<p class="p9">NSLiteralSearch</p>
+<p class="p10"><br></p>
+<p class="p7">See “Working with String Objects” in the class cluster description for details on these options.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hasPrefix</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>compare:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSComparisonResult)<b>compare:</b>(NSString *)<i>aString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Invokes <b>compare:options:</b> with no options.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>compare:options:range:</b>, <span class="s3">-</span> <b>caseInsensitiveCompare:</b>, <span class="s3">-</span> <b>isEqualToString:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>compare:options:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSComparisonResult)<b>compare:</b>(NSString *)<i>aString</i> <b>options:</b>(unsigned int)<i>mask</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Invokes <b>compare:options:range:</b> with <i>mask</i> as the options and the receiver's full extent as the range.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>caseInsensitiveCompare:</b>, <span class="s3">-</span> <b>isEqualToString:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>compare:options:range:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSComparisonResult)<b>compare:</b>(NSString *)<i>aString</i></p>
+<p class="p59"><b>options:</b>(unsigned int)<i>mask</i></p>
+<p class="p59"><b>range:</b>(NSRange)<i>aRange</i></p>
+<p class="p60"><i></i><br></p>
+<p class="p7">Returns NSOrderedAscending if the substring of the receiver given by <i>aRange</i> precedes <i>aString</i> in lexical ordering, NSOrderedSame if the substring of the receiver and <i>aString</i> are equivalent in lexical value, and NSOrderedDescending if the substring of the receiver follows <i>aString</i>. You can specify the following options in <i>mask</i> by combining them with the C bitwise OR operator:</p>
+<p class="p8"><br></p>
+<p class="p9">NSCaseInsensitiveSearch</p>
+<p class="p9">NSLiteralSearch</p>
+<p class="p10"><br></p>
+<p class="p7">See “Working with String Objects” in the class cluster description for details on these options.</p>
+<p class="p8"><br></p>
+<p class="p7">Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the string.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>caseInsensitiveCompare:</b>, <span class="s3">-</span> <b>isEqualToString:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>completePathIntoString:caseSensitive:matchesIntoArray:filterTypes:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (unsigned int)<b>completePathIntoString:</b>(NSString **)<i>outputName</i></p>
+<p class="p59"><b>caseSensitive:</b>(BOOL)<i>flag</i></p>
+<p class="p59"><b>matchesIntoArray:</b>(NSArray **)<i>outputArray</i><span class="Apple-converted-space"> </span></p>
+<p class="p59"><b>filterTypes:</b>(NSArray *)<i>filterTypes</i></p>
+<p class="p60"><i></i><br></p>
+<p class="p7">Attempts to perform file- name completion on the receiver, interpreting it as a path in the file system and returning by reference in <i>outputName</i> the longest path that matches the receiver. Considers case if <i>flag</i> is YES. If <i>outputArray</i> is non-NULL, returns all matching file names in an NSArray given by <i>outputArray</i>. If an array of strings is provided in <i>filterTypes</i>, considers only paths whose extensions (not including the extension separator) match one of those strings.</p>
+<p class="p8"><br></p>
+<p class="p7">Returns 0 if no matches are found and 1 if exactly one match is found. In the case of multiple matches, returns the actual number of matching paths if <i>outputArray</i> is provided, or simply a positive value if <i>outputArray</i> is NULL. Hence, you can check for the existence of matches without retrieving by passing NULL as <i>outputArray</i><span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>componentsSeparatedByString:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSArray *)<b>componentsSeparatedByString:</b>(NSString *)<i>separator</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns an NSArray containing substrings from the receiver that have been divided by <i>separator</i>. The substrings in the array appear in the order they did in the receiver. If the string begins or ends with the separator, the first or last substring, respectively, is empty. For example, this code excerpt:</p>
+<p class="p8"><br></p>
+<p class="p15">NSString *list = @"wrenches, hammers, saws";</p>
+<p class="p15">NSArray *listItems = [list componentsSeparatedByString:@", "];</p>
+<p class="p16"><br></p>
+<p class="p7">produces an array with these contents:</p>
+<p class="p8"><br></p>
+<p class="p19"><b>Index<span class="Apple-tab-span">	</span>Substring</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">0<span class="Apple-tab-span">	</span>wrenches</p>
+<p class="p22"><br></p>
+<p class="p21">1<span class="Apple-tab-span">	</span>hammers</p>
+<p class="p22"><br></p>
+<p class="p21">2<span class="Apple-tab-span">	</span>saws</p>
+<p class="p22"><br></p>
+<p class="p7">If <b>list</b> begins with a comma and space—for example, “, wrenches, hammers, saws”—the array has these contents:</p>
+<p class="p8"><br></p>
+<p class="p19"><b>Index<span class="Apple-tab-span">	</span>Substring</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">0<span class="Apple-tab-span">	</span><i>(empty string)</i><span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p21">1<span class="Apple-tab-span">	</span>wrenches</p>
+<p class="p22"><br></p>
+<p class="p21">2<span class="Apple-tab-span">	</span>hammers</p>
+<p class="p22"><br></p>
+<p class="p21">3<span class="Apple-tab-span">	</span>saws</p>
+<p class="p22"><br></p>
+<p class="p7">If <b>list</b> has no separators—for example, “wrenches”—the array contains the string itself, in this case “wrenches”.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>componentsJoinedByString:</b> (NSArray class cluster), <span class="s3">-</span> <b>pathComponents</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>cString</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (const char *)<b>cString</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns a representation of the receiver as a C string in the default C string encoding. The returned C string will be automatically freed just as a returned object would be released; your code should copy the C string or use <b>getCString:</b> if it needs to store the C string outside of the autorelease context in which the C string is created.</p>
+<p class="p8"><br></p>
+<p class="p7">Raises an NSCharacterConversionException if the receiver can't be represented in the default C string encoding without loss of information. Use <b>canBeConvertedToEncoding:</b> if necessary to check whether a string can be losslessly converted to the default C string encoding. If it can't, use <b>lossyCString</b> or <b>dataUsingEncoding:allowLossyConversion:</b> to get a C string representation with some loss of information.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>getCString:</b>, <span class="s3">-</span> <b>canBeConvertedToEncoding:</b>, + <b>defaultCStringEncoding</b>, <span class="s3">-</span> <b>cStringLength</b>, <span class="s3">-</span> <b>getCharacters:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>cStringLength</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (unsigned int)<b>cStringLength</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns the length in <b>char</b>-sized units of the receiver's C string representation in the default C string encoding.</p>
+<p class="p8"><br></p>
+<p class="p7">Raises 0 if the receiver can't be represented in the default C string encoding without loss of information. You can also use <b>canBeConvertedToEncoding:</b> to check whether a string can be losslessly converted to the default C string encoding. If it can't, use <b>lossyCString</b> to get a C string representation with some loss of information, then check its length explicitly using the ANSI function <b>strlen()</b>.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>cString</b>, <span class="s3">-</span> <b>canBeConvertedToEncoding:</b>, + <b>defaultCStringEncoding</b>, <span class="s3">-</span> <b>length</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>dataUsingEncoding:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSData *)<b>dataUsingEncoding:</b>(NSStringEncoding)<i>encoding</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Invokes <b>dataUsingEncoding:allowLossyConversion:</b> with NO as the argument for allowing lossy conversion.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>dataUsingEncoding:allowLossyConversion:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSData *)<b>dataUsingEncoding:</b>(NSStringEncoding)<i>encoding</i></p>
+<p class="p59"><b>allowLossyConversion:</b>(BOOL)<i>flag</i></p>
+<p class="p60"><i></i><br></p>
+<p class="p7">Returns an NSData object containing a representation of the receiver in <i>encoding</i>. Returns <b>nil</b> if <i>flag</i> is NO and the receiver can't be converted without losing some information (such as accents or case). If <i>flag</i> is YES and the receiver can't be converted without losing some information, some characters may be removed or altered in conversion. For example, in converting a character from NSUnicodeStringEncoding to NSASCIIStringEncoding, the character `Á' becomes `A', losing the accent.</p>
+<p class="p8"><br></p>
+<p class="p7">The result of this method, when lossless conversion is made, is the default “plain text” format for <i>encoding</i> and is the recommended way to save or transmit a string object.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>canBeConvertedToEncoding:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>description</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49">@protocol NSObject</p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>description</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>doubleValue</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (double)<b>doubleValue</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns the floating-point value of the receiver's text as a <b>double</b>, skipping whitespace at the beginning of the string. Returns HUGE_VAL or <span class="s3">-</span>HUGE_VAL on overflow, 0.0 on underflow. Also returns 0.0 if the receiver doesn't begin with a valid text representation of a floating-point number.</p>
+<p class="p8"><br></p>
+<p class="p7">This method uses formatting information stored in the default locale; use an NSScanner for localized scanning of numeric values from a string.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>intValue</b>,<b> </b><span class="s3">-</span> <b>floatValue</b>, <span class="s3">-</span> <b>scanDouble: </b>(NSScanner)</p>
+<p class="p52"><br></p>
+<p class="p53"><br></p>
+<p class="p12"><b></b><b>fastestEncoding</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSStringEncoding)<b>fastestEncoding</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns the fastest encoding to which the receiver may be converted without loss of information. “Fastest” applies to retrieval of characters from the string. This encoding may not be space efficient.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>smallestEncoding</b>, <span class="s3">-</span> <b>getCharacters:range:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>fileSystemRepresentation</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (const char *)<b>fileSystemRepresentation</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns a file system specific representation of the receiver, as described for <b>getFileSystemRepresentation:maxLength:</b>. The returned C string will be automatically freed just as a returned object would be released; your code should copy the representation or use <b>getFileSystemRepresentation:maxLength:</b> if it needs to store the representation outside of the autorelease context in which the representation is created.</p>
+<p class="p8"><br></p>
+<p class="p7">Raises an NSCharacterConversionException if the receiver can't be represented in the file system's encoding.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>floatValue</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (float)<b>floatValue</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns the floating-point value of the receiver's text as a <b>float</b>, skipping whitespace at the beginning of the string. Returns HUGE_VAL or <span class="s3">-</span>HUGE_VAL on overflow, 0.0 on underflow. Also returns 0.0 if the receiver doesn't begin with a valid text representation of a floating-point number.</p>
+<p class="p8"><br></p>
+<p class="p7">This method uses formatting information stored in the default locale; use an NSScanner for localized scanning of numeric values from a string.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>doubleValue</b>,<b> </b><span class="s3">-</span> <b>intValue</b>, <span class="s3">-</span> <b>scanFloat: </b>(NSScanner)</p>
+<p class="p52"><br></p>
+<p class="p53"><br></p>
+<p class="p12"><b></b><b>getCharacters:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (void)<b>getCharacters:</b>(unichar *)<i>buffer</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Invokes <b>getCharacters:range:</b> with <i>buffer</i> and the entire extent of the receiver as the range. <i>buffer</i> must be large enough to contain all the characters in the string.</p>
+<p class="p8"><br></p>
+<p class="p57"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s3">-</span><span class="s5"> <b>length</b></span></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>getCharacters:range:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (void)<b>getCharacters:</b>(unichar *)<i>buffer</i> <b>range:</b>(NSRange)<i>aRange</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Copies characters from <i>aRange</i> in the receiver into <i>buffer</i>, which must be large enough to contain them. Does <i>not</i> add a zero character. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the string.</p>
+<p class="p8"><br></p>
+<p class="p7">The abstract implementation of this method uses <b>characterAtIndex:</b> repeatedly, correctly extracting the characters, though very inefficiently. Subclasses should override it to provide a fast implementation.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>getCString:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (void)<b>getCString:</b>(char *)<i>buffer</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Invokes <b>getCString:maxLength:range:remainingRange:</b> with NSMaximumStringLength as the maximum length, the receiver's entire extent as the range, and NULL for the remaining range. <i>buffer</i> must be large enough to contain the resulting C string plus a terminating zero character (which this method adds).</p>
+<p class="p8"><br></p>
+<p class="p7">Raises an NSCharacterConversionException if the receiver can't be represented in the default C string encoding without loss of information. Use <b>canBeConvertedToEncoding:</b> if necessary to check whether a string can be losslessly converted to the default C string encoding. If it can't, use <b>lossyCString</b> or <b>dataUsingEncoding:allowLossyConversion:</b> to get a C string representation with some loss of information.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>cStringLength</b>, <span class="s3">-</span> <b>canBeConvertedToEncoding:</b>, + <b>defaultCStringEncoding</b>, <span class="s3">-</span> <b>getCharacters:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>getCString:maxLength:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (void)<b>getCString:</b>(char *)<i>buffer</i> <b>maxLength:</b>(unsigned int)<i>maxLength</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Invokes <b>getCString:maxLength:range:remainingRange:</b> with <i>maxLength</i> as the maximum length in <b>char</b>-sized units, the receiver's entire extent as the range, and NULL for the remaining range. <i>buffer</i> must be large enough to contain <i>maxLength</i> <b>char</b>s plus a terminating zero <b>char</b> (which this method adds).</p>
+<p class="p8"><br></p>
+<p class="p7">Raises an NSCharacterConversionException if the receiver can't be represented in the default C string encoding without loss of information. Use <b>canBeConvertedToEncoding:</b> if necessary to check whether a string can be losslessly converted to the default C string encoding. If it can't, use <b>lossyCString</b> or <b>dataUsingEncoding:allowLossyConversion:</b> to get a C string representation with some loss of information.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>cStringLength</b>, <span class="s3">-</span> <b>canBeConvertedToEncoding:</b>, + <b>defaultCStringEncoding</b>, <span class="s3">-</span> <b>getCharacters:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>getCString:maxLength:range:remainingRange:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (void)<b>getCString:</b>(char *)<i>buffer</i></p>
+<p class="p59"><b>maxLength:</b>(unsigned int)<i>maxLength</i></p>
+<p class="p59"><b>range:</b>(NSRange)<i>aRange</i></p>
+<p class="p59"><b>remainingRange:</b>(NSRange *)<i>leftoverRange</i></p>
+<p class="p60"><i></i><br></p>
+<p class="p7">Converts the receiver's characters to the default C string encoding and stores them in <i>buffer</i>. <i>buffer</i> must be large enough to contain <i>maxLength</i> <b>char</b>s plus a terminating zero <b>char</b> (which this method adds). Copies and converts as many character as possible from <i>aRange</i>, and stores the range of those not converted in the NSRange given by <i>leftoverRange</i> (if it's non-NULL). Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the string.</p>
+<p class="p8"><br></p>
+<p class="p7">Raises an NSCharacterConversionException if the receiver can't be represented in the default C string encoding without loss of information. Use <b>canBeConvertedToEncoding:</b> if necessary to check whether a string can be losslessly converted to the default C string encoding. If it can't, use <b>lossyCString</b> or <b>dataUsingEncoding:allowLossyConversion:</b> to get a C string representation with some loss of information.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>cStringLength</b>, <span class="s3">-</span> <b>canBeConvertedToEncoding:</b>, + <b>defaultCStringEncoding</b>, <span class="s3">-</span> <b>getCharacters:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>getFileSystemRepresentation:maxLength:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (BOOL)<b>getFileSystemRepresentation:</b>(char *)<i>buffer</i> <b>maxLength:</b>(unsigned int)<i>maxLength</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Interprets the receiver as a system-independent path, filling <i>buffer</i> with a C string in a format and encoding suitable for use with file system calls. This is done by replacing the abstract path and extension separator characters (`/' and `.' respectively) with their equivalents for the operating system. For example, on Microsoft Windows 95 the receiver “C:/Working/Sample.tiff” is returned as the C string “C:\Working\Sample.tiff”.</p>
+<p class="p8"><br></p>
+<p class="p7"><i>buffer</i> must be large enough to contain <i>maxLength</i> <b>char</b>s plus a terminating zero <b>char</b> (which this method adds). Returns YES if <i>buffer</i> is successfully filled with a file system representation, NO if not (for example, if <i>maxLength</i> would be exceeded). Also returns NO if the receiver can't be represented in the file system's encoding.</p>
+<p class="p8"><br></p>
+<p class="p7">If the system-specific path or extension separator appear in the abstract representation, the characters they're converted to depend on the system (unless they're identical to the abstract separators). On Windows 95, for example, a `\' character is converted to `/'.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>fileSystemRepresentation</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p55"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>getLineStart:end:contentsEnd:forRange:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p49">+ (void)<b>getLineStart:</b>(unsigned int *)<i>startIndex</i></p>
+<p class="p59"><b>end:</b>(unsigned int *)<i>lineEndIndex</i></p>
+<p class="p59"><b>contentsEnd:</b>(unsigned int *)<i>contentsEndIndex</i></p>
+<p class="p59"><b>forRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p60"><i></i><br></p>
+<p class="p7">Returns by reference the indexes of the smallest range of lines containing <i>aRange</i>. A line is delimited by any of these characters, the longest possible sequence being preferred to any shorter:</p>
+<p class="p8"><br></p>
+<p class="p21">U+000D (<b>\r</b> or CR)<span class="Apple-tab-span">	</span>U+2028 (Unicode line separator)</p>
+<p class="p22"><br></p>
+<p class="p21">U+000A (<b>\n</b> or LF)<span class="Apple-tab-span">	</span>U+2029 (Unicode paragraph separator)</p>
+<p class="p22"><br></p>
+<p class="p21"><b>\r\n</b>, in that order (also known as CRLF)</p>
+<p class="p22"><br></p>
+<p class="p7">When this method returns, <i>startIndex</i> contains the index of the first character of the line, which is at or before the location of <i>aRange;</i> <i>lineEndIndex</i> contains the index of the first character past the line terminator; and <i>contentsEndIndex</i> contains the index of the first character of the line terminator itself. You may pass a NULL pointer for any of these arguments, in which case the work to compute the value isn't performed.</p>
+<p class="p8"><br></p>
+<p class="p7">You can use the results of this method to construct ranges for lines by using the start index as the range's location and the difference between the end index and the start index as the range's length.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>lineRangeForRange:</b>, <span class="s3">-</span> <b>substringFromRange:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>hash</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (unsigned int)<b>hash</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns an unsigned integer that can be used as a hash table address. If two string objects are equal (as determined by the <b>isEqualToString:</b> method), they must have the same hash value. The abstract implementation of this method fulfills this requirement, so subclasses of NSString shouldn't override it.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>hasPrefix:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (BOOL)<b>hasPrefix:</b>(NSString *)<i>aString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns YES if <i>aString</i> matches the beginning characters of the receiver, NO otherwise. Returns NO if <i>aString</i> is the null string. This method is a convenience for comparing strings using the NSAnchoredSearch option. See “Working with String Objects” in the class cluster description for more information.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hasSuffix:</b>, <span class="s3">-</span> <b>compare:options:range:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>hasSuffix:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (BOOL)<b>hasSuffix:</b>(NSString *)<i>aString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns YES if <i>aString</i> matches the ending characters of the receiver, NO otherwise. Returns NO if <i>aString</i> is the null string. This method is a convenience for comparing strings using the NSAnchoredSearch and NSBackwardsSearch options. See “Working with String Objects” in the class cluster description for more information.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hasPrefix:</b>, <span class="s3">-</span> <b>compare:options:range:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>init</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>init</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Initializes the receiver, a newly allocated NSString, to contain no characters. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p57"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s5">+ <b>string</b></span></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>initWithCharacters:length:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>initWithCharacters:</b>(const unichar *)<i>characters</i> <b>length:</b>(unsigned int)<i>length</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Initializes the receiver, a newly allocated NSString, by copying <i>length</i> characters from <i>characters</i>, which may not be NULL. This method doesn't stop short at a zero character. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>stringWithCharacters:length:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>initWithCharactersNoCopy:length:freeWhenDone:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>initWithCharactersNoCopy:</b>(unichar *)<i>characters</i></p>
+<p class="p59"><b>length:</b>(unsigned int)<i>length</i></p>
+<p class="p59"><b>freeWhenDone:</b>(BOOL)<i>flag</i></p>
+<p class="p60"><i></i><br></p>
+<p class="p7">Initializes the receiver, a newly allocated NSString, to contain <i>length</i> characters from <i>characters</i>, which may not be NULL. This method doesn't stop short at a zero character. The receiver becomes the owner of <i>characters;</i> if <i>flag</i> is YES the receiver will free the memory when it no longer needs them, but if <i>flag</i> is NO it won't. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>stringWithCharacters:length:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>initWithContentsOfFile:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>initWithContentsOfFile:</b>(NSString *)<i>path</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Initializes the receiver, a newly allocated NSString, by reading characters from the file named by <i>path</i>. If the contents begin with a byte-order mark (U+FEFF or U+FFFE), interprets the contents as Unicode characters; otherwise interprets the contents as characters in the default C string encoding. Returns <b>self</b>, or <b>nil</b> if the file can't be opened.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>stringWithContentsOfFile:</b>, + <b>defaultCStringEncoding</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>initWithCString:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>initWithCString:</b>(const char *)<i>cString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Initializes the receiver, a newly allocated NSString, by converting the characters in <i>cString</i> from the default C string encoding into the Unicode character encoding. <i>cString</i> must be a zero-terminated C string in the default C string encoding, and may not be NULL. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>stringWithCString:</b>, + <b>defaultCStringEncoding</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>initWithCString:length:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>initWithCString:</b>(const char *)<i>cString</i> <b>length:</b>(unsigned int)<i>length</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Initializes the receiver, a newly allocated NSString, by converting the characters of <i>cString</i> from the default C string encoding into the Unicode character encoding. This method converts <i>length</i> * <b>sizeof(char)</b> bytes from <i>cString</i>, and doesn't stop short at a zero character. <i>cString</i> must contain bytes in the default C string encoding, and may not be NULL. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>stringWithCString:length:</b>, + <b>defaultCStringEncoding</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>initWithCStringNoCopy:length:freeWhenDone:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>initWithCStringNoCopy:</b>(char *)<i>cString</i></p>
+<p class="p59"><b>length:</b>(unsigned int)<i>length</i></p>
+<p class="p59"><b>freeWhenDone:</b>(BOOL)<i>flag</i></p>
+<p class="p60"><i></i><br></p>
+<p class="p7">Initializes the receiver, a newly allocated NSString, by converting the characters of <i>cString</i> from the default C string encoding into the Unicode character encoding. This method converts <i>length</i> * <b>sizeof(char)</b> bytes from <i>cString</i>, and doesn't stop short at a zero character. <i>cString</i> must be contain characters in the default C string encoding, and may not be NULL. The receiver becomes the owner of <i>cString;</i> if <i>flag</i> is YES it will free the memory when it no longer needs it, but if <i>flag</i> is NO it won't. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>stringWithCString:length:</b>, + <b>defaultCStringEncoding</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>initWithData:encoding:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>initWithData:</b>(NSData *)<i>data</i> <b>encoding:</b>(NSStringEncoding)<i>encoding</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Initializes the receiver, a newly allocated NSString, by converting the bytes in <i>data</i> into Unicode characters. <i>data</i> must be an NSData object containing bytes in <i>encoding</i> and in the default plain text format (that is, pure content with no attribute or other markup) for that encoding. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>initWithFormat:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>initWithFormat:</b>(NSString *)<i>format</i>, ...</p>
+<p class="p50"><br></p>
+<p class="p7">Invokes <b>initWithFormat:locale:arguments:</b> with <b>nil</b> as the locale.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>stringWithFormat:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>initWithFormat:arguments:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>initWithFormat:</b>(NSString *)<i>format</i> <b>arguments:</b>(va_list)<i>argList</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Invokes <b>initWithFormat:locale:arguments:</b> with <b>nil</b> as the locale.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>stringWithFormat:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>initWithFormat:locale:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>initWithFormat:</b>(NSString *)<i>format</i><span class="Apple-converted-space"> </span></p>
+<p class="p59"><b>locale:</b>(NSDictionary *)<i>dictionary,</i> ...</p>
+<p class="p60"><br></p>
+<p class="p7">Invokes <b>initWithFormat:locale:arguments:</b> with <i>dictionary</i> as the locale.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>localizedStringWithFormat:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>initWithFormat:locale:arguments:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>initWithFormat:</b>(NSString *)<i>format</i><span class="Apple-converted-space"> </span></p>
+<p class="p59"><b>locale:</b>(NSDictionary *)<i>dictionary</i></p>
+<p class="p59"><b>arguments:</b>(va_list)<i>argList</i></p>
+<p class="p60"><i></i><br></p>
+<p class="p7">Initializes a newly allocated string object, using <i>format</i> as a template into which the following argument values are substituted according to the formatting information of the current locale. For example, this code excerpt creates a string from <b>myArgs</b>, which is derived from a string object with the value “Cost:” and an <b>int</b> with the value 32:</p>
+<p class="p8"><br></p>
+<p class="p15">va_list myArgs;</p>
+<p class="p15">NSDictionary *myLocale;<span class="Apple-converted-space">    </span>/* Assume this exists. */</p>
+<p class="p61"><br></p>
+<p class="p15">NSString *myString = [[NSString alloc] initWithFormat:@"%@: %d\n",</p>
+<p class="p15"><span class="Apple-converted-space">    </span>locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]</p>
+<p class="p15"><span class="Apple-converted-space">    </span>arguments:myArgs];</p>
+<p class="p16"><br></p>
+<p class="p7">(Note the message construct for retrieving the user's locale.). The resulting string has the value “Cost: 32\n”.</p>
+<p class="p8"><br></p>
+<p class="p7">See “Creating and Converting String Objects” in the class cluster description for more information. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>initWithFormat:arguments:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>initWithString:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>initWithString:</b>(NSString *)<i>aString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>Initializes the receiver, a newly allocated NSString, by copying the characters from <i>aString</i>. Returns <b>self</b>.+ <b>stringWithString:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>intValue</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (int)<b>intValue</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns the integer value of the string's text, assuming a decimal representation and skipping whitespace at the beginning of the string. Returns INT_MAX or INT_MIN on overflow. Returns 0 if the receiver doesn't begin with a valid decimal text representation of a number.</p>
+<p class="p8"><br></p>
+<p class="p7">This method uses formatting information stored in the default locale; use an NSScanner for localized scanning of numeric values from a string.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>doubleValue</b>,<b> </b><span class="s3">-</span> <b>floatValue</b>, <span class="s3">-</span> <b>scanInt: </b>(NSScanner)</p>
+<p class="p52"><br></p>
+<p class="p53"><br></p>
+<p class="p55"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>isAbsolutePath</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (BOOL)<b>isAbsolutePath</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Interprets the receiver as a path, returning YES if it represents an absolute path, NO if it represents a relative path. See “Manipulating Paths” in the class description for more information on paths.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>isEqualToString:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (BOOL)<b>isEqualToString:</b>(NSString *)<i>aString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns YES if <i>aString</i> is equivalent to the receiver (if they have the same <b>id</b> or if they compare as NSOrderedSame), NO otherwise. When you know both objects are strings, this method is a faster way to check equality than <b>isEqual:</b>.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>compare:options:range:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>lastPathComponent</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>lastPathComponent</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns the last path component of the receiver. The following table illustrates the effect of <b>lastPathComponent</b> on a variety of different paths:</p>
+<p class="p8"><br></p>
+<p class="p19"><b>Receiver's String Value<span class="Apple-tab-span">	</span>String Returned</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">“/tmp/scratch.tiff<i>”</i><span class="Apple-tab-span">	</span>“scratch.tiff<i>”</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p21">“/tmp/scratch<i>”</i><span class="Apple-tab-span">	</span>“scratch<i>”</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p21">“/tmp/<i>”</i><span class="Apple-tab-span">	</span>“tmp<i>”</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p21">“scratch<i>”</i><span class="Apple-tab-span">	</span>“scratch<i>”</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p21">“/<i>”</i><span class="Apple-tab-span">	</span>“<i>” (an empty string)</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p62"><i></i><br></p>
+<p class="p12"><b></b><b>length</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (unsigned int)<b>length</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns the number of Unicode characters in the receiver. This includes the individual characters of composed character sequences, so you can't use this method to determine if a string will be visible when printed, or how long it will appear.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>cStringLength</b>, <span class="s3">-</span> <b>sizeWithAttributes:</b> (NSString Additions in the Application Kit)</p>
+<p class="p52"><br></p>
+<p class="p53"><br></p>
+<p class="p55"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>lineRangeForRange:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p49">+ (NSRange)<b>lineRangeForRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns the smallest range of lines containing <i>aRange</i>, including the characters that terminate the line.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>getLineStart:end:contentsEnd:forRange:</b>, <span class="s3">-</span> <b>substringFromRange:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>lossyCString</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (const char *)<b>lossyCString</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns a representation of the receiver as a C string in the default C string encoding, possibly losing information in converting to that encoding (and not raising an exception as <b>cString</b> does). The returned C string will be automatically freed just as a returned object would be released; your code should copy the C string or use <b>getCString:</b> if it needs to store the C string outside of the autorelease context in which the C string is created.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>getCString:</b>, <span class="s3">-</span> <b>canBeConvertedToEncoding</b>, + <b>defaultCStringEncoding</b>, <span class="s3">-</span> <b>cStringLength</b>, <span class="s3">-</span> <b>getCharacters:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b></b><b></b><b>lowercaseString</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>lowercaseString</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns a string with each character from the receiver changed to its corresponding lowercase value. Case transformations aren't guaranteed to be symmetrical or to produce strings of the same lengths as the originals. The result of this statement:</p>
+<p class="p8"><br></p>
+<p class="p15">lcString = [myString lowercaseString];</p>
+<p class="p16"><br></p>
+<p class="p7">might not be equal to this:</p>
+<p class="p8"><br></p>
+<p class="p15">lcString = [[myString uppercaseString] lowercaseString];</p>
+<p class="p16"><br></p>
+<p class="p7">For example, the uppercase form of “ß” in German is “SS”, so converting “eßen” to uppercase then lowercase produces this sequence of strings:</p>
+<p class="p8"><br></p>
+<p class="p9">“eßen<i>”</i></p>
+<p class="p9">“ESSEN<i>”</i></p>
+<p class="p9">“essen<i>”</i></p>
+<p class="p10"><i></i><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>capitalizedString</b>, <span class="s3">-</span> <b>uppercaseString</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p55"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>pathComponents</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSArray *)<b>pathComponents</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Interprets the receiver as a path, returning an array of strings containing, in order, each path component of the receiver. The strings in the array appear in the order they did in the receiver. If the string begins or ends with the path separator then the first or last component, respectively, is empty. Empty components (caused by consecutive path separators) are deleted. For example, this code excerpt:</p>
+<p class="p8"><br></p>
+<p class="p15">NSString *path = @"tmp/scratch";</p>
+<p class="p15">NSArray *pathComponents = [path componentsSeparatedByString:@"/"];</p>
+<p class="p16"><br></p>
+<p class="p7">produces an array with these contents:</p>
+<p class="p8"><br></p>
+<p class="p19"><b>Index<span class="Apple-tab-span">	</span>Path Component</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">0<span class="Apple-tab-span">	</span>tmp</p>
+<p class="p22"><br></p>
+<p class="p21">1<span class="Apple-tab-span">	</span>scratch</p>
+<p class="p22"><br></p>
+<p class="p7">If the receiver begins with a slash—for example, “/tmp/scratch”—the array has these contents:</p>
+<p class="p8"><br></p>
+<p class="p19"><b>Index<span class="Apple-tab-span">	</span>Path Component</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">0<span class="Apple-tab-span">	</span>“/”</p>
+<p class="p22"><br></p>
+<p class="p21">1<span class="Apple-tab-span">	</span>“tmp”</p>
+<p class="p22"><br></p>
+<p class="p21">2<span class="Apple-tab-span">	</span>“scratch”</p>
+<p class="p22"><br></p>
+<p class="p7">If the receiver has no separators—for example, “scratch”—the array contains the string itself, in this case “scratch”.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>pathWithComponents:</b>, <span class="s3">-</span> <b>stringByStandardizingPath:</b>, <span class="s3">-</span> <b>componentsSeparatedByString:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>pathExtension</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>pathExtension</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Interprets the receiver as a path, returning the receiver's extension, if any (not including the extension divider). The following table illustrates the effect of <b>pathExtension</b> on a variety of different paths:</p>
+<p class="p8"><br></p>
+<p class="p19"><b>Receiver's String Value<span class="Apple-tab-span">	</span>String Returned</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">“/tmp/scratch.tiff”<span class="Apple-tab-span">	</span>“tiff”</p>
+<p class="p22"><br></p>
+<p class="p21">“/tmp/scratch”<span class="Apple-tab-span">	</span>“”<i> (an empty string)</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p21">“/tmp/”<span class="Apple-tab-span">	</span>“”<i> (an empty string)</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p21">“/tmp/scratch..tiff”<span class="Apple-tab-span">	</span>“tiff”</p>
+<p class="p22"><br></p>
+<p class="p62"><br></p>
+<p class="p12"><b></b><b>propertyList</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (id)<b>propertyList</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Parses the receiver as a text representation of a property list, returning an NSString, NSData, NSArray, or NSDictionary object according to the topmost element. Arrays are delimited by parentheses, with individual elements separated by commas and optional spaces. Dictionaries are delimited by curly braces, with key-value pairs separated by semicolons, the key and value separated by an equals sign. Strings appear as plain text if they contain no whitespace, or enclosed in straight quotation marks if they do. Data items are delimited by angle brackets and encoded as hexadecimal digits. Here's a short example of a text-format property list:</p>
+<p class="p8"><br></p>
+<p class="p15">{</p>
+<p class="p15"><span class="Apple-converted-space">    </span>Title = "Star Wars";</p>
+<p class="p15"><span class="Apple-converted-space">    </span>Director = "Lucas, George";</p>
+<p class="p15"><span class="Apple-converted-space">    </span>Cast = (</p>
+<p class="p15"><span class="Apple-converted-space">        </span>"Hamill, Mark",</p>
+<p class="p15"><span class="Apple-converted-space">        </span>"Fisher, Carrie",</p>
+<p class="p15"><span class="Apple-converted-space">        </span>"Ford, Harrison"</p>
+<p class="p15"><span class="Apple-converted-space">    </span>);</p>
+<p class="p15"><span class="Apple-converted-space">    </span>"Thumbnail Image" = &lt;040b7479 70656473 <i>(many more sets of digits)</i> 8484074e&gt;</p>
+<p class="p15">}</p>
+<p class="p16"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>propertyListFromStringsFileFormat</b>, + <b>stringWithContentsOfFile:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>propertyListFromStringsFileFormat</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSDictionary *)<b>propertyListFromStringsFileFormat</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns a dictionary object initialized with the keys and values found in the receiver. The receiver must contain text in the format used for <b>.strings</b> files. In this format, keys and values are separated by an equals sign, and each key-value pair is terminated with a semicolon. The value is optional, however; if not present, the equals sign is also omitted. The keys and values themselves are always strings enclosed in straight quotation marks. Comments may be included, delimited by <b>/*</b> and <b>*/</b> as for ANSI C comments. Here's a short example of a strings file:</p>
+<p class="p8"><br></p>
+<p class="p15">/* Question in confirmation panel for quitting. */</p>
+<p class="p15">"Confirm Quit" = "Are you sure you want to quit?";</p>
+<p class="p61"><br></p>
+<p class="p15">/* Message when user tries to close unsaved document */</p>
+<p class="p15">"Close or Save" = "Save changes before closing?";</p>
+<p class="p61"><br></p>
+<p class="p15">/* Word for Cancel */</p>
+<p class="p15">"Cancel";</p>
+<p class="p16"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>propertyList</b>, + <b>stringWithContentsOfFile:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>rangeOfCharacterFromSet:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSRange)<b>rangeOfCharacterFromSet:</b>(NSCharacterSet *)<i>aSet</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Invokes <b>rangeOfCharacterFromSet:options:</b> with no options.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>rangeOfCharacterFromSet:options:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSRange)<b>rangeOfCharacterFromSet:</b>(NSCharacterSet *)<i>aSet</i></p>
+<p class="p59"><b>options:</b>(unsigned int)<i>mask</i></p>
+<p class="p60"><i></i><br></p>
+<p class="p7">Invokes <b>rangeOfCharacterFromSet:options:range:</b> with <i>mask</i> for the options and the entire extent of the receiver for the range.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>rangeOfCharacterFromSet:options:range:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSRange)<b>rangeOfCharacterFromSet:</b>(NSCharacterSet *)<i>aSet</i></p>
+<p class="p59"><b>options:</b>(unsigned int)<i>mask</i></p>
+<p class="p59"><b>range:</b>(NSRange)<i>aRange</i></p>
+<p class="p60"><i></i><br></p>
+<p class="p7">Returns the range in the receiver of the first character found from <i>aSet</i>. The search is restricted to characters in the receiver within <i>aRange</i>. The following options may be specified in <i>mask</i> by combining them with the C bitwise OR operator:</p>
+<p class="p8"><br></p>
+<p class="p9">NSCaseInsensitiveSearch</p>
+<p class="p9">NSLiteralSearch</p>
+<p class="p9">NSBackwardsSearch</p>
+<p class="p10"><br></p>
+<p class="p7">See “Working with String Objects” in the class cluster description for details on these options. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the string.</p>
+<p class="p8"><br></p>
+<p class="p7">Since precomposed characters in <i>aSet</i> can match composed characters sequences in the receiver, the length of the returned range can be greater than one. For example, if you search for “ü” in the string “stru¨del”, the returned range is {3,2}.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>rangeOfComposedCharacterSequenceAtIndex:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSRange)<b>rangeOfComposedCharacterSequenceAtIndex:</b>(unsigned int)<i>anIndex</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns the range in the receiver of the composed character sequence located at <i>anIndex</i>. The composed character sequence includes the first base character found at or before <i>anIndex</i>, and its length includes the base character and all non-base<i> </i>characters following the base character.</p>
+<p class="p8"><br></p>
+<p class="p7">Raises an NSRangeException if <i>anIndex</i> lies beyond the end of the string.</p>
+<p class="p8"><br></p>
+<p class="p7">If you want to write a method to adjust an arbitrary range so that it includes the composed character sequences on its boundaries, you can create a method such as this:<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p15">- (NSRange)adjustRange:(NSRange)aRange</p>
+<p class="p15">{</p>
+<p class="p15"><span class="Apple-converted-space">    </span>unsigned int index, endIndex;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>NSRange newRange, endRange;</p>
+<p class="p61"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>index = aRange.location;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>newRange = [self rangeOfComposedCharacterSequenceAtIndex:index];</p>
+<p class="p61"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>index = aRange.location + aRange.length;</p>
+<p class="p15"><span class="Apple-converted-space">    </span>endRange = [self rangeOfComposedCharacterSequenceAtIndex:index];</p>
+<p class="p15"><span class="Apple-converted-space">    </span>endIndex = endRange.location + endRange.length;</p>
+<p class="p61"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>newRange.length = endIndex - newRange.location;</p>
+<p class="p61"><br></p>
+<p class="p15"><span class="Apple-converted-space">    </span>return newRange;</p>
+<p class="p15">}</p>
+<p class="p16"><br></p>
+<p class="p7"><b>adjustRange:</b> begins by correcting the location for the beginning of <i>aRange</i>, storing it in <b>newRange</b>. It then works at the end of <i>aRange,</i> correcting the location and storing it in <b>endIndex</b>. Finally, it sets the length of <b>newRange</b> to the difference between <b>endIndex</b> and the new range's location.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>rangeOfString:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSRange)<b>rangeOfString:</b>(NSString *)<i>aString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Invokes <b>rangeOfString:options:</b> with no options.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>rangeOfString:options:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSRange)<b>rangeOfString:</b>(NSString *)<i>aString</i> <b>options:</b>(unsigned int)<i>mask</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Invokes <b>rangeOfString:options:range:</b> with the options specified by <i>mask</i> and the entire extent of the receiver as the range.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>rangeOfString:options:range:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSRange)<b>rangeOfString:</b>(NSString *)<i>subString</i></p>
+<p class="p59"><b>options:</b>(unsigned int)<i>mask</i></p>
+<p class="p59"><b>range:</b>(NSRange)<i>aRange</i></p>
+<p class="p60"><i></i><br></p>
+<p class="p7">Returns an NSRange giving the location and length of the first occurrence of <i>subString</i> within <i>aRange</i> in the receiver. If <i>subString</i> isn't found, the length of the returned NSRange is zero. The length of the returned range and that of <i>subString</i> may differ if equivalent composed character sequences are matched. The following options may be specified in <i>mask</i> by combining them with the C bitwise OR operator:</p>
+<p class="p8"><br></p>
+<p class="p9">NSCaseInsensitiveSearch</p>
+<p class="p9">NSLiteralSearch</p>
+<p class="p9">NSBackwardsSearch</p>
+<p class="p9">NSAnchoredSearch</p>
+<p class="p10"><br></p>
+<p class="p7">See “Working with String Objects” in the class cluster description for details on these options. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the string. Returns a range of {NSNotFound, 0} if <i>subString</i> is the null string.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>smallestEncoding</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSStringEncoding)<b>smallestEncoding</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns the smallest encoding to which the receiver can be converted without loss of information. This encoding may not be the fastest for accessing characters, but is very space-efficient. This method itself may take some time to execute.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>fastestEncoding</b>, <span class="s3">-</span> <b>getCharacters:range:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringByAbbreviatingWithTildeInPath</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>stringByAbbreviatingWithTildeInPath</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns a string representing the receiver as a path, with a tilde, “~”, substituted for the full path to the current user's home directory, or “~<i>user</i>” for a user other than the current user. Returns the receiver unaltered if it doesn't begin with the user's home directory.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>stringByExpandingTildeInPath</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringByAppendingFormat:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>stringByAppendingFormat:</b>(NSString *)<i>format</i>, ...</p>
+<p class="p50"><br></p>
+<p class="p7">Returns a string made by appending to the receiver a string constructed from <i>format</i> and following arguments in the manner of <b>stringWithFormat:</b>.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>stringByAppendingString:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringByAppendingPathComponent:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>stringByAppendingPathComponent:</b>(NSString *)<i>aString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns a string made by appending <i>aString</i>, preceded by if necessary by a path separator. The following table illustrates the effect of this method on a variety of different paths, assuming that <i>aString</i> is supplied as “scratch.tiff”:</p>
+<p class="p8"><br></p>
+<p class="p19"><b>Receiver's String Value<span class="Apple-tab-span">	</span>Resulting String</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">“/tmp”<span class="Apple-tab-span">	</span>“/tmp/scratch.tiff”</p>
+<p class="p22"><br></p>
+<p class="p21">“/tmp/”<span class="Apple-tab-span">	</span>“/tmp/scratch.tiff”</p>
+<p class="p22"><br></p>
+<p class="p21">“/”<span class="Apple-tab-span">	</span>“/scratch.tiff”</p>
+<p class="p22"><br></p>
+<p class="p21">“” <i>(an empty string)</i><span class="Apple-tab-span">	</span>“scratch.tiff”</p>
+<p class="p22"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>stringsByAppendingPaths:</b>, <span class="s3">-</span> <b>stringByAppendingPathExtension:</b>, <span class="s3">-</span> <b>stringByDeletingLastPathComponent</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringByAppendingPathExtension:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>stringByAppendingPathExtension:</b>(NSString *)<i>string</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns a string made by appending to the receiver an extension separator followed by <i>aString</i>. The following table illustrates the effect of this method on a variety of different paths, assuming that <i>aString</i> is supplied as @“tiff”:</p>
+<p class="p8"><br></p>
+<p class="p19"><b>Receiver's String Value<span class="Apple-tab-span">	</span>Resulting String</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">“/tmp/scratch.old”<span class="Apple-tab-span">	</span>“/tmp/scratch.old.tiff”</p>
+<p class="p22"><br></p>
+<p class="p21">“/tmp/scratch.”<span class="Apple-tab-span">	</span>“/tmp/scratch..tiff”</p>
+<p class="p22"><br></p>
+<p class="p21">“/tmp/”<span class="Apple-tab-span">	</span>“/tmp/.tiff”</p>
+<p class="p22"><br></p>
+<p class="p21">“scratch”<span class="Apple-tab-span">	</span>“scratch.tiff”</p>
+<p class="p22"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>stringByAppendingPathComponent:</b>, <span class="s3">-</span> <b>stringByDeletingPathExtension</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringByAppendingString:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)s<b>tringByAppendingString:</b>(NSString *)<i>aString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns a string object made by appending <i>aString</i> to the receiver. This code excerpt, for example:</p>
+<p class="p8"><br></p>
+<p class="p15">NSString *errorTag = @"Error: ";</p>
+<p class="p15">NSString *errorString = @"premature end of file.";</p>
+<p class="p15">NSString *errorMessage = [errorTag</p>
+<p class="p15"><span class="Apple-converted-space">    </span>stringByAppendingString:errorString];</p>
+<p class="p16"><br></p>
+<p class="p7">produces the string “Error: premature end of file.”.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>stringByAppendingFormat:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringByDeletingLastPathComponent</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>stringByDeletingLastPathComponent</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns a string made by deleting the last path component from the receiver, along with any final path separator. If the receiver represents the root path, however, it's returned unaltered. The following table illustrates the effect of this method on a variety of different paths:</p>
+<p class="p8"><br></p>
+<p class="p19"><b>Receiver's String Value<span class="Apple-tab-span">	</span>Resulting String</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">“/tmp/scratch.tiff”<span class="Apple-tab-span">	</span>“/tmp”</p>
+<p class="p22"><br></p>
+<p class="p21">“/tmp/lock/”<span class="Apple-tab-span">	</span>“/tmp”</p>
+<p class="p22"><br></p>
+<p class="p21">“/tmp/”<span class="Apple-tab-span">	</span>“/”</p>
+<p class="p22"><br></p>
+<p class="p21">“/tmp”<span class="Apple-tab-span">	</span>“/”</p>
+<p class="p22"><br></p>
+<p class="p21">“/”<span class="Apple-tab-span">	</span>“/”</p>
+<p class="p22"><br></p>
+<p class="p21">“scratch.tiff”<span class="Apple-tab-span">	</span>“”<i> (an empty string)</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>stringByDeletingPathExtension</b>, <span class="s3">-</span> <b>stringByAppendingPathComponent:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringByDeletingPathExtension</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>stringByDeletingPathExtension</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns a string made by deleting the extension (if any, and only the last) from the receiver. Strips any trailing path separator before checking for an extension. If the receiver represents the root path, however, it's returned unaltered. The following table illustrates the effect of this method on a variety of different paths:</p>
+<p class="p8"><br></p>
+<p class="p19"><b>Receiver's String Value<span class="Apple-tab-span">	</span>Resulting String</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">“/tmp/scratch.tiff”<span class="Apple-tab-span">	</span>“/tmp/scratch”</p>
+<p class="p22"><br></p>
+<p class="p21">“/tmp/”<span class="Apple-tab-span">	</span>“/tmp”</p>
+<p class="p22"><br></p>
+<p class="p21">“scratch.bundle/”<span class="Apple-tab-span">	</span>“scratch”</p>
+<p class="p22"><br></p>
+<p class="p21">“scratch..tiff”<span class="Apple-tab-span">	</span>“scratch.”</p>
+<p class="p22"><br></p>
+<p class="p21">“.tiff”<span class="Apple-tab-span">	</span>“”<i> (an empty string)</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p21">“/”<span class="Apple-tab-span">	</span>“/”</p>
+<p class="p22"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>pathExtension</b>, <span class="s3">-</span> <b>stringByDeletingLastPathComponent</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringByExpandingTildeInPath</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>stringByExpandingTildeInPath</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns a string made by expanding the initial component, if it begins with “~” or “~<i>user</i>”, to its full path value. Returns the receiver unaltered if that component can't be expanded.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>stringByAbbreviatingWithTildeInPath</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringByResolvingSymlinksInPath</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)stringByResolvingSymlinksInPath</p>
+<p class="p50"><br></p>
+<p class="p7">On Microsoft Windows: Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p7">On UNIX platforms: Expands an initial tilde expression in the receiving path, then resolves all symbolic links and references to current or parent directories if possible, returning a standardized path. If the original path is absolute, all symbolic links are guaranteed to be removed; if it's a relative path, symbolic links that can't be resolved are left unresolved in the returned string. Returns <b>self</b> if an error occurs.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>stringByStandardizingPath</b>, <span class="s3">-</span> <b>stringByExpandingTildeInPath</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringByStandardizingPath</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)stringByStandardizingPath</p>
+<p class="p50"><br></p>
+<p class="p7">Returns a string representing the receiving path with extraneous path components removed, or self if an error is encountered (such as a path component not existing). Among the changes made are:</p>
+<p class="p8"><br></p>
+<p class="p63">•<span class="Apple-tab-span">	</span>An initial tilde expression is expanded using <b>stringByExpandingTildeInPath</b>.</p>
+<p class="p64"><br></p>
+<p class="p63">•<span class="Apple-tab-span">	</span>Empty components and references to the current directory (that is, the sequences “//” and “/./”) are reduced to single path separators.</p>
+<p class="p64"><br></p>
+<p class="p63">•<span class="Apple-tab-span">	</span>In absolute paths only, references to the parent directory (that is, the component “..”) are resolved to the real parent directory if possible using <b>stringByResolvingSymlinksInPath</b>, which consults the file system to resolve each potential symbolic link.</p>
+<p class="p64"><br></p>
+<p class="p63">•<span class="Apple-tab-span">	</span>In relative paths, because symbolic links can't be resolved, references to the parent directory are left in place.</p>
+<p class="p64"><br></p>
+<p class="p63">•<span class="Apple-tab-span">	</span>On Mach, an initial component of “/private” is removed from the path if the result still indicates an existing file or directory (checked by consulting the file system).</p>
+<p class="p64"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>stringByExpandingTildeInPath</b>, <span class="s3">-</span> <b>stringByResolvingSymlinksInPath</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>stringsByAppendingPaths:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSArray *)<b>stringsByAppendingPaths:</b>(NSArray *)<i>paths</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns an array of strings made by separately appending each string in <i>paths</i> to the receiver, preceded by if necessary by a path separator. See <b>stringByAppendingPathComponent:</b> for an individual example.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>substringFromIndex:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>substringFromIndex:</b>(unsigned int)<i>anIndex</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns a string object containing the characters of the receiver from the one at <i>anIndex</i> to the end. Raises an NSRangeException if <i>anIndex</i> lies beyond the end of the string.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>substringWithRange:</b>, <span class="s3">-</span> <b>substringToIndex:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>substringWithRange:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>substringWithRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns a string object containing the characters of the receiver that lie within <i>aRange</i>. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the string.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>substringFromIndex:</b>, <span class="s3">-</span> <b>substringToIndex:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>substringToIndex:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>substringToIndex:</b>(unsigned int)<i>anIndex</i><span class="Apple-tab-span">	</span></p>
+<p class="p50"><br></p>
+<p class="p7">Returns a string object containing the characters of the receiver up to, but not including, the one at <i>anIndex</i>. Raises an NSRangeException if <i>anIndex</i> lies beyond the end of the string.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>substringFromIndex:</b>, <span class="s3">-</span> <b>substringWithRange:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>uppercaseString</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (NSString *)<b>uppercaseString</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p7">Returns a string with each character from the receiver changed to its corresponding uppercase value. Case transformations aren't guaranteed to be symmetrical or to produce strings of the same lengths as the originals. See <b>lowercaseString</b> for an example.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>capitalizedString</b>, <span class="s3">-</span> <b>lowercaseString</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>writeToFile:atomically:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (BOOL)<b>writeToFile:</b>(NSString *)<i>path</i> <b>atomically:</b>(BOOL)<i>flag</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Writes the string's characters to the file named by <i>path</i>, returning YES on success and NO on failure. If <i>flag</i> is YES, attempts to write the file safely so that an existing file named by <i>path</i> is not overwritten, nor does a new file at <i>path</i> actually get created, unless the write is successful. The string is written in the default C string encoding if possible (that is, if no information would be lost), in the Unicode encoding otherwise.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>defaultCStringEncoding</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p31"><br></p>
+<p class="p31"><br></p>
+<p class="p32"><span class="s2">i<span class="Apple-tab-span">	</span></span><b></b><b>NSMutableString</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p65"><span class="s4"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSString : NSObject</p>
+<p class="p35"><br></p>
+<p class="p39"><span class="s4"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSCoding (NSString)</p>
+<p class="p37">NSCopying (NSString)</p>
+<p class="p37">NSMutableCopying (NSString)</p>
+<p class="p37">NSObject (NSObject)</p>
+<p class="p38"><br></p>
+<p class="p39"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSString.h</p>
+<p class="p66"><br></p>
+<p class="p66"><br></p>
+<p class="p40"><b>Class Description</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p7">The NSMutableString class declares the programmatic interface to objects that manage a modifiable array of Unicode characters (text strings). This class adds one primitive method—<b>replaceCharactersInRange:withString:</b>—to the basic string-handling behavior inherited from NSString. All other methods that modify a string work through this method. For example, <b>insertString:atIndex:</b> simply replaces the characters in a range of zero length, while <b>deleteCharactersInRange:</b> replaces the characters in a given range with no characters.</p>
+<p class="p8"><br></p>
+<p class="p42"><br></p>
+<p class="p40"><b>Method Types</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p43">Creating temporary strings<span class="Apple-tab-span">	</span>+ stringWithCapacity:</p>
+<p class="p46"><br></p>
+<p class="p43">Initializing an NSMutableString</p>
+<p class="p44"><span class="s3">-</span> initWithCapacity:</p>
+<p class="p45"><br></p>
+<p class="p43">Modifying a string<span class="Apple-tab-span">	</span><span class="s3">-</span> appendFormat:</p>
+<p class="p44"><span class="s3">-</span> appendString:</p>
+<p class="p44"><span class="s3">-</span> deleteCharactersInRange:</p>
+<p class="p44"><span class="s3">-</span> insertString:atIndex:</p>
+<p class="p44"><span class="s3">-</span> replaceCharactersInRange:withString:</p>
+<p class="p44"><span class="s3">-</span> setString:</p>
+<p class="p67"><br></p>
+<p class="p40"><b>Class Methods</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p12"><b></b><b>stringWithCapacity:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49">+ (NSMutableString *)<b>stringWithCapacity:</b>(unsigned int)<i>capacity</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Returns an empty mutable string, using <i>capacity</i> as a hint for how much initial storage to reserve.</p>
+<p class="p8"><br></p>
+<p class="p42"><br></p>
+<p class="p40"><b>Instance Methods</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p12"><b></b><b>appendFormat:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (void)<b>appendFormat:</b>(NSString *)<i>format</i>, ...</p>
+<p class="p50"><br></p>
+<p class="p7">Adds a constructed string to the receiver. Creates the new string by using NSString's <b>stringWithFormat:</b> method with the arguments listed.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>appendString:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>appendString:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (void)<b>appendString:</b>(NSString *)<i>aString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Adds the characters of <i>aString</i> to end of the receiver.</p>
+<p class="p8"><br></p>
+<p class="p51"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>appendFormat:</b></p>
+<p class="p52"><b></b><br></p>
+<p class="p53"><b></b><br></p>
+<p class="p12"><b></b><b>deleteCharactersInRange:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (void)<b>deleteCharactersInRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Removes the characters in <i>aRange</i> from the receiver. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the string.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>initWithCapacity:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span><b> </b>(id)<b>initWithCapacity:</b>(unsigned int)<i>capacity</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Initializes a newly allocated NSMutableString, using <i>capacity</i> as a hint for how much memory to allocate. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>insertString:atIndex:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (void)<b>insertString:</b>(NSString *)<i>aString</i> <b>atIndex:</b>(unsigned int)<i>anIndex</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Inserts the characters of <i>aString</i> into the receiver, so that the new characters begin at <i>anIndex</i> and the existing characters from <i>anIndex</i> to the end are shifted by the length of <i>aString</i>. Raises an NSRangeException if <i>anIndex</i> lies beyond the end of the string.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>replaceCharactersInRange:withString:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (void)<b>replaceCharactersInRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p59"><b>withString:</b>(NSString *)<i>aString</i></p>
+<p class="p60"><i></i><br></p>
+<p class="p7">Replaces the characters from <i>aRange</i> with those in <i>aString</i>. Raises an NSRangeException if any part of <i>aRange</i> lies beyond the end of the string.</p>
+<p class="p8"><br></p>
+<p class="p54"><br></p>
+<p class="p12"><b></b><b>setString:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p49"><span class="s3">-</span> (void)<b>setString:</b>(NSString *)<i>aString</i></p>
+<p class="p50"><i></i><br></p>
+<p class="p7">Replaces the characters of the receiver with those in <i>aString</i>.</p>
+<p class="p8"><br></p>
+</body>
+</html>

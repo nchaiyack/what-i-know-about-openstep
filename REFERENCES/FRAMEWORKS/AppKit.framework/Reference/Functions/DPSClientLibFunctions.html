@@ -1,0 +1,615 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 50.0px Times; min-height: 61.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 123.0px; font: 33.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 123.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 119.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 119.0px; font: 14.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 119.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 119.0px; font: 5.0px Helvetica; min-height: 6.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -78.0px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -78.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -98.0px; font: 14.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -98.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 138.0px; text-indent: -97.0px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 138.0px; text-indent: -19.0px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 138.0px; text-indent: -19.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -98.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 138.0px; text-indent: -19.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 119.0px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 119.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 138.0px; font: 12.0px Courier}
+    p.p22 {margin: 0.0px 0.0px 0.0px 138.0px; font: 10.0px Courier; min-height: 12.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 119.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -77.0px; font: 14.0px Times}
+    p.p25 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -77.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -77.0px; font: 30.0px Times; min-height: 37.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 119.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 138.0px; font: 14.0px Helvetica}
+    p.p29 {margin: 0.0px 0.0px 0.0px 138.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 138.0px; font: 14.0px Times}
+    p.p31 {margin: 0.0px 0.0px 0.0px 138.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -66.0px; font: 14.0px Times}
+    p.p33 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -66.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -66.0px; font: 30.0px Times; min-height: 37.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 138.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 119.0px; font: 30.0px Times; min-height: 37.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 138.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -66.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -93.0px; font: 14.0px Times}
+    p.p40 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -93.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -93.0px; font: 30.0px Times; min-height: 37.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 138.0px; text-indent: -97.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 138.0px; font: 15.0px Courier; min-height: 18.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 119.0px; text-indent: -98.0px; font: 30.0px Times; min-height: 37.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><b>Client Library Functions</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSAddFD(), DPSRemoveFD()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Monitor a file descriptor</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>void <b>DPSAddFD(</b>int <i>fd</i>, DPSFDProc <i>handler</i>, void *<i>userData</i>, int <i>priority</i><b>)</b><span class="Apple-converted-space"> </span></p>
+<p class="p15">void <b>DPSRemoveFD(</b>int <i>fd</i><b>)</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSAddFD()</b> registers the function<i> handler</i> to be called each time there is activity with the file specified by file descriptor <i>fd</i>.<span class="Apple-converted-space">  </span>The function is called provided the following are true:</p>
+<p class="p17"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>The file descriptor <i>fd</i> must be valid and open; typically <i>fd</i> is generated through a call to <b>open()</b>.<span class="Apple-converted-space">  </span>There needn't be any data waiting to be read on <i>fd</i>.</p>
+<p class="p18"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span><i>priority</i>, an integer from 0 to 30, must be equal to or greater than the application's current priority threshold.<span class="Apple-converted-space">  </span>See <b>DPSAddTimedEntry()</b> for a further explanation.</p>
+<p class="p18"><br></p>
+<p class="p19">DPSFDProc, <i>handler</i>'s defined type, takes the form</p>
+<p class="p20"><br></p>
+<p class="p21">void<i> *handler</i>(int <i>fd</i>, void *<i>userData</i>)</p>
+<p class="p22"><br></p>
+<p class="p19">where <i>fd</i> is the file descriptor that prompted the function call and <i>userData</i> is the same pointer that was passed as the third argument to <b>DPSAddFD()</b>.<span class="Apple-converted-space">  </span>The <i>userData</i> pointer is provided as a convenience, allowing you to pass arbitrary data to <i>handler</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19"><b>DPSRemoveFD()</b> removes the specified file descriptor from the list of those that the application will check. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19">Typically, <b>DPSAddFD()</b> is used to listen to a socket or pipe; it's rarely used to monitor a common file.</p>
+<p class="p20"><br></p>
+<p class="p23"><br></p>
+<p class="p24">SEE ALSO<b><span class="Apple-tab-span">	</span>DPSAddPort(), DPSAddTimedEntry()</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSAddNotifyPortProc(), DPSRemoveNotifyPortProc()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Set the handler function for the notify port</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>void <b>DPSAddNotifyPortProc(</b>DPSPortProc <i>handler</i>, void *<i>userData</i><b>)</b><span class="Apple-converted-space"> </span></p>
+<p class="p15">void <b>DPSRemoveNotifyPortProc(</b>DPSPortProc <i>handler</i><b>)</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSAddNotifyPortProc()</b> registers <i>handler</i> as the function that's called when a message arrives on the notify port, the unique port, created through the <b>task_notify()</b> Mach function, on which notifications (such as port death) are sent.<span class="Apple-converted-space">  </span>You don't need to create the notify port yourself; <b>DPSAddNotifyPortProc()</b> creates it for you if it doesn't already exist. <span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p19">DPSPortProc, <i>handler</i>'s defined type, takes the form</p>
+<p class="p20"><br></p>
+<p class="p21">void<i> </i><span class="s1">*</span><i>handler</i>(msg_header_t *<i>msg</i>, void *<i>userData</i>)</p>
+<p class="p22"><br></p>
+<p class="p19">where <i>msg</i> is a pointer to the message that was received at the port and <i>userData</i> is the same pointer that was passed as the second argument to <b>DPSAddNotifyPortProc()</b>.<span class="Apple-converted-space">  </span>The <i>userData</i> pointer is provided as a convenience, allowing you to pass arbitrary data to <i>handler</i>.</p>
+<p class="p20"><br></p>
+<p class="p19">The notify port can have only one handler at a time; adding a handler removes the current one.<span class="Apple-converted-space">  </span>You can remove the port's handler without specifying a new one with the <b>DPSRemoveNotifyPortProc()</b> function.<span class="Apple-converted-space">  </span>The function's argument must match the notify port's current handler.<span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p23"><br></p>
+<p class="p24">SEE ALSO<b><span class="Apple-tab-span">	</span>DPSAddPort(), DPSAddTimedEntry()</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSAddPort(), DPSRemovePort()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Monitor a Mach port</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>void <b>DPSAddPort(</b>port_t <i>port</i>, DPSPortProc <i>handler</i>, int <i>maxMsgSize</i>, void *<i>userData</i>, int <i>priority</i><b>)</b><span class="Apple-converted-space"> </span></p>
+<p class="p15">void <b>DPSRemovePort(</b>port_t <i>port</i><b>)</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSAddPort()</b> registers the function<i> handler</i> to be called each time your application asks for an event or peeks at the event queue.<span class="Apple-converted-space">  </span>The function is called provided the following are true:</p>
+<p class="p17"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>The Mach port <i>port</i><span class="Apple-converted-space">  </span>must be valid and it must hold a message waiting to be read.<span class="Apple-converted-space"> </span></p>
+<p class="p18"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span><i>priority</i>, an integer from 0 to 30, must be equal to or greater than the application's current priority threshold.<span class="Apple-converted-space">  </span>See <b>DPSAddTimedEntry()</b> for a further explanation.</p>
+<p class="p18"><br></p>
+<p class="p19">DPSPortProc, <i>handler</i>'s defined type, takes the form</p>
+<p class="p20"><br></p>
+<p class="p21">void<i> *handler</i>(msg_header_t *<i>msg</i>, void *<i>userData</i>)</p>
+<p class="p22"><br></p>
+<p class="p19">where <i>msg</i> is a pointer to the message that was received at the port and <i>userData</i> is the same pointer that was passed as the fourth argument to <b>DPSAddPort()</b>.<span class="Apple-converted-space">  </span>The <i>userData</i> pointer is provided as a convenience, allowing you to pass arbitrary data to <i>handler</i>.</p>
+<p class="p20"><br></p>
+<p class="p19">If, within <i>handler</i>, you want to call <b>msg_receive()</b> to receive further messages at the port, you must first call <b>DPSRemovePort()</b> to remove the port from the system's port set.<span class="Apple-converted-space">  </span>(This is because your application can't receive messages from a port that's in a port set.)<span class="Apple-converted-space">  </span>After your application is finished receiving messages directly from the port, it can call <b>DPSAddPort()</b> to have the system continue to monitor the port.</p>
+<p class="p20"><br></p>
+<p class="p19">The contents of the message buffer <i>msg</i>, as received by <i>handler</i>, are invalid after the function returns.<span class="Apple-converted-space">  </span>If you need to save any of the information that you find.</p>
+<p class="p20"><br></p>
+<p class="p19">The <i>maxMsgSize</i> argument is an integer that gives the size, in bytes, of the largest message you expect to receive.<span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19"><b>DPSRemovePort()</b> removes the specified Mach port from the list of those that the application will check. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p23"><br></p>
+<p class="p24">SEE ALSO<b><span class="Apple-tab-span">	</span>DPSAddFD(), DPSAddTimedEntry()</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSAddTimedEntry(), DPSRemoveTimedEntry()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Create a timed entry</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>DPSTimedEntry <b>DPSAddTimedEntry(</b>double <i> period</i>, DPSTimedEntryProc <i>handler</i>, void *<i>userData</i>, int <i>priority</i><b>)</b><span class="Apple-converted-space"> </span></p>
+<p class="p15">void <b>DPSRemoveTimedEntry(</b>DPSTimedEntry <i>tag</i><b>)</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSAddTimedEntry()</b> registers <i>handler</i> as a “timed entry,” a function that's called repeatedly at a given time interval.<span class="Apple-converted-space">  </span><i>period</i> determines the number of seconds between calls to the timed entry.<span class="Apple-converted-space">  </span>Whenever an application based on the Application Kit attempts to retrieve events from the event queue, it also checks (depending on <i>priority</i>) to determine whether any timed entries are due to be called.<span class="Apple-converted-space">  </span><i>userData</i> is a pointer that you can use to pass some data to the timed entry.</p>
+<p class="p17"><br></p>
+<p class="p19">The function registered as <i>handler</i> has the form:</p>
+<p class="p20"><br></p>
+<p class="p21">void<i> *handler</i>(DPSTimedEntry <i>tag</i>, double <i>now</i>, void *<i>userData</i>)</p>
+<p class="p22"><br></p>
+<p class="p19">where <i>tag</i> is the timed entry identifier returned by <b>DPSAddTimedEntry()</b>, <i>now</i> is the number of seconds since some arbitrary point in the past, and <i>userData</i> is the pointer <b>DPSAddTimedEntry()</b> received when this timed entry was installed.</p>
+<p class="p20"><br></p>
+<p class="p19">An application's priority threshold can be set explicitly as an integer from 0 to 31 through a call to <b>DPSGetEvent()</b> or <b>DPSPeekEvent()</b>.<span class="Apple-converted-space">  </span>It's against this threshold that <i>priority</i> is measured (note that <i>priority</i> can be no greater than 30—the additional threshold level, 31, is provided to disallow all inter-event function calls).<span class="Apple-converted-space">  </span>However, if you're using the Application Kit, you should access the event queue through Application class methods such as <b>getNextEvent:</b>.<span class="Apple-converted-space">  </span>Although some of these methods let you set the priority threshold explicity, you typically invoke the methods that set it automatically.<span class="Apple-converted-space">  </span>Such methods use only three priority levels:</p>
+<p class="p20"><br></p>
+<p class="p27"><br></p>
+<p class="p28"><b>Constant<span class="Apple-tab-span">	</span>Meaning</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p30">NX_BASETHRESHOLD<span class="Apple-tab-span">	</span>Normal execution</p>
+<p class="p30">NX_RUNMODALTHRESHOLD<span class="Apple-tab-span">	</span>An attention panel is being run</p>
+<p class="p30">NX_MODALRESPTHRESHOLD<span class="Apple-tab-span">	</span>A modal event loop is being run</p>
+<p class="p31"><br></p>
+<p class="p19">When applicable, you should use these constants as the value for <i>priority</i>.<span class="Apple-converted-space">  </span>For example, if you want <i>handler</i> to be called during normal execution, but not if an attention panel or a modal loop is running, then you would set <i>priority</i> to NX_BASETHRESHOLD. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19"><b>DPSRemoveTimedEntry()</b> removes a previously registered timed entry.</p>
+<p class="p20"><br></p>
+<p class="p23"><br></p>
+<p class="p32">RETURN<span class="Apple-tab-span">	</span><b>DPSAddTimedEntry()</b> returns a number identifying the timed entry or <span class="s2">-</span>1 to indicate an error.</p>
+<p class="p33"><br></p>
+<p class="p34"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSAsynchronousWaitContext()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Procede asynchronously while PostScript code is executed</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>void <b>DPSAsynchronousWaitContext(</b>DPSContext <i>context</i>, DPSPingProc <i>handler</i>,</p>
+<p class="p30">void *<i>userData</i><b>)</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span>This function is similar to the more familiar <b>DPSWaitContext()</b> functions, except that rather than wait for all PostScript code to execute, it returns immediately, allowing your application to procede while the PostScript code is executed in the background.<span class="Apple-converted-space">  </span>The DPSPingProc function <i>handler</i> is called (with <i>context</i> and <i>userData</i> as its two arguments) when all the PostScript code has been executed.<span class="Apple-converted-space">  </span>The DPSPingProc function takes the form</p>
+<p class="p17"><br></p>
+<p class="p21">void *<i>handler</i>(DPSContext <i>context</i>, void *<i>userData</i>);</p>
+<p class="p22"><br></p>
+<p class="p19">Warning:<span class="Apple-converted-space">  </span>Be careful when you use this function; you mustn't send more PostScript code while waiting for the handler to be called.<span class="Apple-converted-space">  </span>In general, it's best to not make any demands on the Application Kit or the Client Library if you're waiting for an asynchronous handler to return.</p>
+<p class="p20"><br></p>
+<p class="p36"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSCreateContext(), DPSCreateContextWithTimeoutFromZone(), DPSCreateNonsecureContext(), DPSCreateStreamContext()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Create a PostScript execution context</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>DPSContext <b>DPSCreateContext(</b>const char *<i>hostName</i>, const char *<i>serverName</i>, DPSTextProc <i>textProc</i>, DPSErrorProc <i>errorProc</i><b>)</b></p>
+<p class="p15">DPSContext <b>DPSCreateContextWithTimeoutFromZone(</b>const char *<i>hostName</i>, const char *<i>serverName</i>, DPSTextProc <i>textProc</i>, DPSErrorProc <i>errorProc</i>, int <i>timeout</i>, NXZone *<i>zone</i><b>)</b><span class="Apple-converted-space"> </span></p>
+<p class="p15">DPSContext <b>DPSCreateNonsecureContext(</b>const char *<i>hostName</i>, const char *<i>serverName</i>, DPSTextProc <i>textProc</i>, DPSErrorProc <i>errorProc</i>, int <i>timeout</i>, NXZone *<i>zone</i><b>)</b><span class="Apple-converted-space"> </span></p>
+<p class="p15">DPSContext <b>DPSCreateStreamContext(</b>NXStream *<i>stream</i>, int <i>debugging</i>, DPSProgramEncoding <i>progEnc</i>, DPSNameEncoding <i>nameEnc</i>, DPSErrorProc <i>errorProc</i><b>)</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSCreateContext()</b> establishes a connection with the Window Server and creates a PostScript execution context in it.<span class="Apple-converted-space">  </span>The new context becomes the current context.<span class="Apple-converted-space">  </span>The first argument, <i>hostName</i>, identifies the machine that's running the Window Server; the second argument, <i>serverName</i>, identifies the Window Server that's running on that machine.<span class="Apple-converted-space">  </span>With these two arguments and the help of the Mach network server <b>nmserver</b>, the Mach port for the Window Server can be identified.<span class="Apple-converted-space">  </span>If <i>hostName</i> is NULL, the network server on the local machine is queried for the Window Server's port.<span class="Apple-converted-space">  </span>If <i>serverName</i> is NULL, a default name for the Window Server is used. <span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p19">The last two arguments, <i>textProc</i> and <i>errorProc</i>, refer to call-back functions (defined in the Client Library specification) that handle text returned from the Window Server and errors generated on either side of the connection.<span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19">For an application that's based on the Application Kit, you could create an additional context by making this call:</p>
+<p class="p20"><br></p>
+<p class="p21">DPSContext<span class="Apple-converted-space">  </span>c;</p>
+<p class="p37"><br></p>
+<p class="p21">c = DPSCreateContext(NXGetDefaultValue([NXApp appName], "NXHost"),</p>
+<p class="p21"><span class="Apple-converted-space">                   </span>NXGetDefaultValue([NXApp appName], "NXPSName"),</p>
+<p class="p21"><span class="Apple-converted-space">                   </span>NULL,</p>
+<p class="p21"><span class="Apple-converted-space">                   </span>NULL);</p>
+<p class="p22"><br></p>
+<p class="p19">This example queries the application's default values for the indentity of the host machine and the Window Server.<span class="Apple-converted-space">  </span>By doing this, the new context is created in the correct Window Server even if that Server is not on the same machine as the application process. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19">The context that <b>DPSCreateContext()</b> creates allocates memory from the default allocation zone.<span class="Apple-converted-space">  </span>Also, when there's difficulty creating the context, <b>DPSCreateContext()</b> waits up to 60 seconds before raising an exception.<span class="Apple-converted-space">  </span>If you want to change either of these parameters, use <b>DPSCreateContextWithTimeoutFromZone()</b>.<span class="Apple-converted-space">  </span>Its two additional arguments let you specify the zone for the context to use when allocating context-specific data and a timeout value in milliseconds.</p>
+<p class="p20"><br></p>
+<p class="p19"><b>DPSCreateNonsecureContext()</b> creates a “nonsecure” context in which you can use PostScript operators that are normally disallowed.<span class="Apple-converted-space">  </span>The most significant of these are operators that let you write files.</p>
+<p class="p20"><br></p>
+<p class="p19"><b>DPSCreateStreamContext()</b> is similar to <b>DPSCreateContext()</b>, except that the new context is actually a connection from the client application to a stream.<span class="Apple-converted-space">  </span>This connection becomes the current context.<span class="Apple-converted-space">  </span>PostScript code that the application generates is sent to the stream rather than to the Window Server.<span class="Apple-converted-space">  </span>The first argument, <i>stream</i>, is a pointer to an NXStream structure, as created by <b>NXOpenFile()</b> or <b>NXMapFile()</b>.<span class="Apple-converted-space">  </span>The<i> debugging </i>argument<i> </i>is intended for debugging purposes but is not currently implemented.<span class="Apple-converted-space">  </span><i>progEnc </i>and<i> nameEnc </i>specify the type of program and user-name encodings to be used for output to the stream.<span class="Apple-converted-space">  </span>The last argument, <i>errorProc</i>, identifies the procedure that's called when errors are generated.</p>
+<p class="p20"><br></p>
+<p class="p19">Few programmers will need to call either of these functions directly:<span class="Apple-converted-space">  </span>The Application Kit manages contexts for programs based on the Kit.<span class="Apple-converted-space">  </span>For example, when an application is launched, its Application object calls <b>DPSCreateContext()</b> to create a context in the Window Server.<span class="Apple-converted-space">  </span>Similarly, to print a View the Kit calls <b>DPSCreateStreamContext()</b> to temporarily redirect PostScript code from the View to a stream.</p>
+<p class="p20"><br></p>
+<p class="p23"><br></p>
+<p class="p32">RETURN<span class="Apple-tab-span">	</span>Each of these functions returns the newly created DPSContext structure.</p>
+<p class="p33"><br></p>
+<p class="p38"><br></p>
+<p class="p39">EXCEPTIONS<span class="Apple-tab-span">	</span><b>DPSCreateContext()</b> and <b>DPSCreateContextWithTimeoutFromZone()</b> raise a dps_err_outOfMemory exception if they encounter difficulty allocating ports or other resources for the new context.<span class="Apple-converted-space">  </span>They raise a dps_err_cantConnect exception if they can't return a context within the timeout period.</p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSDefineUserObject(), DPSUndefineUserObject()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Create a user object</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>DPSDefineUserObject(</b>int <i>index</i><b>)</b></p>
+<p class="p15">void <b>DPSUndefineUserObject(</b>int <i>index</i><b>)</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSDefineUserObject()</b> associates <i>index</i> with the PostScript object that's on the top of the operand stack, thereby creating a user object (as defined by the PostScript language).<span class="Apple-converted-space">  </span>If <i>index</i> is 0, the object is assigned the next available index number.<span class="Apple-converted-space">  </span>The function returns the new index, which can then be passed to a <b>pswrap</b>-generated function that takes a user object.</p>
+<p class="p17"><br></p>
+<p class="p19">Warning:<span class="Apple-converted-space">  </span>To avoid coming into conflict with user objects defined by the Client Library or Application Kit, use <b>DPSDefineUserObject()</b> rather than the PostScript operator <b>defineuserobject</b> or the single-operator functions <b>DPSdefineuserobject()</b> and <b>PSdefineuserobject()</b>.</p>
+<p class="p20"><br></p>
+<p class="p19"><b>DPSUndefineUserObject()</b> removes the association between <i>index</i> and the PostScript object it refers to, thus destroying the user object.<span class="Apple-converted-space">  </span>By destroying a user object that's no longer needed, you can let the garbage collector reclaim the previously associated PostScript object.</p>
+<p class="p20"><br></p>
+<p class="p23"><br></p>
+<p class="p32">RETURN<span class="Apple-tab-span">	</span><b>DPSDefineUserObject()</b>, if successful in assigning an index, returns the index that the object was assigned.<span class="Apple-converted-space">  </span>If unsuccessful, it returns 0.</p>
+<p class="p33"><br></p>
+<p class="p34"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSDoUserPath(), DPSDoUserPathWithMatrix()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Send an encoded PostScript path to the Window Server</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>void <b>DPSDoUserPath(</b>void *<i>coords</i>, int <i>numCoords</i>, DPSNumberFormat <i>numType</i>, unsigned char *<i>ops</i>, int <i>numOps</i>, void *<i>bbox</i>, int <i>action</i><b>)</b></p>
+<p class="p15">void <b>DPSDoUserPathWithMatrix(</b>void *<i>coords</i>, int <i>numCoords</i>, DPSNumberFormat <i>numType</i>, unsigned char *<i>ops</i>, int <i>numOps</i>, void *<i>bbox</i>, int <i>action</i>, float <i>matrix</i>[6]<b>)</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSDoUserPath()</b> and <b>DPSDoUserPathWithMatrix()</b> send an encoded user path to the Window Server and then execute, upon that path, the operator specified by <i>action</i>.<span class="Apple-converted-space">  </span>The use of these functions, rather than the analogous step-by-step path construction, is encouraged; rendering an encoded path is much more efficient than executing the individual PostScript operators that would otherwise be needed.</p>
+<p class="p17"><br></p>
+<p class="p19">An encoded user path consists of an array of coordinate values, a sequence of PostScript operators, and a bounding box specification.<span class="Apple-converted-space">  </span>The values in the coordinate array are used as operands to the operators; the operands are distributed to the operators in the order that they're given.<span class="Apple-converted-space">  </span>The resulting path must fit within the bounding box. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19">The coordinates, operators, and bounding box are given by the functions' first five arguments:</p>
+<p class="p20"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>The array of coordinate values is given by <i>coords</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p18"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span><i>numCoords</i> is the number of elements in <i>coords</i>.</p>
+<p class="p18"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span> <i>numType</i> specifies the data type of the coordinates, as described below.<span class="Apple-converted-space">  </span>All the values in <i>coords</i> must be of the same type.</p>
+<p class="p18"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span><i>ops</i> is the sequence of PostScript operators, represented by constants as listed below.<span class="Apple-converted-space"> </span></p>
+<p class="p18"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>The<span class="Apple-converted-space">  </span>bounding box is defined by the four coordinate values that you pass as an array in the <i>bbox</i> argument.<span class="Apple-converted-space">  </span>These are passed as operands to the <b>setbbox</b> operator.<span class="Apple-converted-space">  </span>(If you don't supply a <b>setbbox</b> as part of the <i>ops</i> sequence, one is inserted for you.)<span class="Apple-converted-space"> </span></p>
+<p class="p18"><br></p>
+<p class="p19">The following integer constants represent the data types that you can pass as the <i>numType</i> argument:</p>
+<p class="p20"><br></p>
+<p class="p27"><br></p>
+<p class="p28"><b>Constant<span class="Apple-tab-span">	</span>Meaning</b></p>
+<p class="p29"><b></b><br></p>
+<p class="p30">dps_float<span class="Apple-tab-span">	</span>single-precision floating-point number</p>
+<p class="p30">dps_long<span class="Apple-tab-span">	</span>32-bit integer</p>
+<p class="p30">dps_short<span class="Apple-tab-span">	</span>8-bit integer</p>
+<p class="p31"><br></p>
+<p class="p19">You can also specify 16- and 32-bit fixed-point real numbers.<span class="Apple-converted-space">  </span>For 16-bit fixed-point numbers, use <b>dps_short</b> plus the number of bits in the fractional portion.<span class="Apple-converted-space">  </span>For 32-bit fixed-point numbers, use <b>dps_long</b> plus the number of bits in the fractional portion.<span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19">These constants are provided for <i>ops</i>:</p>
+<p class="p20"><br></p>
+<p class="p30">dps_setbbox</p>
+<p class="p30">dps_moveto</p>
+<p class="p30">dps_rmoveto</p>
+<p class="p30">dps_lineto</p>
+<p class="p30">dps_rlineto</p>
+<p class="p30">dps_curveto</p>
+<p class="p30">dps_rcurveto</p>
+<p class="p30">dps_arc</p>
+<p class="p30">dps_arcn</p>
+<p class="p30">dps_arct</p>
+<p class="p30">dps_closepath</p>
+<p class="p30">dps_ucache</p>
+<p class="p31"><br></p>
+<p class="p19">Once the user path has been constructed, the operator specified by <i>action</i> is executed.<span class="Apple-converted-space">  </span>The value of <i>action</i> is an index into Display PostScript's encoded system names; the following constants, provided as a convenience, represent the most commonly used actions:</p>
+<p class="p20"><br></p>
+<p class="p30">dps_uappend</p>
+<p class="p30">dps_ufill</p>
+<p class="p30">dps_ueofill</p>
+<p class="p30">dps_ustroke</p>
+<p class="p30">dps_ustrokepath</p>
+<p class="p30">dps_inufill</p>
+<p class="p30">dps_inueofill</p>
+<p class="p30">dps_inustroke</p>
+<p class="p30">dps_def</p>
+<p class="p30">dps_put</p>
+<p class="p31"><br></p>
+<p class="p19"><b>DPSDoUserPathWithMatrix()</b>'s <i>matrix</i> argument represents the transformation matrix operand used by the <b>ustroke</b>, <b>inustroke</b>, and <b>ustrokepath</b> operators.<span class="Apple-converted-space">  </span>If <i>matrix</i> is NULL, the argument is ignored.</p>
+<p class="p20"><br></p>
+<p class="p19">The following program fragment demonstrates the use of <b>DPSDoUserPath()</b> as it creates and strokes a user path (an isosceles triangle) within a bounding rectangle whose lower left corner is located at (0, 0) and whose width and height are 200.</p>
+<p class="p20"><br></p>
+<p class="p21">short <span class="Apple-converted-space">  </span>coords[6] = {0, 0, 200, 0, 100, 200};</p>
+<p class="p21">char<span class="Apple-converted-space">    </span>ops[4] = {dps_moveto, dps_lineto,dps_lineto,<span class="Apple-converted-space"> </span></p>
+<p class="p21"><span class="Apple-converted-space">                    </span>dps_closepath};</p>
+<p class="p21">short <span class="Apple-converted-space">  </span>bbox[4] = {0, 0, 200, 200};</p>
+<p class="p37"><br></p>
+<p class="p21">DPSDoUserPath(coords, 6, dps_short, ops, 4, bbox, dps_ustroke);</p>
+<p class="p22"><br></p>
+<p class="p19">Note:<span class="Apple-converted-space">  </span>If an application calls <b>DPSDoUserPath()</b> with large values (~10,000-20,000) of <i>numCoords</i> and/or <i>numOps</i>, it may generate a Display PostScript error.</p>
+<p class="p20"><br></p>
+<p class="p36"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSFlush(), DPSSendEOF()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Send PostScript data to the Window Server</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>void <b>DPSFlush()</b></p>
+<p class="p15">void <b>DPSSendEOF(</b>DPSContext <i>context</i><b>)</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSFlush()</b> flushes the application's output buffer, forcing any buffered PostScript code or data to the Window Server. <span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p19"><b>DPSSendEOF()</b> sends a PostScript end-of-file marker to the given context.<span class="Apple-converted-space">  </span>The connection to the context isn't closed or disturbed in any way by this function.</p>
+<p class="p20"><br></p>
+<p class="p36"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSGetEvent(), DPSPeekEvent(), DPSDiscardEvents()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Access events from the Window Server</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>DPSGetEvent(</b>DPSContext <i>context</i>, NXEvent *<i>anEvent</i>, int <i>mask</i>, double <i>timeout</i>, int <i>threshold</i><b>)</b><span class="Apple-converted-space"> </span></p>
+<p class="p15">int <b>DPSPeekEvent(</b>DPSContext <i>context</i>, NXEvent *<i>anEvent</i>, int <i>mask</i>, double <i>timeout</i>, int <i>threshold</i><b>)</b><span class="Apple-converted-space"> </span></p>
+<p class="p15">void <b>DPSDiscardEvents(</b>DPSContext <i>context</i>, int <i>mask</i><b>)</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSGetEvent()</b> and <b>DPSPeekEvent()</b> are macros that access event records in an application's event queue.<span class="Apple-converted-space">  </span>These routines are provided primarily for programs that don't use the Application Kit.<span class="Apple-converted-space">  </span>An application based on the Kit should use the corresponding Application class methods (such as <b>getNextEvent:</b> and <b>peekNextEvent:into:</b>) or the function <b>NXGetOrPeekEvent()</b> so that it can be journaled.<span class="Apple-converted-space">  </span><b>DPSDiscardEvents()</b> removes all event records of a specified type from the queue.</p>
+<p class="p17"><br></p>
+<p class="p19"><b>DPSGetEvent()</b> and <b>DPSPeekEvent()</b> differ only in how they treat the accessed event record.<span class="Apple-converted-space">  </span><b>DPSGetEvent()</b> removes the record from the queue after making its data available to the application; <b>DPSPeekEvent()</b> leaves the record in the queue. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19"><b>DPSGetEvent()</b> and <b>DPSPeekEvent()</b> take the same parameters.<span class="Apple-converted-space">  </span>The first, <i>context</i>, represents a PostScript execution context within the Window Server.<span class="Apple-converted-space">  </span>Virtually all applications have only one execution context, which can be returned using <b>DPSGetCurrentContext()</b>.<span class="Apple-converted-space">  </span>Applications having more than one execution context can use the constant DPS_ALLCONTEXTS to access events from all contexts belonging to them.</p>
+<p class="p20"><br></p>
+<p class="p19">The second argument, <i>anEvent</i>, is a pointer to an event record.<span class="Apple-converted-space">  </span>If <b>DPSGetEvent()</b> or <b>DPSPeekEvent()</b> is successful in accessing an event record, the record's data is copied into the storage referred to by <i>anEvent</i>. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19"><i>mask</i> determines the types of events sought.<span class="Apple-converted-space">  </span>See the section “Types and Constants” for a list of the constants that represent the event type masks.<span class="Apple-converted-space">  </span>To check for more than one type of event, you combine individual constants using the bitwise OR operator.</p>
+<p class="p20"><br></p>
+<p class="p19">If an event matching the event mask isn't available in the queue, <b>DPSGetEvent()</b> or <b>DPSPeekEvent()</b> waits until one arrives or until <i>timeout</i> seconds have elapsed, whichever occurs first.<span class="Apple-converted-space">  </span>The value of <i>timeout</i> can be in the range of 0.0 to NX_FOREVER.<span class="Apple-converted-space">  </span>If <i>timeout</i> is 0.0, the routine returns an event only if one is waiting in the queue when the routine asks for it.<span class="Apple-converted-space">  </span>If <i>timeout</i> is NX_ FOREVER, the routine waits until an appropriate event arrives before returning. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19">The last argument, <i>threshold</i>, is an integer in the range 0 through 31 that determines which other services may be provided during a call to <b>DPSGetEvent()</b> or <b>DPSPeekEvent()</b>. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19">Requests for services are registered by the functions <b>DPSAddTimedEntry()</b>, <b>DPSAddPort()</b>, and <b>DPSAddFD()</b>.<span class="Apple-converted-space">  </span>Each of these functions takes an argument specifying a priority level.<span class="Apple-converted-space">  </span>If this level is equal to or greater than <i>threshold</i>, the service is provided before <b>DPSGetEvent()</b> or <b>DPSPeekEvent()</b> returns. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19"><b>DPSDiscardEvents()</b>'s two parameters, <i>context</i> and <i>mask</i>, are the same as those for <b>DPSGetEvent()</b> and <b>DPSPeekEvent()</b>.<span class="Apple-converted-space">  </span><b>DPSDiscardEvents()</b> removes from the application's event queue those records whose event types match <i>mask</i> and whose context matches <i>context</i>. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p23"><br></p>
+<p class="p32">RETURN<span class="Apple-tab-span">	</span><b>DPSGetEvent()</b> and <b>DPSPeekEvent()</b> return 1 if they are successful in accessing an event record and 0 if they aren't.</p>
+<p class="p33"><br></p>
+<p class="p38"><br></p>
+<p class="p24">SEE ALSO<b><span class="Apple-tab-span">	</span>DPSAddFD(), DPSAddPort(), DPSAddTimedEntry(), DPSPostEvent(), NXGetOrPeekEvent()</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSInterruptContext()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p19">Warning:<span class="Apple-converted-space">  </span>This function is unimplemented in the NEXTSTEP version of the Client Library.</p>
+<p class="p20"><br></p>
+<p class="p36"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSNameFromTypeAndIndex()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Access the system and user name tables</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>const char *<b>DPSNameFromTypeAndIndex(</b>short <i>type</i>, int <i>index</i><b>)</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSNameFromTypeAndIndex()</b> returns the text associated with <i>index</i> from the system or user name table.<span class="Apple-converted-space">  </span>If <i>type</i> is <span class="s2">-</span>1, the text is returned from the system name table; if <i>type</i> is 0, it's returned from the user name table. <span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p19">The name tables are used primarily by the Client Library and <b>pswrap</b>; few programmers will access them directly. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p23"><br></p>
+<p class="p32">RETURN<span class="Apple-tab-span">	</span>This function returns a read-only character string.</p>
+<p class="p33"><br></p>
+<p class="p34"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSPostEvent()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Create an event</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>DPSPostEvent(</b>NXEvent *<i>anEvent</i>, int <i>atStart</i><b>)</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSPostEvent()</b> lets you add an event record to your application's event queue without involving the Window Server.<span class="Apple-converted-space">  </span><i>anEvent</i> is a pointer to the event record to be added.<span class="Apple-converted-space">  </span><i>atStart</i> specifies where the new record will be placed in relation to any other records in the queue.<span class="Apple-converted-space">  </span>If <i>atStart</i> is TRUE, the event is posted in front of all others and so will be the next one your application receives.<span class="Apple-converted-space">  </span>If <i>atStart</i> is FALSE, the event is posted behind all others and so won't be returned until events that precede it are processed.</p>
+<p class="p17"><br></p>
+<p class="p19">You can free, reuse, or otherwise mangle <i>anEvent</i> after you've posted it without fear of corrupting the posted record.<span class="Apple-converted-space">  </span><b>DPSEvent()</b> copies the record it receives and posts the copy. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19">Note that event records you post using <b>DPSPostEvent()</b> aren't filtered by an event filter function set with <b>DPSSetEventFunc()</b>.</p>
+<p class="p20"><br></p>
+<p class="p23"><br></p>
+<p class="p32">RETURN<span class="Apple-tab-span">	</span><b>DPSPostEvent()</b> returns 0 if successful in posting the event record; it returns <span class="s2">-</span>1 if unsuccessful in posting the record because the event queue is full.</p>
+<p class="p33"><br></p>
+<p class="p38"><br></p>
+<p class="p24">SEE ALSO<b><span class="Apple-tab-span">	</span>DPSSetEventFunc()</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSPrintError(), DPSPrintErrorToStream()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Print error messages</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>void <b>DPSPrintError(</b>FILE *<i>fp</i>, const DPSBinObjSeq <i>error</i><b>)</b></p>
+<p class="p15">void <b>DPSPrintErrorToStream(</b>NXStream *<i>stream</i>, const DPSBinObjSeq <i>error</i><b>)</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSPrintError()</b> and <b>DPSPrintErrorToStream()</b> format and print error messages received from a PostScript execution context in the Window Server.<span class="Apple-converted-space">  </span>The error message is extracted from the binary object sequence <i>error</i>.<span class="Apple-converted-space">  </span><b>DPSPrintError()</b> prints the error message to the file identified by <i>fp</i>; <b>DPSPrintErrorToStream()</b> prints the error message to <i>stream</i>. <span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p19">You rarely need to call these functions directly.<span class="Apple-converted-space">  </span>However, if you reset the error handler for a PostScript execution context, the new handler you install could use one of these functions to process errors that it receives. <span class="Apple-converted-space">   </span></p>
+<p class="p20"><br></p>
+<p class="p36"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSResetContext()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p19">Warning:<span class="Apple-converted-space">  </span>This function is unimplemented in the NEXTSTEP version of the Client Library.</p>
+<p class="p20"><br></p>
+<p class="p36"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSSetDeadKeysEnabled()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Allow dead key processing for a context's events</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>void <b>DPSSetDeadKeysEnabled(</b>DPSContext <i>context</i>, int <i>flag</i><b>)</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSSetDeadKeysEnabled()</b> turns dead key processing on or off for <i>context</i>.<span class="Apple-converted-space">  </span>If flag is 0, dead key processing is turned off; otherwise, it's turned on (the default).</p>
+<p class="p17"><br></p>
+<p class="p19">Dead key processing is a technique for extending the range of characters that can be entered from the keyboard.<span class="Apple-converted-space">  </span>In NEXTSTEP, it provides one way for users to enter accented characters.<span class="Apple-converted-space">  </span>For example, a user can type Alternate-e followed by the letter “e” to produce the letter “é”.<span class="Apple-converted-space">  </span>The first keyboard input, Alternate-e, seems to have no effect—it's the “dead key”.<span class="Apple-converted-space">  </span>However, it signals Client Library routines that it and the following character should be analyzed as a pair.<span class="Apple-converted-space">  </span>If, within NEXTSTEP, the pair of characters has been associated with a third character, a keyboard event record representing the third character is placed in the application's event queue, and the first two event records are discarded.<span class="Apple-converted-space">  </span>If there is no such association between the two characters, the two event records are added to the event queue. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19">See the <i>NeXT User's Reference</i> manual for a listing of the keys that produce accent characters.</p>
+<p class="p20"><br></p>
+<p class="p36"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSSetEventFunc()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Set the function that filters events</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>DPSEventFilterFunc <b>DPSSetEventFunc(</b>DPSContext <i>context</i>, DPSEventFilterFunc <i>func</i><b>)</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSSetEventFunc()</b> establishes the function <i>func</i> as the function to be called when an event record is returned from the PostScript context <i>context</i> in the Window Server.<span class="Apple-converted-space">  </span>The registered function is called before the event record is put in the event queue.<span class="Apple-converted-space">  </span>If the registered function returns 0, the record is discarded.<span class="Apple-converted-space">  </span>If the registered function returns 1, the record is passed on for further processing.</p>
+<p class="p17"><br></p>
+<p class="p19">Only event records coming from the Window Server are filtered by the registered function.<span class="Apple-converted-space">  </span>Records that you post to the event queue using <b>DPSPostEvent()</b> aren't affected.</p>
+<p class="p20"><br></p>
+<p class="p19">A DPSEventFilterFunc function takes the following form:</p>
+<p class="p20"><br></p>
+<p class="p21">int *<i>func</i>(NXEvent *<i>anEvent</i>)</p>
+<p class="p43"><br></p>
+<p class="p32">RETURN<span class="Apple-tab-span">	</span><b>DPSSetEventFunc()</b> returns a pointer to the previously registered event function.<span class="Apple-converted-space">  </span>This lets you chain together the current and previous event functions.</p>
+<p class="p33"><br></p>
+<p class="p38"><br></p>
+<p class="p24">SEE ALSO<b><span class="Apple-tab-span">	</span>DPSPostEvent()</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSSetTracking()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Coalesce mouse events</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>DPSSetTracking(</b>int <i>flag</i><b>)</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSSetTracking()</b> turns mouse event-coalescing on or off for the current context.<span class="Apple-converted-space">  </span>If <i>flag </i>is 0, coalescing is turned off; otherwise, it's turned on (the default).</p>
+<p class="p17"><br></p>
+<p class="p19">Event coalescing is an optimization that's useful when tracking the mouse.<span class="Apple-converted-space">  </span>When the mouse is moved, numerous events flow into the event queue.<span class="Apple-converted-space">  </span>To reduce the number of events awaiting removal by the application, adjacent mouse-moved events are replaced by the most recent event of the contiguous group.<span class="Apple-converted-space">  </span>The same is done for left and right mouse-dragged events, with the addition that a mouse-up event replaces mouse-dragged events that come before it in the queue.</p>
+<p class="p20"><br></p>
+<p class="p23"><br></p>
+<p class="p32">RETURN<span class="Apple-tab-span">	</span><b>DPSSetTracking()</b> returns the previous state of the event-coalescing switch.</p>
+<p class="p33"><br></p>
+<p class="p34"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSStartWaitCursorTimer()<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Initiate a count down for the wait cursor<span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>void <b>DPSStartWaitCursorTimer()</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSStartWaitCursorTimer()</b> triggers the mechanism that displays a wait cursor when an application is busy and can't respond to user input.<span class="Apple-converted-space">  </span>In most cases, wait cursor support is automatic:<span class="Apple-converted-space">  </span>You'll only need to call this function if your application starts a time-consuming operation that's not initiated by a user-generated event.</p>
+<p class="p17"><br></p>
+<p class="p19">Client Library routines and the Window Server cooperate to display the wait cursor whenever more than a preset amount of time elapses between the time an application takes an event record from the event queue and the time the application is again ready to consume events.<span class="Apple-converted-space">  </span>However, when an application starts an operation that isn't initiated by an event—such as one caused by receiving a Mach message or by processing data from a file (see <b>DPSAddPort()</b> and <b>DPSAddFD()</b>)—the wait cursor mechanism is bypassed.<span class="Apple-converted-space">  </span>To ensure proper wait cursor behavior in these cases, call <b>DPSStartWaitCursorTimer()</b> before beginning the time-consuming operation.</p>
+<p class="p20"><br></p>
+<p class="p23"><br></p>
+<p class="p24">SEE ALSO<b><span class="Apple-tab-span">	</span>DPSAddFD(), DPSAddPort(), setwaitcursorenabled</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSSynchronizeContext()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Synchronize a context with your application</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>DPSSynchronizeContext(</b>DPSContext <i>context</i>, int <i>flag</i><b>)</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSSynchronizeContext()</b> causes <b>DPSWaitContext()</b> to be called after each <b>pswrap</b> function is called, thus synchronizing the PostScript context with your application.</p>
+<p class="p17"><br></p>
+<p class="p44"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>DPSTraceContext(), DPSTraceEvents()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Trace data and events</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/dpsNeXT.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>int <b>DPSTraceContext(</b>DPSContext <i>context</i>, int <i>flag</i><b>)</b></p>
+<p class="p15">void <b>DPSTraceEvents(</b>DPSContext <i>context</i>, int <i>flag</i><b>)</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span><b>DPSTraceContext()</b> and <b>DPSTraceEvents()</b> control the tracing of data and events between a PostScript execution context (or contexts) in the Window Server and an application process. <span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p19">The first argument for both functions, <i>context</i>, specifies the context to be traced.<span class="Apple-converted-space">  </span>An application's single context can be returned with <b>DPSGetCurrentContext()</b>.<span class="Apple-converted-space">  </span>Applications having more than one execution context can use the constant DPS_ALLCONTEXTS to trace all contexts belonging to them.</p>
+<p class="p20"><br></p>
+<p class="p19">The second argument, <i>flag</i>, determines whether tracing is enabled. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19">When data tracing is enabled (<b>DPSTraceContext()</b>), a copy of the PostScript code generated by an application and the values returned to it by the Window Server is sent to UNIX standard error.<span class="Apple-converted-space">  </span>Values returned to the application are marked by the prepended string:</p>
+<p class="p20"><br></p>
+<p class="p21">% value returned ==&gt;</p>
+<p class="p22"><br></p>
+<p class="p19">When event tracing is enabled (<b>DPSTraceEvents()</b>), information about each event that the application receives is sent to UNIX standard error.<span class="Apple-converted-space">  </span>For example, for a left mouse-down event the listing might look like this:</p>
+<p class="p20"><br></p>
+<p class="p21">Receiving: LMouseDown at: 343.0,69.0 time: 1271899<span class="Apple-converted-space"> </span></p>
+<p class="p21"><span class="Apple-converted-space">            </span>flags: 0x0 win: 6 ctxt: 76128 data: 1111,1</p>
+<p class="p22"><br></p>
+<p class="p19">The listing displays the fields of the event record:<span class="Apple-converted-space">  </span>type, location, time, flags, local window number, PostScript execution context, and data.<span class="Apple-converted-space">  </span>The contents of the data field listing depends on the event type; for instance, in the preceding example the event number and the click count were displayed.<span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19">For applications based on the Application Kit, there are two preferable methods for turning on data tracing:<span class="Apple-converted-space">  </span>You can use the NXShowPS command-line switch when you launch an application from Terminal.<span class="Apple-converted-space">  </span>Alternatively, when you run the application under GDB, you can use the <b>showps</b> and <b>shownops</b> commands to control tracing output.<span class="Apple-converted-space">  </span>Similarly, there are more convenient ways to turn on event tracing:<span class="Apple-converted-space">  </span>You can use the <b>NXTraceEvents</b> command-line switch when you launch an application from Terminal.<span class="Apple-converted-space">  </span>Alternatively, when you run the application under GDB, you can use the <b>traceevents</b> and <b>tracenoevents</b> commands to control event-tracing output. <span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p19">Only one tracing context can be created for the supplied <i>context</i>.<span class="Apple-converted-space">  </span>If you attempt to create additional tracing contexts for a context that's already being traced, no new context is created and <b>DPSTraceContext()</b> returns <span class="s2">-</span>1.</p>
+<p class="p20"><br></p>
+<p class="p23"><br></p>
+<p class="p32">RETURN<span class="Apple-tab-span">	</span><b>DPSTraceContext()</b> returns 0 if successful in creating a tracing context, or <span class="s2">-</span>1 if not. <span class="Apple-converted-space"> </span></p>
+<p class="p33"><br></p>
+<p class="p34"><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b></b><b>NX_EVENTCODEMASK()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">SUMMARY<span class="Apple-tab-span">	</span>Generate an event mask for an event type</p>
+<p class="p11"><br></p>
+<p class="p12">DECLARED IN<span class="Apple-tab-span">	</span>dpsclient/event.h</p>
+<p class="p13"><br></p>
+<p class="p14">SYNOPSIS<span class="Apple-tab-span">	</span>int<b> NX_EVENTCODEMASK(</b>int<i> type</i><b>)</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p12">DESCRIPTION<span class="Apple-tab-span">	</span>This handy utility macro returns an event mask that corresponds to the given (single) event type. <span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+    APPCLASS = NSApplication; 
+    FILESTABLE = {
+        CLASSES = (CompositeView.m); 
+        FRAMEWORKS = (AppKit.framework, Foundation.framework); 
+        H_FILES = (CompositeView.h); 
+        IMAGES = (Ali.tiff, Bruce.tiff, DefaultCustomImage.eps); 
+        INTERFACES = ("CompositeLab-winnt.nib", CompositeLab.nib); 
+        OTHER_LINKED = (CompositeLab_main.m); 
+        OTHER_SOURCES = (
+            Makefile.preamble, 
+            Makefile, 
+            Makefile.postamble, 
+            m.template, 
+            h.template, 
+            README.rtf, 
+            BBall.tiff, 
+            BBall.ico
+        ); 
+    }; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {
+        "CompositeLab-winnt.nib" = "CompositeLab-winnt.nib"; 
+        CompositeLab.nib = CompositeLab.nib; 
+        DefaultCustomImage.eps = DefaultCustomImage.eps; 
+    }; 
+    MAKEFILEDIR = "$(NEXT_ROOT)/NextDeveloper/Makefiles/pb_makefiles"; 
+    NEXTSTEP_APPICON = BBall.tiff; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    NEXTSTEP_DOCUMENTEXTENSIONS = (); 
+    NEXTSTEP_INSTALLDIR = /LocalDeveloper/Demos; 
+    NEXTSTEP_MAINNIB = CompositeLab; 
+    PDO_UNIX_INSTALLDIR = "$(HOME)/Apps"; 
+    PDO_UNIX_MAINNIB = CompositeLab; 
+    PROJECTNAME = CompositeLab; 
+    PROJECTTYPE = Application; 
+    PROJECTVERSION = 2.6; 
+    WINDOWS_APPICON = BBall.ico; 
+    WINDOWS_BUILDTOOL = $NEXT_ROOT/NextDeveloper/Executables/make; 
+    WINDOWS_DOCUMENTEXTENSIONS = (); 
+    WINDOWS_INSTALLDIR = /LocalDeveloper/Demos; 
+    WINDOWS_MAINNIB = CompositeLab; 
+}

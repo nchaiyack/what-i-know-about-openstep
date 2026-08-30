@@ -1,0 +1,47 @@
+.TH BOOTPD 8 "March 26, 1986"
+.UC 6
+.ad
+.SH NAME
+bootpd \- boot protocol daemon
+.SH SYNOPSIS
+.B /usr/etc/bootpd
+[ -d ]
+.SH DESCRIPTION
+.I Bootpd
+is the bootstrap protocol server daemon described in RFC 951.
+It is used by diskless hosts to resolve their protocol addresses and to
+determine what bootfile to netload.
+.I Bootpd
+is normally run as a subprocess of
+.IR inetd (8)
+daemon.
+.PP
+The file /etc/bootptab is the database for
+.I bootpd.
+Blank lines and lines beginning with '#' are ignored.  The first
+section of the file contains default parameters, one per line.  The
+first parameter is the default directory of the bootfiles.  The second
+parameter is the name of the default bootfile.  A line beginning with '%%'
+marks the end of the parameter section.
+
+.PP
+The remainder of the file contains one line per client interface, with
+the information show below.  The 'host' name is also tried as a suffix
+for the 'bootfile' when searching the home directory, e.g. 'bootfile.host'.
+For 10MB Ethernet 'htype' is always '1'.
+.IP
+# host htype   haddr              iaddr       bootfile
+
+tc101g	 1   02:60:8c:06:35:05  36.44.0.65  seagate
+.PP
+The
+.B \-d
+flag, enables debugging output.
+.SH AUTHOR
+Bill Croft, SUMEX-AIM project, Stanford University
+.SH FILES
+.nf
+/etc/bootptab
+.fi
+.SH "SEE ALSO"
+Bootstrap Protocol (BOOTP), RFC 951, Croft and Gilmore.

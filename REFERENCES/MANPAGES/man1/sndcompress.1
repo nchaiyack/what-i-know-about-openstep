@@ -1,0 +1,24 @@
+.TH SNDCOMPRESS 1 "August 13, 1990" "NeXT Computer, Inc."
+.SH NAME
+sndcompress \- compress or decompress a soundfile
+.SH SYNOPSIS
+\fBsndcompress\fR [ -<n> ] [ -l ] \fIinputFile\fR \fIoutputFile\fR
+.SH DESCRIPTION
+\fISndcompress\fR
+compresses or decompresses a soundfile.  If the input soundfile is in a
+16 bit linear format, it is compressed.  If the input soundfile is in a
+compressed format, it is decompressed.  The options control the compression
+type; by default, (no options specified), Audio Transform Compression (ATC) 
+is used.
+.SH OPTIONS
+.TP
+.B \-<n>
+This option controls the compression amount for lossy compression.
+Specify <n> as an integer: 4 <= n <= 8.  Higher numbers give greater 
+compression.
+.TP
+.B \-l
+This option specifies lossless compression.  A subsequent decompression 
+will reproduce the original sound exactly.
+.SH "SEE ALSO"
+sndplay(1), sndrecord(1), sndinfo(1), sndconvert(1)

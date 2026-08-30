@@ -1,0 +1,30 @@
+{\rtf0\ansi{\fonttbl\f0\fswiss Helvetica;\f1\fmodern Ohlfs;}
+\paperw9540
+\paperh7880
+\margl120
+\margr120
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\f0\b\i0\ulnone\fs36\fc0\cf0 SimpleImageFilter\
+\
+
+\b0\fs24 SimpleImageFilter is a filter service which converts IFF (Interchange File Format) images to TIFF, allowing OpenStep applications to load and display IFF images. 
+\b SimpleImageFilter_main.m
+\b0  shows how one might create a filter service; 
+\b iffToTiff.m
+\b0  contains mostly uninteresting code that does the actual image conversion.\
+\
+Note that this program is not meant to be a complete IFF to TIFF converter; it lacks many features, ignores many IFF chunks, doesn't recognize all IFF types, and probably has a few bugs. It's simply provided as an example of a filter service, and as a tool with which developers can check to see if their applications use NSImage in a way that allows them to load images reachable through filter services. If you install this service in your 
+\b ~/Library/Services
+\b0  directory, you should be able to drag and open 
+\b .iff
+\b0  image files in any OpenStep application which imports images. A sample file (
+\b SampleImage.iff
+\b0 ) is provided for testing purposes.\
+\
+There are some tricky issues in creating a filter service:\
+
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\fi-160\li160\fc0\cf0 · The project is an Application, not Bundle, allowing the standard makefiles to create an .exe instead of .dll on Windows\
+· Makefile.postamble specifies that the wrapper extension should be ".service", not ".app" (see APP_WRAPPER_EXTENSION)\
+· Makefile.postamble clears PROJTYPE_LDFLAGS on NEXTSTEP to avoid giving the executable an icon section. This way Workspace will not create an app tile when the service is launched.\
+· We specify ".iff" and ".IFF" as extensions, as file names on Windows can come in all upper case\
+
+}

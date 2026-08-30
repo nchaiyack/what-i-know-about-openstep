@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 20.0px; font: 14.0px Times}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px Helvetica; color: #0000ff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 19.0px Helvetica; min-height: 23.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 20.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -16.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -16.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -16.0px; font: 6.0px Times; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 20.0px; font: 18.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 45.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 20.0px; font: 6.0px Times; min-height: 8.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 20.0px; font: 14.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 45.0px; font: 4.0px Times; min-height: 5.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"> Previous Section<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p4"><b>4. To Do Tutorial</b><b></b></p>
+<p class="p5"><b>Build, Run, and Extend the Application</b><b></b></p>
+<p class="p6"><b></b><br></p>
+<p class="p3">Although you probably have been building the ToDo project frequently now, as it's been taking shape, build it one more time and check out what you have wrought. Go through the following sequence and observe To Do's behavior.</p>
+<p class="p7"><br></p>
+<p class="p8">1.<span class="Apple-tab-span">	</span>When you choose New from the Document menu, the application creates a new To Do document and selects the current day.<span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">2.<span class="Apple-tab-span">	</span>Enter a few items. Click a new day on the calendar and enter a few more items. Click the previous day and notice how the items you entered reappear.</p>
+<p class="p9"><br></p>
+<p class="p8">3.<span class="Apple-tab-span">	</span>Choose Inspector from the main menu. When the inspector appears, click an item and notice how the name and date of the item appears in the top part of the inspector. Enter due times for a couple items, and some associated notes. Note how the times, as you enter them, appear in the Status/Due column of the To Do document. Click among a few items again and note how the Notifications and Notes displays change.</p>
+<p class="p9"><br></p>
+<p class="p8">4.<span class="Apple-tab-span">	</span>Click a Status/Due button; the image toggles among the three states. Then, with an item that has a due time, select a notification time that has already passed. The application immediately displays an attention panel with a notification message. When you dismiss this panel, To Do sets the notification option to “Do not notify.”</p>
+<p class="p9"><br></p>
+<p class="p8">5.<span class="Apple-tab-span">	</span>Click the document window and respond to the attention panel by clicking Save. In the Save panel, give the document a location and name. When the window has closed, chose Open from the Document menu and open the same document. Observe how the items you entered are redisplayed.</p>
+<p class="p9"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b>Optional Exercises</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p3">You should be able now to supplement the To Do application with other features and behaviors. Try some of the following suggestions.</p>
+<p class="p7"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><b>Make Your Own Info Panel</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p3">Make your own Info panel. Define a method that responds to a click on the Info panel button by loading a nib file containing the panel. The owner of the panel can be the application controller. You can customize this panel however you wish. For instance, put the application icon in a toggled button (the main image) and make the alternate image a photo (yourself, your significant other, your dog). When users click the button, the image changes between the two.</p>
+<p class="p7"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><b>Implement Application Preferences</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p3">Make a Preferences panel for the application, with a new controller object (or the application controller) as the owner of the nib file containing the panel. Follow what you've done for ToDoInspector, especially if the panel has multiple displays. Some ideas for Preferences: how long to keep expired ToDoItems before logging and purging them (see below); the default document to open upon launch; the default rescheduling interval (see below). Store and retrieve specified preferences as user defaults; for more information, see the NSUserDefaults specification.</p>
+<p class="p7"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><b>Implement Rescheduling</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p3">ToDo's Inspector pane has a Rescheduling display that does almost nothing now. Implement the capability for rescheduling items by the period specified.</p>
+<p class="p7"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><b>Implement Logging and Purging</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p3">After certain period (set via Preferences), append expired ToDoItems (as formatted text) to a log, and expunge the ToDoItems from the application.</p>
+<p class="p7"><br></p>
+</body>
+</html>

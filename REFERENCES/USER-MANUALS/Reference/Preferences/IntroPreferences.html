@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 163.8px; font: 10.0px Times; min-height: 13.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Times; min-height: 18.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 25.1px; font: 44.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 25.1px; font: 60.0px Times; min-height: 72.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 340.1px; text-indent: -176.4px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 340.1px; text-indent: -176.4px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 63.0px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 63.0px; font: 26.0px Helvetica}
+    p.p11 {margin: 0.0px 0.0px 0.0px 63.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 182.7px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 182.7px; font: 10.0px Times; min-height: 13.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 163.8px; font: 26.0px Helvetica; min-height: 31.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 163.8px; font: 24.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 163.8px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 182.6px; font: 14.0px Helvetica}
+    p.p19 {margin: 0.0px 0.0px 0.0px 182.6px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 182.7px; font: 12.0px Courier}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><br></p>
+<p class="p3"><br></p>
+<p class="p5"><i>Preferences</i></p>
+<p class="p6"><i></i><br></p>
+<p class="p7"><span class="s2"><b>Library:<span class="Apple-tab-span">	</span></b></span>None, this API is defined by the Preferences application</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>Header File Directory:<span class="Apple-tab-span">	</span></b></span>/NextDeveloper/Headers/apps</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>Import:<span class="Apple-tab-span">	</span></b></span>apps/Preferences.h</p>
+<p class="p8"><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10"><b>Introduction</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12">The Preferences application lets the user customize system features to agree with personal preferences.<span class="Apple-converted-space">  </span>By clicking each button in turn at the top of the Preferences window, the user can reveal groups of controls for setting mouse, keyboard, font, and other preferences.<span class="Apple-converted-space">  </span>Programmatically, these displays are provided by modules that Preferences loads into itself.<span class="Apple-converted-space">  </span>With the API described in this chapter, you can create additional modules that can be added to the ones that are commonly displayed in Preferences.</p>
+<p class="p3"><br></p>
+<p class="p12">A Preferences module contains three components:<span class="Apple-converted-space">  </span>a TIFF image for the button that represents the new display, a nib file containing the interface for the display, and a file containing the code linking the interface to the Preferences application.<span class="Apple-converted-space">  </span>When Preferences begins running, it locates modules to be loaded by searching these locations in the order listed:</p>
+<p class="p3"><br></p>
+<p class="p13">~/Library/Preferences<span class="Apple-converted-space"> </span></p>
+<p class="p13">/LocalLibrary/Preferences</p>
+<p class="p13">/NextLibrary/Preferences<span class="Apple-converted-space"> </span></p>
+<p class="p13">/NextApps/Preferences.app</p>
+<p class="p14"><br></p>
+<p class="p12">It looks for bundles with names of the form “<i>MyModule</i>.preferences”.<span class="Apple-converted-space">  </span>When it locates such a bundle, it loads the executable code from the bundle and adds a new button to the scrolling list at the top of the Preferences window.<span class="Apple-converted-space">  </span>When a user clicks the button, the new module's interface is displayed in the lower portion of the Preferences window.<span class="Apple-converted-space">  </span>Notice that Preferences checks its own file package for modules; this is in fact how it loads the modules—Mouse Preferences, Keyboard Preferences, Localization Preferences, and so on—that appear on all systems.<span class="Apple-converted-space"> </span></p>
+<p class="p3"><br></p>
+<p class="p12">The Preferences application and loadable module communicate through the API found in <b>/NextDeveloper/Headers/apps/Preferences.h</b>.<span class="Apple-converted-space">  </span>This API consists of the declarations of the Layout class and a category of Application.<span class="Apple-converted-space">  </span>The Layout class is an abstract superclass that defines the owner of the module's interface.<span class="Apple-converted-space">  </span>The methods declared in the Application category make it easier for your module to load its interface and to control Preferences' menu commands.</p>
+<p class="p3"><br></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b>Building a Preferences Module</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p12">Building a module is easy, especially since you're provided with a template (in <b>/NextApps/Preferences.app/Template.bproj</b>) to be modified.<span class="Apple-converted-space">  </span>This template module contains:</p>
+<p class="p3"><br></p>
+<p class="p18"><b>File<span class="Apple-tab-span">	</span>Description</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p13">PB.project<span class="Apple-tab-span">	</span>Project file for the loadable module</p>
+<p class="p13">Template.h<span class="Apple-tab-span">	</span>Class interface file</p>
+<p class="p13">Template.m<span class="Apple-tab-span">	</span>Class implementation file</p>
+<p class="p13">Template.tiff<span class="Apple-tab-span">	</span>TIFF image for button in Preferences window</p>
+<p class="p13">English.lproj/Template.nib<span class="Apple-tab-span">	</span>Nib file contain user-interface for this module</p>
+<p class="p13">Makefile<span class="Apple-tab-span">	</span>Instructions used by the <b>make</b> utility</p>
+<p class="p14"><br></p>
+<p class="p12">To build a Preferences module, make a copy of the template directory and rename the components of the new directory to reflect the nature of the module.<span class="Apple-converted-space">  </span>For example, for a module that lets the user specify a mantra to be played continuously in the background, you might use these names:</p>
+<p class="p3"><br></p>
+<p class="p20">Mantra.bproj/</p>
+<p class="p20"><span class="Apple-converted-space">    </span>Mantra.h</p>
+<p class="p20"><span class="Apple-converted-space">    </span>Mantra.m</p>
+<p class="p20"><span class="Apple-converted-space">    </span>Mantra.tiff</p>
+<p class="p20"><span class="Apple-converted-space">    </span>English.lproj</p>
+<p class="p20"><span class="Apple-converted-space">        </span>Mantra.nib</p>
+<p class="p3"><br></p>
+<p class="p12">Add each of these files to the project in the appropriate place and remove the references to the files having the root name “Template”.<span class="Apple-converted-space">  </span>Next, using Project Builder's Attributes display, change the name of the project to “Mantra”.<span class="Apple-converted-space">  </span>Finally, open the class files and replace any reference to “Template” with “Mantra”.</p>
+<p class="p3"><br></p>
+<p class="p12">At this point, you can build the project and test the template module.<span class="Apple-converted-space">  </span>Using Project Builder, build the project.<span class="Apple-converted-space">  </span>When the process is complete, rename the resultant “Mantra.bundle” file to “Mantra.preferences” and double-click it.<span class="Apple-converted-space">  </span>Preferences will load the sample module.<span class="Apple-converted-space"> </span></p>
+<p class="p3"><br></p>
+<p class="p12">Now that process is clear, you can begin adapting the Mantra module to its specific purpose by modifying the project's nib, class, and TIFF files.</p>
+<p class="p3"><br></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b>Some Requirements and Considerations</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p12">Preferences modules are bundle files and so must adhere to the naming requirements for bundles.<span class="Apple-converted-space">  </span>Specifically, the bundle file package and the executable file within the package must have the same root name.<span class="Apple-converted-space">  </span>For the Mantra example above, this implies that if the file package is named “Mantra.preferences”, the executable file within it is named “Mantra”.<span class="Apple-converted-space">  </span>(See the description of the NXBundle class for more information.)<span class="Apple-converted-space"> </span></p>
+<p class="p3"><br></p>
+<p class="p12">Preferences also uses this root name to identify the TIFF image for the button that's added to the Perference window and to identify the principal class within the bundle's executable file.<span class="Apple-converted-space">  </span>(Thus, the example has “Mantra.tiff”, and the class is named “Mantra”.)</p>
+<p class="p3"><br></p>
+<p class="p12">Since the code you write is loaded into the Preferences application, there's a potential for name collisions.<span class="Apple-converted-space">  </span>For example, if you create a Preferences module called “Mouse.preferences” (which would of course define the Mouse class, <b>Mouse.tiff</b>, and <b>Mouse.nib</b>), these components would conflict with those in the standard module <b>/NextApps/Preferences.app/Mouse.preferences</b>.<span class="Apple-converted-space">  </span>To be safe, the root name for your module could have a distinctive prefix, for example.</p>
+<p class="p3"><br></p>
+<p class="p12">Finally, the subclass of Layout within your module must be the principal class of the bundle—that is, the object file containing the code for this class must be listed first on the <b>ld</b> command line that created the bundle.<span class="Apple-converted-space">  </span>The easiest way to specify this is within Project Builder's Files display.<span class="Apple-converted-space">  </span>Make sure the the class file (for example, <b>Mantra.m</b>) is the first entry under “Classes”.<span class="Apple-converted-space">  </span>If it isn't, Control-drag the class file to the top of the list.</p>
+<p class="p3"><br></p>
+<p class="p4"><br></p>
+<p class="p3"><br></p>
+</body>
+</html>

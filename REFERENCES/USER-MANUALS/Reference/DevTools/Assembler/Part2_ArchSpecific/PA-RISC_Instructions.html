@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 50.0px; font: 10.0px Helvetica; color: #0000ff; min-height: 12.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 50.0px; font: 42.0px Helvetica; color: #0000ff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 50.0px; font: 24.0px Helvetica; color: #0000ff; min-height: 29.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 12.0px; font: 44.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 12.0px; font: 60.0px Times; min-height: 72.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 151.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 151.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 170.0px; text-indent: -19.0px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 170.0px; text-indent: -19.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 50.0px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 50.0px; font: 26.0px Helvetica}
+    p.p14 {margin: 0.0px 0.0px 0.0px 50.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 151.0px; font: 26.0px Helvetica; min-height: 31.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 151.0px; font: 24.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 151.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 189.0px; font: 3.0px Times; min-height: 4.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 189.0px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 189.0px; font: 12.0px Courier}
+    p.p21 {margin: 0.0px 0.0px 0.0px 151.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 151.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 151.0px; font: 35.0px Helvetica; min-height: 42.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 151.0px; font: 3.0px Times; min-height: 4.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 151.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 151.0px; font: 18.0px Helvetica}
+    span.s1 {font: 12.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="Apple-converted-space"> </span>Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><br></p>
+<p class="p4"><b>7</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><i>PA-RISC Assembler Instructions</i></p>
+<p class="p7"><i></i><br></p>
+<p class="p8">This chapter contains information specific to the assembler instruction set for the PA-RISC processor architecture.<span class="Apple-converted-space">  </span>Because NEXTSTEP's assembler instruction set for PA-RISC is almost identical to that for the assembler on Hewlett Packard's HPUX, this chapter lists the differences and refers you to these Hewlett Packard publications:<span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><i>PA-RISC 1.1 Architecture and Instruction Set Reference Manual</i>, Third Edition, HP Part Number 09740-90039.</p>
+<p class="p11"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><i>PA-RISC Procedure Calling Conventions Reference Manual</i>, Second Edition, HP Part Number 09740-96015.</p>
+<p class="p11"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p13"><b>PA-RISC<span class="Apple-tab-span">	</span> Assembler-Instruction Differences</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p8">The following sections describe the differences the developer in syntax and directives between NEXTSTEP's assembly code for PA-RISC and HPUX assembler. This information is of use to those who write assembly code for PA-RISC and to those who are porting existing assembly modules to NEXSTEP.</p>
+<p class="p9"><br></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b>Syntatical Differences</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>Registers</b>:<span class="Apple-converted-space">  </span>Use the percentage sign (%) to denote a register.<span class="Apple-converted-space">  </span>Some examples of register designation are: <b>%r1</b>, <b>%sr1</b>, <b>%fp1</b>, and <b>%cr1</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>Effective Address</b>: The effective address is usually specified as <i>d</i>(<i>s</i>,<i>b</i>) where the base register <i>b</i> and the displacement <i>d</i> form the offset. The space identifier is <i>s</i>. If <i>s</i> is zero, you can specify <i>d</i>(<i>b</i>) in place of <i>d</i>(0, <i>b</i>).</p>
+<p class="p11"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>Labels</b>:<span class="Apple-converted-space">  </span>The<span class="Apple-converted-space">  </span>NEXTSTEP assembler requires a colon after the label where it is declared while HPUX does not. For example.</p>
+<p class="p11"><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><b>HPUX<span class="Apple-tab-span">	</span>NEXTSTEP</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p20"><span class="Apple-converted-space">   </span>bl<span class="Apple-converted-space">  </span>there, %r2<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>bl<span class="Apple-converted-space">  </span>there, %r2</p>
+<p class="p20">there<span class="Apple-tab-span">	</span>there:</p>
+<p class="p20"><span class="Apple-converted-space">   </span>nop<span class="Apple-tab-span">	</span>nop</p>
+<p class="p21"><br></p>
+<p class="p22"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>Comments</b>: To specify comments starting at the beginning of a line, use the hash mark character (#). To specify comments in-line, use a semicolon (;). For example:</p>
+<p class="p11"><br></p>
+<p class="p20"># a comment from the beginning of the line</p>
+<p class="p20">; this is a valid comment, too</p>
+<p class="p20"><span class="Apple-tab-span">	</span>   ;and so is this</p>
+<p class="p20"><span class="Apple-converted-space">   </span>nop<span class="Apple-converted-space">  </span>;and this is also a comment</p>
+<p class="p11"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>Instruction Separator</b>: Use the at-sign (@) to separate multiple instructions on the same line (a feature normally found in macros). For example:</p>
+<p class="p11"><br></p>
+<p class="p20">nop @ nop</p>
+<p class="p11"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>Field Selectors</b>: The NEXTSTEP assembler only supports the field selectors L` and R` (note that the quote character is a back quote). Examples of their usage are:</p>
+<p class="p11"><br></p>
+<p class="p20">ldil<span class="Apple-tab-span">	</span> <span class="Apple-converted-space">  </span>L`_printf, %r2</p>
+<p class="p20">ble<span class="Apple-converted-space">    </span>R`_printf(%sr0, %r2)</p>
+<p class="p23"><b></b><br></p>
+<p class="p16"><b>Differences in Directives</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p8">The table below lists the directives that have equivalent (or nearly equivalent) forms. Hewlett Packard directives that are not on the list do not have NEXTSTEP equivalents; however, you can implement these as macros or pseudo-ops.</p>
+<p class="p9"><br></p>
+<p class="p24"><b></b><br></p>
+<p class="p8"><b>HPUX<span class="Apple-tab-span">	</span>NEXTSTEP</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p8">.ALIGN<span class="Apple-tab-span">	</span>.align</p>
+<p class="p8">.COMM<span class="Apple-tab-span">	</span>.comm</p>
+<p class="p8">.ENDM<span class="Apple-tab-span">	</span>.endmacro</p>
+<p class="p8">.EQU<span class="Apple-tab-span">	</span>.set or <i>name</i> = <i>expression</i></p>
+<p class="p8">.EXPORT<span class="Apple-tab-span">	</span>.globl</p>
+<p class="p8">.MACRO<span class="Apple-tab-span">	</span>.macro</p>
+<p class="p8">.ORIGIN<span class="Apple-tab-span">	</span>.org</p>
+<p class="p8">.BLOCK<span class="Apple-tab-span">	</span>.space</p>
+<p class="p8">.BLOCKZ<span class="Apple-tab-span">	</span>.space</p>
+<p class="p8">.BYTE<span class="Apple-tab-span">	</span>.byte</p>
+<p class="p8">.DOUBLE<span class="Apple-tab-span">	</span>.double</p>
+<p class="p8">.FLOAT<span class="Apple-tab-span">	</span>.single</p>
+<p class="p8">.HALF<span class="Apple-tab-span">	</span>.short</p>
+<p class="p8">.STRING<span class="Apple-tab-span">	</span>.ascii</p>
+<p class="p8">.STRINGZ<span class="Apple-tab-span">	</span>.asciiz</p>
+<p class="p8">.WORD<span class="Apple-tab-span">	</span>.long</p>
+<p class="p22"><br></p>
+<p class="p8">In addition, the directives for changing spaces and subspaces to standard ones have<span class="Apple-converted-space">  </span>equivalents; these map conceptually to Mach-O segments and sections.</p>
+<p class="p9"><br></p>
+<p class="p24"><b></b><br></p>
+<p class="p8"><b>HPUX<span class="Apple-tab-span">	</span>NEXTSTEP</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p8">.CODE<span class="Apple-tab-span">	</span>.text</p>
+<p class="p8">.DATA<span class="Apple-tab-span">	</span>.data</p>
+<p class="p22"><br></p>
+<p class="p8">The HPUX assembler allows you to declare arbitrary spaces and subspaces. The NEXTSTEP assembler has a predefined list of segments and sections with their own special directives. (See &lt;x-ref&gt; earlier in this manual for more information.)</p>
+<p class="p9"><br></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><b>Pseudo-Ops</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p8">Simple HPUX pseudo-ops, such as COPY, exist as predefined macros in NEXTSTEP assembler code. More complicated HPUX pseudo-ops, such as ENTER and LEAVE,<span class="Apple-converted-space">  </span>are implemented as macros<i>.<span class="Apple-converted-space">  </span></i>To make use of these macros, compile the assembly code with <b>cc</b> and not <b>as</b> so that you can take advantage of the C preprocessor. The file <b>/NextDeveloper/Headers/architecture/hppa/asm-help.h</b><i> </i>contains definitions of these macros.</p>
+<p class="p9"><br></p>
+</body>
+</html>

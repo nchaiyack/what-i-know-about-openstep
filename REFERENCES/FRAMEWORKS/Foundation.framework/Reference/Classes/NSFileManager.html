@@ -1,0 +1,647 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p25 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p27 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p30 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Helvetica}
+    p.p33 {margin: 0.0px 0.0px 0.0px 95.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p35 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p37 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p39 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p44 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.0px Helvetica}
+    span.s3 {font: 14.0px Times}
+    span.s4 {font: 12.0px Helvetica}
+    span.s5 {font: 14.0px Symbol}
+    span.s6 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">p<span class="Apple-tab-span">	</span></span><b></b><b>NSFileManager<span class="Apple-converted-space"> </span></b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s3">NSObject<i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p6"><i></i><br></p>
+<p class="p7"><span class="s4"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSObject (NSObject)</p>
+<p class="p8">NSCopying</p>
+<p class="p9"><br></p>
+<p class="p7"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSFileManager.h</p>
+<p class="p10"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p13">NSFileManager enables you to perform many generic file-system operations. With it you can:</p>
+<p class="p14"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Create directories and files.</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Extract the contents of files (as NSData objects).</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Change your current working location in the file system.</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Copy, move, and link files and directories.</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Remove files, links, and directories.</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Determine the attributes of a file, a directory, or the file system.</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Set the attributes of a file or directory.</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Make and evaluate symbolic links.</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Determine the contents of directories.</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>Compare files and directories for equality.</p>
+<p class="p16"><br></p>
+<p class="p13">Besides offering a useful range of generic functionality, the NSFileManager API insulates an application from the underlying file system. An important part of this insulation is the encoding of file names (in, for example, Unicode, ISO Latin1, and ASCII). This insulating layer makes it easier to port the application between operating systems with different file systems. There is a default NSFileManager object for the file system; this object responds<span class="Apple-converted-space">  </span>to all messages that request a operation on the associated file system.</p>
+<p class="p14"><br></p>
+<p class="p13">The pathnames specified as arguments to NSFileManager methods can be absolute or relative to the current directory (which you can determine with <b>currentDirectoryPath</b> and set with <b>changeCurrentDirectoryPath:</b>). However, pathnames cannot include wildcard characters.</p>
+<p class="p14"><br></p>
+<p class="p17"><span class="s4"><b>Note:<span class="Apple-tab-span">	</span></b></span>On UNIX file systems (such as NEXTSTEP) an absolute pathname starts with the root directory of the file system, represented by a slash (/), and ends with the file or directory that the pathname identifies. A relative pathname is relative to the <i>current directory</i>, the directory in which you are working and in which saved files are currently stored (if no pathname is specified). Relative pathnames start with a subdirectory of the current directory—without an initial slash—and end with the name of the file or directory that the pathname identifies.<span class="Apple-converted-space"> </span></p>
+<p class="p18"><br></p>
+<p class="p11"><b>Method Types<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p19">Getting the default manager<span class="Apple-tab-span">	</span>+ defaultManager</p>
+<p class="p20"><br></p>
+<p class="p19">Directory operations<span class="Apple-tab-span">	</span><span class="s5">-</span> changeCurrentDirectoryPath:</p>
+<p class="p21"><span class="s5">-</span> createDirectoryAtPath:attributes:</p>
+<p class="p21"><span class="s5">-</span> currentDirectoryPath</p>
+<p class="p22"><br></p>
+<p class="p19">File operations<span class="Apple-tab-span">	</span><span class="s5">-</span> copyPath:toPath:handler:</p>
+<p class="p21"><span class="s5">-</span> createFileAtPath:contents:attributes:</p>
+<p class="p21"><span class="s5">-</span> movePath:toPath:handler:</p>
+<p class="p21"><span class="s5">-</span> linkPath:toPath:handler:</p>
+<p class="p21"><span class="s5">-</span> removeFileAtPath:handler:</p>
+<p class="p22"><br></p>
+<p class="p19">Getting and comparing file contents<span class="Apple-tab-span">	</span><span class="s5">-</span> contentsAtPath:</p>
+<p class="p21"><span class="s5">-</span> contentsEqualAtPath:andPath:</p>
+<p class="p22"><br></p>
+<p class="p19">Detemining access to files<span class="Apple-tab-span">	</span><span class="s5">-</span> fileExistsAtPath:</p>
+<p class="p21"><span class="s5">-</span> fileExistsAtPath:isDirectory:</p>
+<p class="p21"><span class="s5">-</span> isReadableFileAtPath:</p>
+<p class="p21"><span class="s5">-</span> isWritableFileAtPath:</p>
+<p class="p21"><span class="s5">-</span> isExecutableFileAtPath:</p>
+<p class="p21"><span class="s5">-</span> isDeletableFileAtPath:</p>
+<p class="p22"><br></p>
+<p class="p19">Getting and setting attributes<span class="Apple-tab-span">	</span><span class="s5">-</span> fileAttributesAtPath:traverseLink:</p>
+<p class="p21"><span class="s5">-</span> fileSystemAttributesAtPath:</p>
+<p class="p21"><span class="s5">-</span> changeFileAttributes:atPath:</p>
+<p class="p22"><br></p>
+<p class="p19">Discovering directory contents<span class="Apple-tab-span">	</span><span class="s5">-</span> directoryContentsAtPath:</p>
+<p class="p21"><span class="s5">-</span> enumeratorAtPath:</p>
+<p class="p21"><span class="s5">-</span> subpathsAtPath:</p>
+<p class="p22"><br></p>
+<p class="p19">Symbolic-link operations<span class="Apple-tab-span">	</span><span class="s5">-</span> createSymbolicLinkAtPath:pathContent:</p>
+<p class="p21"><span class="s5">-</span> pathContentOfSymbolicLinkAtPath:</p>
+<p class="p22"><br></p>
+<p class="p19">Converting file-system representations</p>
+<p class="p21"><span class="s5">-</span> fileSystemRepresentationWithPath:</p>
+<p class="p21"><span class="s5">-</span> stringWithFileSystemRepresentation:length:</p>
+<p class="p23"><br></p>
+<p class="p11"><b>Class Methods<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>defaultManager</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26">+ (NSFileManager *)<b>defaultManager</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p13">Returns the default NSFileManager object for the file system. You invoke all NSFileManager instance methods with this object as the receiver.</p>
+<p class="p14"><br></p>
+<p class="p28"><br></p>
+<p class="p11"><b>Instance Methods</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>changeCurrentDirectoryPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>changeCurrentDirectoryPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Changes the path of the current directory to <i>path</i> and returns YES if successful, NO if not successful. All relative pathnames refer implicitly to the current working directory. The current working directory is stored per task.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>currentDirectoryPath</b>, <span class="s5">-</span> <b>fileExistsAtPath:isDirectory:</b>, <span class="s5">-</span> <b>directoryContentsAtPath:</b>, <span class="s5">-</span> <b>createDirectoryAtPath:attributes:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>changeFileAttributes:atPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>changeFileAttributes:</b>(NSDictionary *)<i>attributes </i><b>atPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Changes the attributes of the file or directory specified by <i>path</i>. Attributes that you can change are the owner, the group, file permissions, and the modification date. As in the POSIX standard, the application must either own the file or directory or must be running as superuser for attribute changes to take effect. The method attempts to make all changes specified in <i>attributes</i> and ignores any rejection of an attempted modification. If all changes succeed, it returns YES. If any change fails, the method returns NO, but it is undefined whether any changes actually occured.</p>
+<p class="p14"><br></p>
+<p class="p13">Some useful global keys for identifying object values in the <i>attributes</i> dictionary are:</p>
+<p class="p14"><br></p>
+<p class="p32"><b>Key<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Value Type</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34">NSFileModificationDate<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSDate</p>
+<p class="p35"><br></p>
+<p class="p34">NSFilePosixPermissions<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p13">The NSFilePosixPermissions value must be initialized with the code representing the POSIX file-permissions bit pattern.</p>
+<p class="p14"><br></p>
+<p class="p13">You can change single attributes or any combination of attributes; you need not specify keys for all four attributes.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>fileAttributesAtPath:traverseLink:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>contentsAtPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (NSData *)<b>contentsAtPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns the contents of the file specified in <i>path</i> as an NSData object. If <i>path</i> specifies a directory, or if some other error occurs, this method returns <b>nil</b>.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>contentsEqualAtPath:andPath</b>:, <span class="s5">-</span> <b>createFileAtPath:contents:attributes:</b><b></b></p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>contentsEqualAtPath:andPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>contentsEqualAtPath:</b>(NSString *)<i>path1 </i><b>andPath:</b>(NSString *)<i>path2</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Compares the file or directory specified in <i>path1</i> with that specified in <i>path2</i> and returns YES if they have the same contents. If <i>path1</i> and <i>path2</i> are directories, the contents are the list of files and subdirectories each contain; contents of subdirectories are compared. If the contents differ in any way, this method returns NO. It does not traverse symbolic links but compares the links themselves.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>contentsAtPath:</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>copyPath:toPath:handler:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>copyPath:</b>(NSString *)<i>source<span class="Apple-converted-space"> </span></i></p>
+<p class="p36"><b>toPath:</b>(NSString *)<i>destination<span class="Apple-converted-space"> </span></i></p>
+<p class="p36"><b>handler:</b><i>handler</i><span class="Apple-converted-space"> </span></p>
+<p class="p37"><br></p>
+<p class="p13">Copies the directory or file specified in path <i>source</i> to a different location in the file system identified by pathname <i>destination</i>. If <i>source</i> is a file, the method creates a file at <i>destination</i> that holds the exact contents of the original file (this includes UNIX special files). If <i>source</i> is a directory, the method creates a new directory at <i>destination</i> and recursively populates it with duplicates of the files and directories contained in <i>source</i>, preserving all links. The file specified in <i>source</i> must exist, while <i>destination</i> must not exist prior to the operation. When a file is being copied, the <i>destination</i> path must end in a file name; there is no implicit adoption of the <i>source</i> file name. Symbolic links are not traversed but are themselves copied.</p>
+<p class="p14"><br></p>
+<p class="p13">If the copy operation is successful, the method returns YES. If the operation is not successful, but the callback <i>handler</i> of <b>fileManager:shouldProceedAfterError:</b> returns YES (see below), <b>copyPath:toPath:handler:</b> also returns YES. Otherwise this copy method returns NO. The method also attempts to make the attributes of the directory or file at <i>destination</i> identical to <i>source</i>, but ignores any failure at this attempt.</p>
+<p class="p14"><br></p>
+<p class="p13">The argument <i>handler</i> identifies an object that responds to the callback messages <b>fileManager:willProcessPath:</b> or<span class="Apple-converted-space">  </span><b>fileManager:shouldProceedAfterError:</b>. This callback mechanism is similar to delegation. NSFileManager sends the first message when it begins a copy, move, remove, or link operation. It sends the second message when it encounters any error in processing. You can specify <b>nil</b> for <i>handler</i> if no object responds to the callback messages. (See the descriptions of <b>fileManager:willProcessPath:</b> or<span class="Apple-converted-space">  </span><b>fileManager:shouldProceedAfterError:</b> at the end of this specification for details on these methods.)</p>
+<p class="p14"><br></p>
+<p class="p13">This code fragment verifies that the file to be copied exists and then copies that file to the user's <b>~/Library/Reports</b> directory:</p>
+<p class="p14"><br></p>
+<p class="p38">NSString *source = @"/tmp/quarterly_report.rtf";</p>
+<p class="p38">NSString *destination = [[NSHomeDirectory()</p>
+<p class="p38"><span class="Apple-tab-span">	</span>stringByAppendingPathComponent:@"Library"]</p>
+<p class="p38"><span class="Apple-tab-span">	</span>stringByAppendingPathComponent:@"Reports"];</p>
+<p class="p38">NSFileManager *manager = [NSFileManager defaultManager];</p>
+<p class="p38">if ([manager fileExistsAtPath:source])</p>
+<p class="p38"><span class="Apple-converted-space">      </span>[manager copyPath:source toPath:destination handler:nil];</p>
+<p class="p39"><br></p>
+<p class="p40"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>linkPath:toPath:handler:</b>, <span class="s5">-</span> <b>movePath:toPath:handler:</b>, <span class="s5">-</span> <b>fileManager:shouldProceedAfterError:</b>, <span class="s5">-</span> <b>removeFileAtPath:handler:</b>, <span class="s5">-</span> <b>fileManager:willProcessPath:</b><b></b></p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>createDirectoryAtPath:attributes:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>createDirectoryAtPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p36"><b>attributes:</b>(NSDictionary *)<i>attributes</i></p>
+<p class="p37"><i></i><br></p>
+<p class="p13">Creates<i> </i>a directory (without contents) at <i>path</i> that has the specified <i>attributes</i>. Returns YES upon success or NO upon failure. The directory to be created must not exist yet at <i>path</i>. The file attributes that you can set are owner and group numbers, file permissions, and modification date. If you specify <b>nil</b> for <i>attribute</i>s, default values for these attributes are set (particularly write access for creator and read access for others). The following table lists the global constants used as keys in the <i>attributes</i> NSDictionary and the types of the associated values:</p>
+<p class="p14"><br></p>
+<p class="p32"><b>Key<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Value Type</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34">NSFileModificationDate<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSDate</p>
+<p class="p35"><br></p>
+<p class="p34">NSFileOwnerAccount Number<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p34">NSFileGroupOwnerAccountNumber<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p34">NSPosixPermissions<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>changeCurrentDirectoryPath:</b>, <span class="s5">-</span><b> changeFileAttributes:atPath:</b>, <span class="s5">-</span><b> createFileAtPath:contents:attributes:</b>,<b> </b><span class="s5">-</span><b> currentDirectoryPath</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>createFileAtPath:contents:attributes:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>createFileAtPath:</b>(NSString *)<i>path</i></p>
+<p class="p36"><b>contents:</b>(NSData *)<i>contents</i></p>
+<p class="p36"><b>attributes:</b>(NSDictionary *)<i>attributes</i></p>
+<p class="p37"><i></i><br></p>
+<p class="p13">Creates<i> </i>a file at <i>path</i> that contains <i>contents</i> and has the specified file <i>attributes</i>. Returns YES upon success or NO upon failure. The file attributes that you can set are owner and group numbers, file permissions, and modification date. If you specify <b>nil</b> for <i>attribute</i>s, the file is given a default set of attributes. The following table summarizes the the keys and types to associate with values in the NSDictionary <i>attributes</i>.</p>
+<p class="p14"><br></p>
+<p class="p32"><b>Key<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Value Type</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34">NSFileModificationDate<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSDate</p>
+<p class="p35"><br></p>
+<p class="p34">NSFileOwnerAccount Number<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p34">NSFileGroupOwnerAccountNumber<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p34">NSPosixPermissions<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>contentsAtPath:</b>, <span class="s5">-</span><b> changeFileAttributes:atPath:</b>, <span class="s5">-</span><b> fileAttributesAtPath:traverseLink:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>createSymbolicLinkAtPath:pathContent:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>createSymbolicLinkAtPath:</b>(NSString *)<i>path<span class="Apple-converted-space"> </span></i></p>
+<p class="p36"><b>pathContent:</b>(NSString *)<i>otherPath</i><span class="Apple-converted-space"> </span></p>
+<p class="p37"><br></p>
+<p class="p13">Creates a symbolic link identified by <i>path</i> that refers to the location <i>otherPath</i> in the file system.<i> </i>Returns YES if the operation is successful and NO if it is not successful. The method returns NO if a file, directory, or symbolic link identical to <i>path</i> already exists.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span><b> pathContentOfSymbolicLinkAtPath:, </b><span class="s5">-</span><b> linkPath:toPath:handler: </b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>currentDirectoryPath</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (NSString *)<b>currentDirectoryPath</b><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns the path of the program's current directory. Relative pathnames refer implictly to this directory; for example, if the current directory is<b> /tmp</b>, and the relative pathname is <b>reports/info.txt</b>, the full pathname is constructed as <b>/tmp/reports/info.txt</b>. This path is initialized to the current working directory, and can be thereafter reset with <b>changeCurrentDirectoryPath:</b>. If the application's current working directory isn't accessible, this method returns <b>nil</b>.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>createDirectoryAtPath:attributes:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>directoryContentsAtPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (NSArray *)<b>directoryContentsAtPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns an array containing the filenames (including directories and symbolic links) immediately below the directory specified in <i>path</i>. The results are shallow, going no further than the next level below the specified directory. Here is sample output, generated by NSArray's <b>description</b> method, when this method is invoked with <b>/NextDeveloper</b> as <i>path</i>.</p>
+<p class="p14"><br></p>
+<p class="p38"><span class="Apple-converted-space">    </span>Demos,<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-converted-space">    </span>Apps,<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-converted-space">    </span>Makefiles,<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-converted-space">    </span>OpenStepConversion,<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-converted-space">    </span>Examples,<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-converted-space">    </span>Headers,<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-converted-space">    </span>2.0CompatibleHeaders,<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-converted-space">    </span>Palettes</p>
+<p class="p40"><br></p>
+<p class="p13">As the example shows, the results omit the path preceeding the subdirectory. This method skips “.” and “..” and does not traverse symbolic links in the specified directory. It returns <b>nil</b> if the directory specified at <i>path</i> does not exist or if there is some other error in accessing it.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>currentDirectoryPath</b>, <span class="s5">-</span> <b>fileExistsAtPath:isDirectory:</b>,<span class="Apple-converted-space">  </span><span class="s5">-</span> <b>enumeratorAtPath:, </b><span class="s5">-</span><b> subpathsAtPath:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>enumeratorAtPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (NSDirectoryEnumerator *)<b>enumeratorAtPath:</b>(NSString *)<i>path </i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns an NSDirectoryEnumerator with which to enumerate the contents of the directory specified at path. This enumeration, which returns NSString objects, goes very deep and hence is very useful for large file-system subtrees. If the method discovers a new mount point, it traverses the mount point. It also reports any symbolic links it discovers.<span class="Apple-converted-space">  </span>It returns <b>nil</b> if it cannot get the device of the linked-to file.</p>
+<p class="p14"><br></p>
+<p class="p13">This code fragment enumerates the subdirectories and files under<b> /MyAccount/Documents</b> and processes all files with an extension of <b>.doc</b>:</p>
+<p class="p14"><br></p>
+<p class="p38">NSString *file;</p>
+<p class="p38">NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager]</p>
+<p class="p38"><span class="Apple-tab-span">	</span>enumeratorAtPath:@"/MyAccount/Documents"];</p>
+<p class="p38">while (file = [enumerator nextObject]) {</p>
+<p class="p38"><span class="Apple-tab-span">	</span>if ([[file pathExtension] isEqualToString:@"doc"])</p>
+<p class="p38"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>[self scanDocument:file];</p>
+<p class="p38">}</p>
+<p class="p40"><br></p>
+<p class="p13">The NSDirectoryEnumerator class has methods for obtaining the attributes of the existing path and of the parent directory, and for skipping descendents of the existing path.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>currentDirectoryPath</b>, <span class="s5">-</span> <b>fileExistsAtPath:isDirectory:</b>,<span class="Apple-converted-space">  </span><span class="s5">-</span> <b>directoryContentsAtPath:</b>,<b> </b><span class="s5">-</span><b> subpathsAtPath:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>fileAttributesAtPath:traverseLink:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (NSDictionary *)<b>fileAttributesAtPath:</b>(NSString *)<i>path </i><b>traverseLink:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns an NSDictionary containing various objects that represent the POSIX attributes of the file specified at <i>path</i>.<span class="Apple-converted-space">  </span>You access these objects using these global constants as keys:</p>
+<p class="p14"><br></p>
+<p class="p32"><b>Key<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Value Type</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34">NSFileSize (in bytes)<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber<span class="Apple-converted-space"> </span></p>
+<p class="p35"><br></p>
+<p class="p34">NSFileModificationDate<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSDate</p>
+<p class="p35"><br></p>
+<p class="p34">NSFileOwnerAccount Number<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p34">NSFileGroupOwnerAccountNumber<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p34">NSFileReferenceCount (number of hard links)<span class="Apple-tab-span">	</span>NSNumber<span class="Apple-converted-space"> </span></p>
+<p class="p35"><br></p>
+<p class="p34">NSFileIdentifier<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p34">NSFileDeviceIdentifier<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p34">NSPosixPermissions<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p34">NSFileType<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSString</p>
+<p class="p35"><br></p>
+<p class="p13">NSFileType's global strings are defined as:</p>
+<p class="p14"><br></p>
+<p class="p15">•<span class="Apple-tab-span">	</span>NSFileTypeDirectory</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>NSFileTypeRegular</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>NSFileTypeSymbolicLink</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>NSFileTypeSocket</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>NSFileTypeCharacterSpecial</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>NSFileTypeBlockSpecial</p>
+<p class="p15">•<span class="Apple-tab-span">	</span>NSFileTypeUnknown</p>
+<p class="p16"><br></p>
+<p class="p13">If <i>flag</i> is YES and <i>path</i> is a symbolic link, the attributes of the linked-to file are returned; if <i>flag</i> is NO, the attributes of the symbolic link are returned.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">This piece of code gets several attributes of a file and logs them.</p>
+<p class="p14"><br></p>
+<p class="p38">NSNumber *fsize, *refs, *owner;</p>
+<p class="p38">NSDate *moddate;</p>
+<p class="p39"><br></p>
+<p class="p38">NSDictonary *fattrs =<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-converted-space"> </span>[manager fileAttributesAtPath:@"/tmp/List" traverseLink:YES];</p>
+<p class="p39"><br></p>
+<p class="p38">if (!fattrs) {</p>
+<p class="p38"><span class="Apple-tab-span">	</span>NSLog(@"Path is incorrect!");</p>
+<p class="p38"><span class="Apple-tab-span">	</span>return;</p>
+<p class="p38">}</p>
+<p class="p38">if (fsize = [fattrs objectForKey:NSFileSize])</p>
+<p class="p38"><span class="Apple-tab-span">	</span>NSLog(@"File size: %d\n", [fsize intValue]);</p>
+<p class="p39"><br></p>
+<p class="p38">if (refs = [fattrs objectForKey:NSFileReferenceCount])</p>
+<p class="p38"><span class="Apple-converted-space"> <span class="Apple-tab-span">	</span></span>NSLog(@"Ref Count: %d\n", [refs intValue]);</p>
+<p class="p39"><br></p>
+<p class="p38">if (moddate = [fattrs objectForKey:NSFileModificationDate])</p>
+<p class="p38"><span class="Apple-converted-space"> <span class="Apple-tab-span">	</span></span>NSLog(@"Modif Date: %@\n", [moddate description]);</p>
+<p class="p39"><br></p>
+<p class="p40"><br></p>
+<p class="p13">As a convenience, NSDictionary provides a set of methods (declared as a category in <b>NSFileManager.h</b>) for quickly and efficiently obtaining attribute information from the returned NSDictionary: <b>fileSize</b>, <b>fileType</b>, <b>fileModificationDate</b>, and<b> filePosixPermissions</b>.<span class="Apple-converted-space">  </span>For example, you could rewrite the last statement in the code example above as:</p>
+<p class="p14"><br></p>
+<p class="p38">if (moddate = [fattrs fileModificationDate])</p>
+<p class="p38"><span class="Apple-converted-space"> <span class="Apple-tab-span">	</span></span>NSLog(@"Modif Date: %@\n", [moddate description]);</p>
+<p class="p40"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="Apple-converted-space">  </span><span class="s5">-</span> <b>changeFileAttributes:atPath:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>fileExistsAtPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>fileExistsAtPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns YES if the file specified in <i>path</i> exists, or NO if it does not. The method traverses final symbolic links.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>fileExistsAtPath:isDirectory:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>fileExistsAtPath:isDirectory:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>fileExistsAtPath:</b>(NSString *)<i>path </i><b>isDirectory:</b>(BOOL *)<i>isDirectory</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns YES if the file specified in path exists, or NO if it does not. If you want to determine if path is a directory, supply the address of a Boolean (intialized to NO) in isDirectory; the method indirectly returns YES if path is a directory. The method traverses final symbolic links.</p>
+<p class="p14"><br></p>
+<p class="p13">This example gets an NSArray that identifies the fonts in <b>/NextLibrary/Fonts</b>:</p>
+<p class="p14"><br></p>
+<p class="p38">NSArray *subpaths;</p>
+<p class="p38">BOOL isDir=NO;</p>
+<p class="p38">NSString *fontPath = @"/NextLibrary/Fonts";</p>
+<p class="p38">NSFileManager *manager = [NSFileManager defaultManager];</p>
+<p class="p38">if ([manager fileExistsAtPath:fontPath isDirectory:&amp;isDir]<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-tab-span">	</span>&amp;&amp; isDir)</p>
+<p class="p38"><span class="Apple-converted-space">    </span>subpaths = [manager subpathsAtPath:fontPath];</p>
+<p class="p40"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><i><span class="Apple-converted-space"> </span></i> <span class="s5">-</span><b> fileExistsAtPath:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>fileSystemAttributesAtPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (NSDictionary *)<b>fileSystemAttributesAtPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns an NSDictionary containing objects that represent attributes of the mounted file system; <i>path</i> is any pathname within the mounted file system. You access the attribute objects in the NSDictionary using these global constants as keys:</p>
+<p class="p14"><br></p>
+<p class="p32"><b>Key<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Value Type</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34">NSFileSystemSize (in an appropriate unit, usually bytes)<span class="Apple-tab-span">	</span>NSNumber<span class="Apple-converted-space"> </span></p>
+<p class="p35"><br></p>
+<p class="p34">NSFileSystemFreeSize (in an appropriate unit, usually bytes)<span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p34">NSFileSystemNodes<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p34">NSFileSystemFreeNodes<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p34">NSFileSystemNumber<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>NSNumber</p>
+<p class="p35"><br></p>
+<p class="p13">The following code example checks to see if there's sufficient space on the file system before adding a new file to it:</p>
+<p class="p14"><br></p>
+<p class="p38">const char *data = [[customerRec description] cString];</p>
+<p class="p38">NSData *contents = [NSData dataWithBytes:data length:sizeof(data)];</p>
+<p class="p38">NSFileManager *manager = [NSFileManager defaultManager];</p>
+<p class="p38">NSDictionary *fsattrs =<span class="Apple-converted-space"> </span></p>
+<p class="p38">    [manager fileSystemAttributesAtPath:@"/Net/sales/misc"];</p>
+<p class="p38">if ([[fsattrs objectForKey:NSFileSystemFreeSize] unsignedIntValue]<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-converted-space">    </span>&gt; [contents length])<span class="Apple-converted-space"> </span></p>
+<p class="p38">    [manager createFileAtPath:@"/Net/sales/misc/custrec.rtf"</p>
+<p class="p38">         contents:contents attributes:nil];</p>
+<p class="p40"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s5">-</span> <b>fileAttributesAtPath:traverseLink:</b>, <span class="s5">-</span><b> changeFileAttributes:atPath:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>fileSystemRepresentationWithPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (const char *)<b>fileSystemRepresentationWithPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns a C-string representation of <i>path</i> that<span class="Apple-converted-space">  </span>properly encodes Unicode strings for use by the file system.<i> </i>If you need the C string beyond the scope of your autorelease pool, you should copy it.<span class="Apple-converted-space">  </span>This method raises an exception upon error. Use this method if your code calls system routines that expect C-string path arguments.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s5">-</span> <b>stringWithFileSystemRepresentation:length:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>isDeletableFileAtPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>isDeletableFileAtPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns YES if the invoking object appears to be able to delete the directory or file specified in <i>path</i> and NO if it cannot. To be deletable, either the parent directory of <i>path</i> must be writable and its owner must be the application; if <i>path</i> is a directory, it must have no undeletable items in it. This method does not traverse symbolic links.<span class="Apple-converted-space"> </span><i> </i><span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p41"><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>isExecutableFileAtPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>isExecutableFileAtPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns YES if the underlying operating system appears able to execute the file specified in path and NO if it cannot.<span class="Apple-converted-space">  </span>This method traverses symbolic links.</p>
+<p class="p14"><br></p>
+<p class="p41"><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>isReadableFileAtPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>isReadableFileAtPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns YES if the invoking object appears able to read the file specified in <i>path</i> and NO if it cannot. This method traverses symbolic links.</p>
+<p class="p14"><br></p>
+<p class="p41"><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>isWritableFileAtPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>isWritableFileAtPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns YES if the invoking object appears able to write to the file specified in <i>path</i> and NO if it cannot.<span class="Apple-converted-space">  </span>This method traverses symbolic links.</p>
+<p class="p14"><br></p>
+<p class="p41"><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>linkPath:toPath:handler:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>linkPath:</b>(NSString *)<i>source<span class="Apple-converted-space"> </span></i></p>
+<p class="p36"><b>toPath:</b>(NSString *)<i>destination</i></p>
+<p class="p36"><b>handler:</b><i>handler</i><span class="Apple-converted-space"> </span></p>
+<p class="p37"><br></p>
+<p class="p13">If pathname <i>source</i> identifies a file, this method hard-links the directory or file specified in <i>destination</i> to it. If <i>source</i> is a directory or a symbolic link, this method<b> </b>copies it to <i>destination</i> instead of creating a hard link. The file, link, or directory specified in <i>source</i> must exist, while <i>destination</i> must not yet exist. The <i>destination</i> path must end in a file name; there is no implicit adoption of the <i>source</i> file name. Symbolic links in <i>source</i> are not traversed.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">If the link operation is successful, <b>linkPath:toPath:handler:</b> returns YES. If the operation is not successful, but the <i>handler</i> method <b>fileManager:shouldProceedAfterError:</b> returns YES,<span class="Apple-converted-space">  </span>the method also returns YES. Otherwise it returns NO.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">The argument <i>handler</i> identifies an object that responds to the callback messages <b>fileManager:willProcessPath:</b> and <b>fileManager:shouldProceedAfterError:</b> (see “Methods Implemented by the Callback Handler,” below). This callback mechanism is similar to delegation. NSFileManager sends the first message when it begins a copy, move, remove, or link operation. It sends the second message when it encounters any error in processing. You can specify <b>nil</b> for <i>handler</i> if no object responds to the callback messages.</p>
+<p class="p14"><br></p>
+<p class="p13">This code fragment verifies the pathname typed in a text field (<b>imageFileField</b>) and then links the file to the user's <b>~/Library/Images</b> directory:</p>
+<p class="p14"><br></p>
+<p class="p38">NSString *imageFile = [imageFileField stringValue];</p>
+<p class="p38">NSString *destination = [[NSHomeDirectory()</p>
+<p class="p38"><span class="Apple-tab-span">	</span>stringByAppendingPathComponent:@"Library"]</p>
+<p class="p38"><span class="Apple-tab-span">	</span>stringByAppendingPathComponent:@"Images"];</p>
+<p class="p38">NSFileManager *manager = [NSFileManager defaultManager];</p>
+<p class="p38">if ([manager fileExistsAtPath:source])</p>
+<p class="p38"><span class="Apple-converted-space">      </span>[manager linkPath:source toPath:destination handler:self];</p>
+<p class="p40"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>copyPath:toPath:handler:</b>, <span class="s5">-</span><b> createSymbolicLinkAtPath:pathContent:</b>, <span class="s5">-</span> <b>movePath:toPath:handler:</b>, <span class="s5">-</span> <b>fileManager:shouldProceedAfterError:,</b> <span class="s5">-</span> <b>removeFileAtPath:handler:</b>, <span class="s5">-</span> <b>fileManager:willProcessPath:</b>, <b><span class="Apple-converted-space"> </span></b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>movePath:toPath:handler:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>movePath:</b>(NSString *)<i>source<span class="Apple-converted-space"> </span></i></p>
+<p class="p36"><b>toPath:</b>(NSString *)<i>destination<span class="Apple-converted-space"> </span></i></p>
+<p class="p36"><b>handler:</b><i>handler</i><span class="Apple-converted-space"> </span></p>
+<p class="p37"><br></p>
+<p class="p13">Moves the directory or file specified in path <i>source</i> to a different location in the file system identified by the pathname <i>destination</i>. If <i>source</i> is a file, the method creates a file at <i>destination</i> that holds the exact contents of the original file (including UNIX special files) and then deletes the original file. If <i>source</i> is a directory,<span class="Apple-converted-space">  </span><b>movePath:toPath:handler:</b> creates a new directory at <i>destination</i> and recursively populates it with duplicates of the files and directories contained in <i>source</i>; it then deletes the old directory and its contents. The file specified in <i>source</i> must exist, while <i>destination</i> must not yet exist. The <i>destination</i> path must end in a file name; there is no implicit adoption of the <i>source</i> file name. Symbolic links are not traversed; however, links are preserved.</p>
+<p class="p14"><br></p>
+<p class="p13">If the move operation is successful, the method returns YES. If the operation is not successful, but the <i>handler</i> method <b>fileManager:shouldProceedAfterError:</b> returns YES, <b>movePath:toPath:handler:</b> also returns YES; otherwise it returns NO. If a failure in a move operation occurs, the pre-existing path or the new path remains intact, but not both.</p>
+<p class="p14"><br></p>
+<p class="p13">The argument <i>handler</i> identifies an object that responds to the callback messages <b>fileManager:willProcessPath:</b> and <b>fileManager:shouldProceedAfterError:</b> (see “Methods Implemented by the Callback Handler,” below).<span class="Apple-converted-space">  </span>This callback mechanism is similar to delegation. NSFileManager sends the first message when it begins a copy, move, remove, or link operation. It sends the second message when it encounters any error in processing. You can specify <b>nil</b> for <i>handler</i> if no object responds to the callback messages.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>copyPath:toPath:handler:</b>, <span class="s5">-</span> <b>linkPath:toPath:handler:</b>, <span class="s5">-</span> <b>removeFileAtPath:handler:</b>, <span class="s5">-</span> <b>fileManager:shouldProceedAfterError:</b>, <span class="s5">-</span> <b>fileManager:willProcessPath:</b><b></b></p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>pathContentOfSymbolicLinkAtPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (NSString *)<b>pathContentOfSymbolicLinkAtPath:</b>(NSString *)<i>cStringPath</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns the actual path of the directory or file that the symbolic link <i>cStringPath</i> refers to.<span class="Apple-converted-space"> </span><i> </i>Returns <b>nil</b> upon failure.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>createSymbolicLinkAtPath:pathContent:</b><b></b></p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>removeFileAtPath:handler:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>removeFileAtPath:</b>(NSString *)<i>path</i> <b>handler:</b><i>handler</i></p>
+<p class="p27"><i></i><br></p>
+<p class="p13">Deletes the file, link, or directory (including, recusively, all subdirectories, files and links in the directory) identified by <i>path</i>. If the removal operation is successful, <b>removeFileAtPath:handler:</b> returns YES. If the operation is not successful, but the<span class="Apple-converted-space">  </span><i>handler</i> method <b>fileManager:shouldProceedAfterError:</b> returns YES, <b>removeFileAtPath:handler:</b> also returns YES; otherwise it returns NO.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">The argument <i>handler</i> identifies an object that responds to the callback messages <b>fileManager:willProcessPath:</b> and <b>fileManager:shouldProceedAfterError:</b> (see “Methods Implemented by the Callback Handler,” below).<span class="Apple-converted-space">  </span>This callback mechanism is similar to delegation. NSFileManager sends the first message when it begins a copy, move, remove, or link operation. It sends the second message when it encounters any error in processing. You can specify <b>nil</b> for <i>handler</i> if no object responds to the callback messages.</p>
+<p class="p14"><br></p>
+<p class="p13">Since the removal of directory contents is so thorough and final, be careful when using this method. Do not specify<span class="Apple-converted-space">  </span>“.” or “..” for <i>path</i>; this will raise the exception NSInvalidArgumentException. This method does not traverse symbolic links. <span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>copyPath:toPath:handler:</b>, <span class="s5">-</span> <b>linkPath:toPath:handler:</b>,<span class="Apple-converted-space">  </span><span class="s5">-</span> <b>movePath:toPath:handler:</b>,<span class="Apple-converted-space">  </span><span class="s5">-</span> <b>fileManager:shouldProceedAfterError:</b>, <span class="s5">-</span> <b>fileManager:willProcessPath:</b><b></b></p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>stringWithFileSystemRepresentation:length:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (NSString *)<b>stringWithFileSystemRepresentation:</b>(const char *)<i>string</i></p>
+<p class="p36"><b>length:</b>(unsigned int)<i>len</i><span class="Apple-converted-space"> </span></p>
+<p class="p37"><br></p>
+<p class="p13">Returns an NSString object converted from a C-string representation of a path name in the current file system (<i>string</i>). Use this method if your code receives paths as C-strings from system routines.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s5">-</span> <b>fileSystemRepresentationWithPath:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>subpathsAtPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (NSArray *)<b>subpathsAtPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p13">Returns an NSArray that lists (as NSStrings) the contents of the directory identified by path. This list of directory contents goes very deep and hence is very useful for large file-system subtrees. The method skips “.” and “..”.<span class="Apple-converted-space">  </span>If path is a symbolic link, <b>subpathsAtPath:</b> traverses the link.<span class="Apple-converted-space">  </span>The method returns <b>nil</b> if it cannot get the device of the linked-to file.</p>
+<p class="p14"><br></p>
+<p class="p13">Here is a sample fragment of what <b>subpathsAtPath:</b> returns (as the output of NSArray's <b>description</b> method) when <i>path</i> is <b>/NextDeveloper</b>:</p>
+<p class="p14"><br></p>
+<p class="p38">Demos/AppInspector.app/Voyeur.nib/PauseH.tiff,<span class="Apple-converted-space"> </span></p>
+<p class="p38">Demos/AppInspector.app/Voyeur.nib/data.classes,<span class="Apple-converted-space"> </span></p>
+<p class="p38">Demos/AppInspector.app/Voyeur.nib/data.nib,<span class="Apple-converted-space"> </span></p>
+<p class="p38">Demos/AppInspector.app/check.tiff,<span class="Apple-converted-space"> </span></p>
+<p class="p38">Demos/AppInspector.app/checkH.tiff,<span class="Apple-converted-space"> </span></p>
+<p class="p38">Demos/AppInspector.app/AppInspector,<span class="Apple-converted-space"> </span></p>
+<p class="p38">Headers,<span class="Apple-converted-space"> </span></p>
+<p class="p38">Headers/architecture,<span class="Apple-converted-space"> </span></p>
+<p class="p38">Headers/architecture/ARCH_INCLUDE.h,<span class="Apple-converted-space"> </span></p>
+<p class="p38">Headers/architecture/adb_bus.h,<span class="Apple-converted-space"> </span></p>
+<p class="p38">Headers/architecture/adb_kb_codes.h,<span class="Apple-converted-space"> </span></p>
+<p class="p38">Headers/architecture/adb_kb_map.h,<span class="Apple-converted-space"> </span></p>
+<p class="p38">Headers/architecture/alignment.h,<span class="Apple-converted-space"> </span></p>
+<p class="p40"><br></p>
+<p class="p13">Notice that this method reveals every element of the subtree at <i>path</i>, including the contents of file packages (such as applications, nib files, and RTFD files). This code fragment gets the contents of <b>/NextLibrary/Fonts</b> after verifying that the directory exists:</p>
+<p class="p14"><br></p>
+<p class="p38">BOOL isDir=NO;</p>
+<p class="p38">NSArray *subpaths;</p>
+<p class="p38">NSString *fontPath = @"/NextLibrary/Fonts";</p>
+<p class="p38">NSFileManager *manager = [NSFileManager defaultManager];</p>
+<p class="p38">if ([manager fileExistsAtPath:fontPath isDirectory:&amp;isDir] &amp;&amp; isDir)</p>
+<p class="p38"><span class="Apple-converted-space">    </span>subpaths = [manager subpathsAtPath:fontPath];</p>
+<p class="p40"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span><b> directoryContentsAtPath:</b>, <span class="s5">-</span> <b>enumeratorAtPath:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p42"><b></b><br></p>
+<p class="p43"><b>Methods Implemented by the Callback Handler (Notification)<span class="Apple-converted-space"> </span></b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>fileManager:shouldProceedAfterError:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (BOOL)<b>fileManager:</b>(NSFileManager *)<i>manager</i><span class="Apple-converted-space"> </span></p>
+<p class="p36"><b>shouldProceedAfterError:</b>(NSDictionary *)<i>errorInfo</i></p>
+<p class="p37"><i></i><br></p>
+<p class="p13">NSFileManager sends this message for each error it encounters when copying, moving, removing, or linking files or directories. The NSDictionary object <i>errorInfo</i> contains two or three pieces of information (all NSStrings) related to the error:</p>
+<p class="p14"><br></p>
+<p class="p32"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34">@"Path"<span class="Apple-tab-span">	</span>The path related to the error (usually the source path)</p>
+<p class="p35"><br></p>
+<p class="p34">@"Error"<span class="Apple-tab-span">	</span>A description of the error</p>
+<p class="p35"><br></p>
+<p class="p34">@"ToPath" <span class="Apple-tab-span">	</span>The destination path (not all errors)</p>
+<p class="p35"><br></p>
+<p class="p13">Return YES if the operation (which is often continuous within a loop) should proceed and NO if it should not; the Boolean value is passed back to the invoker of <b>copyPath:toPath:handler:</b>, <b>movePath:toPath:handler:</b>, <b>removeFileAtPath:handler:</b> or<b> linkPath:toPath:handler:</b>.</p>
+<p class="p14"><br></p>
+<p class="p13">The following implementation of<b> fileManager:shouldProceedAfterError:</b> displays the error string in an attention panel and leaves it to the user whether to proceed or stop:</p>
+<p class="p14"><br></p>
+<p class="p38">-(BOOL)fileManager:(NSFileManager *)manager<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-converted-space">      </span>shouldProceedAfterError:(NSDictionary *)errorDict</p>
+<p class="p38">{</p>
+<p class="p38"><span class="Apple-converted-space">   </span>int result;</p>
+<p class="p38"><span class="Apple-converted-space">   </span>result = NSRunAlertPanel(@"Gumby App", @"File operation error:</p>
+<p class="p38"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>%@ with file: %@", @"Proceed", @"Stop", NULL,<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>[errorDict objectForKey:@"Error"],<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>[errorDict objectForKey:@"Path"]);</p>
+<p class="p39"><br></p>
+<p class="p38"><span class="Apple-converted-space">   </span>if (result == NSAlertDefaultReturn)</p>
+<p class="p38"><span class="Apple-converted-space">      </span>return YES;</p>
+<p class="p38"><span class="Apple-converted-space">    </span>else</p>
+<p class="p38"><span class="Apple-converted-space">       </span>return NO;</p>
+<p class="p38">}</p>
+<p class="p40"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>fileManager:willProcessPath:</b><b></b></p>
+<p class="p30"><br></p>
+<p class="p31"><br></p>
+<p class="p24"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>fileManager:willProcessPath:</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p26"><span class="s5">-</span> (void)<b>fileManager:</b>(NSFileManager *)<i>manager</i> <b>willProcessPath:</b>(NSString *)<i>path</i></p>
+<p class="p27"><i></i><br></p>
+<p class="p13">NSFileManager sends this message to the designated handler for each file or directory (identified by <i>path</i>) that it is about to copy, link, remove, or move. This notification gives you the opportunity to update your user interface or to do anything similar where the knowledge of <i>path</i> is important.</p>
+<p class="p14"><br></p>
+<p class="p29"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>fileManager:shouldProceedAfterError:</b><b></b></p>
+<p class="p30"><br></p>
+<p class="p46"><br></p>
+<p class="p14"><br></p>
+</body>
+</html>

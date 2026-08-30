@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 20.0px; font: 14.0px Times}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px Helvetica; color: #0000ff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 20.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 32.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 32.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -16.0px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -16.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 72.0px; font: 12.0px Times; color: #0000ff}
+    p.p13 {margin: 0.0px 0.0px 0.0px 35.0px; font: 10.0px Times; color: #0000ff; min-height: 13.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"> Next Section</p>
+<p class="p2"><br></p>
+<p class="p4"><b>3. Travel Advisor Tutorial</b><b></b></p>
+<p class="p5"><b>Introduction</b></p>
+<p class="p6"><br></p>
+<p class="p3">In this chapter you create Travel Advisor, an application that is considerably more complex than the Currency Converter application you built in the first tutorial. Travel Advisor is a forms-based application used for entering, viewing, and maintaining records on countries that the user travels to. Users enter a country name and information associated with that country. When they click Add, the country appears in the table below the country name. They can select countries in the table, and the information on that country appears in the forms. The application also performs temperature and currency conversions.</p>
+<p class="p7"><br></p>
+<p class="p7"><br></p>
+<p class="p8"><img src="TravelAdvisor_Intro.rtfd/TA_FinalWithData.jpg" alt="TA_FinalWithData.jpg"></p>
+<p class="p9"><br></p>
+<p class="p3">This chapter presents a lot of information on OpenStep programming. Among other things, you'll learn how to:</p>
+<p class="p7"><br></p>
+<p class="p10"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-1-title" data-source="TravelAdvisor_Intro.rtfd/85551_SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-1-title">85551_SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Use several new objects on Interface Builder's palettes.</p>
+<p class="p10"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-2-title" data-source="TravelAdvisor_Intro.rtfd/326039_SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-2-title">326039_SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Assign an icon to an application.</p>
+<p class="p10"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-3-title" data-source="TravelAdvisor_Intro.rtfd/262888_SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-3-title">262888_SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Print the contents of a view.</p>
+<p class="p10"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-4-title" data-source="TravelAdvisor_Intro.rtfd/215416_SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-4-title">215416_SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Use collection objects (NSArray and NSDictionary).</p>
+<p class="p10"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-5-title" data-source="TravelAdvisor_Intro.rtfd/947386_SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-5-title">947386_SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Use string objects (NSString).</p>
+<p class="p10"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-6-title" data-source="TravelAdvisor_Intro.rtfd/156123_SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-6-title">156123_SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Archive and unarchive object data.</p>
+<p class="p10"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-7-title" data-source="TravelAdvisor_Intro.rtfd/735187_SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-7-title">735187_SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Format and validate field contents.</p>
+<p class="p10"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-8-title" data-source="TravelAdvisor_Intro.rtfd/561885_SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-8-title">561885_SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Manage events through delegation.</p>
+<p class="p10"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-9-title" data-source="TravelAdvisor_Intro.rtfd/800033_SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-9-title">800033_SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Quickly find information related to your project.</p>
+<p class="p10"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7pt" height="6pt" viewBox="0 0 7 6" role="img" aria-labelledby="manual-svg-10-title" data-source="TravelAdvisor_Intro.rtfd/757573_SquareBullet.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-10-title">757573_SquareBullet.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.375 5 L 5.375 0.875 L 1.25 0.875 L 1.25 5 L 5.375 5 "/>
+</svg><span class="Apple-tab-span">	</span>Use Project Builder's graphical debugger.</p>
+<p class="p11"><br></p>
+<p class="p11"><br></p>
+<p class="p3">Perhaps most interestingly, you will <i>reuse</i> the Converter class you implemented in the previous tutorial.<span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p12">Collection objects <span class="Apple-converted-space"> </span>allow you to store, organize, and access data in different ways. String objects <span class="Apple-converted-space"> </span>represent textual strings in various encodings.<span class="Apple-converted-space"> </span></p>
+<p class="p13"><br></p>
+<p class="p12">You can find the <b>TravelAdvisor</b> project in the <b>AppKit</b> subdirectory of <b>/NextDeveloper/Examples</b>.</p>
+<p class="p13"><br></p>
+</body>
+</html>

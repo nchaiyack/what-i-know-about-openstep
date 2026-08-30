@@ -1,0 +1,32 @@
+.\"	@(#)sigpending.2	8/16/92
+.\"
+.TH SIGPENDING 2P "August 1, 1992"
+.UC 4
+.SH NAME
+sigpending \- (POSIX only) retrieve the set of pending signals for the calling process.
+.SH SYNOPSIS
+.nf
+.ft B
+#include <signal.h>
+.PP
+.br
+.B sigpending(sigset_t *\fIset\fP);
+.fi
+.SH DESCRIPTION
+The information in this specification applies
+only to POSIX applications.
+.PP
+The
+.I sigpending
+function stores the set of signals that are blocked from delivery
+and pending for the calling process in the space pointed to by the
+argument \fIset\fR.
+.SH "RETURN VALUE"
+Upon successful completion, a value of zero is returned. Otherwise, a value of
+\-1 is returned and \fIerrno\fR is set to indicate the error.
+.SH ERRORS
+.TP 15
+[EFAULT]
+The value of the \fIset\fR argument is outside the process address space.
+.SH "SEE ALSO"
+sigprocmask(2P), sigsetops(3P)

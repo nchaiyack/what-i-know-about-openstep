@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 75.6px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 76.0px; text-indent: -0.4px; font: 14.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 76.0px; text-indent: -0.4px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 12.0px Helvetica}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.6px; font: 13.0px Times; min-height: 16.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.6px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.6px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 90.5px; text-indent: -14.9px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 90.5px; text-indent: -14.9px; font: 7.0px Times; min-height: 8.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 75.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p21 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 95.8px; font: 12.0px Courier}
+    p.p23 {margin: 0.0px 0.0px 0.0px 95.8px; font: 12.0px Courier; min-height: 14.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSMenuActionResponder</b></p>
+<p class="p4"><b>(informal protocol)</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b>Category Of:<span class="Apple-tab-span">	</span></b><span class="s2">NSObject</span></p>
+<p class="p7"><br></p>
+<p class="p8"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSMenu.h<span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p7"><br></p>
+<p class="p9"><b>Protocol Description</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">This informal protocol allows your application to update the enabled or disabled status of an NSMenuItem. It declares only one method, <b>validateMenuItem:</b>. By default, every time a user event occurs, NSMenu automatically enables and disables each visible menu item based on criteria described in “Automatic Updating of NSMenuItems,” below. Implement <b>validateMenuItem:</b> in cases where you want to override NSMenu's default enabling scheme.</p>
+<p class="p12"><br></p>
+<p class="p11">NSMenuItems can be enabled or disabled in two ways: explicitly, by sending the <b>setEnabled:</b> message, or automatically, as described below. Automatic updating can be turned on and off with NSMenu's <b>setAutoenablesItems:</b> message.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><b>Automatic Updating of NSMenuItems</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p11">Whenever a user event occurs, the NSMenu object updates the status of every one of its visible menu items. To update the status of a menu item, an NSMenu tries to find the object that responds to the NSMenuItem's action message. It searches the following objects in order until it finds one that responds to the action message (note that it doesn't actually send the action message):</p>
+<p class="p12"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>The NSMenuItem's target. If the target is non-<b>nil</b>, the search ends here whether the target responds or not.</p>
+<p class="p18"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>The key window's responder chain, starting with its first responder.</p>
+<p class="p18"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>The key window itself.</p>
+<p class="p18"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>The key window's delegate.</p>
+<p class="p18"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>The main window's responder chain, starting with its first responder.</p>
+<p class="p18"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>The main window itself.</p>
+<p class="p18"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>The main window's delegate.</p>
+<p class="p18"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>The NSApplication object.</p>
+<p class="p18"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>The NSApplication object's delegate.</p>
+<p class="p18"><br></p>
+<p class="p11">If none of these objects responds to the action message, the menu item is disabled. If NSMenu finds an object that responds to the action message, it then checks to see if that object responds to the <b>validateMenuItem:</b> method (the method declared in this informal protocol). If <b>validateMenuItem:</b> is not implemented in that object, the menu item is enabled. If it is implemented, the return value of <b>validateMenuItem:</b> indicates whether the menu item should be enabled or disabled.</p>
+<p class="p12"><br></p>
+<p class="p11">Here is an example of using <b>validateMenuItem:</b> to override automatic enabling. If your application has a Copy menu item that sends the <b>copy:</b> action message to the first responder, that menu item is automatically enabled any time an object that responds to <b>copy:</b>, such as an NSText object, is the first responder of the key or main window. If you create a class whose instances might become the first responder, and which doesn't support copying of everything it allows the user to select, you should implement <b>validateMenuItem:</b> in that class. <b>validateMenuItem:</b> will then return NO if items that can't be copied are selected (or if no items are selected) and YES if all items in the selection can be copied. By implementing <b>validateMenuItem:</b>, you can have the Copy menu item disabled even though the target object does implement the <b>copy:</b> method. If your class never permits copying, then you simply omit an implemention of <b>copy:</b> in that class, and the Copy menu item is disabled automatically whenever an instance of that class is the first responder.</p>
+<p class="p12"><br></p>
+<p class="p11">If you send a <b>setEnabled:</b> message to enable or disable a menu item when automatic updating is turned on (with NSMenu's <b>setAutoEnablesItems:</b>), other objects might undo what you have done after another user event occurs. Hence you can never be sure that the menu item will remain the way you set it. If your application must use <b>setEnabled:</b>, turn off the automatic enabling of menu items in order to get predictable results.</p>
+<p class="p12"><br></p>
+<p class="p19"><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p14"><b></b><b>validateMenuItem:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p20"><span class="s4">-</span> (BOOL)<b>validateMenuItem:</b>(NSMenuItem *)<i>aMenuItem</i></p>
+<p class="p21"><i></i><br></p>
+<p class="p11">Implemented to override the default action of enabling or disabling <i>aMenuItem</i>. The object implementing this method must be the target of <i>aMenuItem</i>.<span class="Apple-converted-space">  </span>It returns YES to enable the <i>aMenuItem</i>, NO to disable it. You can determine which menu item <i>aMenuItem</i> is by querying it for its title, tag, or action.</p>
+<p class="p12"><br></p>
+<p class="p11">The following example beeps and disables the menu item “Next Record” if the selected line in a table view is the last one; conversely, it beeps and disables the menu item “Prior Record” if the selected row is the first one in the table view. (<b>countryKeys</b> is an array of names appearing in the table view.)</p>
+<p class="p12"><br></p>
+<p class="p22">- (BOOL)validateMenuItem:(NSMenuItem *)anItem</p>
+<p class="p22">{</p>
+<p class="p22"><span class="Apple-converted-space">    </span>int row = [tableView selectedRow];</p>
+<p class="p22"><span class="Apple-converted-space">    </span>if ([[anItem title] isEqualToString:@"Next Record"] &amp;&amp;</p>
+<p class="p22"><span class="Apple-converted-space">        </span>(row == [countryKeys indexOfObject:[countryKeys lastObject]])) {</p>
+<p class="p22"><span class="Apple-converted-space">        </span>NSBeep();</p>
+<p class="p22"><span class="Apple-converted-space">        </span>return NO;</p>
+<p class="p22"><span class="Apple-converted-space">    </span>}</p>
+<p class="p22"><span class="Apple-converted-space">    </span>if ([[anItem title] isEqualToString:@"Prior Record"] &amp;&amp; row == 0 ) {</p>
+<p class="p22"><span class="Apple-converted-space">        </span>NSBeep();</p>
+<p class="p22"><span class="Apple-converted-space">        </span>return NO;</p>
+<p class="p22"><span class="Apple-converted-space">    </span>}</p>
+<p class="p22"><span class="Apple-converted-space">    </span>return YES;</p>
+<p class="p22">}</p>
+<p class="p23"><br></p>
+</body>
+</html>

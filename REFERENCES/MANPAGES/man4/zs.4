@@ -1,0 +1,411 @@
+.TH ZS 4 "July 18, 1990" "NeXT Computer, Inc."
+.SH NAME
+zs \- Zilog 8530 Serial Communications Controller
+.SH SYNOPSIS
+.B "pseudo-device	zs	2 init zsintsetup"
+.SH DESCRIPTION
+The
+.I zs
+device provides 2 communication lines with partial modem control,
+adequate for UNIX dial-in and dial-out use.
+These communication lines are identified as
+.I "Serial A"
+and
+.I "Serial B"
+on the rear of the NeXT cpu board.
+The A and B serial lines on systems with the Motorola 68030 processor
+directly support differential RS-422 devices.
+These lines may also be used with RS-232 devices with the appropriate
+cables (described below).
+The A and B serial lines on systems with the Motorola 68040 processor
+support RS-423 and RS-232 devices.
+.sp
+Each line attached to the zs communications controller
+behaves as described in
+.IR tty (4)
+and may be set to run at any of 16 speeds; see
+.IR tty (4)
+for the encoding.
+.SH "ZS DEVICE NAMES"
+Each line may be opened from software by one of six device names.
+The device names for serial line A are:
+.BR /dev/ttya ,
+.BR /dev/ttyfa ,
+.BR /dev/ttyda ,
+.BR /dev/ttydfa ,
+.BR /dev/cua ,
+and
+.BR /dev/cufa .
+(There are corresponding names, /dev/ttyb, etc. for serial line B.)
+The different device names for the serial line represent different manners
+of dealing with modem control signals.
+.IP "/dev/ttya" 15n
+/dev/ttya (/dev/ttyb) is used for "incoming"
+connections from directly connected terminals
+without CTS/RTS flow control.
+.sp
+When /dev/ttya is open(2)'ed, the device driver
+asserts the DTR (data terminal ready) signal.
+Opens of the /dev/ttya device name do NOT block
+waiting for the RS-232 DCD (carrier detect)
+signal to be asserted.
+/dev/ttya should be specified in the file
+/etc/ttys for directly connected terminals.
+.sp
+If a serial line is opened with the /dev/ttya
+device name, it may not be opened with the /dev/ttyda
+or /dev/cua device names.
+.IP "/dev/ttyfa" 15n
+/dev/ttyfa (/dev/ttyfb) operates identically to /dev/ttya except
+that RTS/CTS flow control is supported on 68040-based systems.
+See the section below on RTC/CTS flow control.
+.IP "/dev/ttyda" 15n
+/dev/ttyda (/dev/ttydb) is used for "incoming"
+connections from modems.
+.sp
+When /dev/ttyda is opened, the device driver
+asserts DTR and then blocks waiting for the
+modem to assert DCD (indicating that a connection
+has been established with a remote modem).  When
+DCD is asserted by the modem the open system
+call returns.  If DCD is deasserted by the
+modem, further reads and writes to the device
+will return the error EIO (i/o error); 
+if the tty is the controlling terminal for the
+process a SIGHUP will be sent to the process.
+.sp
+/dev/ttyda is typically used in the file
+/etc/ttys for connecting modems used for dial-up logins.
+.sp
+If a serial line is opened with the /dev/ttyda
+device name, it may not be opened with the /dev/ttya.
+A serial line opened with the /dev/ttyda device name
+may also be opened with the /dev/cua device name.
+Interlocks between the /dev/ttyda and /dev/cua
+device names are described below.
+.IP "/dev/ttydfa" 15n
+/dev/ttydfa (/dev/ttydfb) operates identically to /dev/ttyda except
+that RTS/CTS flow control is supported on 68040-based systems.
+See the section below
+on RTC/CTS flow control.
+.IP "/dev/cua" 15n
+/dev/cua (/dev/cub) is used for "outgoing"
+connections to auto-dial modems.
+.sp
+When /dev/cua is opened, the device driver
+asserts DTR and does NOT block waiting for the
+modem to assert DCD.  No action is taken by the
+driver when the modem asserts or de-asserts DCD.
+.sp
+/dev/cua is typically used by programs like
+"uucp" and "tip" that need access to auto-dial modems.
+.sp
+If a serial line is opened with the /dev/cua
+device name, it may not be opened with /dev/ttya.
+A serial line opened with the /dev/cua device name
+may also be opened with the /dev/ttyda device name.
+Interlocks between the /dev/ttyda and /dev/cua
+device names are described below.
+.IP "/dev/cufa" 15n
+/dev/cufa (/dev/cufb) operates identically to /dev/cua except
+that RTS/CTS flow control is supported on 68040-based systems.
+See the section below
+on RTC/CTS flow control.
+WARNING: To avoid locking problems with tip and uucp,
+all reference to the "cu" device for a particular serial port
+must be of the same flow control type.  E.g. tip should not
+refer to /dev/cua while uucp refers to /dev/cufa.
+.SH "ACCESS INTERLOCKS BETWEEN THE /dev/ttyda AND /dev/cua DEVICE NAMES"
+The /dev/ttyda and /dev/cua (/dev/ttydb and /dev/cub) device names
+arbitrate access to the serial line in such a manner that a
+single line and connected auto-dial modem may be used for both
+dial-up login's and by software like tip and uucp which need
+dial-out facilities.
+.sp
+The arbitration rules are:
+.IP /dev/cua 15n
+The /dev/cua device name may be opened when the "a" line
+is not opened by /dev/ttyda or if an open by /dev/ttyda
+is blocked waiting for the modem to assert DCD.  If
+/dev/cua gains access to the line, currently blocked
+opens of /dev/ttyda or future opens of /dev/ttyda will
+block until /dev/cua is closed.  If /dev/cua is opened
+when /dev/ttyda has the line opened with DCD asserted,
+(i.e. the /dev/ttyda open has completed) the open of
+/dev/cua will return the error EBUSY.
+.IP /dev/ttyda 15n
+/dev/ttyda may attempt an open at anytime.  If /dev/cua
+has the line opened, the open of /dev/ttyda will block
+until /dev/cua has relinquished the line (regardless of
+the state of DCD).  If the line is not opened by /dev/cua,
+the /dev/ttyda open will block until DCD is asserted by
+the modem.
+.PP
+NOTE: Correct functioning of these interlocks requires that
+the modem DCD and DTR signals be correctly configured.  In
+particular, DCD must only be asserted when the local modem
+detects a remote carrier.  DCD must not be continuously asserted
+or only be deasserted for a short period at hang-up -- many modems
+have this behavior by default.  In addition, the modem must only
+auto-answer when DTR is asserted by the NeXT machine and must
+hang-up the connection when DTR is deasserted.  Should the
+modem fail to follow the DCD conventions it may be impossible to
+use the port for dial-out use or login security may be compromised
+because the system is unable to detect that a remote user has disconnected
+and therefore not log that user out.  If the modem fails to follow
+the DTR conventions, the system may be unable to correctly hang-up on
+lost connections.
+.SH "RTS/CTS FLOW CONTROL"
+NeXT systems using the Motorola 68040 processor support
+flow control on the serial ports via the RTS and CTS modem
+signals.  NeXT systems using the Motorola 68030 processor do
+NOT support flow control via the RTS and CTS modem signals.
+.sp
+To support the flow control on 68040 systems, the
+signals available on the serial port mini-din connector are
+different on 68040 systems and 68030 systems.  The 68030
+signals are RS-422 balanced levels.  The 68040 systems
+provide unbalanced RS-423 (RS-232C compatible) levels.
+.sp
+Mini-din signals on 68030 systems
+.sp
+.DT
+.KS
+.TS
+l l l .
+.B
+Pin	Signal
+1	DTR	Data Terminal Ready
+2	DCD	Data Carrier Detect
+3	TXD-	Transmit Data Minus
+4	GND	Signal Ground
+5	RXD-	Receive Data Minus
+6	TXD+	Transmit Data Plus
+7	A: RTXC	Receive Clock
+	B: +5v	+5 volts
+8	RXD+	Receive Data Plus
+.TE
+.KE
+.sp
+NOTE: Previous NeXT documentation incorrectly referred to pin 2 as CTS.
+.sp
+Mini-din signals on 68040 systems
+.sp
+.DT
+.KS
+.TS
+l l l .
+.B
+Pin	Signal
+1	DTR	Data Terminal Ready
+2	DCD	Data Carrier Detect
+3	TXD	Transmit Data
+4	GND	Signal Ground
+5	RXD	Receive Data
+6	RTS	Request To Send
+7	RTXC	Receive Clock
+8	CTS	Clear To Send
+.TE
+.KE
+.sp
+On 68040 systems, the /dev/ttyfa, /dev/ttydfa, and /dev/cufa
+(and corresponding serial port b devices) may be used to enable
+flow control on the serial port via the RTS and CTS signals.
+When the serial port is accessed via these devices, output
+on the port will be halted whenever the CTS signal is deasserted and
+resumed when CTS is asserted by the remote host.
+The RTS signal will be asserted by the NeXT system whenever the
+NeXT system can receive input on the port and will be deasserted
+when further input can not
+be accepted.  When the /dev/ttyfa, etc. devices are not used (e.g. the
+port is opened as /dev/ttya), RTS is always asserted while the device
+is open and CTS is ignored.
+.SH "RECOMMENDED CABLING FOR RS-232 DEVICES"
+The following tables indicate suggested wiring for cables used to connect NeXT
+serial ports to other devices.  Pins on the same line should be connected.
+Note that some pins may appear on multiple lines indicating that a single pin
+on one end connects to multiple pins on the other end.  Pins that are not listed
+should not be connected.
+.sp
+NeXT 68030 to Modem Cable
+.sp
+.DT
+.KS
+.TS
+l s l l s
+l l l l l.
+.B
+Mini-Din		RS-232
+1	(DTR)		20 (DTR)
+2	(DCD)		8  (DCD)
+3	(TXD-)		2  (TXD)
+4	(GND)		7  (GND)
+5	(RXD-)		3  (RXD)
+8	(RXD+)		7  (GND)
+.TE
+.KE
+.sp 2
+NeXT 68030 to Terminal Cable (Null-modem cable)
+.sp
+.DT
+.KS
+.TS
+l s l l s
+l l l l l.
+.B
+Mini-Din		RS-232
+1	(DTR)		8	(DCD)
+2	(DCD)		20	(DTR)
+3	(TXD-)		3	(RXD)
+4	(GND)		7	(GND)
+5	(RXD-)		2	(TXD)
+8	(RXD+)		7	(GND)
+.TE
+.KE
+.sp 2
+NeXT 68040 to Modem Cable
+.sp
+.DT
+.KS
+.TS
+l s l l s
+l l l l l.
+.B
+Mini-Din		RS-232
+1	(DTR)		20	(DTR)
+2	(DCD)		8	(DCD)
+3	(TXD)		2	(TXD)
+4	(GND)		7	(GND)
+5	(RXD)		3	(RXD)
+6	(RTS)		4	(RTS)
+8	(CTS)		5	(CTS)
+.TE
+.KE
+.sp 2
+NeXT 68040 to Terminal Cable (Null-modem cable)
+.sp
+.DT
+.KS
+.TS
+l s l l s
+l l l l l.
+.B
+Mini-Din		RS-232
+1	(DTR)		8	(DCD)
+2	(DCD)		20	(DTR)
+3	(TXD)		3	(RXD)
+4	(GND)		7	(GND)
+5	(RXD)		2	(TXD)
+6	(RTS)		5	(CTS)
+8	(CTS)		4	(RTS)
+.TE
+.KE
+.sp 2
+NeXT 68030 to NeXT 68030 Cable (Null-modem cable)
+.br
+NeXT 68040 to NeXT 68040 Cable (Null-modem cable)
+.br
+NeXT 68030 to RS-422 Device (Null-modem cable)
+.sp
+.DT
+.KS
+.TS
+l s l l s
+l s l l s
+l l l l l.
+.B
+Mini-Din		Mini-Din
+.B
+68030		68030
+1	(DTR)		2	(DCD)
+2	(DCD)		1	(DTR)
+3	(TXD-)		5	(RXD-)
+4	(GND)		4	(GND)
+5	(RXD-)		3	(TXD-)
+6	(TXD+)		8	(RXD+)
+8	(RXD+)		6	(TXD+)
+.TE
+.KE
+.sp
+NOTE: An identically wired cable is appropriate for connecting a 68030 system
+to another 68030 system, or for connecting a 68040 system to another 68040
+system.  The signal names shown here are for 68030 systems.  Also note: this
+cable is NOT appropriate for connecting a 68030 system to a 68040 system; use
+the cable described below.
+.sp 2
+NeXT 68030 to NeXT 68040 Cable (Null-modem cable)
+.br
+NeXT 68040 to Some RS-422 Devices (Null-modem cable)
+.sp
+.DT
+.KS
+.TS
+l s l l s
+l s l l s
+l l l l l.
+.B
+Mini-Din		Mini-Din
+.B
+68030		68040
+1	(DTR)		2	(DCD)
+2	(DCD)		1	(DTR)
+3	(TXD-)		5	(RXD)
+4	(GND)		4	(GND)
+5	(RXD-)		3	(TXD)
+8	(RXD+)		4	(GND)
+4	(GND)		8	(CTS)
+.TE
+.KE
+.sp
+NOTE: This cable is symmetric and either end may be plugged into either system;
+the 68030 and 68040 labels simply identify the signal name conventions used for
+the particular column.  Also note: when interconnecting 68030 and 68040 systems,
+the 68040 flow control device names should not be used since 68030 systems do
+not support flow control.  This cable will allow some RS-422 devices to be used
+with 68040 systems; however, not all RS-422 devices will function correctly.
+.SH "SPECIAL IOCTLS"
+The
+.I zs
+driver silos input characters by queueing input immediately at a
+high interrupt
+level, and later processing the queue at a lower interrupt level.
+The queue is processed
+when the silo nears full, or within 20 milliseconds of the time that
+the first character entered the silo.
+.PP
+The delay to empty the silo may be
+read or altered on a per device basis by the ioctl's
+.B ZIOCTGET
+and
+.BR ZIOCTSET .
+These ioctl's are used to get and set the receiver silo delay, respectively.
+Each ioctl takes as the third argument, the address of an int.
+.B ZIOCTGET
+returns the current receiver silo delay in microseconds in the int pointed
+to by the third argument,
+.B ZIOCTSET
+sets the receiver silo delay to the microsecond value pointed to by the third
+argument.  You must include <bsd/dev/zsio.h> to get the definition of
+these ioctls.
+.SH FILES
+.IP "/dev/ttya, /dev/ttyb" 30n
+directly connect terminals
+.IP "/dev/ttyfa, /dev/ttyfb" 30n
+directly connect terminals with flow control
+.IP "/dev/ttyda, /dev/ttydb" 30n
+incoming modem connections
+.IP "/dev/ttydfa, /dev/ttydfb" 30n
+incoming modem connections with flow control
+.IP "/dev/cua, /dev/cub" 30n
+outgoing modem connections
+.IP "/dev/cufa, /dev/cufb" 30n
+outgoing modem connections with flow control
+.SH "SEE ALSO"
+tty(4)
+.SH DIAGNOSTICS
+.PP
+\fBzs%d: recv buffer overrun\fR.  The software input silo overflowed
+before it could be serviced.
+.sp
+\fBzs%d: recv uart overrun\fR.  The 8530 receiver silo overflowed
+before it could be serviced.

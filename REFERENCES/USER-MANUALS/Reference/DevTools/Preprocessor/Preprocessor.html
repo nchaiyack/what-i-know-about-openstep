@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 163.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 163.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 25.0px; font: 44.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 25.0px; font: 60.0px Times; min-height: 72.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 163.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 182.0px; text-indent: -19.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 182.0px; text-indent: -19.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 63.0px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 63.0px; font: 26.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 63.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 182.0px; font: 12.0px Courier}
+    p.p14 {margin: 0.0px 0.0px 0.0px 182.0px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 182.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 163.0px; font: 26.0px Helvetica; min-height: 31.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 163.0px; font: 24.0px Helvetica}
+    p.p18 {margin: 0.0px 0.0px 0.0px 163.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 239.0px; text-indent: -76.0px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 239.0px; font: 14.0px Times}
+    p.p21 {margin: 0.0px 0.0px 0.0px 239.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 239.0px; text-indent: -76.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 258.0px; font: 12.0px Courier}
+    p.p24 {margin: 0.0px 0.0px 0.0px 239.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 182.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 163.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 163.0px; font: 18.0px Helvetica}
+    p.p28 {margin: 0.0px 0.0px 0.0px 189.0px; font: 14.0px Times}
+    p.p29 {margin: 0.0px 0.0px 0.0px 189.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 491.0px; text-indent: -309.0px; font: 14.0px Times}
+    p.p31 {margin: 0.0px 0.0px 0.0px 491.0px; text-indent: -309.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 249.0px; text-indent: -11.0px; font: 14.0px Times}
+    p.p33 {margin: 0.0px 0.0px 0.0px 249.0px; text-indent: -11.0px; font: 10.0px Times; min-height: 13.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Helvetica}
+    span.s3 {font: 14.0px Courier}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><br></p>
+<p class="p3"><br></p>
+<p class="p5"><i>The GNU C Preprocessor</i></p>
+<p class="p6"><i></i><br></p>
+<p class="p7">The GNU C preprocessor (<b>cpp</b>) is a macro processor the C compiler uses to transform your program before actual compilation.<span class="Apple-converted-space">  </span>It's called a macro processor because it allows you to define macros, which are brief abbreviations for longer constructs.</p>
+<p class="p3"><br></p>
+<p class="p7">The C preprocessor provides the following four facilities:</p>
+<p class="p3"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Inclusion of header files.<span class="Apple-converted-space">  </span>These are files of declarations that can be substituted into your program.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Macro expansion.<span class="Apple-converted-space">  </span>You can define and use macros, which are abbreviations for arbitrary fragments of C code.<span class="Apple-converted-space">  </span>The C preprocessor will replace the macros with their definitions throughout the program.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Conditional compilation.<span class="Apple-converted-space">  </span>Using special preprocessor commands, you can include or exclude parts of the program according to various conditions.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Line control.<span class="Apple-converted-space">  </span>If you use a program to combine or rearrange source files into an intermediate file which is then compiled, you can use line control to inform the compiler of where each source line originally came from.</p>
+<p class="p9"><br></p>
+<p class="p7">C preprocessors vary in their implementation details.<span class="Apple-converted-space">  </span>This section describes the GNU C preprocessor, which provides a superset of the features of ANSI-standard C.</p>
+<p class="p3"><br></p>
+<p class="p7"><span class="s2"><b>Note:<span class="Apple-converted-space">  </span></b></span>On OPENSTEP for Mach, the development environment actually includes two preprocessors: the standard GNU C preprocessor (<b>cpp</b>) and the precompilation preprocessor (<b>cpp-precomp</b>). The precompilation preprocessor mirrors the functionality of the GNU C preprocessor (except for some rarely used extensions) and is the default preprocessor for C and Objective-C code. The standard preprocessor is the default for Objective-C++ code. You can switch to the GNU C preprocessor for use on platforms on which precompiled headers are available by specifying the<b> </b>compiler's<b> -traditonal-cpp</b> flag on the command line.</p>
+<p class="p3"><br></p>
+<p class="p7">ANSI-standard C requires the rejection of many harmless constructs commonly used by today's C programs.<span class="Apple-converted-space">  </span>Such incompatibility would be inconvenient for users, so the C preprocessor is configured to accept these constructs by default.<span class="Apple-converted-space">  </span>To get ANSI-standard C you would use the options <b>-trigraphs</b>, <b>-undef</b>, and <b>-pedantic</b>, although in practice the consequences of having strict ANSI Standard C may make it undesirable to do this.<span class="Apple-converted-space">  </span>See the section “Invoking the C Preprocessor” for<span class="Apple-converted-space">  </span>more information.</p>
+<p class="p3"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b></b><b>Global Transformations<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">Most C preprocessor features are inactive unless you give specific commands to request their use.<span class="Apple-converted-space">  </span>But there are three transformations that the preprocessor always makes on all the input it receives, even in the absence of commands:</p>
+<p class="p3"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>C comments (and Objective-C comments) are replaced with single spaces.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Backslash-newline sequences are deleted.<span class="Apple-converted-space">  </span>This feature allows you to break long lines for cosmetic purposes without changing their meaning.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Predefined macro names are replaced with their expansions (see the section “Predefined Macros”).</p>
+<p class="p9"><br></p>
+<p class="p7">The first two transformations are done <i>before</i> nearly all other parsing and before preprocessor commands are recognized.<span class="Apple-converted-space">  </span>Thus, for example, you can split a line cosmetically with backslash-newline anywhere (except when trigraphs are in use; see below).</p>
+<p class="p3"><br></p>
+<p class="p13">/*</p>
+<p class="p13">*/ # /*</p>
+<p class="p13">*/ defi\</p>
+<p class="p13">ne FO\</p>
+<p class="p13">O 10\</p>
+<p class="p13">20</p>
+<p class="p3"><br></p>
+<p class="p7">is equivalent to <b>#define FOO 1020</b>.<span class="Apple-converted-space">  </span>You can even split an escape sequence with backslash-newline.<span class="Apple-converted-space">  </span>For example, you can split <b>“foo\bar”</b> between the backslash and the <b>b</b> to get</p>
+<p class="p3"><br></p>
+<p class="p13">"foo\\</p>
+<p class="p13">bar"</p>
+<p class="p3"><br></p>
+<p class="p7">This behavior is unclean: in all other contexts, a backslash can be inserted in a string constant as an ordinary character by writing a double backslash, and this creates an exception.<span class="Apple-converted-space">  </span>But the ANSI C standard requires it.<span class="Apple-converted-space">  </span>(Strict ANSI C doesn't allow newlines in string constants, so this isn't considered a problem.)</p>
+<p class="p3"><br></p>
+<p class="p7">There are a few exceptions to all three transformations:</p>
+<p class="p3"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>C comments and predefined macro names aren't recognized inside an <b>#include</b> command in which the file name is delimited with <b>&lt;</b> and <b>&gt;</b>.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>C comments and predefined macro names are never recognized within a character or string constant.<span class="Apple-converted-space">  </span>(Strictly speaking, this is the rule rather than an exception.)</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Backslash-newline may not safely be used within an ANSI trigraph (trigraphs are converted before backslash-newline is deleted).<span class="Apple-converted-space">  </span>If you write what looks like a trigraph with a backslash-newline inside, the backslash-newline is deleted as usual, but it is then too late to recognize the trigraph.</p>
+<p class="p9"><br></p>
+<p class="p14">This exception is relevant only if you use the <b>-trigraphs</b> option to enable trigraph processing.</p>
+<p class="p15"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b></b><b>Preprocessor Commands</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">Most preprocessor features are active only if you use preprocessor commands to request their use.</p>
+<p class="p3"><br></p>
+<p class="p7">Preprocessor commands are lines in your program that start with <b>#</b>.<span class="Apple-converted-space">  </span>The <b>#</b> is followed by an identifier that's the command name.<span class="Apple-converted-space">  </span>For example, <b>#define</b> is the command that defines a macro.<span class="Apple-converted-space">  </span>White-space characters are allowed before and after the <b>#</b>.</p>
+<p class="p3"><br></p>
+<p class="p7">The set of valid command names is fixed.<span class="Apple-converted-space">  </span>Programs can't define new preprocessor commands.</p>
+<p class="p3"><br></p>
+<p class="p7">Some command names require arguments; these make up the rest of the command line and must be separated from the command name by one or more white-space characters.<span class="Apple-converted-space">  </span>For example, <b>#define</b> must be followed by a macro name and the intended expansion of the macro.</p>
+<p class="p3"><br></p>
+<p class="p7">A preprocessor command normally can't be more than one line.<span class="Apple-converted-space">  </span>It may be split cosmetically with backslash-newline, but that has no effect on its meaning.<span class="Apple-converted-space">  </span>Comments containing newlines can also divide the command into multiple lines, but the comments are changed to spaces before the command is interpreted.<span class="Apple-converted-space">  </span>The only way a significant newline can occur in a preprocessor command is within a string constant or character constant.<span class="Apple-converted-space">  </span>(Note that most C compilers that might be applied to the output from the preprocessor do not accept string or character constants containing newlines.)</p>
+<p class="p3"><br></p>
+<p class="p7">The <b>#</b> and the command name can't come from a macro expansion.<span class="Apple-converted-space">  </span>For example, if <b>foo</b> is defined as a macro expanding to <b>define</b>, that doesn't make <b>#foo</b> a valid preprocessor command.</p>
+<p class="p3"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b></b><b>Header Files</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">Header files can contain C declarations and macro definitions that are to be shared by more than one source file.<span class="Apple-converted-space">  </span>You request the inclusion of a header file in a source file by using the C preprocessor command <b>#include</b> (or more typically in the NEXTSTEP environment, the Objective-C preprocessor command <b>#import</b>).</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Uses of Header Files</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">Header files serve two kinds of purposes:</p>
+<p class="p3"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>System header files declare the interfaces to parts of the operating system.<span class="Apple-converted-space">  </span>You include them in your program to supply the definitions you need to invoke system calls and libraries.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Your own header files contain declarations for interfaces between the source files of your program.<span class="Apple-converted-space">  </span>Each time you have a group of related declarations and macro definitions, all or most of which are needed in several different source files, it's a good idea to create a header file for them.</p>
+<p class="p9"><br></p>
+<p class="p7">Including a header file produces the same results in C compilation as copying the header file into each source file that needs it.<span class="Apple-converted-space">  </span>But such copying would be time-consuming and error-prone.<span class="Apple-converted-space">  </span>With a header file, the related declarations appear in only one place.<span class="Apple-converted-space">  </span>If they need to be changed, they can be changed in one place, and programs that include the header file will automatically use the new version when recompiled.</p>
+<p class="p3"><br></p>
+<p class="p7">By convention, names of header files end with the extension “.h”.</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>The #include Command</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">Both user and system header files are included using the preprocessor command <b>#include</b>.<span class="Apple-converted-space">  </span>It has three variants:</p>
+<p class="p3"><br></p>
+<p class="p19"><b>#include</b> <b>&lt;</b><i>file</i><b>&gt;<span class="Apple-converted-space"> </span></b></p>
+<p class="p20">This variant is used for system or framework header files.<span class="Apple-converted-space">  </span>It a search for a file named <i>file</i> in a list of directories specified by you, and then, if it isn't found,<span class="Apple-converted-space">  </span>in a standard list of system directories.<span class="Apple-converted-space">  </span>You specify directories to search for header files with the command option <b>-I</b> (see the section “Invoking the C Preprocessor”).<span class="Apple-converted-space">  </span>The option <b>-nostdinc</b> inhibits searching the standard system directories; in this case only the directories you specify are searched.</p>
+<p class="p21"><br></p>
+<p class="p19"><span class="Apple-tab-span">	</span>For frameworks the semantics of the text between the angle brackets is different. The word preceding the slash indicates a framework. Thus the line:</p>
+<p class="p22"><br></p>
+<p class="p23">&lt;AppKit/AppKit.h&gt;</p>
+<p class="p22"><br></p>
+<p class="p19"><span class="Apple-tab-span">	</span>causes the search for the header file <b>AppKit.h</b> to occur in the Application Kit framework (<b>/NextLibrary/Frameworks/AppKit.framework</b>).<span class="Apple-converted-space">  </span>The <b>PrivateHeaders</b> subdirectory is searched first, and then the <b>Headers</b> directory, thus allowing a private header file to override a public one. The flags <b>-F</b>, <b>-I</b>, and <b>-L</b> affect search path for frameworks (see “Invoking the Preprocessor,” below); The linker's <b>-framework</b> flag, however, has no effect.</p>
+<p class="p22"><br></p>
+<p class="p19"><span class="Apple-tab-span">	</span>The parsing of this form of <b>#include</b> is slightly special because comments are not recognized within the <b>&lt;</b><i>file</i><b>&gt;</b> argument.<span class="Apple-converted-space">  </span>Thus, in <b>#include &lt;x/*y&gt;</b> the <b>/*</b> doesn't start a comment and the command specifies inclusion of a system header file named <b>x/*y</b>.<span class="Apple-converted-space">  </span>(Of course, a header file with such a name is unlikely to exist on a UNIX-based system, where shell wildcard features would make it hard to manipulate.)</p>
+<p class="p22"><br></p>
+<p class="p19"><span class="Apple-tab-span">	</span>The <i>file</i> argument may not contain a <b>&gt;</b> character, although it may contain a <b>&lt;</b> character.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>#include</b> <b>"</b><i>file</i><b>"</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This variant is used for header files of your own program.<span class="Apple-converted-space">  </span>It searches for a file named <i>file</i> first in the current directory, then in the same directories used for system header files.<span class="Apple-converted-space">  </span>The current directory is tried first because it's presumed to be the location of the files of the program being compiled.<span class="Apple-converted-space">  </span>(If the <b>-I-</b> option is used, the special treatment of the current directory is inhibited.)</p>
+<p class="p21"><br></p>
+<p class="p19"><span class="Apple-tab-span">	</span>The <i>file</i> argument may not contain <b>"</b> characters.<span class="Apple-converted-space">  </span>If backslashes occur within <i>file</i>, they are considered ordinary text characters, not escape characters.<span class="Apple-converted-space">  </span>None of the character escape sequences appropriate to string constants in C are processed.<span class="Apple-converted-space">  </span>Thus, <b>#include "x\n\\y"</b> specifies a file name containing three backslashes.<span class="Apple-converted-space">  </span>It isn't clear why this behavior is ever useful, but the ANSI standard specifies it.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>#include</b> <i>anything else</i><span class="Apple-converted-space"> </span></p>
+<p class="p20">This variant is called a computed <b>#include</b>.<span class="Apple-converted-space">  </span>Any <b>#include</b> command whose argument doesn't fit the above two forms is a computed <b>#include</b>.<span class="Apple-converted-space">  </span>The text <i>anything else</i> is checked for macro calls, which are expanded.<span class="Apple-converted-space">  </span>When this is done, the result must fit one of the above two variants.</p>
+<p class="p24"><br></p>
+<p class="p20">This feature allows you to define a macro that controls the file name to be used at a later point in the program.<span class="Apple-converted-space">  </span>One application of this is to allow a site-configuration file for your program to specify the names of the system header files to be used.<span class="Apple-converted-space">  </span>This can help in porting the program to various operating systems in which the necessary system header files are found in different places.</p>
+<p class="p21"><br></p>
+<p class="p7">The <b>#include</b> command directs the C preprocessor to scan the specified file as input before continuing with the rest of the current file.<span class="Apple-converted-space">  </span>The output from the preprocessor will contain the output already generated, followed by the output resulting from the included file, followed by the output that comes from the text after the <b>#include</b> command.<span class="Apple-converted-space">  </span>Included files can themselves contain <b>#include</b> commands to include other files.</p>
+<p class="p3"><br></p>
+<p class="p7">Included files are not limited to declarations and macro definitions, although those are the typical uses.<span class="Apple-converted-space">  </span>Any fragment of a C program can be included from another file.<span class="Apple-converted-space">  </span>The include file could even contain the beginning of a statement that is concluded in the containing file, or the end of a statement that was started in the including file.<span class="Apple-converted-space">  </span>However, a comment or a string or character constant may not start in the included file and finish in the including file.<span class="Apple-converted-space">  </span>An unterminated comment, string constant or character constant in an included file is considered to end (with an error message) at the end of the file.</p>
+<p class="p3"><br></p>
+<p class="p7">The line following the <b>#include</b> command is always treated as a separate line by the C preprocessor, even if the included file lacks a final newline.</p>
+<p class="p3"><br></p>
+<p class="p7"><span class="s2"><b>Note:<span class="Apple-converted-space">  </span></b></span>The Objective-C language equivalent of <b>#include</b> is <b>#import</b>; the only difference is that <b>#import</b> doesn't include a file more than once, no matter how many <b>#import</b> commands try to include it.<span class="Apple-converted-space">  </span>You should feel free to use <b>#import</b> in your code, but be aware that it isn't defined as part of ANSI-standard C.</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Multiple Inclusion of Header Files</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">Very often one header file includes another, which can result in a certain header file being included more than once.<span class="Apple-converted-space">  </span>This may lead to errors if the header file defines structure types or typedefs, and in any event is wasteful.<span class="Apple-converted-space">  </span>For these reasons, you should try to avoid multiple inclusion of a header file.</p>
+<p class="p3"><br></p>
+<p class="p7">The standard way to prevent multiple inclusion of a file is to enclose the entire real contents of the file in a conditional, like this:</p>
+<p class="p3"><br></p>
+<p class="p13">#ifndef __FILE_FOO_SEEN__</p>
+<p class="p13">#define __FILE_FOO_SEEN__</p>
+<p class="p13">the entire file</p>
+<p class="p13">#endif /* __FILE_FOO_SEEN__ */</p>
+<p class="p3"><br></p>
+<p class="p7">The macro <b>__FILE_FOO_SEEN__</b> indicates that the file has been included once already; its name begins with <b>__</b> to avoid conflicts with user programs, and it contains the name of the file and some additional text to avoid conflicts with other header files.</p>
+<p class="p3"><br></p>
+<p class="p7">Alternatively (if compatibility with non-NeXT platforms isn't an issue), you can ensure that each file is included only once simply by using the Objective-C <b>#import</b> command instead of the <b>#include</b> command.</p>
+<p class="p3"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b></b><b>Precompiled Header Files</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">A precompiled header is a C header file that has been preprocessed and parsed, thereby improving compile time and reducing symbol table size.<span class="Apple-converted-space">  </span>The macros and external declarations from the original header are sorted to enable fast lookup. A new implementation of the C preprocessor can use precompiled headers in place of standard headers.</p>
+<p class="p3"><br></p>
+<p class="p7">In most cases, the use of precompiled headers is transparent.<span class="Apple-converted-space">  </span>Precompiled headers are simple enough to use that most projects require no conversion at all, or can be converted in a day or less.</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Using Precompiled System Header Files</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">The precompiled version of a header file has a “.p” extension, rather than the standard “.h” extension.<span class="Apple-converted-space">  </span>You should <i>not</i> refer to <b>AppKit.p</b> in your source files; just use <b>AppKit.h</b> and the preprocessor will use the precompiled form if it's available and appropriate.</p>
+<p class="p3"><br></p>
+<p class="p7">When the preprocessor encounters an include directive, it automatically looks for a precompiled version of the header.<span class="Apple-converted-space">  </span>If one is found, it checks whether the context is equivalent to the context in which the precompiled header was built—if it is, the precompiled header is used.<span class="Apple-converted-space">  </span>However, if any of the following problems occur, the non-precompiled form is included instead:</p>
+<p class="p3"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>A header which was included by the precompiled header could not be found in the filesystem to verify its modification time, or the modification time did not match.<span class="Apple-converted-space">  </span>In practice, this never occurs for precompiled headers that are part of the release, and occurs only rarely when programmers build their own precompiled headers.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>A macro was defined when the precompiled header was built, but is not defined in the current context.<span class="Apple-converted-space">  </span>This is only a problem if the macro was actually referenced somewhere in the precompiled header.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>A macro was undefined when the precompiled header was built, but is defined in the current context.<span class="Apple-converted-space">  </span>This is only a problem if there might have been an invocation of the macro in the precompiled header.</p>
+<p class="p9"><br></p>
+<p class="p7">Compile-time warnings (described at the end of this file) indicate the nature of any problems that occur.<span class="Apple-converted-space">  </span>However, you may suppress these warning messages with <b>-Wno-precomp</b>. The intent of these messages is to point out problems that, if corrected, would improve compilation speed.</p>
+<p class="p3"><br></p>
+<p class="p7">If you're developing a small project, you don't need to bother building your own precompiled headers—just use the precompiled system headers <b>AppKit.p</b>, <b>Foundation.p</b>,<span class="Apple-converted-space">  </span><b>mach.p</b> and so on.<span class="Apple-converted-space">  </span>If these system precompiled header files don't exist on OPENSTEP for Mach, you can create them by running the <b>fixPrecomps</b> utility. Also, it's easy to create your own precompiled headers if you wish to do so, however, as described in the next section.</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Creating Your Own Precompiled Header Files</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">You create a precompiled header by passing the new <b>-precomp</b> switch to <b>cc</b>. Depending on the context(s) in which the header is used, <b>-D</b> switches should also be passed to <b>cc</b>, as explained below.</p>
+<p class="p3"><br></p>
+<p class="p13">% cc -precomp foo.h -o foo.p</p>
+<p class="p3"><br></p>
+<p class="p7">We say a header is “context dependent” if the definitions in the header may change depending on the context in which it is included.<span class="Apple-converted-space">  </span>Most uses of conditional compilation and macro expansions cause context dependence.<span class="Apple-converted-space">  </span>For instance, the following header is context dependent:</p>
+<p class="p3"><br></p>
+<p class="p13">#ifdef DEBUG</p>
+<p class="p13">int a;</p>
+<p class="p13">#else</p>
+<p class="p13">int b;</p>
+<p class="p13">#endif</p>
+<p class="p3"><br></p>
+<p class="p7">The context at any point is determined by the macros that are defined there.<span class="Apple-converted-space">  </span>A precompiled header must be created in a context equivalent to that where it is used.<span class="Apple-converted-space">  </span>By passing switches to the preprocessor, any set of macros can be predefined, creating a context in which the precompiled header is built.<span class="Apple-converted-space">  </span>This is done by passing a <b>-D</b> switch for each macro in the context.</p>
+<p class="p3"><br></p>
+<p class="p7">A precompiled header built from system headers typically requires no <b>-D</b> switches, because programmers usually include system headers in a context-independent way.<span class="Apple-converted-space">  </span>For instance, the public Application Kit headers contain almost no preprocessor conditionals; clients cannot change declarations in headers by defining macros. So the command to build a precompiled header from <b>AppKit.h</b> is:</p>
+<p class="p3"><br></p>
+<p class="p13">% cc -precomp AppKit.h -o AppKit.p -arch i386 -arch hppa</p>
+<p class="p3"><br></p>
+<p class="p7">(The architectures affected are usually specified using the <b>-arch</b> switch: “fat” compilation requires “fat” precompilation.) But if you must use a header <b>bar.h</b> in a context where FOO is defined, you should build the precompiled header as follows:</p>
+<p class="p3"><br></p>
+<p class="p13">% cc -precomp -DFOO bar.h -o bar.p</p>
+<p class="p3"><br></p>
+<p class="p7">You should also pass any preprocessor switches, such as <b>-I</b>, that you use in your project.</p>
+<p class="p3"><br></p>
+<p class="p7">By making precompiled headers bigger (that is, containing more headers), a given C file may include fewer precompiled headers, and will generally compile faster. However, the bigger a precompiled header is, the more likely that name conflicts will occur.</p>
+<p class="p3"><br></p>
+<p class="p7">For example, if you were to combine all the headers for a project, including system headers, into a single precompiled header, it is possible that there would be a name conflict.<span class="Apple-converted-space">  </span>There may be a macro defined that happens to match one of your local identifiers, or there may be a public struct declared that happens to match one of your private struct names.<span class="Apple-converted-space">  </span>Such conflicts manifest themselves as preprocessing errors, syntax errors, or semantic errors. The conflicts may be resolved by renaming identifiers, or removing a conflicting header from the precompiled header.</p>
+<p class="p3"><br></p>
+<p class="p7">Another disadvantage to big precompiled headers is file dependencies.<span class="Apple-converted-space">  </span>If all of the C files in a project depend on a single precompiled header which in turn depends on all headers in the project, then changing a header requires recompilation of the entire project.<span class="Apple-converted-space">  </span>A better approach is to build a precompiled header containing all the system headers used by a project, and perhaps also a separate precompiled header for the local headers in the project. We recommend that during development, while local headers are changing, precompiled headers be used only for system files.<span class="Apple-converted-space">  </span>When local headers have stabilized, they may be combined into a precompiled header.</p>
+<p class="p3"><br></p>
+<p class="p7">A precompiled header is dependent on all the files it includes.<span class="Apple-converted-space">  </span>A make dependency rule can be constructed similar to the way rules are constructed for source files. The following rule builds a precompiled header from a header:</p>
+<p class="p3"><br></p>
+<p class="p13">.h.p:</p>
+<p class="p13"><span class="Apple-converted-space">    </span>cc -precomp $(CFLAGS) $*.h $*.p</p>
+<p class="p3"><br></p>
+<p class="p7">A precompiled header records absolute path names for all the headers that went into it. These paths are then checked when the precompiled header is used. Therefore a precompiled header should be built in the same directory in which it is to be used, and all the headers that went into the precompiled header must not be moved or modified.</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Troubleshooting</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">To use precompiled headers you must have the <b>cpp-precomp</b> preprocessor and parser, which has several incompatibilities with the standard GNU C preprocessor and parser.<span class="Apple-converted-space">  </span>For example, preprocessing errors and syntax errors are in a slightly different format.</p>
+<p class="p3"><br></p>
+<p class="p7">Only rarely will you have trouble building a precompiled header. The most common problem you might encounter is that the header doesn't parse; this is often because the header does not include other headers it depends on, so that there are undefined types. Another typical problem is conflicting definitions, which can be solved by renaming identifiers or removing a header from the precompiled header.</p>
+<p class="p3"><br></p>
+<p class="p7">The following list describes the compile-time warnings that may occur when using a precompiled header:</p>
+<p class="p3"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span><b>could not use precompiled header `</b><b><i>header</i></b><b>.p'</b></p>
+<p class="p15"><br></p>
+<p class="p14">The precompiled header could not be used for one of the reasons below.</p>
+<p class="p15"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span><b>macro `</b><b><i>macro</i></b><b>' undefined</b></p>
+<p class="p15"><br></p>
+<p class="p14">The macro was defined when the precompiled header was built, but is not defined in the current context.</p>
+<p class="p15"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span><b>macro `</b><b><i>macro</i></b><b>' defined</b></p>
+<p class="p15"><br></p>
+<p class="p14">The macro was undefined when the precompiled header was built, but is defined in the current context. This error can often be avoided by importing precompiled headers in the source file before any other headers.</p>
+<p class="p15"><br></p>
+<p class="p8"><b>•<span class="Apple-tab-span">	</span>macro `</b><b><i>macro</i></b><b>' defined by `</b><b><i>header</i></b><b>.p' conflicts with precomp</b></p>
+<p class="p15"><br></p>
+<p class="p14">A previously included precompiled header defines a macro differently than does the current precompiled header being processed.</p>
+<p class="p15"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span><b>macro `</b><b><i>macro</i></b><b>' defined on command line conflicts with precomp</b></p>
+<p class="p15"><br></p>
+<p class="p14">Similar to the previous warning, except that the earlier definition of the macro occurred on the command line.</p>
+<p class="p15"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span><b>macro `macro' redefined, locations of the conflict are:</b></p>
+<p class="p14"><b><i>header1</i></b><b>.h:23</b></p>
+<p class="p14"><b><i>header2</i></b><b>.h:47 (within the precompiled header)</b></p>
+<p class="p15"><br></p>
+<p class="p14">The macro has been defined in two different ways in two different precompiled headers</p>
+<p class="p15"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span><b>#ifdef `</b><b><i>SYM</i></b><b>' not defined when precompiled</b></p>
+<p class="p15"><br></p>
+<p class="p14">A symbol was defined for the inclusion of this precompiled header, but was not when the header was precompiled.<span class="Apple-converted-space">  </span>Since this symbol is used in an #ifdef, the precompiled header does not contain all the source code desired by the including context.</p>
+<p class="p15"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span><b>`</b><b><i>header</i></b><b>.h' has different date than in precomp</b></p>
+<p class="p15"><br></p>
+<p class="p14">The modification time of the header on the disk does not match the modification time of the header when the precompiled header was built.</p>
+<p class="p15"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span><b>could not find `</b><b><i>header</i></b><b>.h'</b></p>
+<p class="p15"><br></p>
+<p class="p14">The header which was included by the precompiled header could not be found on the disk to verify its modification time.</p>
+<p class="p15"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span><b>could not use precomp `</b><b><i>header</i></b><b>.p' (incorrect version)</b></p>
+<p class="p15"><br></p>
+<p class="p14">It was discovered that the version of the referenced precompiled header is incompatible with the compiler, possibly signifying a corrupt or obsolete <b>header.p</b>.</p>
+<p class="p15"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b></b><b>Macros</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">A macro is an abbreviation you define once and then use later.<span class="Apple-converted-space">  </span>This section describes some important features associated with macros in the C preprocessor.</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Simple Macros</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">A simple macro is a kind of abbreviation—it's a name that stands for a fragment of code.<span class="Apple-converted-space">  </span>Simple macros are sometimes referred to as <i>manifest constants</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p3"><br></p>
+<p class="p7">Before you can use a macro, you must define it explicitly with the <b>#define</b> command.<span class="Apple-converted-space">  </span><b>#define</b> is followed by the name of the macro and then the code it should be an abbreviation for.<span class="Apple-converted-space">  </span>For example,</p>
+<p class="p3"><br></p>
+<p class="p13">#define BUFFER_SIZE 1020</p>
+<p class="p3"><br></p>
+<p class="p7">defines a macro named <b>BUFFER_SIZE</b> as an abbreviation for the text <b>1020</b>.<span class="Apple-converted-space">  </span>With this definition in effect, the C preprocessor would expand the following statement</p>
+<p class="p3"><br></p>
+<p class="p13">foo = (char *) xmalloc (BUFFER_SIZE);</p>
+<p class="p3"><br></p>
+<p class="p7">to</p>
+<p class="p3"><br></p>
+<p class="p13">foo = (char *) xmalloc (1020);</p>
+<p class="p3"><br></p>
+<p class="p7">The definition must be a single line; however, it may not end in the middle of a multiline string constant or character constant.</p>
+<p class="p3"><br></p>
+<p class="p7">For readability, uppercase is used for macro names by convention.<span class="Apple-converted-space">  </span>Programs are easier to read when it's possible to tell at a glance which names are macros.</p>
+<p class="p3"><br></p>
+<p class="p7">Normally, a macro definition must be a single line (although you can always split a long macro definition cosmetically with backslash-newline).<span class="Apple-converted-space">  </span>There's one exception:<span class="Apple-converted-space">  </span>Newlines can be included in the macro definition if they're within a string or character constant.<span class="Apple-converted-space">  </span>It isn't possible for a macro definition to contain an unbalanced quote character; the definition automatically extends to include the matching quote character that ends the string or character constant.<span class="Apple-converted-space">  </span>Comments within a macro definition may contain newlines (which make no difference, since the comments are entirely replaced with spaces regardless of their contents).</p>
+<p class="p3"><br></p>
+<p class="p7">Aside from the above, there is no restriction on what can go in a macro body.<span class="Apple-converted-space">  </span>Parentheses need not balance, and the body need not resemble valid C code.<span class="Apple-converted-space">  </span>(Of course, you might get error messages from the C compiler when you use the macro.)</p>
+<p class="p3"><br></p>
+<p class="p7">The C preprocessor scans your program sequentially, so macro definitions take effect at the place you write them.<span class="Apple-converted-space">  </span>Therefore, the following input to the C preprocessor</p>
+<p class="p3"><br></p>
+<p class="p13">foo = X;<span class="Apple-converted-space"> </span></p>
+<p class="p13">#define X 4<span class="Apple-converted-space"> </span></p>
+<p class="p13">bar = X;</p>
+<p class="p3"><br></p>
+<p class="p7">produces as output:</p>
+<p class="p3"><br></p>
+<p class="p13">foo = X;<span class="Apple-converted-space"> </span></p>
+<p class="p13">bar = 4;</p>
+<p class="p3"><br></p>
+<p class="p7">After the preprocessor expands a macro name, the macro's definition body is appended to the front of the remaining input, and the check for macros continues.<span class="Apple-converted-space">  </span>Therefore, the macro body can contain other macros.<span class="Apple-converted-space">  </span>For example, after the following definitions</p>
+<p class="p3"><br></p>
+<p class="p13">#define BUFSIZE 1020<span class="Apple-converted-space"> </span></p>
+<p class="p13">#define TABLESIZE BUFSIZE</p>
+<p class="p3"><br></p>
+<p class="p7">the name <b>TABLESIZE</b> when used in the program would go through two stages of expansion, resulting ultimately in <b>1020</b>.</p>
+<p class="p3"><br></p>
+<p class="p7">This isn't the same as defining <b>TABLESIZE</b> to be <b>1020</b>.<span class="Apple-converted-space">  </span>The <b>#define</b> for <b>TABLESIZE</b> uses exactly the body you specify—in this case, <b>BUFSIZE</b>—and doesn't check to see whether it too is the name of a macro.<span class="Apple-converted-space">  </span>It's only when you use <b>TABLESIZE</b> that the result of its expansion is checked for more macro names.<span class="Apple-converted-space">  </span>See the section “Cascaded Use of Macros.”</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Macros that Take Arguments</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">A simple macro always stands for exactly the same text, each time it's used.<span class="Apple-converted-space">  </span>Macros can be more flexible when they accept arguments.<span class="Apple-converted-space">  </span>Arguments are fragments of code that you supply each time the macro is used.<span class="Apple-converted-space">  </span>These fragments are included in the expansion of the macro according to the directions in the macro definition.</p>
+<p class="p3"><br></p>
+<p class="p7">To define a macro that takes arguments, you use the <b>#define</b> command with a list of parameters in parentheses after the name of the macro.<span class="Apple-converted-space">  </span>The parameters may be any valid C identifiers separated by commas (and optionally, by white-space characters).<span class="Apple-converted-space">  </span>The left parenthesis must follow the macro name immediately, with no space in between.</p>
+<p class="p3"><br></p>
+<p class="p7">For example, here's a macro that computes the minimum of two numeric values:</p>
+<p class="p3"><br></p>
+<p class="p13">#define min(X, Y)<span class="Apple-converted-space">  </span>((X) &lt; (Y) ? (X) : (Y))</p>
+<p class="p3"><br></p>
+<p class="p7">Note that this isn't the best way to define a “minimum” macro in GNU C (see the section “Duplication of Side Effects” for more information).</p>
+<p class="p3"><br></p>
+<p class="p7">To use a macro that takes arguments, you write the name of the macro followed by a list of arguments in parentheses, separated by commas.<span class="Apple-converted-space">  </span>The number of arguments you give must match the number of parameters in the macro definition.<span class="Apple-converted-space">  </span>The following examples show the use of the macro <b>min</b>:</p>
+<p class="p3"><br></p>
+<p class="p13">min (1, 2)<span class="Apple-converted-space"> </span></p>
+<p class="p13">min (x + 28, *p)</p>
+<p class="p3"><br></p>
+<p class="p7">The expansion text of the macro depends on the arguments you use.<span class="Apple-converted-space">  </span>Each of the macro's parameters is replaced, throughout the macro definition, with the corresponding argument.<span class="Apple-converted-space">  </span>Using the same macro <b>min</b> defined above, <b>min (1, 2)</b> expands to</p>
+<p class="p3"><br></p>
+<p class="p13">((1) &lt; (2) ? (1) : (2))</p>
+<p class="p3"><br></p>
+<p class="p7">where <b>1</b> has been substituted for <b>X</b> and <b>2</b> for <b>Y</b>.</p>
+<p class="p3"><br></p>
+<p class="p7">Likewise, <b>min (x + 28, *p)</b> expands into</p>
+<p class="p3"><br></p>
+<p class="p13">((x + 28) &lt; (*p) ? (x + 28) : (*p))</p>
+<p class="p3"><br></p>
+<p class="p7">Parentheses in the arguments must balance; a comma within parentheses doesn't end an argument.<span class="Apple-converted-space">  </span>However, there's no requirement for brackets or braces to balance; thus, if you want to supply</p>
+<p class="p3"><br></p>
+<p class="p13">array[x = y, x + 1]</p>
+<p class="p3"><br></p>
+<p class="p7">as an argument, you would write it as</p>
+<p class="p3"><br></p>
+<p class="p13">array[(x = y, x + 1)]</p>
+<p class="p3"><br></p>
+<p class="p7">After the arguments are substituted into the macro body, the entire result is appended to the front of the remaining input, and the check for macros continues.<span class="Apple-converted-space">  </span>Therefore, the arguments can contain other macros, either with or without arguments, or even the same macro.<span class="Apple-converted-space">  </span>The macro body can also contain other macros.<span class="Apple-converted-space">  </span>For example, <b>min (min (a, b), c)</b> expands into</p>
+<p class="p3"><br></p>
+<p class="p13">((((a) &lt; (b) ? (a) : (b))) &lt; (c)<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>? (((a) &lt; (b) ? (a) : (b)))<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>: (c))</p>
+<p class="p3"><br></p>
+<p class="p7">Line breaks shown here for clarity wouldn't actually be generated.</p>
+<p class="p3"><br></p>
+<p class="p7">If a macro<span class="Apple-converted-space">  </span>takes one argument, and you want to supply an empty argument, you must write at least some whitespace between the parentheses. For example</p>
+<p class="p3"><br></p>
+<p class="p13">foo ( )<span class="Apple-converted-space"> </span></p>
+<p class="p3"><br></p>
+<p class="p7">is acceptable, but<span class="Apple-converted-space"> </span></p>
+<p class="p3"><br></p>
+<p class="p13">foo ()</p>
+<p class="p3"><br></p>
+<p class="p7">generates an error if <b>foo</b> expects an argument.<span class="Apple-converted-space">  </span>The correct way to call a macro defined to take zero arguments is:</p>
+<p class="p3"><br></p>
+<p class="p13">#define foo0() @dots{}</p>
+<p class="p3"><br></p>
+<p class="p7">If you use the macro name followed by something other than a left parenthesis (after ignoring any spaces, tabs, and comments that follow), it isn't considered a macro invocation, and the preprocessor doesn't change what you've written.<span class="Apple-converted-space">  </span>Therefore, it's possible for the same name to be a variable or function in your program as well as a macro, and you can choose in each instance whether to refer to the macro (if an argument list follows) or the variable or function (if an argument list doesn't follow).</p>
+<p class="p3"><br></p>
+<p class="p7">Such dual use of one name could be confusing and should be avoided except when the two meanings are effectively synonymous:<span class="Apple-converted-space">  </span>that is, when the name is both a macro and a function and the two have similar effects.<span class="Apple-converted-space">  </span>You can think of the name simply as a function; use of the name for purposes other than calling it (such as, to take the address) will refer to the function, while calls will expand the macro.<span class="Apple-converted-space">  </span>For example, you can use a function named <b>min</b> in the same source file that defines the macro.<span class="Apple-converted-space">  </span>If you write <b>&amp;min</b> with no argument list, you refer to the function.<span class="Apple-converted-space">  </span>If you write <b>min (x, bb)</b>, with an argument list, the macro is expanded.<span class="Apple-converted-space">  </span>If you write <b>(min) (a, bb)</b>, where the name <b>min</b> isn't followed by a left parenthesis, the macro isn't expanded; rather, the function <b>min</b> is called.</p>
+<p class="p3"><br></p>
+<p class="p7">A name can't be defined as both a simple macro and a macro with arguments.</p>
+<p class="p3"><br></p>
+<p class="p7">In the definition of a macro with arguments, the list of argument names must follow the macro name immediately with no space in between.<span class="Apple-converted-space">  </span>If there is a space after the macro name, the macro is defined as taking no arguments, and the rest of the name is taken to be the expansion.<span class="Apple-converted-space">  </span>The reason for this is that it's often useful to define a macro that takes no arguments and whose definition begins with an identifier in parentheses.<span class="Apple-converted-space">  </span>This rule about spaces makes it possible for you to do either this (which defines <b>FOO</b> to take an argument and expand into minus the reciprocal of that argument)</p>
+<p class="p3"><br></p>
+<p class="p13">#define FOO(x) - 1 / (x)</p>
+<p class="p3"><br></p>
+<p class="p7">or this (which defines <b>FOO</b> to take no argument and always expand into <b>(x) - 1 / (x)</b>):</p>
+<p class="p3"><br></p>
+<p class="p13">#define FOO (x) - 1 / (x)</p>
+<p class="p3"><br></p>
+<p class="p7">It matters only in the macro definition whether there's a space before the left parenthesis; when you use the macro, it doesn't matter if there are spaces there or not.</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Predefined Macros</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">Several standard macros are predefined, some by ANSI C and some as extensions.<span class="Apple-converted-space">  </span>Their names all start and end with double underscores.</p>
+<p class="p3"><br></p>
+<p class="p7">The following predefined macros are part of the ANSI C standard:</p>
+<p class="p3"><br></p>
+<p class="p19"><b>__FILE__</b></p>
+<p class="p20">This macro expands to the name of the current input file, in the form of a C string constant.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__BASE_FILE__</b></p>
+<p class="p20">This macro expands to the name of the main input file, in the form of a C string constant.<span class="Apple-converted-space">  </span>This is the source file that was specified as an argument when the C compiler was invoked.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__LINE__</b></p>
+<p class="p20">This macro expands to the current input line number, in the form of a decimal integer constant.<span class="Apple-converted-space">  </span>(Note that although this is considered a predefined macro, its definition changes with each new line of source code.)</p>
+<p class="p24"><br></p>
+<p class="p20">This and <b>__FILE__</b> are useful in generating an error message to report an inconsistency detected by the program; the message can state the source line at which the inconsistency was detected.<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p21"><br></p>
+<p class="p23">fprintf (stderr,</p>
+<p class="p23"><span class="Apple-converted-space">         </span>"Internal error: negative string length "</p>
+<p class="p23"><span class="Apple-converted-space">         </span>"%d at %s, line %d."</p>
+<p class="p23"><span class="Apple-converted-space">         </span>length, __FILE__, __LINE__);</p>
+<p class="p22"><br></p>
+<p class="p19"><span class="Apple-tab-span">	</span>An <b>#include</b> command changes the expansions of <b>__FILE__</b> and <b>__LINE__</b> to correspond to the included file.<span class="Apple-converted-space">  </span>At the end of that file, when processing resumes on the input file that contained the <b>#include</b> command, the expansions of <b>__FILE__</b> and <b>__LINE__</b> revert to the values they had before the <b>#include</b> (but <b>__LINE__</b> is then incremented by one as processing moves to the line after the <b>#include</b>).</p>
+<p class="p22"><br></p>
+<p class="p19"><span class="Apple-tab-span">	</span>The expansions of both <b>__FILE__</b> and <b>__LINE__</b> are altered if a <b>#line</b> command is used.<span class="Apple-converted-space">  </span>See the section “Combining Source Files.”</p>
+<p class="p22"><br></p>
+<p class="p19"><b>__DATE__</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This macro expands to a string constant that describes the date on which the preprocessor is being run.<span class="Apple-converted-space">  </span>The string constant contains 15 characters and looks like “Tue Jun 02 1992”.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__TIME__</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This macro expands to a string constant that describes the time at which the preprocessor is being run.<span class="Apple-converted-space">  </span>The string constant contains 12 characters and looks like “23:59:01 EDT”.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__STDC__</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This macro expands to the constant 1, to signify that this is ANSI-standard C.<span class="Apple-converted-space">  </span>(Whether that's actually true depends on what C compiler will operate on the output from the preprocessor.)</p>
+<p class="p21"><br></p>
+<p class="p7">The following predefined macros are GNU C extensions to the ANSI C standard:</p>
+<p class="p3"><br></p>
+<p class="p19"><b>__GNUC__</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This macro is defined if and only if this is GNU C.<span class="Apple-converted-space">  </span>Moreover, it's defined only when the entire GNU C compiler is in use; if you invoke the preprocessor directly, <b>__GNUC__</b> is undefined.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__STRICT_ANSI__</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This macro is defined if and only if the <b>-ansi</b> switch was specified when GNU C was invoked.<span class="Apple-converted-space">  </span>Its definition is the null string.<span class="Apple-converted-space">  </span>This macro exists primarily to direct certain GNU header files not to define traditional UNIX constructs that are incompatible with ANSI C.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__GNUG__</b></p>
+<p class="p20">The GNU C compiler defines this when the compilation language is C++; use <b>__GNUG__</b> to distinguish between GNU C and GNU C++ code.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__cplusplus</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">The draft ANSI standard for C++ previously required the predefinition of this variable.<span class="Apple-converted-space">  </span>Though it is no longer required, GNU C++ continues to define it, as do other popular C++ compilers.<span class="Apple-converted-space">  </span>You can use <b>__cplusplus</b> to test whether a header is compiled by a C compiler or a C++ compiler.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__VERSION__</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This macro expands to a string describing the version number of the compiler.<span class="Apple-converted-space">  </span>The string is normally a sequence of decimal numbers separated by periods, such as <b>“1.18”</b>.<span class="Apple-converted-space">  </span>The main use of this macro is to incorporate the version number into a string constant.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__OPTIMIZE__</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This macro is defined in optimizing compilations.<span class="Apple-converted-space">  </span>It causes certain GNU header files to define alternative macro definitions for some system library functions.<span class="Apple-converted-space">  </span>It's unwise to refer to or test the definition of this macro unless you make sure that programs will execute with the same effect regardless.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__CHAR_UNSIGNED__</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This macro is defined if and only if the data type <b>char</b> is unsigned on the target machine.<span class="Apple-converted-space">  </span>Its purpose is to cause the standard header file <b>limit.h</b> to work correctly.<span class="Apple-converted-space">  </span>It's bad practice to refer to this macro yourself; instead, refer to the standard macros defined in <b>limit.h</b>.</p>
+<p class="p21"><br></p>
+<p class="p7">The following macros are defined in NEXTSTEP:</p>
+<p class="p3"><br></p>
+<p class="p19"><b>__OBJC__</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This macro is defined when you compile Objective-C “.m” files or Objective-C++ “.M” files, or when you override the file extension with <b>-ObjC</b> or <b>-ObjC++</b>.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__GNU__</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This macro is defined when compiling “.m”, “.c”, or “.s” files.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__ASSEMBLER__</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This macro is defined when compiling “.s” files.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__STRICT_BSD__</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This macro is defined if and only if the <b>-bsd</b> switch was specified when GNU C was invoked.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>__MACH__</b><span class="Apple-converted-space"> </span></p>
+<p class="p20">This macro is defined if Mach system calls are supported.</p>
+<p class="p21"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Nonstandard Predefined Macros</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">The C preprocessor normally has several predefined macros that vary between machines because their purpose is to indicate what type of system and machine is in use.<span class="Apple-converted-space">  </span>This section lists some that are useful on NEXTSTEP computers.</p>
+<p class="p3"><br></p>
+<p class="p7">Some nonstandard predefined macros describe the operating system in use.<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p3"><br></p>
+<p class="p19"><b>unix</b><span class="Apple-tab-span">	</span>Predefined on UNIX systems.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>BSD</b> <span class="Apple-tab-span">	</span>Predefined on versions of Berkeley UNIX 4.3BSD.</p>
+<p class="p22"><br></p>
+<p class="p7">Other nonstandard predefined macros describe the kind of CPU.<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p3"><br></p>
+<p class="p19"><b>mc68000</b> <span class="Apple-tab-span">	</span>Predefined on most computers whose CPU is a Motorola 68000, 68010, 68020, 68030, or 68040.</p>
+<p class="p22"><br></p>
+<p class="p7">Yet other nonstandard predefined macros describe the manufacturer of the system.<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p3"><br></p>
+<p class="p19"><b>NeXT</b> <span class="Apple-tab-span">	</span>Predefined on a NeXT computer.</p>
+<p class="p22"><br></p>
+<p class="p7">These predefined symbols aren't only nonstandard, they're contrary to the ANSI standard because their names don't start with underscores.<span class="Apple-converted-space">  </span>The <b>-ansi</b> option, which requests complete support for ANSI C, inhibits the definition of these predefined symbols.</p>
+<p class="p3"><br></p>
+<p class="p7">This tends to make the use of <b>-ansi</b> problematic, since some programs depend on the customary nonstandard predefined symbols that indicate computer type.<span class="Apple-converted-space">  </span>Even system header files check them and will generate incorrect declarations if they do not find the names that are expected.<span class="Apple-converted-space">  </span>Header files supplied for a specific computer type sometimes don't assume the type but test for it using the customary names. <span class="Apple-converted-space"> </span></p>
+<p class="p3"><br></p>
+<p class="p7">What, then, should you do in an ANSI C program to test the type of machine it will run on?</p>
+<p class="p3"><br></p>
+<p class="p7">GNU C offers a parallel series of symbols for this purpose, whose names are made from the customary ones by adding <b>__</b> at the beginning and end.<span class="Apple-converted-space">  </span>Thus, the symbol <b>__vax__</b> would be available on a VAX, and so on.</p>
+<p class="p3"><br></p>
+<p class="p7">The set of nonstandard predefined names in the GNU C preprocessor is controlled (when <b>cpp</b> is itself compiled) by the macro <b>CPP_PREDEFINES</b>, which should be a string containing -D options, separated by spaces.<span class="Apple-converted-space">  </span>For example, on the Sun 3, we use the following definition:</p>
+<p class="p3"><br></p>
+<p class="p13">#define CPP_PREDEFINES "-Dmc68000 -Dsun -Dunix -Dm68k"</p>
+<p class="p3"><br></p>
+<p class="p7">This macro is usually specified in <b>tm.h</b>.</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Stringification</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">“Stringification” means turning a code fragment into a string constant whose contents are the text for the code fragment.<span class="Apple-converted-space">  </span>For example, stringifying <b>foo (z)</b> results in <b>"foo (z)"</b>.</p>
+<p class="p3"><br></p>
+<p class="p7">In the C preprocessor, stringification is an option available when macro arguments are substituted into the macro definition.<span class="Apple-converted-space">  </span>In the body of the definition, when an argument name appears, the character <b>#</b> before the name specifies stringification of the corresponding argument when it's substituted at that point in the definition.<span class="Apple-converted-space">  </span>The same argument may be substituted in other places in the definition without stringification if the argument name appears in those places with no <b>#</b>.</p>
+<p class="p3"><br></p>
+<p class="p7">Here's an example of a macro definition that uses stringification:</p>
+<p class="p3"><br></p>
+<p class="p13">#define WARN_IF(EXP)<span class="Apple-converted-space">  </span>\<span class="Apple-converted-space"> </span></p>
+<p class="p13">if (EXP) fprintf (stderr, "Warning: " #EXP "\n");</p>
+<p class="p3"><br></p>
+<p class="p7">Here the argument for <b>EXP</b> is substituted once as given, into the <b>if</b> statement, and once as stringified, into the argument to <b>fprintf</b>.<span class="Apple-converted-space">  </span>The <b>do</b> and <b>while (0)</b> make it possible to write <b>WARN_IF (ARG);</b> (see the section “Swallowing the Semicolon”).</p>
+<p class="p3"><br></p>
+<p class="p7">The stringification feature is limited to transforming one macro argument into one string constant:<span class="Apple-converted-space">  </span>There's no way to combine the argument with other text and then stringify it all together.<span class="Apple-converted-space">  </span>But the example above shows how an equivalent result can be obtained in ANSI-standard C using the feature that adjacent string constants are concatenated as one string constant.<span class="Apple-converted-space">  </span>The preprocessor stringifies the actual value of<span class="Apple-converted-space">  </span><b>EXP</b> into a separate string constant, resulting in text like</p>
+<p class="p3"><br></p>
+<p class="p13">if (x == 0) fprintf (stderr, "Warning: " "x == 0" "\n");</p>
+<p class="p3"><br></p>
+<p class="p7">but the C compiler then sees three consecutive string constants and concatenates them into one, producing:</p>
+<p class="p3"><br></p>
+<p class="p13">if (x == 0) fprintf (stderr, "Warning: x == 0\n");</p>
+<p class="p3"><br></p>
+<p class="p7">Stringification in C involves more than putting double quotes around the fragment; it's necessary to put backslashes in front of all double quotes, and all backslashes in string and character constants, in order to get a valid C string constant with the proper contents.<span class="Apple-converted-space">  </span>Thus, stringifying <b>p = "foo\n";</b> results in <b>"p = \"foo\\n\";"</b>.<span class="Apple-converted-space">  </span>However, backslashes that aren't inside string or character constants aren't duplicated:<span class="Apple-converted-space">  </span><b>\n</b> by itself stringifies to <b>"\n"</b>.</p>
+<p class="p3"><br></p>
+<p class="p7">White-space characters (including comments) in the text being stringified are handled according to the following rules:</p>
+<p class="p3"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>All leading and trailing white-space characters are ignored.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Any sequence of white-space characters in the middle of the text is converted to a single space in the stringified result.</p>
+<p class="p9"><br></p>
+<p class="p7">It's often useful to define, for example:</p>
+<p class="p3"><br></p>
+<p class="p13">STR(X) #X</p>
+<p class="p3"><br></p>
+<p class="p7">so that when you use the macro instead of <b>#X</b> directly, <b>X</b> is re-scanned one more time for macro expansion.</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b>Concatenation</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">Concatenation means joining two strings into one.<span class="Apple-converted-space">  </span>In the context of macro expansion, concatenation refers to joining two lexical units into one longer one.<span class="Apple-converted-space">  </span>Specifically, an argument to the macro can be concatenated with another argument or with fixed text to produce a longer name.<span class="Apple-converted-space">  </span>The longer name might be the name of a function, variable or type, or a C keyword; it might even be the name of another macro, in which case it will be expanded.</p>
+<p class="p3"><br></p>
+<p class="p7">When you define a macro, you request concatenation with the special operator <b>##</b> in the macro body.<span class="Apple-converted-space">  </span>When the macro is invoked, arguments are substituted.<span class="Apple-converted-space">  </span>Then all <b>##</b> operators are deleted, along with any white-space characters next to them (including white-space characters that are part of an argument).<span class="Apple-converted-space">  </span>The result is to concatenate the syntactic tokens on either side of the <b>##</b>.</p>
+<p class="p3"><br></p>
+<p class="p7">Consider a C program that interprets named commands.<span class="Apple-converted-space">  </span>There probably needs to be a table of commands, perhaps an array of structures declared as follows:</p>
+<p class="p3"><br></p>
+<p class="p13">struct command<span class="Apple-converted-space"> </span></p>
+<p class="p13">{<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>char *name;<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>void (*function) ();<span class="Apple-converted-space"> </span></p>
+<p class="p13">};</p>
+<p class="p25"><br></p>
+<p class="p13">struct command commands[] =<span class="Apple-converted-space"> </span></p>
+<p class="p13">{<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>{ "quit", quit_command},<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>{ "help", help_command},<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>. . .</p>
+<p class="p13">};</p>
+<p class="p3"><br></p>
+<p class="p7">It would be cleaner not to have to give each command name twice, once in the string constant and once in the function name.<span class="Apple-converted-space">  </span>A macro that takes the name of a command as an argument can make this unnecessary.<span class="Apple-converted-space">  </span>The string constant can be created with stringification, and the function name by concatenating the argument with “_command”:</p>
+<p class="p3"><br></p>
+<p class="p13">#define COMMAND(NAME)<span class="Apple-converted-space">  </span>{ #NAME, NAME ## _command }</p>
+<p class="p25"><br></p>
+<p class="p13">struct command commands[] =<span class="Apple-converted-space"> </span></p>
+<p class="p13">{<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>COMMAND (quit),<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>COMMAND (help),<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>. . .</p>
+<p class="p13">};</p>
+<p class="p3"><br></p>
+<p class="p7">The usual case of concatenation is concatenating two names (or a name and a number) into a longer name.<span class="Apple-converted-space">  </span>But this isn't the only valid case.<span class="Apple-converted-space">  </span>It's also possible to concatenate two numbers (or a number and a name, such as <b>1.5</b> and <b>e3</b>) into a number.<span class="Apple-converted-space">  </span>Also, multicharacter operators such as <b>+=</b> can be formed by concatenation.<span class="Apple-converted-space">  </span>In some cases it's even possible to piece together a string constant.<span class="Apple-converted-space">  </span>However, two pieces of text that don't together form a valid lexical unit cannot be concatenated.<span class="Apple-converted-space">  </span>For example, concatenation with <b>x</b> on one side and <b>+</b> on the other isn't meaningful because those two characters can't fit together in any lexical unit of C.<span class="Apple-converted-space">  </span>Although the ANSI standard says that such an attempt at concatenation is undefined, the GNU C preprocessor handles it as follows:<span class="Apple-converted-space">  </span>it puts the <b>x</b> and <b>+</b> side by side with no particular special results.</p>
+<p class="p3"><br></p>
+<p class="p7">The C preprocessor converts comments to whitespace before macros are even considered.<span class="Apple-converted-space">  </span>Therefore, you cannot create a comment by concatenating <b>/</b> and <b>*</b>: the <b>/*</b> sequence that starts a comment is not a lexical unit, but rather the beginning of a “long” space character.<span class="Apple-converted-space">  </span>You can freely use comments next to a <b>##</b> in a macro definition, or in arguments that will be concatenated, because the comments will be converted to spaces at first sight, and concatenation will later discard the spaces.</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Undefining Macros</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">To undefine a macro means to cancel its definition.<span class="Apple-converted-space">  </span>This is done with the <b>#undef</b> command.<span class="Apple-converted-space">  </span><b>#undef</b> is followed by the macro name to be undefined.</p>
+<p class="p3"><br></p>
+<p class="p7">Like definition, undefinition occurs at a specific point in the source file, and it applies starting from that point.<span class="Apple-converted-space">  </span>The name ceases to be a macro name, and from that point on it's treated by the preprocessor as if it had never been a macro name.</p>
+<p class="p3"><br></p>
+<p class="p7">For example,</p>
+<p class="p3"><br></p>
+<p class="p13">#define FOO 4<span class="Apple-converted-space"> </span></p>
+<p class="p13">x = FOO;<span class="Apple-converted-space"> </span></p>
+<p class="p13">#undef FOO<span class="Apple-converted-space"> </span></p>
+<p class="p13">x = FOO;</p>
+<p class="p3"><br></p>
+<p class="p7">expands into</p>
+<p class="p3"><br></p>
+<p class="p13">x = 4;<span class="Apple-converted-space"> </span></p>
+<p class="p13">x = FOO;</p>
+<p class="p3"><br></p>
+<p class="p7">In this example, <b>FOO</b> must be a variable or function as well as (temporarily) a macro, in order for the result of the expansion to be valid C code.</p>
+<p class="p3"><br></p>
+<p class="p7">The same form of <b>#undef</b> command will cancel definitions with arguments or definitions that don't expect arguments.<span class="Apple-converted-space">  </span>The <b>#undef</b> command has no effect when used on a name not currently defined as a macro.</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Redefining Macros</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">Redefining a macro means defining (with <b>#define</b>) a name that is already defined as a macro.</p>
+<p class="p3"><br></p>
+<p class="p7">A redefinition is trivial if the new definition is transparently identical to the old one.<span class="Apple-converted-space">  </span>You probably wouldn't deliberately write a trivial redefinition, but they can happen automatically when a header file is included more than once (see the section “Header Files”), so they're accepted silently and without effect.</p>
+<p class="p3"><br></p>
+<p class="p7">Nontrivial redefinition is considered likely to be an error, so it provokes a warning message from the preprocessor.<span class="Apple-converted-space">  </span>However, sometimes it's useful to change the definition of a macro in mid-compilation.<span class="Apple-converted-space">  </span>You can inhibit the warning by undefining the macro with <b>#undef</b> before the second definition.</p>
+<p class="p3"><br></p>
+<p class="p7">In order for a redefinition to be trivial, the new definition must exactly match the one already in effect, with two possible exceptions:</p>
+<p class="p3"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Whitespace may be added or deleted at the beginning or the end.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Whitespace may be changed in the middle (but not inside strings).<span class="Apple-converted-space">  </span>However, it may not be eliminated entirely, and it may not be added where there was no whitespace previously.<span class="Apple-converted-space">  </span>Remember, comments count as whitespace.</p>
+<p class="p9"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Pitfalls and Subtleties of Macros</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">This section describes some special rules that apply to macros and macro expansion, and points out certain cases in which the rules have counterintuitive consequences that you must watch out for.</p>
+<p class="p3"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>Improperly Nested Constructs</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">Recall that when a macro is invoked with arguments, the arguments are substituted into the macro body and the result is checked, together with the rest of the input file, for more macros.</p>
+<p class="p3"><br></p>
+<p class="p7">It's possible to piece together a macro invocation coming partially from the macro body and partially from the arguments.<span class="Apple-converted-space">  </span>For example,</p>
+<p class="p3"><br></p>
+<p class="p13">#define double(x) (2*(x))<span class="Apple-converted-space"> </span></p>
+<p class="p13">#define call_with_1(x) x(1)</p>
+<p class="p3"><br></p>
+<p class="p7">would expand <b>call_with_1 (double)</b> into <b>(2*(1))</b>.</p>
+<p class="p3"><br></p>
+<p class="p7">Macro definitions don't have to have balanced parentheses.<span class="Apple-converted-space">  </span>By writing an unbalanced left parenthesis in a macro body, it's possible to create a macro invocation that begins inside the macro body but ends outside it.<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p3"><br></p>
+<p class="p13">#define strange(file) fprintf (file, "%s %d",<span class="Apple-converted-space"> </span></p>
+<p class="p13">. . . <span class="Apple-converted-space"> </span></p>
+<p class="p13">strange(stderr) p, 35)</p>
+<p class="p3"><br></p>
+<p class="p7">This bizarre example expands to</p>
+<p class="p3"><br></p>
+<p class="p13">fprintf (stderr, "%s %d", p, 35)</p>
+<p class="p16"><b></b><br></p>
+<p class="p27"><b>Unintended Grouping of Arithmetic</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">You may have noticed that in most of the macro definition examples shown above, each occurrence of a macro argument name has parentheses around it.<span class="Apple-converted-space">  </span>In addition, another pair of parentheses usually surround the entire macro definition.<span class="Apple-converted-space">  </span>This section discusses why it's best to write macros that way.</p>
+<p class="p3"><br></p>
+<p class="p7">Suppose you define a macro</p>
+<p class="p3"><br></p>
+<p class="p13">#define ceil_div(x, y) (x + y - 1) / y</p>
+<p class="p3"><br></p>
+<p class="p7">whose purpose is to divide, rounding up.<span class="Apple-converted-space">  </span>(One use for this operation is to compute how many <b>int</b> objects are needed to hold a certain number of <b>char</b> objects.)<span class="Apple-converted-space">  </span>Then suppose it's used as follows:</p>
+<p class="p3"><br></p>
+<p class="p13">a = ceil_div (b &amp; c, sizeof (int));</p>
+<p class="p3"><br></p>
+<p class="p7">This expands into</p>
+<p class="p3"><br></p>
+<p class="p13">a = (b &amp; c + sizeof (int) - 1) / sizeof (int);</p>
+<p class="p3"><br></p>
+<p class="p7">which doesn't do what's intended.<span class="Apple-converted-space">  </span>The operator-precedence rules of C make this equivalent to:</p>
+<p class="p3"><br></p>
+<p class="p13">a = (b &amp; (c + sizeof (int) - 1)) / sizeof (int);</p>
+<p class="p3"><br></p>
+<p class="p7">But what we want is:</p>
+<p class="p3"><br></p>
+<p class="p13">a = ((b &amp; c) + sizeof (int) - 1)) / sizeof (int);</p>
+<p class="p3"><br></p>
+<p class="p7">Defining the macro as follows provides the desired result:</p>
+<p class="p3"><br></p>
+<p class="p13">#define ceil_div(x, y) ((x) + (y) - 1) / (y)</p>
+<p class="p3"><br></p>
+<p class="p7">However, unintended grouping can happen in another way.<span class="Apple-converted-space">  </span>Consider <b>sizeof ceil_div(1, 2)</b>.<span class="Apple-converted-space">  </span>This has the appearance of a C expression that would compute the size of the type of <b>ceil_div (1, 2)</b>, but in fact it means something very different.<span class="Apple-converted-space">  </span>Here's what it expands to:</p>
+<p class="p3"><br></p>
+<p class="p13">sizeof ((1) + (2) - 1) / (2)</p>
+<p class="p3"><br></p>
+<p class="p7">This would take the size of an integer and divide it by 2.<span class="Apple-converted-space">  </span>The precedence rules have put the division outside the <b>sizeof()</b> when it was intended to be inside.</p>
+<p class="p3"><br></p>
+<p class="p7">Parentheses around the entire macro definition can prevent such problems.<span class="Apple-converted-space">  </span>Here's the recommended way to define <b>ceil_div</b>:</p>
+<p class="p3"><br></p>
+<p class="p13">#define ceil_div(x, y) (((x) + (y) - 1) / (y))</p>
+<p class="p16"><b></b><br></p>
+<p class="p27"><b>Swallowing the Semicolon</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">Often it's desirable to define a macro that expands into a compound statement.<span class="Apple-converted-space">  </span>Consider, for example, the following macro, which advances a pointer across space characters:</p>
+<p class="p3"><br></p>
+<p class="p13">#define SKIP_SPACES (p, limit)<span class="Apple-converted-space">  </span>\<span class="Apple-converted-space"> </span></p>
+<p class="p13">{ register char *lim = (limit); \<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>while (p != lim) {<span class="Apple-converted-space">  </span>\<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">        </span>if (*p++ != ' ') {<span class="Apple-converted-space">  </span>\<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">                </span>p-; break; }}}</p>
+<p class="p3"><br></p>
+<p class="p7">Here backslash-newline is used to split the macro definition, which must be a single line, so that it resembles the way such C code would appear if not part of a macro definition.</p>
+<p class="p3"><br></p>
+<p class="p7">An invocation of this macro might be <b>SKIP_SPACES (p, lim)</b>.<span class="Apple-converted-space">  </span>Strictly speaking, the invocation expands to a compound statement, which is a complete statement with no need for a semicolon to end it.<span class="Apple-converted-space">  </span>But it looks like a function call.<span class="Apple-converted-space">  </span>So it minimizes confusion if you can use it like a function call, writing a semicolon afterward:</p>
+<p class="p3"><br></p>
+<p class="p13">SKIP_SPACES (p, lim);</p>
+<p class="p3"><br></p>
+<p class="p7">But this can cause trouble before <b>else</b> statements, because the semicolon is actually a null statement.<span class="Apple-converted-space">  </span>Suppose you write</p>
+<p class="p3"><br></p>
+<p class="p13">if (*p != 0)<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>SKIP_SPACES (p, lim);<span class="Apple-converted-space"> </span></p>
+<p class="p13">else . . .</p>
+<p class="p3"><br></p>
+<p class="p7">The presence of two statements—the compound statement and a null statement—in between the <b>if</b> condition and the <b>else</b> makes invalid C code.</p>
+<p class="p3"><br></p>
+<p class="p7">The definition of the macro <b>SKIP_SPACES</b> can be altered to solve this problem, using a <b>do </b>... <b>while</b> statement:</p>
+<p class="p3"><br></p>
+<p class="p13">#define SKIP_SPACES (p, limit)<span class="Apple-converted-space">  </span>\<span class="Apple-converted-space"> </span></p>
+<p class="p13">do { register char *lim = (limit);<span class="Apple-converted-space">  </span>\<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>while (p != lim) {<span class="Apple-converted-space">  </span>\<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">        </span>if (*p++ != ' ') {<span class="Apple-converted-space">  </span>\<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">                </span>p-; break; }}}<span class="Apple-converted-space">  </span>\<span class="Apple-converted-space"> </span></p>
+<p class="p13">while (0)</p>
+<p class="p3"><br></p>
+<p class="p7">Now <b>SKIP_SPACES (p, lim);</b> expands into one statement:</p>
+<p class="p3"><br></p>
+<p class="p13">do {. . .} while (0);</p>
+<p class="p16"><b></b><br></p>
+<p class="p27"><b>Duplication of Side Effects</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">Many C programs define a macro <b>min</b> (for “minimum”), like this:</p>
+<p class="p3"><br></p>
+<p class="p13">#define min(X, Y)<span class="Apple-converted-space">  </span>((X) &lt; (Y) ? (X) : (Y))</p>
+<p class="p3"><br></p>
+<p class="p7">When you use this macro with an argument containing a side effect (as shown here)</p>
+<p class="p3"><br></p>
+<p class="p13">next = min (x + y, foo (z));</p>
+<p class="p3"><br></p>
+<p class="p7">it expands as follows:</p>
+<p class="p3"><br></p>
+<p class="p13">next = ((x + y) &lt; (foo (z)) ? (x + y) : (foo (z)));</p>
+<p class="p3"><br></p>
+<p class="p7">where <b>x + y</b> has been substituted for <b>X</b> and <b>foo (z)</b> for <b>Y</b>.</p>
+<p class="p3"><br></p>
+<p class="p7">The function <b>foo</b> is used only once in the statement as it appears in the program, but the expression <b>foo (z)</b> has been substituted twice into the macro expansion.<span class="Apple-converted-space">  </span>As a result, <b>foo</b> might be called two times when the statement is executed.<span class="Apple-converted-space">  </span>If it has side effects or if it takes a long time to compute, the results might not be what you intended.<span class="Apple-converted-space">  </span>Therefore <b>min</b> is an “unsafe” macro.</p>
+<p class="p3"><br></p>
+<p class="p7">One way to solve this problem is to define <b>min</b> in a way that computes the value of <b>foo</b> <b>(z)</b> only once.<span class="Apple-converted-space">  </span>The C language offers no standard way to do this, but it can be done with GNU C extensions as follows:</p>
+<p class="p3"><br></p>
+<p class="p13">#define min(X, Y) <span class="Apple-converted-space">                    </span>\</p>
+<p class="p13">({ typeof (X) __x = (X), __y = (Y); <span class="Apple-converted-space">  </span>\</p>
+<p class="p13"><span class="Apple-converted-space">   </span>(__x &lt; __y) ? __x : __y; })</p>
+<p class="p3"><br></p>
+<p class="p7">If you don't wish to use GNU C extensions, the only solution is to be careful when using the macro <b>min</b>.<span class="Apple-converted-space">  </span>For example, you can calculate the value of <b>foo (z)</b>, save it in a variable, and use that variable in <b>min</b>:</p>
+<p class="p3"><br></p>
+<p class="p13">#define min(X, Y)<span class="Apple-converted-space">  </span>((X) &lt; (Y) ? (X) : (Y))<span class="Apple-converted-space"> </span></p>
+<p class="p13">. . . <span class="Apple-converted-space"> </span></p>
+<p class="p13">{<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>int tem = foo (z);<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>next = min (x + y, tem);<span class="Apple-converted-space"> </span></p>
+<p class="p13">}</p>
+<p class="p16"><b></b><br></p>
+<p class="p27"><b>Self-Referential Macros</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">A self-referential macro is one whose name appears in its definition.<span class="Apple-converted-space">  </span>A special feature of ANSI-standard C is that the self-reference isn't considered a macro invocation.<span class="Apple-converted-space">  </span>It's passed into the preprocessor output unchanged.</p>
+<p class="p3"><br></p>
+<p class="p7">Consider the following example (assume that <b>foo</b> is also a variable in your program):</p>
+<p class="p3"><br></p>
+<p class="p13">#define foo (4 + foo)</p>
+<p class="p3"><br></p>
+<p class="p7">Following the ordinary rules, each reference to <b>foo</b> will expand into <b>(4 + foo)</b>; then this will be rescanned and will expand into <b>(4 + (4 + foo))</b>; and so on until it causes a fatal error (memory full) in the preprocessor.</p>
+<p class="p3"><br></p>
+<p class="p7">However, the special rule about self-reference cuts this process short after one step, at <b>(4 + foo)</b>.<span class="Apple-converted-space">  </span>Therefore, this macro definition has the possibly useful effect of causing the program to add 4 to the value of <b>foo</b> wherever <b>foo</b> is referred to.</p>
+<p class="p3"><br></p>
+<p class="p7">In most cases, it's a bad idea to take advantage of this feature.<span class="Apple-converted-space">  </span>A person reading the program who sees that <b>foo</b> is a variable won't expect that it's a macro as well.<span class="Apple-converted-space">  </span>The reader will come across the identifier <b>foo</b> in the program and think its value should be that of the variable <b>foo</b>, whereas in fact the value is 4 greater.</p>
+<p class="p3"><br></p>
+<p class="p7">The special rule for self-reference applies also to indirect self-reference.<span class="Apple-converted-space">  </span>This is the case where a macro X expands to use a macro <b>y</b>, and <b>y</b>'s expansion refers to the macro <b>x</b>.<span class="Apple-converted-space">  </span>The resulting reference to <b>x</b> comes indirectly from the expansion of <b>x</b>, so it's a self-reference and isn't further expanded.<span class="Apple-converted-space">  </span>Thus, after</p>
+<p class="p3"><br></p>
+<p class="p13">#define x (4 + y)<span class="Apple-converted-space"> </span></p>
+<p class="p13">#define y (2 * x)</p>
+<p class="p3"><br></p>
+<p class="p7"><b>x</b> would expand into <b>(4 + (2 * x))</b>.</p>
+<p class="p3"><br></p>
+<p class="p7">But suppose <b>y</b> is used elsewhere, not from the definition of <b>x</b>.<span class="Apple-converted-space">  </span>Then the use of <b>x</b> in the expansion of <b>y</b> isn't a self-reference because <b>x</b> isn't in progress.<span class="Apple-converted-space">  </span>So it does expand.<span class="Apple-converted-space">  </span>However, the expansion of <b>x</b> contains a reference to <b>y</b>, and that's an indirect self-reference now because <b>y</b> is in progress.<span class="Apple-converted-space">  </span>The result is that <b>y</b> expands to <b>(2 * (4 + y))</b>.</p>
+<p class="p3"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>Separate Expansion of Macro Arguments</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">We have explained that the expansion of a macro, including the substituted arguments, is scanned over again for macros to be expanded.</p>
+<p class="p3"><br></p>
+<p class="p7">What really happens is more subtle:<span class="Apple-converted-space">  </span>First each argument text is scanned separately for macros.<span class="Apple-converted-space">  </span>Then the results of this are substituted into the macro body to produce the macro expansion, and the macro expansion is scanned again for macros to expand.</p>
+<p class="p3"><br></p>
+<p class="p7">The result is that the arguments are scanned twice to expand macros in them.</p>
+<p class="p3"><br></p>
+<p class="p7">Most of the time, this has no effect.<span class="Apple-converted-space">  </span>If the argument contained any macros, they're expanded during the first scan.<span class="Apple-converted-space">  </span>The result therefore contains no macros, so the second scan doesn't change it.<span class="Apple-converted-space">  </span>If the argument were substituted as given, with no prescan, the single remaining scan would find the same macros and produce the same results.</p>
+<p class="p3"><br></p>
+<p class="p7">You might expect the double scan to change the results when a self-referential macro is used in an argument of another macro (see the section “Self-Referential Macros” above); the self-referential macro would be expanded once in the first scan, and a second time in the second scan.<span class="Apple-converted-space">  </span>But this isn't what happens.<span class="Apple-converted-space">  </span>The self-references that don't expand in the first scan are marked so that they won't expand in the second scan either.</p>
+<p class="p3"><br></p>
+<p class="p7">The prescan isn't done when an argument is stringified or concatenated.<span class="Apple-converted-space">  </span>(More precisely, stringification and concatenation use the argument as written, in unprescanned form.<span class="Apple-converted-space">  </span>The same argument would be used in prescanned form if it's substituted elsewhere without stringification or concatenation.)<span class="Apple-converted-space">  </span>Thus,</p>
+<p class="p3"><br></p>
+<p class="p13">#define str(s) #s<span class="Apple-converted-space"> </span></p>
+<p class="p13">#define foo 4<span class="Apple-converted-space"> </span></p>
+<p class="p13">str (foo)</p>
+<p class="p3"><br></p>
+<p class="p7">expands to <b>"foo"</b>.<span class="Apple-converted-space">  </span>Once more, prescan has been prevented from having any noticeable effect.</p>
+<p class="p3"><br></p>
+<p class="p7">The prescan does make a difference in three special cases:</p>
+<p class="p3"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Nested invocations of a macro</p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Macros that invoke other macros that stringify or concatenate</p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Macros whose expansions contain unshielded commas</p>
+<p class="p3"><br></p>
+<p class="p7">Nested invocations of a macro occur when a macro's argument contains an invocation of that very macro.<span class="Apple-converted-space">  </span>For example, if <b>f</b> is a macro that expects one argument, <b>f (f (1))</b> is a nested pair of invocations of <b>f</b>.<span class="Apple-converted-space">  </span>The desired expansion is made by expanding <b>f (1)</b> and substituting that into the definition of <b>f</b>.<span class="Apple-converted-space">  </span>The prescan causes the expected result to happen.<span class="Apple-converted-space">  </span>Without the prescan, <b>f (1)</b> itself would be substituted as an argument, and the inner use of <b>f</b> would appear during the main scan as an indirect self-reference and wouldn't be expanded.<span class="Apple-converted-space">  </span>Here, the prescan cancels an undesirable side effect of the special rule for self-referential macros.</p>
+<p class="p3"><br></p>
+<p class="p7">But prescan causes trouble in certain other cases of nested macro calls.<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p3"><br></p>
+<p class="p13">#define foo<span class="Apple-converted-space">  </span>a,b</p>
+<p class="p13">#define bar(x) lose(x)</p>
+<p class="p13">#define lose(x) (1 + (x))</p>
+<p class="p25"><br></p>
+<p class="p13">bar(foo)</p>
+<p class="p3"><br></p>
+<p class="p7">We would like <b>bar(foo)</b> to turn into <b>(1 + (foo))</b>, which would then turn into <b>(1 + (a,b))</b>.<span class="Apple-converted-space">  </span>But instead, <b>bar(foo)</b> expands into <b>lose(a,b)</b>, and you get an error because <b>lose</b> requires a single argument.<span class="Apple-converted-space">  </span>In this case, the problem is easily solved by the same parentheses that ought to be used to prevent misnesting of arithmetic operations:</p>
+<p class="p3"><br></p>
+<p class="p13">#define foo (a,b)</p>
+<p class="p13">#define bar(x) lose((x))</p>
+<p class="p3"><br></p>
+<p class="p7">The problem is more serious when the operands of the macro aren't expressions (for example, when they are statements).<span class="Apple-converted-space">  </span>Then parentheses are unacceptable because they would make for invalid C code:</p>
+<p class="p3"><br></p>
+<p class="p13">#define foo { int a, b; ... }</p>
+<p class="p3"><br></p>
+<p class="p7">In GNU C you can shield the commas using the <b>({<span class="Apple-converted-space">  </span></b>. . .<b> })</b> construct, which turns a compound statement into an expression:</p>
+<p class="p3"><br></p>
+<p class="p13">#define foo ({ int a, b; ... })</p>
+<p class="p3"><br></p>
+<p class="p7">Or you can rewrite the macro definition to avoid such commas:</p>
+<p class="p3"><br></p>
+<p class="p13">#define foo { int a; int b; ... }</p>
+<p class="p3"><br></p>
+<p class="p7">There's also one case where prescan is useful.<span class="Apple-converted-space">  </span>It's possible to use prescan to expand an argument and then stringify it—if you use two levels of macros.<span class="Apple-converted-space">  </span>Let's add a new macro <b>xstr</b> to the example shown above:</p>
+<p class="p3"><br></p>
+<p class="p13">#define xstr(s) str(s)<span class="Apple-converted-space"> </span></p>
+<p class="p13">#define str(s) #s<span class="Apple-converted-space"> </span></p>
+<p class="p13">#define foo 4<span class="Apple-converted-space"> </span></p>
+<p class="p13">xstr (foo)</p>
+<p class="p3"><br></p>
+<p class="p7">This expands to <b>"4"</b>, not <b>"foo"</b>.<span class="Apple-converted-space">  </span>The reason for the difference is that the argument of <b>xstr</b> is expanded at prescan (because <b>xstr</b> doesn't specify stringification or concatenation of the argument).<span class="Apple-converted-space">  </span>The result of prescan then forms the argument for <b>str</b>.<span class="Apple-converted-space">  </span><b>str</b> uses its argument without prescan because it performs stringification; but it can't prevent or undo the prescanning already done by <b>xstr</b>.</p>
+<p class="p3"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>Cascaded Use of Macros</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">A cascade of macros occurs when one macro's body contains a reference to another macro (a very common practice).<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p3"><br></p>
+<p class="p13">#define BUFSIZE 1020<span class="Apple-converted-space"> </span></p>
+<p class="p13">#define TABLESIZE BUFSIZE</p>
+<p class="p3"><br></p>
+<p class="p7">This isn't at all the same as defining <b>TABLESIZE</b> to be <b>1020</b>.<span class="Apple-converted-space">  </span>The <b>#define</b> for <b>TABLESIZE</b> uses exactly the body you specify—in this case, <b>BUFSIZE</b>—and doesn't check to see whether it too is the name of a macro.</p>
+<p class="p3"><br></p>
+<p class="p7">It's only when you <i>use</i> <b>TABLESIZE</b> that the result of its expansion is checked for more macro names.</p>
+<p class="p3"><br></p>
+<p class="p7">This makes a difference if you change the definition of <b>BUFSIZE</b> at some point in the source file.<span class="Apple-converted-space">  </span><b>TABLESIZE</b>, defined as shown, will always expand using the definition of <b>BUFSIZE</b> that's currently in effect:</p>
+<p class="p3"><br></p>
+<p class="p13">#define BUFSIZE 1020<span class="Apple-converted-space"> </span></p>
+<p class="p13">#define TABLESIZE BUFSIZE<span class="Apple-converted-space"> </span></p>
+<p class="p13">#undef BUFSIZE<span class="Apple-converted-space"> </span></p>
+<p class="p13">#define BUFSIZE 37</p>
+<p class="p3"><br></p>
+<p class="p7">Now <b>TABLESIZE</b> expands in two stages to <b>37</b>.</p>
+<p class="p3"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>Newlines in Macro Arguments</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">Traditional macro processing carries forward all newlines in macro arguments into the expansion of the macro.<span class="Apple-converted-space">  </span>This means that, if some of the arguments are substituted more than once, or not at all, or are out of order, newlines can be duplicated, lost, or moved around within the expansion.<span class="Apple-converted-space">  </span>If the expansion consists of multiple statements, then the<span class="Apple-converted-space">  </span>the line numbers of some of these statements can become distorted.<span class="Apple-converted-space">  </span>The result can be incorrect line numbers in error messages or as displayed by a debugger.</p>
+<p class="p3"><br></p>
+<p class="p7">The<span class="Apple-converted-space">  </span>C preprocessor operating in ANSI C mode adjusts itself<span class="Apple-converted-space">  </span>for multiple uses of an argument---the first use expands all the newlines, and subsequent uses of the same argument produce no newlines. But even in this mode, it can produce incorrect line numbering if arguments are used out of order, or are not used at all.</p>
+<p class="p3"><br></p>
+<p class="p7">Here is an example illustrating this problem:</p>
+<p class="p3"><br></p>
+<p class="p13">#define ignore_second_arg(a,b,c) a; c</p>
+<p class="p13">ignore_second_arg (foo (),</p>
+<p class="p13"><span class="Apple-converted-space">                   </span>ignored (),</p>
+<p class="p13"><span class="Apple-converted-space">                   </span>syntax error);</p>
+<p class="p3"><br></p>
+<p class="p7">The syntax error triggered by the tokens <b>syntax error</b> results in an error message citing line four, even though the statement text comes from line five.</p>
+<p class="p3"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>Inability to Define a Macro that Produces a # Character<span class="Apple-converted-space"> </span></b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">You can't use the C preprocessor to define macros that produce <b>#</b> characters.<span class="Apple-converted-space">  </span>For instance, the following is illegal:</p>
+<p class="p3"><br></p>
+<p class="p13">#define linkmacro(numBytes) link #numBytes,a6</p>
+<p class="p3"><br></p>
+<p class="p7">Note that you can use the <b>#</b> character inside a string or character constant, as shown here:</p>
+<p class="p3"><br></p>
+<p class="p13">#define PrintSharp() printf("#")</p>
+<p class="p16"><b></b><br></p>
+<p class="p27"><b>Macro Arguments inside String Constants</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">The C preprocessor doesn't substitute macro arguments that appear inside string constants.<span class="Apple-converted-space">  </span>For example, the following macro will produce the output <b>"a"</b> no matter what the argument <b>a</b> is:</p>
+<p class="p3"><br></p>
+<p class="p13">#define foo(a) "a"</p>
+<p class="p3"><br></p>
+<p class="p7">The <b>-traditional</b> option directs <b>cc</b> to handle such cases (among others) in the traditional non-ANSI way.</p>
+<p class="p3"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b></b><b>Conditionals</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">In a macro processor, a conditional is a command that allows part of the program to be ignored during compilation, on some conditions.<span class="Apple-converted-space">  </span>In the C preprocessor, a conditional can test either an arithmetic expression or whether a name is defined as a macro.</p>
+<p class="p3"><br></p>
+<p class="p7">A conditional in the C preprocessor resembles an <b>if</b> statement in C, but it's important to understand the difference between them.<span class="Apple-converted-space">  </span>The condition in an <b>if</b> statement is tested during the execution of your program.<span class="Apple-converted-space">  </span>Its purpose is to allow your program to behave differently from run to run, depending on the data it's operating on.<span class="Apple-converted-space">  </span>The condition in a preprocessor conditional command is tested when your program is compiled.<span class="Apple-converted-space">  </span>Its purpose is to allow different code to be included in the program depending on the situation at the time of compilation.</p>
+<p class="p3"><br></p>
+<p class="p7">There are three reasons to use a conditional:</p>
+<p class="p3"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>A program may need to use different code depending on the target machine or operating system.<span class="Apple-converted-space">  </span>In some cases, the code for one operating system may be erroneous on another operating system; for example, it might refer to library routines that don't exist on the other system.<span class="Apple-converted-space">  </span>When this happens, it isn't enough to avoid executing the invalid code:<span class="Apple-converted-space">  </span>Merely having it in the program makes it impossible to link the program and run it.<span class="Apple-converted-space">  </span>With a preprocessor conditional, the offending code can be effectively excised from the program when it isn't valid.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>You may want to be able to compile the same source file into two different programs.<span class="Apple-converted-space">  </span>Sometimes the difference between the programs is that one makes frequent time-consuming consistency checks on its intermediate data while the other doesn't.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>A conditional whose condition is always false is a good way to exclude code from the program but keep it for future reference.</p>
+<p class="p9"><br></p>
+<p class="p7">Most programs using only OPENSTEP API won't need to use preprocessor conditionals.</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Syntax of Conditionals</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">A conditional in the C preprocessor begins with a conditional command:<span class="Apple-converted-space">  </span><b>#if</b>, <b>#ifdef</b>, or <b>#ifndef</b>.<span class="Apple-converted-space">  </span>These and a few related<span class="Apple-converted-space">  </span>commands are described in the following sections.</p>
+<p class="p3"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>The #if Command</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">The <b>#if</b> command in its simplest form consists of</p>
+<p class="p3"><br></p>
+<p class="p28"><b>#if</b> <i>expression</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><i>conditional-text</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><b>#endif</b> <span class="Apple-converted-space">  </span>/* <i>expression</i> */</p>
+<p class="p29"><br></p>
+<p class="p7">The comment following the <b>#endif</b> isn't required, but it makes the code easier to read.<span class="Apple-converted-space">  </span>Such comments should always be used, except in short conditionals that aren't nested.<span class="Apple-converted-space">  </span>(Although you can put anything at all after the <b>#endif</b> and it will be ignored by the C preprocessor, only comments are acceptable in ANSI Standard C.)</p>
+<p class="p3"><br></p>
+<p class="p7"><i>expression</i> is a C expression of type <b>int</b>, subject to stringent restrictions.<span class="Apple-converted-space">  </span>It may contain:</p>
+<p class="p3"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Integer constants, which are all regarded as <b>long</b> or <b>unsigned long</b>.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Character constants, which are interpreted according to the character set and conventions of the machine and operating system on which the preprocessor is running.<span class="Apple-converted-space">  </span>The C preprocessor uses the C data type <b>char</b> for these character constants; therefore, whether some character codes are negative is determined by the C compiler used to compile the preprocessor.<span class="Apple-converted-space">  </span>If it treats <b>char</b> as signed, then character codes large enough to set the sign bit will be considered negative; otherwise, no character code is considered negative.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Character constants.<span class="Apple-converted-space">  </span>The C preprocessor uses the C data type <b>char</b> for these character constants.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Arithmetic operators for addition, subtraction, multiplication, division, bitwise operations, shifts, comparisons, <b>&amp;&amp;</b>, and <b>||</b>.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Identifiers that aren't macros, which are all treated as 0.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Macro invocation.<span class="Apple-converted-space">  </span>All macros in the expression are expanded before actual computation of the expression's value begins.</p>
+<p class="p9"><br></p>
+<p class="p7"><b>sizeof</b> operators and <b>enum</b>-type values aren't allowed.<span class="Apple-converted-space">  </span><b>enum</b>-type values, like all other identifiers that aren't taken as macro invocations and expanded, are treated as 0.</p>
+<p class="p3"><br></p>
+<p class="p7">The controlled text inside a conditional can include preprocessor commands.<span class="Apple-converted-space">  </span>Then the commands inside the conditional are obeyed only if that branch of the conditional succeeds.<span class="Apple-converted-space">  </span>The text can also contain other conditional groups.<span class="Apple-converted-space">  </span>However, the <b>#if</b> and <b>#endif</b> commands must balance.</p>
+<p class="p3"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>The #else Command</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">The <b>#else</b> command can be added to a conditional to provide alternative text to be used if the condition is false:</p>
+<p class="p3"><br></p>
+<p class="p28"><b>#if</b> <i>expression</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><i>text-if-true</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><b>#else<span class="Apple-converted-space">   </span></b> /* not <i>expression</i> */<span class="Apple-converted-space"> </span></p>
+<p class="p28"><i>text-if-false</i><span class="Apple-converted-space"> </span></p>
+<p class="p28"><b>#endif</b><span class="Apple-converted-space">    </span>/* not <i>expression</i> */</p>
+<p class="p29"><br></p>
+<p class="p7">If <i>expression</i> is nonzero, <i>text-if-true</i> is included; then <b>#else</b> acts like a failing conditional and <i>text-if-false</i> is ignored.<span class="Apple-converted-space">  </span>If <i>expression</i> is 0, the <b>#if</b> conditional fails and <i>text-if-false</i> is included.</p>
+<p class="p3"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>The #elif Command</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">A common use of nested conditionals is to check for more than two possible alternatives:</p>
+<p class="p3"><br></p>
+<p class="p13">#if X == 1<span class="Apple-converted-space"> </span></p>
+<p class="p13">. . . <span class="Apple-converted-space"> </span></p>
+<p class="p13">#else /* X != 1 */<span class="Apple-converted-space"> </span></p>
+<p class="p13">#if X == 2<span class="Apple-converted-space"> </span></p>
+<p class="p13">. . . <span class="Apple-converted-space"> </span></p>
+<p class="p13">#else /* X != 2 */<span class="Apple-converted-space"> </span></p>
+<p class="p13">. . . <span class="Apple-converted-space"> </span></p>
+<p class="p13">#endif /* X != 2 */<span class="Apple-converted-space"> </span></p>
+<p class="p13">#endif /* X != 1 */</p>
+<p class="p3"><br></p>
+<p class="p7">The conditional command <b>#elif</b> (which stands for “else if”) can be used to abbreviate this as follows:</p>
+<p class="p3"><br></p>
+<p class="p13">#if X == 1<span class="Apple-converted-space"> </span></p>
+<p class="p13">. . . <span class="Apple-converted-space"> </span></p>
+<p class="p13">#elif X == 2<span class="Apple-converted-space"> </span></p>
+<p class="p13">. . . <span class="Apple-converted-space"> </span></p>
+<p class="p13">#else /* X != 2 and X != 1*/<span class="Apple-converted-space"> </span></p>
+<p class="p13">. . . <span class="Apple-converted-space"> </span></p>
+<p class="p13">#endif /* X != 2 and X != 1*/</p>
+<p class="p3"><br></p>
+<p class="p7">Like <b>#else</b>, <b>#elif</b> goes in the middle of a <b>#if</b>-<b>#endif</b> pair and subdivides it; it doesn't require a matching <b>#endif</b> of its own.<span class="Apple-converted-space">  </span>Like <b>#if</b>, the <b>#elif</b> command includes an expression to be tested.</p>
+<p class="p3"><br></p>
+<p class="p7">The text following the <b>#elif</b> is processed only if the original <b>#if</b>-condition failed and the <b>#elif</b> condition succeeds.<span class="Apple-converted-space">  </span>More than one <b>#elif</b> can go in the same <b>#if</b>-<b>#endif</b> group.<span class="Apple-converted-space">  </span>Then the text after each <b>#elif</b> is processed only if the <b>#elif</b> condition succeeds after the original <b>#if</b> and any previous <b>#elif</b> commands within it have failed.<span class="Apple-converted-space">  </span><b>#else</b> is allowed after any number of <b>#elif</b> commands, but <b>#elif</b> may not follow a <b>#else</b>.</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Keeping Deleted Code for Future Reference</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">If you replace or delete part of the program but want to keep the old code around as a comment for future reference, you can simply put <b>#if 0</b> before it and <b>#endif</b> after it.</p>
+<p class="p3"><br></p>
+<p class="p7">This works even if the code being turned off contains conditionals, but they must be entire conditionals (balanced <b>#if</b> and <b>#endif</b>).</p>
+<p class="p3"><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><b></b><b>Conditionals and Macros</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">Conditionals are useful in<span class="Apple-converted-space">  </span>macros or assertions, because those are the only ways that an expression's value can vary from one compilation to another.<span class="Apple-converted-space">  </span>An <b>#if</b> command whose expression uses no macros or assertions is equivalent to <b>#if 1</b> or <b>#if 0</b>; you might as well determine which one—by computing the value of the expression yourself—and then simplify the program.</p>
+<p class="p3"><br></p>
+<p class="p7">For example, here's a conditional that tests the expression <b>BUFSIZE == 1020</b>, where <b>BUFSIZE</b> must be a macro:</p>
+<p class="p3"><br></p>
+<p class="p13">#if BUFSIZE == 1020<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>printf ("Large buffers!\n");<span class="Apple-converted-space"> </span></p>
+<p class="p13">#endif /* BUFSIZE is large */</p>
+<p class="p3"><br></p>
+<p class="p7">(Programmers often wish they could test the size of a variable or data type in<span class="Apple-converted-space">  </span><b>#if</b> expressions, but this does not work.<span class="Apple-converted-space">  </span>The preprocessor does not understand <b>sizeof</b>, or typedef names, or even the type keywords such as <b>int</b>.)</p>
+<p class="p3"><br></p>
+<p class="p7">The special operator <b>defined</b> is used in <b>#if</b> expressions to test whether a certain name is defined as a macro.<span class="Apple-converted-space">  </span>Either <b>defined NAME</b> or <b>defined (NAME)</b> is an expression whose value is 1 if NAME is defined as macro at the current point in the program, and 0 otherwise.<span class="Apple-converted-space">  </span>For the <b>defined</b> operator it makes no difference what the definition of the macro is; all that matters is whether there's a definition.<span class="Apple-converted-space">  </span>Thus, for example,</p>
+<p class="p3"><br></p>
+<p class="p13">#if defined (vax) || defined (ns16000)</p>
+<p class="p3"><br></p>
+<p class="p7">will include the following code if either <b>vax</b> or <b>ns16000</b> is defined as a macro.</p>
+<p class="p3"><br></p>
+<p class="p7">If a macro is defined and later undefined with <b>#undef</b>, subsequent use of the <b>defined</b> operator<span class="Apple-converted-space">  </span>returns 0, because the name is no longer defined.<span class="Apple-converted-space">  </span>If the macro is defined again with another <b>#define</b>, <b>defined</b> will again return 1.</p>
+<p class="p3"><br></p>
+<p class="p7">Conditionals that test just the definedness of one name are very common, so there are two special short conditional commands for this case:</p>
+<p class="p3"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span><b>#ifdef</b> <i>name</i> is equivalent to <b>#if defined (</b><i>name</i><b>)</b>.</p>
+<p class="p8">•<span class="Apple-tab-span">	</span><b>#ifndef</b> <i>name</i> is equivalent to <b>#if ! defined (</b><i>name</i><b>)</b>.</p>
+<p class="p3"><br></p>
+<p class="p7">Macro definitions can vary between compilations for any of the following reasons:</p>
+<p class="p3"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Some macros are predefined on each kind of machine.<span class="Apple-converted-space">  </span>For example, on a NeXT computer the name <b>NeXT</b> is a nonstandard predefined macro.<span class="Apple-converted-space">  </span>On other machines, it isn't defined.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Many more macros are defined by system header files.<span class="Apple-converted-space">  </span>Different systems and machines define different macros, or give them different values.<span class="Apple-converted-space">  </span>It's useful to test these macros with conditionals to avoid using a system feature on a machine where it isn't implemented.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Macros are a common way for you to customize a program for different machines or applications.<span class="Apple-converted-space">  </span>For example, the macro <b>BUFSIZE</b> might be defined in a configuration file for your program that's included as a header file in each source file.<span class="Apple-converted-space">  </span>You would use <b>BUFSIZE</b> in a preprocessor conditional in order to generate different code depending on the chosen configuration.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Macros can be defined or undefined with <b>-D</b> and <b>-U</b> command options when you compile the program.<span class="Apple-converted-space">  </span>You can arrange to compile the same source file into two different programs by choosing a macro name to specify which program you want, writing conditionals to test whether or how this macro is defined, and then controlling the state of the macro with compiler command options. <span class="Apple-converted-space">  </span>You can also use macros to specify different build types of the same program.<span class="Apple-converted-space">  </span>For example, you could use<b> -DDEBUG</b> and <b>-DPROFILE</b> for debugging and profililing builds, respectively. See the section “Invoking the C Preprocessor.”</p>
+<p class="p9"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>The #error and #warning Commands</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p7">The <b>#error</b> command causes the preprocessor to report a fatal error.<span class="Apple-converted-space">  </span>The rest of the line that follows <b>#error</b> is used as the error message.</p>
+<p class="p3"><br></p>
+<p class="p7">You would use <b>#error</b> inside a conditional that detects a combination of parameters that you know the program doesn't support.</p>
+<p class="p3"><br></p>
+<p class="p7">For example, if you know that the program won't run properly on a VAX, you might write</p>
+<p class="p3"><br></p>
+<p class="p13">#ifdef vax</p>
+<p class="p13">#error Won't work on Vaxen.<span class="Apple-converted-space">  </span>See comments at get_last_object.</p>
+<p class="p13">#endif</p>
+<p class="p3"><br></p>
+<p class="p7">Similarly, if you have several configuration parameters that must be set up by the installation in a consistent way, you can use conditionals to detect an inconsistency and report it with <b>#error</b>.<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p3"><br></p>
+<p class="p13">#if (HASH_TABLE_SIZE % 2 == 0) || (HASH_TABLE_SIZE % 3 == 0)<span class="Apple-converted-space">  </span>\<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-converted-space">    </span>|| (HASH_TABLE_SIZE % 5 == 0)<span class="Apple-converted-space"> </span></p>
+<p class="p13">#error HASH_TABLE_SIZE shouldn't be divisible by a small prime<span class="Apple-converted-space"> </span></p>
+<p class="p13">#endif</p>
+<p class="p3"><br></p>
+<p class="p7">The <b>#warning</b> command is like the <b>#error</b> command, but causes the preprocessor to issue a warning and continue preprocessing.<span class="Apple-converted-space">  </span>The rest of the line that follows <b>#warning</b> is used as the warning message.</p>
+<p class="p3"><br></p>
+<p class="p7">You might use <b>#warning</b> in obsolete header files, with a message directing the user to the header file which should be used instead.</p>
+<p class="p3"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b></b><b>Pragmas</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">The <b>#pragma</b> command is specified in the ANSI standard to have an arbitrary implementation-defined effect.<span class="Apple-converted-space">  </span>For example, a <b>#pragma</b> might be used to indicate to the translator the best way to generate code, optimize, or diagnose errors.<span class="Apple-converted-space">  </span>It may also pass information to the translator about the environment, or add debugging information.</p>
+<p class="p3"><br></p>
+<p class="p7">The effect of anything specified in a <b>#pragma</b> is currently limited to the outermost declaration (that is, a function or a global data declaration).</p>
+<p class="p3"><br></p>
+<p class="p7">The following pragmas are passed on by the C preprocessor to the compiler itself:</p>
+<p class="p3"><br></p>
+<p class="p30"><b>#pragma CC_OPT_ON</b> <span class="Apple-tab-span">	</span>Force optimization on.</p>
+<p class="p31"><br></p>
+<p class="p30"><b>#pragma CC_OPT_OFF</b> <span class="Apple-tab-span">	</span>Force optimization off.</p>
+<p class="p31"><br></p>
+<p class="p30"><b>#pragma CC_OPT_RESTORE</b> <span class="Apple-tab-span">	</span>Restore optimization to what was specified on the command line (on if <b>-O</b> was specified, off if not).</p>
+<p class="p31"><br></p>
+<p class="p30"><b>#pragma CC_WRITABLE_STRINGS</b> <span class="Apple-tab-span">	</span>Place strings in the data segment.</p>
+<p class="p31"><br></p>
+<p class="p30"><b>#pragma CC_NON_WRITABLE_STRINGS</b> <span class="Apple-tab-span">	</span>Place strings in the text segment.</p>
+<p class="p31"><br></p>
+<p class="p7">All other <b>#pragma</b> commands are ignored by the C preprocessor.</p>
+<p class="p3"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b></b><b>Combining Source Files</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">One of the jobs of the C preprocessor is to tell the C compiler the source file and line number that each line of C code came from.</p>
+<p class="p3"><br></p>
+<p class="p7">C code can come from multiple source files if you use <b>#include</b> or <b>#import</b>.<span class="Apple-converted-space">  </span>If you include header files, or if you use conditionals or macros, the line number of a line in the preprocessor output may be different from the line number of the same line in the original source file.<span class="Apple-converted-space">  </span>Normally you would want both the C compiler (in error messages) and the GDB debugger to use the line numbers of your source file.</p>
+<p class="p3"><br></p>
+<p class="p7">The C preprocessor offers a <b>#line</b> command by which you can control this feature explicitly.<span class="Apple-converted-space">  </span><b>#line</b> specifies the original line number and source file name for subsequent input in the current preprocessor input file.<span class="Apple-converted-space">  </span><b>#line</b> has three variants:</p>
+<p class="p3"><br></p>
+<p class="p19"><b>#line</b> <i>linenum</i><span class="Apple-converted-space"> </span></p>
+<p class="p20"><i>linenum</i> is a decimal integer constant.<span class="Apple-converted-space">  </span>This resets the current line number in the source file to <i>linenum</i>.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>#line</b> <i>linenum </i><b>"</b><i>file</i><b>"</b><span class="Apple-converted-space"> </span></p>
+<p class="p20"><i>linenum</i> is a decimal integer constant and <b>"</b>file<b>"</b> is a string constant.<span class="Apple-converted-space">  </span>This resets the line number to <i>linenum</i> and changes the name of the file referred to by <i>file</i>.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>#line</b> <i>macros</i><span class="Apple-converted-space"> </span></p>
+<p class="p20"><i>macros</i> should be one or more macros that have been defined by earlier preprocessing directives.<span class="Apple-converted-space">  </span>When the macros have been expanded by the preprocessor, the <b>#line</b> instruction will then resemble one of the first two forms and be interpreted appropriately.</p>
+<p class="p21"><br></p>
+<p class="p7"><b>#line</b> commands alter the results of the <b>__FILE__</b> and <b>__LINE__</b> predefined macros from that point on.<span class="Apple-converted-space">  </span>See the section “Predefined Macros.”</p>
+<p class="p3"><br></p>
+<p class="p7">The output of the preprocessor (which is the input for the rest of the compiler) contains commands that look much like <b>#line</b> commands. They start with just<b> #</b> instead of <b>#line</b>, but this is followed by a line number and file name as in <b>#line</b>.</p>
+<p class="p3"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b></b><b>C Preprocessor Output</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">The output from the C preprocessor looks much like the input, except that all preprocessor command lines have been replaced with blank lines and all comments with spaces.<span class="Apple-converted-space">  </span>White-space characters within a line aren't altered; however, a space is inserted after the expansions of most macros.<span class="Apple-converted-space">  </span>Also, pragmas are passed through verbatim.</p>
+<p class="p3"><br></p>
+<p class="p7">Source file name and line number information is conveyed by lines of the form</p>
+<p class="p3"><br></p>
+<p class="p28"><b>#</b><span class="s3"> </span><i>linenum file {digit}</i></p>
+<p class="p29"><i></i><br></p>
+<p class="p7">which are inserted as needed into the middle of the input (but never within a string or character constant).<span class="Apple-converted-space">  </span>Such a line means that the following line originated in file <i>file</i> at line <i>linenum</i>. <span class="Apple-converted-space"> </span></p>
+<p class="p3"><br></p>
+<p class="p7">After the file name comes zero or more numeric flags: 1, 2 or 3, separated by spaces if multiple flags:</p>
+<p class="p3"><br></p>
+<p class="p7">1.<span class="Apple-tab-span">	</span>The start of a new file</p>
+<p class="p7">2.<span class="Apple-tab-span">	</span>Return to a file (after having included another file).</p>
+<p class="p7">3.<span class="Apple-tab-span">	</span>Text that follows comes from a system header file<span class="Apple-converted-space"> </span></p>
+<p class="p7"><span class="Apple-tab-span">	</span>(so certain warnings should be suppressed).</p>
+<p class="p3"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b></b><b>Invoking the C Preprocessor</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">Usually you won't have to invoke the C preprocessor explicitly, because the C compiler does so automatically.<span class="Apple-converted-space">  </span>However, there may be times when you want to use the preprocessor by itself by invoking the <b>cpp</b> command.</p>
+<p class="p3"><br></p>
+<p class="p7">The <b>cpp</b> and <b>cpp-precomp</b> commands expect two file names as arguments, <i>infile</i> and <i>outfile</i>.<span class="Apple-converted-space">  </span>The preprocessor reads <i>infile</i> together with any other files that <i>infile</i> specifies by means of <b>#include</b> or <b>#import</b>.<span class="Apple-converted-space">  </span>All the output generated by the combined input files is written in <i>outfile</i>.</p>
+<p class="p3"><br></p>
+<p class="p7">Either <i>infile</i> or <i>outfile</i> may be <b>-</b>, which as <i>infile</i> means to read from the standard input and as <i>outfile</i> means to write to the standard output.<span class="Apple-converted-space">  </span>Also, if <i>outfile</i> or both file names are omitted, the standard output and standard input are used for the omitted file names.</p>
+<p class="p3"><br></p>
+<p class="p7">Here's a list of command options accepted by the C preprocessor.<span class="Apple-converted-space">  </span>Most of them can also be given when compiling a C program; they're passed along automatically to the preprocessor when it's invoked by the compiler.</p>
+<p class="p3"><br></p>
+<p class="p19"><b>-P</b> <span class="Apple-tab-span">	</span>Inhibit generation of <b>#</b> lines with line-number information in the output from the preprocessor (see the section “C Preprocessor Output”).<span class="Apple-converted-space">  </span>This might be useful when running the preprocessor on something that isn't C code and that will be sent to a program which might be confused by the <b>#</b> lines.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-C</b> <span class="Apple-tab-span">	</span>Don't discard comments:<span class="Apple-converted-space">  </span>Pass them through to the output file.<span class="Apple-converted-space">  </span>Comments appearing in arguments of a macro invocation will be copied to the output before the expansion of the macro.</p>
+<p class="p22"><br></p>
+<p class="p19"><span class="Apple-converted-space"> </span><b>-traditional</b></p>
+<p class="p20">Try to imitate the behavior of old-fashioned C, as opposed to ANSI C. Traditional C preprocessing has these characteristics:</p>
+<p class="p21"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>Traditional macro expansion pays no attention to single-quote or double-quote characters; macro argument symbols are replaced by the argument values even when they appear within apparent string or character constants.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>Traditionally,<span class="Apple-converted-space">  </span>a macro expansion may end in the middle of a string or character constant.<span class="Apple-converted-space">  </span>The constant continues into the text surrounding the macro call.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>Traditionally the end of the line terminates a string or character constant, with no error.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>In traditional C a comment is equivalent to no text at all.<span class="Apple-converted-space">  </span>(In ANSI C, a comment counts as whitespace.)</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>Traditional C does not have the concept of a <i>preprocessing number</i>. It considers <b>1.0e+4</b> to be three tokens: 1.0e, +, and 4.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span> In traditional C a macro is not suppressed within its own definition. Thus, any macro that is used recursively inevitably causes an error.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>The character <b>#</b> has no special meaning within a macro definition in traditional C.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>In traditional C, the text at the end of a macro expansion can run together with the text after the macro call to produce a single token.<span class="Apple-converted-space"> </span></p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>Traditionally, <b>\</b> inside a macro argument suppresses the syntactic significance of the following character.</p>
+<p class="p33"><br></p>
+<p class="p19"><b>-trigraphs</b> <span class="Apple-tab-span">	</span>Process ANSI standard trigraph sequences.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-pedantic</b> <span class="Apple-tab-span">	</span>Issue warnings required by the ANSI C standard in certain cases, such as when text other than a comment follows <b>#else</b> or <b>#endif</b>.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-I</b><i>dir</i> <span class="Apple-tab-span">	</span>Add the directory <i>dir</i> to the end of the list of directories to be searched for header files (see the section “The <b>#include</b> Command”).<span class="Apple-converted-space">  </span>This can be used to override a system header file, substituting your own version, since these directories are searched before the system header file directories.<span class="Apple-converted-space">  </span>If you use more than one <b>-I</b> option, the directories are scanned in left-to-right order; the standard system directories come later.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-I-</b><span class="Apple-tab-span">	</span>Any directories specified with <b>-I</b> options before the <b>-I-</b> option are searched only for the case of <b>#include "</b><i>file</i><b>"</b>; they aren't searched for <b>#include &lt;</b><i>file</i><b>&gt;</b>.</p>
+<p class="p24"><br></p>
+<p class="p20">If additional directories are specified with <b>-I</b> options after the <b>-I-</b>, these directories are searched for all <b>#include</b> commands.</p>
+<p class="p24"><br></p>
+<p class="p20">In addition, the <b>-I-</b> option inhibits the use of the current directory as the first search directory for <b>#include "</b><i>file</i><b>"</b>.<span class="Apple-converted-space">  </span>Therefore, the current directory is searched only if it's requested explicitly with a <b>-I. </b>option.<span class="Apple-converted-space">  </span>Specifying both <b>-I-</b> and <b>-I.</b> allows you to control precisely which directories are searched before the current one and which are searched after.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>-F</b><i>dir</i><span class="Apple-tab-span">	</span>Add <i>dir</i> to the list of directories in which to search for frameworks.<span class="Apple-converted-space">  </span>Directories specified with <b>-F</b> are searched before the standard framework directories.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-L</b><i>dir</i><span class="Apple-tab-span">	</span>Add <i>dir</i> to the list of directories in which to search for libraries.<span class="Apple-converted-space">  </span>Directories specified with <b>-L</b> are searched before the standard directories.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-nostdinc</b> <span class="Apple-tab-span">	</span>Don't search the standard system directories for header files.<span class="Apple-converted-space">  </span>Only the directories you specify with <b>-I</b> options (and the current directory, if appropriate) are searched.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-D</b><i>name</i> <span class="Apple-tab-span">	</span>Predefine <i>name</i> as a macro, with definition <b>1</b>.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-D</b><i>name</i><b>=</b><i>definition</i><span class="Apple-converted-space"> </span></p>
+<p class="p20">Predefine <i>name</i> as a macro, with definition <i>definition</i>.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>-U</b><i>name</i><span class="Apple-tab-span">	</span>Don't predefine <i>name</i>.<span class="Apple-converted-space">  </span>If both <b>-U</b> and <b>-D</b> are specified for one name, the name won't be predefined.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-undef</b> <span class="Apple-tab-span">	</span>Don't predefine any nonstandard macros.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-d</b> <span class="Apple-tab-span">	</span>Produce a list of <b>#define</b> commands for all the macros defined during the execution of the preprocessor, instead of producing the normal preprocessing output.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-M</b> <span class="Apple-tab-span">	</span>Produce a rule suitable for <b>make</b> describing the dependencies of the main source file, instead of outputting the result of preprocessing.<span class="Apple-converted-space">  </span>The preprocessor produces one <b>make</b> rule containing the object file name for that source file, a colon, and the names of all the included files.<span class="Apple-converted-space">  </span>If there are many included files then the rule is split into several lines using backslash-newline.</p>
+<p class="p24"><br></p>
+<p class="p20">This feature is used in automatic updating of makefiles.</p>
+<p class="p21"><br></p>
+<p class="p19"><b>-MD</b> <span class="Apple-tab-span">	</span>This is similar to <b>-M</b>, but the dependency information is written to files with names made by replacing “.c” with “.d” at the end of the input file names.<span class="Apple-converted-space">  </span>This is in addition to compiling the file as specified; <b>-MD</b> doesn't inhibit ordinary compilation the way <b>-M</b> does.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-MM</b> <span class="Apple-tab-span">	</span>This is similar to <b>-M</b>, but mentions only the files included with <b>#include "</b><i>file</i><b>"</b>.<span class="Apple-converted-space">  </span>System header files included with <b>#include &lt;</b><i>file</i><b>&gt;</b> are omitted.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-MMD</b> <span class="Apple-tab-span">	</span>This is similar to <b>-MM</b>, but mentions only user header files, not system header files.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-H</b><span class="Apple-tab-span">	</span>Print the name of each header file used, in addition to other normal activities.</p>
+<p class="p22"><br></p>
+<p class="p19"><b>-i</b><i>file</i> <span class="Apple-tab-span">	</span>Process <i>file</i> as input, discarding the resulting output, before processing the regular input file.<span class="Apple-converted-space">  </span>Because the output generated from <i>file</i> is discarded, the only effect of <b>-i</b><i>file</i> is to make the macros defined in <i>file</i> available for use in the main input.</p>
+<p class="p22"><br></p>
+</body>
+</html>

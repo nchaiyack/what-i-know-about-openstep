@@ -1,0 +1,1872 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fnil NeXTdoc;\f3\fswiss Helvetica;\f4\fmodern Courier;\f5\fmodern Ohlfs;}
+\paperw14220
+\paperh12580
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1997 by Apple Computer, Inc.  All Rights Reserved.\
+\
+
+\pard\tx1460\f2\fs72\fi-760\li1460\fc0\cf0 p	
+{\f3\b\fs52{\NeXTHelpMarker65 \markername NS_DEV_DOCFOR:objc_class:NSFileManager;}
+¬}\pard\tx1460\f3\b\i0\ulnone\fs52\fi-760\li1460\fc0\cf0 NSFileManager \
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject
+\i  \
+
+\fs20 \
+
+\f3\b\i0\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSObject (NSObject)\
+
+\fi0 NSCopying\
+
+\fs20 \
+
+\f3\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 Foundation/NSFileManager.h\
+
+\fs20 \
+\
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Class Description \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSFileManager enables you to perform many generic file-system operations. With it you can:\
+
+\fs14 \
+
+\pard\tx1800\tx3360\tx3740\fs28\fi-300\li1800\fc0\cf0 ·	Create directories and files.\
+·	Extract the contents of files (as NSData objects).\
+·	Change your current working location in the file system.\
+·	Copy, move, and link files and directories.\
+·	Remove files, links, and directories.\
+·	Determine the attributes of a file, a directory, or the file system.\
+·	Set the attributes of a file or directory.\
+·	Make and evaluate symbolic links.\
+·	Determine the contents of directories.\
+·	Compare files and directories for equality.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Besides offering a useful range of generic functionality, the NSFileManager API insulates an application from the underlying file system. An important part of this insulation is the encoding of file names (in, for example, Unicode, ISO Latin1, and ASCII). This insulating layer makes it easier to port the application between operating systems with different file systems. There is a default NSFileManager object for the file system; this object responds  to all messages that request a operation on the associated file system.\
+
+\fs14 \
+
+\fs28 The pathnames specified as arguments to NSFileManager methods can be absolute or relative to the current directory (which you can determine with 
+\b currentDirectoryPath
+\b0  and set with 
+\b changeCurrentDirectoryPath:
+\b0 ). However, pathnames cannot include wildcard characters.\
+
+\fs14 \
+
+\pard\tx2300\f3\b\fs24\fi-800\li2300\fc0\cf0 Note:	
+\f0\b0\fs28 On UNIX file systems (such as NEXTSTEP) an absolute pathname starts with the root directory of the file system, represented by a slash (/), and ends with the file or directory that the pathname identifies. A relative pathname is relative to the 
+\i current directory
+\i0 , the directory in which you are working and in which saved files are currently stored (if no pathname is specified). Relative pathnames start with a subdirectory of the current directoryÐwithout an initial slashÐand end with the name of the file or directory that the pathname identifies. \
+
+\fs70 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Method Types \
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Getting the default manager	+€defaultManager\
+
+\fs10 \
+
+\fs28 Directory operations	
+\f1 -
+\f0 €changeCurrentDirectoryPath:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €createDirectoryAtPath:attributes:\
+
+\f1 -
+\f0 €currentDirectoryPath\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 File operations	
+\f1 -
+\f0 €copyPath:toPath:handler:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €createFileAtPath:contents:attributes:\
+
+\f1 -
+\f0 €movePath:toPath:handler:\
+
+\f1 -
+\f0 €linkPath:toPath:handler:\
+
+\f1 -
+\f0 €removeFileAtPath:handler:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting and comparing file contents	
+\f1 -
+\f0 €contentsAtPath:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €contentsEqualAtPath:andPath:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Detemining access to files	
+\f1 -
+\f0 €fileExistsAtPath:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €fileExistsAtPath:isDirectory:\
+
+\f1 -
+\f0 €isReadableFileAtPath:\
+
+\f1 -
+\f0 €isWritableFileAtPath:\
+
+\f1 -
+\f0 €isExecutableFileAtPath:\
+
+\f1 -
+\f0 €isDeletableFileAtPath:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting and setting attributes	
+\f1 -
+\f0 €fileAttributesAtPath:traverseLink:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €fileSystemAttributesAtPath:\
+
+\f1 -
+\f0 €changeFileAttributes:atPath:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Discovering directory contents	
+\f1 -
+\f0 €directoryContentsAtPath:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €enumeratorAtPath:\
+
+\f1 -
+\f0 €subpathsAtPath:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Symbolic-link operations	
+\f1 -
+\f0 €createSymbolicLinkAtPath:pathContent:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €pathContentOfSymbolicLinkAtPath:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Converting file-system representations\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €fileSystemRepresentationWithPath:\
+
+\f1 -
+\f0 €stringWithFileSystemRepresentation:length:\
+
+\fs70 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods \
+
+\fs14 \
+
+\pard\tx1500\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker3200 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-defaultManager];}
+¬}\pard\tx1500\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 defaultManager\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSFileManager *)
+\b defaultManager\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the default NSFileManager object for the file system. You invoke all NSFileManager instance methods with this object as the receiver.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+\pard\tx1500\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker3416 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-changeCurrentDirectoryPath:];}
+¬}\pard\tx1500\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 changeCurrentDirectoryPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b changeCurrentDirectoryPath:
+\b0 (NSString *)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Changes the path of the current directory to 
+\i path
+\i0  and returns YES if successful, NO if not successful. All relative pathnames refer implicitly to the current working directory. The current working directory is stored per task.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b currentDirectoryPath
+\b0 , 
+\f1 -
+\f0 €
+\b fileExistsAtPath:isDirectory:
+\b0 , 
+\f1 -
+\f0 €
+\b directoryContentsAtPath:
+\b0 , 
+\f1 -
+\f0 €
+\b createDirectoryAtPath:attributes:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker3863 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-changeFileAttributes:atPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 changeFileAttributes:atPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b changeFileAttributes:
+\b0 (NSDictionary *)
+\i attributes 
+\b\i0 atPath:
+\b0 (NSString *)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Changes the attributes of the file or directory specified by 
+\i path
+\i0 . Attributes that you can change are the owner, the group, file permissions, and the modification date. As in the POSIX standard, the application must either own the file or directory or must be running as superuser for attribute changes to take effect. The method attempts to make all changes specified in 
+\i attributes
+\i0  and ignores any rejection of an attempted modification. If all changes succeed, it returns YES. If any change fails, the method returns NO, but it is undefined whether any changes actually occured.\
+
+\fs14 \
+
+\fs28 Some useful global keys for identifying object values in the 
+\i attributes
+\i0  dictionary are:\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f3\b\fs28\li1900\fc0\cf0 Key		Value Type\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 NSFileModificationDate		NSDate\
+
+\fs14 \
+
+\fs28 NSFilePosixPermissions		NSNumber\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The NSFilePosixPermissions value must be initialized with the code representing the POSIX file-permissions bit pattern.\
+
+\fs14 \
+
+\fs28 You can change single attributes or any combination of attributes; you need not specify keys for all four attributes. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b fileAttributesAtPath:traverseLink:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker5022 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-contentsAtPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 contentsAtPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSData *)
+\b contentsAtPath:
+\b0 (NSString *)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the contents of the file specified in 
+\i path
+\i0  as an NSData object. If 
+\i path
+\i0  specifies a directory, or if some other error occurs, this method returns 
+\b nil
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b contentsEqualAtPath:andPath
+\b0 :, 
+\f1 -
+\f0 €
+\b createFileAtPath:contents:attributes:
+\b0 \
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker5332 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-contentsEqualAtPath:andPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 contentsEqualAtPath:andPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b contentsEqualAtPath:
+\b0 (NSString *)
+\i path1 
+\b\i0 andPath:
+\b0 (NSString *)
+\i path2
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Compares the file or directory specified in 
+\i path1
+\i0  with that specified in 
+\i path2
+\i0  and returns YES if they have the same contents. If 
+\i path1
+\i0  and 
+\i path2
+\i0  are directories, the contents are the list of files and subdirectories each contain; contents of subdirectories are compared. If the contents differ in any way, this method returns NO. It does not traverse symbolic links but compares the links themselves. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b contentsAtPath:
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker5874 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-copyPath:toPath:handler:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 copyPath:toPath:handler:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b copyPath:
+\b0 (NSString *)
+\i source \
+
+\b\i0\fi0 toPath:
+\b0 (NSString *)
+\i destination \
+
+\b\i0 handler:
+\b0\i handler
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Copies the directory or file specified in path 
+\i source
+\i0  to a different location in the file system identified by pathname 
+\i destination
+\i0 . If 
+\i source
+\i0  is a file, the method creates a file at 
+\i destination
+\i0  that holds the exact contents of the original file (this includes UNIX special files). If 
+\i source
+\i0  is a directory, the method creates a new directory at 
+\i destination
+\i0  and recursively populates it with duplicates of the files and directories contained in 
+\i source
+\i0 , preserving all links. The file specified in 
+\i source
+\i0  must exist, while 
+\i destination
+\i0  must not exist prior to the operation. When a file is being copied, the 
+\i destination
+\i0  path must end in a file name; there is no implicit adoption of the 
+\i source
+\i0  file name. Symbolic links are not traversed but are themselves copied.\
+
+\fs14 \
+
+\fs28 If the copy operation is successful, the method returns YES. If the operation is not successful, but the callback 
+\i handler
+\i0  of 
+\b fileManager:shouldProceedAfterError:
+\b0  returns YES (see below), 
+\b copyPath:toPath:handler:
+\b0  also returns YES. Otherwise this copy method returns NO. The method also attempts to make the attributes of the directory or file at 
+\i destination
+\i0  identical to 
+\i source
+\i0 , but ignores any failure at this attempt.\
+
+\fs14 \
+
+\fs28 The argument 
+\i handler
+\i0  identifies an object that responds to the callback messages 
+\b fileManager:willProcessPath:
+\b0  or  
+\b fileManager:shouldProceedAfterError:
+\b0 . This callback mechanism is similar to delegation. NSFileManager sends the first message when it begins a copy, move, remove, or link operation. It sends the second message when it encounters any error in processing. You can specify 
+\b nil
+\b0  for 
+\i handler
+\i0  if no object responds to the callback messages. (See the descriptions of 
+\b fileManager:willProcessPath:
+\b0  or  
+\b fileManager:shouldProceedAfterError:
+\b0  at the end of this specification for details on these methods.)\
+
+\fs14 \
+
+\fs28 This code fragment verifies that the file to be copied exists and then copies that file to the user's 
+\b ~/Library/Reports
+\b0  directory:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 NSString *source = @"/tmp/quarterly_report.rtf";\
+NSString *destination = [[NSHomeDirectory()\
+	stringByAppendingPathComponent:@"Library"]\
+	stringByAppendingPathComponent:@"Reports"];\
+NSFileManager *manager = [NSFileManager defaultManager];\
+if ([manager fileExistsAtPath:source])\
+      [manager copyPath:source toPath:destination handler:nil];\
+\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b linkPath:toPath:handler:
+\b0 , 
+\f1 -
+\f0 €
+\b movePath:toPath:handler:
+\b0 , 
+\f1 -
+\f0 €
+\b fileManager:shouldProceedAfterError:
+\b0 , 
+\f1 -
+\f0 €
+\b removeFileAtPath:handler:
+\b0 , 
+\f1 -
+\f0 €
+\b fileManager:willProcessPath:
+\b0 \
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker8426 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-createDirectoryAtPath:attributes:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 createDirectoryAtPath:attributes:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b createDirectoryAtPath:
+\b0 (NSString *)
+\i path
+\i0  \
+
+\b\fi0 attributes:
+\b0 (NSDictionary *)
+\i attributes\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Creates
+\i  
+\i0 a directory (without contents) at 
+\i path
+\i0  that has the specified 
+\i attributes
+\i0 . Returns YES upon success or NO upon failure. The directory to be created must not exist yet at 
+\i path
+\i0 . The file attributes that you can set are owner and group numbers, file permissions, and modification date. If you specify 
+\b nil
+\b0  for 
+\i attribute
+\i0 s, default values for these attributes are set (particularly write access for creator and read access for others). The following table lists the global constants used as keys in the 
+\i attributes
+\i0  NSDictionary and the types of the associated values:\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f3\b\fs28\li1900\fc0\cf0 Key		Value Type\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 NSFileModificationDate		NSDate\
+
+\fs14 \
+
+\fs28 NSFileOwnerAccount Number		NSNumber\
+
+\fs14 \
+
+\fs28 NSFileGroupOwnerAccountNumber		NSNumber\
+
+\fs14 \
+
+\fs28 NSPosixPermissions		NSNumber\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b changeCurrentDirectoryPath:
+\b0 , 
+\f1 -
+\f0\b €changeFileAttributes:atPath:
+\b0 , 
+\f1 -
+\f0\b €createFileAtPath:contents:attributes:
+\b0 ,
+\b  
+\f1\b0 -
+\f0\b €currentDirectoryPath\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker9416 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-createFileAtPath:contents:attributes:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 createFileAtPath:contents:attributes:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b createFileAtPath:
+\b0 (NSString *)
+\i path\
+
+\b\i0\fi0 contents:
+\b0 (NSData *)
+\i contents\
+
+\b\i0 attributes:
+\b0 (NSDictionary *)
+\i attributes\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Creates
+\i  
+\i0 a file at 
+\i path
+\i0  that contains 
+\i contents
+\i0  and has the specified file 
+\i attributes
+\i0 . Returns YES upon success or NO upon failure. The file attributes that you can set are owner and group numbers, file permissions, and modification date. If you specify 
+\b nil
+\b0  for 
+\i attribute
+\i0 s, the file is given a default set of attributes. The following table summarizes the the keys and types to associate with values in the NSDictionary 
+\i attributes
+\i0 .\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f3\b\fs28\li1900\fc0\cf0 Key		Value Type\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 NSFileModificationDate		NSDate\
+
+\fs14 \
+
+\fs28 NSFileOwnerAccount Number		NSNumber\
+
+\fs14 \
+
+\fs28 NSFileGroupOwnerAccountNumber		NSNumber\
+
+\fs14 \
+
+\fs28 NSPosixPermissions		NSNumber\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b contentsAtPath:
+\b0 , 
+\f1 -
+\f0\b €changeFileAttributes:atPath:
+\b0 , 
+\f1 -
+\f0\b €fileAttributesAtPath:traverseLink:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker10255 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-createSymbolicLinkAtPath:pathContent:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 createSymbolicLinkAtPath:pathContent:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b createSymbolicLinkAtPath:
+\b0 (NSString *)
+\i path \
+
+\b\i0\fi0 pathContent:
+\b0 (NSString *)
+\i otherPath
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Creates a symbolic link identified by 
+\i path
+\i0  that refers to the location 
+\i otherPath
+\i0  in the file system.
+\i  
+\i0 Returns YES if the operation is successful and NO if it is not successful. The method returns NO if a file, directory, or symbolic link identical to 
+\i path
+\i0  already exists.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €pathContentOfSymbolicLinkAtPath:, 
+\f1\b0 -
+\f0\b €linkPath:toPath:handler: 
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker10733 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-currentDirectoryPath];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 currentDirectoryPath\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b currentDirectoryPath
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the path of the program's current directory. Relative pathnames refer implictly to this directory; for example, if the current directory is
+\b  /tmp
+\b0 , and the relative pathname is 
+\b reports/info.txt
+\b0 , the full pathname is constructed as 
+\b /tmp/reports/info.txt
+\b0 . This path is initialized to the current working directory, and can be thereafter reset with 
+\b changeCurrentDirectoryPath:
+\b0 . If the application's current working directory isn't accessible, this method returns 
+\b nil
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b createDirectoryAtPath:attributes:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker11315 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-directoryContentsAtPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 directoryContentsAtPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSArray *)
+\b directoryContentsAtPath:
+\b0 (NSString *)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an array containing the filenames (including directories and symbolic links) immediately below the directory specified in 
+\i path
+\i0 . The results are shallow, going no further than the next level below the specified directory. Here is sample output, generated by NSArray's 
+\b description
+\b0  method, when this method is invoked with 
+\b /NextDeveloper
+\b0  as 
+\i path
+\i0 .\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0     Demos, \
+    Apps, \
+    Makefiles, \
+    OpenStepConversion, \
+    Examples, \
+    Headers, \
+    2.0CompatibleHeaders, \
+    Palettes\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 As the example shows, the results omit the path preceeding the subdirectory. This method skips ª.º and ª..º and does not traverse symbolic links in the specified directory. It returns 
+\b nil
+\b0  if the directory specified at 
+\i path
+\i0  does not exist or if there is some other error in accessing it.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b currentDirectoryPath
+\b0 , 
+\f1 -
+\f0 €
+\b fileExistsAtPath:isDirectory:
+\b0 ,  
+\f1 -
+\f0 €
+\b enumeratorAtPath:, 
+\f1\b0 -
+\f0\b €subpathsAtPath:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker12284 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-enumeratorAtPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 enumeratorAtPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSDirectoryEnumerator *)
+\b enumeratorAtPath:
+\b0 (NSString *)
+\i path 
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an NSDirectoryEnumerator with which to enumerate the contents of the directory specified at path. This enumeration, which returns NSString objects, goes very deep and hence is very useful for large file-system subtrees. If the method discovers a new mount point, it traverses the mount point. It also reports any symbolic links it discovers.  It returns 
+\b nil
+\b0  if it cannot get the device of the linked-to file.\
+
+\fs14 \
+
+\fs28 This code fragment enumerates the subdirectories and files under
+\b  /MyAccount/Documents
+\b0  and processes all files with an extension of 
+\b .doc
+\b0 :\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 NSString *file;\
+NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager]\
+	enumeratorAtPath:@"/MyAccount/Documents"];\
+while (file = [enumerator nextObject]) \{\
+	if ([[file pathExtension] isEqualToString:@"doc"])\
+		[self scanDocument:file];\
+\}\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 The NSDirectoryEnumerator class has methods for obtaining the attributes of the existing path and of the parent directory, and for skipping descendents of the existing path.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b currentDirectoryPath
+\b0 , 
+\f1 -
+\f0 €
+\b fileExistsAtPath:isDirectory:
+\b0 ,  
+\f1 -
+\f0 €
+\b directoryContentsAtPath:
+\b0 ,
+\b  
+\f1\b0 -
+\f0\b €subpathsAtPath:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker13469 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-fileAttributesAtPath:traverseLink:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 fileAttributesAtPath:traverseLink:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSDictionary *)
+\b fileAttributesAtPath:
+\b0 (NSString *)
+\i path 
+\b\i0 traverseLink:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an NSDictionary containing various objects that represent the POSIX attributes of the file specified at 
+\i path
+\i0 .  You access these objects using these global constants as keys:\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f3\b\fs28\li1900\fc0\cf0 Key		Value Type\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 NSFileSize (in bytes)		NSNumber \
+
+\fs14 \
+
+\fs28 NSFileModificationDate		NSDate\
+
+\fs14 \
+
+\fs28 NSFileOwnerAccount Number		NSNumber\
+
+\fs14 \
+
+\fs28 NSFileGroupOwnerAccountNumber		NSNumber\
+
+\fs14 \
+
+\fs28 NSFileReferenceCount (number of hard links)	NSNumber \
+
+\fs14 \
+
+\fs28 NSFileIdentifier		NSNumber\
+
+\fs14 \
+
+\fs28 NSFileDeviceIdentifier		NSNumber\
+
+\fs14 \
+
+\fs28 NSPosixPermissions		NSNumber\
+
+\fs14 \
+
+\fs28 NSFileType		NSString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 NSFileType's global strings are defined as:\
+
+\fs14 \
+
+\pard\tx1800\tx3360\tx3740\fs28\fi-300\li1800\fc0\cf0 ·	NSFileTypeDirectory\
+·	NSFileTypeRegular\
+·	NSFileTypeSymbolicLink\
+·	NSFileTypeSocket\
+·	NSFileTypeCharacterSpecial\
+·	NSFileTypeBlockSpecial\
+·	NSFileTypeUnknown\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If 
+\i flag
+\i0  is YES and 
+\i path
+\i0  is a symbolic link, the attributes of the linked-to file are returned; if 
+\i flag
+\i0  is NO, the attributes of the symbolic link are returned. \
+
+\fs14 \
+
+\fs28 This piece of code gets several attributes of a file and logs them.\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 NSNumber *fsize, *refs, *owner;\
+NSDate *moddate;\
+\
+NSDictonary *fattrs = \
+ [manager fileAttributesAtPath:@"/tmp/List" traverseLink:YES];\
+\
+if (!fattrs) \{\
+	NSLog(@"Path is incorrect!");\
+	return;\
+\}\
+if (fsize = [fattrs objectForKey:NSFileSize])\
+	NSLog(@"File size: %d\\n", [fsize intValue]);\
+\
+if (refs = [fattrs objectForKey:NSFileReferenceCount])\
+ 	NSLog(@"Ref Count: %d\\n", [refs intValue]);\
+\
+if (moddate = [fattrs objectForKey:NSFileModificationDate])\
+ 	NSLog(@"Modif Date: %@\\n", [moddate description]);\
+\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 As a convenience, NSDictionary provides a set of methods (declared as a category in 
+\b NSFileManager.h
+\b0 ) for quickly and efficiently obtaining attribute information from the returned NSDictionary: 
+\b fileSize
+\b0 , 
+\b fileType
+\b0 , 
+\b fileModificationDate
+\b0 , and
+\b  filePosixPermissions
+\b0 .  For example, you could rewrite the last statement in the code example above as:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 if (moddate = [fattrs fileModificationDate])\
+ 	NSLog(@"Modif Date: %@\\n", [moddate description]);\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28   
+\f1 -
+\f0 €
+\b changeFileAttributes:atPath:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker15531 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-fileExistsAtPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 fileExistsAtPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b fileExistsAtPath:
+\b0 (NSString *)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the file specified in 
+\i path
+\i0  exists, or NO if it does not. The method traverses final symbolic links.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b fileExistsAtPath:isDirectory:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker15757 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-fileExistsAtPath:isDirectory:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 fileExistsAtPath:isDirectory:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b fileExistsAtPath:
+\b0 (NSString *)
+\i path 
+\b\i0 isDirectory:
+\b0 (BOOL *)
+\i isDirectory
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the file specified in path exists, or NO if it does not. If you want to determine if path is a directory, supply the address of a Boolean (intialized to NO) in isDirectory; the method indirectly returns YES if path is a directory. The method traverses final symbolic links.\
+
+\fs14 \
+
+\fs28 This example gets an NSArray that identifies the fonts in 
+\b /NextLibrary/Fonts
+\b0 :\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 NSArray *subpaths;\
+BOOL isDir=NO;\
+NSString *fontPath = @"/NextLibrary/Fonts";\
+NSFileManager *manager = [NSFileManager defaultManager];\
+if ([manager fileExistsAtPath:fontPath isDirectory:&isDir] \
+	&& isDir)\
+    subpaths = [manager subpathsAtPath:fontPath];\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\i0  
+\f1 -
+\f0\b €fileExistsAtPath:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker16527 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-fileSystemAttributesAtPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 fileSystemAttributesAtPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSDictionary *)
+\b fileSystemAttributesAtPath:
+\b0 (NSString *)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an NSDictionary containing objects that represent attributes of the mounted file system; 
+\i path
+\i0  is any pathname within the mounted file system. You access the attribute objects in the NSDictionary using these global constants as keys:\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f3\b\fs28\li1900\fc0\cf0 Key		Value Type\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 NSFileSystemSize (in an appropriate unit, usually bytes)	NSNumber \
+
+\fs14 \
+
+\fs28 NSFileSystemFreeSize (in an appropriate unit, usually bytes)	NSNumber\
+
+\fs14 \
+
+\fs28 NSFileSystemNodes		NSNumber\
+
+\fs14 \
+
+\fs28 NSFileSystemFreeNodes		NSNumber\
+
+\fs14 \
+
+\fs28 NSFileSystemNumber		NSNumber\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The following code example checks to see if there's sufficient space on the file system before adding a new file to it:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 const char *data = [[customerRec description] cString];\
+NSData *contents = [NSData dataWithBytes:data length:sizeof(data)];\
+NSFileManager *manager = [NSFileManager defaultManager];\
+NSDictionary *fsattrs = \
+€€€€[manager fileSystemAttributesAtPath:@"/Net/sales/misc"];\
+if ([[fsattrs objectForKey:NSFileSystemFreeSize] unsignedIntValue] \
+    > [contents length]) \
+€€€€[manager createFileAtPath:@"/Net/sales/misc/custrec.rtf"\
+€€€€€€€€€contents:contents attributes:nil];\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0 €
+\b fileAttributesAtPath:traverseLink:
+\b0 , 
+\f1 -
+\f0\b €changeFileAttributes:atPath:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker17783 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-fileSystemRepresentationWithPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 fileSystemRepresentationWithPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (const char *)
+\b fileSystemRepresentationWithPath:
+\b0 (NSString *)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a C-string representation of 
+\i path
+\i0  that  properly encodes Unicode strings for use by the file system.
+\i  
+\i0 If you need the C string beyond the scope of your autorelease pool, you should copy it.  This method raises an exception upon error. Use this method if your code calls system routines that expect C-string path arguments.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0 €
+\b stringWithFileSystemRepresentation:length:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker18278 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-isDeletableFileAtPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 isDeletableFileAtPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isDeletableFileAtPath:
+\b0 (NSString *)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the invoking object appears to be able to delete the directory or file specified in 
+\i path
+\i0  and NO if it cannot. To be deletable, either the parent directory of 
+\i path
+\i0  must be writable and its owner must be the application; if 
+\i path
+\i0  is a directory, it must have no undeletable items in it. This method does not traverse symbolic links. 
+\i  
+\i0  \
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker18704 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-isExecutableFileAtPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 isExecutableFileAtPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isExecutableFileAtPath:
+\b0 (NSString *)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the underlying operating system appears able to execute the file specified in path and NO if it cannot.  This method traverses symbolic links.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker18942 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-isReadableFileAtPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 isReadableFileAtPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isReadableFileAtPath:
+\b0 (NSString *)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the invoking object appears able to read the file specified in 
+\i path
+\i0  and NO if it cannot. This method traverses symbolic links.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker19160 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-isWritableFileAtPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 isWritableFileAtPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isWritableFileAtPath:
+\b0 (NSString *)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the invoking object appears able to write to the file specified in 
+\i path
+\i0  and NO if it cannot.  This method traverses symbolic links.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker19383 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-linkPath:toPath:handler:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 linkPath:toPath:handler:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b linkPath:
+\b0 (NSString *)
+\i source \
+
+\b\i0\fi0 toPath:
+\b0 (NSString *)
+\i destination\
+
+\b\i0 handler:
+\b0\i handler
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If pathname 
+\i source
+\i0  identifies a file, this method hard-links the directory or file specified in 
+\i destination
+\i0  to it. If 
+\i source
+\i0  is a directory or a symbolic link, this method
+\b  
+\b0 copies it to 
+\i destination
+\i0  instead of creating a hard link. The file, link, or directory specified in 
+\i source
+\i0  must exist, while 
+\i destination
+\i0  must not yet exist. The 
+\i destination
+\i0  path must end in a file name; there is no implicit adoption of the 
+\i source
+\i0  file name. Symbolic links in 
+\i source
+\i0  are not traversed. \
+
+\fs14 \
+
+\fs28 If the link operation is successful, 
+\b linkPath:toPath:handler:
+\b0  returns YES. If the operation is not successful, but the 
+\i handler
+\i0  method 
+\b fileManager:shouldProceedAfterError:
+\b0  returns YES,  the method also returns YES. Otherwise it returns NO. \
+
+\fs14 \
+
+\fs28 The argument 
+\i handler
+\i0  identifies an object that responds to the callback messages 
+\b fileManager:willProcessPath:
+\b0  and 
+\b fileManager:shouldProceedAfterError:
+\b0  (see ªMethods Implemented by the Callback Handler,º below). This callback mechanism is similar to delegation. NSFileManager sends the first message when it begins a copy, move, remove, or link operation. It sends the second message when it encounters any error in processing. You can specify 
+\b nil
+\b0  for 
+\i handler
+\i0  if no object responds to the callback messages.\
+
+\fs14 \
+
+\fs28 This code fragment verifies the pathname typed in a text field (
+\b imageFileField
+\b0 ) and then links the file to the user's 
+\b ~/Library/Images
+\b0  directory:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 NSString *imageFile = [imageFileField stringValue];\
+NSString *destination = [[NSHomeDirectory()\
+	stringByAppendingPathComponent:@"Library"]\
+	stringByAppendingPathComponent:@"Images"];\
+NSFileManager *manager = [NSFileManager defaultManager];\
+if ([manager fileExistsAtPath:source])\
+      [manager linkPath:source toPath:destination handler:self];\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b copyPath:toPath:handler:
+\b0 , 
+\f1 -
+\f0\b €createSymbolicLinkAtPath:pathContent:
+\b0 , 
+\f1 -
+\f0 €
+\b movePath:toPath:handler:
+\b0 , 
+\f1 -
+\f0 €
+\b fileManager:shouldProceedAfterError:,
+\b0  
+\f1 -
+\f0 €
+\b removeFileAtPath:handler:
+\b0 , 
+\f1 -
+\f0 €
+\b fileManager:willProcessPath:
+\b0 , 
+\b  \
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker21428 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-movePath:toPath:handler:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 movePath:toPath:handler:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b movePath:
+\b0 (NSString *)
+\i source \
+
+\b\i0\fi0 toPath:
+\b0 (NSString *)
+\i destination \
+
+\b\i0 handler:
+\b0\i handler
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Moves the directory or file specified in path 
+\i source
+\i0  to a different location in the file system identified by the pathname 
+\i destination
+\i0 . If 
+\i source
+\i0  is a file, the method creates a file at 
+\i destination
+\i0  that holds the exact contents of the original file (including UNIX special files) and then deletes the original file. If 
+\i source
+\i0  is a directory,  
+\b movePath:toPath:handler:
+\b0  creates a new directory at 
+\i destination
+\i0  and recursively populates it with duplicates of the files and directories contained in 
+\i source
+\i0 ; it then deletes the old directory and its contents. The file specified in 
+\i source
+\i0  must exist, while 
+\i destination
+\i0  must not yet exist. The 
+\i destination
+\i0  path must end in a file name; there is no implicit adoption of the 
+\i source
+\i0  file name. Symbolic links are not traversed; however, links are preserved.\
+
+\fs14 \
+
+\fs28 If the move operation is successful, the method returns YES. If the operation is not successful, but the 
+\i handler
+\i0  method 
+\b fileManager:shouldProceedAfterError:
+\b0  returns YES, 
+\b movePath:toPath:handler:
+\b0  also returns YES; otherwise it returns NO. If a failure in a move operation occurs, the pre-existing path or the new path remains intact, but not both.\
+
+\fs14 \
+
+\fs28 The argument 
+\i handler
+\i0  identifies an object that responds to the callback messages 
+\b fileManager:willProcessPath:
+\b0  and 
+\b fileManager:shouldProceedAfterError:
+\b0  (see ªMethods Implemented by the Callback Handler,º below).  This callback mechanism is similar to delegation. NSFileManager sends the first message when it begins a copy, move, remove, or link operation. It sends the second message when it encounters any error in processing. You can specify 
+\b nil
+\b0  for 
+\i handler
+\i0  if no object responds to the callback messages.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b copyPath:toPath:handler:
+\b0 , 
+\f1 -
+\f0 €
+\b linkPath:toPath:handler:
+\b0 , 
+\f1 -
+\f0 €
+\b removeFileAtPath:handler:
+\b0 , 
+\f1 -
+\f0 €
+\b fileManager:shouldProceedAfterError:
+\b0 , 
+\f1 -
+\f0 €
+\b fileManager:willProcessPath:
+\b0 \
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker23368 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-pathContentOfSymbolicLinkAtPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 pathContentOfSymbolicLinkAtPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b pathContentOfSymbolicLinkAtPath:
+\b0 (NSString *)
+\i cStringPath
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the actual path of the directory or file that the symbolic link 
+\i cStringPath
+\i0  refers to. 
+\i  
+\i0 Returns 
+\b nil
+\b0  upon failure. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b createSymbolicLinkAtPath:pathContent:
+\b0 \
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker23653 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-removeFileAtPath:handler:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 removeFileAtPath:handler:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b removeFileAtPath:
+\b0 (NSString *)
+\i path
+\i0  
+\b handler:
+\b0\i handler\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Deletes the file, link, or directory (including, recusively, all subdirectories, files and links in the directory) identified by 
+\i path
+\i0 . If the removal operation is successful, 
+\b removeFileAtPath:handler:
+\b0  returns YES. If the operation is not successful, but the  
+\i handler
+\i0  method 
+\b fileManager:shouldProceedAfterError:
+\b0  returns YES, 
+\b removeFileAtPath:handler:
+\b0  also returns YES; otherwise it returns NO. \
+
+\fs14 \
+
+\fs28 The argument 
+\i handler
+\i0  identifies an object that responds to the callback messages 
+\b fileManager:willProcessPath:
+\b0  and 
+\b fileManager:shouldProceedAfterError:
+\b0  (see ªMethods Implemented by the Callback Handler,º below).  This callback mechanism is similar to delegation. NSFileManager sends the first message when it begins a copy, move, remove, or link operation. It sends the second message when it encounters any error in processing. You can specify 
+\b nil
+\b0  for 
+\i handler
+\i0  if no object responds to the callback messages.\
+
+\fs14 \
+
+\fs28 Since the removal of directory contents is so thorough and final, be careful when using this method. Do not specify  ª.º or ª..º for 
+\i path
+\i0 ; this will raise the exception NSInvalidArgumentException. This method does not traverse symbolic links.  \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\fs28 copyPath:toPath:handler:
+\b0 , 
+\f1 -
+\f0 €
+\b linkPath:toPath:handler:
+\b0 ,  
+\f1 -
+\f0 €
+\b movePath:toPath:handler:
+\b0 ,  
+\f1 -
+\f0 €
+\b fileManager:shouldProceedAfterError:
+\b0 , 
+\f1 -
+\f0 €
+\b fileManager:willProcessPath:
+\b0 \
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker25059 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-stringWithFileSystemRepresentation:length:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 stringWithFileSystemRepresentation:length:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b stringWithFileSystemRepresentation:
+\b0 (const char *)
+\i string\
+
+\b\i0\fi0 length:
+\b0 (unsigned int)
+\i len
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an NSString object converted from a C-string representation of a path name in the current file system (
+\i string
+\i0 ). Use this method if your code receives paths as C-strings from system routines.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0 €
+\b fileSystemRepresentationWithPath:\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker25452 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-subpathsAtPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 subpathsAtPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSArray *)
+\b subpathsAtPath:
+\b0 (NSString *)
+\i path
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns an NSArray that lists (as NSStrings) the contents of the directory identified by path. This list of directory contents goes very deep and hence is very useful for large file-system subtrees. The method skips ª.º and ª..º.  If path is a symbolic link, 
+\b subpathsAtPath:
+\b0  traverses the link.  The method returns 
+\b nil
+\b0  if it cannot get the device of the linked-to file.\
+
+\fs14 \
+
+\fs28 Here is a sample fragment of what 
+\b subpathsAtPath:
+\b0  returns (as the output of NSArray's 
+\b description
+\b0  method) when 
+\i path
+\i0  is 
+\b /NextDeveloper
+\b0 :\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 Demos/AppInspector.app/Voyeur.nib/PauseH.tiff, \
+Demos/AppInspector.app/Voyeur.nib/data.classes, \
+Demos/AppInspector.app/Voyeur.nib/data.nib, \
+Demos/AppInspector.app/check.tiff, \
+Demos/AppInspector.app/checkH.tiff, \
+Demos/AppInspector.app/AppInspector, \
+Headers, \
+Headers/architecture, \
+Headers/architecture/ARCH_INCLUDE.h, \
+Headers/architecture/adb_bus.h, \
+Headers/architecture/adb_kb_codes.h, \
+Headers/architecture/adb_kb_map.h, \
+Headers/architecture/alignment.h, \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 Notice that this method reveals every element of the subtree at 
+\i path
+\i0 , including the contents of file packages (such as applications, nib files, and RTFD files). This code fragment gets the contents of 
+\b /NextLibrary/Fonts
+\b0  after verifying that the directory exists:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 BOOL isDir=NO;\
+NSArray *subpaths;\
+NSString *fontPath = @"/NextLibrary/Fonts";\
+NSFileManager *manager = [NSFileManager defaultManager];\
+if ([manager fileExistsAtPath:fontPath isDirectory:&isDir] && isDir)\
+    subpaths = [manager subpathsAtPath:fontPath];\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\b €directoryContentsAtPath:
+\b0 , 
+\f1 -
+\f0 €
+\b enumeratorAtPath:\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f3\fs28\li1500\fc0\cf0 Methods Implemented by the Callback Handler (Notification) \
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx1500\f2\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker27134 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-fileManagerShouldProceedAfterError:];}
+¬}\pard\tx1500\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 fileManager:shouldProceedAfterError:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(BOOL)
+\b fileManager:
+\b0 (NSFileManager *)
+\i manager
+\i0  \
+
+\b\fi0 shouldProceedAfterError:
+\b0 (NSDictionary *)
+\i errorInfo\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 NSFileManager sends this message for each error it encounters when copying, moving, removing, or linking files or directories. The NSDictionary object 
+\i errorInfo
+\i0  contains two or three pieces of information (all NSStrings) related to the error:\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f3\b\fs28\li1900\fc0\cf0 Key	Value\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 @"Path"	The path related to the error (usually the source path)\
+
+\fs14 \
+
+\fs28 @"Error"	A description of the error\
+
+\fs14 \
+
+\fs28 @"ToPath" 	The destination path (not all errors)\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Return YES if the operation (which is often continuous within a loop) should proceed and NO if it should not; the Boolean value is passed back to the invoker of 
+\b copyPath:toPath:handler:
+\b0 , 
+\b movePath:toPath:handler:
+\b0 , 
+\b removeFileAtPath:handler:
+\b0  or
+\b  linkPath:toPath:handler:
+\b0 .\
+
+\fs14 \
+
+\fs28 The following implementation of
+\b  fileManager:shouldProceedAfterError:
+\b0  displays the error string in an attention panel and leaves it to the user whether to proceed or stop:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 -(BOOL)fileManager:(NSFileManager *)manager \
+      shouldProceedAfterError:(NSDictionary *)errorDict\
+\{\
+   int result;\
+   result = NSRunAlertPanel(@"Gumby App", @"File operation error:\
+		%@ with file: %@", @"Proceed", @"Stop", NULL, \
+		[errorDict objectForKey:@"Error"], \
+		[errorDict objectForKey:@"Path"]);\
+\
+   if (result == NSAlertDefaultReturn)\
+      return YES;\
+    else\
+       return NO;\
+\}\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b fileManager:willProcessPath:
+\b0 \
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f2\fs52\fi-520\li1500\fc0\cf0 p	
+{\f3\b\fs28{\NeXTHelpMarker28559 \markername NS_DEV_DOCFOR:objc_method:[NSFileManager-fileManagerWillProcessAtPath:];}
+¬}\pard\tx1500\tx8260\f3\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 fileManager:willProcessPath:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b fileManager:
+\b0 (NSFileManager *)
+\i manager
+\i0  
+\b willProcessPath:
+\b0 (NSString *)
+\i path\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 NSFileManager sends this message to the designated handler for each file or directory (identified by 
+\i path
+\i0 ) that it is about to copy, link, remove, or move. This notification gives you the opportunity to update your user interface or to do anything similar where the knowledge of 
+\i path
+\i0  is important.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b fileManager:shouldProceedAfterError:
+\b0 \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 \
+
+\fs14 \
+
+}

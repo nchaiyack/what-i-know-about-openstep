@@ -1,0 +1,160 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f3\fmodern Ohlfs;}
+\paperw14220
+\paperh11300
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+\fs64 \
+
+\f2\b\fs52\li940 Locales\
+
+\fs38 \
+
+\f0\b0\fs28\li4720 A locale is a set of defaults whose values are determined by the user's preferred language. The locale defaults are stored in the NSUserDefault's preferred language domain. \
+
+\fs20 \
+
+\fs28 Certain classes from the Foundation Framework (for example, NSCalendarDate, NSDate, NSTimeZone, NSString, and NSScanner) use information from the locale to determine their values. For example, when you request an NSString representation of an NSCalendarDate, the NSCalendarDate looks at the locale to determine what the months and the days of the week are called in the user's preferred language. \
+
+\fs20 \
+
+\fs28 The actual attributes for the locale keys are contained in 
+\b\fs24 NextLibrary/Frameworks/Foundation.framework/Resources/Languages
+\b0\fs28 . If a given language does not define one of the locale attributes, the value for that attribute defaults to the one defined for the default language (US English). \
+
+\fs20 \
+
+\fs28 The Foundation Framework defines these locale dictionary keys. Other frameworks may add other keys to the locale dictionary. \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx7760\b\fs24\li4720\fc0\cf0 Key	Description\
+\
+
+\fs4 \
+
+\b0\fs24\fi-3040\li7760 NSAMPMDesignation	An array of strings that specify how the morning and afternoon designations are printed. The default is AM and PM.\
+\
+
+\fs4 \
+
+\fs24 NSCurrencySymbol	A string that specifies the symbol used to denote currency in this language. The default is "$". \
+\
+
+\fs4 \
+
+\fs24 NSDateFormatString	A format string that specifies how dates are printed using the date format specifiers. (See the NSCalendarDate class specification for a list of these.) The default is to use weekday names with full month names and full years, as in ªSunday, January 01, 1995.º\
+\
+
+\fs4 \
+
+\fs24 NSDateTimeOrdering	A string that specifies how to use ambiguous numbers in date strings. Specify this value as a permutation of the letters M (month), D (day), Y (year), and H (hour). For example, MDYH treats ª2/3/95 10º as the 3rd day of February 1995 at 10:00am, whereas DMYH treats the same value as the 2nd day of March 1995 at 10:00am. If fewer numbers are specified than are needed, the numbers are prioritized to satisfy day first, then the month, and then the year. For example, if you supply only the value 12, it means the 12th day of this month in this year because the day must be specified. If you supply ª2 12º it means either February 12 or December 2, depending on if the ordering is ªMDYHº or ªDMYH.º \
+\
+
+\fs4 \
+
+\fs24 NSDecimalDigits	Strings that identify the decimal digits in addition to or instead of the ASCII digits. \
+\
+
+\fs4 \
+
+\fs24 NSDecimalSeparator	A string that specifies the decimal separator. The decimal separator separates the ones place from the tenths place. The default is ª.º. \
+\
+
+\fs4 \
+
+\fs24 NSEarlierTimeDesignations	An array of strings that denote a time in the past. These are adjectives that modify values from NSYearMonthWeekDesignations. The defaults are ªprior,º ªlast,º ªpast,º and ªago.º\
+\
+
+\fs4 \
+
+\fs24 NSHourNameDesignations	Strings that identify the time of day. These strings should be bound to an hour. The default is this array of arrays: (0, midnight), (12, noon, lunch), (10, morning), (14, afternoon), (19, dinner).\
+\
+
+\fs4 \
+
+\fs24 NSInternationalCurrencyString	A string containing three letter abbreviation for currency, following the ISO 4217 standard.\
+\
+
+\fs4 \
+
+\fs24 NSLaterTimeDesignations	An array of strings that denote a time in the future. This is an adjective that modifies a value from NSYearMonthWeekDesignations. The default is ªnext.º.\
+\
+
+\fs4 \
+
+\fs24 NSMonthNameArray	An array that specifies the full names for the months.\
+\
+
+\fs4 \
+
+\fs24 NSNextDayDesignations	A string that identifies the day after today. The default is ªtomorrow.º\
+\
+
+\fs4 \
+
+\fs24 NSNextNextDayDesignations	A string that identifies the day after tomorrow. The default is ªnextdayº. \
+\
+
+\fs4 \
+
+\fs24 NSPriorDayDesignations	A string that identifies the day before today. The default is ªyesterday.º\
+\
+
+\fs4 \
+
+\fs24 NSShortDateFormatString	A format string that specifies how dates are abbreviated. (See the NSCalendarDate class specification for a list of the date format specifiers to use.) The default is to separate the day month and year with slashes and to put the day first, as in 31/10/95. \
+\
+
+\fs4 \
+
+\fs24 NSShortMonthNameArray	An array that specifies the abbreviations for the months.\
+\
+
+\fs4 \
+
+\fs24 NSShortWeekDayNameArray	An array that specifies the abbreviations for the days of the week. Sunday should be the first day of the week.\
+\
+
+\fs4 \
+
+\fs24 NSShortTimeDateFormatString	A format string that specifies how times and dates are abbreviated. (See the NSCalendarDate class specification for a list of the date format specifiers.) The default is to use dashes to separate the day, month, and year and to use a 12-hour clock, as in ª31-Jan-95 1:30 PM. \
+\
+
+\fs4 \
+
+\fs24 NSThisDayDesignations	A string that identifies what this day is called. The default is ªtoday.º\
+\
+
+\fs4 \
+
+\fs24 NSThousandsSeparator	A string that specifier the separator character for the thousands place of a decimal number. The default is a comma.\
+\
+
+\fs4 \
+
+\fs24 NSTimeDateFormatString	A format string how dates with times are printed.(See the NSCalendarDate class specification for a list of the date format specifiers.) The default is to use abbreviated months and days with a 24 hour clock, as in ªSun Jan 01 23:00:00 +6 2001.º\
+\
+
+\fs4 \
+
+\fs24 NSTimeFormatString	A format string how dates with times are printed.(See the NSCalendarDate class specification for a list of the date format specifiers.) The default is to use a 24 hour clock, as in 13:30:25.\
+\
+
+\fs4 \
+
+\fs24 NSWeekDayNameArray	An array that gives the names for the days of the week. Sunday should be the first day of the week.\
+\
+
+\fs4 \
+
+\fs24 NSYearMonthWeekDesignations	An array of strings that specify the word for year, month, and week in the current locale. The defaults are ªyear,º ªmonth,º and ªweek.º\
+\
+
+}

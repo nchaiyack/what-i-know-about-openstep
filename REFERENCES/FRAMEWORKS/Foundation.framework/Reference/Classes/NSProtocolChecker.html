@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.2px; text-indent: -37.9px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.2px; text-indent: -37.9px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.6px; font: 13.0px Times; min-height: 16.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 5.0px Helvetica; min-height: 6.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 14.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 5.0px Times; min-height: 6.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 35.0px Times; min-height: 42.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 75.6px; text-indent: -25.1px; font: 14.0px Helvetica}
+    p.p20 {margin: 0.0px 0.0px 0.0px 75.6px; text-indent: -25.1px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 75.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.5px Helvetica}
+    span.s3 {font: 14.0px Times}
+    span.s4 {font: 12.0px Helvetica}
+    span.s5 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">p<span class="Apple-tab-span">	</span></span><b></b><b>NSProtocolChecker</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s3">NSObject</span></p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSProtocolChecker.h</p>
+<p class="p8"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Class Description</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">The NSProtocolChecker class defines an object that restricts the messages that can be sent to another object (referred to as the checker's delegate).<span class="Apple-converted-space">  </span>This can be particularly useful when an object with many methods, only a few of which ought to be remotely accessible,<span class="Apple-converted-space">  </span>is made available using the Distributed Objects system.</p>
+<p class="p12"><br></p>
+<p class="p11">A protocol checker acts as a kind of proxy; when it receives a message that is in its designated protocol, it forwards the message to its delegate, and consequently appears to be the delegate itself.<span class="Apple-converted-space">  </span>However, when it receives a message not in its protocol, it raises an NSInvalidArgumentException exception to indicate that the message isn't allowed, whether or not the delegate implements the method.</p>
+<p class="p12"><br></p>
+<p class="p11">Typically, an object that is to be distributed (yet must restrict messages) creates an NSProtocolChecker for itself and returns the checker rather than returning itself in response to any messages.<span class="Apple-converted-space">  </span>The object might also register the checker as the root object of an NSConnection.</p>
+<p class="p12"><br></p>
+<p class="p11">The object should be careful about vending references to <b>self</b>; the protocol checker will convert a return value of <b>self</b> to indicate the checker rather than the object for any messages that were forwarded by the checker, but direct references to the object (bypassing the checker) could be passed around by other objects.</p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p9"><b>Method Types</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15">Creating a checker<span class="Apple-tab-span">	</span>+ protocolCheckerWithTarget:protocol:</p>
+<p class="p16"><span class="s1">-</span> initWithTarget:protocol:</p>
+<p class="p17"><br></p>
+<p class="p15">Reimplemented NSObject methods<span class="Apple-tab-span">	</span><span class="s1">- </span>forwardInvocation:</p>
+<p class="p16"><span class="s1">- </span>methodDescriptionForSelector:</p>
+<p class="p18"><br></p>
+<p class="p9"><b>Class Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p19"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>protocolCheckerWithTarget:protocol:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">+ (id)<b>protocolCheckerWithTarget:</b>(NSObject *)<i>anObject</i> <b>protocol:</b>(Protocol *)<i>aProtocol</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Allocates and initializes an NSProtocolChecker instance that will forward any messages in the <i>aProtocol</i> protocol to <i>anObject</i>, its delegate.<span class="Apple-converted-space">  </span>Thus, the checker can be vended in lieu of <i>anObject</i> to restrict the messages that can be sent to <i>anObject</i>. <span class="Apple-converted-space">  </span>Returns the new instance.</p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p19"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>forwardInvocation:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s1">-</span> (void)<b>forwardInvocation:</b>(NSInvocation *)<i>anInvocation</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Forwards any message to the delegate if the method is declared in the checker's protocol; otherwise raises an NSInvalidArgumentException.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>initWithTarget:protocol:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">- (id)<b>initWithTarget:</b>(NSObject *)<i>anObject</i> <b>protocol:</b>(Protocol *)<i>aProtocol</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Initializes a newly allocated NSProtocolChecker instance that will forward any messages in the <i>aProtocol</i> protocol to <i>anObject</i>, its delegate.<span class="Apple-converted-space">  </span>Thus, the checker can be vended in lieu of <i>anObject</i> to restrict the messages that can be sent to <i>anObject</i>.<span class="Apple-converted-space">  </span>If <i>anObject</i> is allowed to be freed or dereferenced by clients, the <b>free</b> method should be included in <i>aProtocol</i>.<span class="Apple-converted-space">  </span>Returns the new instance.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>methodDescriptionForSelector:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s1">-</span> (struct objc_method_description *) <b>methodDescriptionForSelector:</b>(SEL)<i>aSelector</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Returns an Objective C description for a method in the checker's protocol, or NULL if <i>aSelector</i> isn't declared as an instance method in the protocol.</p>
+<p class="p12"><br></p>
+<p class="p24"><br></p>
+<p class="p12"><br></p>
+</body>
+</html>

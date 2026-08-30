@@ -1,0 +1,75 @@
+.TH _EXIT 2 "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+_exit \- terminate a process
+.SH SYNOPSIS
+.nf
+.ft B
+#include <stdlib.h>
+.sp
+int _exit(int \fIstatus\fP);
+.fi
+.SH DESCRIPTION
+The
+.IR _exit 
+function terminates a process
+with the following consequences:
+.in +5n
+.PP
+All file descriptors and directory streams
+open in the calling process are closed.
+This may entail delays, for example,
+a process waiting for output to drain
+may not be killed,
+as it is already dying.
+.PP
+The parent process of the calling process
+receives a SIGCHLD signal,
+and when it executes a
+.IR wait (2)
+or
+.IR waitpid (2P)
+call (which it may already be suspended on),
+the exit status of the calling process
+is returned to it.
+.PP
+Children of the calling process
+aren't directly terminated.
+Child processes may receive
+a SIGHUP signal as described below
+for process groups.
+Otherwise, child processes
+are assigned the initialization process
+(whose process ID is 1) as their parent.
+.PP
+If the calling process is a controlling process,
+the SIGHUP signal is sent to each process
+in the foreground process group
+of the controlling terminal,
+and the calling process' controlling terminal
+is disassociated from the session,
+allowing it to be acquired
+by a new controlling process.
+.PP
+For BSD applications,
+all stopped children of the exiting
+process are restarted with a hangup signal (SIGHUP).
+For POSIX applications,
+if the exit of the calling process
+causes a process group to become orphaned,
+and if any member of the newly orphaned process group
+is stopped,
+then a SIGHUP signal followed by a SIGCONT signal
+is sent to each process
+in the newly orphaned process group.
+.in -5n
+.PP
+Most C programs call the library routine
+.IR exit (3),
+which performs cleanup actions in the standard I/O library before
+calling
+.IR _exit .
+.SH "RETURN VALUE"
+This call never returns.
+.SH "SEE ALSO"
+fork(2), sigvec(2), wait(2), exit(3)

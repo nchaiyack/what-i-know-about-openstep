@@ -1,0 +1,62 @@
+.\"
+.\"	@(#)uname.2	8/1/92
+.\"
+.TH UNAME 2P "August 1, 1992"
+.UC 4
+.SH NAME
+uname \-  (POSIX only)get system name
+.SH SYNOPSIS
+.ft B
+#include <sys/utsname.h>
+.PP
+.ft B
+int uname(struct utsname *\fIname\fP);
+.ft R
+.fi
+.SH DESCRIPTION
+The information in this specification applies
+only to POSIX applications.
+.PP
+.I Uname
+stores information identifying the current operating system
+in the structure pointed to by 
+.I name.
+.PP
+The structure 
+.I utsname 
+is defined in the header 
+.I <sys/utsname.h> 
+and contains the following members:
+.PP
+.nf
+.RS
+.DT
+char	sysname[32] 
+char	nodename[32]
+char 	release[32]
+char 	version[32]
+char	machine[32]
+.RE
+.fi
+.PP
+.I Sysname
+is set to the value ``NEXTSTEP''.
+.I Nodename
+is the hostname set by 
+.IR hostname (1)
+or
+.IR sethostname (2).
+.I Release
+and 
+.I version
+reflects the level of the operating system.
+.I Machine
+identifies the hardware architecture.
+.SH "RETURN VALUE"
+If successful
+.I uname
+returns a nonnegative value.  If
+the request failed, \-1 is returned.
+.SH "SEE ALSO"
+hostname(1), 
+sethostname(2)

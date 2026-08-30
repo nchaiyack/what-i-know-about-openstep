@@ -1,0 +1,23 @@
+.TH BUILDAFMDIR 1 "June 14, 1989" "NeXT Computer, Inc."
+.SH NAME
+buildafmdir \- builds font index information
+.SH SYNOPSIS
+\fBbuildafmdir\fR \fIdirectory\fR
+.SH DESCRIPTION
+Information about what fonts are available in a given Fonts directory is
+condensed into an index by \fBbuildafmdir\fR.  This index is used by the
+FontManager in the Application Kit to do intelligent font conversion.  The
+\fIdirectory\fR argument should be one of \fB/NextLibrary/Fonts\fR,
+\fB/LocalLibrary/Fonts\fR or \fB~/Library/Fonts\fR
+(the three directories searched by the
+Application Kit and the Window Server to find fonts).  \fBbuildafmdir\fR
+creates a file named \fB.fontdirectory\fR in the specified directory.
+.PP
+Until a font installation application is available,
+this command should be run after any afm file is installed in a Fonts
+directory.
+.SH BUGS
+\fBbuildafmdir\fR is only as accurate as the information in the afm files
+(which has been known to be relatively unreliable).
+
+

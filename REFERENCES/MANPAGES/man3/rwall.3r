@@ -1,0 +1,37 @@
+.\" @(#)rwall.3r	1.2 87/08/23 3.2/4.3NFSSRC
+.\" @(#)rwall.3r	1.2 86/12/31 NFSSRC
+.\" @(#)rwall.3r 1.1 86/09/25 SMI; new on release 3.0
+.TH RWALL 3R "10 August 1985"
+.SH NAME
+rwall \- write to specified remote machines
+.SH SYNOPSIS
+.ft B
+.nf
+#include <rpcsvc/rwall.h>
+#include <rpcsvc/rstat.h>
+.sp .5
+rwall(host, msg);
+	char *host, *msg;
+.fi
+.SH DESCRIPTION
+.IX rwall "" "\fLrwall\fR \(em write to specified remote machines"
+.I Rwall
+causes
+.I host
+to print the string
+.I msg
+to all its users.
+It returns 0 if successful.
+.SH RPC INFO
+.nf
+program number:
+	WALLPROG
+.sp .5
+procs:
+	WALLPROC_WALL
+		Takes string as argument (wrapstring), returns no arguments.
+		Executes \fIwall\fP on remote host with string.
+versions:
+	RSTATVERS_ORIG
+.SH SEE ALSO
+rwall(1), shutdown(8), rwalld(8C)

@@ -1,0 +1,83 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)fread.3s	6.1 (Berkeley) 5/15/85
+.\"
+.TH FREAD 3S  "August 1, 1992"
+.ds ]W ANSI C
+.SH NAME
+fread, fwrite \- buffered binary input/output
+.SH SYNOPSIS
+.ft B
+#include <stdio.h>
+.PP
+.B size_t fread(void *\fIptr\fP, size_t \fIsize\fP, 
+.B size_t \fInitems\fP, FILE *\fIstream\fP);
+.PP
+.B size_t fwrite(void *\fIptr\fP, size_t \fIsize\fP, 
+.B size_t \fInitems\fP, FILE *\fIstream\fP);
+.ft R
+.SH DESCRIPTION
+.I Fread
+reads, into a block beginning at
+.IR ptr ,
+.I nitems
+of data of the size of
+.I size
+from the named input
+.IR stream .
+It returns the number of items actually read.
+.PP
+If
+.I stream
+is
+.I stdin
+and the standard output is line buffered, then any partial output line
+will be flushed before any call to
+.IR read (2)
+to satisfy the
+.IR fread .
+.PP
+.I Fwrite
+appends at most
+.I nitems
+of data of the size of
+.I size
+beginning at
+.I ptr
+to the named output
+.IR stream .
+It returns the number of items actually written.
+.SH "RETURN VALUE"
+.I Fread
+returns the number of elements successfully read, which may be less
+than \fInitems\fR if a read error or end-of-file is encountered.  
+.PP
+.I Fwrite
+returns the number of elements successfully written, which may be less
+than \fInitems\fR if a write error is encountered.  
+.SH "ERRORS"
+The underlying function of 
+.I fread
+is 
+.I read.
+The underlying function of
+.I fwrite
+is
+.I write.
+The errors detected for 
+.I fread
+and
+.I fwrite
+are those specified for their respective underlying function.
+.SH "SEE ALSO"
+read(2),
+write(2),
+fopen(3S),
+getc(3S),
+putc(3S),
+gets(3S),
+puts(3S),
+printf(3S),
+scanf(3S)

@@ -1,0 +1,55 @@
+.TH dbCatenate 1 "June 6, 1989" "NeXT Computer, Inc."
+.SH NAME
+dbCatenate, dbCompare, dbCompress, dbCopy, dbDescribe, dbExpand \- 
+hashed database utilities
+.SH DESCRIPTION
+These commands, found in \fB/usr/lib/database\fR, 
+are utilities for managing hashed databases created with \fIdb\fR(3).
+.PP
+.TP 5
+\fBdbCatenate [-x] \fIdatabases\fB ...\fR
+Catenates the \fIkey/content\fP pairs stored in the specified databases 
+to the standard output. The order is uninteresting, 
+being determined by a hash function. 
+\fB-x\fP catenates a hexadecimal ASCII representation of the information.
+.PP
+.TP 5
+\fBdbCompare [-v][-V] \fIfrom-database\fB \fIto-databases\fB ...\fR
+Compares \fIfrom-database\fP with \fIto-databases\fP, 
+looking up each \fIkey\fP found in \fIfrom-database\fP 
+in each of the \fIto-databases\fP, 
+and testing the associated \fIcontents\fP for equality. 
+Normal operation is silent, indicating failure by a non-zero exit value.
+\fB-v\fP prints a brief synopsis of each conflict and a brief summary.
+\fB-V\fP additionally prints a hexadecimal ASCII representation 
+of missing keys and conflicting contents, as in \fIdbCatenate\fP.
+.PP
+.TP 5
+\fBdbCompress [-p] \fIdatabases\fB ...\fR
+Compresses \fIdatabases\fP, reducing the amount of disk space they consume.
+Compressed databases are readable only, and do not support writing or deletion.
+.PP
+.TP 5
+\fBdbCopy [-s size] \fIfrom-database\fB \fIto-databases\fB ...\fR
+Copies \fIkey/content\fP pairs from \fIfrom-database\fP, 
+creating \fIto-databases\fP with block size LEAFSIZE, as defined in \fIdb.h\fP.
+\fB-s\fP changes the block size to \fBsize\fP.
+.PP
+.TP 5
+\fBdbDescribe \fIdatabases\fB ...\fR
+Prints useful information about \fIdatabases\fP, including the block size, 
+the number of blocks, the number of \fIkey/content\fP pairs, 
+the average number of \fIkey/content\fP pairs per block, 
+and the average block usage as a percentage of total block space.
+.PP
+.TP 5
+\fBdbExpand \fIdatabases\fB ...\fR
+Reverses the compression performed on \fIdatabases\fP by \fIdbCompress\fP. 
+After expansion, \fIdatabases\fP will again support writing and deletion.
+.LP
+.SH DIAGNOSTICS
+In the event of an error, these commands print a diagnostic message 
+to standard error, and exit with a non-zero value.
+.SH SEE ALSO
+db(3)
+

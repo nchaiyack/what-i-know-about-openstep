@@ -1,0 +1,57 @@
+.\"	@(#)mkdir.1	6.1 (Berkeley) 4/29/85
+.\"
+.TH MKDIRS 1 "September 8, 1988"
+.AT 3
+.SH NAME
+mkdirs \- make directories
+.SH SYNOPSIS
+.B mkdirs
+[
+.B \-o
+.I owner
+] [
+.B \-g
+.I group
+] [
+.B \-m
+.I mode
+]
+.I dir_paths
+.SH DESCRIPTION
+.I Mkdirs
+creates the directories specified in each
+.I dir_path,
+and optionally sets owner, group, and mode for the created
+directories.
+.I Mkdirs
+requires write permission in the parent directory.
+.PP
+Unlike
+.I mkdir,
+.I mkdirs
+creates all non-existent directories specified in each
+.I dir_path.
+For example, the following command creates both
+new-dir-1 and new-dir-2:
+.PP
+.DT
+	mkdirs ~/new-dir-1/new-dir-2
+.PP
+The mode of the created directories is determined by the value of the
+\fImode\fP argument,
+which may be absolute or symbolic (see
+\fIchmod\fP(1)
+for the correct syntax),
+or by the current
+\fIumask\fP(2) value
+if no
+.I mode
+argument is specified.
+Only modes of directories created by
+.I mkdirs
+are affected; modes of existing directories specified in the
+.I dir_path
+do not change.
+.PP
+.SH "SEE ALSO"
+mkdir(1), rmdir(1), chmod(1), umask(2)

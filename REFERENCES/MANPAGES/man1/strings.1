@@ -1,0 +1,60 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)strings.1	6.2 (Berkeley) 5/12/86
+.\"
+.TH STRINGS 1 "March 30, 1995" "NeXT Computer, Inc."
+.SH NAME
+strings \- find the printable strings in a object, or other binary, file
+.SH SYNOPSIS
+.B strings
+[
+.B \-
+] [
+.B \-a
+] [
+.B \-o
+] [
+\fB\-\fInumber\fR
+] [file ...]
+.SH DESCRIPTION
+.I Strings
+looks for ASCII strings in a binary file or standard input.
+.I Strings
+is useful for identifying random object files and many other things.
+A string is any
+sequence of 4 (the default) or more printing characters ending with a newline
+or a null.  Unless the
+.B \-
+flag is given,
+.I strings
+looks in all sections of the object files except the (\_\^\_TEXT,\_\^\_text)
+section.  If no files are specified standard input is read.
+.PP
+The options to
+.IR strings (1)
+are:
+.TP
+.B \-a
+This option causes
+.I strings
+to look for strings in all sections of the object file (including the
+(\_\^\_TEXT,\_\^\_text) section.
+.TP
+.B \-
+This option causes
+.I strings
+to look for strings in all bytes of the files (the default for non-object files).
+.TP
+.B \-o
+Preceded each string by its offset in the file (in decimal).
+.TP
+.BI \- number
+The decimal
+.I number
+is used as the minimum string length rather than the default of 4.
+.SH "SEE ALSO"
+od(1)
+.SH BUGS
+The algorithm for identifying strings is extremely primitive.

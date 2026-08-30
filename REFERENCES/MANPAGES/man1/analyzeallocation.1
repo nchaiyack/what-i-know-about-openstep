@@ -1,0 +1,128 @@
+.TH ANALYZEALLOCATION 1 "March 28, 1996" "NeXT Software, Inc."
+.SH NAME
+AnalyzeAllocation \- analyze memory allocation statistics.
+.SH SYNOPSIS
+.B AnalyzeAllocation
+[\fB-help\fR] [\fB-v\fR] \fIfile\fR
+.SH DESCRIPTION
+.B AnalyzeAllocation
+analyzes the allocation statistics gathered by the 
+Foundation Framework (see NSDebug.h). To gather all allocation statistics,
+you can set \fBNSKeepAllocationStatistics\fR to YES in your environment
+and then run the application. This records allocation statistics in a file named  \fB/tmp/alloc_stats_\fIapplication\fB_\fIpid\fR. This file gets very large very quickly, in addition to making your program run much more slowly, so it's important not to run too much of your program with the \fBNSKeepAllocationStatistics\fR environment variable turned on. Instead, run a specific task, then turn the environment variable off. 
+.PP
+As an alternative, you can control what portions of the running
+application are measured by setting the global variable \fBNSKeepAllocationStatistics\fR
+to YES when you want to gather statistics and NO when you
+do not. This variable is defined in the Foundation Framework file \fBNSDebug.h\fR. 
+.PP
+After you have gathered statistics, you run the \fBAnalyzeAllocation\fR command to analyze them. \fBAnalyzeAllocation\fR with no options prints a table that summarizes the allocation statistics. For each class, the table provides the following information: 
+.TP
+.B retain
+Invocations of the default \fBretain\fR implementation
+.TP
+.B release
+Invocations of the default \fBrelease\fR implementation
+.TP
+.B iretain
+Invocations of an override of \fBretain\fR
+.TP
+.B irelease
+Invocations of an override of \fBrelease\fR
+.TP
+.B autorelease
+Invocations of \fBautorelease\fR
+.TP
+.B copy
+Invocations of \fBcopy\fR
+.TP
+.B instances
+Number of instances still alive
+.TP
+.B max
+Maximum number of instances at one time
+.TP
+.B total
+Total number of instances created
+.TP
+.B class
+Name of the class
+.PP
+The \fB-v\fR option prints a detailed analysis for each class,
+consisting of:
+.PP
+    The number of objects allocated
+.br
+    The number of objects deallocated
+.br
+    Shortest lifetime (in seconds) of any object of this class
+.br
+    Median lifetime (in seconds) of any object of this class
+.br
+    Maximum lifetime (in seconds) of any object of this class
+.br
+    Number of ephemeral objects, objects that lasted less than 0.01 seconds
+.br
+    Minimum number of retains on any object of this class
+.br
+    Median number of retains on all objects of this class
+.br
+    Maximum number of retains on any object of this class
+.br
+    Minimum number of releases on any object of this class
+.br
+    Median number of releases on all objects of this class
+.br
+    Maximum number of releases on any object of this class
+.br
+    Minimum number of invocations of an override of \fBretain\fR for any object of this class
+.br
+    Median number of invocations of an override of \fBretain\fR on all objects
+.br
+    Maximum number of invocations of an override of \fBretain\fR on any object
+.br
+    Minimum number of invocations of an override of \fBrelease\fR on any object
+.br
+    Median number of invocations of an override of \fBrelease\fR on all objects
+.br
+    Maximum number of invocations of an override of \fBrelease\fR on any object
+.br
+    Minimum number of autoreleases on any object
+.br
+    Median number of autoreleases on all objects
+.br
+    Maximum number of autoreleases on any object
+.br
+    Minimum number of copies on any object
+.br
+    Median number of copies on all objects
+.br
+    Maximum number of copies on any object
+.br
+    Minimum number of retains on any instance of this class
+.br
+    Median number of retains on all objects
+.br
+    Maximum number of retains on any object
+.SH OPTIONS
+.TP
+.B -help
+Displays a message describing how to use AnalyzeAllocation.
+.TP
+.B -v
+Displays a different set of statistics as described above.
+.TP
+.I file
+The file to be analyzed. Its name has the form \fB/tmp/alloc_stats_\fIappName\fB_\fIpid\fR
+.SH EXAMPLES
+.IP
+# setenv NSKeepAllocationStatistics YES
+.br
+# /NextDeveloper/Demos/TextEdit.app/TextEdit
+.br
+.I run for a while, then quit
+.br
+# unsetenv NSKeepAllocationStatistics
+.br
+# AnalyzeAllocation -v /tmp/alloc_stats_Edit_*
+

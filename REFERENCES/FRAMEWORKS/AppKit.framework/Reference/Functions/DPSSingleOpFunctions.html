@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 50.0px Times; min-height: 61.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 123.5px; font: 33.5px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 123.5px; font: 50.0px Helvetica; min-height: 60.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 123.5px; font: 33.5px Helvetica; min-height: 41.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 138.7px; text-indent: -18.8px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 138.7px; text-indent: -18.8px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 138.7px; font: 14.0px Times}
+    p.p10 {margin: 0.0px 0.0px 0.0px 138.7px; font: 10.0px Times; min-height: 13.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 119.8px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 119.8px; font: 10.0px Times; min-height: 13.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {vertical-align: 4.5px}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><b>Single-Operator Functions</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>PSadjustcursor(</b>float <i>dx</i>, float <i>dy</i><b>)</b></p>
+<p class="p7"><b>PSalphaimage(</b>void<b>)</b></p>
+<p class="p7"><b>PSbasetocurrent(</b>float <i>bx</i>, float <i>by</i>, float *<i>cx</i>, float *<i>cy</i><b>)</b></p>
+<p class="p7"><b>PSbasetoscreen(</b>float <i>bx</i>, float <i>by</i>, float *<i>sx</i>, float *<i>sy</i><b>)</b></p>
+<p class="p7"><b>PSbuttondown(</b>boolean *<i>isdown</i><b>)</b></p>
+<p class="p7"><b>PScleartrackingrect(</b>int <i>trectnum</i>, userobject <i>gstate</i><b>)</b></p>
+<p class="p7"><b>PScomposite(</b>float <i>srcx</i>, float <i>srcy</i>, float <i>width</i>, float <i>height</i>, userobject <i>srcgstate</i>, float <i>destx</i>, float <i>desty</i>, int <i>op</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">The value passed as <i>op</i> should be one of the following:</p>
+<p class="p10"><br></p>
+<p class="p9">NX_CLEAR <span class="Apple-tab-span">	</span>NX_SIN<span class="Apple-tab-span">	</span>NX_SATOP<span class="Apple-converted-space"> </span></p>
+<p class="p9">NX_COPY<span class="Apple-tab-span">	</span>NX_DIN<span class="Apple-tab-span">	</span>NX_DATOP</p>
+<p class="p9">NX_SOVER<span class="Apple-tab-span">	</span>NX_SOUT <span class="Apple-tab-span">	</span>NX_PLUSD</p>
+<p class="p9">NX_DOVER<span class="Apple-tab-span">	</span>NX_DOUT<span class="Apple-tab-span">	</span>NX_PLUSL</p>
+<p class="p9">NX_XOR</p>
+<p class="p10"><br></p>
+<p class="p7"><b>PScompositerect(</b>float <i>destx</i>, float <i>desty</i>, float <i>width</i>, float <i>height</i>, int <i>op</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">The value passed as <i>op</i> should be on<i>e of the constants listed under</i> <b>PScomposite()</b>, plus NX_HIGHLIGHT.</p>
+<p class="p10"><br></p>
+<p class="p7"><b>PScountframebuffers(</b>int *<i>count</i><b>)</b></p>
+<p class="p7"><b>PScountscreenlist(</b>int <i>context</i>, int *<i>count</i><b>)</b></p>
+<p class="p7"><b>PScountwindowlist(</b>int <i>context</i>, int *<i>count</i><b>)</b></p>
+<p class="p7"><b>PScurrentactiveapp(</b>int *<i>context</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PScurrentalpha(</b>float *<i>coverage</i><b>)</b></p>
+<p class="p7"><b>PScurrentdefaultdepthlimit(</b>int *<i>depth</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PScurrentdeviceinfo(</b>userobject <i>window</i>, int *<i>min</i>, int *<i>max</i>, boolean *<i>iscolor</i><b>)</b></p>
+<p class="p7"><b>PScurrenteventmask(</b>userobject <i>window</i>, int *<i>mask</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PScurrentframebuffertransfer(</b>void<b>)</b></p>
+<p class="p7"><b>PScurrentmouse(</b>userobject <i>window</i>, float *<i>x</i>, float *<i>y</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PScurrentowner(</b>userobject <i>window</i>, int *<i>context</i><b>)</b></p>
+<p class="p7">PScurrentshowpageprocedure(void)</p>
+<p class="p7"><b>PScurrentrusage(</b>float *<i>ctime</i>, float *<i>utime</i>, float *<i>stime</i>, int *<i>msgsend</i>, int *<i>msgrcv</i>, int *<i>nsignals</i>, int *<i>nvcsw</i>, int *<i>nivcsw</i><b>)</b></p>
+<p class="p7"><b>PScurrenttobase(</b>float <i>cx</i>, float <i>cy</i>, float *<i>bx</i>, float *<i>by</i><b>)</b></p>
+<p class="p7"><b>PScurrenttoscreen(</b>float <i>cx</i>, float <i>cx</i>, float *<i>sx</i>, float *<i>sy</i><b>)</b></p>
+<p class="p7"><b>PScurrentuser(</b>int *<i>uiId</i>, int *<i>gid</i><b>)</b></p>
+<p class="p7"><b>PScurrentwaitcursorenabled(</b>boolean *<i>isenabled</i><b>)</b></p>
+<p class="p7"><b>PScurrentwindow(</b>userobject *<i>window</i><b>)</b></p>
+<p class="p7"><b>PScurrentwindowalpha(</b>userobject <i>window</i>, int *<i>alpha</i><b>)</b></p>
+<p class="p7"><b>PScurrentwindowbounds(</b>userobject <i>window</i>, float *<i>x</i>, float *<i>y</i>, float *<i>width</i>, float *<i>height</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PScurrentwindowdepth(</b>userobject <i>window</i>, int *<i>depth</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PScurrentwindowdepthlimit(</b>userobject <i>window</i>, int *<i>depth</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PScurrentwindowdict(</b>userobject <i>window</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PScurrentwindowlevel(</b>userobject <i>window</i>, int *<i>level</i><b>)</b></p>
+<p class="p7"><b>PScurrentwriteblock(</b>bool *<i>doesblock</i><b>)</b></p>
+<p class="p7"><b>PSdissolve(</b>float <i>srcx</i>, float <i>srcy</i>, float <i>sourceWidth</i>, float <i>width</i>, userobject <i>srcgstate</i>, float <i>destx</i>, float <i>desty</i>, float <i>delta</i><b>)</b></p>
+<p class="p7"><b>PSdumpwindow(</b>int <i>dumplevel</i>, userobject <i>window</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSdumpwindows(</b>int <i>dumplevel</i>, userobject <i>context</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSfindwindow(</b>float <i>x</i>, float <i>y</i>, int <i>place</i>, userobject <i>otherwindow</i>, float *<i>x</i>', float *<i>y</i>', userobject *<i>window</i>, boolean *<i>found</i><b>)</b><span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p9"><i>The value passed as place</i> should be one of the following:</p>
+<p class="p10"><br></p>
+<p class="p9">NX_ABOVE</p>
+<p class="p9">NX_BELOW<span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p7"><b>PSflushgraphics(</b>void<b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSframebuffer(</b>int <i>index</i>, int <i>stringlen</i>, char <i>string</i>[], int *<i>slot</i>, int *<i>unit</i>, int *<i>romid</i>, int *<i>x</i>, int *<i>y</i>, int *<i>width</i>, int<i> </i>*<i>height</i>, int<i> </i>*<i>maxdepth</i><b>)</b></p>
+<p class="p7"><b>PSfrontwindow(</b>int *<i>window</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PShidecursor(</b>void<b>)</b></p>
+<p class="p7"><b>PShideinstance(</b>float <i>x</i>, float <i>y</i>, float <i>width</i>, float <i>height</i><b>)</b></p>
+<p class="p7"><b>PSmachportdevice(</b>int <i>width</i>, int <i>height</i>, const int <i>bbox</i>[], int <i>bboxSize</i>, const float <i>matrix</i>[], const char *<i>hostname</i>, const char *<i>portname</i>, const char *<i>pixelencoding</i><b>)</b></p>
+<p class="p7"><b>PSmovewindow(</b>float <i>x</i>, float <i>y</i>, userobject <i>window</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSnewinstance(</b>void<b>)</b></p>
+<p class="p7"><b>PSnextrelease(</b>int <i>size</i>, char <i>string</i>[]<b>)</b></p>
+<p class="p7"><b>PSobscurecursor(</b>void<b>)</b></p>
+<p class="p7"><b>PSorderwindow(</b>int <i>place</i>, userobject <i>otherwindow</i>, int <i>window</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p9"><i>The value passed as place</i> should be one of the following:</p>
+<p class="p10"><br></p>
+<p class="p9">NX_ABOVE<span class="Apple-converted-space"> </span></p>
+<p class="p9">NX_BELOW<span class="Apple-converted-space"> </span></p>
+<p class="p9">NX_OUT</p>
+<p class="p10"><br></p>
+<p class="p7"><b>PSosname(</b>int <i>size</i>, char <i>string</i>[]<b>)</b><span class="Apple-converted-space"> </span></p>
+<p class="p7"><b>PSostype(</b>int *<i>type</i><b>)</b></p>
+<p class="p7"><b>PSplacewindow(</b>float <i>x</i>, float <i>y</i>, float <i>width</i>, float <i>height</i>, userobject <i>window</i><b>)</b><span class="s2">†</span></p>
+<p class="p8"><span class="s2"></span><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSplaysound(</b>const char *<i>soundname</i>, int <i>priority</i><b>)</b><span class="Apple-converted-space"> </span></p>
+<p class="p7"><b>PSposteventbycontext(</b>int <i>type</i>, float <i>x</i>, float <i>y</i>, int <i>time</i>, int <i>flags</i>, int <i>window</i>, int <i>subtype</i>, int <i>misc0</i>, int <i>misc1</i>, int <i>context</i>, boolean *<i>success</i> <b>)</b></p>
+<p class="p7"><b>PSreadimage(</b>void<b>)</b></p>
+<p class="p7"><b>PSrevealcursor(</b>void<b>)</b></p>
+<p class="p7"><b>PSrightbuttondown(</b>int *<i>isdown</i><b>)</b></p>
+<p class="p7"><b>PSrightstilldown(</b>int <i>eventnum</i>, boolean *<i>stilldown</i><b>)</b></p>
+<p class="p7"><b>PSscreenlist(</b>int <i>context</i>, int <i>count</i>, int <i>array</i>[]<b>)</b></p>
+<p class="p7"><b>PSscreentobase(</b>float <i>sx</i>, float <i>sy</i>, float *<i>bx</i>, float *<i>by</i><b>)</b></p>
+<p class="p7"><b>PSscreentocurrent(</b>float <i>sx</i>, float <i>sy</i>, float *<i>cx</i>, float *<i>cy</i><b>)</b></p>
+<p class="p7"><b>PSsetactiveapp(</b>int <i>context</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSsetalpha(</b>float <i>coverage</i><b>)</b></p>
+<p class="p7"><b>PSsetautofill(</b>boolean <i>flag</i>, userobject <i>window</i><b>)</b><span class="Apple-converted-space"> </span></p>
+<p class="p7"><b>PSsetcursor(</b>float <i>x</i>, float <i>y</i>, float <i>mx</i>, float <i>my</i><b>)</b></p>
+<p class="p7"><b>PSsetdefaultdepthlimit(</b>int <i>depth</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSseteventmask(</b>int <i>mask</i>, userobject <i>window</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p9">See the constants listed under “Event Type Masks” in the section “Types and Constants” for a list of <i>mask</i> values.</p>
+<p class="p10"><br></p>
+<p class="p7"><b>PSsetexposurecolor(</b>void<b>)</b></p>
+<p class="p7"><b>PSsetflushexposures(</b>boolean <i>flag</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7">PSsetframebuffertransfer(void)</p>
+<p class="p7"><b>PSsetinstance(</b>boolean <i>flag</i><b>)</b></p>
+<p class="p7"><b>PSsetmouse(</b>float <i>x</i>, float <i>y</i><b>)</b></p>
+<p class="p7"><b>PSsetowner(</b>userobject <i>context</i>, userobject <i>window</i><b>)</b></p>
+<p class="p7"><b>PSsetsendexposed(</b>boolean <i>flag</i>, userobject <i>window</i><b>)</b><span class="s2">†</span></p>
+<p class="p8"><span class="s2"></span><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSsetshowpageprocedure(</b>int <i>window</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSsettrackingrect(</b>float <i>x</i>, float <i>y</i>, float <i>width</i>, float <i>height</i>, boolean <i>leftbool</i>, boolean <i>rightbool</i>, boolean <i>insidebool</i>, int <i>userdata</i>, int <i>trectnum</i>, userobject <i>gstate</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Note:<span class="Apple-converted-space">  </span>Only the Form 1 version of <b>the settrackingrect</b> operator is offered as a C function.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSsetwaitcursorenabled(</b>boolean <i>flag</i><b>)</b></p>
+<p class="p7"><b>PSsetwindowdepthlimit(</b>int <i>depth</i>, userobject <i>window</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSsetwindowdict(</b>userobject <i>window</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSsetwindowlevel(</b>int <i>level</i>, userobject <i>window</i><b>)</b></p>
+<p class="p7"><b>PSsetwindowtype(</b>int <i>type</i>, userobject <i>window</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSsetwriteblock(</b>int <i>flag</i><b>)</b></p>
+<p class="p7"><b>PSshow(</b>const char *<i>string</i><b>)</b></p>
+<p class="p7"><b>PSshowcursor(</b>void<b>)</b></p>
+<p class="p7"><b>PSsizeimage(</b>float <i>x</i>, float <i>y</i>, float <i>width</i>, float <i>height</i>, int *<i>pixelswide</i>, int *<i>pixelshigh</i>, int *<i>bits/sample</i>, float <i>matrix</i>[], boolean *<i>multiproc</i>, int *<i>ncolors</i><b>)</b></p>
+<p class="p7"><b>PSstilldown(</b>int <i>eventnum</i>, boolean *<i>stilldown</i><b>)</b></p>
+<p class="p7"><b>PStermwindow(</b>userobject <i>window</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSwindow(</b>float <i>x</i>, float <i>y</i>, float <i>width</i>, float <i>height</i>, int <i>type</i>, int *<i>window</i><b>)</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p11">Warning:<span class="Apple-converted-space">  </span>Don't use this function if you're using the Application Kit.</p>
+<p class="p12"><br></p>
+<p class="p7"><b>PSwindowdevice(</b>userobject <i>window</i><b>)</b></p>
+<p class="p7"><b>PSwindowdeviceround(</b>userobject <i>window</i><b>)</b></p>
+<p class="p7"><b>PSwindowlist(</b>int <i>context</i>, int <i>count</i>, int <i>subarray[]</i><b>)</b></p>
+</body>
+</html>

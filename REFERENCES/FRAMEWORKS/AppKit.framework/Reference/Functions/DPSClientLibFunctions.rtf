@@ -1,0 +1,1881 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f3\fmodern Courier;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh12580
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+\fs100 \
+
+\f2\b\fs66\li2460 Client Library Functions\
+
+\fs80 \
+
+\fs28\li2380 \
+
+{{\NeXTHelpMarker90 \markername NS_DEV_DOCFOR:objc_function:DPSRemoveFD();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSAddFD(), DPSRemoveFD()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Monitor a file descriptor\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	void 
+\b DPSAddFD(
+\b0 int€
+\i fd
+\i0 , DPSFDProc€
+\i handler
+\i0 , void€*
+\i userData
+\i0 , int€
+\i priority
+\b\i0 )
+\b0  \
+
+\pard\fi-380\li2760\fc0\cf0 void 
+\b DPSRemoveFD(
+\b0 int€
+\i fd
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b DPSAddFD()
+\b0  registers the function
+\i  handler
+\i0  to be called each time there is activity with the file specified by file descriptor 
+\i fd
+\i0 .  The function is called provided the following are true:\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\fi-380\li2760\fc0\cf0 ·	The file descriptor 
+\i fd
+\i0  must be valid and open; typically 
+\i fd
+\i0  is generated through a call to 
+\b open()
+\b0 .  There needn't be any data waiting to be read on 
+\i fd
+\i0 .\
+
+\fs20 \
+
+\fs28 ·	
+\i priority
+\i0 , an integer from 0 to 30, must be equal to or greater than the application's current priority threshold.  See 
+\b DPSAddTimedEntry()
+\b0  for a further explanation.\
+
+\fs20 \
+
+\fs28\fi0\li2380 DPSFDProc, 
+\i handler
+\i0 's defined type, takes the form\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f3\fs24\li2760\fc0\cf0 void
+\i €*handler
+\i0 (int€
+\i fd
+\i0 , void€*
+\i userData
+\i0 )\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 where 
+\i fd
+\i0  is the file descriptor that prompted the function call and 
+\i userData
+\i0  is the same pointer that was passed as the third argument to 
+\b DPSAddFD()
+\b0 .  The 
+\i userData
+\i0  pointer is provided as a convenience, allowing you to pass arbitrary data to 
+\i handler
+\i0 . \
+
+\fs20 \
+
+\b\fs28 DPSRemoveFD()
+\b0  removes the specified file descriptor from the list of those that the application will check.  \
+
+\fs20 \
+
+\fs28 Typically, 
+\b DPSAddFD()
+\b0  is used to listen to a socket or pipe; it's rarely used to monitor a common file.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1540\li2380\fc0\cf0 SEE ALSO
+\b 	DPSAddPort(), DPSAddTimedEntry()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker1421 \markername NS_DEV_DOCFOR:objc_function:DPSRemoveNotifyPortProc();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSAddNotifyPortProc(), DPSRemoveNotifyPortProc()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Set the handler function for the notify port\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	void 
+\b DPSAddNotifyPortProc(
+\b0 DPSPortProc€
+\i handler
+\i0 , void€*
+\i userData
+\b\i0 )
+\b0  \
+
+\pard\fi-380\li2760\fc0\cf0 void 
+\b DPSRemoveNotifyPortProc(
+\b0 DPSPortProc€
+\i handler
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b DPSAddNotifyPortProc()
+\b0  registers 
+\i handler
+\i0  as the function that's called when a message arrives on the notify port, the unique port, created through the 
+\b task_notify()
+\b0  Mach function, on which notifications (such as port death) are sent.  You don't need to create the notify port yourself; 
+\b DPSAddNotifyPortProc()
+\b0  creates it for you if it doesn't already exist.  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 DPSPortProc, 
+\i handler
+\i0 's defined type, takes the form\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f3\fs24\li2760\fc0\cf0 void
+\i  
+\f1\i0 *
+\f3\i handler
+\i0 (msg_header_t *
+\i msg
+\i0 , void *
+\i userData
+\i0 )\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 where 
+\i msg
+\i0  is a pointer to the message that was received at the port and 
+\i userData
+\i0  is the same€pointer that was passed as the second argument to 
+\b DPSAddNotifyPortProc()
+\b0 .  The€
+\i userData
+\i0  pointer is provided as a convenience, allowing you to pass arbitrary data to€
+\i handler
+\i0 .\
+
+\fs20 \
+
+\fs28 The notify port can have only one handler at a time; adding a handler removes the current one.  You can remove the port's handler without specifying a new one with the 
+\b DPSRemoveNotifyPortProc()
+\b0  function.  The function's argument must match the notify port's current handler. \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1540\li2380\fc0\cf0 SEE ALSO
+\b 	DPSAddPort(), DPSAddTimedEntry()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker2751 \markername NS_DEV_DOCFOR:objc_function:DPSRemovePort();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSAddPort(), DPSRemovePort()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Monitor a Mach port\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	void 
+\b DPSAddPort(
+\b0 port_t€
+\i port
+\i0 , DPSPortProc€
+\i handler
+\i0 , int€
+\i maxMsgSize
+\i0 , void€*
+\i userData
+\i0 , int€
+\i priority
+\b\i0 )
+\b0  \
+
+\pard\fi-380\li2760\fc0\cf0 void 
+\b DPSRemovePort(
+\b0 port_t€
+\i port
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b DPSAddPort()
+\b0  registers the function
+\i  handler
+\i0  to be called each time your application asks€for an event or peeks at the event queue.  The function is called provided the following are true:\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\fi-380\li2760\fc0\cf0 ·	The Mach port 
+\i port
+\i0   must be valid and it must hold a message waiting to be read. \
+
+\fs20 \
+
+\fs28 ·	
+\i priority
+\i0 , an integer from 0 to 30, must be equal to or greater than the application's current priority threshold.  See 
+\b DPSAddTimedEntry()
+\b0  for a further explanation.\
+
+\fs20 \
+
+\fs28\fi0\li2380 DPSPortProc, 
+\i handler
+\i0 's defined type, takes the form\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f3\fs24\li2760\fc0\cf0 void
+\i  *handler
+\i0 (msg_header_t *
+\i msg
+\i0 , void *
+\i userData
+\i0 )\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 where 
+\i msg
+\i0  is a pointer to the message that was received at the port and 
+\i userData
+\i0  is the same pointer that was passed as the fourth argument to 
+\b DPSAddPort()
+\b0 .  The 
+\i userData
+\i0  pointer is provided as a convenience, allowing you to pass arbitrary data to 
+\i handler
+\i0 .\
+
+\fs20 \
+
+\fs28 If, within 
+\i handler
+\i0 , you want to call 
+\b msg_receive()
+\b0  to receive further messages at the port, you must first call 
+\b DPSRemovePort()
+\b0  to remove the port from the system's port set.  (This is because your application can't receive messages from a port that's in a port set.)  After your application is finished receiving messages directly from the port, it can call 
+\b DPSAddPort()
+\b0  to have the system continue to monitor the port.\
+
+\fs20 \
+
+\fs28 The contents of the message buffer 
+\i msg
+\i0 , as received by 
+\i handler
+\i0 , are invalid after the function returns.  If you need to save any of the information that you find.\
+
+\fs20 \
+
+\fs28 The 
+\i maxMsgSize
+\i0  argument is an integer that gives the size, in bytes, of the largest message you expect to receive. \
+
+\fs20 \
+
+\b\fs28 DPSRemovePort()
+\b0  removes the specified Mach port from the list of those that the application will check.  \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1540\li2380\fc0\cf0 SEE ALSO
+\b 	DPSAddFD(), DPSAddTimedEntry()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker4654 \markername NS_DEV_DOCFOR:objc_function:DPSRemoveTimedEntry();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSAddTimedEntry(), DPSRemoveTimedEntry()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Create a timed entry\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	DPSTimedEntry 
+\b DPSAddTimedEntry(
+\b0 double 
+\i €period
+\i0 , DPSTimedEntryProc€
+\i handler
+\i0 , void€*
+\i userData
+\i0 , int€
+\i priority
+\b\i0 )
+\b0  \
+
+\pard\fi-380\li2760\fc0\cf0 void 
+\b DPSRemoveTimedEntry(
+\b0 DPSTimedEntry€
+\i tag
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b DPSAddTimedEntry()
+\b0  registers 
+\i handler
+\i0  as a ªtimed entry,º a function that's called repeatedly at a given time interval.  
+\i period
+\i0  determines the number of seconds between calls to the timed entry.  Whenever an application based on the Application Kit attempts to retrieve events from the event queue, it also checks (depending on 
+\i priority
+\i0 ) to determine whether any timed entries are due to be called.  
+\i userData
+\i0  is a pointer that you can use to pass some data to the timed entry.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The function registered as 
+\i handler
+\i0  has the form:\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f3\fs24\li2760\fc0\cf0 void
+\i  *handler
+\i0 (DPSTimedEntry 
+\i tag
+\i0 , double 
+\i now
+\i0 , void *
+\i userData
+\i0 )\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 where 
+\i tag
+\i0  is the timed entry identifier returned by 
+\b DPSAddTimedEntry()
+\b0 , 
+\i now
+\i0  is the number of seconds since some arbitrary point in the past, and 
+\i userData
+\i0  is the pointer 
+\b DPSAddTimedEntry()
+\b0  received when this timed entry was installed.\
+
+\fs20 \
+
+\fs28 An application's priority threshold can be set explicitly as an integer from 0 to 31 through a call to 
+\b DPSGetEvent()
+\b0  or 
+\b DPSPeekEvent()
+\b0 .  It's against this threshold that 
+\i priority
+\i0  is measured (note that 
+\i priority
+\i0  can be no greater than 30Ðthe additional threshold level, 31, is provided to disallow all inter-event function calls).  However, if you're using the Application Kit, you should access the event queue through Application class methods such as 
+\b getNextEvent:
+\b0 .  Although some of these methods let you set the priority threshold explicity, you typically invoke the methods that set it automatically.  Such methods use only three priority levels:\
+
+\fs20 \
+
+\fs4 \
+
+\pard\tx6420\tx10440\f2\b\fs28\li2760\fc0\cf0 Constant	Meaning\
+
+\fs6 \
+
+\f0\b0\fs28 NX_BASETHRESHOLD	Normal execution\
+NX_RUNMODALTHRESHOLD	An attention panel is being run\
+NX_MODALRESPTHRESHOLD	A modal event loop is being run\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 When applicable, you should use these constants as the value for 
+\i priority
+\i0 .  For example, if you want 
+\i handler
+\i0  to be called during normal execution, but not if an attention panel or a modal loop is running, then you would set 
+\i priority
+\i0  to NX_BASETHRESHOLD.  \
+
+\fs20 \
+
+\b\fs28 DPSRemoveTimedEntry()
+\b0  removes a previously registered timed entry.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	
+\b DPSAddTimedEntry()
+\b0  returns a number identifying the timed entry or 
+\f1 -
+\f0 1 to indicate an€error.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker6999 \markername NS_DEV_DOCFOR:objc_function:DPSAsynchronousWaitContext();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSAsynchronousWaitContext()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Procede asynchronously while PostScript code is executed\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	void 
+\b DPSAsynchronousWaitContext(
+\b0 DPSContext 
+\i context
+\i0 , DPSPingProc 
+\i handler
+\i0 ,\
+
+\fi0 void *
+\i userData
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	This function is similar to the more familiar 
+\b DPSWaitContext()
+\b0  functions, except that rather than wait for all PostScript code to execute, it returns immediately, allowing your application to procede while the PostScript code is executed in the background.  The DPSPingProc function 
+\i handler
+\i0  is called (with 
+\i context
+\i0  and 
+\i userData
+\i0  as its two arguments) when all the PostScript code has been executed.  The DPSPingProc function takes the form\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f3\fs24\li2760\fc0\cf0 void *
+\i handler
+\i0 (DPSContext 
+\i context
+\i0 , void *
+\i userData
+\i0 );\
+
+\fs20 \
+
+\pard\f0\fs28\li2380\fc0\cf0 Warning:  Be careful when you use this function; you mustn't send more PostScript code€while waiting for the handler to be called.  In general, it's best to not make any demands on the Application Kit or the Client Library if you're waiting for an asynchronous handler to return.\
+
+\fs20 \
+
+\fs60 \
+
+\f2\b\fs28 \
+
+{{\NeXTHelpMarker8016 \markername NS_DEV_DOCFOR:objc_function:DPSCreateStreamContext();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSCreateContext(), DPSCreateContextWithTimeoutFromZone(), DPSCreateNonsecureContext(), DPSCreateStreamContext()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Create a PostScript execution context\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	DPSContext 
+\b DPSCreateContext(
+\b0 const€char€*
+\i hostName
+\i0 , const€char€*
+\i serverName
+\i0 , DPSTextProc€
+\i textProc
+\i0 , DPSErrorProc€
+\i errorProc
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 DPSContext 
+\b DPSCreateContextWithTimeoutFromZone(
+\b0 const€char€*
+\i hostName
+\i0 , const€char€*
+\i serverName
+\i0 , DPSTextProc€
+\i textProc
+\i0 , DPSErrorProc€
+\i errorProc
+\i0 , int€
+\i timeout
+\i0 , NXZone€*
+\i zone
+\b\i0 )
+\b0  \
+DPSContext 
+\b DPSCreateNonsecureContext(
+\b0 const€char€*
+\i hostName
+\i0 , const€char€*
+\i serverName
+\i0 , DPSTextProc 
+\i textProc
+\i0 , DPSErrorProc 
+\i errorProc
+\i0 , int€
+\i timeout
+\i0 , NXZone€*
+\i zone
+\b\i0 )
+\b0  \
+DPSContext 
+\b DPSCreateStreamContext(
+\b0 NXStream *
+\i stream
+\i0 , int 
+\i debugging
+\i0 , DPSProgramEncoding 
+\i progEnc
+\i0 , DPSNameEncoding 
+\i nameEnc
+\i0 , DPSErrorProc€
+\i errorProc
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b DPSCreateContext()
+\b0  establishes a connection with the Window Server and creates a PostScript execution context in it.  The new context becomes the current context.  The first argument, 
+\i hostName
+\i0 , identifies the machine that's running the Window Server; the second argument, 
+\i serverName
+\i0 , identifies the Window Server that's running on that machine.  With these two arguments and the help of the Mach network server 
+\b nmserver
+\b0 , the Mach port for the Window Server can be identified.  If 
+\i hostName
+\i0  is NULL, the network server on the local machine is queried for the Window Server's port.  If 
+\i serverName
+\i0  is NULL, a default name for the Window Server is used.  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The last two arguments, 
+\i textProc
+\i0  and 
+\i errorProc
+\i0 , refer to call-back functions (defined in the Client Library specification) that handle text returned from the Window Server and errors generated on either side of the connection. \
+
+\fs20 \
+
+\fs28 For an application that's based on the Application Kit, you could create an additional context by making this call:\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f3\fs24\li2760\fc0\cf0 DPSContext  c;\
+\
+c = DPSCreateContext(NXGetDefaultValue([NXApp appName], "NXHost"),\
+                   NXGetDefaultValue([NXApp appName], "NXPSName"),\
+                   NULL,\
+                   NULL);\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 This example queries the application's default values for the indentity of the host machine and the Window Server.  By doing this, the new context is created in the correct Window Server even if that Server is not on the same machine as the application process.  \
+
+\fs20 \
+
+\fs28 The context that 
+\b DPSCreateContext()
+\b0  creates allocates memory from the default allocation zone.  Also, when there's difficulty creating the context, 
+\b DPSCreateContext()
+\b0  waits up to 60 seconds before raising an exception.  If you want to change either of these parameters, use 
+\b DPSCreateContextWithTimeoutFromZone()
+\b0 .  Its two additional arguments let you specify the zone for the context to use when allocating context-specific data and a timeout value in milliseconds.\
+
+\fs20 \
+
+\b\fs28 DPSCreateNonsecureContext()
+\b0  creates a ªnonsecureº context in which you can use PostScript operators that are normally disallowed.  The most significant of these are operators that let you write files.\
+
+\fs20 \
+
+\b\fs28 DPSCreateStreamContext()
+\b0  is similar to 
+\b DPSCreateContext()
+\b0 , except that the new context is actually a connection from the client application to a stream.  This connection becomes the current context.  PostScript code that the application generates is sent to the stream rather than to the Window Server.  The first argument, 
+\i stream
+\i0 , is a pointer to an NXStream structure, as created by 
+\b NXOpenFile()
+\b0  or 
+\b NXMapFile()
+\b0 .  The
+\i  debugging 
+\i0 argument
+\i  
+\i0 is intended for debugging purposes but is not currently implemented.  
+\i progEnc 
+\i0 and
+\i  nameEnc 
+\i0 specify the type of program and user-name encodings to be used for output to the stream.  The last argument, 
+\i errorProc
+\i0 , identifies the procedure that's called when errors are generated.\
+
+\fs20 \
+
+\fs28 Few programmers will need to call either of these functions directly:  The Application Kit manages contexts for programs based on the Kit.  For example, when an application is launched, its Application object calls 
+\b DPSCreateContext()
+\b0  to create a context in the Window Server.  Similarly, to print a View the Kit calls 
+\b DPSCreateStreamContext()
+\b0  to temporarily redirect PostScript code from the View to a stream.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Each of these functions returns the newly created DPSContext structure.\
+
+\fs20 \
+
+\fs10 \
+
+\fs28\fi-1860 EXCEPTIONS	
+\b DPSCreateContext()
+\b0  and 
+\b DPSCreateContextWithTimeoutFromZone()
+\b0  raise a dps_err_outOfMemory exception if they encounter difficulty allocating ports or other resources for the new context.  They raise a dps_err_cantConnect exception if they can't return a context within the timeout period.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker12465 \markername NS_DEV_DOCFOR:objc_function:DPSUndefineUserObject();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSDefineUserObject(), DPSUndefineUserObject()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Create a user object\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b DPSDefineUserObject(
+\b0 int 
+\i index
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 void 
+\b DPSUndefineUserObject(
+\b0 int 
+\i index
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b DPSDefineUserObject()
+\b0  associates 
+\i index
+\i0  with the PostScript object that's on the top of the€operand stack, thereby creating a user object (as defined by the PostScript language).  If€
+\i index
+\i0  is 0, the object is assigned the next available index number.  The function returns the new index, which can then be passed to a 
+\b pswrap
+\b0 -generated function that takes a user€object.\
+
+\fs20 \
+
+\pard\fs28\li2380\fc0\cf0 Warning:  To avoid coming into conflict with user objects defined by the Client Library or Application Kit, use 
+\b DPSDefineUserObject()
+\b0  rather than the PostScript operator 
+\b defineuserobject
+\b0  or the single-operator functions 
+\b DPSdefineuserobject()
+\b0  and 
+\b PSdefineuserobject()
+\b0 .\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 DPSUndefineUserObject()
+\b0  removes the association between 
+\i index
+\i0  and the PostScript object it refers to, thus destroying the user object.  By destroying a user object that's no longer needed, you can let the garbage collector reclaim the previously associated PostScript object.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	
+\b DPSDefineUserObject()
+\b0 , if successful in assigning an index, returns the index that the object was assigned.  If unsuccessful, it returns 0.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker13740 \markername NS_DEV_DOCFOR:objc_function:DPSDoUserPathWithMatrix();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSDoUserPath(), DPSDoUserPathWithMatrix()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Send an encoded PostScript path to the Window Server\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	void 
+\b DPSDoUserPath(
+\b0 void *
+\i coords
+\i0 , int€
+\i numCoords
+\i0 , DPSNumberFormat€
+\i numType
+\i0 , unsigned€char€*
+\i ops
+\i0 , int 
+\i numOps
+\i0 , void *
+\i bbox
+\i0 , int 
+\i action
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 void 
+\b DPSDoUserPathWithMatrix(
+\b0 void *
+\i coords
+\i0 , int€
+\i numCoords
+\i0 , DPSNumberFormat€
+\i numType
+\i0 , unsigned char *
+\i ops
+\i0 , int 
+\i numOps
+\i0 , void *
+\i bbox
+\i0 , int€
+\i action
+\i0 , float€
+\i matrix
+\i0 [6]
+\b )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b DPSDoUserPath()
+\b0  and 
+\b DPSDoUserPathWithMatrix()
+\b0  send an encoded user path to the Window Server and then execute, upon that path, the operator specified by 
+\i action
+\i0 .  The use of these functions, rather than the analogous step-by-step path construction, is encouraged; rendering an encoded path is much more efficient than executing the individual PostScript operators that would otherwise be needed.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 An encoded user path consists of an array of coordinate values, a sequence of PostScript operators, and a bounding box specification.  The values in the coordinate array are used as operands to the operators; the operands are distributed to the operators in the order that they're given.  The resulting path must fit within the bounding box.  \
+
+\fs20 \
+
+\fs28 The coordinates, operators, and bounding box are given by the functions' first five arguments:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	The array of coordinate values is given by 
+\i coords
+\i0 . \
+
+\fs20 \
+
+\fs28 ·	
+\i numCoords
+\i0  is the number of elements in 
+\i coords
+\i0 .\
+
+\fs20 \
+
+\fs28 ·	 
+\i numType
+\i0  specifies the data type of the coordinates, as described below.  All the values in 
+\i coords
+\i0  must be of the same type.\
+
+\fs20 \
+
+\fs28 ·	
+\i ops
+\i0  is the sequence of PostScript operators, represented by constants as listed below. \
+
+\fs20 \
+
+\fs28 ·	The  bounding box is defined by the four coordinate values that you pass as an array in the 
+\i bbox
+\i0  argument.  These are passed as operands to the 
+\b setbbox
+\b0  operator.  (If you don't supply a 
+\b setbbox
+\b0  as part of the 
+\i ops
+\i0  sequence, one is inserted for you.) \
+
+\fs20 \
+
+\fs28\fi0\li2380 The following integer constants represent the data types that you can pass as the 
+\i numType
+\i0 €argument:\
+
+\fs20 \
+
+\fs4 \
+
+\pard\tx6420\tx10440\f2\b\fs28\li2760\fc0\cf0 Constant	Meaning\
+
+\fs6 \
+
+\f0\b0\fs28 dps_float	single-precision floating-point number\
+dps_long	32-bit integer\
+dps_short	8-bit integer\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 You can also specify 16- and 32-bit fixed-point real numbers.  For 16-bit fixed-point numbers, use 
+\b dps_short
+\b0  plus the number of bits in the fractional portion.  For 32-bit fixed-point numbers, use 
+\b dps_long
+\b0  plus the number of bits in the fractional portion. \
+
+\fs20 \
+
+\fs28 These constants are provided for 
+\i ops
+\i0 :\
+
+\fs20 \
+
+\pard\tx6420\tx10440\fs28\li2760\fc0\cf0 dps_setbbox\
+dps_moveto\
+dps_rmoveto\
+dps_lineto\
+dps_rlineto\
+dps_curveto\
+dps_rcurveto\
+dps_arc\
+dps_arcn\
+dps_arct\
+dps_closepath\
+dps_ucache\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 Once the user path has been constructed, the operator specified by 
+\i action
+\i0  is executed.  The value of 
+\i action
+\i0  is an index into Display PostScript's encoded system names; the following constants, provided as a convenience, represent the most commonly used actions:\
+
+\fs20 \
+
+\pard\tx6420\tx10440\fs28\li2760\fc0\cf0 dps_uappend\
+dps_ufill\
+dps_ueofill\
+dps_ustroke\
+dps_ustrokepath\
+dps_inufill\
+dps_inueofill\
+dps_inustroke\
+dps_def\
+dps_put\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 DPSDoUserPathWithMatrix()
+\b0 's 
+\i matrix
+\i0  argument represents the transformation matrix operand used by the 
+\b ustroke
+\b0 , 
+\b inustroke
+\b0 , and 
+\b ustrokepath
+\b0  operators.  If 
+\i matrix
+\i0  is NULL, the argument is ignored.\
+
+\fs20 \
+
+\fs28 The following program fragment demonstrates the use of 
+\b DPSDoUserPath()
+\b0  as it creates and strokes a user path (an isosceles triangle) within a bounding rectangle whose lower left corner is located at (0, 0) and whose width and height are 200.\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f3\fs24\li2760\fc0\cf0 short   coords[6] = \{0, 0, 200, 0, 100, 200\};\
+char    ops[4] = \{dps_moveto, dps_lineto,dps_lineto, \
+                    dps_closepath\};\
+short   bbox[4] = \{0, 0, 200, 200\};\
+\
+DPSDoUserPath(coords, 6, dps_short, ops, 4, bbox, dps_ustroke);\
+
+\fs20 \
+
+\pard\f0\fs28\li2380\fc0\cf0 Note:  If an application calls 
+\b DPSDoUserPath()
+\b0  with large values (~10,000-20,000) of 
+\i numCoords
+\i0  and/or 
+\i numOps
+\i0 , it may generate a Display PostScript error.\
+
+\fs20 \
+
+\fs60 \
+
+\f2\b\fs28 \
+
+{{\NeXTHelpMarker17467 \markername NS_DEV_DOCFOR:objc_function:DPSSendEOF();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSFlush(), DPSSendEOF() \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Send PostScript data to the Window Server\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	void 
+\b DPSFlush()\
+
+\pard\b0\fi-380\li2760\fc0\cf0 void 
+\b DPSSendEOF(
+\b0 DPSContext 
+\i context
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b DPSFlush()
+\b0  flushes the application's output buffer, forcing any buffered PostScript code or data to the Window Server.  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 DPSSendEOF()
+\b0  sends a PostScript end-of-file marker to the given context.  The connection to the context isn't closed or disturbed in any way by this function.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker17938 \markername NS_DEV_DOCFOR:objc_function:DPSDiscardEvents();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSGetEvent(), DPSPeekEvent(), DPSDiscardEvents() \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Access events from the Window Server\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b DPSGetEvent(
+\b0 DPSContext 
+\i context
+\i0 , NXEvent *
+\i anEvent
+\i0 , int 
+\i mask
+\i0 , double 
+\i timeout
+\i0 , int€
+\i threshold
+\b\i0 )
+\b0  \
+
+\pard\fi-380\li2760\fc0\cf0 int 
+\b DPSPeekEvent(
+\b0 DPSContext 
+\i context
+\i0 , NXEvent *
+\i anEvent
+\i0 , int 
+\i mask
+\i0 , double€
+\i timeout
+\i0 , int€
+\i threshold
+\b\i0 )
+\b0  \
+void 
+\b DPSDiscardEvents(
+\b0 DPSContext 
+\i context
+\i0 , int 
+\i mask
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b DPSGetEvent()
+\b0  and 
+\b DPSPeekEvent()
+\b0  are macros that access event records in an application's event queue.  These routines are provided primarily for programs that don't use the Application Kit.  An application based on the Kit should use the corresponding Application class methods (such as 
+\b getNextEvent:
+\b0  and 
+\b peekNextEvent:into:
+\b0 ) or the function 
+\b NXGetOrPeekEvent()
+\b0  so that it can be journaled.  
+\b DPSDiscardEvents()
+\b0  removes all event records of a specified type from the queue.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 DPSGetEvent()
+\b0  and 
+\b DPSPeekEvent()
+\b0  differ only in how they treat the accessed event record.  
+\b DPSGetEvent()
+\b0  removes the record from the queue after making its data available to the application; 
+\b DPSPeekEvent()
+\b0  leaves the record in the queue.  \
+
+\fs20 \
+
+\b\fs28 DPSGetEvent()
+\b0  and 
+\b DPSPeekEvent()
+\b0  take the same parameters.  The first, 
+\i context
+\i0 , represents a PostScript execution context within the Window Server.  Virtually all applications have only one execution context, which can be returned using 
+\b DPSGetCurrentContext()
+\b0 .  Applications having more than one execution context can use the constant DPS_ALLCONTEXTS to access events from all contexts belonging to them.\
+
+\fs20 \
+
+\fs28 The second argument, 
+\i anEvent
+\i0 , is a pointer to an event record.  If 
+\b DPSGetEvent()
+\b0  or 
+\b DPSPeekEvent()
+\b0  is successful in accessing an event record, the record's data is copied into the storage referred to by 
+\i anEvent
+\i0 .  \
+
+\fs20 \
+
+\i\fs28 mask
+\i0  determines the types of events sought.  See the section ªTypes and Constantsº for a list of the constants that represent the event type masks.  To check for more than one type of event, you combine individual constants using the bitwise OR operator.\
+
+\fs20 \
+
+\fs28 If an event matching the event mask isn't available in the queue, 
+\b DPSGetEvent()
+\b0  or 
+\b DPSPeekEvent()
+\b0  waits until one arrives or until 
+\i timeout
+\i0  seconds have elapsed, whichever occurs first.  The value of 
+\i timeout
+\i0  can be in the range of 0.0 to NX_FOREVER.  If 
+\i timeout
+\i0  is 0.0, the routine returns an event only if one is waiting in the queue when the routine asks for it.  If 
+\i timeout
+\i0  is NX_ FOREVER, the routine waits until an appropriate event arrives before returning.  \
+
+\fs20 \
+
+\fs28 The last argument, 
+\i threshold
+\i0 , is an integer in the range 0 through 31 that determines which other services may be provided during a call to 
+\b DPSGetEvent()
+\b0  or 
+\b DPSPeekEvent()
+\b0 .  \
+
+\fs20 \
+
+\fs28 Requests for services are registered by the functions 
+\b DPSAddTimedEntry()
+\b0 , 
+\b DPSAddPort()
+\b0 , and 
+\b DPSAddFD()
+\b0 .  Each of these functions takes an argument specifying a priority level.  If this level is equal to or greater than 
+\i threshold
+\i0 , the service is provided before 
+\b DPSGetEvent()
+\b0  or 
+\b DPSPeekEvent()
+\b0  returns.  \
+
+\fs20 \
+
+\b\fs28 DPSDiscardEvents()
+\b0 's two parameters, 
+\i context
+\i0  and 
+\i mask
+\i0 , are the same as those for 
+\b DPSGetEvent()
+\b0  and 
+\b DPSPeekEvent()
+\b0 .  
+\b DPSDiscardEvents()
+\b0  removes from the application's event queue those records whose event types match 
+\i mask
+\i0  and whose context matches 
+\i context
+\i0 .  \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	
+\b DPSGetEvent()
+\b0  and 
+\b DPSPeekEvent()
+\b0  return 1 if they are successful in accessing an event record and 0 if they aren't.\
+
+\fs20 \
+
+\fs10 \
+
+\fs28\fi-1540 SEE ALSO
+\b 	DPSAddFD(), DPSAddPort(), DPSAddTimedEntry(), DPSPostEvent(), NXGetOrPeekEvent()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker21355 \markername NS_DEV_DOCFOR:objc_function:DPSInterruptContext();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSInterruptContext() \
+
+\fs20 \
+
+\f0\b0\fs28 Warning:  This function is unimplemented in the NEXTSTEP version of the Client Library.\
+
+\fs20 \
+
+\fs60 \
+
+\f2\b\fs28 \
+
+{{\NeXTHelpMarker21471 \markername NS_DEV_DOCFOR:objc_function:DPSNameFromTypeAndIndex();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSNameFromTypeAndIndex() \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Access the system and user name tables\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	const char *
+\b DPSNameFromTypeAndIndex(
+\b0 short 
+\i type
+\i0 , int 
+\i index
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b DPSNameFromTypeAndIndex()
+\b0  returns the text associated with 
+\i index
+\i0  from the system€or user name table.  If 
+\i type
+\i0  is 
+\f1 -
+\f0 1, the text is returned from the system name table; if€
+\i type
+\i0  is 0, it's returned from the user name table.  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The name tables are used primarily by the Client Library and 
+\b pswrap
+\b0 ; few programmers will access them directly.  \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	This function returns a read-only character string.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker22064 \markername NS_DEV_DOCFOR:objc_function:DPSPostEvent();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSPostEvent() \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Create an event\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b DPSPostEvent(
+\b0 NXEvent *
+\i anEvent
+\i0 , int 
+\i atStart
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b DPSPostEvent()
+\b0  lets you add an event record to your application's event queue without involving the Window Server.  
+\i anEvent
+\i0  is a pointer to the event record to be added.  
+\i atStart
+\i0  specifies where the new record will be placed in relation to any other records in the queue.  If 
+\i atStart
+\i0  is TRUE, the event is posted in front of all others and so will be the next one your application receives.  If 
+\i atStart
+\i0  is FALSE, the event is posted behind all others and so won't be returned until events that precede it are processed.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 You can free, reuse, or otherwise mangle 
+\i anEvent
+\i0  after you've posted it without fear of corrupting the posted record.  
+\b DPSEvent()
+\b0  copies the record it receives and posts the copy.  \
+
+\fs20 \
+
+\fs28 Note that event records you post using 
+\b DPSPostEvent()
+\b0  aren't filtered by an event filter function set with 
+\b DPSSetEventFunc()
+\b0 .\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	
+\b DPSPostEvent()
+\b0  returns 0 if successful in posting the event record; it returns 
+\f1 -
+\f0 1 if unsuccessful in posting the record because the event queue is full.\
+
+\fs20 \
+
+\fs10 \
+
+\fs28\fi-1540 SEE ALSO
+\b 	DPSSetEventFunc()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker23235 \markername NS_DEV_DOCFOR:objc_function:DPSPrintErrorToStream();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSPrintError(), DPSPrintErrorToStream() \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Print error messages\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	void 
+\b DPSPrintError(
+\b0 FILE *
+\i fp
+\i0 , const DPSBinObjSeq 
+\i error
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 void 
+\b DPSPrintErrorToStream(
+\b0 NXStream *
+\i stream
+\i0 , const DPSBinObjSeq 
+\i error
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b DPSPrintError()
+\b0  and 
+\b DPSPrintErrorToStream()
+\b0  format and print error messages received from a PostScript execution context in the Window Server.  The error message is extracted from the binary object sequence 
+\i error
+\i0 .  
+\b DPSPrintError()
+\b0  prints the error message to the file identified by 
+\i fp
+\i0 ; 
+\b DPSPrintErrorToStream()
+\b0  prints the error message to 
+\i stream
+\i0 .  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 You rarely need to call these functions directly.  However, if you reset the error handler for a PostScript execution context, the new handler you install could use one of these functions to process errors that it receives.    \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker24071 \markername NS_DEV_DOCFOR:objc_function:DPSResetContext();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSResetContext() \
+
+\fs20 \
+
+\f0\b0\fs28 Warning:  This function is unimplemented in the NEXTSTEP version of the Client Library.\
+
+\fs20 \
+
+\fs60 \
+
+\f2\b\fs28 \
+
+{{\NeXTHelpMarker24183 \markername NS_DEV_DOCFOR:objc_function:DPSSetDeadKeysEnabled();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSSetDeadKeysEnabled() \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Allow dead key processing for a context's events\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	void 
+\b DPSSetDeadKeysEnabled(
+\b0 DPSContext 
+\i context
+\i0 , int 
+\i flag
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b DPSSetDeadKeysEnabled()
+\b0  turns dead key processing on or off for 
+\i context
+\i0 .  If flag is 0, dead key processing is turned off; otherwise, it's turned on (the default).\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 Dead key processing is a technique for extending the range of characters that can be entered from the keyboard.  In NEXTSTEP, it provides one way for users to enter accented characters.  For example, a user can type Alternate-e followed by the letter ªeº to produce the letter ªÝº.  The first keyboard input, Alternate-e, seems to have no effectÐit's the ªdead keyº.  However, it signals Client Library routines that it and the following character should be analyzed as a pair.  If, within NEXTSTEP, the pair of characters has been associated with a third character, a keyboard event record representing the third character is placed in the application's event queue, and the first two event records are discarded.  If there is no such association between the two characters, the two event records are added to the event queue.  \
+
+\fs20 \
+
+\fs28 See the 
+\i NeXT User's Reference
+\i0  manual for a listing of the keys that produce accent characters.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker25475 \markername NS_DEV_DOCFOR:objc_function:DPSSetEventFunc();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSSetEventFunc() \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Set the function that filters events\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	DPSEventFilterFunc 
+\b DPSSetEventFunc(
+\b0 DPSContext 
+\i context
+\i0 , DPSEventFilterFunc€
+\i func
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b DPSSetEventFunc()
+\b0  establishes the function 
+\i func
+\i0  as the function to be called when an event record is returned from the PostScript context 
+\i context
+\i0  in the Window Server.  The registered function is called before the event record is put in the event queue.  If the registered function returns 0, the record is discarded.  If the registered function returns 1, the record is passed on for further processing.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 Only event records coming from the Window Server are filtered by the registered function.  Records that you post to the event queue using 
+\b DPSPostEvent()
+\b0  aren't affected.\
+
+\fs20 \
+
+\fs28 A DPSEventFilterFunc function takes the following form:\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f3\fs24\li2760\fc0\cf0 int *
+\i func
+\i0 (NXEvent *
+\i anEvent
+\i0 )\
+
+\fs30 \
+
+\pard\tx2380\f0\fs28\fi-1320\li2380\fc0\cf0 RETURN	
+\b DPSSetEventFunc()
+\b0  returns a pointer to the previously registered event function.  This lets you chain together the current and previous event functions.\
+
+\fs20 \
+
+\fs10 \
+
+\fs28\fi-1540 SEE ALSO
+\b 	DPSPostEvent()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker26530 \markername NS_DEV_DOCFOR:objc_function:DPSSetTracking();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSSetTracking() \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Coalesce mouse events\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b DPSSetTracking(
+\b0 int 
+\i flag
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b DPSSetTracking()
+\b0  turns mouse event-coalescing on or off for the current context.  If 
+\i flag 
+\i0 is 0, coalescing is turned off; otherwise, it's turned on (the default).\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 Event coalescing is an optimization that's useful when tracking the mouse.  When the mouse is moved, numerous events flow into the event queue.  To reduce the number of events awaiting removal by the application, adjacent mouse-moved events are replaced by the most recent event of the contiguous group.  The same is done for left and right mouse-dragged events, with the addition that a mouse-up event replaces mouse-dragged events that come before it in the queue.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	
+\b DPSSetTracking()
+\b0  returns the previous state of the event-coalescing switch.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker27385 \markername NS_DEV_DOCFOR:objc_function:DPSStartWaitCursorTimer();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSStartWaitCursorTimer() \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Initiate a count down for the wait cursor \
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	void 
+\b DPSStartWaitCursorTimer()\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b DPSStartWaitCursorTimer()
+\b0  triggers the mechanism that displays a wait cursor when an application is busy and can't respond to user input.  In most cases, wait cursor support is automatic:  You'll only need to call this function if your application starts a time-consuming operation that's not initiated by a user-generated event.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 Client Library routines and the Window Server cooperate to display the wait cursor whenever more than a preset amount of time elapses between the time an application takes an event record from the event queue and the time the application is again ready to consume events.  However, when an application starts an operation that isn't initiated by an eventÐsuch as one caused by receiving a Mach message or by processing data from a file (see 
+\b DPSAddPort()
+\b0  and 
+\b DPSAddFD()
+\b0 )Ðthe wait cursor mechanism is bypassed.  To ensure proper wait cursor behavior in these cases, call 
+\b DPSStartWaitCursorTimer()
+\b0  before beginning the time-consuming operation.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1540\li2380\fc0\cf0 SEE ALSO
+\b 	DPSAddFD(), DPSAddPort(), setwaitcursorenabled\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker28587 \markername NS_DEV_DOCFOR:objc_function:DPSSynchronizeContext();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSSynchronizeContext()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Synchronize a context with your application\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b DPSSynchronizeContext(
+\b0 DPSContext 
+\i context
+\i0 , int 
+\i flag
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b DPSSynchronizeContext()
+\b0  causes 
+\b DPSWaitContext()
+\b0  to be called after each 
+\b pswrap
+\b0  function is called, thus synchronizing the PostScript context with your application.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker28945 \markername NS_DEV_DOCFOR:objc_function:DPSTraceEvents();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 DPSTraceContext(), DPSTraceEvents()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Trace data and events\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b DPSTraceContext(
+\b0 DPSContext 
+\i context
+\i0 , int 
+\i flag
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 void 
+\b DPSTraceEvents(
+\b0 DPSContext 
+\i context
+\i0 , int 
+\i flag
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b DPSTraceContext()
+\b0  and 
+\b DPSTraceEvents()
+\b0  control the tracing of data and events between a PostScript execution context (or contexts) in the Window Server and an application process.  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The first argument for both functions, 
+\i context
+\i0 , specifies the context to be traced.  An application's single context can be returned with 
+\b DPSGetCurrentContext()
+\b0 .  Applications having more than one execution context can use the constant DPS_ALLCONTEXTS to trace all contexts belonging to them.\
+
+\fs20 \
+
+\fs28 The second argument, 
+\i flag
+\i0 , determines whether tracing is enabled.  \
+
+\fs20 \
+
+\fs28 When data tracing is enabled (
+\b DPSTraceContext()
+\b0 ), a copy of the PostScript code generated by an application and the values returned to it by the Window Server is sent€to€UNIX standard error.  Values returned to the application are marked by the prepended string:\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f3\fs24\li2760\fc0\cf0 % value returned ==>\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 When event tracing is enabled (
+\b DPSTraceEvents()
+\b0 ), information about each event that the application receives is sent to UNIX standard error.  For example, for a left mouse-down event the listing might look like this:\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f3\fs24\li2760\fc0\cf0 Receiving: LMouseDown at: 343.0,69.0 time: 1271899 \
+            flags: 0x0 win: 6 ctxt: 76128 data: 1111,1\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 The listing displays the fields of the event record:  type, location, time, flags, local window number, PostScript execution context, and data.  The contents of the data field listing depends on the event type; for instance, in the preceding example the event number and the click count were displayed. \
+
+\fs20 \
+
+\fs28 For applications based on the Application Kit, there are two preferable methods for turning on data tracing:  You can use the NXShowPS command-line switch when you launch an application from Terminal.  Alternatively, when you run the application under GDB, you can use the 
+\b showps
+\b0  and 
+\b shownops
+\b0  commands to control tracing output.  Similarly, there are more convenient ways to turn on event tracing:  You can use the 
+\b NXTraceEvents
+\b0  command-line switch when you launch an application from Terminal.  Alternatively, when you run the application under GDB, you can use the 
+\b traceevents
+\b0  and 
+\b tracenoevents
+\b0  commands to control event-tracing output.  \
+
+\fs20 \
+
+\fs28 Only one tracing context can be created for the supplied 
+\i context
+\i0 .  If you attempt to create additional tracing contexts for a context that's already being traced, no new context is created and 
+\b DPSTraceContext()
+\b0  returns 
+\f1 -
+\f0 1.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	
+\b DPSTraceContext()
+\b0  returns 0 if successful in creating a tracing context, or 
+\f1 -
+\f0 1 if not.  \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker31599 \markername NS_DEV_DOCFOR:objc_function:NX_EVENTCODEMASK();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 NX_EVENTCODEMASK()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Generate an event mask for an event type\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	dpsclient/event.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int
+\b  NX_EVENTCODEMASK(
+\b0 int
+\i  type
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	This handy utility macro returns an event mask that corresponds to the given (single) event€type.  \
+
+\fs20 \
+
+}

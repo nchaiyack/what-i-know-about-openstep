@@ -1,0 +1,5 @@
+F	TextEdit.app	TextEdit	app
+F	TextEdit	TextEdit	app
+S		TextEdit	text
+S	rtf	TextEdit	rtf
+S	rtfd	TextEdit	rtfd

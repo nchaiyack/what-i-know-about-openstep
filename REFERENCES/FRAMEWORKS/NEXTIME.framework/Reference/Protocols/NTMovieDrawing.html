@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -20.2px; font: 28.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -20.2px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 249.4px; text-indent: -138.6px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 249.4px; text-indent: -138.6px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 110.8px; text-indent: -50.4px; font: 18.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 110.8px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 110.8px; font: 14.0px Times}
+    p.p10 {margin: 0.0px 0.0px 0.0px 110.8px; font: 7.0px Times; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 110.8px; font: 28.0px Times; min-height: 34.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 362.9px; text-indent: -231.8px; font: 14.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 362.9px; text-indent: -231.8px; font: 5.0px Times; min-height: 6.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 388.1px; text-indent: -25.1px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 388.1px; text-indent: -25.1px; font: 35.0px Times; min-height: 42.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 110.8px; text-indent: -45.3px; font: 18.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 110.8px; text-indent: -45.3px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -20.2px; font: 14.0px Helvetica}
+    p.p19 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -20.2px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 161.2px; text-indent: -30.2px; font: 14.0px Times}
+    p.p21 {margin: 0.0px 0.0px 0.0px 161.2px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -20.2px; font: 14.0px Times}
+    p.p23 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -20.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -20.2px; font: 23.0px Times; min-height: 28.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 180.1px; font: 12.0px Courier}
+    p.p26 {margin: 0.0px 0.0px 0.0px 180.1px; font: 7.0px Courier; min-height: 8.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NTMovieDrawing</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5">Adopted By:<span class="Apple-tab-span">	</span>NTMovieDocument</p>
+<p class="p6"><br></p>
+<p class="p5">Declared In:<span class="Apple-tab-span">	</span>NEXTIME/NTMovieDocument.h <span class="Apple-converted-space"> </span></p>
+<p class="p6"><br></p>
+<p class="p6"><br></p>
+<p class="p7"><b>Protocol Description</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">The NTMovieDrawing protocol controls the drawing of a movie's video data in an NTMovieScreenCell.<span class="Apple-converted-space">  </span>Methods are provided to identify the NTMovieScreenCell to the video server, to display the current video frame, and to suspend the drawing of the movie while other systems (such as the Application Kit) are drawing into the same region of the screen.</p>
+<p class="p10"><br></p>
+<p class="p9">The NTMovieDocument class implements this protocol to communicate drawing requests to the NEXTIME server.<span class="Apple-converted-space">  </span>(You can create other classes that do likewise.<span class="Apple-converted-space">  </span>However, such classes should inherit from NTMovieDocument, to avoid having to re-implement its mechanism for establishing a connection and a drawing context.)<span class="Apple-converted-space">  </span>Another sort of class might manage a video display system other than the NEXTIME serve but still use the NTMovieDrawing protocol to display the video in an on-screen window.<span class="Apple-converted-space">  </span>Classes that cause video to be displayed elsewhere—such as on a separate monitor attached to a laserdisc player—can implement the NTMovieDocument protocol, but wouldn't use the NTMovieDrawing protocol.</p>
+<p class="p10"><br></p>
+<p class="p9">By default, the NTMovieScreenCell class invokes NTMovieDocument's implementation of this protocol's methods.<span class="Apple-converted-space">  </span>However, you can have the NTMovieScreenCell use another kind of object, by specifying that object as the argument to NTMovieScreenCell's <b>setRepresentedObject: </b>method.<span class="Apple-converted-space">  </span>The object (hereafter called the “movie document object”) must conform to the NTMovieDocument and NTMovieDrawing protocols.<span class="Apple-converted-space">  </span>You can also subclass NTMovieScreenCell.</p>
+<p class="p10"><br></p>
+<p class="p11"><br></p>
+<p class="p7"><b>Method Types<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p12">Registering the NTMovieScreenCell<span class="Apple-tab-span">	</span><span class="s2">-</span> setViewID:</p>
+<p class="p13"><br></p>
+<p class="p12">Displaying the current video frame<span class="Apple-tab-span">	</span><span class="s2">-</span> display</p>
+<p class="p13"><br></p>
+<p class="p12">Suspending drawing<span class="Apple-tab-span">	</span><span class="s2">-</span> suspendDrawing</p>
+<p class="p14"><span class="s2">-</span> resumeDrawing</p>
+<p class="p14"><span class="s2">-</span> isDrawingSuspended</p>
+<p class="p15"><br></p>
+<p class="p16"><b>Instance Methods<span class="Apple-converted-space"> </span></b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><b>display</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><span class="s2">-</span> (void)<b>display</b><span class="Apple-converted-space"> </span></p>
+<p class="p21"><br></p>
+<p class="p9">Displays or redraws the current video frame.<span class="Apple-converted-space">  </span>The NTMovieScreenCell associated with the current<span class="Apple-converted-space">  </span>display context must already be configured—that is, its frame rectangle and the rectangle containing the video image should have been determined and communicated to the video server.<span class="Apple-converted-space"> </span><i> </i>This message is typically sent by NTMovieScreenCell's <b>drawInteriorWithFrame:inView:</b> method, in which case the NTMovieScreenCell will already be configured.</p>
+<p class="p10"><br></p>
+<p class="p22">See also: <span class="Apple-converted-space"> </span><i> </i><span class="s2">-</span><b> setViewID:</b>, <b>updateFrame: </b>(NTMovieScreenCell)</p>
+<p class="p23"><br></p>
+<p class="p24"><br></p>
+<p class="p18"><b></b><b>isDrawingSuspended</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><span class="s2">-</span> (BOOL)<b>isDrawingSuspended</b><span class="Apple-converted-space"> </span></p>
+<p class="p21"><br></p>
+<p class="p9">Returns YES if drawing is currently suspended; NO otherwise.</p>
+<p class="p10"><br></p>
+<p class="p22"><b>See also:<span class="Apple-converted-space">  </span></b><span class="s2">-</span><b> suspendDrawing</b></p>
+<p class="p23"><b></b><br></p>
+<p class="p24"><b></b><br></p>
+<p class="p18"><b></b><b>resumeDrawing</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><span class="s2">-</span> (void)<b>resumeDrawing</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p9">Resumes video output.<span class="Apple-converted-space">  </span>If the movie isn't currently playing, only the current frame is redrawn.<span class="Apple-converted-space">  </span>This method is usually invoked when the NTMovieScreenCell finishes resizing or scrolling.</p>
+<p class="p10"><br></p>
+<p class="p22"><b>See also:<span class="Apple-converted-space">  </span></b><span class="s2">-</span><b> suspendDrawing</b></p>
+<p class="p23"><b></b><br></p>
+<p class="p24"><b></b><br></p>
+<p class="p18"><b></b><b>setViewID:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><span class="s2">-</span> (void)<b>setViewID:</b>(int)<i>viewID</i><span class="Apple-converted-space"> </span></p>
+<p class="p21"><br></p>
+<p class="p9">Sets the view ID used to register the NTMovieScreenCell with the NEXTIME server (or with another software system for video playback, if the class implementing this protocol doesn't use the NEXTIME server).<span class="Apple-converted-space">  </span>This token is used to indicate which NTMovieScreenCell the movie will be displayed in.</p>
+<p class="p10"><br></p>
+<p class="p9">The NTMovieScreenCell should send this message to the movie document object after connecting to the server's display context, and before sending the movie document object a <b>display </b>message.<span class="Apple-converted-space">  </span>The <i>viewID</i> argument must be non-zero, and it must be unique for each NTMovieScreenCell within the application.<span class="Apple-converted-space">  </span>Typically<i>,</i> <i>viewID</i> is the <b>id</b>, cast as an integer, of the NTMovieScreenCell invoking this method, as follows:</p>
+<p class="p10"><br></p>
+<p class="p25">[[self representedObject] setViewID:(int)self];</p>
+<p class="p26"><br></p>
+<p class="p22"><b>See also:<span class="Apple-converted-space">  </span></b><span class="s2">-</span><b> viewID</b> (NTMovieDocument class)</p>
+<p class="p23"><br></p>
+<p class="p24"><br></p>
+<p class="p18"><b></b><b>suspendDrawing</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><span class="s2">-</span> (void)<b>suspendDrawing</b><span class="Apple-converted-space"> </span></p>
+<p class="p21"><br></p>
+<p class="p9">Temporarily suspends video output, until a <b>resumeDrawing</b> message is received.<span class="Apple-converted-space">  </span>This method is usually invoked when the NTMovieScreenCell is about to be resized or scrolled.</p>
+<p class="p10"><br></p>
+<p class="p22">See also: <span class="Apple-converted-space"> </span><i> </i><span class="s2">-</span><b> isDrawingSuspended</b></p>
+<p class="p23"><b></b><br></p>
+</body>
+</html>

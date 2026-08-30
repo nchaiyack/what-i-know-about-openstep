@@ -1,0 +1,34 @@
+.TH checkswap 8 "August 1, 1989" "NeXT Computer, Inc."
+.SH NAME
+checkswap \- check for the presence of a swapdisk
+.SH SYNOPSIS
+/usr/etc/checkswap [options]
+.SH DESCRIPTION
+This command determines whether or not a swapdisk is present in the system.
+A swapdisk is defined as a disk with a valid label whose first 8 characters
+are "swapdisk".  The remainder of the disk label is irrelevant (for example,
+a disk
+whose label is "swapdisk2" would be considered a swapdisk).  The results of
+are returned via an exit code.  The possible exit codes are as follows:
+.nf
+
+	FSR_NONE    	0	/* disk not present */
+	FSR_NOLABEL 	1	/* disk present, no valid label */
+	FSR_LABEL		2	/* disk present, valid label, not swapdisk */
+	FSR_SWAPDISK	3	/* present, label, swapdisk */
+	FSR_ERROR		-1	/* invalid argument */
+
+.fi
+.PP
+Options:
+.TP
+.B \-v
+Normally, the results of checkswap are via exit code only.  If the \fB-v\fR
+flag is present, verbose mode is used; all exit codes will be reported
+via standard output as well as via exit code.
+.TP
+.B \-f
+When present, indicates that the next argument is the raw disk device 
+to be checked.  The default is \fB/dev/rsd0a\fR.
+	
+

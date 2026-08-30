@@ -1,0 +1,228 @@
+.TH MALLOC 3 "July 30, 1993" "NeXT, Inc."
+.SH NAME
+malloc, free, realloc, calloc, cfree, valloc, vfree, malloc_size, malloc_good_size, malloc_error, malloc_debug, malloc_singlethreaded, mstats, alloca \- memory allocator
+.SH SYNOPSIS
+.nf
+.B #include <stdlib.h>
+.PP
+.B void *malloc(size_t byteSize)
+.PP
+.B void free(void *ptr)
+.PP
+.B void *realloc(void *oldptr, size_t newsize)
+.PP
+.B void *calloc(size_t numElems, size_t byteSize)
+.PP
+.B void cfree(void *ptr)
+.PP
+.B void *valloc(size_t byteSize)
+.PP
+.B void vfree(void *ptr)
+.PP
+.B size_t malloc_size(void *ptr)
+.PP
+.B size_t malloc_good_size(size_t byteSize)
+.PP
+.B void (*malloc_error(void (*func)(int)))(int)
+.PP
+.B int malloc_debug(int level)
+.PP
+.B void malloc_singlethreaded(void)
+.PP
+.B size_t mstats(void)
+.PP
+.B char *alloca(int size)
+.fi
+.SH DESCRIPTION
+.I Malloc
+and
+.I free
+provide a general-purpose memory allocation package.
+.I Malloc
+returns a pointer to a block of at least
+.I size
+bytes beginning on a 
+.I long
+boundary.
+.PP
+The argument to
+.I free
+is a pointer to a block previously allocated by
+.IR malloc ;
+this space is made available for further allocation.
+.PP
+Needless to say, grave disorder will result if the space assigned by
+.I malloc
+is overrun or if some random number is handed to
+.IR free .
+.PP
+.I Malloc 
+is based on an underlying zone based allocator. Malloc does a one 
+time creation of a default zone, and then calls NXZoneMalloc() 
+thereafter with this zone.
+For more information
+on the zone allocator search for NXZoneMalloc in the Librarian under
+NeXT Developer Documentation.
+.PP
+.I Realloc
+changes the size of the block pointed to by
+.I ptr
+to
+.I size
+bytes and returns a pointer to the (possibly moved) block.
+The contents will be unchanged up to the lesser of the new and old sizes.
+.PP
+.I Calloc
+allocates space for an array of
+.I nelem
+elements of size
+.I elsize.
+The space is initialized to zeros.
+.PP
+.I Cfree
+is equivalent to
+.IR free .
+.PP
+.I Valloc
+allocates a page-aligned space of size
+.I byteSize.
+.PP
+.I Vfree
+is equivalent to
+.IR free .
+.PP
+.I Malloc_size
+returns the size of the block pointed to by the argument.
+.PP
+.I Malloc_good_size
+is an obsolete call. 
+.PP
+.I Malloc_error
+sets an internal pointer to a routine which is called whenever
+.I malloc
+runs out of virtual memory space or discovers an error.
+By default, the routine pointed to
+prints an error message on stderr,
+sets errno to ENOMEM and returns,
+causing malloc to return NULL.
+.PP
+The routine is called with an integer representing
+the type of error discovered:
+0, 1, or 2 means an error was returned by vm_allocate,
+vm_deallocate, or vm_copy, respectively; 3 means an
+attempt to free or reallocate space that was already freed;
+4 means that an internal verification of the memory heap failed;
+and 5 means an attempt to free or reallocate space that was never allocated.
+.PP
+The routine specified with 
+.I malloc_error
+must return locally. 
+Do not attempt to raise an exception 
+or use longjump within the routine.
+.PP
+.I Malloc_singlethreaded
+tells malloc that a program is guaranteed to only have one thread, and no
+debugging options are needed. Malloc can then optimize calls to increase
+performance. Typical gain is 10-15%.
+.PP
+.I Malloc_debug
+sets an internal variable to control the amount of error checking
+performed by
+.IR Malloc ,
+and returns the old value.
+The variable can be set to any value from
+0 to 16 The meaning of each bit is as follows:
+Level 0 (no bits set) does no checking and data must never be accessed after it is freed.
+Level 1 (the default), delays freeing of data until the next
+call to
+.I free
+or
+.I malloc
+which provides some compatibility with common, but incorrect,
+code which depends on the contents of freed data remaining
+undisturbed (see BUGS section below).
+Level 2 clears out or unmapps all data as it is freed, making it easier
+to catch usage of freed data spaces.
+Level 4 checks that data
+being freed hasn't already been freed.
+Level 8 checks internal
+data structures for consistency with each entry to malloc, free, or realloc.
+Level 16 checks
+the internal data structures for all sizes of data for consistency
+on exit from malloc, free, or realloc. Level 16 is a debugging tool for
+malloc itself. If internal inconsistencies are found, malloc will write
+a message to stderr and abort.
+.PP
+.I Mstats
+is an obsolete call.
+.PP
+.I Alloca
+allocates 
+.I size
+bytes of space in the stack frame of the caller.
+This temporary space is automatically freed on
+return.
+.PP
+Each of the allocation routines returns a pointer
+to space suitably aligned (after possible pointer coercion)
+for storage of any type of object.
+.SH DIAGNOSTICS
+.I Malloc, realloc
+and
+.I calloc
+return a null pointer (0),
+and set errno to ENOMEM
+if there is no available memory.
+.LP
+The malloc routines call an error-handling function upon detection
+of an error.  By default, the error-handler prints a general message
+describing the cause of the error to stderr, and then either
+aborts or attempts to continue, depending on the cause of the error.
+By supplying your own error-handling function, using the \fImalloc_error\fR
+function to set it, you can get additional information about the
+cause of the error by setting a debugger break-point in your
+error-handling function, and using the debugger's "where" or "up"
+and "down" commands to uncover the location in your program
+where the error occurred.  Using the "print" command, you should
+be able to print the expressions that were passed as arguments
+to the \fImalloc\fR or \fIfree\fR functions.
+The \fImalloc_debug\fR function
+can be very useful in tracking down the cause of the problem
+by turning on additional checking of the malloc operations,
+so that errors are reported closer to the actual cause of the problem.
+.PP
+Debugging levels 8 and 16 are implemented by calling NXMallocCheck() and
+checking for a non-zero return. Memory smashes can be isolated, by calling
+NXMallocCheck() periodically from the debugger or from a program.
+.SH BUGS
+.I Malloc
+should guarantee nothing about the state of a block once
+it has been passed to
+.I free.
+However, some other versions of
+.I malloc
+will guarantee than a block that have been freed is left
+unchanged until a subsequent call to
+.IR free ,
+.IR realloc ,
+or
+.IR malloc .
+If this package is use with 
+.I malloc_debug's
+level 1 set
+(the default),
+after a call to
+.IR free ,
+the contents are left undisturbed (and unfreed) until the next
+call to 
+.IR free ,
+.IR realloc ,
+or
+.IR malloc .
+.PP
+Level 8 and 16 checking can get very slow.
+.PP
+.I Alloca
+and
+.I valloc 
+are machine dependent; their use is discouraged.

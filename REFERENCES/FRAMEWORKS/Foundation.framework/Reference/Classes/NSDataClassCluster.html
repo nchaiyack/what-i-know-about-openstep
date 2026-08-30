@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 28.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 35.0px Helvetica; min-height: 42.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 10.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 36.0px Helvetica; min-height: 43.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 26.0px Helvetica}
+    p.p11 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 12.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 12.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 10.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 75.0px; font: 12.0px Helvetica}
+    p.p23 {margin: 0.0px 0.0px 0.0px 75.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p25 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 75.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 10.0px; font: 9.0px Helvetica; min-height: 11.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 9.0px Helvetica}
+    p.p29 {margin: 0.0px 0.0px 0.0px 10.0px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 10.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 12.0px Helvetica}
+    p.p32 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p35 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p36 {margin: 0.0px 0.0px 0.0px 316.0px; font: 14.0px Times}
+    p.p37 {margin: 0.0px 0.0px 0.0px 316.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p41 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p43 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p45 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p48 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p49 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p50 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p51 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p52 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p53 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p54 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p55 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 12.0px Helvetica}
+    p.p56 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p57 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p58 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 14.0px Times}
+    p.p59 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p60 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p61 {margin: 0.0px 0.0px 0.0px 95.0px; font: 30.0px Courier; min-height: 36.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.0px Helvetica}
+    span.s3 {font: 14.0px Times}
+    span.s4 {font: 12.0px Helvetica}
+    span.s5 {font: 14.0px Symbol}
+    span.s6 {font: 26.0px Helvetica}
+    span.s7 {font: 14.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">c<span class="Apple-tab-span">	</span></span><b>NSData Class Cluster</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Class Cluster Description</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7">NSData objects provide an object-oriented wrapper for byte buffers. This enables simple allocated buffers (that is, data with no embedded pointers) to take on the behavior of Foundation Kit objects. NSData is typically used for data storage. It is also useful in Distributed Objects applications, where data contained in NSData objects can be copied or moved between applications.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">NSData objects can be used to wrap data of any size. When the data size is more than a few memory pages, NSData uses virtual memory management. NSData can also be used to wrap pre-existing data, regardless of how the data was allocated. NSData contains no information about the data itself (such as its type); the responsibility for deciding how to use the data lies with the client. In particular, it will not handle byte-order swapping when distributed between big-endian and little-endian machines. For typed data, use NSValue.</p>
+<p class="p8"><br></p>
+<p class="p7">NSData provides an operating system-independent way to benefit from copy-on-write memory. The copy-on-write technique means that when data is copied through a virtual memory copy, an actual copy of the data is not made until there is an attempt to modify it.</p>
+<p class="p8"><br></p>
+<p class="p7">The cluster's two public classes, NSData and NSMutableData, declare the programmatic interface for static and dynamic NSData objects, respectively.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">The objects you create using these classes are referred to as <i>data objects</i>. Because of the nature of class clusters, data objects are not actual instances of the NSData or NSMutableData classes but of one of their private subclasses. Although a data object's class is private, its interface is public, as declared by these abstract superclasses, NSData and NSMutableData.</p>
+<p class="p8"><br></p>
+<p class="p7">Generally, you instantiate a data object by sending one of the <b>data...</b> messages to either the NSData or NSMutableData class object. These methods return a data object containing the bytes you pass in as arguments. If you use one of the<b> data...</b> methods whose name <i>does not</i> include “NoCopy” (such as <b>dataWithBytes:length:</b>), the bytes to be contained by the data object are copied as part of the instantiation process, and the data object then contains the copied bytes. When you subsequently release a data object that has been instantiated in this manner, the bytes contained by the data object—those that were copied during instantiation—are automatically freed. If you instantiate a data object with one of the methods whose name includes “NoCopy,” however, (such as <b>dataWithBytesNoCopy:length:</b>) the bytes are not copied and are freed when the data object is released.</p>
+<p class="p8"><br></p>
+<p class="p7">The NSData classes adopt the NSCopying and NSMutableCopying protocols, making it convenient to convert between efficient, read-only data objects and mutable data objects.</p>
+<p class="p8"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2">i<span class="Apple-tab-span">	</span></span><b></b><b>NSData</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s3">NSObject</span></p>
+<p class="p13"><br></p>
+<p class="p14"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s3">NSCoding</span></p>
+<p class="p15">NSCopying</p>
+<p class="p15">NSMutableCopying</p>
+<p class="p15">NSObject (NSObject)<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p17"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSData.h</p>
+<p class="p18"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><b></b><br></p>
+<p class="p5"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="22pt" viewBox="0 0 597 22" role="img" aria-labelledby="eps-svg-1-title" data-source="NSDataClassCluster.rtfd/AtaGlance.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">AtaGlance.eps</title><defs>
+<g>
+<g id="eps-svg-1-glyph-0-0">
+<path d="M 8.859375 -6.265625 C 8.796875 -7.078125 8.625 -7.609375 8.234375 -8.140625 C 7.5 -9.09375 6.328125 -9.640625 4.90625 -9.640625 C 2.234375 -9.640625 0.578125 -7.71875 0.578125 -4.65625 C 0.578125 -1.59375 2.21875 0.296875 4.859375 0.296875 C 7.234375 0.296875 8.78125 -1.0625 8.90625 -3.234375 L 7 -3.234375 C 6.875 -2.03125 6.125 -1.34375 4.90625 -1.34375 C 3.40625 -1.34375 2.515625 -2.5625 2.515625 -4.625 C 2.515625 -6.71875 3.4375 -7.96875 4.984375 -7.96875 C 6.109375 -7.96875 6.75 -7.421875 7 -6.265625 Z M 8.859375 -6.265625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-1">
+<path d="M 2.6875 -9.484375 L 0.875 -9.484375 L 0.875 0 L 2.6875 0 Z M 2.6875 -9.484375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-2">
+<path d="M 6.8125 -0.21875 C 6.5 -0.515625 6.390625 -0.734375 6.390625 -1.078125 L 6.390625 -4.984375 C 6.390625 -6.40625 5.421875 -7.140625 3.515625 -7.140625 C 1.625 -7.140625 0.640625 -6.328125 0.515625 -4.703125 L 2.28125 -4.703125 C 2.359375 -5.4375 2.671875 -5.671875 3.5625 -5.671875 C 4.265625 -5.671875 4.609375 -5.4375 4.609375 -4.96875 C 4.609375 -4.734375 4.5 -4.53125 4.296875 -4.421875 C 4.0625 -4.296875 4.0625 -4.296875 3.15625 -4.140625 L 2.4375 -4.015625 C 1.046875 -3.78125 0.359375 -3.0625 0.359375 -1.8125 C 0.359375 -0.546875 1.203125 0.296875 2.5 0.296875 C 3.28125 0.296875 3.984375 -0.03125 4.625 -0.703125 C 4.625 -0.34375 4.671875 -0.203125 4.84375 0 L 6.8125 0 Z M 4.609375 -2.828125 C 4.609375 -1.765625 4.09375 -1.171875 3.171875 -1.171875 C 2.5625 -1.171875 2.1875 -1.5 2.1875 -2.015625 C 2.1875 -2.5625 2.46875 -2.828125 3.21875 -2.984375 L 3.84375 -3.09375 C 4.328125 -3.1875 4.40625 -3.21875 4.609375 -3.3125 Z M 4.609375 -2.828125 "/>
+</g>
+<g id="eps-svg-1-glyph-0-3">
+<path d="M 6.5625 -4.765625 C 6.53125 -6.234375 5.390625 -7.140625 3.515625 -7.140625 C 1.734375 -7.140625 0.625 -6.234375 0.625 -4.796875 C 0.625 -4.328125 0.765625 -3.921875 1.015625 -3.65625 C 1.265625 -3.40625 1.484375 -3.28125 2.15625 -3.0625 L 4.328125 -2.390625 C 4.78125 -2.25 4.9375 -2.109375 4.9375 -1.8125 C 4.9375 -1.390625 4.4375 -1.125 3.59375 -1.125 C 3.109375 -1.125 2.75 -1.203125 2.515625 -1.375 C 2.3125 -1.515625 2.234375 -1.65625 2.15625 -2.046875 L 0.375 -2.046875 C 0.421875 -0.5 1.5625 0.296875 3.6875 0.296875 C 4.671875 0.296875 5.40625 0.09375 5.921875 -0.328125 C 6.453125 -0.734375 6.765625 -1.390625 6.765625 -2.078125 C 6.765625 -2.984375 6.3125 -3.578125 5.375 -3.84375 L 3.078125 -4.515625 C 2.578125 -4.671875 2.4375 -4.765625 2.4375 -5.0625 C 2.4375 -5.453125 2.859375 -5.703125 3.5 -5.703125 C 4.375 -5.703125 4.796875 -5.390625 4.8125 -4.765625 Z M 6.5625 -4.765625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-4">
+</g>
+<g id="eps-svg-1-glyph-0-5">
+<path d="M 3.90625 -6.875 L 2.90625 -6.875 L 2.90625 -8.765625 L 1.078125 -8.765625 L 1.078125 -6.875 L 0.1875 -6.875 L 0.1875 -5.671875 L 1.078125 -5.671875 L 1.078125 -1.359375 C 1.078125 -0.25 1.65625 0.296875 2.859375 0.296875 C 3.28125 0.296875 3.578125 0.265625 3.90625 0.15625 L 3.90625 -1.125 C 3.734375 -1.09375 3.640625 -1.078125 3.5 -1.078125 C 3.015625 -1.078125 2.90625 -1.21875 2.90625 -1.84375 L 2.90625 -5.671875 L 3.90625 -5.671875 Z M 3.90625 -6.875 "/>
+</g>
+<g id="eps-svg-1-glyph-0-6">
+<path d="M 9.25 -5.09375 L 5.453125 -5.09375 L 5.453125 -3.46875 L 7.609375 -3.46875 C 7.546875 -2.9375 7.421875 -2.609375 7.140625 -2.28125 C 6.671875 -1.703125 5.9375 -1.359375 5.203125 -1.359375 C 3.609375 -1.359375 2.5 -2.75 2.5 -4.6875 C 2.5 -6.734375 3.484375 -7.96875 5.140625 -7.96875 C 5.828125 -7.96875 6.390625 -7.78125 6.828125 -7.390625 C 7.09375 -7.15625 7.234375 -6.9375 7.40625 -6.453125 L 9.25 -6.453125 C 9.015625 -8.40625 7.421875 -9.640625 5.140625 -9.640625 C 2.40625 -9.640625 0.546875 -7.625 0.546875 -4.671875 C 0.546875 -1.796875 2.421875 0.296875 4.984375 0.296875 C 6.25 0.296875 7.109375 -0.15625 7.84375 -1.21875 L 8.078125 0.03125 L 9.25 0.03125 Z M 9.25 -5.09375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-7">
+<path d="M 0.8125 -7.015625 L 0.8125 0 L 2.640625 0 L 2.640625 -4.21875 C 2.640625 -5.046875 3.21875 -5.59375 4.109375 -5.59375 C 4.890625 -5.59375 5.28125 -5.15625 5.28125 -4.328125 L 5.28125 0 L 7.09375 0 L 7.09375 -4.703125 C 7.09375 -6.265625 6.25 -7.140625 4.75 -7.140625 C 3.796875 -7.140625 3.15625 -6.796875 2.640625 -6 L 2.640625 -7.015625 Z M 0.8125 -7.015625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-8">
+<path d="M 6.78125 -4.390625 C 6.65625 -6.109375 5.53125 -7.140625 3.75 -7.140625 C 1.65625 -7.140625 0.4375 -5.765625 0.4375 -3.359375 C 0.4375 -1.046875 1.65625 0.296875 3.734375 0.296875 C 5.4375 0.296875 6.609375 -0.75 6.78125 -2.4375 L 5.046875 -2.4375 C 4.828125 -1.515625 4.453125 -1.171875 3.734375 -1.171875 C 2.8125 -1.171875 2.265625 -1.984375 2.265625 -3.359375 C 2.265625 -4.046875 2.390625 -4.65625 2.609375 -5.0625 C 2.828125 -5.453125 3.21875 -5.671875 3.75 -5.671875 C 4.484375 -5.671875 4.84375 -5.3125 5.046875 -4.390625 Z M 6.78125 -4.390625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-9">
+<path d="M 6.8125 -2.9375 C 6.828125 -3.09375 6.828125 -3.15625 6.828125 -3.25 C 6.828125 -3.953125 6.71875 -4.609375 6.546875 -5.09375 C 6.078125 -6.375 4.953125 -7.140625 3.53125 -7.140625 C 1.515625 -7.140625 0.28125 -5.6875 0.28125 -3.328125 C 0.28125 -1.078125 1.515625 0.296875 3.5 0.296875 C 5.0625 0.296875 6.34375 -0.578125 6.75 -1.96875 L 4.953125 -1.96875 C 4.734375 -1.421875 4.21875 -1.09375 3.5625 -1.09375 C 3.046875 -1.09375 2.625 -1.3125 2.359375 -1.703125 C 2.203125 -1.96875 2.125 -2.28125 2.109375 -2.9375 Z M 2.125 -4.140625 C 2.25 -5.21875 2.703125 -5.75 3.515625 -5.75 C 4.34375 -5.75 4.84375 -5.1875 4.921875 -4.140625 Z M 2.125 -4.140625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-10">
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 21.5 L 595.5 1.5 L 49.5 1.5 L 49.5 21.5 L 595.5 21.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 200 L 20 200 " transform="matrix(0.1, 0, 0, -0.1, 0, 22)"/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-0" x="67" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="76.386" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="80" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="87.228" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="94.456" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="101.684" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="105.298" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-5" x="112.526" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="116.855" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="120.469" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="127.697" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-6" x="131.311" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="141.425" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="145.039" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-7" x="152.267" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-8" x="160.21" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-9" x="167.438" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-10" x="174.666" y="17"/>
+</g>
+</svg></b><b></b></p>
+<p class="p21"><b></b><br></p>
+<p class="p22"><b>Purpose</b></p>
+<p class="p7">An NSData object stores immutable data in the form of bytes.</p>
+<p class="p23"><br></p>
+<p class="p22"><b>Principal Attributes</b></p>
+<p class="p7">•<span class="Apple-tab-span">	</span>A count of the number of bytes in the data object.</p>
+<p class="p7">•<span class="Apple-tab-span">	</span>The sequence of bytes contained in the data object.</p>
+<p class="p23"><br></p>
+<p class="p22"><b>Creation</b></p>
+<p class="p24">+ data<span class="Apple-tab-span">	</span>Returns an empty data object.</p>
+<p class="p24">+ dataWithBytes:length:<span class="Apple-tab-span">	</span>Returns a data object that contains a copy of the specified bytes.</p>
+<p class="p24">+ dataWithBytesNoCopy:length:<span class="Apple-tab-span">	</span>Returns a data object that contains the specified bytes (without copying them).</p>
+<p class="p24">+ dataWithContentsOfFile:<span class="Apple-tab-span">	</span>Returns a data object initialized with the contents of a file.</p>
+<p class="p24">+ dataWithContentsOfMappedFile:<span class="Apple-tab-span">	</span>Returns a data object initialized with the contents of a mapped file.</p>
+<p class="p24">+ dataWithData:<span class="Apple-tab-span">	</span>Returns a data object initialized with the contents of another data object.</p>
+<p class="p25"><br></p>
+<p class="p22"><b>Commonly Used Methods</b></p>
+<p class="p24"><span class="s5">-</span> bytes<span class="Apple-tab-span">	</span>Returns a pointer to the data object's contents.</p>
+<p class="p24"><span class="s5">-</span> getBytes:<span class="Apple-tab-span">	</span>Copies the data object's contents into a buffer.</p>
+<p class="p24"><span class="s5">-</span> length<span class="Apple-tab-span">	</span>Returns the number of bytes contained by the data object.</p>
+<p class="p25"><br></p>
+<p class="p22"><b>Primitive Methods</b></p>
+<p class="p7"><span class="s5">-</span> bytes</p>
+<p class="p7"><span class="s5">-</span> length</p>
+<p class="p26"><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="9pt" viewBox="0 0 597 9" role="img" aria-labelledby="eps-svg-2-title" data-source="NSDataClassCluster.rtfd/AtaGlanceClose.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-2-title">AtaGlanceClose.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 7.5 L 595.5 0.25 L 49.5 0.25 L 49.5 7.5 L 595.5 7.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 20 L 20 20 " transform="matrix(0.1, 0, 0, -0.1, 0, 9)"/>
+</svg></b><b></b></p>
+<p class="p29"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b>Class Description</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p7">The NSData class declares the programmatic interface to an object that contains immutable data in the form of bytes. NSData's two primitive methods—<b>bytes</b> and <b>length</b>—provide the basis for all of the other methods in the interface. The <b>bytes</b> method returns a pointer to the bytes contained in the data object. <b>length </b>returns the number of bytes contained in the data object.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">NSData provides access methods for copying bytes from a data object into a specified buffer. <b>getBytes </b>copies all of the bytes into a buffer, whereas <b>getBytes:length:</b> copies bytes into a buffer of a given length. <b>getBytes:range:</b> copies a range of bytes from a starting point within the bytes themselves. You can also obtain a data object that contains a subset of the bytes in another data object by using the <b>subdataWithRange:</b> method. Or, you can use the <b>description</b> method to return an NSString representation of the bytes in a data object.</p>
+<p class="p8"><br></p>
+<p class="p7">For determining if two data objects are equal, NSData provides the<b> isEqualToData:</b> method, which does a byte-for-byte comparison.</p>
+<p class="p8"><br></p>
+<p class="p7">The <b>writeToFile:atomically:</b> method enables you to write the contents of a data object to a file.</p>
+<p class="p8"><br></p>
+<p class="p33"><br></p>
+<p class="p34"><b>Adopted Protocols</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p35">NSCoding<span class="Apple-tab-span">	</span><span class="s5">-</span> encodeWithCoder:</p>
+<p class="p36"><span class="s5">-</span> initWithCoder:</p>
+<p class="p37"><br></p>
+<p class="p35">NSCopying<span class="Apple-tab-span">	</span><span class="s5">-</span> copyWithZone:</p>
+<p class="p38"><br></p>
+<p class="p35">NSMutableCopying<span class="Apple-tab-span">	</span><span class="s5">-</span> mutableCopyWithZone:</p>
+<p class="p39"><br></p>
+<p class="p34"><b>Method Types</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p35">Creating data objects<span class="Apple-tab-span">	</span>+ allocWithZone:</p>
+<p class="p40">+ data</p>
+<p class="p40">+ dataWithBytes:length:</p>
+<p class="p40">+ dataWithBytesNoCopy:length:</p>
+<p class="p40">+ dataWithContentsOfFile:</p>
+<p class="p40">+ dataWithContentsOfMappedFile</p>
+<p class="p40">+ dataWithData:</p>
+<p class="p40"><span class="s5">-</span> initWithBytes:length:</p>
+<p class="p40"><span class="s5">-</span> initWithBytesNoCopy:length:</p>
+<p class="p40"><span class="s5">-</span> initWithContentsOfFile:</p>
+<p class="p40"><span class="s5">-</span> initWithContentsOfMappedFile:</p>
+<p class="p40"><span class="s5">-</span> initWithData:</p>
+<p class="p41"><br></p>
+<p class="p35">Accessing data<span class="Apple-tab-span">	</span><span class="s5">-</span> bytes<span class="Apple-converted-space"> </span></p>
+<p class="p40"><span class="s5">-</span> description</p>
+<p class="p40"><span class="s5">-</span> getBytes:</p>
+<p class="p40"><span class="s5">-</span> getBytes:length:</p>
+<p class="p40"><span class="s5">-</span> getBytes:range:</p>
+<p class="p40"><span class="s5">-</span> subdataWithRange:</p>
+<p class="p41"><br></p>
+<p class="p35">Testing data<span class="Apple-tab-span">	</span><span class="s5">-</span> isEqualToData:</p>
+<p class="p40"><span class="s5">-</span> length<span class="Apple-converted-space"> </span></p>
+<p class="p41"><br></p>
+<p class="p35">Storing data<span class="Apple-tab-span">	</span><span class="s5">-</span> writeToFile:atomically:</p>
+<p class="p39"><br></p>
+<p class="p34"><b>Class Methods</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p42"><b></b><b>allocWithZone</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">+ (id)<b>allocWithZone:</b>(NSZone *)<i>zone</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Creates and returns an uninitialized data object in the specified zone. If the receiver is the NSData class object, an instance of an appropriate immutable subclass is returned; otherwise, an object of the receiver's class is returned.</p>
+<p class="p8"><br></p>
+<p class="p7">Typically, you create temporary data objects using the <b>data... </b>class methods, not the <b>alloc...</b> and<b> init... </b>methods.</p>
+<p class="p8"><br></p>
+<p class="p46"><br></p>
+<p class="p42"><b></b><b>data</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">+ (id)data</p>
+<p class="p45"><br></p>
+<p class="p7">Creates and returns an empty data object. This method is declared primarily for the use of mutable subclasses of NSData.</p>
+<p class="p8"><br></p>
+<p class="p46"><br></p>
+<p class="p42"><b></b><b>dataWithBytes:length:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">+ (id)<b>dataWithBytes:</b>(const void *)<i>bytes</i><b> length:</b>(unsigned int)<i>length</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Creates and returns a data object containing <i>length</i> bytes copied from the buffer <i>bytes</i>.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ dataWithBytesNoCopy:length:</p>
+<p class="p48"><br></p>
+<p class="p49"><br></p>
+<p class="p42"><b></b><b>dataWithBytesNoCopy:length:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">+ (id)<b>dataWithBytesNoCopy:</b>(void *)<i>bytes</i><b> length:</b>(unsigned int)<i>length</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Creates and returns a data object that holds <i>length</i> bytes from the buffer <i>bytes</i>.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span> + <b>dataWithBytes:length:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>dataWithContentsOfFile:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">+ (id)<b>dataWithContentsOfFile:</b>(NSString *)<i>path</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Creates and returns a data object by reading every byte from the file specified by <i>path</i>.</p>
+<p class="p8"><br></p>
+<p class="p7">The following code example creates a data object <i>myData</i> initialized with the contents of <b>myFile.txt</b>. The path must be absolute.</p>
+<p class="p8"><br></p>
+<p class="p50"><span class="Apple-converted-space">    </span>NSString *thePath = @"/u/smith/myFile.txt"; <span class="Apple-converted-space">   </span></p>
+<p class="p50"><span class="Apple-converted-space">    </span>NSData *myData = [NSData dataWithContentsOfFile:thePath];</p>
+<p class="p51"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+<b> dataWithContentsOfMappedFile:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>dataWithContentsOfMappedFile:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">+ (id)<b>dataWithContentsOfMappedFile:</b>(NSString *)<i>path</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Creates and returns a data object from the mapped file specified by <i>path</i>. Because of file mapping restrictions, this method should only be used if the file is guaranteed to exist for the duration of the data object's existence. It is generally safer to use the <b>dataWithContentsOfFile:</b> method.</p>
+<p class="p8"><br></p>
+<p class="p7">This methods assumes that mapped files are available from the underlying operating system. A mapped file uses virtual memory techniques to avoid copying pages of the file into memory until they are actually needed.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b> dataWithContentsOfFile:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p52"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>dataWithData:</b></p>
+<p class="p53"><b></b><br></p>
+<p class="p44">+ (id)<b>dataWithData:</b>(NSData *)<i>aData</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Creates and returns a data object containing the contents of another data object, <i>aData</i>.</p>
+<p class="p8"><br></p>
+<p class="p33"><br></p>
+<p class="p34"><b>Instance Methods</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p42"><b></b><b>bytes</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (const void *)<b>bytes</b></p>
+<p class="p45"><b></b><br></p>
+<p class="p7">Returns a pointer to the data object's contents. This method returns read-only access to the data.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> description, <span class="s5">-</span> getBytes:, <span class="s5">-</span> getBytes:length:, <span class="s5">-</span> getBytes:range:</p>
+<p class="p48"><br></p>
+<p class="p49"><br></p>
+<p class="p42"><b></b><b>description</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">@protocol NSObject</p>
+<p class="p44"><span class="s5">-</span> (NSString *)<b>description</b></p>
+<p class="p45"><b></b><br></p>
+<p class="p7">Returns an NSString object that contains a hexadecimal representation of the receiver's contents in the property list format for NSData objects.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>bytes, </b><span class="s5">-</span><b> getBytes:, </b><span class="s5">-</span><b> getBytes:length:, </b><span class="s5">-</span><b> getBytes:range:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>getBytes:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (void)<b>getBytes:</b>(void *)<i>buffer</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7"><b>Copies a data object's contents into </b><i>buffer</i><b>.</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p7">For example, the following code excerpt initializes a data object <i>myData</i> with the NSString <i>myString</i>. It then uses <b>getBytes:</b> to copy the contents of <i>myData</i> into <i>aBuffer</i>.</p>
+<p class="p8"><br></p>
+<p class="p50">unsigned char aBuffer[20];</p>
+<p class="p50">NSString *myString = @"Test string."; <span class="Apple-converted-space">   </span></p>
+<p class="p50">NSData *myData = [NSData <span class="Apple-converted-space"> </span></p>
+<p class="p50"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>dataWithBytes:[myString cString]</p>
+<p class="p50"><span class="Apple-converted-space"> <span class="Apple-tab-span">	</span></span>length:[myString cStringLength]];<span class="Apple-tab-span">	</span></p>
+<p class="p54"><br></p>
+<p class="p50">[myData getBytes:aBuffer];</p>
+<p class="p51"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>bytes:</b>, <span class="s5">-</span> <b>description</b>, <span class="s5">-</span> <b>getBytes:length:</b>, <span class="s5">-</span> <b>getBytes:range:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>getBytes:length:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (void)<b>getBytes:</b>(void *)<i>buffer</i> <b>length:</b>(unsigned int)<i>length</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Copies up to <i>length</i> bytes from the start of the receiver into <span class="s4"><i>buffer</i></span>.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>bytes:</b>, <span class="s5">-</span> <b>description</b>, <span class="s5">-</span> <b>getBytes:,</b> <span class="s5">-</span> <b>getBytes:range:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>getBytes:range:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (void)<b>getBytes:</b>(void *)<i>buffer</i> <b>range:</b>(NSRange)<i>range</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Copies the receiver's contents into <i>buffer</i>, from <i>range</i> that is within the bytes in the object. If <i>range</i> isn't within the receiver's range of bytes, an NSRangeException is raised.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>bytes:</b>, <span class="s5">-</span> <b>description</b>, <span class="s5">-</span> <b>getBytes:,</b> <span class="s5">-</span> <b>getBytes:length:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>hash</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">@protocol NSObject</p>
+<p class="p44"><span class="s5">-</span> (unsigned int)<b>hash</b></p>
+<p class="p45"><b></b><br></p>
+<p class="p7">Returns an unsigned integer that can be used as a table address in a hash table structure. For a data object, <b>hash</b> returns the length of the data object. If two data objects are equal (as determined by the <b>isEqual:</b> method), they have the same hash value.</p>
+<p class="p8"><br></p>
+<p class="p55"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s5">-</span><span class="s3"> <b>isEqual:</b></span></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>initWithBytes:length:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (id)<b>initWithBytes:</b>(const void *)<i>bytes</i> <b>length:</b>(unsigned int)<i>length</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Initializes a newly allocated data object by adding to it length bytes of data copied from the buffer bytes. Returns self.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span> + <b>dataWithBytes:length:</b>, <span class="s5">-</span> <b>initWithBytesNoCopy:length:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>initWithBytesNoCopy:length:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (id)<b>initWithBytesNoCopy:</b>(void *)<i>bytes</i><b> length:</b>(unsigned int)<i>length</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Initializes a newly allocated data object by adding to it length bytes of data from the buffer bytes. Returns self.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span> + <b>dataWithBytes:length:</b>, <span class="s5">-</span> <b>initWithBytes:length:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>initWithContentsOfFile:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (id)<b>initWithContentsOfFile:</b>(NSString *)<i>path</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Initializes a newly allocated data object by reading into it the data from the file specified by <i>path</i>.<b> Returns self.</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>dataWithContentsOfFile:</b>, <span class="s5">-</span>  <b>initWithContentsOfMappedFile:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>initWithContentsOfMappedFile:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (id)<b>initWithContentsOfMappedFile:</b>(NSString *)<i>path</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Initializes a newly allocated data object by reading into it the mapped file specified by <i>path</i>.<b> Returns self.</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>dataWithContentsOfMappedFile:</b>, <span class="s5">-</span> <b>initWithContentsOfFile:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>initWithData:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (id)<b>initWithData:</b>(NSData *)<i>data</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Initializes a newly allocated data object by placing in it the contents of another data object, <i>data</i>.<b> Returns self.</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p46"><b></b><br></p>
+<p class="p42"><b></b><b>isEqual:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">@protocol NSObject</p>
+<p class="p44"><span class="s5">-</span> (BOOL)<b>isEqual:</b>(id)<i>anObject</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Returns YES if the receiver and <i>anObject</i> are equal; otherwise returns NO. A YES return value indicates that the receiver and <i>anObject</i> are both instances of classes that inherit from NSData and that both contain the same data (as determined by the <b>isEqualToData:</b> method).</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span><b> isEqualToData:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>isEqualToData:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (BOOL)<b>isEqualToData:</b>(NSData *)<i>otherData</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Compares the receiving data object to <i>otherData</i>. If the contents of <i>otherData</i> are equal to the contents of the receiver, this method returns YES. If not, it returns NO. Two data objects are equal if they hold the same number of bytes, and if the bytes at the same position in the objects are the same.</p>
+<p class="p8"><br></p>
+<p class="p55"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s5">-</span><span class="s3"><b> isEqual:</b></span></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>length</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (unsigned int)<b>length</b></p>
+<p class="p45"><b></b><br></p>
+<p class="p7">Returns the number of bytes contained in the receiver.</p>
+<p class="p8"><br></p>
+<p class="p46"><br></p>
+<p class="p42"><b></b><b>subdataWithRange:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (NSData *)<b>subdataWithRange:</b>(NSRange)<i>range</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Returns a data object containing a copy of the receiver's bytes that fall within the limits specified by <i>range</i>. If <i>range</i> isn't within the receiver's range of bytes, an NSRangeException is raised.</p>
+<p class="p8"><br></p>
+<p class="p7">For example, the following code excerpt initializes a data object, <i>data2</i>, to contain a sub-range of <i>data1</i>:</p>
+<p class="p8"><br></p>
+<p class="p50">NSString *myString = @"ABCDEFG"; <span class="Apple-converted-space"> </span></p>
+<p class="p50">NSRange range = {2, 4};</p>
+<p class="p50">NSData *data1, *data2;<span class="Apple-converted-space"> </span></p>
+<p class="p54"><br></p>
+<p class="p50">data1 = [NSData <span class="Apple-tab-span">	</span>dataWithBytes:[myString cString]</p>
+<p class="p50"><span class="Apple-converted-space"> <span class="Apple-tab-span">	</span></span>length:[myString cStringLength]];</p>
+<p class="p54"><span class="Apple-tab-span">	</span></p>
+<p class="p50">data2 = [data1 subdataWithRange:range];<span class="Apple-tab-span">	</span></p>
+<p class="p51"><br></p>
+<p class="p7">The result of this excerpt is that <i>data2</i> contains “CDEF<b>”.</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p46"><b></b><br></p>
+<p class="p42"><b></b><b>writeToFile:atomically:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (BOOL)<b>writeToFile:</b>(NSString *)<i>path</i> <b>atomically:</b>(BOOL)<i>flag</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Writes the bytes in the receiver to the file specified by <i>path</i>.</p>
+<p class="p8"><br></p>
+<p class="p7">If <i>flag</i> is YES, the data is written to a backup file and then, assuming no errors occur, the backup file is renamed to the specified file name. Otherwise, the data is written directly to the specified file.</p>
+<p class="p8"><br></p>
+<p class="p7">YES is returned if the operation succeeded, otherwise NO is returned.</p>
+<p class="p8"><br></p>
+<p class="p9"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2">i<span class="Apple-tab-span">	</span></span><b></b><b>NSMutableData</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p56"><span class="s4"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSData : NSObject</p>
+<p class="p13"><br></p>
+<p class="p14"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s3">NSCoding</span></p>
+<p class="p15">NSCopying</p>
+<p class="p15">NSMutableCopying (NSData)<span class="Apple-converted-space"> </span></p>
+<p class="p15">NSObject (NSObject)<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p17"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSData.h</p>
+<p class="p18"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><b></b><br></p>
+<p class="p5"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="22pt" viewBox="0 0 597 22" role="img" aria-labelledby="eps-svg-3-title" data-source="NSDataClassCluster.rtfd/297975_AtaGlance.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-3-title">297975_AtaGlance.eps</title><defs>
+<g>
+<g id="eps-svg-3-glyph-0-0">
+<path d="M 8.859375 -6.265625 C 8.796875 -7.078125 8.625 -7.609375 8.234375 -8.140625 C 7.5 -9.09375 6.328125 -9.640625 4.90625 -9.640625 C 2.234375 -9.640625 0.578125 -7.71875 0.578125 -4.65625 C 0.578125 -1.59375 2.21875 0.296875 4.859375 0.296875 C 7.234375 0.296875 8.78125 -1.0625 8.90625 -3.234375 L 7 -3.234375 C 6.875 -2.03125 6.125 -1.34375 4.90625 -1.34375 C 3.40625 -1.34375 2.515625 -2.5625 2.515625 -4.625 C 2.515625 -6.71875 3.4375 -7.96875 4.984375 -7.96875 C 6.109375 -7.96875 6.75 -7.421875 7 -6.265625 Z M 8.859375 -6.265625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-1">
+<path d="M 2.6875 -9.484375 L 0.875 -9.484375 L 0.875 0 L 2.6875 0 Z M 2.6875 -9.484375 "/>
+</g>
+<g id="eps-svg-3-glyph-0-2">
+<path d="M 6.8125 -0.21875 C 6.5 -0.515625 6.390625 -0.734375 6.390625 -1.078125 L 6.390625 -4.984375 C 6.390625 -6.40625 5.421875 -7.140625 3.515625 -7.140625 C 1.625 -7.140625 0.640625 -6.328125 0.515625 -4.703125 L 2.28125 -4.703125 C 2.359375 -5.4375 2.671875 -5.671875 3.5625 -5.671875 C 4.265625 -5.671875 4.609375 -5.4375 4.609375 -4.96875 C 4.609375 -4.734375 4.5 -4.53125 4.296875 -4.421875 C 4.0625 -4.296875 4.0625 -4.296875 3.15625 -4.140625 L 2.4375 -4.015625 C 1.046875 -3.78125 0.359375 -3.0625 0.359375 -1.8125 C 0.359375 -0.546875 1.203125 0.296875 2.5 0.296875 C 3.28125 0.296875 3.984375 -0.03125 4.625 -0.703125 C 4.625 -0.34375 4.671875 -0.203125 4.84375 0 L 6.8125 0 Z M 4.609375 -2.828125 C 4.609375 -1.765625 4.09375 -1.171875 3.171875 -1.171875 C 2.5625 -1.171875 2.1875 -1.5 2.1875 -2.015625 C 2.1875 -2.5625 2.46875 -2.828125 3.21875 -2.984375 L 3.84375 -3.09375 C 4.328125 -3.1875 4.40625 -3.21875 4.609375 -3.3125 Z M 4.609375 -2.828125 "/>
+</g>
+<g id="eps-svg-3-glyph-0-3">
+<path d="M 6.5625 -4.765625 C 6.53125 -6.234375 5.390625 -7.140625 3.515625 -7.140625 C 1.734375 -7.140625 0.625 -6.234375 0.625 -4.796875 C 0.625 -4.328125 0.765625 -3.921875 1.015625 -3.65625 C 1.265625 -3.40625 1.484375 -3.28125 2.15625 -3.0625 L 4.328125 -2.390625 C 4.78125 -2.25 4.9375 -2.109375 4.9375 -1.8125 C 4.9375 -1.390625 4.4375 -1.125 3.59375 -1.125 C 3.109375 -1.125 2.75 -1.203125 2.515625 -1.375 C 2.3125 -1.515625 2.234375 -1.65625 2.15625 -2.046875 L 0.375 -2.046875 C 0.421875 -0.5 1.5625 0.296875 3.6875 0.296875 C 4.671875 0.296875 5.40625 0.09375 5.921875 -0.328125 C 6.453125 -0.734375 6.765625 -1.390625 6.765625 -2.078125 C 6.765625 -2.984375 6.3125 -3.578125 5.375 -3.84375 L 3.078125 -4.515625 C 2.578125 -4.671875 2.4375 -4.765625 2.4375 -5.0625 C 2.4375 -5.453125 2.859375 -5.703125 3.5 -5.703125 C 4.375 -5.703125 4.796875 -5.390625 4.8125 -4.765625 Z M 6.5625 -4.765625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-4">
+</g>
+<g id="eps-svg-3-glyph-0-5">
+<path d="M 3.90625 -6.875 L 2.90625 -6.875 L 2.90625 -8.765625 L 1.078125 -8.765625 L 1.078125 -6.875 L 0.1875 -6.875 L 0.1875 -5.671875 L 1.078125 -5.671875 L 1.078125 -1.359375 C 1.078125 -0.25 1.65625 0.296875 2.859375 0.296875 C 3.28125 0.296875 3.578125 0.265625 3.90625 0.15625 L 3.90625 -1.125 C 3.734375 -1.09375 3.640625 -1.078125 3.5 -1.078125 C 3.015625 -1.078125 2.90625 -1.21875 2.90625 -1.84375 L 2.90625 -5.671875 L 3.90625 -5.671875 Z M 3.90625 -6.875 "/>
+</g>
+<g id="eps-svg-3-glyph-0-6">
+<path d="M 9.25 -5.09375 L 5.453125 -5.09375 L 5.453125 -3.46875 L 7.609375 -3.46875 C 7.546875 -2.9375 7.421875 -2.609375 7.140625 -2.28125 C 6.671875 -1.703125 5.9375 -1.359375 5.203125 -1.359375 C 3.609375 -1.359375 2.5 -2.75 2.5 -4.6875 C 2.5 -6.734375 3.484375 -7.96875 5.140625 -7.96875 C 5.828125 -7.96875 6.390625 -7.78125 6.828125 -7.390625 C 7.09375 -7.15625 7.234375 -6.9375 7.40625 -6.453125 L 9.25 -6.453125 C 9.015625 -8.40625 7.421875 -9.640625 5.140625 -9.640625 C 2.40625 -9.640625 0.546875 -7.625 0.546875 -4.671875 C 0.546875 -1.796875 2.421875 0.296875 4.984375 0.296875 C 6.25 0.296875 7.109375 -0.15625 7.84375 -1.21875 L 8.078125 0.03125 L 9.25 0.03125 Z M 9.25 -5.09375 "/>
+</g>
+<g id="eps-svg-3-glyph-0-7">
+<path d="M 0.8125 -7.015625 L 0.8125 0 L 2.640625 0 L 2.640625 -4.21875 C 2.640625 -5.046875 3.21875 -5.59375 4.109375 -5.59375 C 4.890625 -5.59375 5.28125 -5.15625 5.28125 -4.328125 L 5.28125 0 L 7.09375 0 L 7.09375 -4.703125 C 7.09375 -6.265625 6.25 -7.140625 4.75 -7.140625 C 3.796875 -7.140625 3.15625 -6.796875 2.640625 -6 L 2.640625 -7.015625 Z M 0.8125 -7.015625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-8">
+<path d="M 6.78125 -4.390625 C 6.65625 -6.109375 5.53125 -7.140625 3.75 -7.140625 C 1.65625 -7.140625 0.4375 -5.765625 0.4375 -3.359375 C 0.4375 -1.046875 1.65625 0.296875 3.734375 0.296875 C 5.4375 0.296875 6.609375 -0.75 6.78125 -2.4375 L 5.046875 -2.4375 C 4.828125 -1.515625 4.453125 -1.171875 3.734375 -1.171875 C 2.8125 -1.171875 2.265625 -1.984375 2.265625 -3.359375 C 2.265625 -4.046875 2.390625 -4.65625 2.609375 -5.0625 C 2.828125 -5.453125 3.21875 -5.671875 3.75 -5.671875 C 4.484375 -5.671875 4.84375 -5.3125 5.046875 -4.390625 Z M 6.78125 -4.390625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-9">
+<path d="M 6.8125 -2.9375 C 6.828125 -3.09375 6.828125 -3.15625 6.828125 -3.25 C 6.828125 -3.953125 6.71875 -4.609375 6.546875 -5.09375 C 6.078125 -6.375 4.953125 -7.140625 3.53125 -7.140625 C 1.515625 -7.140625 0.28125 -5.6875 0.28125 -3.328125 C 0.28125 -1.078125 1.515625 0.296875 3.5 0.296875 C 5.0625 0.296875 6.34375 -0.578125 6.75 -1.96875 L 4.953125 -1.96875 C 4.734375 -1.421875 4.21875 -1.09375 3.5625 -1.09375 C 3.046875 -1.09375 2.625 -1.3125 2.359375 -1.703125 C 2.203125 -1.96875 2.125 -2.28125 2.109375 -2.9375 Z M 2.125 -4.140625 C 2.25 -5.21875 2.703125 -5.75 3.515625 -5.75 C 4.34375 -5.75 4.84375 -5.1875 4.921875 -4.140625 Z M 2.125 -4.140625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-10">
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 21.5 L 595.5 1.5 L 49.5 1.5 L 49.5 21.5 L 595.5 21.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 200 L 20 200 " transform="matrix(0.1, 0, 0, -0.1, 0, 22)"/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#eps-svg-3-glyph-0-0" x="67" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-1" x="76.386" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="80" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-3" x="87.228" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-3" x="94.456" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-4" x="101.684" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="105.298" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-5" x="112.526" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-4" x="116.855" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="120.469" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-4" x="127.697" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-6" x="131.311" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-1" x="141.425" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="145.039" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-7" x="152.267" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-8" x="160.21" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-9" x="167.438" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-10" x="174.666" y="17"/>
+</g>
+</svg></b><b></b></p>
+<p class="p21"><b></b><br></p>
+<p class="p22"><b>Purpose</b></p>
+<p class="p7">An NSMutableData object stores mutable data in the form of bytes.</p>
+<p class="p23"><br></p>
+<p class="p22"><b>Principal Attributes</b></p>
+<p class="p7">•<span class="Apple-tab-span">	</span>A count of the number of bytes in the mutable data object.</p>
+<p class="p7">•<span class="Apple-tab-span">	</span>The sequence of bytes contained in the mutable data object.</p>
+<p class="p23"><br></p>
+<p class="p22"><b>Creation</b></p>
+<p class="p24">+ dataWithCapacity:<span class="Apple-tab-span">	</span>Returns an NSMutableData with enough allocated memory to hold a specified number of bytes.</p>
+<p class="p24">+ dataWithLength:<span class="Apple-tab-span">	</span>Returns an NSMutableData that contains a specified number of zero-filled bytes.</p>
+<p class="p25"><br></p>
+<p class="p22"><b>Commonly Used Methods</b></p>
+<p class="p24"><span class="s5">-</span> mutableBytes<span class="Apple-tab-span">	</span>A pointer to the bytes in the NSMutableData object.</p>
+<p class="p24"><span class="s5">-</span> replaceBytesInRange:withBytes:<span class="Apple-tab-span">	</span>Replaces a range of bytes in the NSMutableData object.</p>
+<p class="p25"><br></p>
+<p class="p22"><b>Primitive Methods</b></p>
+<p class="p7"><span class="s5">-</span> mutableBytes</p>
+<p class="p7"><span class="s5">-</span> setLength:</p>
+<p class="p26"><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="9pt" viewBox="0 0 597 9" role="img" aria-labelledby="eps-svg-4-title" data-source="NSDataClassCluster.rtfd/AtaGlanceClose.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-4-title">AtaGlanceClose.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 7.5 L 595.5 0.25 L 49.5 0.25 L 49.5 7.5 L 595.5 7.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 20 L 20 20 " transform="matrix(0.1, 0, 0, -0.1, 0, 9)"/>
+</svg></b><b></b></p>
+<p class="p29"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b>Class Description</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p7">The NSMutableData class declares the programmatic interface to an object that contains modifiable data in the form of bytes. NSMutableData's two primitive methods—<b>mutableBytes</b> and <b>setLength:</b>—provide the basis for all of the other methods in its interface. The <b>mutableBytes</b> method returns a pointer for writing into the bytes contained in the mutable data object. <b>setLength: </b>allows you to truncate or extend the length of a mutable data object.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7"><b>increaseLengthBy:</b> also allows you to change the length of a mutable data object.</p>
+<p class="p8"><br></p>
+<p class="p7">The <b>appendBytes:length:</b> and <b>appendData:</b> methods let you append bytes or the contents of another data object to a mutable data object. You can replace a range of bytes in a mutable data object with zeros (using the <b>resetBytesInRange:</b> method), or with different bytes (using the <b>replaceBytesInRange:withBytes:</b> method).<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p33"><br></p>
+<p class="p34"><b>Method Types</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p35">Creating an NSMutableData<span class="Apple-tab-span">	</span>+ allocWithZone:</p>
+<p class="p40">+ dataWithCapacity:</p>
+<p class="p40">+ dataWithLength:</p>
+<p class="p40"><span class="s5">-</span> initWithCapacity:</p>
+<p class="p40"><span class="s5">-</span> initWithLength:</p>
+<p class="p41"><br></p>
+<p class="p35">Adjusting capacity <span class="Apple-tab-span">	</span><span class="s5">-</span> increaseLengthBy:</p>
+<p class="p40"><span class="s5">-</span> setLength:<span class="Apple-converted-space"> </span></p>
+<p class="p41"><br></p>
+<p class="p35">Accessing data<span class="Apple-tab-span">	</span><span class="s5">-</span> mutableBytes<span class="Apple-converted-space"> </span></p>
+<p class="p38"><br></p>
+<p class="p35">Adding data<span class="Apple-tab-span">	</span><span class="s5">-</span> appendBytes:length:</p>
+<p class="p40"><span class="s5">-</span> appendData:</p>
+<p class="p41"><br></p>
+<p class="p35">Modifying data<span class="Apple-tab-span">	</span><span class="s5">-</span> replaceBytesInRange:withBytes:</p>
+<p class="p40"><span class="s5">-</span> resetBytesInRange:</p>
+<p class="p40"><span class="s5">-</span> setData:</p>
+<p class="p57"><br></p>
+<p class="p34"><b>Class Methods</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p42"><b></b><b>allocWithZone</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">+ (id)<b>allocWithZone:</b>(NSZone *)<i>zone</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Creates and returns an uninitialized data object in the specified zone. If the receiver is the NSMutableData class object, an instance of an appropriate subclass is returned; otherwise, an object of the receiver's class is returned.</p>
+<p class="p8"><br></p>
+<p class="p7">Typically, you create objects using the <b>data...</b> class methods, not the <b>alloc...</b> and <b>init...</b> methods. Note that it's your responsibility to release objects created with the <b>alloc...</b> methods.</p>
+<p class="p8"><br></p>
+<p class="p46"><br></p>
+<p class="p42"><b></b><b>dataWithCapacity:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">+ (id)<b>dataWithCapacity</b><span class="s7"><b>:</b></span>(unsigned int)<i>aNumItems</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Creates and returns an NSMutableData object, initially allocating enough memory to hold <i>aNumItems</i> objects. Mutable data objects allocate additional memory as needed, so <i>aNumItems</i> simply establishes the object's initial capacity.</p>
+<p class="p8"><br></p>
+<p class="p58"><span class="s4"><b>Note:<span class="Apple-tab-span">	</span></b></span><b>dataWithCapacity:</b> doesn't necessarily allocate its memory at the time of method invocation. When it does allocate its memory, though, it initially allocates the specified amount.</p>
+<p class="p59"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>dataWithLength:</b>, <span class="s5">-</span> <b>initWithCapacity:</b>, <span class="s5">-</span> <b>initWithLength:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>dataWithLength:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44">+ (id)<b>dataWithLength:</b>(unsigned int)<i>length</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Creates an autoreleased, mutable data object of <i>length</i> bytes, filled with zeros.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>dataWithCapacity:</b>, <span class="s5">-</span> <b>initWithCapacity:</b>, <span class="s5">-</span> <b>initWithLength:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p60"><b></b><br></p>
+<p class="p34"><b>Instance Methods</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p42"><b></b><b>appendBytes:length:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (void)<b>appendBytes:</b>(const void *)<i>bytes</i> <b>length:</b>(unsigned int)<i>length</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Appends <i>length </i>bytes to a mutable data object from the buffer <i>bytes</i>.</p>
+<p class="p8"><br></p>
+<p class="p7">This excerpt copies the bytes in <i>data2</i> into <i>aBuffer</i>, and then appends <i>aBuffer</i> to <i>data1</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p50">NSMutableData *data1, *data2;</p>
+<p class="p50">NSString *firstString =<span class="Apple-converted-space">  </span>@"ABCD";<span class="Apple-converted-space"> </span></p>
+<p class="p50">NSString *secondString = @"EFGH";<span class="Apple-converted-space"> </span></p>
+<p class="p50">unsigned char *aBuffer;</p>
+<p class="p50">unsigned len;</p>
+<p class="p54"><span class="Apple-converted-space">   </span></p>
+<p class="p50">data1 = [NSMutableData<span class="Apple-converted-space"> </span></p>
+<p class="p50"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>dataWithBytes:[firstString cString]</p>
+<p class="p50"><span class="Apple-converted-space"> <span class="Apple-tab-span">	</span></span>length:[firstString cStringLength]];<span class="Apple-tab-span">	</span></p>
+<p class="p50">data2 = [NSMutableData<span class="Apple-converted-space"> </span></p>
+<p class="p50"><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>dataWithBytes:[secondString cString]</p>
+<p class="p50"><span class="Apple-converted-space"> <span class="Apple-tab-span">	</span></span>length:[secondString cStringLength]];</p>
+<p class="p54"><br></p>
+<p class="p50">len = [data2 length];</p>
+<p class="p50">aBuffer = malloc(len);</p>
+<p class="p54"><br></p>
+<p class="p50">[data2 getBytes:aBuffer];</p>
+<p class="p50">[data1 appendBytes:aBuffer length:len];</p>
+<p class="p51"><br></p>
+<p class="p7"><span class="Apple-converted-space">   </span>The final value of <i>data1</i> is the series of ASCII characters “ABCDEFGH”.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>appendData:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>appendData:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (void)<b>appendData:</b>(NSData *)<i>otherData</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Appends the contents of a data object <i>otherData</i> to the receiver.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>appendBytes:length:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>increaseLengthBy:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (void)<b>increaseLengthBy:</b>(unsigned int)<i>extraLength</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Increases the length of a mutable data object by <i>extraLength</i>. The additional bytes are all set to zero.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>setLength:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>initWithCapacity:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (id)<b>initWithCapacity:</b>(unsigned int)<i>capacity</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Initializes a newly allocated mutable data object, giving it enough memory to hold <i>capacity</i> bytes. Sets the length of the data object to 0. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s5">-</span> <b>dataWithCapacity:, </b><span class="s5">-</span><b> initWithLength:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>initWithLength:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (id)<b>initWithLength:</b>(unsigned int)<i>length</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Initializes a newly allocated mutable data object, giving it enough memory to hold <i>length</i> bytes. Fills the object with zeros up to <i>length</i>. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>dataWithCapacity:</b>, <span class="s5">-</span><b> dataWithLength:</b>,<b> </b><span class="s5">-</span><b> initWithCapacity:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>mutableBytes</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (void *)<b>mutableBytes</b></p>
+<p class="p45"><b></b><br></p>
+<p class="p7">Returns a pointer to the receiver's data.</p>
+<p class="p8"><br></p>
+<p class="p7">In the following code example, <b>mutableBytes</b> is used to return a pointer to the bytes in <i>data2</i>. The bytes in <i>data2</i> are then overwritten with the contents of <i>data1</i>.</p>
+<p class="p8"><br></p>
+<p class="p50">NSMutableData *data1, *data2;</p>
+<p class="p50">NSString *myString = @"string for data1";<span class="Apple-converted-space"> </span></p>
+<p class="p50">NSString *yourString = @"string for data2";<span class="Apple-converted-space"> </span></p>
+<p class="p50">unsigned char *firstBuffer, secondBuffer[20];</p>
+<p class="p54"><br></p>
+<p class="p50">/* initialize data1, data2, and secondBuffer... */ <span class="Apple-converted-space"> </span></p>
+<p class="p50">data1 = [NSMutableData dataWithBytes:[myString cString]<span class="Apple-converted-space"> </span></p>
+<p class="p50">    length:[myString length]];</p>
+<p class="p50">data2 = [NSMutableData dataWithBytes:[yourString cString]</p>
+<p class="p50"><span class="Apple-converted-space"> </span>   length:[yourString length]];</p>
+<p class="p54"><span class="Apple-tab-span">	</span></p>
+<p class="p50">[data2 getBytes:secondBuffer];</p>
+<p class="p50">NSLog(@"data2 before: \"%s\"\n", (char *)secondBuffer);</p>
+<p class="p50">firstBuffer = [data2 mutableBytes];</p>
+<p class="p50">[data1 getBytes:firstBuffer];</p>
+<p class="p50">NSLog(@"data1: \"%s\"\n", (char *)firstBuffer);</p>
+<p class="p50">[data2 getBytes:secondBuffer];</p>
+<p class="p50">NSLog(@"data2 after: \"%s\"\n", (char *)secondBuffer);</p>
+<p class="p51"><br></p>
+<p class="p7">This is the output from the above code example:</p>
+<p class="p8"><br></p>
+<p class="p50">Oct<span class="Apple-converted-space">  </span>3 15:59:51 [1113] data2 before: "string for data2"</p>
+<p class="p50">Oct<span class="Apple-converted-space">  </span>3 15:59:51 [1113] data1: "string for data1"</p>
+<p class="p50">Oct<span class="Apple-converted-space">  </span>3 15:59:51 [1113] data2 after: "string for data1"</p>
+<p class="p61"><br></p>
+<p class="p42"><b></b><b>replaceBytesInRange:withBytes:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (void)<b>replaceBytesInRange:</b>(NSRange)<i>range</i><b> withBytes:</b>(const void *)<i>bytes</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Specifies a range within the contents of a mutable data object to be replaced by <i>bytes</i>. If the location of <i>range</i> isn't within the receiver's range of bytes, an NSRangeException is raised. The receiver is resized to accomodate the new bytes, if necessary.</p>
+<p class="p8"><br></p>
+<p class="p7">In the following code excerpt, a range of bytes in <i>data1</i> is replaced by the bytes in <i>data2</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p50">NSMutableData *data1, *data2;</p>
+<p class="p50">NSString *myString = @"Liz and John";<span class="Apple-converted-space"> </span></p>
+<p class="p50">NSString *yourString = @"Larry";<span class="Apple-converted-space"> </span></p>
+<p class="p50">unsigned len;</p>
+<p class="p50">unsigned char *aBuffer;</p>
+<p class="p50">NSRange range = {8, [yourString cStringLength]}; <span class="Apple-converted-space"> </span></p>
+<p class="p54"><br></p>
+<p class="p50">data1 = [NSMutableData<span class="Apple-converted-space"> </span></p>
+<p class="p50"><span class="Apple-converted-space">    </span>dataWithBytes:[myString cString]</p>
+<p class="p50"><span class="Apple-converted-space"> </span>   length:[myString cStringLength]];</p>
+<p class="p54"><span class="Apple-tab-span">	</span></p>
+<p class="p50">data2 = [NSMutableData<span class="Apple-converted-space"> </span></p>
+<p class="p50">    dataWithBytes:[yourString cString]</p>
+<p class="p50">    length:[yourString cStringLength]];</p>
+<p class="p54"><span class="Apple-tab-span">	</span><span class="Apple-converted-space">   </span></p>
+<p class="p50">len = [data2 length];</p>
+<p class="p50">aBuffer = malloc(len);</p>
+<p class="p50">[data2 getBytes:aBuffer];</p>
+<p class="p50">[data1 replaceBytesInRange:range withBytes:aBuffer];</p>
+<p class="p54"><br></p>
+<p class="p51"><br></p>
+<p class="p7">The contents of <i>data1</i> changes from “Liz and John” to “Liz and Larry.”</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>resetBytesInRange:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p42"><b></b><b>resetBytesInRange:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (void)<b>resetBytesInRange:</b>(NSRange)<i>range</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Specifies a range within the contents of a mutable data object to be replaced by zeros. If the location of <i>range</i> isn't within the receiver's range of bytes, an NSRangeException is raised. The receiver is resized to accomodate the new bytes, if necessary.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>replaceBytesInRange:withBytes:</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p49"><b></b><br></p>
+<p class="p52"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setData:</b></p>
+<p class="p53"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (void)<b>setData:</b>(NSData *)<i>aData</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Uses <b>replaceBytesInRange:withBytes:</b> to replace the entire contents of the receiver with the contents of <i>aData</i>.</p>
+<p class="p8"><br></p>
+<p class="p46"><br></p>
+<p class="p42"><b></b><b>setLength:</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p44"><span class="s5">-</span> (void)<b>setLength:</b>(unsigned int)<i>length</i></p>
+<p class="p45"><i></i><br></p>
+<p class="p7">Extends or truncates a mutable data object to <i>length</i>. If the mutable data object is extended, the additional bytes are filled with zero.</p>
+<p class="p8"><br></p>
+<p class="p47"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>increaseLengthBy:</b></p>
+<p class="p48"><b></b><br></p>
+</body>
+</html>

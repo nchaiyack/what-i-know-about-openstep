@@ -1,0 +1,16 @@
+{
+    FILESTABLE = {
+        CLASSES = (ThreadSafeQueue.m); 
+        FRAMEWORKS = (Foundation.framework); 
+        H_FILES = (ThreadSafeQueue.h); 
+        OTHER_LINKED = (MultiThreadedDO_main.m); 
+        OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble, m.template, h.template); 
+    }; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {}; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    PROJECTNAME = MultiThreadedDO; 
+    PROJECTTYPE = Tool; 
+    PROJECTVERSION = 2.4; 
+    WINDOWS_BUILDTOOL = make; 
+}

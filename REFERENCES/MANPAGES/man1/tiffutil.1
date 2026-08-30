@@ -1,0 +1,53 @@
+.TH TIFFUTIL 1 "March 4, 1992" "NeXT Computer, Inc."
+.SH NAME
+tiffutil \- manipulates tiff files
+.SH SYNOPSIS
+tiffutil <option> [<arguments>] [-out <outfile>]
+.SH DESCRIPTION
+tiffutil lets you manipulate TIFF files. The list of options (also available by
+running the program without any options) follows:
+.PP
+tiffutil -none        infile                  [-out outfile]
+         -lzw         infile                  [-out outfile]
+         -packbits    infile                  [-out outfile]
+         -jpeg [-fN]  infile                  [-out outfile]
+         -cat         infile1 [infile2 ...]   [-out outfile]
+         -extract     num infile              [-out outfile]
+         -info        infile
+         -verboseinfo infile
+         -dump        infile
+.PP
+-none, -lzw, -packbits, and -jpeg options specify the compression format
+to be applied to the images in the TIFF file.  With JPEG compression it is
+possible to specify a compression factor between 1 and 255 using the -f
+argument; there should be no space between the "-f" and the number.
+By default this factor is 10.
+.PP
+-cat allows combining multiple TIFF files into one.  The images are
+copied without any change in tag values.
+.PP
+-extract allows extracting an individual image from a TIFF file; specify
+num = 0 for the first image in the file.
+.PP
+-info prints information about TIFF images. -verboseinfo is the same,
+except most of the tables are displayed in full. -dump simply lists
+all of the tags in the file without trying to interpret them; it is
+handy when trying to figure out why a TIFF file won't load or display properly.
+.PP
+For options which write images out, the output goes to "out.tiff" unless
+an output file name is specified after a -out keyword.  This keyword and the
+file must be the last items on the command line. -info, -verboseinfo, and
+-dump write their output to the standard output.
+.PP
+If there are multiple images in a TIFF file the specified operation will be
+performed on all of them.
+.SH CREDITS
+Parts of tiffutil were based on the freely distributable "tiffcp" and 
+"tiffinfo" programs written by Sam Leffler and made available with v3.0
+of his excellent TIFF library. The TIFF library and the tiffcp and tiffinfo
+programs are:
+
+  Copyright (c) 1988, 1989, 1990, 1991, 1992 Sam Leffler
+  Copyright (c) 1991, 1992 Silicon Graphics, Inc.
+
+

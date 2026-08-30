@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.2px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.2px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 95.8px; font: 12.0px Courier}
+    p.p14 {margin: 0.0px 0.0px 0.0px 95.8px; font: 7.0px Courier; min-height: 8.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 14.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 5.0px Times; min-height: 6.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 14.0px Times}
+    p.p19 {margin: 0.0px 0.0px 0.0px 316.7px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 316.7px; font: 35.0px Times; min-height: 42.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Helvetica}
+    p.p22 {margin: 0.0px 0.0px 0.0px 75.6px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 75.6px; font: 23.0px Times; min-height: 28.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSAssertionHandler</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s2">NSObject<span class="Apple-converted-space"> </span></span></p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s3"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSObject (NSObject)<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSException.h<i><span class="Apple-converted-space"> </span></i></p>
+<p class="p8"><i></i><br></p>
+<p class="p8"><i></i><br></p>
+<p class="p9"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">NSAssertionHandler objects are automatically created to handle false assertions. Assertion macros are used to evaluate a condition and, if the condition evaluates to false, the macros pass a string to an NSAssertionHandler object describing the failure. Each thread has its own NSAssertionHandler object. When invoked, an NSAssertionHandler prints an error message that includes the method and class (or function) containing the assertion, and raises an NSInternalInconsistencyException.</p>
+<p class="p12"><br></p>
+<p class="p11">You use an assortment of macros to evaluate a condition—these macros serve as a front end to NSAssertionHandler. These macros fall into two categories: those you use in Objective-C methods, and those you use in C functions. For example, <b>NSAssert()</b> is for use within methods and <b>NSCAssert()</b> is for use within functions. Each macro has two arguments: the condition, an expression that evaluates to true or false, and the NSString describing the failure. Other macros are available if more arguments are needed for a <b>printf()</b>-style description. For example, <b>NSAssert1()</b> is used within methods if an additional argument is needed as in:</p>
+<p class="p12"><br></p>
+<p class="p13">NSAssert1((0 &lt;= component) &amp;&amp; (component &lt;= 255),<span class="Apple-converted-space"> </span></p>
+<p class="p13"><span class="Apple-tab-span">	</span>@"Value %i out of range!", component);</p>
+<p class="p14"><br></p>
+<p class="p11">For more details on these macros see <b>NSAssert()</b>.</p>
+<p class="p12"><br></p>
+<p class="p11">You create assertions only using the above macros—you rarely need to invoke NSAssertionHandler methods directly. The macros for use inside methods and functions will send <b>handleFailureInMethod:...</b> and <b>handleFailureInFunction:...</b> to the current assertion handler respectively. The assertion handler for the current thread is obtained using the <b>currentHandler</b> class method.</p>
+<p class="p12"><br></p>
+<p class="p11">Assertions are <i>not</i> compiled into code if the preprocessor macro NS_BLOCK_ASSERTIONS is defined.</p>
+<p class="p12"><br></p>
+<p class="p15"><br></p>
+<p class="p9"><b>Method Types<span class="Apple-converted-space"> </span></b></p>
+<p class="p10"><b></b><br></p>
+<p class="p16">Getting the thread's handler<span class="Apple-tab-span">	</span>+ currentHandler</p>
+<p class="p17"><br></p>
+<p class="p16">Handling assertion failures<span class="Apple-tab-span">	</span><span class="s4">-</span> handleFailureInFunction:file:lineNumber:description:</p>
+<p class="p18"><span class="s4">-</span> handleFailureInMethod:object:file:lineNumber:</p>
+<p class="p19">description:</p>
+<p class="p20"><br></p>
+<p class="p9"><b>Class Methods<span class="Apple-converted-space"> </span></b></p>
+<p class="p10"><b></b><br></p>
+<p class="p21"><b></b><b>currentHandler</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23">+ (NSAssertionHandler *)<b>currentHandler</b><span class="Apple-converted-space"> </span></p>
+<p class="p24"><br></p>
+<p class="p11">Returns an NSAssertionHandler for the current thread.</p>
+<p class="p12"><br></p>
+<p class="p15"><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p21"><b></b><b>handleFailureInFunction:file:lineNumber:description:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s4">-</span> (void)<b>handleFailureInFunction:</b>(NSString *)<i>functionName </i><b>file:</b>(NSString *)<i>fileName </i><b>lineNumber:</b>(int)<i>line </i><b>description:</b>(NSString *)<i>format,...</i><span class="Apple-converted-space"> </span></p>
+<p class="p24"><br></p>
+<p class="p11">Logs an error message (using <b>NSLog()</b>) that includes the name of the function <i>functionName</i>, the name of the file <i>fileName</i>, and the line number <i>line</i>. Raises NSInternalInconsistencyException.</p>
+<p class="p12"><br></p>
+<p class="p25"><br></p>
+<p class="p21"><b></b><b>handleFailureInMethod:object:file:lineNumber:description:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s4">-</span> (void)<b>handleFailureInMethod:</b>(SEL)<i>selector </i><b>object:</b>(id)<i>object </i><b>file:</b>(NSString *)<i>fileName </i><b>lineNumber:</b>(int)<i>line </i><b>description:</b>(NSString *)<i>format,...</i><span class="Apple-converted-space"> </span></p>
+<p class="p24"><br></p>
+<p class="p11">Logs an error message (using <b>NSLog()</b>) that includes the <i>selector</i>, <i>object</i>'s class name, the name of the file <i>fileName</i>, and the line number <i>line</i>. Raises NSInternalInconsistencyException.</p>
+<p class="p12"><br></p>
+</body>
+</html>

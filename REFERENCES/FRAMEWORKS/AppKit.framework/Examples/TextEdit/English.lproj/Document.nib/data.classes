@@ -1,0 +1,3 @@
+"ScalingScrollView" = {SUPERCLASS = NSView; };
+"Document" = {OUTLETS = (scrollView); SUPERCLASS = NSObject; };
+"FirstResponder" = {CATEGORY = LocalActions; };

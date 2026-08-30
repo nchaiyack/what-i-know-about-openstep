@@ -1,0 +1,44 @@
+.\"
+.\" $Header: mkgrpbyusr.1,v 1.1 88/10/04 11:26:55 mcooper Exp $
+.\"
+.TH MKGRPBYUSR 8 "October 4, 1988"
+.ds ]W USC-UCS
+.SH NAME
+mkgrpbyusr \- Make group file by user name
+.SH SYNOPSIS
+mkgrpbyusr
+[
+.B \-v
+] [
+.I groupfile
+]
+.SH DESCRIPTION
+.B mkgrpbyusr
+is used to take a 
+.BR group (5) 
+file and convert it into
+a file mapping user names to the group access list for 
+that user.
+This is used to make the 
+.B group.byusr 
+NIS map.
+.PP
+.B mkgrpbyusr
+reads 
+.I groupfile
+for input.  If no file is specified, then standard input
+is read.
+.SH OPTIONS
+.IP \fB\-v\fP
+Print statistics to stderr regarding
+internal hash table usage and hit rates.
+.SH AUTHOR
+Michael A. Cooper, 
+.br
+University Computing Services, 
+.br
+University of Southern California.
+.SH FILES
+/etc/group \- group file
+.SH SEE ALSO
+group(5)

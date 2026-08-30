@@ -1,0 +1,124 @@
+.\"	@(#)getpwent.3	6.3 (Berkeley) 5/15/86
+.\"
+.TH GETPWUID 3  "August 1, 1992"
+.AT 3
+.SH NAME
+getpwuid, getpwnam, getpwent, setpwent, endpwent, setpwfile \- user database access
+.SH SYNOPSIS
+.nf
+.ft B
+#include <sys/types.h>
+#include <pwd.h>
+.PP
+.ft B
+struct passwd *getpwuid(uid_t \fIuid\fP)
+.PP
+.ft B
+struct passwd *getpwnam(const char *\fIname\fP)
+.ft R
+.fi
+.SH "(ALSO AVAILABLE IN BSD)"
+.nf
+.ft B
+struct passwd *getpwent(void);
+.PP
+.ft B
+void setpwent(void);
+.PP
+.ft B
+void endpwent(void);
+.PP
+.ft B
+void setpwfile(char *\fIname\fP);
+.ft R
+.nf
+.SH DESCRIPTION
+The
+.IR getpwuid 
+and
+.IR getpwnam 
+functions both return a pointer to a \fIpasswd\fP structure containing an
+entry from the system's user (password) database with a matching
+numeric user ID (\fIuid\fP) or a user login name (\fIname\fP).
+.PP
+The \fIpasswd\fP structure is defined in the header
+.I <pwd.h>
+and includes the following members:
+.IP
+.PP
+.RS
+.TP 35
+\fBMember Type	Member Name\fP
+\fBDescription\fP
+.TP 35
+\fIchar *		pw_name\fP
+Login name.
+.TP 35
+\fIuid_t		pw_uid\fP
+Numerical user ID.
+.TP 35
+\fIgid_t		pw_gid\fP
+Numerical group ID.
+.TP 35
+\fIchar *		pw_dir\fP
+Pathname of home directory.
+.TP 35
+\fIchar *		pw_shell\fP
+Initial user (shell) program.
+.TP 35
+\fIchar *		pw_passwd\fP
+User password. (BSD only; not POSIX-compliant)
+.RE
+.IP
+.PP
+The
+.I passwd
+structure may contain more
+implementation-specific members than those listed here;\
+see
+.IR passwd (5)
+for more information.
+.PP
+The BSD routines
+.IR setpwent ,
+.IR getpwent ,
+.IR endpwent ,
+and
+.I setpwfile
+may be used to scan the user database sequentially.
+.I setpwent
+resets the current user password structure
+to the first in the database,
+.I getpwent
+reads and returns the next user password entry,
+and
+.I endpwent
+closes the user password database
+when processing is complete.
+In addition,
+.I setpwfile
+may be called to set the database
+to that given in file
+.IR name ,
+which is a file in
+.IR passwd (5)
+format.
+.I Setpwfile
+doesn't close the previous password file;
+.I endpwent
+should be used before
+.IR setpwfile .
+.SH NOTES
+The value returned points to a static area;
+if the information is to be saved, it must be copied.
+.SH "RETURN VALUE"
+A \fBNULL\fP pointer is returned on error or if the requested entry is
+not found.
+.SH FILES
+/etc/passwd \- if NetInfo is not running, or if YellowPages is enabled.
+.SH "SEE ALSO"
+getlogin(3),
+getgrent(3),
+lookupd(8),
+netinfo(5),
+passwd(5)

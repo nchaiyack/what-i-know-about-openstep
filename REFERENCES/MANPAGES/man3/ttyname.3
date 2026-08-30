@@ -1,0 +1,56 @@
+.\"	@(#)ttyname.3	6.1 (Berkeley) 5/15/85
+.\"
+.TH TTYNAME 3P  "May 15, 1985"
+.AT 3
+.SH NAME
+ttyname, isatty \- find name of a terminal
+.SH SYNOPSIS
+.nf
+.B #include <unistd.h>
+.PP
+.B char *ttyname(int \fIfd\fP)
+.PP
+.B int isatty(int \fIfd\fP)
+.fi
+.SH "(ALSO AVAILABLE IN BSD)"
+.nf
+.B int ttyslot(void);
+.fi
+.SH DESCRIPTION
+.I Ttyname
+returns a pointer to the null-terminated path name
+of the terminal device associated with file descriptor
+.IR fd .
+.PP
+.I Isatty
+returns 1 if
+.I fd
+is associated with a terminal device, 0 otherwise.
+.PP
+.I Ttyslot
+returns the number of the entry in the
+.IR ttys (5)
+file for the control terminal of the current process.
+.I Ttyslot
+is not a POSIX function.
+.SH "RETURN VALUE"
+The
+.I ttyname 
+function returns a NULL 
+pointer if 
+.I fd
+is not a valid file descriptor associated with a terminal or if the
+pathname cannot be determined.
+.PP
+.I Ttyslot
+returns 0 if `/etc/ttys' is inaccessible or
+if it cannot determine the control terminal.
+.SH FILES
+/dev/\(**
+.br
+/etc/ttys
+.SH SEE ALSO
+ioctl(2), ttys(5)
+.SH BUGS
+The return value points to static data
+whose content is overwritten by each call.

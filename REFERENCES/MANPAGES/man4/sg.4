@@ -1,0 +1,104 @@
+.TH SG 4 "June 30, 1989" "NeXT Computer, Inc."
+.SH NAME
+sg \- generic SCSI device driver
+.SH SYNOPSIS
+Generic SCSI Device as sg[0-3] at sc0
+.SH DESCRIPTION
+This driver allows a user to pass SCSI commands to any arbitrary device on
+the SCSI bus.  The user specifies an arbitrary SCSI command descriptor
+block (CDB), an address at which DMA is to occur to or from, a maximum allowed DMA size, and a maximum I/O time in seconds (after which the I/O will timeout and terminate).  A status block is returned by the driver, indicating such things as I/O status (e.g., success, bus timeout, bad SCSI status, etc.), the SCSI status byte, the number of bytes transferred in case of Data In/Data Out phases, and so on.
+.LP
+The basic mechanism for performing I/O through the sg driver is as
+follows:
+.LP
+1.  Open /dev/sg\fIn\fR for read/write access.
+.LP
+2.  Bind the sg driver to a particular SCSI target and LUN using the
+following call:
+.RS
+.nf
+
+ioctl(fd,SGIOCSTL,&sa)
+
+.fi
+.RE    
+Where
+\fIfd\fR is a file descriptor obtained by opening /dev/sg\fIn\fR and
+\fIsa\fR is a struct scsi_adr (defined in <bsd/dev/scsireg.h>, as are all
+other structs and constants used by this interface) which
+contains target and LUN data.
+.LP
+3.  To execute a command on the SCSI bus, execute the following call:
+.RS
+.nf
+
+ioctl(fd,SGIOCREQ,srp)
+
+.fi
+.RE    
+Where 
+SGIOCREQ defines the ioctl operation and
+\fIsrp\fR is a pointer to a struct scsi_req.
+.LP     
+Steps 2 and/or 3 can be repeated as many times as necessary.
+.LP    
+Struct scsi_req contains both the input to the sg driver required for
+execution of a command (SCSI CDB bytes, address at which DMA will occur,
+etc.) as well as the status block upon return.  The following status is
+provided:
+.TP
+srp->sr_io_status
+Indicates success, I/O timeout, SCSI check
+status, DMA overrun, etc.
+.TP
+srp->sr_scsi_status
+The actual SCSI status byte returned by the 
+target.
+.TP
+srp->sr_esense
+Extended sense data, if pertinent (see 
+description of autosense in "Other ioctl calls",
+below).
+.TP
+srp->sr_dma_xfr
+Number of data bytes actually transferred to/from 
+device.
+.TP
+srp->sr_exec_time
+Command execution time, with microsecond 
+resolution.
+.SH "OTHER IOCTL CALLS"
+.TP
+SGIOCENAS / SGIOCDAS
+There is an optional feature called autosense which can be enabled and 
+disabled by ioctl(SGIOCENAS) and ioctl(SGIOCDAS), respectively.  When 
+autosense is enabled, the sg driver will perform a Request Sense command 
+whenever a Check Status is detected upon completion of execution of a 
+user-specified command.  If the Request Sense command is successful, the 
+sense data will be in scsi_req.sr_esense.  The autosense mode is disabled by 
+default.
+.TP    
+SGIOCRST
+This causes a SCSI bus reset to occur.
+.LP    
+The following restrictions are placed on using the sg driver:
+.LP
+1.  You cannot bind the sg driver to a target/lun which is already in use by 
+any SCSI driver unless you are superuser.  This is an extremely 
+hazardous operation.
+.LP
+2.  You also must be superuser to reset the SCSI bus (via ioctl(SGIOCRST)).
+.SH FILES
+.nf
+<bsd/dev/scsireg.h>
+/dev/sg\fIn\fR
+.fi
+.SH "SEE ALSO"
+open(2), ioctl(2), close(2)
+.SH DIAGNOSTICS
+All errors encountered during the processing of SCSI commands by the sg
+driver are reported by scsi_req.sr_io_status.  See <bsd/dev/scsireg.h> for
+constants used in this field.  Note that this means that a SCSI error (like
+Selection timeout) which is detected by the driver would NOT be reported to
+the user via EIO or any other errno.
+

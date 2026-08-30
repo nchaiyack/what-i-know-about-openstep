@@ -1,0 +1,127 @@
+.\" Copyright (c) 1992 NeXT Computer, Inc.
+.\" All rights reserved.
+.\"
+.\"	@(#)ixsearch.1	3.0 (NeXT) 07/14/92
+.\"
+.TH IXSEARCH 1 "July 14, 1992" "NeXT Computer, Inc."
+.nh
+.SH NAME
+ixsearch \- evaluate a query against an indexed subtree of a filesystem and print names of files matching the query
+
+.SH SYNOPSIS
+.B /usr/bin/ixsearch
+[\ \fB\-abcdfglopqrw\fR\ ] [\ \fB\-L\fIlanguage\fR\ ]
+[\ \fB\-y\fIattribute\fR\ ] \fIquery\fR [\ \fIpath\fR\ ...\ ]
+
+.SH DESCRIPTION
+.B ixsearch
+performs a query against
+the named files or directories,
+looking for files whose contents
+(or names) match \fIquery\fR
+and printing their names to standard output.
+By default, \fIquery\fR is parsed as though it were
+the contents of a file,
+and a whole word search is performed;
+all words in \fIquery\fR must exist in a
+file for it to match.
+.PP
+.B ixsearch
+expects to find an index named
+\fB\&.index.store\fR, as created by the
+.BR ixbuild (1)
+command or by the Digital Librarian application.
+If the current directory for a file has no index,
+.B ixsearch
+proceeds up through the filesystem,
+using the first index it finds
+in a subtree containing \fIpath\fR.
+.B ixsearch
+does not look for indexes in subdirectories.
+If no index is found, the files are opened
+and read as needed, unless the \fB\-b\fR option
+is specified.
+The \fB\-o\fR option prevents \fBixsearch\fR from
+using indexes altogether.
+.PP
+If the \fB\-a\fR option is used,
+\fIquery\fR will be matched as a literal
+string against the contents of files;
+indexes are not used in this case
+(that is, this option implies the \fB\-o\fR option).
+If the \fB\-q\fR option is used,
+\fIquery\fR must be an expression in the
+Indexing Kit query language.
+In this case, it is evaluated and
+used for the search.
+.PP
+If an index exists for a specified path,
+.B ixsearch
+updates it if necessary.
+Use the \fB\-p\fR option to suppress automatic
+updating of indexes.
+.PP
+The pairs of options listed below are mutually exclusive.
+Using mutually exclusive options
+will result in the last
+one listed being used.
+See the Indexing Kit documentation in
+Digital Librarian for more information.
+.RS 5
+.IP "\fB\-a\fR and \fB\-q\fR" 11
+Literal search vs query expression.
+.IP "\fB\-c\fR and \fB\-f\fR"
+File contents vs names.
+.IP "\fB\-f\fR and \fB\-q\fR"
+You can't use a query expression against filenames.
+.DT
+.RE
+
+.SH OPTIONS
+.IP "\fB\-\|\-\fR" 11
+Lists these options.
+.IP \fB\-a\fR
+\fIquery\fR is literal substring search (implies \fB\-o\fR).
+.IP \fB\-b\fR
+Don't look for out-of-date files.
+.IP \fB\-c\fR
+Search against file contents only (default, excludes \fB\-f\fR).
+.IP \fB\-d\fR
+Cross device boundaries (mounted disks, for example).
+.IP \fB\-f\fR
+Search against file names only (excludes \fB\-c\fR and \fB\-q\fR).
+.IP \fB\-g\fR
+Sort ascending, not descending.
+.IP \fB\-l\fR
+Traverse symbolic links.
+.IP \fB\-L\fIlanguage\fR
+Set target language for query parsing to \fIlanguage\fR.
+.IP \fB\-o\fR
+Search without index, even if index present.
+.IP \fB\-p\fR
+Don't update index for out of date files.
+.IP \fB\-q\fR
+\fIquery\fR is query language expression (excludes \fB\-a\fR and \fB\-f\fR).
+.IP \fB\-r\fR
+Print query relative file names.
+.IP \fB\-w\fR
+Resolve wildcards in file names.
+.IP \fB\-x\fR
+Verify read access before printing file name.
+.IP \fB\-y\fIattribute\fR
+Sort by weight for the supplied \fIattribute\fR
+(for example, \*(lqFileSize\*(rq or \*(lqAuthor\*(rq).
+
+.SH FILES
+.ta \w'\&.index.store    'u
+.nf
+\&.index.store	an index file created by \fBixbuild\fR(1)
+.fi
+
+.SH SEE ALSO
+ixbuild(1), parse(1),
+Indexing Kit Documentation in \fINEXTSTEP General Reference\fR
+
+.SH BUGS
+Not all features of the Indexing Kit query
+language are implemented in NEXTSTEP Release 3.

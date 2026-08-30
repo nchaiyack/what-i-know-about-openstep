@@ -1,0 +1,42 @@
+.\" @(#)bootparamd.8 1.5 88/03/15 D/NFS
+.\" @(#)bootparamd.8 1.8 88/03/01 SMI
+.TH BOOTPARAMD 8 "14 December 1987"
+.SH NAME
+bootparamd \- boot parameter server
+.SH SYNOPSIS
+.B /usr/etc/rpc.bootparamd
+[
+.B \-d
+]
+.SH DESCRIPTION
+.LP
+.B bootparamd
+is a server process that provides information to NetBoot clients
+necessary for booting. It consults the NetInfo database (the 
+.B /machines
+directory) if NetInfo is running, and examines the 
+.b bootparams
+property.  If the client's information is not found,
+.B NIS 
+is consulted if it is running.  Finally, the
+.B bootparams
+file is consulted.
+.LP
+.B bootparamd
+can be invoked either by
+.BR inetd (8C)
+or by the user.
+.SH OPTIONS
+.TP
+.B \-d
+Display the debugging information.
+.SH FILES
+.PD 0
+.TP 20
+.B /etc/bootparams 
+- if NetInfo is not running
+.PD
+.SH SEE ALSO
+.BR bootparams (5),
+.BR inetd (8C)
+.BR netinfo(5)

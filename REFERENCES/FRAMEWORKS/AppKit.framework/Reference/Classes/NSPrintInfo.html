@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 12.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 95.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p19 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p23 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p27 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p29 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p31 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 337.0px; font: 14.0px Times}
+    p.p35 {margin: 0.0px 0.0px 0.0px 337.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 476.0px; text-indent: -381.0px; font: 14.0px Times}
+    p.p37 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 12.0px Helvetica}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSPrintInfo</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s2">NSObject</span></p>
+<p class="p6"><br></p>
+<p class="p7"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s2">NSCoding</span></p>
+<p class="p8">NSCopying</p>
+<p class="p8">NSObject (NSObject)</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSPrintInfo.h</p>
+<p class="p11"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14">An NSPrintInfo object stores information that's used to generate PostScript output. A shared NSPrintInfo object is automatically created for an application and is used by default for all printing jobs for that application. You can create any number of additional NSPrintInfo objects; however, only one can be “active” at a time, set using the <b>setSharedPrintInfo</b>: class method. You get the shared NSPrintInfo object using the <b>sharedPrintInfo</b> class method.</p>
+<p class="p15"><br></p>
+<p class="p14">An NSPrintInfo object is used by NSPrintOperation objects to control printing (it is passed to a NSPrintOperation object which makes a copy of it to use during an operation). If you create special instances of NSPrintInfo objects for a specific printing task, you must ensure that your NSPrintInfo object is the shared one, or instantiate an NSPrintOperation object specifying your NSPrintInfo object.</p>
+<p class="p15"><br></p>
+<p class="p14">Normally you don't set NSPrintInfo attributes directly—this is done by instances of NSPageLayout and NSPrintPanel. The NSView that's being printed may also supercede some NSPrintInfo settings. In particular, an NSView can supply the range of pages in the document and can provide its own pagination mechanism through the <b>knowsPagesFirst:last:</b> and <b>rect:forPage:</b> methods (see the documentation of these methods in the NSView class for details).</p>
+<p class="p15"><br></p>
+<p class="p14">If the NSView doesn't supply pagination information, the NSPrintInfo's vertical and horizontal pagination constants are used to trigger these built-in pagination mechanisms:</p>
+<p class="p15"><br></p>
+<p class="p16"><b>Pagination Constant<span class="Apple-tab-span">	</span>Meaning</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18">NSAutoPagination <span class="Apple-tab-span">	</span>The image is diced into equal-sized rectangles and placed in one column of pages.</p>
+<p class="p19"><br></p>
+<p class="p18">NSFitPagination <span class="Apple-tab-span">	</span>The image is scaled to produce one column or one row of pages.</p>
+<p class="p19"><br></p>
+<p class="p18">NSClipPagination<span class="Apple-tab-span">	</span>The image is clipped to produce one column or row of pages.<span class="Apple-converted-space"> </span></p>
+<p class="p19"><br></p>
+<p class="p14">Vertical and horizontal pagination needn't be the same. However, if either dimension is scaled (NSFitPagination), the other dimension is scaled by the same amount to avoid stretching the image. If both dimensions are scaled, the scaling factor that produces the smallest image is used. Note that NSPrintInfo's scaling factor is independent of the scaling that's imposed by pagination and is applied after the document has been paginated.</p>
+<p class="p15"><br></p>
+<p class="p14">NSPrintInfo uses points as the unit of measurement for paper size and margin width in the methods described below. See the NSFont specification for a discussion of points.</p>
+<p class="p15"><br></p>
+<p class="p20"><br></p>
+<p class="p12"><b>Adopted Protocols</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p21">NSCoding<span class="Apple-tab-span">	</span><span class="s4">-</span> encodeWithCoder:</p>
+<p class="p22"><span class="s4">-</span> initWithCoder:</p>
+<p class="p23"><br></p>
+<p class="p21">NSCopying<span class="Apple-tab-span">	</span><span class="s4">-</span> copyWithZone:</p>
+<p class="p24"><br></p>
+<p class="p12"><b>Method Types</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p21">Initializing an NSPrintInfo<span class="Apple-tab-span">	</span><span class="s4">-</span> initWithDictionary:</p>
+<p class="p25"><br></p>
+<p class="p21">Managing the shared NSPrintInfo<span class="Apple-tab-span">	</span>+ setSharedPrintInfo:</p>
+<p class="p22">+ sharedPrintInfo</p>
+<p class="p23"><br></p>
+<p class="p21">Managing the printing rectangle<span class="Apple-tab-span">	</span>+ sizeForPaperName:</p>
+<p class="p22"><span class="s4">-</span> bottomMargin</p>
+<p class="p22"><span class="s4">-</span> leftMargin</p>
+<p class="p22"><span class="s4">-</span> orientation</p>
+<p class="p22"><span class="s4">-</span> paperName</p>
+<p class="p22"><span class="s4">-</span> paperSize</p>
+<p class="p22"><span class="s4">-</span> rightMargin</p>
+<p class="p22"><span class="s4">-</span> setBottomMargin:</p>
+<p class="p22"><span class="s4">-</span> setLeftMargin:</p>
+<p class="p22"><span class="s4">-</span> setOrientation:</p>
+<p class="p22"><span class="s4">-</span> setPaperName:</p>
+<p class="p22"><span class="s4">-</span> setPaperSize:</p>
+<p class="p22"><span class="s4">-</span> setRightMargin:</p>
+<p class="p22"><span class="s4">-</span> setTopMargin:</p>
+<p class="p22"><span class="s4">-</span> topMargin</p>
+<p class="p23"><br></p>
+<p class="p21">Pagination<span class="Apple-tab-span">	</span><span class="s4">-</span> horizontalPagination</p>
+<p class="p22"><span class="s4">-</span> setHorizontalPagination:</p>
+<p class="p22"><span class="s4">-</span> setVerticalPagination:</p>
+<p class="p22"><span class="s4">-</span> verticalPagination</p>
+<p class="p23"><br></p>
+<p class="p21">Positioning the image on the page<span class="Apple-tab-span">	</span><span class="s4">-</span> isHorizontallyCentered</p>
+<p class="p22"><span class="s4">-</span> isVerticallyCentered</p>
+<p class="p22"><span class="s4">-</span> setHorizontallyCentered:</p>
+<p class="p22"><span class="s4">-</span> setVerticallyCentered:</p>
+<p class="p23"><br></p>
+<p class="p21">Specifying the printer<span class="Apple-tab-span">	</span>+ defaultPrinter</p>
+<p class="p22">+ setDefaultPrinter:</p>
+<p class="p22"><span class="s4">-</span> printer</p>
+<p class="p22"><span class="s4">-</span> setPrinter:</p>
+<p class="p23"><br></p>
+<p class="p21">Controlling printing<span class="Apple-tab-span">	</span><span class="s4">-</span> jobDisposition</p>
+<p class="p22"><span class="s4">-</span> setJobDisposition:</p>
+<p class="p22"><span class="s4">-</span> setUpPrintOperationDefaultValues</p>
+<p class="p23"><br></p>
+<p class="p21">Accessing the dictionary<span class="Apple-tab-span">	</span><span class="s4">-</span> dictionary</p>
+<p class="p24"><br></p>
+<p class="p12"><b>Class Methods<span class="Apple-converted-space"> </span></b></p>
+<p class="p13"><b></b><br></p>
+<p class="p26"><b></b><b>defaultPrinter</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28">+ (NSPrinter *)<b>defaultPrinter</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the user's default printer. Returns <b>nil</b> if the printer can not be found.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>setDefaultPrinter:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setDefaultPrinter:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28">+ (void)<b>setDefaultPrinter:</b>(NSPrinter *)<i>aPrinter</i></p>
+<p class="p29"><i></i><br></p>
+<p class="p14">Sets the user's default printer to <i>aPrinter</i>. Unless the receiver's printer was specified using <b>setPrinter:</b>, this default printer is used.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>defaultPrinter</b>,<span class="Apple-converted-space">  </span><span class="s4">-</span> <b>printer</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setSharedPrintInfo:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28">+ (void)<b>setSharedPrintInfo:</b>(NSPrintInfo *)<i>printInfo</i></p>
+<p class="p29"><i></i><br></p>
+<p class="p14">Sets the shared NSPrintInfo object to <i>printInfo</i>. The shared NSPrintInfo object defines the settings for the NSPageLayout panel and print operations that will be used if no NSPrintInfo object is specified for those operataions.<span class="Apple-converted-space">  </span><i>printInfo</i> should never be <b>nil</b>.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>sharedPrintInfo</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>sharedPrintInfo</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28">+ (NSPrintInfo *)<b>sharedPrintInfo</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the shared NSPrintInfo object.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>setSharedPrintInfo:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>sizeForPaperName:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28">+ (NSSize)<b>sizeForPaperName:</b>(NSString *)<i>name</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the size for the specified type of paper in points. <i>name</i> identifies the type of paper, such as Letter or Legal. Paper names are implementation specific.</p>
+<p class="p15"><br></p>
+<p class="p20"><br></p>
+<p class="p12"><b>Instance Methods</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p26"><b></b><b>bottomMargin</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (float)<b>bottomMargin</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the height of the bottom margin in points.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setBottomMargin:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>dictionary</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSMutableDictionary *)<b>dictionary</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the receiver's dictionary that stores its attribute settings. The key/value pairs contained in the dictionary are described in <b>initWithDictionary:</b>. Note, modifying the returned dictionary will change the receiver's attributes.</p>
+<p class="p15"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>horizontalPagination</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSPrintingPaginationMode)<b>horizontalPagination</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the horizontal pagination mode, see <b>setHorizontalPagination:</b> for description of return values.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> setVerticalPagination:, <span class="s4">-</span> verticalPagination</p>
+<p class="p31"><br></p>
+<p class="p32"><br></p>
+<p class="p26"><b></b><b>initWithDictionary:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (id)<b>initWithDictionary:</b>(NSDictionary *)<i>aDictionary</i></p>
+<p class="p29"><i></i><br></p>
+<p class="p14">Initializes a newly allocated NSPrintInfo object by assigning it the parameters specified in <i>aDictionary</i>. This is the designated initializer for this class. The possible key/value pairs contained in <i>aDictionary</i> are listed below. Non-object values should be stored as NSValues in the dictionary.</p>
+<p class="p15"><br></p>
+<p class="p16"><b>Key<span class="Apple-tab-span">	</span>Type<span class="Apple-tab-span">	</span>Description</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18">NSPrintPaperName<span class="Apple-tab-span">	</span>NSString<span class="Apple-tab-span">	</span>The paper name.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintPaperSize<span class="Apple-tab-span">	</span>NSSize<span class="Apple-tab-span">	</span>Height and width of paper in points.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintMustCollate<span class="Apple-tab-span">	</span>BOOL<span class="Apple-tab-span">	</span>If YES, collates output.</p>
+<p class="p19"><br></p>
+<p class="p34">NSPrintFormName<span class="Apple-tab-span">	</span>NSString<span class="Apple-tab-span">	</span>Form name such as "Letter" or "Letter Small".</p>
+<p class="p35"><br></p>
+<p class="p18">NSPrintOrientation<span class="Apple-tab-span">	</span>NSPrintingOrientation<span class="Apple-tab-span">	</span>NSPortraitOrientation or<span class="Apple-converted-space">  <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>NSLandscapeOrientation</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintLeftMargin<span class="Apple-tab-span">	</span>float<span class="Apple-tab-span">	</span>The left margin in points.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintRightmargin<span class="Apple-tab-span">	</span>float<span class="Apple-tab-span">	</span>The right margin in points.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintTopMargin<span class="Apple-tab-span">	</span>float<span class="Apple-tab-span">	</span>The top margin in points.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintBottomMargin<span class="Apple-tab-span">	</span>float<span class="Apple-tab-span">	</span>The bottom margin in points.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintHorizontallyCentered<span class="Apple-tab-span">	</span>BOOL<span class="Apple-tab-span">	</span>If YES, pages are centered horizontally.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintVerticallyCentered<span class="Apple-tab-span">	</span>BOOL<span class="Apple-tab-span">	</span>If YES, pages are centered vertically.</p>
+<p class="p19"><br></p>
+<p class="p36">NSPrintHorizontalPagination<span class="Apple-tab-span">	</span>NSPrintingPaginationMode<span class="Apple-tab-span">	</span>NSAutoPagination, NSFitPagination, or NSClipPagination. See <b>setHorizontalPagination:</b> for details.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintVerticalPagination<span class="Apple-tab-span">	</span>NSPrintingPaginationMode<span class="Apple-tab-span">	</span>NSAutoPagination, NSFitPagination,<span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>or NSClipPagination. See <span class="Apple-tab-span">	</span><b>setVerticalPagination</b>: for details.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintScalingFactor<span class="Apple-tab-span">	</span>float<span class="Apple-tab-span">	</span>Scale factor before pagination.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintAllPages<span class="Apple-tab-span">	</span>BOOL<span class="Apple-tab-span">	</span>If YES, includes all pages in output.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintReversePageOrder<span class="Apple-tab-span">	</span>BOOL<span class="Apple-tab-span">	</span>If YES, prints last page first.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintFirstPage<span class="Apple-tab-span">	</span>int<span class="Apple-tab-span">	</span>The first page in the print job.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintLastPage<span class="Apple-tab-span">	</span>int<span class="Apple-tab-span">	</span>The last page in the print job.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintCopies<span class="Apple-tab-span">	</span>int<span class="Apple-tab-span">	</span>Number of copies to spool.</p>
+<p class="p19"><br></p>
+<p class="p36">NSPrintPagesPerSheet<span class="Apple-tab-span">	</span>int<span class="Apple-tab-span">	</span>The number of pages of the document<span class="Apple-converted-space"> </span></p>
+<p class="p36"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>that are printed on a single sheet of paper. This number is rounded up to the power of two when used by the system.</p>
+<p class="p35"><br></p>
+<p class="p36">NSPrintJobFeatures<span class="Apple-tab-span">	</span>NSMutableDictionary<span class="Apple-tab-span">	</span>Features from the NSPrinter object where keys are the feature name and values are the settings. For example, the key NSPrintPaperFeed might have the value *InputSlot/Upper. See the NSPrinter class description.</p>
+<p class="p35"><br></p>
+<p class="p36">NSPrintPaperFeed<span class="Apple-tab-span">	</span>NSString<span class="Apple-tab-span">	</span>The printer slot. For example, InputSlot/Upper or NSPrintManualFeed.</p>
+<p class="p35"><br></p>
+<p class="p18">NSPrintPrinter<span class="Apple-tab-span">	</span>NSPrinter<span class="Apple-tab-span">	</span>The printer to use.</p>
+<p class="p19"><br></p>
+<p class="p36">NSPrintJobDisposition<span class="Apple-tab-span">	</span>NSString<span class="Apple-tab-span">	</span>NSPrintSpoolJob, NSPrintFaxJob, NSPrintPreviewJob, NSPrintSaveJob, or NSPrintCancelJob. See <b>setJobDisposition:</b> for details.</p>
+<p class="p35"><br></p>
+<p class="p36">NSPrintSavePath<span class="Apple-tab-span">	</span>NSString<span class="Apple-tab-span">	</span>Pathname to save as a file if job disposition is NSPrintSaveJob.</p>
+<p class="p35"><br></p>
+<p class="p36">NSPrintFaxReceiverNames<span class="Apple-tab-span">	</span>NSArray<span class="Apple-tab-span">	</span>Array of NSStrings containing<span class="Apple-converted-space">  </span>receiver names for a fax job.</p>
+<p class="p35"><br></p>
+<p class="p36">NSPrintFaxReceiverNumbers<span class="Apple-tab-span">	</span>NSArray<span class="Apple-tab-span">	</span>Array of NSStrings containing the receiver phone numbers for a fax job.</p>
+<p class="p35"><br></p>
+<p class="p18">NSPrintFaxSendTime<span class="Apple-tab-span">	</span>NSDate<span class="Apple-tab-span">	</span>When to send the fax.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintFaxUseCoverSheet<span class="Apple-tab-span">	</span>BOOL<span class="Apple-tab-span">	</span>If YES, send cover sheet.</p>
+<p class="p19"><br></p>
+<p class="p36">NSPrintFaxCoverSheetName<span class="Apple-tab-span">	</span>NSString<span class="Apple-tab-span">	</span>The filename containing the cover sheet.</p>
+<p class="p19"><br></p>
+<p class="p36">NSPrintFaxReturnReceipt<span class="Apple-tab-span">	</span>BOOL<span class="Apple-tab-span">	</span>If YES, sends confirmation email when fax is sent.</p>
+<p class="p35"><br></p>
+<p class="p18">NSPrintFaxHighResolution<span class="Apple-tab-span">	</span>BOOL<span class="Apple-tab-span">	</span>If YES, sends fax at high resolution.</p>
+<p class="p19"><br></p>
+<p class="p36">NSPrintFaxTrimPageEnds<span class="Apple-tab-span">	</span>BOOL<span class="Apple-tab-span">	</span>If YES, trims page ends, otherwise sends complete pages.</p>
+<p class="p35"><br></p>
+<p class="p18">NSPrintFaxModem<span class="Apple-tab-span">	</span>NSPrinter<span class="Apple-tab-span">	</span>The fax modem to use.</p>
+<p class="p19"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>dictionary</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>isHorizontallyCentered</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>isHorizontallyCentered</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns YES if the image is centered horizontally, otherwise returns NO.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>isVerticallyCentered</b>, <span class="s4">-</span> <b>setHorizontallyCentered:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>isVerticallyCentered</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (BOOL)<b>isVerticallyCentered</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns YES if the image is centered vertically, otherwise returns NO.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>isHorizontallyCentered</b>, <span class="s4">-</span> <b>setVerticallyCentered:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>jobDisposition</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSString *)<b>jobDisposition</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the action specified for the job. See <b>setJobDisposition:</b> for description of return values.</p>
+<p class="p15"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>leftMargin</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (float)<b>leftMargin</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the width of the left margin in points.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setLeftMargin:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>orientation</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSPrintingOrientation)<b>orientation</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the orientation attribute. See <b>setOrientation:</b> for description of return values.</p>
+<p class="p15"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>paperName</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSString *)<b>paperName</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the paper name such as "Letter" or "Legal". Paper names are implementation specific.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setPaperName:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>paperSize</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSSize)<b>paperSize</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the size of the paper in points.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setPaperSize:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>printer</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSPrinter *)<b>printer</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the NSPrinter to be used for printing.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setPrinter:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>rightMargin</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (float)<b>rightMargin</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the width of the right margin in points.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setRightMargin:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setBottomMargin:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setBottomMargin:</b>(float)<i>margin</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Sets the bottom margin to <i>margin</i> specified in points.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>bottomMargin</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setHorizontalPagination:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setHorizontalPagination:</b>(NSPrintingPaginationMode)<i>mode</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Sets the horizontal pagination to <i>mode</i> where <i>mode</i> is one of:</p>
+<p class="p15"><br></p>
+<p class="p18">NSAutoPagination <span class="Apple-tab-span">	</span>The image is diced into equal-sized rectangles and placed in one column of pages.</p>
+<p class="p19"><br></p>
+<p class="p18">NSFitPagination <span class="Apple-tab-span">	</span>The image is scaled to produce one column or one row of pages.</p>
+<p class="p19"><br></p>
+<p class="p18">NSClipPagination<span class="Apple-tab-span">	</span>The image is clipped to produce one column or row of pages.<span class="Apple-converted-space"> </span></p>
+<p class="p19"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>horizontalPagination</b>, <span class="s4">-</span> <b>setVerticalPagination:, </b><span class="s4">-</span><b> verticalPagination</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setHorizontallyCentered:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setHorizontallyCentered:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">If <i>flag</i> is YES the image will be centered horizontally.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>isHorizontallyCentered, </b><span class="s4">-</span><b> isVerticallyCentered, </b><span class="s4">-</span><b> setVerticallyCentered:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setJobDisposition:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setJobDisposition:</b>(NSString *)<i>disposition</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Sets the action specified for the job to <i>disposition</i>, where <i>disposition</i> is one of:</p>
+<p class="p15"><br></p>
+<p class="p18">NSPrintSpoolJob<span class="Apple-tab-span">	</span>Normal print job.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintFaxJob<span class="Apple-tab-span">	</span>Fax job.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintPreviewJob<span class="Apple-tab-span">	</span>Send to Preview application.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintSaveJob<span class="Apple-tab-span">	</span>Save to a file.</p>
+<p class="p19"><br></p>
+<p class="p18">NSPrintCancelJob<span class="Apple-tab-span">	</span>Cancel print job.</p>
+<p class="p19"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>jobDisposition</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setLeftMargin:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setLeftMargin:</b>(float)<i>margin</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Sets the left margin to <i>margin</i> specified in points.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>leftMargin</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setOrientation:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setOrientation:</b>(NSPrintingOrientation)<i>orientation</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Sets the page orientation to <i>orientation</i> where <i>orientation</i> is one of:</p>
+<p class="p15"><br></p>
+<p class="p18">NSPortraitOrientation</p>
+<p class="p19"><br></p>
+<p class="p18">NSLandscapeOrientation</p>
+<p class="p19"><br></p>
+<p class="p14">This method may change either the paper name or size for consistency. To avoid this side effect set the values in the dictionary directly.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>dictionary</b>, <span class="s4">-</span> <b>initWithDictionary:</b>, <span class="s4">-</span> <b>orientation</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setPaperName:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setPaperName:</b>(NSString *)<i>name</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Sets the paper name to <i>name</i> (i.e., Letter or Legal). Paper names are implementation specific.This method may change either the size or orientation for consistency. To avoid this side effect set the values in the dictionary directly.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>dictionary</b>, <span class="s4">-</span> <b>initWithDictionary:</b>, <span class="s4">-</span> <b>paperName</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setPaperSize:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setPaperSize:</b>(NSSize)<i>aSize</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Sets the width and height of the paper to <i>aSize</i> specified in points. This method may change either the paper name or orientation for consistency. To avoid this side effect set the values in the dictionary directly.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>dictionary</b>, <span class="s4">-</span> <b>initWithDictionary:</b>, <span class="s4">-</span> <b>paperSize</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setPrinter:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setPrinter:</b>(NSPrinter *)<i>aPrinter</i></p>
+<p class="p29"><i></i><br></p>
+<p class="p14">Sets the printer used in subsequent printing jobs to <i>aPrinter</i>. This method iterates through the dictionary. If a feature in the dictionary is not supported by this new printer (this is determined by a query to the PPD file), then that feature is removed from the dictionary</p>
+<p class="p15"><br></p>
+<p class="p37"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> <b>printer</b></span></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setRightMargin:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setRightMargin:</b>(float)<i>margin</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Sets the right margin to <i>margin</i> specified in points.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>rightMargin</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setTopMargin:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setTopMargin:</b>(float)<i>margin</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Sets the top margin to <i>margin</i> specified in points.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>topMargin</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setUpPrintOperationDefaultValues</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setUpPrintOperationDefaultValues</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Invoked when the print operation is about to start. Subclasses may override this method to set default values for any attributes that are not set.</p>
+<p class="p15"><br></p>
+<p class="p33"><br></p>
+<p class="p26"><b></b><b>setVerticalPagination:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setVerticalPagination:</b>(NSPrintingPaginationMode)<i>mode</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Sets the vertical pagination to <i>mode</i> where <i>mode</i> is one of:</p>
+<p class="p15"><br></p>
+<p class="p18">NSAutoPagination <span class="Apple-tab-span">	</span>The image is diced into equal-sized rectangles and placed in one column of pages.</p>
+<p class="p19"><br></p>
+<p class="p18">NSFitPagination <span class="Apple-tab-span">	</span>The image is scaled to produce one column or one row of pages.</p>
+<p class="p19"><br></p>
+<p class="p18">NSClipPagination<span class="Apple-tab-span">	</span>The image is clipped to produce one column or row of pages.<span class="Apple-converted-space"> </span></p>
+<p class="p19"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>horizontalPagination</b>, <span class="s4">-</span> <b>setHorizontalPagination:</b>, <span class="s4">-</span> <b>verticalPagination</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>setVerticallyCentered:</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (void)<b>setVerticallyCentered:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">If <i>flag</i> is YES, the image will be vertically centered.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>isHorizontallyCentered</b>, <span class="s4">-</span> <b>isVerticallyCentered</b>, <span class="s4">-</span> <b>setHorizontallyCentered:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>topMargin</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (float)<b>topMargin</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the top margin in points.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setTopMargin:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p26"><b></b><b>verticalPagination</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28"><span class="s4">-</span> (NSPrintingPaginationMode)<b>verticalPagination</b><span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p14">Returns the vertical pagination mode, see <b>setVerticalPagination:</b> for description of return values.</p>
+<p class="p15"><br></p>
+<p class="p30"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>horizontalPagination, </b><span class="s4">-</span><b> setHorizontalPagination:</b></p>
+<p class="p31"><b></b><br></p>
+</body>
+</html>

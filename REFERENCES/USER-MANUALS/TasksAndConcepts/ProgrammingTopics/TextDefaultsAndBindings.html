@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 32.0px Times; min-height: 38.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 19.0px Helvetica; min-height: 23.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 25.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 25.0px; font: 6.0px Times; min-height: 8.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 25.0px; font: 18.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 25.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 25.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 40.0px; font: 12.0px Courier}
+    p.p14 {margin: 0.0px 0.0px 0.0px 40.0px; font: 2.0px Courier; min-height: 2.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 40.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 14.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 40.0px; font: 8.0px Courier; min-height: 10.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><b>Text System Defaults and Key Bindings</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6">OPENSTEP 4.x has a new text system. This document reveals some tips and tricks about various defaults you can use to customize its behavior. It also describes how to customize the key bindings supported by the new text system.</p>
+<p class="p7"><br></p>
+<p class="p6">Note that the new text object exists only in the Release 4.x version of the Application Kit; the following notes don't apply to NEXTSTEP Release 3.3 applications. Also note that the old (3.3) text object exists in the 4.0 Application Kit; these defaults don't apply to it nor to any OpenStep applications which use the old text object.</p>
+<p class="p7"><br></p>
+<p class="p6">Heavy-duty subclassers may alter some or all of the text system's functionality, rendering some or all of these features inactive. These notes do apply to NeXT's OPENSTEP applications such as Project Builder, Interface Builder, Text Edit, and others which use the new text system.</p>
+<p class="p7"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Text System Defaults</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b>NSModifierFlagMapping (dictionary) (Windows platform only)</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p6">This default is on OPENSTEP for Windows only. It allows you to control the mapping between physical modifier keys and logical modifier flags in OpenStep. This default is actually not specific to the text system, but its main purpose is to allow Emacs bindings to work under Windows. By default, both Control keys generate the Command key bit (for menu key equivalents) and both Alt keys generate the Alternate key bit (for mnemonics, primarily). The Control key bit is not available in the default setup which means it is not possible to invoke Emacs-style commands in the text system. This default can be used to re-map the available keys to generate what you want. The value of the default is a dictionary with four possible keys, each of which can have one of three possible values. The dictionary keys are: “LeftControl”, “RightControl”, “LeftAlt”, and “RightAlt”. The valid values are: “Command”, “Alt”, and “Control”. So the default setup is like this:</p>
+<p class="p7"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>{</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"LeftControl" = "Command";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"RightControl" = "Command";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"LeftAlt" = "Alt";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"RightAlt" = "Alt";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>}</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p14"><br></p>
+<p class="p6">One possible setup that allows you to use Emacs keys would be:</p>
+<p class="p7"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>{</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"LeftControl" = "Command";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"RightControl" = "Command";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"LeftAlt" = "Control";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"RightAlt" = "Alt";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>}</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p14"><br></p>
+<p class="p6">This would make it so the left Alt key acts like a control key for Emacs. The right Alt key is still used for Alt.</p>
+<p class="p7"><br></p>
+<p class="p6">Currently this default has a limitation that only a real Alt key (left or right) can be used for the Alt bit. Therefore it is not valid to assign “LeftControl” = “Alt”.</p>
+<p class="p7"><br></p>
+<p class="p8"><br></p>
+<p class="p12"><b>NSMnemonicsWorkInText (“YES” or “NO”)</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p6">This default controls whether the text system accepts key events with the Alt key down. The default value is NO on Mach and YES on Windows. A value of YES means that any key event with the Alt bit on will be passed up the responder chain to eventually be treated as a mnemonic instead of being accepted by the text as textual input or a key binding command. If this default is set to NO then the key events with the Alt bit set will be passed through the text system's normal key input sequence. This will allow any key bindings involving Alt to work (such as Emacs-style bindings like Alt-f for word forward) and, on Mach it allows typing of special international and Symbol font characters.</p>
+<p class="p7"><br></p>
+<p class="p8"><br></p>
+<p class="p12"><b>NSRepeatCountBinding (key binding style string)</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p6">This default controls the numeric argument binding. The default is for numeric arguments not to be supported. If you provide a binding for this default you enable the feature. This allows you to repeat a keyboard command a given number of times. For instance “Control-U 10 Control-F” means move forward ten characters.</p>
+<p class="p7"><br></p>
+<p class="p8"><br></p>
+<p class="p12"><b>NSQuotedKeystrokeBinding (key binding style string)</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p6">This default controls the quote binding. The default is for this to be “^q” (that's Control-Q). This is the binding that allows you to literally enter characters that would otherwise be interpreted as commands. For instance “Control-Q Control-F” would insert a Control-F character into the document instead of performing the command <b>moveForward:</b>.</p>
+<p class="p7"><br></p>
+<p class="p8"><br></p>
+<p class="p12"><b>NSTextShowsInvisibleCharacters (“YES” or “NO”)</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p6">The default controls whether a text object will by default show invisible characters like tab, space, and carriage return using some visible glyph. By default it is NO. It only controls the default setting for NSLayoutManagers (which can be modified programmatically). In order for this to work, the rule book generating the glyphs must support the feature. Currently our rule books do not support this feature, so currently this default is not very useful.</p>
+<p class="p7"><br></p>
+<p class="p8"><br></p>
+<p class="p12"><b>NSTextShowsControlCharacters (“YES” or “NO”)</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p6">The default controls whether a text object will by default show control characters visibly (usually by representing Control-C as “^C” in the text). By default it is NO. It only controls the default setting for NSLayoutManagers (which can be modified programmatically). In order for this to work, the rulebook(s) generating the glyphs must support the feature. This feature carries a cost. It will increase the memory needed for documents that contain control characters by quite a lot. Use it with care.</p>
+<p class="p7"><br></p>
+<p class="p8"><br></p>
+<p class="p12"><b>NSTextSelectionColor (color)</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p6">This default controls the background color of selected text. By default this is light gray. Kit defaults that accept colors accept them in one of three ways. Either as an archived NSColor object, or as three RGB components, or as a string that can be resolved to a factory selector on NSColor that will return the desired color (for example, “redColor”). Note that NSTextFields and other controls that use field editors to edit their text control their own selection attributes to conform with the platform UI.</p>
+<p class="p7"><br></p>
+<p class="p8"><br></p>
+<p class="p12"><b>NSMarkedTextAttribute and NSMarkedTextColor (color or “underline”)</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p6">This default controls the way that marked text is displayed. The NSMarkedTextAttribute can be either “Background” or “Underline”. If it is “Background” then NSMarkedTextColor indicates the background color to use for marked text. If NSMarkedTextAttribute is “Underline”, NSMarkedTextColor indicates the foreground color to use for marked text (the marked text will be drawn in the indicated color and underlined). By default, marked text is drawn with a yellow-ish background color. Kit defaults that accept colors accept them in one of three ways. Either as an archived NSColor object, or as three RGB components, or as a string that can be resolved to a factory selector on NSColor that will return the desired color (for example, “redColor”). For compatibility with the way this default worked in 4.0, if the NSMarkedTextAttribute default contains a color instead of one of the strings “Background” or “Underline” then that color is used as the background color for marked text and the NSMarkedTextColor attribute is ignored.</p>
+<p class="p7"><br></p>
+<p class="p8"><br></p>
+<p class="p12"><b>NSTextKillRingSize (number string)</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p6">This default controls the size of the kill ring (as in Emacs Control-Y). The default value is 1 (not really a ring at all, just a single buffer). If you set this to a value larger than one, you also need to rebind Control-Y to “yankAndSelect:” instead of “yank:” for things to work properly (note that <b>yankAndSelect:</b> is not listed in any headers). See below for more info on bindings.</p>
+<p class="p7"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Key bindings</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p6">The new text system uses a generalized key binding mechanism which is completely re-mappable by the user. The standard bindings for can always be found in <b>NextLibrary/Frameworks/AppKit.framework/Resources/</b></p>
+<p class="p6"><b>StandardKeyBinding.dict</b> or in <b>NextLibrary/Frameworks/AppKit.framework/</b></p>
+<p class="p6"><b>Resources/StandardKeyBinding-winnt.dict</b>. On both platforms these standard bindings include a large number of Emacs-compatible control key bindings, all the various arrow key bindings, bindings for making field editors and some keyboard UI work, and backstop bindings for many function keys. On Windows the standard bindings also include a number of Emacs-compatible Alt key bindings (like Alt-f, Alt-b).</p>
+<p class="p7"><br></p>
+<p class="p6">All these bindings are customizable by the user. You can create a file in <b>~/Library/KeyBindings/DefaultKeyBinding.dict</b> to augment or replace the standard bindings. Use the standard bindings files as templates. Modifier flags are specified using special characters: “^” for control, “~” for Alt, “$” for Shift, and “#” for numeric keypad. Multiple keystroke bindings are supported through nested binding dictionaries. For instance, Escape could be bound to “cancel:” or it could be bound to a whole dictionary which would then contain bindings for the next keystroke after Escape.</p>
+<p class="p7"><br></p>
+<p class="p6">Here are a couple sample binding files that you might use:</p>
+<p class="p7"><br></p>
+<p class="p16">1.<span class="Apple-tab-span">	</span>The first one adds Alt-key bindings for some common Emacs stuff. This might be useful on Mach where the Alt-key bindings are not standard. With these bindings it would be necessary to type “Control-Q, Alt-f” in order to type a florin character instead of moving forward a word. This sample also explicitly binds Escape to “complete:”. On Mach, this is the default so this override changes nothing, but on Windows, Escape is bound to “cancel:” by default, so this example changes it so Escape will mean <b>complete:</b> when a text object is key (it will still mean <b>cancel:</b> if some non-textual thing, like an NSButton, is key).</p>
+<p class="p17"><br></p>
+<p class="p13">/* ~/Library/KeyBindings/DefaultKeyBinding.dict */</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p14"><br></p>
+<p class="p13">{</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>/* Additional Emacs bindings */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>"~f" = "moveWordForward:";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>"~b" = "moveWordBackward:";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>"~&lt;" = "moveToBeginningOfDocument:";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>"~&gt;" = "moveToEndOfDocument:";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>"~v" = "pageUp:";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>"~d" = "deleteWordForward:";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>"~^h" = "deleteWordBackward:";</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>"~\010" = "deleteWordBackward:";<span class="Apple-converted-space">  </span>/* Alt-backspace */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>"~\177" = "deleteWordBackward:";<span class="Apple-converted-space">  </span>/* Alt-delete */</p>
+<p class="p14"><br></p>
+<p class="p15"><span class="Apple-tab-span">	</span></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>/* Escape should really be complete: */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>"\033" = "complete:";<span class="Apple-converted-space">  </span>/* Escape */</p>
+<p class="p14"><br></p>
+<p class="p13">}</p>
+<p class="p14"><br></p>
+<p class="p18"><br></p>
+<p class="p16">2.<span class="Apple-tab-span">	</span>This example shows how to have multi-keystroke bindings. It binds a number of Emacs meta bindings using Escape as the meta key instead of the Alt modifier. So Escape followed by f means <b>moveWordForward:</b> here. This sample binds Esc-Esc to “complete:”. Note the nested dictionaries.</p>
+<p class="p17"><br></p>
+<p class="p13">/* ~/Library/KeyBindings/DefaultKeyBinding.dict */</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p14"><br></p>
+<p class="p13">{</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>/* Additional Emacs bindings */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>"\033" = {</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"\033" = "complete:";<span class="Apple-converted-space">  </span>/* ESC-ESC */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"f" = "moveWordForward:";<span class="Apple-converted-space">  </span>/* ESC-f */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"b" = "moveWordBackward:";<span class="Apple-converted-space">  </span>/* ESC-b */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"&lt;" = "moveToBeginningOfDocument:";<span class="Apple-converted-space">  </span>/* ESC-&lt; */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"&gt;" = "moveToEndOfDocument:";<span class="Apple-converted-space">  </span>/* ESC-&gt; */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"v" = "pageUp:";<span class="Apple-converted-space">  </span>/* ESC-v */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"d" = "deleteWordForward:";<span class="Apple-converted-space">  </span>/* ESC-d */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"^h" = "deleteWordBackward:";<span class="Apple-converted-space">  </span>/* ESC-Ctrl-H */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"\010" = "deleteWordBackward:";<span class="Apple-converted-space">  </span>/* ESC-backspace */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>"\177" = "deleteWordBackward:";<span class="Apple-converted-space">  </span>/* ESC-delete */</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-tab-span">	</span>};</p>
+<p class="p14"><br></p>
+<p class="p13">}</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p14"><br></p>
+<p class="p6">With the right combination of key bindings and default settings, it should be possible to tailor the text system to your preferences.</p>
+<p class="p7"><br></p>
+<p class="p8"><br></p>
+<p class="p12"><b>Key Bindings in Project Builder</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p6">ProjectBuilder uses the Application Kit's key binding mechanism as described above to define key bindings for its code editor.<span class="Apple-converted-space">  </span>These key-binding definitions are in <b>NextDeveloper/Apps/ProjectBuilder.app/Resources/KeyBindings.dict</b>.<span class="Apple-converted-space">  </span>You may define your own key bindings to supplment or replace these default Project Builder bindings in a private dictionary of key bindings, <b>PBKeyBinding.dict</b> in <b>~/Library/KeyBindings</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p6">Project Builder merges all key-binding dictionaries to create a composite dictionary. The order of merging is:</p>
+<p class="p7"><br></p>
+<p class="p16">1.<span class="Apple-tab-span">	</span>Text system's default dictionary<span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p16">2.<span class="Apple-tab-span">	</span>Text system's user dictionary</p>
+<p class="p17"><br></p>
+<p class="p16">3.<span class="Apple-tab-span">	</span>Project Builder's default dictionary</p>
+<p class="p17"><br></p>
+<p class="p16">4.<span class="Apple-tab-span">	</span>Project Builder's user dictionary</p>
+<p class="p17"><br></p>
+<p class="p6">Because the merge processes replaces earlier bindings with later corresponding ones, the bindings in your personal dictionary take precedence over the other bindings. The merge process affects bindings of<span class="Apple-converted-space">  </span>multi-key sequences, like the Control-X family of bindings, where the binding for the first key of<span class="Apple-converted-space">  </span>the sequence is another dictionary which contains the bindings for the subsequent keys in the sequence.<span class="Apple-converted-space">  </span>If you want to add your own Control-X binding to the existing bindings,<span class="Apple-converted-space">  </span>first copy the Control-X dictionary from ProjectBuilder's <b>KeyBindings.dict</b> file and add it to your own <b>PBKeyBinding.dict</b> file. Then modify the bindings as needed.</p>
+<p class="p7"><b></b><br></p>
+</body>
+</html>

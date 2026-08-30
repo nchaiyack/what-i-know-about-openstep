@@ -1,0 +1,81 @@
+.\" Copyright (c) 1988 NeXT Computer, Inc.
+.\" All rights reserved.
+.\"
+.\"	@(#)rc.8	0.9 (NeXT) 01/12/89
+.\"
+.TH RC 8 "June 22, 1989" "NeXT Computer, Inc."
+.SH NAME
+rc, rc.boot, rc.local, rc.net \- command script for auto-reboot and daemons
+.SH SYNOPSIS
+.B /etc/rc
+.br
+.B /etc/rc.boot
+.br
+.B /etc/rc.local
+.br
+.B /etc/rc.net
+.SH DESCRIPTION
+.I Rc
+is the command script which controls the automatic reboot and
+.I rc.local
+is the script holding commands which are pertinent only
+to a specific site.
+.I rc.net
+is the command script that configures all known network interfaces
+according to the rules contained in \fI\/etc\/iftab.
+.I rc.boot
+is a command script that contains commands that need to be run
+early on (e.g. before single-user mode is entered).
+.PP
+The processing of
+.I rc
+script can be suppressed by specifying the
+.B \-s
+option on the boot command line.
+.PP
+The processing of the
+.I rc.boot
+script can be suppressed by specifying the
+.B \-b
+option on the boot command line.
+.PP
+When an automatic reboot is in progress,
+.I rc
+and
+.I rc.boot
+are invoked with the argument
+.I autoboot
+and run a
+.I fsck
+with option
+.B \-p
+to ``preen'' all the disks of minor inconsistencies resulting
+from the last system shutdown and to check for serious inconsistencies
+caused by hardware or software failure.
+If this auto-check and repair succeeds, then the second part of
+.I rc
+is run.
+.PP
+The second part of
+.I rc,
+which is run after a auto-reboot succeeds and also if
+.I rc
+is invoked when a single user shell terminates (see
+.IR init (8)),
+starts all the daemons on the system, preserves editor files
+and clears the scratch directory
+.B /tmp.
+.I Rc.local
+is executed after most of the daemons are started.
+Normally, the first commands placed in the
+.I rc.local
+file define the machine's name, using
+.IR hostname (1).
+The latter command is included in the
+.I rc.local
+file because the directory in which core dumps are saved
+is usually site specific.
+.SH SEE ALSO
+iftab(5),
+init(8),
+reboot(8)

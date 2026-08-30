@@ -1,0 +1,76 @@
+{
+    APPCLASS = NSApplication; 
+    DEBUGTARGETS = (
+        {
+            ExecInfo = (
+                {
+                    args = (); 
+                    asrcDirs = (); 
+                    env = (); 
+                    execPath = ./TravelAdvisor.app/TravelAdvisor; 
+                    name = TravelAdvisor.app; 
+                    psrcDirs = (); 
+                    srcPath = .; 
+                }, 
+                {
+                    args = (); 
+                    asrcDirs = (); 
+                    env = (); 
+                    execPath = ./TravelAdvisor.debug/TravelAdvisor; 
+                    name = TravelAdvisor.debug; 
+                    psrcDirs = (); 
+                    srcPath = .; 
+                }, 
+                {
+                    args = (); 
+                    asrcDirs = (); 
+                    env = (); 
+                    execPath = /Net/seaport/homes/delaware/tdono/Projects/TravelAdvisor/TravelAdvisor.debug/TravelAdvisor; 
+                    name = TravelAdvisor; 
+                    psrcDirs = (); 
+                    srcPath = .; 
+                }
+            ); 
+        }
+    ); 
+    DYNAMIC_CODE_GEN = YES; 
+    FILESTABLE = {
+        BUNDLES = (); 
+        CLASSES = (Converter.m, Country.m, TAController.m); 
+        FRAMEWORKS = (AppKit.framework, Foundation.framework, SoundKit.framework); 
+        FRAMEWORKSEARCH = (/NextLibrary/Frameworks); 
+        HEADERSEARCH = (); 
+        H_FILES = (Converter.h, Country.h, TAController.h); 
+        IMAGES = (Airplane.eps, TravelAdvisor.tiff); 
+        INTERFACES = (TravelAdvisor.nib); 
+        LIBS = (); 
+        M_FILES = (); 
+        OTHER_LIBS = (); 
+        OTHER_LINKED = (TravelAdvisor_main.m); 
+        OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble, m.template, h.template); 
+        SUBPROJECTS = (); 
+        TOOLS = (); 
+    }; 
+    GENERATEMAIN = YES; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {TravelAdvisor.nib = TravelAdvisor.nib; }; 
+    MAKEFILEDIR = "$(NEXT_ROOT)/NextDeveloper/Makefiles/pb_makefiles"; 
+    NEXTSTEP_APPICON = TravelAdvisor.tiff; 
+    NEXTSTEP_BUILDDIR = ""; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    NEXTSTEP_COMPILEROPTIONS = ""; 
+    NEXTSTEP_DOCUMENTEXTENSIONS = (); 
+    NEXTSTEP_INSTALLDIR = "$(HOME)/Apps"; 
+    NEXTSTEP_LINKEROPTIONS = ""; 
+    NEXTSTEP_MAINNIB = TravelAdvisor; 
+    PDO_UNIX_BUILDTOOL = $NEXT_ROOT/NextDeveloper/bin/make; 
+    PDO_UNIX_MAINNIB = TravelAdvisor; 
+    PROJECTNAME = TravelAdvisor; 
+    PROJECTTYPE = Application; 
+    PROJECTVERSION = 2.6; 
+    SYSTEMEXTENSIONS = (); 
+    TARGETS = (); 
+    WINDOWS_BUILDTOOL = $NEXT_ROOT/NextDeveloper/Executables/make; 
+    WINDOWS_INSTALLDIR = "$(HOME)/Apps"; 
+    WINDOWS_MAINNIB = TravelAdvisor; 
+}

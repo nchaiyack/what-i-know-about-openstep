@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 75.6px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 75.6px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Helvetica}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.6px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSChangeSpelling</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Adopted By:<span class="Apple-tab-span">	</span></b><span class="s2">NSText</span></p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSSpellProtocol.h</p>
+<p class="p6"><br></p>
+<p class="p6"><br></p>
+<p class="p8"><b>Protocol Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p9"><b></b><br></p>
+<p class="p10">This protocol is implemented by objects in the responder chain that can correct a misspelled word. See the description of the NSSpellChecker class for more information.</p>
+<p class="p11"><br></p>
+<p class="p12"><br></p>
+<p class="p8"><b>Instance Methods</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p13"><b></b><b>changeSpelling:</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><span class="s4">-</span> (void)<b>changeSpelling:</b>(id)<i>sender</i><i></i></p>
+<p class="p16"><br></p>
+<p class="p10">Implement this method to replace the selected word in the receiver with a corrected version from the Spelling panel.<span class="Apple-converted-space">  </span>This message is sent by the NSSpellChecker to the object whose text is being checked.<span class="Apple-converted-space">  </span>To get the corrected spelling, ask the sender for the string value of its selected cell (visible to the user as the text field in the Spelling panel).<span class="Apple-converted-space">  </span>This method should replace the selected portion of the text with the string that it gets from the NSSpellChecker.<span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+</body>
+</html>

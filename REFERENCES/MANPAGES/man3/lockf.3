@@ -1,0 +1,151 @@
+.\" @(#)lockf.3	1.2 88/07/01 4.0NFSSRC; from 1.9 88/02/09 SMI; created 4/30/86
+.TH LOCKF 3 "30 July 1993" "NeXT, Inc."
+.SH NAME
+lockf \- advisory record locking on files
+.SH SYNOPSIS
+.nf
+.ft B
+#include <sys/fcntl.h>
+.LP
+.ft B
+.DT
+#define	\s-1F_ULOCK\s0	0	/* Unlock a previously locked section */
+#define	\s-1F_LOCK\s0	1	/* Lock a section for exclusive use */
+#define	\s-1F_TLOCK\s0	2	/* Test and lock a section (non-blocking) */
+#define	\s-1F_TEST\s0	3	/* Test section for other process' locks */
+.LP
+.ft B
+int lockf(fd, cmd, size)
+int fd, cmd;
+long size;
+.fi
+.SH DESCRIPTION
+.B lockf(\|)
+may be used to test, apply, or remove an
+.I advisory
+record lock on the file associated with the open descriptor
+.IR fd .
+Advisory locks are non-mandatory:  They allow cooperating processes to perform
+consistent operations on files, but do not prevent other processes
+from ignoring the locks and accessing the files.
+.LP
+A lock is obtained by specifying a
+.I cmd
+parameter of
+.B F_LOCK
+or
+.BR \s-1F_TLOCK\s0 .
+To unlock
+an existing lock, the
+.B F_ULOCK
+.I cmd
+is used.
+.B F_TEST
+is used to detect if a lock by another
+process is present on the specified segment.
+.LP
+.B F_LOCK
+and
+.B F_TLOCK
+requests differ only by the action taken
+if the lock may not be immediately granted.
+.B F_TLOCK
+returns a \-1 by the function and sets
+.B errno
+to
+.SM EAGAIN
+if the section is already locked by another process.
+.B F_LOCK
+will cause the process to sleep until the lock may be granted or
+a signal is caught.
+.LP
+.I size
+is the number of contiguous bytes to be locked or
+unlocked.
+The lock starts at the current file offset in the file and extends
+forward for a positive
+.I size
+or backward for a negative
+.I size
+(preceding but not including the current offset).  A segment need not
+be allocated to the file in order to be locked;  however, a segment may not
+extend to a negative offset relative to the beginning of the file.
+If
+.I size
+is zero, the lock will extend from the
+current offset through the
+.SM EOF\s0.
+If such a lock starts at offset 0, then the entire file will be locked
+(regardless of future file extensions).
+.SH NOTES
+The descriptor
+.I fd
+must have been opened with
+.B O_WRONLY
+or
+.B O_RDWR
+permission in order to establish locks with this function call.
+.LP
+All locks associated with a file for a given process are removed
+when the file is closed or the process terminates.  Locks are not
+inherited by the child process in a
+.BR fork (2)
+system call.
+.SH "RETURN VALUE
+Zero is returned on success, \-1 on error,
+with an error code stored in
+.BR errno .
+.SH "ERRORS
+.B lockf(\|)
+will fail if one or more of the following are
+true:
+.TP 20
+.SM EBADF
+.I fd
+is not a valid open descriptor.
+.TP
+.SM EBADF
+.I cmd
+is
+.B F_LOCK
+or
+.B F_TLOCK
+and the process does
+not have write permission on the file.
+.TP
+.SM EAGAIN
+.I cmd
+is
+.B F_TLOCK
+or
+.B F_TEST
+and the section is already locked by another process.
+.TP
+.SM EINTR
+.I cmd
+is
+.B F_LOCK
+and a signal interrupted the process while it was waiting
+for the lock to be granted.
+.TP
+.SM ENOLCK
+.I cmd
+is
+.BR \s-1F_LOCK\s0 ,
+.BR \s-1F_TLOCK\s0 ,
+or
+.B F_ULOCK
+and there are no more file lock entries available.
+.SH "SEE ALSO"
+.BR fcntl (2),
+.BR flock (2),
+.BR fork (2)
+.SH "BUGS
+File locks obtained through the
+.B lockf(\|)
+mechanism do not interact
+in any way with those acquired using
+.BR flock (2).
+They do, however,
+work correctly with the locks claimed by
+.BR fcntl (2).

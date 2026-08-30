@@ -1,0 +1,96 @@
+.\" Copyright (c) 1985 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)sin.3m	6.6 (Berkeley) 5/12/86
+.\"
+.TH SIN 3M  "August 1, 1992"
+.UC 4
+.de Pi		\" PI stuff sign
+.if n \\
+\\$2pi\\$1
+.if t \\
+\\$2\\(*p\\$1
+..
+.ds up \fIulp\fR
+.SH NAME
+sin, cos, tan, asin, acos, atan, atan2 \- trigonometric functions
+and their inverses
+.SH SYNOPSIS
+.nf
+.B #include <math.h>
+.PP
+.B double sin(double \fIx\fP);
+.PP
+.B double cos(double \fIx\fP);
+.PP
+.B double tan(double \fIx\fP);
+.PP
+.B double asin(double \fIx\fP);
+.PP
+.B double acos(double \fIx\fP);
+.PP
+.B double atan(double \fIx\fP);
+.PP
+.B double atan2(double \fIy\fP, double \fIx\fP);
+.fi
+.SH DESCRIPTION
+.I Sin, cos and tan
+return trigonometric functions of radian arguments x.
+.PP
+\fIAsin\fR returns the arc sine in the range 
+.Pi /2 \-
+to
+.Pi /2.
+.PP
+\fIAcos\fR returns the arc cosine in the range 0 to
+.Pi.
+.PP
+\fIAtan\fR returns the arc tangent in the range
+.Pi /2 \-
+to
+.Pi /2.
+.PP
+\fIAtan2\fR computes the principal value of the arc tangent of
+\fBy/x\fR, using the signs of both arguments to determine the
+quadrant of the return value.  The arc tangent returned is in 
+the range [\-
+.Pi 
+, +
+.Pi 
+]
+.SH ERROR (due to roundoff, etc.)
+Let P stand for the number stored in the computer in place of
+.Pi " = 3.14159 26535 89793 23846 26433 ... ."
+Let \*(lqtrig\*(rq stand for one of
+\*(lqsin\*(rq, \*(lqcos\*(rq or \*(lqtan\*(rq.
+Then the expression \*(lqtrig(x)\*(rq
+in a program actually produces an approximation to
+.Pi /P), trig(x\(**
+and \*(lqatrig(x)\*(rq approximates
+.Pi )\(**atrig(x). (P/
+The approximations are close.
+
+In the codes that run on other machines, P differs from
+.Pi
+by a fraction of an \*(up; the difference matters only if the argument
+x is huge, and even then the difference is likely to be swamped by
+the uncertainty in x.  Besides, every trigonometric identity that
+does not involve
+.Pi
+explicitly is satisfied equally well regardless of whether
+.Pi . "P = "
+For instance,
+.if n \
+sin(x)**2+cos(x)**2\0=\01
+.if t \
+sin\u\s62\s10\d(x)+cos\u\s62\s10\d(x)\0=\01
+and sin(2x)\0=\02\|sin(x)cos(x) to within a few \*(ups no matter how big
+x may be.  Therefore the difference between P and
+.Pi
+is most unlikely to affect scientific and engineering computations.
+.SH SEE ALSO
+math(3M), hypot(3M), sinh(3M), sqrt(3M)
+.SH AUTHOR
+Robert P. Corbett, W. Kahan, Stuart\0I.\0McDonald, Peter\0Tang and,
+for the codes for IEEE 754, Dr. Kwok\-Choi\0Ng.

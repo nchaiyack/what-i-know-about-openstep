@@ -1,0 +1,125 @@
+.TH CLOSE 2 "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+close \- delete a descriptor
+.SH SYNOPSIS
+.B #include <libc.h>
+.B int close(int \fIfd\fP);
+.SH DESCRIPTION
+The
+.I close
+system call deletes a descriptor
+from the per-process object reference table.
+If this is the last reference
+to the underlying object,
+then it will be deactivated.
+For example,
+on the last close of a file
+the current
+.IR lseek (2)
+pointer associated with the file
+is lost; on the last close of a
+.IR socket (2)
+its associated naming information
+and queued data are discarded;
+on the last close of a file holding any locks
+the locks are released (see further
+.IR flock (2)
+and
+.IR fcntl (2)).
+.PP
+A close of all of a process's descriptors
+is automatic on exit,
+but since there is a limit
+on the number of active descriptors per process,
+.IR close 
+is necessary for programs that deal with many descriptors.
+.PP
+When a process forks (see
+.IR fork (2)),
+all descriptors
+for the new child process
+reference the same objects
+as they did in the parent
+before the fork.
+If a new process is then to be run using
+.IR execve ,
+the process would normally
+inherit these descriptors.
+Most of the descriptors can be rearranged with
+.IR dup2 
+or deleted with
+.IR close 
+before the
+.IR execve 
+is attempted,
+but if some of these descriptors
+will still be needed if the
+.IR execve  
+fails,
+it is necessary to arrange
+for them to be closed if the execve succeeds.
+For this reason, the call
+``fcntl(d, F_SETFD, FD_CLOEXEC)'' (POSIX)
+or
+``fcntl(d, F_SETFD, 1)'' (BSD)
+is provided,
+which arranges that a descriptor
+will be closed after a successful
+.IR execve ;
+the call ``fcntl(d, F_SETFD, 0)'' restores the default,
+which is to not close the descriptor.
+.PP
+You should always check the return value of 
+.IR close
+when closing a file
+that might be on a remote file system,
+such as NFS or AFS.
+The reason is this:  remote file systems
+often cache writes on the client side
+and return a successful error code
+to the process calling 
+.IR write (2). 
+However, an error may occur
+when the cached file data is finally written.
+For example, the server could be out of disk space.  
+.IR close 
+forces all cached writes
+to be completed to the server.
+If the call to
+.IR close
+fails,
+then the file has not been written out successfully,
+and you should give the user the option
+of saving the file to a different place.  
+.PP
+When all file descriptors
+associated with a pipe
+or FIFO special file
+have been closed,
+any data remaining in the pipe
+or FIFO is discarded.
+.SH "RETURN VALUE"
+Upon successful completion,
+a value of 0 is returned.
+Otherwise, a value of
+\-1 is returned and
+the global integer variable
+.I errno
+is set to indicate the error.   
+.SH ERRORS
+The
+.IR close 
+function will fail if:
+.TP 15
+[EBADF]
+.I fd
+is not an active descriptor.
+.TP
+[EINTR]
+The
+.I close
+function was interrupted by a signal.
+.SH "SEE ALSO"
+accept(2), flock(2), open(2), pipe(2), socket(2), socketpair(2),
+execve(2), fcntl(2), creat(2), dup(2), fork(2), unlink(2)

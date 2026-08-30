@@ -1,0 +1,46 @@
+"NSResponder" = {SUPERCLASS = NSObject; };
+"ToDoInspector" = {
+    ACTIONS = ("newInspectorView:", "switchChecked:"); 
+    OUTLETS = (
+        currentInspView, 
+        dummyView, 
+        inspDate, 
+        inspectorViews, 
+        inspItem, 
+        inspNotes, 
+        inspNotifAMPM, 
+        inspNotifHour, 
+        inspNotifMinute, 
+        inspNotifOtherHours, 
+        inspNotifSwitchMatrix, 
+        inspPopUp, 
+        inspSchedComplete, 
+        inspSchedDate, 
+        insSchedMatrix, 
+        notesView, 
+        notifView, 
+        reschedView
+    ); 
+    SUPERCLASS = NSObject; 
+};
+"NSView" = {
+    ACTIONS = ("fax:", "print:"); 
+    OUTLETS = (nextKeySubview, nextKeyView); 
+    SUPERCLASS = NSResponder; 
+};
+"ToDoController" = {
+    ACTIONS = (
+        "closeDoc:", 
+        "deleteDoc:", 
+        "newDoc:", 
+        "openDoc:", 
+        "saveDoc:", 
+        "showInfo:", 
+        "showInspector:", 
+        "showPreferences:"
+    ); 
+    OUTLETS = (inspector); 
+    SUPERCLASS = NSObject; 
+};
+"NSObject" = {};
+"FirstResponder" = {CATEGORY = LocalActions; };

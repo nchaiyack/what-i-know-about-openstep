@@ -1,0 +1,76 @@
+.\" @(#)tftpd.8c 1.7 88/03/03 D/NFS
+.\" Copyright (c) 1983 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\" @(#)tftpd.8c 1.22 88/03/01 SMI; from UCB 4.3
+.\"
+.TH TFTPD 8C "18 February 1988"
+.UC 5
+.SH NAME
+tftpd \- DARPA Trivial File Transfer Protocol server
+.SH SYNOPSIS
+.B /usr/etc/in.tftpd
+.RB [ \-s ]
+.RI [ " homedir " ]
+.SH DESCRIPTION
+.B tftpd
+is a server that supports the
+.SM DARPA
+Trivial File Transfer Protocol (\s-1TFTP\s0).
+This server is normally started by
+.BR inetd (8C)
+and operates at the port indicated in the
+.B tftp
+Internet service description in the
+.BR /etc/inetd.conf 
+file; see
+.BR inetd.conf (5)
+for details.
+.PP 
+Before responding to a request, the server attempts to change its
+current directory to
+.IR homedir ;
+the default value is
+.BR /tftpboot .
+.SH OPTIONS
+.TP
+.B \-s
+Secure.  When specified, the directory change must succeed; and
+the daemon also changes its root directory to
+.IR homedir .
+.IP
+The use of
+.I tftp  
+does not require an account or password on the remote system.
+Due to the lack of authentication information,
+.I tftpd
+will allow only publicly readable files to be accessed.  Files may be
+written only if they already exist and are publicly writable.  Note
+that this extends the concept of \(lqpublic\(rq to include all users on all
+hosts that can be reached through the network; this may not be
+appropriate on all systems, and its implications should be considered
+before enabling this service.
+.PP 
+.B tftpd
+runs with the user
+.SM ID
+and group
+.SM ID
+set to
+.BR \-2 ,
+under the assumption that no files exist with that owner or group. 
+However, nothing checks this assumption or enforces this restriction. 
+.SH FILES
+/tftpboot/*	filenames are IP addresses
+.SH "SEE ALSO"
+.BR inetd (8C),
+.BR tftp (1C)
+.LP
+Sollins, K.R., 
+.IR "The \s-1TFTP\s0 Protocol (Revision 2)" ,
+.SM RFC\s0 783,
+Network Information Center,
+.SM SRI
+International, Menlo Park, Calif.,
+June 1981.

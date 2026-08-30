@@ -1,0 +1,32 @@
+.TH wfcomp 1 "October 18, 1990" "NeXT Computer, Inc."
+.SH NAME
+wfcomp \- word frequency table compiler
+.SH SYNOPSIS
+.B wfcomp
+[\fIfile\fR] 
+.I name
+.br
+.SH DESCRIPTION
+.nh
+\fIwfcomp\fR reads word frequency data 
+consisting of one or more lines of the form
+.DS
+ word frequency
+.DE
+.nh
+from \fIfile\fR, or from the standard input, and generates
+(1) a file called \fIname\fR.c 
+defining a word frequency table called \fIname\fR, and
+(2) a word frequency data file called \fIname\fR.wf 
+containing the same data in a form suitable 
+for consumption by \fIreadWFTable(3)\fR.
+.SH EXAMPLE
+.DS
+wfcomp histogram AmericanEnglish
+.DE
+.nh
+creates a file called \fBAmericanEnglish.c\fR
+defining a WFTable structure called \fBAmericanEnglish\fR,
+and a word frequency data file called \fBAmericanEnglish.wf\fR.
+.SH "SEE ALSO"
+readWFTable(3)

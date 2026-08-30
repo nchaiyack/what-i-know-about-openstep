@@ -1,0 +1,265 @@
+.TH WRITE 2 "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+write \- write output
+.SH BSD SYNOPSIS
+.nf
+.ft B
+int write(int \fIfd\fP, char *\fIbuf\fP, int \fInbytes\fP);
+.PP
+.ft B
+#include <sys/types.h>
+#include <sys/uio.h>
+.PP
+.ft B
+int writev(int \fIfd\fP, struct iovec *\fIiov\fP, int \fIiovcnt\fP);
+.fi
+.SH POSIX SYNOPSIS
+.nf
+.ft B
+size_t write(int \fIfd\fP, const void *\fIbuf\fP, size_t \fInbytes\fP);
+.SH DESCRIPTION
+The
+.I write
+function attempts
+to write
+.I nbytes
+of data
+to the object referenced by the descriptor
+.I fd
+from the buffer pointed to by
+.IR buf .
+.PP
+With objects capable of seeking,
+.I write
+starts at a position given
+by the seek pointer
+associated with
+.I fd
+(see
+.IR lseek (2)).
+Upon return,
+the seek pointer for
+.I fd
+is incremented by the number of bytes actually written.
+.PP
+Objects that are not capable of seeking
+always write from the current position.
+The value of the pointer associated
+with such an object is undefined.
+.PP
+If the real user is not the super-user,
+then
+.I write
+clears the set-user-id bit on a file.
+This prevents penetration
+of system security
+by a user who \*(lqcaptures\*(rq
+a writable set-user-id file
+owned by the super-user.
+.PP
+When using non-blocking I/O
+on objects such as sockets
+that are subject to flow control,
+.I write
+may write fewer bytes than requested;
+the return value must be noted,
+and the remainder of the operation
+should be retried when possible.
+.PP
+The
+.I writev
+function performs a scattered write,
+writing output data from the
+.I iovcnt
+buffers specified by the members of the
+.I iov
+array:
+.IR iov [0],
+.IR iov [1],
+...,
+.IR iov [
+.I iovcnt
+\- 1].
+The return value of
+.I writev
+is the same as that for
+.IR write .
+.PP
+The
+.I iovec
+structure is defined as
+.PP
+.nf
+.RS
+.DT
+struct iovec {
+	caddr_t	iov_base;
+	int	iov_len;
+};
+.RE
+.fi
+.PP
+Each 
+.I iovec
+entry specifies the base address and length of an area
+in memory where data should be written from. 
+.I Writev
+will always write all data from an area before proceeding
+to the next.
+POSIX applications should not use
+.IR writev .
+.PP
+POSIX applications may expect the following additional behavior
+when attempting to
+.I write
+(but not
+.IR writev )
+to a pipe or FIFO:
+.TP 5
+(1)
+There is no file offset associated with a pipe, hence each write request
+will append to the end of the pipe.
+.TP 5
+(2)
+Write requests of {PIPE_BUF} bytes or less are not interleaved with data from
+any other processes doing writes on the same pipe.  Writes of greater than
+{PIPE_BUF} bytes may have data interleaved, on arbitrary boundaries, with
+writes by other processes, whether or not the O_NONBLOCK flag of the file
+status flags is set.
+.TP 5
+(3)
+If the O_NONBLOCK flag is clear, a write request may cause the process to
+block, but on normal completion if will return \fInbyte\fR.
+.TP 5
+(4)
+If the O_NONBLOCK flag is set, write requests will be handled 
+differently, in the following ways:
+.RS
+.TP 5
+(a)
+The \fIwrite\fR function will not block the process.
+.TP 5
+(b)
+A write request for {PIPE_BUF} or fewer bytes will:
+.RS
+.TP 5
+[1]
+If there is sufficient space available in the pipe, transfer all the data and
+return the number of bytes requested.
+.TP 5
+[2]
+If there is not sufficient space available in the pipe, transfer no data and
+return -1 with \fIerrno\fR set to EAGAIN.
+.RE
+.TP 5
+(c)
+A write request for more than {PIPE_BUF} bytes will either:
+.RS
+.TP 5
+[1]
+When at least one byte can be written, transfer what it can and return the
+number of bytes written.  When all data previously written to the pipe has
+been read, it will transfer at least {PIPE_BUF} bytes.
+.TP 5
+[2]
+When no data can be written, transfer no data and return -1 with \fIerrno\fR
+set to EAGAIN.
+.RE
+.RE
+.PP
+POSIX applications may also expect the following
+when attempting to write to a file descriptor
+(other than a pipe or FIFO)
+that supports nonblocking writes
+and cannot accept the data immediately:
+.TP 5
+(1)
+If the O_NONBLOCK flag is clear, \fIwrite\fR will not block the process. If
+some data can be written without blocking the process, \fIwrite\fR will
+write what it can and return the number of bytes written.  Otherwise, it will
+return -1 and \fIerrno\fR will be set to EAGAIN.
+.TP 5
+(2)
+If the O_NONBLOCK flag is set, \fIwrite\fR will block until the data can
+be accepted.
+.SH "RETURN VALUE
+Upon successful completion the number of bytes actually written
+is returned.  Otherwise a \-1 is returned and the global variable
+.I errno
+is set to indicate the error.
+.SH ERRORS
+.I Write
+will fail and the file pointer will remain unchanged if one or more
+of the following are true:
+.TP 15
+[EAGAIN]
+The O_NONBLOCK flag is set for the file descriptor and the process would be
+delayed in the write operation.
+.TP 15
+[EBADF]
+\fIfd\fP is not a valid descriptor open for writing.
+.TP 15
+[EPIPE]
+An attempt is made to write to a pipe that is not open
+for reading by any process;
+or,
+an attempt is made to write to a socket of type SOCK_STREAM
+that is not connected to a peer socket.
+.TP 15
+[EFBIG]
+An attempt was made to write a file that exceeds the process's
+file size limit or the maximum file size.
+.TP 15
+[EFAULT]
+Part of the data to be written to the file lies outside the process's
+allocated address space.
+.TP 15
+[EINVAL]
+The pointer associated with \fIfd\fP was negative.
+.TP 15
+[ENOSPC]
+There is no free space remaining on the file system
+containing the file.
+.TP 15
+[EINTR]
+The write operation was interrupted by a signal, and no data was transferred.
+.TP 15
+[EDQUOT]
+The user's quota of disk blocks on the file system
+containing the file has been exhausted.
+.TP 15
+[EIO]
+An I/O error occurred while reading from or writing to the file system;
+or,
+the process is in the background process group and is attempting to write to
+its controlling terminal, TOSTOP is set, the process is neither ignoring
+nor blocking SIGTTOU signals, and the process group of the process is
+orphaned.
+.TP 15
+[EWOULDBLOCK]
+The file was marked for non-blocking I/O,
+and no data could be written immediately.
+.PP
+.PP
+In addition, 
+.I writev
+may return one of the following errors:
+.TP 15
+[EINVAL]
+.I Iovcnt
+was less than or equal to 0, or greater than 16;
+or,
+one of the
+.I iov_len
+values in the
+.I iov
+array was negative;
+or,
+the sum of the
+.I iov_len
+values in the
+.I iov
+array overflowed a 32-bit integer.
+.SH "SEE ALSO"
+creat(2), dup(2), fcntl(2), lseek(2), open(2), pipe(2)

@@ -1,0 +1,104 @@
+.TH OD 4 "March 10, 1990" "NeXT Computer, Inc."
+.SH NAME
+od \- optical disk device driver
+.SH SYNOPSIS
+.nf
+odc0 at 0x2012000
+od0 at odc0 slave 0
+.fi
+.SH DESCRIPTION
+This driver allows access to the optical disk drive.  The driver has both block and character oriented interfaces.
+The form of the block device is
+.RS
+.nf
+
+/dev/od<volume><partition>
+
+.fi
+.RE
+Where <volume> is a digit from 0 to 7 and <partition> is a letter from a to
+h, indicating the partition on the disk.  For example, /dev/od1b refers to
+volume 1, partition b.  Similarly, a character device is accessed by
+.RS
+.nf
+
+/dev/rod<volume><partition>
+
+.fi
+.RE
+.LP
+An optical device in /dev does not refer to a specific optical disk drive.  Instead these devices refer to individual pieces of disk media which can be installed in any drive.  The devices are called 
+.B volumes
+to distinguish them from optical
+.I disks
+and 
+.I drives.
+It is possible for several volumes to be in use even though only one of them can be inserted at a time in a single-drive system.  The operating system asks for the proper volume to be inserted at the appropriate times by using a popup window.  If for some reason the volume is no longer available (for example, if you took it somewhere else and forgot it) you can type 'n' to this popup window and all programs using the volume will receive an error.
+.LP
+When a disk is inserted for the first time a special process called
+.B autodiskmount
+will attempt to mount the disk in your home directory using the name from the disk label.  If you want to use a command on a disk without having it automatically automounted then run that command before inserting the disk.  When the command opens the volume a kernel panel will appear with the message:
+.RS
+.nf
+
+	Please insert new disk for volume <n>
+
+.fi
+.RE
+where <n> is the volume number from the device entry in /dev (e.g. volume 0 for /dev/rod0a).  A volume inserted into an optical drive will be automatically ejected
+to make room for another volume if necessary.  A message will appear in a kernel panel
+telling you which volume to insert as other volumes are needed.  The next section describes how to determine a volume number that is not in use and how to sense if a volume is inserted in any drive.
+.LP
+The following operations are allowed by the optical disk driver:
+.TP
+open()
+See open(2).  If the O_NDELAY flag is set, and that volume is not inserted in any drive, the error code EWOULDBLOCK is returned instead of the system requesting a new disk to be inserted.  This is useful for programs that want to determine whether a volume is inserted without hanging the system waiting for the volume to be inserted.
+.TP
+close() 
+See close(2).  When a volume is not in any drive at the time of the last close operation the association between the volume number and a particular disk is removed.
+.TP
+read()
+See read(2).
+.TP
+write()
+See write(2).
+.TP	 
+strategy()
+This is the standard block device entry point used by the Unix File
+System.  This is only valid for the block disk device.
+.TP	 	 
+ioctl()
+The general form of an ioctl() call is 
+.RS
+.nf
+ioctl(int d, u_int request, char *argp)
+.fi
+.RE
+.LP
+The following ioctl requests are currently defined (see <bsd/dev/disk.h>):
+.TP	
+DKIOCGLABEL
+Get disk label.  argp points to a pointer to
+a struct disk_label (see <nextdev/disk.h>).  Copies the label
+of the current disk into user address space.
+.TP
+DKIOCSLABEL
+Write disk label.  argp points to a pointer to a struct 
+disk_label.  Must be superuser to execute this call.
+.TP
+DKIOCINFO
+Get drive info.  argp points to a struct drive_info (see
+<nextdev/disk.h>.
+.TP
+DKIOCGFREEVOL
+Get free volume number.  Returns a volume number (placed in an int pointed to by argp) that is currently not in use.
+.fi
+.RE
+.SH FILES
+.nf
+<nextdev/disk.h>
+/dev/rod?
+/dev/od??
+.SH "SEE ALSO"
+open(2), read(2), write(2), ioctl(2), close(2), disk(8)
+

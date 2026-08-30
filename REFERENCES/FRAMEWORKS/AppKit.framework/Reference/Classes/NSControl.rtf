@@ -1,0 +1,2684 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f3\fmodern Courier;\f5\fnil NeXTdoc;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 „
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\f2\b\fs52\li1460{\NeXTHelpMarker62 \markername NS_DEV_DOCFOR:objc_class:NSControl;}
+¨}\f2\b\i0\ulnone\ql\fs52\fi0\li1460\gray0\fc0\cf0\up0\dn0 NSControl\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSView : NSResponder : NSObject\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding (NSResponder)\
+
+\fi0 NSObject (NSObject)\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 <AppKit/NSControl.h> \
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSControl is an abstract superclass that provides three fundamental features for implementing user-interface devices. First, as a subclass of NSView, NSControl draws, or coordinates the drawing of, the on-screen representation of the device. Second, it receives and responds to user-generated events within its bounds by overriding NSResponder's 
+\b mouseDown:
+\b0  method and providing a position in the responder chain. Third, it implements the 
+\b sendAction:to:
+\b0  method to send an action message to the NSControl's target object. Subclasses of NSControl defined in the Application Kit are NSBrowser, NSButton (and its subclass NSPopUpButton), NSColorWell, NSImageView, NSMatrix (and its subclass NSForm), NSScroller, NSSlider, NSTableView, and NSTextField. Instances of concrete NSControl subclasses are often referred to as, simply, 
+\i controls
+\i0 .\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Controls and Cells\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Controls are usually associated with one or more cells–instances of a subclass of the abstract class NSCell. A control's cell (or cells) usually fit just inside the bounds of the control. Cells are objects that can draw themselves and respond to events, but they can do so only indirectly, upon instruction from their control, which acts as a kind of coordinating backdrop. \
+
+\fs14 \
+
+\fs28 Controls manage the behavior of their cells. By inheritance from NSView, controls derive the ability for responding to user actions and rendering their on-screen representation. When users click on a control, it responds in part by sending 
+\b trackMouse:inRect:ofView:untilMouseUp:
+\b0  to the cell that was clicked; upon receiving this message, the cell tracks the mouse and may have the control send the cell's action message to its target (either upon mouse-up or continuously, depending on the cell's attributes). When controls receive a display request, they, in turn, send their cell (or cells) a 
+\b drawWithFrame:inView:
+\b0  message to have the cells draw themselves.\
+
+\fs14 \
+
+\fs28 This relationship of control and cell makes two things possible: A control can manage cells of different types and with different targets and actions (see below); and a single control can manage muliple cells. Most Application Kit controls, like NSButtons and NSTextFields, manage only a single cell. But some controls, notably NSMatrix and NSForm, manage multiple cells (usually of the same size and attributes, and arranged in a regular pattern). Because cells are lighter-weight than controls, in terms of inherited data and behavior, it is more efficient to use a multi-cell control rather than multiple controls.  \
+
+\fs14 \
+
+\fs28 Many methods of NSControl–particularly methods that set or obtain values and attributes–have corresponding methods in NSCell. Sending a message to the control causes it to be forwarded to the control's cell 
+\i or
+\i0  (if a multi-cell control) its selected cell. However, many NSControl methods are effective only in controls with single cells (these are noted in the method descriptions).\
+
+\fs14 \
+
+\fs28 An NSControl subclass doesn't have to use an NSCell subclass to implement itself; NSScroller and NSColorWell are examples of NSControls that don't. However, such subclasses have to take care of details that NSCell would otherwise handle. Specifically, they have to override methods designed to work with a cell. What's more, the lack of a cell means you can't make use of NSMatrix capability for managing multi-cell arrays such as radioÄbuttons. \
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Target and Action\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Target objects and action methods (or messages) are part of the mechanism by which controls respond to user actions and enable users to communicate their intentions to an application. A target is an object that a control uses as the receiver of action messages. The target's class defines an action method to enable its instances to respond to these messages, which are sent as users click or otherwise manipulate the control. NSControl's 
+\b sendAction:to:
+\b0  asks the NSApplication object, NSApp, to send an action message to the control's target object.\
+
+\fs14 \
+
+\fs28 NSControl provides methods for setting and obtaining the target object and the action method. However, these methods require that an NSControl's cell (or cells) be cells that inherit from NSActionCell or custom cells that hold action and target as instance variables and can respond to the NSControl methods.\
+
+\fs14 \
+
+\fs28 See the NSActionCell class specification for more on the implementation of target and actionÄbehavior, particularly how action messages with 
+\b nil
+\b0  targets travel up the responder chain. \
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Field Validation and Entry Error-Handling\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSControl provides the delegation method 
+\b control:isValidObject:
+\b0  for validating the contents of cells embedded in controls (instances of NSTextField and NSMatrix in particular). In validating you check for values that are permissible as objects, but that are undesirable in a given context, such as a date field in which dates should never be in the future, or zip codes that are valid for a certain state.\
+
+\fs14 \
+
+\fs28 The method 
+\b control:isValidObject:
+\b0  is invoked when the cursor leaves a cell (that is, the associated control relinquishes first-responder status) but before the string value of the cell's object is displayed. Return YES to allow display of the string and NO to reject display and return the cursor to the cell. The following example evaluates an object (an NSDate) and rejects it if the date is in the future:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 - (BOOL)control:(NSControl *)control isValidObject:(id)obj\
+\{\
+	if (control == contactsForm) \{\
+		if (![obj isKindOfClass:[NSDate class]]) return NO;\
+		if ([[obj laterDate:[NSDate date]] isEqual:obj]) \{	\
+			NSRunAlertPanel(@"Date not valid", \
+				@"Reason: date in future", NULL, NULL, NULL);	\
+			return NO;\
+		\}\
+	\}\
+	return YES;      \
+\}\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 NSControl also provides delegation methods that are invoked when formatters for a control's cells cannot format a string 
+\b (control:didFailToFormatString:errorDescription:
+\b0 ) or reject a partial string entry (
+\b control:didFailToValidatePartialString:errorDescription:
+\b0 ). It also provides  
+\b control:textView:doCommandBySelector:
+\b0 , which allows delegates the opportunity to detect and respond to key bindings, such as 
+\b complete:
+\b0  (name completion).\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Changing the NSCell Class\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 Since NSControl uses objects derived from the NSCell class to implement most of its actual functionality, you can usually implement a unique user interface device by creating a subclass of NSCell rather than NSControl. As an example, let's say you want all your application's NSSliders to have a type of cell other than the generic NSSliderCell. First, you create a subclass of NSCell, NSActionCell, or NSSliderCell. (Let's call it MyCellSubclass.) Then, you can simply invoke NSSlider's 
+\b setCellClass:
+\b0  class method:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 [NSSlider setCellClass:[MyCellSubclass class]];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 All NSSliders created thereafter will use MyCellSubclass, until you call 
+\b setCellClass:
+\b0  again.\
+
+\fs14 \
+
+\fs28 If you want to create generic NSSliders (ones that use NSSliderCell) in the same application as the customized NSSliders that use MyCellSubclass, there are two possible approaches. One is to invoke 
+\b setCellClass: 
+\b0 as above whenever you're about to create a custom NSSlider, resetting the cell class to NSSliderCell afterwards. The other approach is to create a custom subclass of NSSlider that automatically uses MyCellSubclass, as explained below.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Creating New NSControls\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 If you create a custom NSControl subclass that uses a custom subclass of NSCell, you should override NSControl
+\b 's cellClass 
+\b0 method:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 + (Class) cellClass\
+\{\
+    return [MyCellSubclass class];\
+\}\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 NSControl's 
+\b initWithFrame:
+\b0  method will use the return value of 
+\b cellClass
+\b0  to allocate and initialize an NSCell of the correct type. \
+
+\fs14 \
+
+\fs28 Override the designated initializer (
+\b initWithFrame:
+\b0 ) if you create a subclass of NSControl that performs its own initialization.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types \
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Initializing an NSControl	
+\f1 -
+\f0 ÄinitWithFrame:\
+
+\fs10 \
+
+\fs28 Setting the control's cell	+ÄcellClass\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +ÄsetCellClass:\
+
+\f1 -
+\f0 Äcell\
+
+\f1 -
+\f0 ÄsetCell:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Enabling and disabling the control	
+\f1 -
+\f0 ÄisEnabled\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 ÄsetEnabled:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Identifying the selected cell	
+\f1 -
+\f0 ÄselectedCell\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 ÄselectedTag\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Setting the control's value	
+\f1 -
+\f0 ÄdoubleValue\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 ÄsetDoubleValue:\
+
+\f1 -
+\f0 ÄfloatValue\
+
+\f1 -
+\f0 ÄsetFloatValue:\
+
+\f1 -
+\f0 ÄintValue\
+
+\f1 -
+\f0 ÄsetIntValue:\
+
+\f1 -
+\f0 ÄobjectValue\
+
+\f1 -
+\f0 ÄsetObjectValue:\
+
+\f1 -
+\f0 ÄstringValue\
+
+\f1 -
+\f0 ÄsetStringValue:\
+
+\f1 -
+\f0 ÄsetNeedsDisplay\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Interacting with other controls	
+\f1 -
+\f0 ÄtakeDoubleValueFrom:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 ÄtakeFloatValueFrom:\
+
+\f1 -
+\f0 ÄtakeIntValueFrom:\
+
+\f1 -
+\f0 ÄtakeObjectValueFrom:\
+
+\f1 -
+\f0 ÄtakeStringValueFrom:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Formating text	
+\f1 -
+\f0 Äalignment\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 ÄsetAlignment:\
+
+\f1 -
+\f0 Äfont\
+
+\f1 -
+\f0 ÄsetFont:\
+
+\f1 -
+\f0 ÄsetFloatingPointFormat:left:right:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Managing the field editor	
+\f1 -
+\f0 ÄabortEditing\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 ÄcurrentEditor\
+
+\f1 -
+\f0 ÄvalidateEditing\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Resizing the control	
+\f1 -
+\f0 ÄcalcSize\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 ÄsizeToFit\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Displaying a cell	
+\f1 -
+\f0 ÄselectCell:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 ÄdrawCell:\
+
+\f1 -
+\f0 ÄdrawCellInside:\
+
+\f1 -
+\f0 ÄupdateCell:\
+
+\f1 -
+\f0 ÄupdateCellInside:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Implementing the target/action mechanism\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 Äaction\
+
+\f1 -
+\f0 ÄsetAction:\
+
+\f1 -
+\f0 Ätarget\
+
+\f1 -
+\f0 ÄsetTarget:\
+
+\f1 -
+\f0 ÄisContinuous\
+
+\f1 -
+\f0 ÄsetContinuous:\
+
+\f1 -
+\f0 ÄsendAction:to:\
+
+\f1 -
+\f0 ÄsendActionOn:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting and setting attributed-string values\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 ÄattributedStringValue\
+
+\f1 -
+\f0 ÄsetAttributedStringValue:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting and setting tags	
+\f1 -
+\f0 Ätag\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 ÄsetTag:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Simulating mouse clicks	
+\f1 -
+\f0 ÄperformClick:sender:\
+
+\fs10 \
+
+\fs28 Tracking the mouse	
+\f1 -
+\f0 ÄmouseDown:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 ÄignoresMultiClick\
+
+\f1 -
+\f0 ÄsetIgnoresMultiClick:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods \
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker9251 \markername NS_DEV_DOCFOR:objc_method:[NSControl-cellClass];}
+¨}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 cellClass\
+
+\fs6 \
+
+\f0\b0\fs28\fi-620\li2520 + (Class)
+\b cellClass
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the class of cells used by the receiving class (which must be NSControl or one of its subclasses). Returns 
+\b nil
+\b0  if no cell class has been specified for the receiving class or any of its superclasses (up to NSControl).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0 Ä
+\b cell
+\b0 , 
+\f1 -
+\f0 Ä
+\b setCell:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker9542 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setCellClass:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setCellClass:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (void)
+\b setCellClass:
+\b0 (Class)
+\i class
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the class of cells used by instances of the receiver, which must be the NSControl class or one of its subclasses.  \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b cell
+\b0 , 
+\f1 -
+\f0 Ä
+\b setCell:\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker9765 \markername NS_DEV_DOCFOR:objc_method:[NSControl-abortEditing];}
+¨}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 abortEditing\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0  (BOOL)
+\b abortEditing
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Terminates and discards any editing of text displayed by the receiving control and removes the field editor's delegate. Returns YES if there was a field editor associated with the control, NO otherwise. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b currentEditor
+\b0 , 
+\f1 -
+\f0 Ä
+\b validateEditing\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker10055 \markername NS_DEV_DOCFOR:objc_method:[NSControl-action];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 action\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (SEL)
+\b action
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the action-message selector of the receiver's cell (the default NSControl behavior), or the default action-message selector for a control with multiple cells (such as an NSMatrix or an NSForm).   For controls with multiple cells, it's better to get the action-message selector for a particular cell, for instance:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 someAction = [[theControl selectedCell] action];\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b setAction:
+\b0 , 
+\f1 -
+\f0 Ä
+\b setTarget:
+\b0 , 
+\f1 -
+\f0 Ä
+\b target\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker10502 \markername NS_DEV_DOCFOR:objc_method:[NSControl-alignment];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 alignment\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSTextAlignment)
+\b alignment\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the alignment mode of the text in the receiver's cell.  The return value can be one of these constants:  NSLeftTextAlignment, NSRightTextAlignment, NSCenterTextAlignment, NSJustifiedTextAlignment, or NSNaturalTextAlignment (the default alignment).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0\i Ä
+\b\i0 setAlignment: \
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker10832 \markername NS_DEV_DOCFOR:objc_method:[NSControl-attributedStringValue];}
+¨}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 attributedStringValue\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSAttributedString *)
+\b attributedStringValue
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the object value of the receiver's cell (or selected cell) as an attributed string after validating any editing currently being done. If no cell is associated with the receiver, returns an empty attributed string.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0 Ä
+\b setAttributedStringValue:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker11168 \markername NS_DEV_DOCFOR:objc_method:[NSControl-calcSize];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 calcSize\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b calcSize
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Recomputes any internal sizing information for the NSControl, if necessary, by invoking its NSCell's 
+\b calcDrawInfo:
+\b0  method. Most NSControls maintain a flag that informs them if any of their cells have been modified in such a way that the location or size of the cell should be recomputed. If this happens, 
+\b calcSize
+\b0  is automatically invoked whenever the NSControl is displayed; you never need to invoke it yourself. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b calcSize
+\b0  (NSMatrix, NSForm), 
+\f1 -
+\f0 Ä
+\b sizeToFit\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker11669 \markername NS_DEV_DOCFOR:objc_method:[NSControl-cell];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 cell\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b cell
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the receiver's cell. In NSControls with multiple cells (such as NSMatrix or NSForm), use 
+\b selectedCell
+\b0  or a similar method for finding a particular cell.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +Ä
+\b cellClass
+\b0 , 
+\f1 -
+\f0 Ä
+\b setCell:
+\b0 ,  +Ä
+\b setCellClass:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker11905 \markername NS_DEV_DOCFOR:objc_method:[NSControl-currentEditor];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 currentEditor\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSText *)
+\b currentEditor
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If the receiving NSControl is being edited–that is, it has an NSText object acting as its field editor, and is the first responder of its NSWindow–this method returns the NSText editor; otherwise, it returns 
+\b nil
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b abortEditing
+\b0 , 
+\f1 -
+\f0 Ä
+\b validateEditing\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12209 \markername NS_DEV_DOCFOR:objc_method:[NSControl-doubleValue];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 doubleValue\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (double)
+\b doubleValue
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the value of the receiver's cell as a double-precision floating point number.  If the NSControl contains many cells (for example, NSMatrix), then the value of the currently 
+\b selectedCell
+\b0  is returned.  If the NSControl is in the process of editing the affected Cell, then 
+\b validateEditing
+\b0  is invoked before the value is extracted and returned.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b floatValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b intValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b objectValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b setDoubleValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b stringValue\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12683 \markername NS_DEV_DOCFOR:objc_method:[NSControl-drawCell:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 drawCell:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b drawCell:
+\b0 (NSCell *)
+\i aCell
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If 
+\i aCell
+\i0  is the cell used to implement this NSControl, then the NSControl is displayed.  This method is provided primarily to support a consistent set of methods between NSControls with single and multiple cells, since a NSControl with multiple cells needs to be able to draw a single cell at a time.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b selectCell:
+\b0 , 
+\f1 -
+\f0 Ä
+\b updateCell:
+\b0 , 
+\f1 -
+\f0 Ä
+\b updateCellInside:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker13094 \markername NS_DEV_DOCFOR:objc_method:[NSControl-drawCellInside:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 drawCellInside:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b drawCellInside:
+\b0 (NSCell *)
+\i aCell
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Draws the inside of the receiver's cell (the area within a bezel or border). If the NSControl is transparent, the method causes the superview to draw itself.  This method invokes NSCell's 
+\b drawInteriorWithFrame:inView:
+\b0  method.  This method has no effect on NSControls (such as NSMatrix and NSForm) that have multiple cells.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b selectCell:
+\b0 , 
+\f1 -
+\f0 Ä
+\b updateCell:
+\b0 , 
+\f1 -
+\f0 Ä
+\b updateCellInside:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker13539 \markername NS_DEV_DOCFOR:objc_method:[NSControl-floatValue];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 floatValue\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (float)
+\b floatValue
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the value of the receiver's cell (or selected cell, if a multiple-cell NSControl) as a single-precision floating point number.  See 
+\b doubleValue
+\b0  for more details.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b doubleValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b intValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b objectValue
+\b0 ,  
+\f1 -
+\f0 Ä
+\b setFloatValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b stringValue\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker13832 \markername NS_DEV_DOCFOR:objc_method:[NSControl-font];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 font\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSFont *)
+\b font
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the NSFont used to draw text in the receiver's cell.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\f1\i0 -
+\f0\b ÄsetFont:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker13944 \markername NS_DEV_DOCFOR:objc_method:[NSControl-ignoresMultiClick];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 ignoresMultiClick\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b ignoresMultiClick
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns whether the receiving NSControl ignores multiple clicks made in rapid succession. See 
+\b setIgnoresMultiClick:
+\b0  for details.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker14123 \markername NS_DEV_DOCFOR:objc_method:[NSControl-initWithFrame:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithFrame:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b initWithFrame:
+\b0 (NSRect)
+\i frameRect
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Initializes and returns a new NSControl object in 
+\i frameRect
+\i0 , and creates a cell for it if the cell's class has been specified for controls of this type with 
+\b setCellClass:
+\b0 . Because NSControl is an abstract class, invocations of this method should appear only in the designated initializers of sublcasses; that is, there should always be a more specific designated initializer for the subclass, as this 
+\b initWithFrame:
+\b0  is the designated initializer for NSControl.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker14643 \markername NS_DEV_DOCFOR:objc_method:[NSControl-intValue];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 intValue\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (int)
+\b intValue
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the value of the receiver's cell (or selected cell, if a multiple-cell NSControl) as an integer.  See 
+\b doubleValue
+\b0  for more details.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b floatValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b doubleValue
+\b0 ,  
+\f1 -
+\f0 Ä
+\b objectValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b setIntValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b stringValue\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker14900 \markername NS_DEV_DOCFOR:objc_method:[NSControl-isContinuous];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isContinuous\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isContinuous
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns whether the control's NSCell continuously sends its action message to its target during mouse tracking.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b setContinous:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker15079 \markername NS_DEV_DOCFOR:objc_method:[NSControl-isEnabled];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isEnabled\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isEnabled
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns whether the receiver reacts to mouse events.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0 Ä
+\b setEnabled:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker15192 \markername NS_DEV_DOCFOR:objc_method:[NSControl-mouseDown:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 mouseDown:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b mouseDown:
+\b0 (NSEvent *)
+\i theEvent
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Invoked when the mouse button is pressed while the cursor is within the bounds of the NSControl. This method highlights the NSControl's NSCell and sends it a 
+\b trackMouse:inRect:ofView:untilMouseUp:
+\b0  message. Whenever the NSCell finishes tracking the mouse (for example, because the cursor has left the cell's bounds), the cell is unhighlighted. If the mouse button is still down and the cursor reenters the bounds, the cell is again highlighted and a new 
+\b trackMouse:inRect:ofView:untilMouseUp:
+\b0  message is sent. This behavior repeats until the mouse button goes up. If it goes up with the cursor in the control, the state of the control is changed, and the action message is sent to the target. If the mouse button goes up when the cursor is outside the control, no action message is sent.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\f1\i0 -
+\f0 Ä
+\b ignoresMultiClick
+\b0 , 
+\f1 -
+\f0\b ÄtrackMouse:inRect:ofView:untilMouseUp:
+\b0 (NSCell)\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker16118 \markername NS_DEV_DOCFOR:objc_method:[NSControl-objectValue];}
+¨}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 objectValue\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b objectValue
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the value of the receiver's cell (or selected cell, if a multiple-cell NSControl) as an Objective-C object.  See 
+\b doubleValue
+\b0  for more details. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b floatValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b doubleValue
+\b0 ,  
+\f1 -
+\f0 Ä
+\b intValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b setObjectValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b stringValue\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker16394 \markername NS_DEV_DOCFOR:objc_method:[NSControl-performClick:];}
+¨}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 performClick:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b performClick:
+\b0\i sender
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Programmatically simulates a mouse click on the receiver's cell, including the invocation of the action method in the target object. Raises an exception if the action message cannot be successfully sent.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker16646 \markername NS_DEV_DOCFOR:objc_method:[NSControl-selectCell:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 selectCell:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b selectCell:
+\b0 (NSCell *)
+\i aCell
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If 
+\i aCell
+\i0  is a cell of the receiving NSControl and is unselected, this method selects 
+\i aCell
+\i0  (by setting its state to YES) and redraws the NSControl. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b selectedCell
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker16875 \markername NS_DEV_DOCFOR:objc_method:[NSControl-selectedCell];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 selectedCell\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b selectedCell
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the receiver's selected cell. The default implementation for NSControl simply returns the associated cell (or 
+\b nil
+\b0  if no cell has been set). Subclasses of NSControl that manage multiple cells (such as NSMatrix and NSForm) override this method to return the cell selected by users. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28   
+\i0  
+\f1 -
+\f0 Ä
+\b cell
+\b0 , 
+\f1 -
+\f0 Ä
+\b setCell:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker17235 \markername NS_DEV_DOCFOR:objc_method:[NSControl-selectedTag];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 selectedTag\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (int)
+\b selectedTag
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the tag integer of the receiver's selected cell (see 
+\b selectedCell
+\b0 ) or -1 if there is no selected cell. When you set the tag of an control with a single cell in Interface Builder, it sets the tags of both the control and the cell with the same value as a convenience.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b setTag:
+\b0 , 
+\f1 -
+\f0 Ä
+\b tag
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker17576 \markername NS_DEV_DOCFOR:objc_method:[NSControl-sendAction:to:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 sendAction:to:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b sendAction:
+\b0 (SEL)
+\i theAction 
+\b\i0 to:
+\b0 (id)
+\i theTarget
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sends 
+\b sendAction:to:from:
+\b0  to NXApp, which in turn sends a message to 
+\i theTarget
+\i0  to perform 
+\i theAction
+\i0 , adding the receiver as the argument to the 
+\b from:
+\b0  keyword. 
+\b sendAction:to:
+\b0  is invoked primarily by NSCell's 
+\b trackMouse:inRect:ofView:untilMouseUp:
+\b0 .\
+
+\fs14 \
+
+\fs28 If 
+\i theAction
+\i0  is 
+\b nil
+\b0 , no message is sent. If 
+\i theTarget
+\i0  is 
+\b nil
+\b0 , NXApp looks for an object that can respond to the message by following the responder chain (see the class description for NSActionCell). This method returns 
+\b nil
+\b0  if no object that responds to 
+\i theAction
+\i0  could be found.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b action
+\b0 , 
+\f1 -
+\f0 Ä
+\b target\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker18205 \markername NS_DEV_DOCFOR:objc_method:[NSControl-sendActionOn:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 sendActionOn:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (int)
+\b sendActionOn:
+\b0 (int)
+\i mask
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the conditions on which the receiver sends action messages to its target (continuously, mouse up, and others) and returns a bit mask with which to detect the previous settings. NSControl's default implementation simply invokes the 
+\b sendActionOn:
+\b0  method of its associated cell\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b sendAction:to:
+\b0 ,
+\b  
+\f1\b0 -
+\f0 Ä
+\b sendActionOn:
+\b0 (NSCell)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker18588 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setAction:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setAction:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setAction:
+\b0 (SEL)
+\i aSelector
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the NSControl's action method to 
+\i aSelector
+\i0 . If 
+\i aSelector
+\i0  is 
+\b nil
+\b0 , then no action messages will be sent from the NSControl.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b action
+\b0 , 
+\f1 -
+\f0\b ÄsetTarget:
+\b0 , 
+\f1 -
+\f0\b Ätarget\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker18809 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setAlignment:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setAlignment:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setAlignment:
+\b0 (NSTextAlignment)
+\i mode
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the alignment of text in the receiver's cell and, if the cell is being edited, aborts editing and updates the cell. 
+\i mode
+\i0  is one of five constants: NSLeftTextAlignment, NSRightTextAlignment, NSCenterTextAlignment, NSJustifiedTextAlignment, NSNaturalTextAlignment (the default alignment for the text).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b alignment\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker19202 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setAttributedStringValue:];}
+¨}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 setAttributedStringValue:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setAttributedStringValue:
+\b0 (NSAttributedString *)
+\i object
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the value of the receiver's cell (or selected cell) as an attributed string. If the cell is being edited, it aborts all editing before setting the value; if the cell doesn't inherit from NSActionCell, it marks it for automatic redisplay (NSActionCell performs its own updating of cells).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 ÄattributedStringValue\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker19624 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setCell:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setCell:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setCell:
+\b0 (NSCell *)
+\i aCell
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the receiver's cell to 
+\i aCell
+\i0 . Use this method with great care as it can irrevocably damage the affected control; specifically, you should only use this method in initializers for subclasses of NSControl.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b cell
+\b0 , 
+\f1 -
+\f0\b ÄselectedCell\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker19914 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setContinuous:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setContinuous:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setContinuous:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets whether the receiver's cell continuously sends its action message to its target as it tracks the mouse.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b isContinuous\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker20103 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setDoubleValue:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setDoubleValue:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setDoubleValue:
+\b0 (double)
+\i aDouble
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the value of the receiver's cell (or selected cell) as aDouble (a double-precision floating point number). If the cell is being edited, it aborts all editing before setting the value; if the cell doesn't inherit from NSActionCell, it marks the cell's interior for automatic redisplay (NSActionCell performs its own updating of cells).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b doubleValue
+\b0 ,
+\f1 -
+\f0 Ä
+\b setFloatValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b setIntValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b setObjectValue:
+\b0 ,  
+\f1 -
+\f0 Ä
+\b setStringValue:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker20601 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setEnabled:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setEnabled:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setEnabled:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets whether the receiving NSControl's cell–or if there is no associated cell, the NSControl itself–is active (that is, whether it tracks the mouse and sends its action to its target). If flag is NO, any editing is aborted. Redraws the entire Control if autodisplay is enabled. Subclasses may want to override this method to redraw only a portion of the control when the enabled state changes, as do NSButton and NSSlider.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\f1\i0 -
+\f0\i Ä
+\b\i0 isEnabled\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker21096 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setFloatValue:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setFloatValue:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setFloatValue:
+\b0 (float)
+\i aFloat
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the value of the receiver's cell (or selected cell) as 
+\i aFloat
+\i0  (a single-precision floating point number). If the cell is being edited, it aborts all editing before setting the value; if the cell doesn't inherit from NSActionCell, it marks the cell's interior for automatic redisplay (NSActionCell performs its own updating of cells).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b floatValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b setDoubleValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b setIntValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b setObjectValue:
+\b0 ,  
+\f1 -
+\f0 Ä
+\b setStringValue:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker21590 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setFloatingPointFormat:left:right:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setFloatingPointFormat:left:right:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setFloatingPointFormat:
+\b0 (BOOL)
+\i autoRange \
+
+\b\i0\fi0 left:
+\b0 (unsigned)
+\i leftDigits \
+
+\b\i0 right:
+\b0 (unsigned)
+\i rightDigits
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the autoranging and floating point number format of the receiver's cell, so that at most 
+\i leftDigits
+\i0  are displayed to the left of the decimal point, and 
+\i rightDigits
+\i0  to the right. See the description of this method in the NSCell class specification for details.  If the cell is being edited, what's typed is discarded and the cell's interior is redrawn. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b setFloatingPointFormat:left:right:
+\b0 (NSCell)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker22148 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setFont:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setFont:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setFont:
+\b0 (NSFont *)
+\i fontObject
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the font used to draw text in the receiver's cell to 
+\i fontObject
+\i0 . If the cell is being edited, the text in the cell is redrawn in the new font and the cell's editor (the NSText object used globally for editing) is updated with the new NSFont.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 ÄsetFont:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker22469 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setIgnoresMultiClick:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setIgnoresMultiClick:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setIgnoresMultiClick:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets whether the receiving NSControl ignores multiple clicks made in rapid succession. By default, controls treat double-clicks as two distinct clicks, triple-clicks as three distinct clicks, and so on. However, when an NSControl returning YES to this method receives multiple clicks (within a predetermined interval), each 
+\b mouseDown
+\b0  event after the first is passed on to 
+\b super
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b ignoresMultiClick\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker22947 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setIntValue:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setIntValue:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setIntValue:
+\b0 (int)
+\i anInt
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the value of the receiver's cell (or selected cell) as an integer (
+\i anInt
+\i0 ). If the cell is being edited, it aborts all editing before setting the value; if the cell doesn't inherit from NSActionCell, it marks the cell's interior for automatic redisplay (NSActionCell performs its own updating of cells).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b intValue
+\b0 ,
+\f1 -
+\f0 Ä
+\b setDoubleValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b setFloatValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b setObjectValue:
+\b0 ,  
+\f1 -
+\f0 Ä
+\b setStringValue:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker23402 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setNeedsDisplay];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setNeedsDisplay\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setNeedsDisplay
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Marks the receiving NSControl as needing redisplay (assuming automatic display is enabled) after recalculation of its dimensions.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b setsNeedsDisplay:
+\b0 (NSView)\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker23619 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setObjectValue:];}
+¨}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 setObjectValue:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setObjectValue:
+\b0 (id)
+\i object
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the value of the receiver's cell (or selected cell) as an Objective-C object. If the cell is being edited, it aborts all editing before setting the value; if the cell doesn't inherit from NSActionCell, it marks the cell's interior for automatic redisplay (NSActionCell performs its own updating of cells).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b objectValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b setDoubleValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b setFloatValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b setIntValue:
+\b0 ,  
+\f1 -
+\f0 Ä
+\b setStringValue:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker24084 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setStringValue:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setStringValue:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setStringValue:
+\b0 (NSString *)
+\i aString
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the value of the receiver's cell (or selected cell) as an NSString object (
+\i aString
+\i0 ). If the cell is being edited, it aborts all editing before setting the value; if the cell doesn't inherit from NSActionCell, it marks the cell's interior for automatic redisplay (NSActionCell performs its own updating of cells).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b setDoubleValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b setFloatValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b setIntValue:
+\b0 ,  
+\f1 -
+\f0 Ä
+\b setObjectValue:
+\b0 , 
+\f1 -
+\f0 Ä
+\b stringValue\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker24565 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setTag:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setTag:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setTag:
+\b0 (int)
+\i anInt
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the tag of the receiving NSControl to 
+\i anInt
+\i0 . It doesn't affect the tag of the receiver's cell.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b tag\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker24722 \markername NS_DEV_DOCFOR:objc_method:[NSControl-setTarget:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setTarget:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setTarget:
+\b0 (id)
+\i anObject
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the target object for the action message of the receiver's cell; NSCell's 
+\b setTarget:
+\b0  is used instead of any subclass override of this method. If 
+\i anObject
+\i0  is 
+\b nil
+\b0  and the control sends an action message, the application looks for an object that can respond to the message by following the responder chain (see description of the NSActionCell class for details).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b action
+\b0 , 
+\f1 -
+\f0 Ä
+\b setAction:
+\b0 , 
+\f1 -
+\f0 Ä
+\b target
+\b0 , 
+\f1 -
+\f0\b ÄsetTarget:
+\b0 (NSCell)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker25201 \markername NS_DEV_DOCFOR:objc_method:[NSControl-sizeToFit];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 sizeToFit\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b sizeToFit
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Changes the width and the height of the receiver's frame so that they are the minimum needed to contain its cell.  If you want a multiple-cell custom subclass of NSControl to size itself to fit its cells, you must override this method.  \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\i\fs28  
+\f1\i0 -
+\f0 Ä
+\b calcSize\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker25496 \markername NS_DEV_DOCFOR:objc_method:[NSControl-stringValue];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 stringValue\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b stringValue
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the value of the receiver's cell (or selected cell, if a multiple-cell NSControl) as an NSString object.  See 
+\b doubleValue
+\b0  for details.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b floatValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b doubleValue
+\b0 ,  
+\f1 -
+\f0 Ä
+\b intValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b objectValue
+\b0 , 
+\f1 -
+\f0 Ä
+\b setStringValue:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker25769 \markername NS_DEV_DOCFOR:objc_method:[NSControl-tag];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 tag\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (int)
+\b tag
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the tag identifying the receiving control (not the tag of the receiver's cell).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b setTag:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker25899 \markername NS_DEV_DOCFOR:objc_method:[NSControl-takeDoubleValueFrom:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 takeDoubleValueFrom:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b takeDoubleValueFrom:
+\b0 (id)
+\i sender
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the double-precision floating-point value of the receiving control's cell (or selected cell) to the value obtained by sending a 
+\b doubleValue
+\b0  message to 
+\i sender
+\i0 . You can use this method to link action messages between controls.  It permits one control or cell (
+\i sender
+\i0 ) to affect the value of another control (the receiver) by invoking this method in an action message to the receiver.  For example, a text field can be made the target of a slider.  Whenever the slider is moved, it will send a 
+\b takeDoubleValueFrom:
+\b0  message to the text field.  The text field will then get the slider's floating-point value, turn it into a text string, and display it, thus tracking the value of the slider.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker26657 \markername NS_DEV_DOCFOR:objc_method:[NSControl-takeFloatValueFrom:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 takeFloatValueFrom:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b takeFloatValueFrom:
+\b0 (id)
+\i sender
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the receiving NSControl's selected cell to the value obtained by sending a 
+\b floatValue
+\b0  message to another control or cell (
+\i sender
+\i0 ). See 
+\b takeDoubleValueFrom:
+\b0  for more information.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker26904 \markername NS_DEV_DOCFOR:objc_method:[NSControl-takeIntValueFrom:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 takeIntValueFrom:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b takeIntValueFrom:
+\b0 (id)
+\i sender
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the receiving NSControl's selected cell to the value obtained by sending a 
+\b intValue
+\b0  message to another control or cell (
+\i sender
+\i0 ). See 
+\b takeDoubleValueFrom:
+\b0  for more information.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker27147 \markername NS_DEV_DOCFOR:objc_method:[NSControl-takeObjectValueFrom:];}
+¨}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 takeObjectValueFrom:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b takeObjectValueFrom:
+\b0 (id)
+\i sender
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the receiving NSControl's selected cell to the value obtained by sending a 
+\b objectValue
+\b0  message to another control or cell (
+\i sender
+\i0 ). See 
+\b takeDoubleValueFrom:
+\b0  for more information.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker27397 \markername NS_DEV_DOCFOR:objc_method:[NSControl-takeStringValueFrom:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 takeStringValueFrom:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b takeStringValueFrom:
+\b0 (id)
+\i sender
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the receiving NSControl's selected cell to the value obtained by sending a 
+\b stringValue
+\b0  message to another control or cell (
+\i sender
+\i0 ). See 
+\b takeDoubleValueFrom:
+\b0  for more information.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker27647 \markername NS_DEV_DOCFOR:objc_method:[NSControl-target];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 target\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b target
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the target object of the receiver's cell.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b action
+\b0 , 
+\f1 -
+\f0 Ä
+\b setAction:
+\b0 , 
+\f1 -
+\f0 Ä
+\b setTarget:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker27771 \markername NS_DEV_DOCFOR:objc_method:[NSControl-updateCell:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 updateCell:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b updateCell:
+\b0 (NSCell *)
+\i aCell
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Redisplays 
+\i aCell
+\i0  or marks it for redisplay. \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker27869 \markername NS_DEV_DOCFOR:objc_method:[NSControl-updateCellInside:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 updateCellInside:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b updateCellInside:
+\b0 (NSCell *)
+\i aCell
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Redisplays the inside of 
+\i aCell
+\i0  or marks it for redisplay. \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker27993 \markername NS_DEV_DOCFOR:objc_method:[NSControl-validateEditing];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 validateEditing\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b validateEditing
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Validates the user's changes to text in a cell of the receiving control. Validation sets the object value of the cell to the current contents of the cell's editor (the NSText object used for editing), storing its a simple NSString or an attributed string object based on the attributes of the editor.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28  
+\f1 -
+\f0 Ä
+\b abortEditing
+\b0 , 
+\f1 -
+\f0 Ä
+\b currentEditor\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\fs28\fi-1020\li1200\fc0\cf0 Methods Implemented By the Delegate\
+
+\fs14 \
+
+\pard\tx1500\f5\b0\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker28423 \markername NS_DEV_DOCFOR:objc_method:[NSControl-control:didFailToFormatString:errorDescription:];}
+¨}\pard\tx1500\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 control:didFailToFormatString:errorDescription:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 Ä(BOOL)
+\b control:
+\b0 (NSControl *)
+\i control
+\i0  \
+
+\b\fi0 didFailToFormatString:
+\b0 (NSString *)
+\i string\
+
+\b\i0 errorDescription:
+\b0 (NSString *)
+\i error\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invoked when the formatter for 
+\i control
+\i0 's cell (or selected cell) cannot convert an NSString (
+\i string)
+\i0  to an underlying object. 
+\i error
+\i0  is a localized user-presentable NSString that explains why the conversion failed. Evaluate the error or query the user and return YES if 
+\i string
+\i0  should be accepted as-is, or NO if 
+\i string
+\i0  should be rejected.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b getObjectValue:forString:errorDescription:
+\b0 (NSFormatter)\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker28999 \markername NS_DEV_DOCFOR:objc_method:[NSControl-control:didFailToValidatePartialString:errorDescription:];}
+¨}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 control:didFailToValidatePartialString:errorDescription:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 Ä(void)
+\b control:
+\b0 (NSControl *)
+\i control
+\i0  \
+
+\b\fi0 didFailToValidatePartialString:
+\b0 (NSString *)
+\i string\
+
+\b\i0 errorDescription:
+\b0 (NSString *)
+\i error\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invoked when the formatter for 
+\i control
+\i0 's cell (or selected cell) rejects a partial string a user is typing into the cell. This NSString (
+\i string
+\i0 ) includes the character that caused the rejection.
+\i  error
+\i0  is a localized user-presentable NSString that explains why the validation failed. Evaluate the error or query the user and return YES if 
+\i string
+\i0  should be accepted as-is, or NO if 
+\i string
+\i0  should be rejected.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 Ä
+\b isPartialStringValid:newEditingString:errorDescription:
+\b0 (NSFormatter)\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker29675 \markername NS_DEV_DOCFOR:objc_method:[NSControl-control:isValidObject:];}
+¨}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 control:isValidObject:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 Ä(BOOL)
+\b control:
+\b0 (NSControl *)
+\i control
+\i0  
+\b isValidObject:
+\b0 (id)
+\i object\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invoked when the cursor leaves a cell but before the string value of the cell's object is displayed. Return YES to allow display of the string and NO to reject display and return the cursor to the cell. This method gives the delegate the opportunity to validate the contents of 
+\i control
+\i0 's cell (or selected cell). In validating, the delegate checks 
+\i object
+\i0  to determine if it falls within a permissible range, has required attributes, accords with a given context, and so on. An example of an object subject to such and evaluation is an NSDate object which should not represent a future date, or a monetary amount (represented by an NSNumber) that exceeds a predetermined limit.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker30442 \markername NS_DEV_DOCFOR:objc_method:[NSControl-control:textShouldBeginEditing:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 control:textShouldBeginEditing:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 Ä(BOOL)
+\b control:
+\b0 (NSControl *)
+\i control
+\i0  
+\b textShouldBeginEditing:
+\b0 (NSText *)
+\i fieldEditor\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sent directly by 
+\i control
+\i0  to the delegate when the cursor tries to enter a cell of the control that allows editing of text (such as a text field or form field). Return YES if the NSControl's 
+\i fieldEditor
+\i0  should be allowed to start editing the text, NO otherwise.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker30822 \markername NS_DEV_DOCFOR:objc_method:[NSControl-control:textShouldEndEditing:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 control:textShouldEndEditing:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 Ä(BOOL)
+\b control:
+\b0 (NSControl *)
+\i control
+\i0  
+\b textShouldEndEditing:
+\b0 (NSText *)
+\i fieldEditor\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sent directly by 
+\i control
+\i0  to the delegate when the cursor tries to leave a a cell of the control that allows editing of text (such as a text field or a form field). Return YES if the control's 
+\i fieldEditor
+\i0  should be allowed to end its edit session, NO otherwise.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker31200 \markername NS_DEV_DOCFOR:objc_method:[NSControl-control:textView:doCommandBySelector:];}
+¨}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 control:textView:doCommandBySelector:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 Ä(BOOL)
+\b control:
+\b0 (NSControl *)
+\i control
+\i0  \
+
+\b\fi0 textView:
+\b0 (NSTextView *)
+\i textView\
+
+\b\i0 doCommandBySelector:
+\b0 (SEL)
+\i command\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Invoked when users press keys with predefined bindings in 
+\i control
+\i0 's cell or selected cell, as communicated to the control by the cell's field editor (
+\i textView
+\i0 ). The delegate returns YES if it handles the key binding, and NO otherwise. These bindings are usually implemented as methods (
+\i command
+\i0 ) defined in NSResponder; examples of such key bindings are arrow keys (for directional movement) and the Escape key (for name completion). By implementing this method, the delegate can override the default implementation of 
+\i command
+\i0  and supply its own behavior. \
+
+\fs14 \
+
+\fs28 For example, the default method for completing partially typed pathnames or symbols (usually when users press the Escape key) is 
+\b complete:
+\b0 . The default implementation of 
+\b complete:
+\b0  (in NSResponder) does nothing. The delegate could evaluate 
+\i command
+\i0  and, if it's 
+\b complete:
+\b0 , get the current string from 
+\i textView
+\i0  and then expand it, or display a list of potential completions, or do whatever else is appropriate.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker32311 \markername NS_DEV_DOCFOR:objc_method:[NSControl-controlTextDidBeginEditing:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 controlTextDidBeginEditing:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 Ä(void)
+\b controlTextDidBeginEditing:
+\b0 (NSNotification *)
+\i aNotification\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sent by the default notification center to the delegate and all observers of the notification when a control with editable cells (such as a text field, form field, or an NSMatrix) begins editing text.  The name of the notification (
+\i aNotification
+\i0 ) is always NSControlTextDidBeginEditingNotification. Use the key @"NSFieldEditor" to obtain the field editor from 
+\i aNotification
+\i0 's 
+\b userInfo
+\b0  dictionary. If the delegate implements this method, it's automatically registered to receive this notification.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker32908 \markername NS_DEV_DOCFOR:objc_method:[NSControl-controlTextDidEndEditing:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 controlTextDidEndEditing:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 Ä(void)
+\b controlTextDidEndEditing:
+\b0 (NSNotification *)
+\i aNotification\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sent by the default notification center to the delegate and all observers of the notification when a control with editable cells (such as a text field, form field, or an NSMatrix) ends editing text.  The name of the notification (
+\i aNotification
+\i0 ) is always NSControlTextDidEndEditingNotification. Use the key @"NSFieldEditor" to obtain the field editor from 
+\i aNotification
+\i0 's 
+\b userInfo
+\b0  dictionary. If the delegate implements this method, it's automatically registered to receive this notification.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker33497 \markername NS_DEV_DOCFOR:objc_method:[NSControl-controlTextDidChange:];}
+¨}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 controlTextDidChange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 Ä(void)
+\b controlTextDidChange:
+\b0 (NSNotification *)
+\i aNotification\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sent by the default notification center to the delegate when the text in the receiving control (usually a text field, form, or NSMatrix with editable cells) changes. The name of the notification 
+\i aNotification
+\i0  is always NSControlTextDidChangeNotification. Use the key @"NSFieldEditor" to obtain the field editor from 
+\i aNotification
+\i0 's 
+\b userInfo
+\b0  dictionary. If the delegate implements this method, it's automatically registered to receive this notification.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Notifications \
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 NSControl posts the following notifications to interested observers and its delegate.\
+
+\fs14 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 NSControlTextDidBeginEditingNotification\
+
+\fs6 \
+
+\fs4 \
+
+\pard\tx6080\tx11280\f0\fs28\fi-4620\li6100\fc0\cf0 Notification Object
+\b0 	The NSControl posting the notification. The field editor of the edited cell originally sends a NSTextDidBeginEditingNotification to the control, which passes it on in this form to its delegate.\
+
+\fs10\fi-4840\li6320 \
+
+\b\fs28 User Info
+\b0 	\
+
+\fs14 \
+
+\pard\tx6740\tx11280\f2\b\fs28\li1900\fc0\cf0 Key	Value\
+
+\fs6 \
+
+\pard\tx6740\tx11540\f0\b0\fs28\li1900\fc0\cf0 @"NSFieldEditor"	The edited cell's field editor\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 See description of 
+\b controlTextDidBeginEditing:
+\b0 , above, for details.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx8260\f2\b\fs28\li1500\fc0\cf0 NSControlTextDidChangeNotification\
+
+\fs6 \
+
+\fs4 \
+
+\pard\tx6080\tx11280\f0\fs28\fi-4620\li6100\fc0\cf0 Notification Object
+\b0 	The NSControl posting the notification. The field editor of the edited cell originally sends a NSTextDidChangeNotification to the control, which passes it on in this form to its delegate.\
+
+\fs10\fi-4840\li6320 \
+
+\b\fs28 User Info
+\b0 	\
+
+\fs14 \
+
+\pard\tx6740\tx11280\f2\b\fs28\li1900\fc0\cf0 Key	Value\
+
+\fs6 \
+
+\pard\tx6740\tx11540\f0\b0\fs28\li1900\fc0\cf0 @"NSFieldEditor"	The edited cell's field editor\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 See description of 
+\b controlTextDidChange:
+\b0 , above, for details.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx8260\f2\b\fs28\li1500\fc0\cf0 NSControlTextDidEndEditingNotification\
+
+\fs6 \
+
+\fs4 \
+
+\pard\tx6080\tx11280\f0\fs28\fi-4620\li6100\fc0\cf0 Notification Object
+\b0 	The NSControl posting the notification. The field editor of the edited cell originally sends a NSTextDidEndEditingNotification to the control, which passes it on in this form to its delegate.\
+
+\fs10\fi-4840\li6320 \
+
+\b\fs28 User Info
+\b0 	\
+
+\fs14 \
+
+\pard\tx6740\tx11280\f2\b\fs28\li1900\fc0\cf0 Key	Value\
+
+\fs6 \
+
+\pard\tx6740\tx11540\f0\b0\fs28\li1900\fc0\cf0 @"NSFieldEditor"	The edited cell's field editor\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 See description of 
+\b controlTextDidEndEditing:
+\b0 , above.\
+
+\fs14 \
+
+}

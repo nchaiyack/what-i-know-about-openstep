@@ -1,0 +1,96 @@
+.\"	@(#)getgrent.3	6.1 (Berkeley) 5/15/85 .\"
+.TH GETGRGID 3  "August 1, 1992"
+.AT 3
+.SH NAME
+getgrgid, getgrnam, getgrent, setgrent, endgrent \- group database access
+.SH SYNOPSIS
+.nf
+.ft B
+#include <sys/types.h>
+#include <grp.h>
+.PP
+.ft B
+struct group *getgrgid(gid_t \fIgid\fP);
+.PP
+.ft B
+struct group *getgrnam(const char *\fIname\fP);
+.ft R
+.fi
+.SH (ALSO AVAILABLE IN BSD)
+.nf
+.B void setgrent(void);
+.PP
+.B struct group *getgrent(void);
+.PP
+.B void endgrent(void);
+.fi
+.SH DESCRIPTION
+The
+.IR getgrgid 
+and
+.IR getgrnam 
+functions both return a pointer to a
+.I group
+structure containing
+an entry from the system's group database
+with a matching numeric group
+ID (\fIgid\fP) or group name (\fIname\fP).
+.PP
+The \fIgroup\fP structure is defined in the header
+.I <grp.h>
+and includes the following members:
+.IP
+.PP
+.RS
+.TP 35
+\fBMember Type	Member Name\fP
+\fBDescription\fP
+.TP 35
+\fIchar *		gr_name\fP
+The name of the group.
+.TP 35
+\fIgid_t		gr_gid\fP
+The numerical group ID.
+.TP 35
+\fIchar **		gr_mem\fP
+A null-terminated vector of pointers to the individual member names.
+.RE
+.IP
+.PP
+The value returned points to a static area.
+So if the information is to be saved, it must be copied.
+.PP
+The BSD routines
+.IR setgrent ,
+.IR getgrent ,
+and
+.I endgrent
+permit an application to scan the groups sequentially.
+.I setgrent
+resets the group file to the beginning,
+.I getgrent
+reads the next group entry,
+and
+.I endgrent
+closes the group file when processing is complete.
+Calls to
+.I getgrgid
+or
+.I getgrnam
+set the current location in the group file
+with respect to calls to
+.IR getgrent.
+
+.SH "RETURN VALUE"
+A \fBNULL\fP pointer is returned on error or if the requested entry is
+not found.
+.SH FILES
+/etc/group \- if NetInfo is not running.
+.SH "SEE ALSO"
+getlogin(3),
+getpwent(3),
+group(5),
+netinfo(5)
+.SH "BUGS"
+All information is contained in a static area
+so it must be copied if it is to be saved.

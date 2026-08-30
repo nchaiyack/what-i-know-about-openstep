@@ -1,0 +1,68 @@
+.\"	@(#)fclose.3s	6.1 (Berkeley) 5/15/85
+.\"
+.TH FCLOSE 3S  "August 1, 1992"
+.ds ]W ANSI C
+.SH NAME
+fclose, fflush \- close or flush a stream
+.SH SYNOPSIS
+.B #include <stdio.h>
+.PP
+.B int fclose(FILE *\fIstream\fP);
+.P
+.B int fflush(FILE *\fIstream\fP);
+.SH DESCRIPTION
+.I Fclose
+causes any buffers for the named
+.I stream
+to be flushed, and the file to be closed.
+Buffers allocated by the standard input/output system
+are freed.
+.PP
+.I Fclose
+is performed automatically upon
+calling
+.IR  exit (3).
+.PP
+.I Fflush
+causes any buffered data for the named output or update
+.I stream
+to be written to that file.
+The stream remains open.
+.PP
+If
+.I stream
+is a null pointer, the
+.I fflush
+function performs this flushing action on all
+output and update streams.
+.SH "RETURN VALUE"
+.I Fclose
+and
+.I fflush
+return EOF for unsuccessful calls and store an error code in
+.I errno, 
+otherwise returning zero.
+.SH "ERRORS"
+The underlying functions of
+.I fclose
+are 
+.IR write (2)
+and
+.IR close (2).
+The underlying functions of 
+.I fflush
+are
+.IR write (2) 
+and
+.IR lseek (2).  
+The error conditions specified for these functions
+apply to 
+.I fclose
+and
+.I fflush.
+.SH "SEE ALSO"
+write(2),
+close(2),
+lseek(2),
+fopen(3S),
+setbuf(3S)

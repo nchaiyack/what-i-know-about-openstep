@@ -1,0 +1,40 @@
+.\" Copyright (c) 1985 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)sqrt.3m	6.2 (Berkeley) 5/12/86
+.\"
+.TH SQRT 3M  "August 1, 1992"
+.UC 6
+.ds up \fIulp\fR
+.SH NAME
+sqrt, cbrt \- square root, cube root
+.SH SYNOPSIS
+.nf
+.B #include <math.h>
+.PP
+.B double sqrt(double \fIx\fP);
+.fi
+.SH "(ALSO AVAILABLE IN BSD)"
+.nf
+.B double cbrt(double \fIx\fP);
+.SH DESCRIPTION
+.IR Sqrt ( x )
+returns the square root of x.
+.PP
+.IR Cbrt ( x )
+returns the square root of x.
+.I Cbrt
+is not neither ANSI- nor POSIX-compliant.
+.SH ERROR (due to roundoff, etc.)
+.I Sqrt
+on a machine that conforms to IEEE 754 is correctly rounded
+in accordance with the rounding mode in force; the error is less than
+half an \*(up in the default mode (round\-to\-nearest).
+An \*(up is one \fIU\fRnit in the \fIL\fRast \fIP\fRlace carried.
+.PP
+.I Cbrt
+is accurate to within 0.7
+.IR ulps .
+.SH SEE ALSO
+math(3M)

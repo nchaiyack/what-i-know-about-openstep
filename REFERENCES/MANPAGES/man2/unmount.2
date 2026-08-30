@@ -1,0 +1,76 @@
+.\" @(#)unmount.2 1.4 86/10/07 SMI; from UCB 4.2
+.TH UNMOUNT 2 "16 July 1986"
+.SH NAME
+unmount \- remove a file system
+.SH SYNOPSIS
+.nf
+.ft B
+unmount(name)
+char *name;
+.fi
+.SH DESCRIPTION
+.LP
+.IX  unmount  ""  "\fLunmount\fP \(em demount file system"
+.IX  "file system"  unmount  ""  "\fLunmount\fP \(em demount file system"
+.IX  "file system"  demount  ""  "\fLunmount\fP \(em demount file system"
+.IX  remove "file system \(em \fLunmount\fP"
+.IX  "demount file system unmount"  ""  "demount file system \(em \fLunmount\fP"
+.I unmount
+announces to the system that the directory
+.I name
+is no longer to refer to the root of a mounted file system.  The directory
+.I name
+reverts to its ordinary interpretation.
+.SH RETURN VALUE
+.I unmount
+returns 0 if the action occurred; \-1 if
+if the directory is inaccessible or
+does not have a mounted file system,
+or if there are active files in the mounted file system.
+.SH ERRORS
+.I unmount
+may fail with one of the following errors:
+.TP 15
+EPERM
+The caller is not the super-user.
+.TP 15
+ENOTDIR
+A component of the path prefix of
+.I name
+is not a directory.
+.TP 15
+EINVAL
+.I name
+is not the root of a mounted file system.
+.TP 15
+EBUSY
+A process is holding a reference to a file located on the file system.
+.TP 15
+EINVAL
+The path name contains a character with the high-order bit set.
+.TP 15
+ENAMETOOLONG
+The length of a component of the path name exceeds 255 characters,
+or the length of the entire path name exceeds 1023 characters.
+.TP 15
+ENOENT
+.I name
+does not exist.
+.TP 15
+EACCES
+Search permission is denied for a component of the path prefix.
+.TP 15
+EFAULT
+.I name
+points outside the process's allocated address space.
+.TP 15
+ELOOP
+Too many symbolic links were encountered in translating the path name.
+.TP 15
+EIO
+An I/O error occurred while reading from or writing to the file system.
+.SH "SEE ALSO"
+mount(2), mount(8), umount(8)
+.SH BUGS
+The error codes are in a state of disarray; too many errors
+appear to the caller as one value.

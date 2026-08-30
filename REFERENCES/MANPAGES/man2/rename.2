@@ -1,0 +1,176 @@
+.\" Copyright (c) 1983 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)rename.2	6.4 (Berkeley) 5/22/86
+.\"
+.TH RENAME 2 "August 1, 1992"
+.ds ]W ANSI C
+.SH NAME
+rename \- change the name of a file
+.SH SYNOPSIS
+.nf
+.ft B
+#include <stdio.h>
+
+int rename(const char *\fIold\fP, const char *\fInew\fP);
+.ft R
+.fi
+.SH DESCRIPTION
+The
+.IR rename 
+function causes the link named \fIold\fP to be renamed as \fInew\fP.
+.PP
+If both \fIold\fP and \fInew\fP refer to links to the same file, then
+.IR rename 
+will return successfully without performing any renaming operation.
+.PP
+Both \fIold\fP and \fInew\fP must refer to files of the same type
+(that is, both directories or both non-directories), and they must
+reside on the same file system.
+If \fInew\fP exists, then it is first removed before \fIold\fP is renamed.
+Write access is required for the parent directory containing \fIold\fP and the
+parent directory containing \fInew\fP.
+If both arguments refer to directories and \fInew\fP exists, then
+it must contain no entries other than \*(lq.\*(rq and \*(lq..\*(rq.
+The \fInew\fP pathname should not be a descendant of \fIold\fP\(emthat is,
+the \fInew\fP pathname should not contain a path prefix that names \fIold\fP.
+.PP
+If the final component of \fIold\fP
+is a symbolic link, then the symbolic link is renamed,
+not the file or directory to which it points.
+.PP
+The
+.IR rename 
+function guarantees that an instance of \fInew\fP
+will always exist, even if the system should crash in
+the middle of the renaming operation.
+.PP
+If the link count of \fInew\fP becomes zero when it is removed and
+no process has the file open, then the space occupied by the file is
+reclaimed by the system.
+If any process has the file open when the last link is removed, then
+the link is removed by
+.IR rename ,
+but the space occupied by the file is not reclaimed until all references
+to the file have been closed.
+.PP
+Upon successful completion,
+.IR rename 
+marks for update the \fIst_ctime\fP and \fIst_mtime\fP fields of the
+parent directory of each named file.
+.SH CAVEAT
+The system can deadlock if a loop in the file system graph is present.
+This loop takes the form of an entry in directory \*(lqa\*(rq,
+say \*(lqa/foo\*(rq,
+being a hard link to directory \*(lqb\*(rq, and an entry in
+directory \*(lqb\*(rq, say \*(lqb/bar\*(rq, being a hard link
+to directory \*(lqa\*(rq.
+When such a loop exists and two separate processes attempt to
+perform \*(lqrename a/foo b/bar\*(rq and \*(lqrename b/bar a/foo\*(rq,
+respectively, 
+the system may deadlock attempting to lock
+both directories for modification.
+Hard links to directories should be
+replaced by symbolic links by the system administrator.
+.SH "RETURN VALUE"
+Upon successful completion, the
+.IR rename 
+function returns a value of zero.
+Otherwise, a value of \-1 is returned and \fIerrno\fP is set to indicate
+the error.
+.SH "ERRORS"
+If any of the following conditions occurs,
+.IR rename 
+returns \-1 and sets \fIerrno\fP to the corresponding value:
+.TP 15
+[EACCES]
+A component of either path prefix denies search permission.
+.TP 15
+[EACCES]
+The requested link requires writing in a directory with a mode
+that denies write permission.
+.TP 15
+[EDQUOT]
+The directory in which the entry for the new name
+is being placed cannot be extended because the
+user's quota of disk blocks on the file system
+containing the directory has been exhausted.
+.TP 15
+[EFAULT]
+Either \fIold\fP or \fInew\fP
+points outside the process's allocated address space.
+.TP 15
+[EINVAL]
+Either pathname contains a character with the high-order bit set.
+.TP 15
+[EINVAL]
+The \fInew\fP pathname contains a path prefix that names \fIold\fP,
+or an attempt is made to rename \*(lq.\*(rq or \*(lq..\*(rq.
+.TP 15
+[EIO]
+An I/O error occurred while making or updating a directory entry.
+.TP 15
+[EISDIR]
+The \fInew\fP pathname is a directory, but \fIold\fP is not a directory.
+.TP 15
+[ELOOP]
+Too many symbolic links were encountered in translating either pathname.
+.TP 15
+[EMLINK]
+(POSIX only)
+The \fIold\fP argument names a directory and the link count of the
+parent directory of \fInew\fP would exceed {LINK_MAX}.
+.TP 15
+[ENAMETOOLONG]
+A component of
+.I path
+exceeds 255 characters,
+or the entire pathname exceeds 1023 characters.
+For POSIX applications these values are given
+by the constants {NAME_MAX} and {PATH_MAX}, respectively.
+.TP 15
+[ENOENT]
+A component of the \fIold\fP pathname does not exist,
+or a path prefix of \fInew\fP does not exist.
+.TP 15
+[ENOENT]
+Either \fIold\fP or \fInew\fP points to an empty string.
+.TP 15
+[ENOSPC]
+The directory in which the entry for the new name is being placed
+cannot be extended because there is no space left on the file
+system containing the directory.
+.TP 15
+[ENOTDIR]
+A component of either path prefix is not a directory.
+.TP 15
+[ENOTDIR]
+The \fIold\fP pathname is a directory, but \fInew\fP is not a directory.
+.TP 15
+[ENOTEMPTY]
+The \fInew\fP argument names a directory and is not empty.
+.TP 15
+[EPERM]
+The directory containing \fIold\fP is marked sticky,
+and neither the containing directory nor \fIold\fP
+are owned by the effective user ID.
+.TP 15
+[EPERM]
+The \fInew\fP file exists,
+the directory containing \fInew\fP is marked sticky,
+and neither the containing directory nor \fInew\fP
+are owned by the effective user ID.
+.TP 15
+[EROFS]
+The requested link requires writing in a directory on a read-only file
+system.
+.TP 15
+[EXDEV]
+The link named by \fInew\fP and the file named by \fIold\fP
+are on different logical devices (file systems).
+.SH "SEE ALSO"
+link(2),
+open(2),
+rmdir(2),
+unlink(2)

@@ -1,0 +1,1404 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh11920
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\f2\b\fs52\li1460{\NeXTHelpMarker62 \markername NS_DEV_DOCFOR:objc_class:NSPrintInfo;}
+¬}\f2\b\i0\ulnone\ql\fs52\fi0\li1460\gray0\fc0\cf0\up0\dn0 NSPrintInfo\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding\
+
+\fi0 NSCopying\
+NSObject (NSObject)\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 AppKit/NSPrintInfo.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 An NSPrintInfo object stores information that's used to generate PostScript output. A shared NSPrintInfo object is automatically created for an application and is used by default for all printing jobs for that application. You can create any number of additional NSPrintInfo objects; however, only one can be ªactiveº at a time, set using the 
+\b setSharedPrintInfo
+\b0 : class method. You get the shared NSPrintInfo object using the 
+\b sharedPrintInfo
+\b0  class method.\
+
+\fs14 \
+
+\fs28 An NSPrintInfo object is used by NSPrintOperation objects to control printing (it is passed to a NSPrintOperation object which makes a copy of it to use during an operation). If you create special instances of NSPrintInfo objects for a specific printing task, you must ensure that your NSPrintInfo object is the shared one, or instantiate an NSPrintOperation object specifying your NSPrintInfo object.\
+
+\fs14 \
+
+\fs28 Normally you don't set NSPrintInfo attributes directlyÐthis is done by instances of NSPageLayout and NSPrintPanel. The NSView that's being printed may also supercede some NSPrintInfo settings. In particular, an NSView can supply the range of pages in the document and can provide its own pagination mechanism through the 
+\b knowsPagesFirst:last:
+\b0  and 
+\b rect:forPage:
+\b0  methods (see the documentation of these methods in the NSView class for details).\
+
+\fs14 \
+
+\fs28 If the NSView doesn't supply pagination information, the NSPrintInfo's vertical and horizontal pagination constants are used to trigger these built-in pagination mechanisms:\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f2\b\fs28\li1900\fc0\cf0 Pagination Constant	Meaning\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 NSAutoPagination 	The image is diced into equal-sized rectangles and placed in one column of pages.\
+
+\fs14 \
+
+\fs28 NSFitPagination 	The image is scaled to produce one column or one row of pages.\
+
+\fs14 \
+
+\fs28 NSClipPagination	The image is clipped to produce one column or row of pages. \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Vertical and horizontal pagination needn't be the same. However, if either dimension is scaled (NSFitPagination), the other dimension is scaled by the same amount to avoid stretching the image. If both dimensions are scaled, the scaling factor that produces the smallest image is used. Note that NSPrintInfo's scaling factor is independent of the scaling that's imposed by pagination and is applied after the document has been paginated.\
+
+\fs14 \
+
+\fs28 NSPrintInfo uses points as the unit of measurement for paper size and margin width in the methods described below. See the NSFont specification for a discussion of points.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Adopted Protocols\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 NSCoding	
+\f1 -
+\f0  encodeWithCoder:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  initWithCoder:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 NSCopying	
+\f1 -
+\f0  copyWithZone:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Initializing an NSPrintInfo	
+\f1 -
+\f0  initWithDictionary:\
+
+\fs10 \
+
+\fs28 Managing the shared NSPrintInfo	+ setSharedPrintInfo:\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 + sharedPrintInfo\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Managing the printing rectangle	+ sizeForPaperName:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  bottomMargin\
+
+\f1 -
+\f0  leftMargin\
+
+\f1 -
+\f0  orientation\
+
+\f1 -
+\f0  paperName\
+
+\f1 -
+\f0  paperSize\
+
+\f1 -
+\f0  rightMargin\
+
+\f1 -
+\f0  setBottomMargin:\
+
+\f1 -
+\f0  setLeftMargin:\
+
+\f1 -
+\f0  setOrientation:\
+
+\f1 -
+\f0  setPaperName:\
+
+\f1 -
+\f0  setPaperSize:\
+
+\f1 -
+\f0  setRightMargin:\
+
+\f1 -
+\f0  setTopMargin:\
+
+\f1 -
+\f0  topMargin\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Pagination	
+\f1 -
+\f0  horizontalPagination\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  setHorizontalPagination:\
+
+\f1 -
+\f0  setVerticalPagination:\
+
+\f1 -
+\f0  verticalPagination\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Positioning the image on the page	
+\f1 -
+\f0  isHorizontallyCentered\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  isVerticallyCentered\
+
+\f1 -
+\f0  setHorizontallyCentered:\
+
+\f1 -
+\f0  setVerticallyCentered:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Specifying the printer	+ defaultPrinter\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 + setDefaultPrinter:\
+
+\f1 -
+\f0  printer\
+
+\f1 -
+\f0  setPrinter:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Controlling printing	
+\f1 -
+\f0  jobDisposition\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0  setJobDisposition:\
+
+\f1 -
+\f0  setUpPrintOperationDefaultValues\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Accessing the dictionary	
+\f1 -
+\f0  dictionary\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods \
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker3565 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-defaultPrinter];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 defaultPrinter\
+
+\fs6 \
+
+\f0\b0\fs28\fi-620\li2520 + (NSPrinter *)
+\b defaultPrinter
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the user's default printer. Returns 
+\b nil
+\b0  if the printer can not be found.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 + 
+\b setDefaultPrinter:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker3729 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setDefaultPrinter:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setDefaultPrinter:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (void)
+\b setDefaultPrinter:
+\b0 (NSPrinter *)
+\i aPrinter\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sets the user's default printer to 
+\i aPrinter
+\i0 . Unless the receiver's printer was specified using 
+\b setPrinter:
+\b0 , this default printer is used.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 + 
+\b defaultPrinter
+\b0 ,  
+\f1 -
+\f0  
+\b printer\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker3979 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setSharedPrintInfo:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setSharedPrintInfo:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (void)
+\b setSharedPrintInfo:
+\b0 (NSPrintInfo *)
+\i printInfo\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sets the shared NSPrintInfo object to 
+\i printInfo
+\i0 . The shared NSPrintInfo object defines the settings for the NSPageLayout panel and print operations that will be used if no NSPrintInfo object is specified for those operataions.  
+\i printInfo
+\i0  should never be 
+\b nil
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 + 
+\b sharedPrintInfo\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker4344 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-sharedPrintInfo];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 sharedPrintInfo\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSPrintInfo *)
+\b sharedPrintInfo
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the shared NSPrintInfo object.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 + 
+\b setSharedPrintInfo:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker4471 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-sizeForPaperName:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 sizeForPaperName:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSSize)
+\b sizeForPaperName:
+\b0 (NSString *)
+\i name
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the size for the specified type of paper in points. 
+\i name
+\i0  identifies the type of paper, such as Letter or Legal. Paper names are implementation specific.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker4718 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-bottomMargin];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 bottomMargin\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0  (float)
+\b bottomMargin
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the height of the bottom margin in points.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b setBottomMargin:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker4840 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-dictionary];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 dictionary\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSMutableDictionary *)
+\b dictionary
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the receiver's dictionary that stores its attribute settings. The key/value pairs contained in the dictionary are described in 
+\b initWithDictionary:
+\b0 . Note, modifying the returned dictionary will change the receiver's attributes.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5128 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-horizontalPagination];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 horizontalPagination\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSPrintingPaginationMode)
+\b horizontalPagination
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the horizontal pagination mode, see 
+\b setHorizontalPagination:
+\b0  for description of return values.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  setVerticalPagination:, 
+\f1 -
+\f0  verticalPagination\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5365 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-initWithDictionary:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithDictionary:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (id)
+\b initWithDictionary:
+\b0 (NSDictionary *)
+\i aDictionary\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Initializes a newly allocated NSPrintInfo object by assigning it the parameters specified in 
+\i aDictionary
+\i0 . This is the designated initializer for this class. The possible key/value pairs contained in 
+\i aDictionary
+\i0  are listed below. Non-object values should be stored as NSValues in the dictionary.\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f2\b\fs28\li1900\fc0\cf0 Key	Type	Description\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 NSPrintPaperName	NSString	The paper name.\
+
+\fs14 \
+
+\fs28 NSPrintPaperSize	NSSize	Height and width of paper in points.\
+
+\fs14 \
+
+\fs28 NSPrintMustCollate	BOOL	If YES, collates output.\
+
+\fs14 \
+
+\fs28\fi-7620\li9520 NSPrintFormName	NSString	Form name such as "Letter" or "Letter 
+\fi0\li6740 Small".\
+
+\fs14 \
+
+\fs28\fi-4840 NSPrintOrientation	NSPrintingOrientation	NSPortraitOrientation or  		NSLandscapeOrientation\
+
+\fs14 \
+
+\fs28 NSPrintLeftMargin	float	The left margin in points.\
+
+\fs14 \
+
+\fs28 NSPrintRightmargin	float	The right margin in points.\
+
+\fs14 \
+
+\fs28 NSPrintTopMargin	float	The top margin in points.\
+
+\fs14 \
+
+\fs28 NSPrintBottomMargin	float	The bottom margin in points.\
+
+\fs14 \
+
+\fs28 NSPrintHorizontallyCentered	BOOL	If YES, pages are centered horizontally.\
+
+\fs14 \
+
+\fs28 NSPrintVerticallyCentered	BOOL	If YES, pages are centered vertically.\
+
+\fs14 \
+
+\fs28\fi-7620\li9520 NSPrintHorizontalPagination	NSPrintingPaginationMode	NSAutoPagination, NSFitPagination, or NSClipPagination. See 
+\b setHorizontalPagination:
+\b0  for details.\
+
+\fs14\fi-4840\li6740 \
+
+\fs28 NSPrintVerticalPagination	NSPrintingPaginationMode	NSAutoPagination, NSFitPagination,  	or NSClipPagination. See 	
+\b setVerticalPagination
+\b0 : for details.\
+
+\fs14 \
+
+\fs28 NSPrintScalingFactor	float	Scale factor before pagination.\
+
+\fs14 \
+
+\fs28 NSPrintAllPages	BOOL	If YES, includes all pages in output.\
+
+\fs14 \
+
+\fs28 NSPrintReversePageOrder	BOOL	If YES, prints last page first.\
+
+\fs14 \
+
+\fs28 NSPrintFirstPage	int	The first page in the print job.\
+
+\fs14 \
+
+\fs28 NSPrintLastPage	int	The last page in the print job.\
+
+\fs14 \
+
+\fs28 NSPrintCopies	int	Number of copies to spool.\
+
+\fs14 \
+
+\fs28\fi-7620\li9520 NSPrintPagesPerSheet	int	The number of pages of the document \
+
+		that are printed on a single sheet of paper. This number is rounded up to the power of two when used by the system.\
+
+\fs14\fi0\li6740 \
+
+\fs28\fi-7620\li9520 NSPrintJobFeatures	NSMutableDictionary	Features from the NSPrinter object where keys are the feature name and values are the settings. For example, the key NSPrintPaperFeed might have the value *InputSlot/Upper. See the NSPrinter class description.\
+
+\fs14\fi0\li6740 \
+
+\fs28\fi-7620\li9520 NSPrintPaperFeed	NSString	The printer slot. For example, InputSlot/Upper or NSPrintManualFeed.\
+
+\fs14\fi0\li6740 \
+
+\fs28\fi-4840 NSPrintPrinter	NSPrinter	The printer to use.\
+
+\fs14 \
+
+\fs28\fi-7620\li9520 NSPrintJobDisposition	NSString	NSPrintSpoolJob, NSPrintFaxJob, NSPrintPreviewJob, NSPrintSaveJob, or NSPrintCancelJob. See 
+\b setJobDisposition:
+\b0  for details.\
+
+\fs14\fi0\li6740 \
+
+\fs28\fi-7620\li9520 NSPrintSavePath	NSString	Pathname to save as a file if job disposition is NSPrintSaveJob.\
+
+\fs14\fi0\li6740 \
+
+\fs28\fi-7620\li9520 NSPrintFaxReceiverNames	NSArray	Array of NSStrings containing  receiver names for a fax job.\
+
+\fs14\fi0\li6740 \
+
+\fs28\fi-7620\li9520 NSPrintFaxReceiverNumbers	NSArray	Array of NSStrings containing the receiver phone numbers for a fax job.\
+
+\fs14\fi0\li6740 \
+
+\fs28\fi-4840 NSPrintFaxSendTime	NSDate	When to send the fax.\
+
+\fs14 \
+
+\fs28 NSPrintFaxUseCoverSheet	BOOL	If YES, send cover sheet.\
+
+\fs14 \
+
+\fs28\fi-7620\li9520 NSPrintFaxCoverSheetName	NSString	The filename containing the cover sheet.\
+
+\fs14\fi-4840\li6740 \
+
+\fs28\fi-7620\li9520 NSPrintFaxReturnReceipt	BOOL	If YES, sends confirmation email when fax is sent.\
+
+\fs14\fi0\li6740 \
+
+\fs28\fi-4840 NSPrintFaxHighResolution	BOOL	If YES, sends fax at high resolution.\
+
+\fs14 \
+
+\fs28\fi-7620\li9520 NSPrintFaxTrimPageEnds	BOOL	If YES, trims page ends, otherwise sends complete pages.\
+
+\fs14\fi0\li6740 \
+
+\fs28\fi-4840 NSPrintFaxModem	NSPrinter	The fax modem to use.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b dictionary\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker8588 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-isHorizontallyCentered];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isHorizontallyCentered\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isHorizontallyCentered
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the image is centered horizontally, otherwise returns NO.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b isVerticallyCentered
+\b0 , 
+\f1 -
+\f0  
+\b setHorizontallyCentered:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker8783 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-isVerticallyCentered];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isVerticallyCentered\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isVerticallyCentered
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the image is centered vertically, otherwise returns NO.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b isHorizontallyCentered
+\b0 , 
+\f1 -
+\f0  
+\b setVerticallyCentered:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker8972 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-jobDisposition];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 jobDisposition\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b jobDisposition
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the action specified for the job. See 
+\b setJobDisposition:
+\b0  for description of return values.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker9121 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-leftMargin];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 leftMargin\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (float)
+\b leftMargin
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the width of the left margin in points.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b setLeftMargin:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker9234 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-orientation];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 orientation\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSPrintingOrientation)
+\b orientation
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the orientation attribute. See 
+\b setOrientation:
+\b0  for description of return values.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker9378 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-paperName];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 paperName\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSString *)
+\b paperName
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the paper name such as "Letter" or "Legal". Paper names are implementation specific.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b setPaperName:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker9538 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-paperSize];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 paperSize\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSSize)
+\b paperSize
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the size of the paper in points.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b setPaperSize:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker9642 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-printer];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 printer\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSPrinter *)
+\b printer
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the NSPrinter to be used for printing.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b setPrinter:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker9751 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-rightMargin];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 rightMargin\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (float)
+\b rightMargin
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the width of the right margin in points.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b setRightMargin:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker9868 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setBottomMargin:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setBottomMargin:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setBottomMargin:
+\b0 (float)
+\i margin
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the bottom margin to 
+\i margin
+\i0  specified in points.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b bottomMargin\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker10009 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setHorizontalPagination:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setHorizontalPagination:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setHorizontalPagination:
+\b0 (NSPrintingPaginationMode)
+\i mode
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the horizontal pagination to 
+\i mode
+\i0  where 
+\i mode
+\i0  is one of:\
+
+\fs14 \
+
+\pard\tx6740\tx9520\fs28\fi-4840\li6740\fc0\cf0 NSAutoPagination 	The image is diced into equal-sized rectangles and placed in one column of pages.\
+
+\fs14 \
+
+\fs28 NSFitPagination 	The image is scaled to produce one column or one row of pages.\
+
+\fs14 \
+
+\fs28 NSClipPagination	The image is clipped to produce one column or row of pages. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b horizontalPagination
+\b0 , 
+\f1 -
+\f0  
+\b setVerticalPagination:, 
+\f1\b0 -
+\f0\b  verticalPagination\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker10507 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setHorizontallyCentered:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setHorizontallyCentered:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setHorizontallyCentered:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If 
+\i flag
+\i0  is YES the image will be centered horizontally.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b isHorizontallyCentered, 
+\f1\b0 -
+\f0\b  isVerticallyCentered, 
+\f1\b0 -
+\f0\b  setVerticallyCentered:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker10723 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setJobDisposition:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setJobDisposition:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setJobDisposition:
+\b0 (NSString *)
+\i disposition
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the action specified for the job to 
+\i disposition
+\i0 , where 
+\i disposition
+\i0  is one of:\
+
+\fs14 \
+
+\pard\tx6740\tx9520\fs28\fi-4840\li6740\fc0\cf0 NSPrintSpoolJob	Normal print job.\
+
+\fs14 \
+
+\fs28 NSPrintFaxJob	Fax job.\
+
+\fs14 \
+
+\fs28 NSPrintPreviewJob	Send to Preview application.\
+
+\fs14 \
+
+\fs28 NSPrintSaveJob	Save to a file.\
+
+\fs14 \
+
+\fs28 NSPrintCancelJob	Cancel print job.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b jobDisposition\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker11084 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setLeftMargin:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setLeftMargin:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setLeftMargin:
+\b0 (float)
+\i margin
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the left margin to 
+\i margin
+\i0  specified in points.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b leftMargin\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker11217 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setOrientation:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setOrientation:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setOrientation:
+\b0 (NSPrintingOrientation)
+\i orientation
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the page orientation to 
+\i orientation
+\i0  where 
+\i orientation
+\i0  is one of:\
+
+\fs14 \
+
+\pard\tx6740\tx9520\fs28\fi-4840\li6740\fc0\cf0 NSPortraitOrientation\
+
+\fs14 \
+
+\fs28 NSLandscapeOrientation\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 This method may change either the paper name or size for consistency. To avoid this side effect set the values in the dictionary directly.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b dictionary
+\b0 , 
+\f1 -
+\f0  
+\b initWithDictionary:
+\b0 , 
+\f1 -
+\f0  
+\b orientation\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker11616 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setPaperName:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setPaperName:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setPaperName:
+\b0 (NSString *)
+\i name
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the paper name to 
+\i name
+\i0  (i.e., Letter or Legal). Paper names are implementation specific.This method may change either the size or orientation for consistency. To avoid this side effect set the values in the dictionary directly.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b dictionary
+\b0 , 
+\f1 -
+\f0  
+\b initWithDictionary:
+\b0 , 
+\f1 -
+\f0  
+\b paperName\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker11967 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setPaperSize:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setPaperSize:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setPaperSize:
+\b0 (NSSize)
+\i aSize
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the width and height of the paper to 
+\i aSize
+\i0  specified in points. This method may change either the paper name or orientation for consistency. To avoid this side effect set the values in the dictionary directly.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b dictionary
+\b0 , 
+\f1 -
+\f0  
+\b initWithDictionary:
+\b0 , 
+\f1 -
+\f0  
+\b paperSize\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12297 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setPrinter:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setPrinter:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setPrinter:
+\b0 (NSPrinter *)
+\i aPrinter\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sets the printer used in subsequent printing jobs to 
+\i aPrinter
+\i0 . This method iterates through the dictionary. If a feature in the dictionary is not supported by this new printer (this is determined by a query to the PPD file), then that feature is removed from the dictionary\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b printer\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12650 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setRightMargin:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setRightMargin:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setRightMargin:
+\b0 (float)
+\i margin
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the right margin to 
+\i margin
+\i0  specified in points.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b rightMargin\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12787 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setTopMargin:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setTopMargin:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setTopMargin:
+\b0 (float)
+\i margin
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the top margin to 
+\i margin
+\i0  specified in points.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b topMargin\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12916 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setUpPrintOperationDefaultValues];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setUpPrintOperationDefaultValues\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setUpPrintOperationDefaultValues
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Invoked when the print operation is about to start. Subclasses may override this method to set default values for any attributes that are not set.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker13143 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setVerticalPagination:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setVerticalPagination:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setVerticalPagination:
+\b0 (NSPrintingPaginationMode)
+\i mode
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the vertical pagination to 
+\i mode
+\i0  where 
+\i mode
+\i0  is one of:\
+
+\fs14 \
+
+\pard\tx6740\tx9520\fs28\fi-4840\li6740\fc0\cf0 NSAutoPagination 	The image is diced into equal-sized rectangles and placed in one column of pages.\
+
+\fs14 \
+
+\fs28 NSFitPagination 	The image is scaled to produce one column or one row of pages.\
+
+\fs14 \
+
+\fs28 NSClipPagination	The image is clipped to produce one column or row of pages. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b horizontalPagination
+\b0 , 
+\f1 -
+\f0  
+\b setHorizontalPagination:
+\b0 , 
+\f1 -
+\f0  
+\b verticalPagination\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker13637 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-setVerticallyCentered:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setVerticallyCentered:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setVerticallyCentered:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 If 
+\i flag
+\i0  is YES, the image will be vertically centered.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b isHorizontallyCentered
+\b0 , 
+\f1 -
+\f0  
+\b isVerticallyCentered
+\b0 , 
+\f1 -
+\f0  
+\b setHorizontallyCentered:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker13850 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-topMargin];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 topMargin\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (float)
+\b topMargin
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the top margin in points.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b setTopMargin:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker13946 \markername NS_DEV_DOCFOR:objc_method:[NSPrintInfo-verticalPagination];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 verticalPagination\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSPrintingPaginationMode)
+\b verticalPagination
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the vertical pagination mode, see 
+\b setVerticalPagination:
+\b0  for description of return values.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0  
+\b horizontalPagination, 
+\f1\b0 -
+\f0\b  setHorizontalPagination:\
+
+\fs14 \
+
+}

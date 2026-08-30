@@ -1,0 +1,603 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p20 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 90.0px; font: 14.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 90.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 75.0px; font: 12.0px Helvetica}
+    p.p26 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Helvetica}
+    p.p27 {margin: 0.0px 0.0px 0.0px 95.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Times}
+    p.p29 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 95.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -206.0px; font: 14.0px Times}
+    p.p32 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -206.0px; font: 20.0px Times; min-height: 24.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 14.0px Times}
+    p.p35 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p37 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p38 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p41 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p43 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p45 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 12.0px Helvetica}
+    p.p48 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p49 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.0px Helvetica}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.s5 {font: 14.0px Courier}
+    span.s6 {font: 26.0px Helvetica}
+    span.s7 {font: 14.0px Times}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">p<span class="Apple-tab-span">	</span></span><b></b><b>NSNumberFormatter</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><span class="s3"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSFormatter<i> </i>: NSObject</p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s3"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSObject (NSObject)</p>
+<p class="p8">NSCoding</p>
+<p class="p8">NSCopying</p>
+<p class="p9"><br></p>
+<p class="p7"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSNumberFormatter.h</p>
+<p class="p10"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p13">Instances of NSNumberFormatter format the textual representation of cells that contain NSDecimalNumbers and convert textual representations of numeric values into NSDecimalNumbers. The representation encompasses integers, floats, and doubles; floats and doubles can be formatted to a specified decimal position. NSNumberFormatters can also impose ranges on the numeric values that cells can accept.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">NSControl provides delegation methods that permit you to validate cell contents and to handle errors in formatting. See the specification of the NSFormatter class for details.</p>
+<p class="p14"><br></p>
+<p class="p13">When a cell with a NSNumberFormatter is copied, the new cell retains the NSNumberFormatter object instead of copying it. You remove an NSNumberFormatter from a cell by specifying <b>nil</b> as the argument of NSCell's <b>setFormatter:</b> method.</p>
+<p class="p14"><br></p>
+<p class="p13">Instances of NSNumberFormatter are mutable.</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Creating an Instance of NSNumberFormatter</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">The easiest way to use NSNumberFormatter is to drag a formatter onto a control in Interface Builder. However, if you're not using Interface Builder to create your user interface or if you simply want more fine-grained control over an NSNumberFormatter (for example, to change the text attributes of the values displayed), you can create and manipulate instances of the class programmatically.</p>
+<p class="p14"><br></p>
+<p class="p13">To create an NSNumberFormatter, allocate an instance of NSNumberFormatter and use one or more of NSNumberFormatter's “set format” methods to set its format. You then use NSCell's <b>setFormatter:</b> method to associate the NSNumberFormatter instance with a cell.</p>
+<p class="p14"><br></p>
+<p class="p13">For example, the following code excerpt creates an instance of NSNumberFormatter, sets its formatting for positive, zero, and negative values, and applies it to the cell of an NSTextField using NSCell's <b>setFormatter:</b> method:</p>
+<p class="p14"><br></p>
+<p class="p19">NSNumberFormatter *numberFormatter =<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="Apple-tab-span">	</span>[[[NSNumberFormatter alloc] init] autorelease];</p>
+<p class="p19">[numberFormatter setFormat:@"$#,###.00;0.00;($#,##0.00)"];</p>
+<p class="p19">[[textField cell] setFormatter:numberFormatter];</p>
+<p class="p20"><br></p>
+<p class="p13">The value of a cell (NSCell) is represented by an object, typically an NSDecimalNumber object in this case. When this value needs to be displayed or edited, the cell passes its object to the NSNumberFormatter instance, which returns the formatted string. When the user enters a string, or when a string is programmatically written in a cell (using <b>setStringValue:</b>), the cell obtains the equivalent NSDecimalNumber object from the NSNumberFormatter.</p>
+<p class="p14"><br></p>
+<p class="p13">The most common technique for assigning a format to an NSNumberFormatter object is to use the method <b>setFormat:</b>, as shown above. This method takes as an argument an NSString whose contents can be one of the following:</p>
+<p class="p14"><br></p>
+<p class="p21">•<span class="Apple-tab-span">	</span>@”<i>positiveFormat</i>”</p>
+<p class="p22"><br></p>
+<p class="p23">For example, @”$###,##0.00” (the syntax of format strings is discussed in the following section).</p>
+<p class="p24"><br></p>
+<p class="p21">•<span class="Apple-tab-span">	</span>@”<i>positiveFormat;negativeFormat</i>”</p>
+<p class="p22"><br></p>
+<p class="p23">For example, @”###,##0.00;(###,##0.00)”.</p>
+<p class="p24"><br></p>
+<p class="p21">•<span class="Apple-tab-span">	</span>@”<i>positiveFormat;zeroFormat;negativeFormat</i>”</p>
+<p class="p22"><br></p>
+<p class="p23">For example, @”$###,###.00;0.00;($###,##0.00)”. Note that zero formats are treated as string constants.</p>
+<p class="p24"><br></p>
+<p class="p13">As implied in the preceding list, you're only required to specify a format for positive values. If you don't specify a format for negative and zero values, a default format based on the positive value format is used. For example, if your positive value format is “#,##0.00”, an input value of “0” will be displayed as “0.00”.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">If you don't specify a format for negative values, the format specified for positive values is used, preceded by a minus sign (-).<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">If you specify a separate format for negative values, its separators should be parallel to those specified in the positive format string. In NSNumberFormatter, separators are either enabled or disabled for all formats—both your negative and positive formats should therefore use the same approach.</p>
+<p class="p14"><br></p>
+<p class="p13">As an alternative to using the <b>setFormat:</b> method, you can use the <b>setPositiveFormat:</b> and <b>setNegativeFormat:</b> methods.</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p25"><b>Format String Syntax</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">Format strings can include the following types of characters:</p>
+<p class="p14"><br></p>
+<p class="p21">•<span class="Apple-tab-span">	</span>Numbers</p>
+<p class="p22"><br></p>
+<p class="p23">Format strings can include numeric characters. Wherever you include a number in a format string, the number is displayed unless an input character in the same relative position “overwrites” it. For example, suppose you have the positive format string @“9,990.00”, and the value 53.88 is entered into a cell to which the format has been applied. The cell would display the value as 9,953.88.</p>
+<p class="p24"><br></p>
+<p class="p21">•<span class="Apple-tab-span">	</span>Separators</p>
+<p class="p22"><br></p>
+<p class="p23">Format strings can include the period character (.) as a decimal separator, and comma character (,) as a thousand separator. If you want to use different characters as separators, you can set them using the <b>setDecimalSeparator:</b> and <b>setThousandSeparator:</b> methods. When you enable localization for an NSNumberFormatter object by using the method <b>setLocalizesFormat:</b>, separators are converted to characters appropriate to the environment in which the application is running.</p>
+<p class="p24"><br></p>
+<p class="p21">•<span class="Apple-tab-span">	</span>Placeholders</p>
+<p class="p22"><br></p>
+<p class="p23">You use the pound sign character (#) to represent numeric characters that will be input by the user. For example, suppose you have the positive format @”$#,##0.00”. If the characters 76329 were entered into a cell to which the format has been applied, they would be displayed as $76,329.00. Strictly speaking, however, you don't need to use placeholders. The format strings @”,0.00”, @”#,#0.00, and @”#,##0.00” are functionally equivalent. In other words, including separator characters in a format string signals NSNumberFormatter to use the separators, regardless of whether you use (or where you put) placeholders. The placeholder character's chief virtue lies in its ability to make format strings more human-readable, which is especially useful if you're displaying formats in the user interface.</p>
+<p class="p24"><br></p>
+<p class="p21">•<span class="Apple-tab-span">	</span>Spaces</p>
+<p class="p22"><br></p>
+<p class="p23">To include a space in a format string, use the underscore character (_). This character inserts a space if no numeric character has been input to occupy that position.</p>
+<p class="p24"><br></p>
+<p class="p21">•<span class="Apple-tab-span">	</span>Currency</p>
+<p class="p22"><br></p>
+<p class="p23">The dollar sign character ($) is normally treated just like any other character that doesn't play a special role in NSNumberFormatter. However, when you enable localization for an NSNumberFormatter object by using the method <b>setLocalizesFormat:</b>, the dollar sign character is converted to the currency symbol appropriate for the environment in which the application is running.</p>
+<p class="p24"><br></p>
+<p class="p13">All other characters specified in a format string are displayed as typed. The following table shows examples of the how the value 1019.55 is displayed for different positive formats:</p>
+<p class="p14"><br></p>
+<p class="p26"><b>Format String<span class="Apple-tab-span">	</span>Display</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28">@“#,##0.00”<span class="Apple-tab-span">	</span>1,019.55</p>
+<p class="p29"><br></p>
+<p class="p28">@“$#,##0.00”<span class="Apple-tab-span">	</span>$1,019.55</p>
+<p class="p29"><br></p>
+<p class="p28">@“___,__0.00”<span class="Apple-tab-span">	</span> 1,019.55</p>
+<p class="p29"><br></p>
+<p class="p30"><br></p>
+<p class="p16"><b>Working with Values as Attributed Strings</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">In NSNumberFormatter, positive, negative, zero, <b>nil</b>, and “not a number” values are NSAttributedStrings. NSAttributedString<i> </i>objects manage character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an <i>attributed string</i>. For more information on NSAttributedString, see the NSAttributedString class cluster specification in the <i>Foundation Kit Reference</i>, and the NSAttributedString Class Cluster Additions specification in the <i>Application Kit Reference</i>.</p>
+<p class="p14"><br></p>
+<p class="p13">Because the values displayed by NSNumberFormatter are attributed strings, you can customize aspects of their appearance, such as their color and font. The NSNumberFormatter methods you use to do this are as follows:</p>
+<p class="p14"><br></p>
+<p class="p31"><span class="s4">-</span> textAttributesForPositiveValues</p>
+<p class="p31"><span class="s4">-</span> setTextAttributesForPositiveValues:</p>
+<p class="p31"><span class="s4">-</span> textAttributesForNegativeValues</p>
+<p class="p31"><span class="s4">-</span> setTextAttributesForNegativeValues:</p>
+<p class="p31"><span class="s4">-</span> attributedStringForZero</p>
+<p class="p31"><span class="s4">-</span> setAttributedStringForZero:</p>
+<p class="p31"><span class="s4">-</span> attributedStringForNil</p>
+<p class="p31"><span class="s4">-</span> setAttributedStringForNil:</p>
+<p class="p31"><span class="s4">-</span> attributedStringForNotANumber</p>
+<p class="p31"><span class="s4">-</span> setAttributedStringForNotANumber:</p>
+<p class="p32"><br></p>
+<p class="p16"><b>Using Separators</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">NSNumberFormatter supports two different kinds of separators: thousand and decimal. By default these separators are represented by the comma (,) and period (.) characters respectively, and by default they're disabled.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">All of the following statements have the effect of enabling thousand separators:</p>
+<p class="p14"><br></p>
+<p class="p19">// use setFormat:</p>
+<p class="p19">[numberFormatter setFormat:@"#,###"];</p>
+<p class="p33"><br></p>
+<p class="p19">// use setHasThousandSeparators:</p>
+<p class="p19">[numberFormatter setHasThousandSeparators:YES];</p>
+<p class="p33"><br></p>
+<p class="p19">// use setThousandSeparator:</p>
+<p class="p19">[numberFormatter setThousandSeparator:@"_"];</p>
+<p class="p20"><br></p>
+<p class="p13">If you use the statement <span class="s5">[numberFormatter setHasThousandSeparators:NO]</span>, it disables thousand separators, even if you've set them through another means.</p>
+<p class="p14"><br></p>
+<p class="p13">Both of the following statements have the effect of enabling decimal separators:</p>
+<p class="p14"><br></p>
+<p class="p19">// use setFormat:</p>
+<p class="p19">[numberFormatter setFormat:@"0.00"];</p>
+<p class="p33"><br></p>
+<p class="p19">// use setDecimalSeparator:</p>
+<p class="p19">[numberFormatter setDecimalSeparator:@"-"];</p>
+<p class="p20"><br></p>
+<p class="p13">When you enable or disable separators, it affects both positive and negative formats. Consequently, both formats must use the same separator scheme.</p>
+<p class="p14"><br></p>
+<p class="p13">You can use the <b>thousandSeparator</b> and <b>decimalSeparator</b> methods to return an NSString containing the character the receiver uses to represent each separator. However, this shouldn't be taken as an indication of whether separators are enabled—even when separators are disabled, an NSNumberFormatter still knows the characters it uses to represent separators.</p>
+<p class="p14"><br></p>
+<p class="p13">Separators must be single characters. If you specify multiple characters in the arguments to <b>setThousandSeparator:</b> and <b>setDecimalSeparator:</b>, only the first character is used.</p>
+<p class="p14"><br></p>
+<p class="p13">You can't use the same character to represent thousand and decimal separators.</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>NSCell Methods for Number Formatting</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">NSCell provides methods that give you almost the same behavior as instances of NSNumberFormatter. Send <b>setEntryType:</b> to a cell to associate it with an NSNumberFormatter object; specify the numeric format with one of the constants listed below. The constant is equivalent to an NSNumberFormatter initialized with a certain range and a conversion specifier:</p>
+<p class="p14"><br></p>
+<p class="p26"><b>Constant<span class="Apple-tab-span">	</span>Range<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Specifier</b></p>
+<p class="p27"><b></b><br></p>
+<p class="p28">NSIntType<span class="Apple-tab-span">	</span>MININT, MAXINT<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>%d</p>
+<p class="p28">NSPositiveIntType<span class="Apple-tab-span">	</span>1, MAXINT<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>%d</p>
+<p class="p28">NSFloatType<span class="Apple-tab-span">	</span>-MAXFLOAT, MAXFLOAT<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>%g</p>
+<p class="p28">NSPositiveFloatType<span class="Apple-tab-span">	</span>MINFLOAT, MAXFLOAT<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>%g</p>
+<p class="p28">NSDoubleType<span class="Apple-tab-span">	</span>-MAXDOUBLE, MAXDOUBLE<span class="Apple-tab-span">	</span>%g</p>
+<p class="p28">NSPositiveDoubleType<span class="Apple-tab-span">	</span>MINDOUBLE, MAXDOUBLE<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>%g</p>
+<p class="p29"><br></p>
+<p class="p13">Send<b> </b>NSCell's<b> isEntryAcceptable:</b> to a cell to determine if it can accept a numeric type as indicated by one of the above constants. Send NSCell's <b>setFloatingPointFormat:left:right:</b> to specify the number of digits that appear to the left and right of the decimal point. By invoking this method you do not lose any range of values for floats or values set either through <b>setEntryType:</b> or by initializing an NSNumberFormatter directly.</p>
+<p class="p14"><br></p>
+<p class="p34"><span class="s3"><b>Note:<span class="Apple-tab-span">	</span></b></span>The NSNumberFormatter approach is recommended over the NSCell methods because it allows you greater freedom in specifying the representation of numbers. However, NSCell's <b>setEntryType:</b>, <b>isEntryAcceptable:</b>, and <b>setFloatingPointFormat:left:right:</b> are OpenStep-compliant, whereas NSNumberFormatter is an extension to OpenStep.<span class="Apple-converted-space"> </span></p>
+<p class="p35"><br></p>
+<p class="p11"><b>Method Types</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p36">Set formats<span class="Apple-tab-span">	</span><span class="s4">-</span> negativeFormat</p>
+<p class="p37"><span class="s4">-</span> setNegativeFormat:</p>
+<p class="p37"><span class="s4">-</span> positiveFormat</p>
+<p class="p37"><span class="s4">-</span> setPositiveFormat:</p>
+<p class="p37"><span class="s4">-</span> format</p>
+<p class="p37"><span class="s4">-</span> setFormat:</p>
+<p class="p38"><br></p>
+<p class="p36">Set characteristics for displaying values</p>
+<p class="p37"><span class="s4">-</span> textAttributesForNegativeValues</p>
+<p class="p37"><span class="s4">-</span> setTextAttributesForNegativeValues:</p>
+<p class="p37"><span class="s4">-</span> textAttributesForPositiveValues</p>
+<p class="p37"><span class="s4">-</span> setTextAttributesForPositiveValues:</p>
+<p class="p37"><span class="s4">-</span> attributedStringForZero</p>
+<p class="p37"><span class="s4">-</span> setAttributedStringForZero:</p>
+<p class="p37"><span class="s4">-</span> attributedStringForNil</p>
+<p class="p37"><span class="s4">-</span> setAttributedStringForNil:</p>
+<p class="p37"><span class="s4">-</span> attributedStringForNotANumber</p>
+<p class="p37"><span class="s4">-</span> setAttributedStringForNotANumber:</p>
+<p class="p38"><br></p>
+<p class="p36">Set separators<span class="Apple-tab-span">	</span><span class="s4">-</span> hasThousandSeparators</p>
+<p class="p37"><span class="s4">-</span> setHasThousandSeparators:</p>
+<p class="p37"><span class="s4">-</span> thousandSeparator</p>
+<p class="p37"><span class="s4">-</span> setThousandSeparator:</p>
+<p class="p37"><span class="s4">-</span> decimalSeparator</p>
+<p class="p37"><span class="s4">-</span> setDecimalSeparator:</p>
+<p class="p38"><br></p>
+<p class="p36">Enable localization<span class="Apple-tab-span">	</span><span class="s4">-</span> localizesFormat</p>
+<p class="p37"><span class="s4">-</span> setLocalizesFormat:</p>
+<p class="p38"><br></p>
+<p class="p36">Set float behavior<span class="Apple-tab-span">	</span><span class="s4">-</span> allowsFloats</p>
+<p class="p37"><span class="s4">-</span> setAllowsFloats:</p>
+<p class="p38"><br></p>
+<p class="p36">Set rounding behavior<span class="Apple-tab-span">	</span><span class="s4">-</span> roundingBehavior</p>
+<p class="p37"><span class="s4">-</span> setRoundingBehavior:</p>
+<p class="p38"><br></p>
+<p class="p36">Set minimum and maximum values<span class="Apple-tab-span">	</span><span class="s4">-</span> minimum</p>
+<p class="p37"><span class="s4">-</span> setMinimum:</p>
+<p class="p37"><span class="s4">-</span> maximum</p>
+<p class="p37"><span class="s4">-</span> setMaximum:</p>
+<p class="p39"><br></p>
+<p class="p11"><b>Instance Methods</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b>allowsFloats</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (BOOL)<b>allowsFloats</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns YES if the receiver allows as input floating point values (that is, values that include the period character (.)), NO otherwise. When this is set to NO, only integer values can be provided as input. The default is YES.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setAllowsFloats:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b></b><b>attributedStringForNil</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (NSAttributedString *)<b>attributedStringForNil</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns the NSAttributedString used to display <b>nil</b> values. By default <b>nil</b> values are displayed as an empty string.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>attributedStringForNil</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>attributedStringForNotANumber</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (NSAttributedString *)<b>attributedStringForNotANumber</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns the NSAttributedString used to display “not a number” values. By default “not a number” values are displayed as the string “NaN”.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>attributedStringForNotANumber</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>attributedStringForZero</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (NSAttributedString *)<b>attributedStringForZero</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns the NSAttributedString used to display zero values. By default zero values are displayed according to the format specified for positive values; for more discussion of this subject see the section “Creating an Instance of NSNumberFormatter” in the Class Description.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setAttributedStringForZero:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>decimalSeparator</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (NSString *)<b>decimalSeparator</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns an NSString containing the character the receiver uses to represent decimal separators. By default this is the period character (.). Note that the return value doesn't indicate whether decimal separators are enabled.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setDecimalSeparator:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>format</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (NSString *)<b>format</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns an NSString containing the format being used by the receiver.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setFormat:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>hasThousandSeparators</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (BOOL)<b>hasThousandSeparators</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns YES to indicate that the receiver's format includes thousand separators, NO otherwise. The default is NO.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setHasThousandSeparators:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>localizesFormat</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (BOOL)<b>localizesFormat</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns YES to indicate that the receiver localizes formats, NO otherwise. The default is NO.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setLocalizesFormat:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>maximum</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (NSDecimalNumber *)<b>maximum</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns the highest number that is allowed as input by the receiver.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setMaximum:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>minimum</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (NSDecimalNumber *)<b>minimum</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns the lowest number that is allowed as input by the receiver.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setMinimum:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>negativeFormat</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (NSString *)<b>negativeFormat</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns an NSString containing the format used by the receiver to display negative numbers.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setNegativeFormat:</b>, <span class="s4">-</span> <b>setFormat:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>positiveFormat</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (NSString *)<b>positiveFormat</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns an NSString containing the format used by the receiver to display positive numbers.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setPositiveFormat:</b>, <span class="s4">-</span> <b>setFormat:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>roundingBehavior</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (NSDecimalNumberHandler *)<b>roundingBehavior</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns an NSDecimalNumberHandler object to indicate the rounding behavior used by the receiver.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setRoundingBehavior:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setAllowsFloats:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setAllowsFloats:</b>(BOOL)<i>flag</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets according to <i>flag</i> whether the receiver allows as input floating point values (that is, values that include the period character (.)). By default, floating point values are allowed as input.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>allowsFloats</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setAttributedStringForNil:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setAttributedStringForNil:</b>(NSAttributedString *)<i>newAttributedString</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets to <i>newAttributedString</i> the NSAttributedString the receiver uses to display <b>nil</b> values.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>attributedStringForNil</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setAttributedStringForNotANumber:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setAttributedStringForNotANumber:</b>(NSAttributedString *)<i>newAttributedString</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets to <i>newAttributedString</i> the NSAttributedString the receiver uses to display “not a number” values.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>attributedStringForNotANumber</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setAttributedStringForZero:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setAttributedStringForZero:</b>(NSAttributedString *)<i>newAttributedString</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets to <i>newAttributedString</i> the NSAttributedString the receiver uses to display zero values.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>attributedStringForZero</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setDecimalSeparator:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setDecimalSeparator:</b>(NSString *)<i>newSeparator</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets to <i>newSeparator</i> the character the receiver uses as a decimal separator. If <i>newSeparator</i> contains multiple characters, only the first one is used. If you don't have decimal separators enabled through another means (such as <b>setFormat:</b>), using this method enables them.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>decimalSeparator</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setFormat:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setFormat:</b>(NSString *)<i>aFormat</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets the receiver's format to the string <i>aFormat</i>. <i>aFormat</i> can consist of one, two or three parts separated by `;'. The first part of the string represents the positive format, the second part of the string represents the zero value, and the last part of the string represents the negative format. If the string just has two parts, the first one becomes the positive format, and the second one becomes the negative format. If the string just has one part, it becomes the positive format, and default formats are provided for zero and negative values based on the positive format. For more discussion of this subject, see the section “Creating an Instance of NSNumberFormatter” in the Class Description.</p>
+<p class="p14"><br></p>
+<p class="p13">For example, the following code excerpt shows the three different approaches for setting an NSNumberFormatter object's format using <b>setFormat:</b>:</p>
+<p class="p14"><br></p>
+<p class="p19">NSNumberFormatter *numberFormatter =<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="Apple-tab-span">	</span>[[[NSNumberFormatter alloc] init] autorelease];</p>
+<p class="p33"><br></p>
+<p class="p19">// specify just positive format</p>
+<p class="p19">[numberFormatter setFormat:@"$#,##0.00"];</p>
+<p class="p33"><br></p>
+<p class="p19">// specify positive and negative formats</p>
+<p class="p19">[numberFormatter setFormat:@"$#,##0.00;($#,##0.00)"];</p>
+<p class="p33"><br></p>
+<p class="p19">// specify positive, zero, and negative formats</p>
+<p class="p19">[numberFormatter setFormat:@"$#,###.00;0.00;($#,##0.00)"];</p>
+<p class="p20"><br></p>
+<p class="p47"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s7"> <b>format</b><b></b></span></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setHasThousandSeparators:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setHasThousandSeparators:</b>(BOOL)<i>flag</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets according to <i>flag</i> whether the receiver uses thousand separators. When <i>flag</i> is NO, thousand separators are disabled for both positive and negative formats (even if you've set them through another means, such as <b>setFormat:</b>). When <i>flag</i> is YES, thousand separators are used. In addition to using this method to add thousand separators to your format, you can also use it to disable thousand separators if you've set them using another method. The default is NO (though you in effect change this setting to YES when you set thousand separators through any means, such as <b>setFormat:</b>).</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>hasThousandSeparators</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setLocalizesFormat:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setLocalizesFormat:</b>(BOOL)<i>flag</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets according to <i>flag</i> whether the dollar sign character ($), decimal separator character (.), and thousand separator character (,) are converted to appropriately localized characters as specified by the user's localization preference. While this feature may be useful in certain types of applications, it's probably more likely that you would tie a particular application to a particular currency (that is, that you would “hard-code” the currency symbol and separators instead of having them dynamically change based on the user's configuration). The reason for this, of course, is that NSNumberFormatter doesn't perform currency conversions, it just formats numeric data. You wouldn't want one user interpreting the value “56324” as US currency and another user who's accessing the same data interpreting it as Japanese currency, simply based on each user's localization preferences.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>localizesFormat</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setMaximum:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setMaximum:</b>(NSDecimalNumber *)<i>aMaximum</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets to <i>aMaximum</i> the highest number the receiver allows as input.</p>
+<p class="p14"><br></p>
+<p class="p47"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s7"> <b>maximum</b><b></b></span></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setMinimum:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setMinimum:</b>(NSDecimalNumber *)<i>aMinimum</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets to <i>aMinimum</i> the lowest number the receiver allows as input.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setMinimum:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setNegativeFormat:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setNegativeFormat:</b>(NSString *)<i>aFormat</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets to <i>aFormat</i> the format the receiver uses to display negative values.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>negativeFormat</b>, <span class="s4">-</span> <b>setFormat:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setPositiveFormat:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setPositiveFormat:</b>(NSString *)<i>aFormat</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets to <i>aFormat</i> the format the receiver uses to display positive values.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>positiveFormat</b>, <span class="s4">-</span> <b>setFormat:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setRoundingBehavior:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setRoundingBehavior:</b>(NSDecimalNumberHandler *)<i>newRoundingBehavior</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets to <i>newRoundingBehavior</i> the rounding behavior used by the receiver.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>roundingBehavior</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setTextAttributesForNegativeValues:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setTextAttributesForNegativeValues:</b>(NSDictionary *)<i>newAttributes</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets to <i>newAttributes</i> the text attributes to be used in displaying negative values. For example, this code excerpt causes negative values to be displayed in red:</p>
+<p class="p14"><br></p>
+<p class="p19">NSNumberFormatter *numberFormatter =<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="Apple-tab-span">	</span>[[[NSNumberFormatter alloc] init] autorelease];</p>
+<p class="p19">NSMutableDictionary *newAttrs = [NSMutableDictionary dictionary];</p>
+<p class="p33"><br></p>
+<p class="p19">[numberFormatter setFormat:@"$#,##0.00;($#,##0.00)"];</p>
+<p class="p19">[newAttrs setObject:[NSColor redColor] forKey:@"NSColor"];</p>
+<p class="p19">[numberFormatter setTextAttributesForNegativeValues:newAttrs];</p>
+<p class="p19">[[textField cell] setFormatter:numberFormatter];</p>
+<p class="p20"><br></p>
+<p class="p13">An even simpler way to cause negative values to be displayed in red is to include the constant <span class="s5">[Red]</span> in your format string, for example:</p>
+<p class="p14"><br></p>
+<p class="p19">[numberFormatter setFormat:@"$#,##0.00;[Red]($#,##0.00)"];</p>
+<p class="p33"><br></p>
+<p class="p34"><span class="s3"><b>Note:<span class="Apple-tab-span">	</span></b></span>When you set a value's text attributes to use color, the color only appears when the value's cell doesn't have input focus. When the cell has input focus, the value is displayed in standard black.</p>
+<p class="p48"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>textAttributesForNegativeValues</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setTextAttributesForPositiveValues:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setTextAttributesForPositiveValues:</b>(NSDictionary *)<i>newAttributes</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets to <i>newAttributes</i> the text attributes to be used in displaying positive values.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>textAttributesForPositiveValues</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setThousandSeparator:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (void)<b>setThousandSeparator:</b>(NSString *)<i>newSeparator</i></p>
+<p class="p43"><i></i><br></p>
+<p class="p13">Sets to <i>newSeparator</i> the character the receiver uses as a thousand separator. If <i>newSeparator</i> contains multiple characters, only the first one is used. If you don't have thousand separators enabled through any other means (such as <b>setFormat:</b>), using this method enables them.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>thousandSeparator</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>textAttributesForNegativeValues</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (NSDictionary *)<b>textAttributesForNegativeValues</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns an NSDictionary containing the text attributes that have been set for negative values.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setTextAttributesForNegativeValues:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>textAttributesForPositiveValues</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (NSDictionary *)<b>textAttributesForPositiveValues</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns an NSDictionary containing the text attributes that have been set for positive values.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setTextAttributesForPositiveValues:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p46"><br></p>
+<p class="p40"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>thousandSeparator</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p42"><span class="s4">-</span> (NSString *)<b>thousandSeparator</b></p>
+<p class="p43"><b></b><br></p>
+<p class="p13">Returns an NSString containing the character the receiver uses to represent thousand separators. By default this is the comma character (,). Note that the return value doesn't indicate whether thousand separators are enabled.</p>
+<p class="p14"><br></p>
+<p class="p44"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setThousandSeparator:</b><b></b></p>
+<p class="p45"><br></p>
+<p class="p49"><br></p>
+<p class="p14"><br></p>
+</body>
+</html>

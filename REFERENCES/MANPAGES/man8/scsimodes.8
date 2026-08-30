@@ -1,0 +1,34 @@
+.TH SCSIMODES 8 "August 9, 1994" "NeXT Computer, Inc."
+.SH "NAME"
+scsimodes \-  Determine the geometry and capacity of a SCSI disk drive
+.SH "SYNOPSIS"
+\fB\/usr\/etc\/scsimodes\fR [ \fB-C\fR ] [\fB-v\fR] \fIraw_disk_device\fR
+.SH "DESCRIPTION"
+\fIscsimodes\fR queries the disk to determine its capacity and geometry. If you have trouble creating a filesystem on the disk, use this command to help you diagnose the problem.  With no command line options, \fIscsimodes\fR prints to standard output the drive's manufacturer and model, and the number of bytes per sector, sectors per track, tracks per cylinder, and other information relevant to formatting the disk.     
+.PP
+At the SCSI command level, \fIscsimodes\fR executes a READ CAPACITY command, and two MODE SENSE commands, one for page 3 (format device page), and one for page 4 (rigid disk geometry page) of the mode sense parameters. 
+.SH "OPTIONS"
+.TP
+.B -C
+Report the storage capacity of the disk, in megabytes.
+.TP
+.B -v
+(Verbose mode)  Report detailed information about the disk's geometry.    It is unlikely that you will need this level of detail.
+.SH "EXAMPLES"
+To see the basic formatting information for your root disk device, become superuser and type:
+.LP
+.DS
+scsimodes /dev/rsd0a
+.DE
+.LP
+To determine how many megabytes of data this disk can store, type:
+.LP
+.DS
+scsimodes -C /dev/rsd0a 
+.DE
+.LP
+.SH "SEE ALSO"
+sd(4), disktab(5), disk(8), mkfs(8)
+.SH "DIAGNOSTICS"
+\fIscsimodes\fR exits with status 0 after successful execution.  If it fails, it prints a diagnostic message, and exits with status 1.
+

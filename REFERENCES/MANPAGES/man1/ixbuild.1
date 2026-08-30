@@ -1,0 +1,199 @@
+.\" Copyright (c) 1992 NeXT Computer, Inc.
+.\" All rights reserved.
+.\"
+.\"	@(#)ixbuild.1	3.0 (NeXT) 07/14/92
+.\"
+.TH IXBUILD 1 "July 14, 1992" "NeXT Computer, Inc."
+.nh
+.SH NAME
+ixbuild \- build inverted indexes on file system subtrees
+
+.SH SYNOPSIS
+.B /usr/bin/ixbuild
+[\ \fB\-aAcCdfgloprsuv\fR\ ] [\ \fB\-D\fIfile\fR\ ]
+[\ \fB\-F\fIfile\fR\ ] [\ \fB\-L\fIlanguage\fR\ ]
+[\ \fB\-M\fI#\fR\ ] [\ \fB\-N\fIfile\fR\ ]
+[\ \fB\-P\fI#\fR\ ] [\ \fB\-S\fIfile\fR\ ]
+[\ \fB\-T\fIfile\fR\ ] [\ \fB\-y\fIstring\fR\ ]
+[\ \fIpath\fR\ ...\ ]
+
+.SH DESCRIPTION
+\fBixbuild\fR creates or updates indexes
+for the files or directories named on the command line.
+For each directory named on the command line,
+or for the current directory by default,
+\fBixbuild\fR creates or updates the associated index.
+Each index is located in a file named \fB.index.store\fR
+at the root of its subtree.
+.PP
+An index is a special kind of file used by the Indexing Kit,
+called a \fBstore file\fR, which has an IXStoreDirectory
+containing an IXFileFinder (named \*(lqFileFinder\*(rq).
+The IXFileFinder is responsible for actual manipulation of the indexes,
+and is accessible through the IXStoreDirectory by
+applications that use the Indexing Kit,
+whose documentation is available online in Digital Librarian.
+.PP
+\fBixbuild\fR makes use of several special
+files when first creating an index.
+The contents of these files are
+incorporated into the index itself,
+so they aren't referenced when an index is updated.
+However, if the index is deleted, and rebuilt from scratch,
+these files will be used again,
+so you may not want to delete them.
+Here are brief descriptions of the files, their uses,
+and formats:
+.PP
+.B .index.ftype
+contains information about the types
+of files that will be included in the index.
+A file's type is used to determine how tokens (words)
+should be extracted from it,
+or how to convert it to a form that the Indexing Kit can index.
+Each line in this file should be of the form:
+.nf
+.IP
+.I typename pattern format offset filename
+.fi
+.PP
+Each field must be separated from the next by exactly one tab.
+Any field may be \*(lq\-\*(rq, in which case the field won't be used.
+\fItypename\fR is the name that should be used for the type;
+for example, \*(lqman\*(rq or \*(lqps\*(rq.
+\fIpattern\fR is a sequence of characters within a file that may
+be used to identify it (for example, \*(lq%!PS\*(rq);
+if \fIpattern\fR begins with a `/', or if the \fIformat\fR is
+\fBregex\fR (see below) it's interpreted as a regular expression.
+\fIformat\fR is the data type of \fIpattern\fR;
+it may be one of
+.B byte\fR,
+.B short\fR,
+.B long\fR,
+.B regex\fR, or
+\fBstring\fR.
+.B string
+is the default format.
+\fIoffset\fR is the unit offset into the file at which pattern
+is expected to occur.
+The unit is that of \fIformat\R;
+that is, if \fIformat\fR is \fBlong\fR, \fIoffset\fR
+is measured in amounts of 4 bytes.
+\fIfilename\fR is a filename that should be matched to the type;
+it may contain wildcards (for example, \*(lq*.rtf\*(rq).
+This might be the \fBftype\fR entry for PostScript files, for example:
+.nf
+.IP
+ps	%!PS	string	0	\-
+.fi
+.PP
+.B .index.itype
+contains the names of types of files (as defined in \fB.index.ftype\fR)
+that will not be included in the index.
+Each type name should be on a separate line.
+.PP
+.B .index.iname
+contains the base names (without paths) of files
+that will not be included in the index.
+The filename must be exact;
+shell wildcards are not allowed.
+Each file name should be on a separate line.
+.PP
+.B .index.swords
+contains stop words,
+which will not be included in the index.
+Each word should be on a separate line,
+and should be in post-processed form (that is,
+if you use case folding, all stop words should
+be lowercase, and if you use stem reduction,
+all words should be stems only).
+.PP
+.B .index.domain
+contains a weighting domain used for
+peculiarity weighting
+(see the IXWeightingDomain and IXAttributeParser
+class specifications in the Indexing Kit documentation).
+You can use the 
+.BR ixparse (1)
+command to convert histogram or
+NEXTSTEP Release 2 WFTable files to domain format.
+
+.SH OPTIONS
+The following options control how an index is built or updated.
+Using them with an existing index will alter its configuration
+(for example, changing its weighting type);
+if you want the configuration of an index to be retained when
+updating it, specify the \fB\-o\fR option.
+.PP
+.IP "\fB\-\|\-\fR" 11
+Lists these options.
+.IP \fB\-a\fR
+Use absolute weighting.
+The weight of a token (word) is its number
+of occurrences in the files of the directory.
+.IP \fB\-A\fR
+Don't fold plural word forms.
+The default is to do plural folding.
+.IP \fB\-c\fR
+Clean indexes after updating, removing out-of-date information.
+.IP \fB\-C\fR
+Don't fold case to lower case.
+The default is to fold case.
+.IP \fB\-d\fR
+Cross device boundaries (mounted disks, for example).
+.IP \fB\-D\fIfile\fR
+Use the supplied weighting domain file (default \fB.index.domain\fR).
+This is used for generating peculiarity weights.
+.IP \fB\-f\fR
+Use frequency weighting (number of occurrences / total tokens).
+.IP \fB\-F\fIfile\fR
+Use the supplied file type table file (default \fB.index.ftype\fR).
+.IP \fB\-g\fR
+Generate descriptions automatically from file contents.
+.IP \fB\-l\fR
+Traverse symbolic links.
+.IP \fB\-L\fIlanguage\fR
+Parse files as though they contain text in the language \fIlanguage\fR.
+If no language is specified, the system default language is used.
+.IP \fB\-M\fI#\fR
+Use the supplied minimum weight; words below this weight are dropped from the index.
+.IP \fB\-N\fIfile\fR
+Use the supplied ignored name list file (default \fB.index.iname\fR)
+.IP \fB\-o\fR
+Don't reset options when updating an existing index.
+.IP \fB\-p\fR
+Use peculiarity weighting in conjunction with a weighting domain (see \fB\-D\fR).
+.IP \fB\-P\fI#\fR
+Use the supplied percentage passed; words below this percentage are dropped from the index.
+.IP \fB\-r\fR
+Reduce words to stems; writer -> write.
+The default is not to do this.
+.IP \fB\-s\fR
+Build indexes for a static collection (that is, for directories whose files won't change).
+.IP \fB\-S\fIfile\fR
+Use the supplied stop words file (default \fB.index.swords\fR).
+.IP \fB\-T\fIfile\fR
+Use the supplied ignored type list file (default \fB.index.itype\fR).
+.IP \fB\-u\fR
+Disable automatic updating for index.
+.IP \fB\-v\fR
+Generate verbose output.
+.IP \fB\-y\fIstring\fR
+Use the supplied punctuation string to delimit words;
+for example, \fB\-y".,; "\fR.
+.DT
+
+.SH FILES
+.ta \w'\&.index.swords    'u
+.nf
+\&.index.store	an index file created by \fBixbuild\fR
+\&.index.ftype	file type table
+\&.index.iname	ignored file names
+\&.index.itype	ignored file types
+\&.index.swords	stop words (dropped from index)
+\&.index.domain	weighting domain
+.fi
+
+.SH SEE ALSO
+ixsearch(1), ixparse(1),
+Indexing Kit Documentation in \fINEXTSTEP General Reference\fR

@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 50.0px; font: 10.0px Helvetica; color: #0000ff; min-height: 12.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 50.0px; font: 42.0px Helvetica; color: #0000ff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 50.0px; font: 24.0px Helvetica; color: #0000ff; min-height: 29.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 12.0px; font: 44.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 12.0px; font: 60.0px Times; min-height: 72.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 151.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 151.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 170.0px; text-indent: -19.0px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 50.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 50.0px; font: 26.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 50.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 151.0px; font: 26.0px Helvetica; min-height: 31.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 151.0px; font: 24.0px Helvetica}
+    p.p16 {margin: 0.0px 0.0px 0.0px 151.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 151.0px; font: 4.0px Times; min-height: 5.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 340.0px; text-indent: -164.0px; font: 14.0px Times}
+    p.p19 {margin: 0.0px 0.0px 0.0px 151.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 151.0px; font: 18.0px Helvetica}
+    p.p21 {margin: 0.0px 0.0px 0.0px 170.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 170.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 170.0px; font: 12.0px Courier}
+    p.p24 {margin: 0.0px 0.0px 0.0px 170.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 50.0px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 176.0px; font: 3.0px Times; min-height: 4.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 176.0px; font: 14.0px Times}
+    p.p28 {margin: 0.0px 0.0px 0.0px 151.0px; font: 35.0px Helvetica; min-height: 42.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 170.0px; text-indent: -19.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 176.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 151.0px; font: 24.0px Helvetica; min-height: 29.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 340.0px; text-indent: -164.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Helvetica}
+    span.s3 {font: 12.0px Courier}
+    span.s4 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><br></p>
+<p class="p4"><b>4</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><i>Assembler Directives</i></p>
+<p class="p7"><i></i><br></p>
+<p class="p8">This chapter describes assembler directives (also known as pseudo operations, or pseudo-ops), which allow control over the actions of the assembler.<span class="Apple-converted-space">  </span>For organizational purposes, the directives are grouped here into the following functional categories:</p>
+<p class="p9"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Directives for designating the current section</p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Built-in directives for designating the current section</p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Directives for moving the location counter</p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Directives for generating data</p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Directives for dealing with symbols</p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Miscellaneous directives</p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Processor-specific directives</p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b>Directives for Designating the Current Section</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p8">The assembler in NEXTSTEP Release 3.3 and later supports designation of arbitrary sections with the <b>.section</b> and <b>.zerofill</b> directives (descriptions apear below).<span class="Apple-converted-space">  </span>Only those sections specified by a directive in the assembly file appear in the resulting object file (including implicit <b>.text</b> directives—see “Built-in Directives for Designating the Current Section”).<span class="Apple-converted-space">  </span>Sections appear in the object file in the order their directives first appear in the assembly file.<span class="Apple-converted-space">  </span>When object files are linked by the link editor, the output objects have their sections in the order the sections first appear in the object files that are linked.<span class="Apple-converted-space">  </span>See the <b>ld</b>(1) UNIX man page for more details.</p>
+<p class="p9"><br></p>
+<p class="p8">Associated with each section in each segment is an implicit location counter which begins at zero and is incremented by 1 for each byte assembled into the section.<span class="Apple-converted-space">  </span>There is no way to explicitly reference a particular location counter, but the directives described here can be used to “activate” the location counter for a section, making it the <i>current</i> location counter.<span class="Apple-converted-space">  </span>As a result, the assembler begins assembling into the section associated with that location counter.</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="s2"><b>Note:<span class="Apple-converted-space">  </span></b></span>If the <b>-n</b> command line option isn't used, the (__TEXT,__text) section is used by default at the beginning of each file being assembled, just as if each file began with the <b>.text</b> directive.</p>
+<p class="p9"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>.section</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.section</b><span class="Apple-converted-space">  </span><i>segname</i> <b>,</b> <i>sectname</i> [[[ <b>,</b> <i>type</i> ] <b>,</b> <i>attribute</i> ] <b>,</b> <i>sizeof_stub</i> ]</p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.section</b> directive causes the assembler to begin assembling into the section given by <i>segname</i> and <i>sectname</i>.<span class="Apple-converted-space">  </span>A section created with this directive contains initialized data or instructions and is referred to as a content section.<span class="Apple-converted-space">  </span><i>type</i> and <i>attribute</i> may be specified as described below under “Section Types and Attributes.”<span class="Apple-converted-space">  </span>If <i>type</i> is <b>symbol_stubs</b>, then the <i>sizeof_stub</i> field must be given as the size in bytes of the symbol stubs contained in the section.</p>
+<p class="p9"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>.zerofill</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.zerofill</b><span class="Apple-converted-space">  </span><i>segname</i> <b>,</b> <i>sectname</i> [ <b>,</b> <i>symbolname</i> <b>,</b> <i>size</i> [ <b>,</b> <i>align_expression</i> ]]</p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.zerofill</b> directive causes <i>symbolname</i> to be created as uninitialized data in the section given by <i>segname</i> and <i>sectname</i>, with a size in bytes given by <i>size</i>.<span class="Apple-converted-space">  </span>A power of 2 between 0 and 15 may be given for <i>align_expression</i> to indicate what alignment should be forced on <i>symbolname</i>, which will then be placed on the next expression boundary having the given alignment.<span class="Apple-converted-space">  </span>See the description of the <b>.align</b> built-in directive for more information.</p>
+<p class="p9"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>Section Types and Attributes</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">A content section has a type, which informs the link editor about special processing needed for the items in that section.<span class="Apple-converted-space">  </span>The most common form of special processing is for sections containing literals (strings, constants, and so on) where only one copy of the literal is needed in the output file and the same literal can be used by all references in the input files.</p>
+<p class="p9"><br></p>
+<p class="p8">A section's attributes record supplemental information about the section that<span class="Apple-converted-space">  </span>the link editor may use in processing that section.<span class="Apple-converted-space">  </span>For example, the <b>reloc_at_launch</b> attribute indicates that a section should be relocated immediately when a program is launched.</p>
+<p class="p9"><br></p>
+<p class="p8">A section's type and attribute are recorded in a Mach-O file as the <b>flags</b> field in the section header, using constants defined in the header file <b>mach-o/loader.h</b>.<span class="Apple-converted-space">  </span>The following paragraphs describe the various types and attributes by the names used to identify them in a <b>.section</b> directive.<span class="Apple-converted-space">  </span>The name of the related constant is also given in parentheses following the identifier.</p>
+<p class="p9"><br></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><b>Type Identifiers</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8"><b>regular</b> (S_REGULAR)</p>
+<p class="p9"><br></p>
+<p class="p21">A <b>regular</b> section may contain any kind of data and gets no special processing from the link editor.<span class="Apple-converted-space">  </span>This is the default section type.<span class="Apple-converted-space">  </span>Examples of <b>regular</b> sections include program instructions or initialized data.</p>
+<p class="p22"><br></p>
+<p class="p8"><b>cstring_literals</b> (S_CSTRING_LITERALS)</p>
+<p class="p9"><br></p>
+<p class="p21">A <b>cstring_literals</b> section contains null-terminated literal C language character strings.<span class="Apple-converted-space">  </span>The link editor places only one copy of each literal into the output file's section and relocates references to different copies of the same literal to the one copy in the output file.<span class="Apple-converted-space">  </span>There can be no relocation entries for a section of this type, and all references to literals in this section must be inside the address range for the specific literal being referenced.<span class="Apple-converted-space">  </span>The last byte in a section of this type must be a null byte, and the strings can't contain null bytes in their bodies.<span class="Apple-converted-space">  </span>An example of a <b>cstring_literals</b> section is one for the literal strings that appear in the body of an ANSI C function where the compiler chooses to make such strings read-only.</p>
+<p class="p22"><br></p>
+<p class="p8"><b>4byte_literals</b> (S_4BYTE_LITERALS)</p>
+<p class="p9"><br></p>
+<p class="p21">A <b>4byte_literals</b> section contains 4-byte literal constants.<span class="Apple-converted-space">  </span>The link editor places only one copy of each literal into the output file's section and relocates references to different copies of the same literal to the one copy in the output file.<span class="Apple-converted-space">  </span>There can be no relocation entries for a section of this type, and all references to literals in this section must be inside the address range for the specific literal being referenced.<span class="Apple-converted-space">  </span>An example of a <b>4byte_literals</b> section is one in which single-precision floating-point constants are stored for a RISC machine (these would normally be stored as immediates in CISC machine code).</p>
+<p class="p22"><br></p>
+<p class="p8"><b>8byte_literals</b> (S_8BYTE_LITERALS)</p>
+<p class="p9"><br></p>
+<p class="p21">An <b>8byte_literals</b> section contains 8-byte literal constants.<span class="Apple-converted-space">  </span>The link editor places only one copy of each literal into the output file's section and relocates references to different copies of the same literal to the one copy in the output file.<span class="Apple-converted-space">  </span>There can be no relocation entries for a section of this type, and all references to literals in this section must be inside the address range for the specific literal being referenced.<span class="Apple-converted-space">  </span>An example of a <b>8byte_literals</b> section is one in which double-precision floating-point constants are stored for a RISC machine (these would normally be stored as immediates in CISC machine code).</p>
+<p class="p22"><br></p>
+<p class="p8"><b>literal_pointers</b> (S_LITERAL_POINTERS)</p>
+<p class="p9"><br></p>
+<p class="p21">A <b>literal_pointers</b> section contains 4-byte pointers to literals in a literal section.<span class="Apple-converted-space">  </span>The link editor places only one copy of a pointer into the output file's section for each pointer to a literal with the same contents.<span class="Apple-converted-space">  </span>The link editor also relocates references to each literal pointer to the one copy in the output file.<span class="Apple-converted-space">  </span>There must be exactly one relocation entry for each literal pointer in this section, and all references to literals in this section must be inside the address range for the specific literal being referenced.<span class="Apple-converted-space">  </span>The relocation entries can be external relocation entries referring to undefined symbols if those symbols identify literals in another object file.<span class="Apple-converted-space">  </span>An example of a <b>literal_pointers</b> section is one containing selector references generated by the Objective C compiler.</p>
+<p class="p22"><br></p>
+<p class="p8"><b>symbol_stubs</b> (S_SYMBOL_STUBS)</p>
+<p class="p9"><br></p>
+<p class="p21">A <b>symbol_stubs</b> section contains symbol stubs, which are sequences of machine instructions (all the same size) used for lazily binding undefined function calls at run time.<span class="Apple-converted-space">  </span>If a call to an undefined function is made, the compiler outputs a call to a symbol stub instead, and tags the stub with an indirect symbol that indicates what symbol the stub is for.<span class="Apple-converted-space">  </span>On transfer to a symbol stub, a program executes instructions that eventually reach the code for the indirect symbol associated with that stub.<span class="Apple-converted-space">  </span>Here's a sample of assemly code based on a function <b>func()</b> containing only a call to the undefined function <b>foo()</b>:</p>
+<p class="p22"><br></p>
+<p class="p23"><span class="Apple-converted-space">  </span>      .text</p>
+<p class="p23"><span class="Apple-tab-span">	</span>        .align 4, 0x90</p>
+<p class="p23">_func:</p>
+<p class="p23">        <span class="Apple-tab-span">	</span>call      <span class="Apple-tab-span">	</span>_foo_stub</p>
+<p class="p23">        <span class="Apple-tab-span">	</span>ret</p>
+<p class="p24"><br></p>
+<p class="p23">        <span class="Apple-tab-span">	</span>.symbol_stub<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>                        #</p>
+<p class="p23">_foo_stub:<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>#</p>
+<p class="p23">        <span class="Apple-tab-span">	</span>.indirect_symbol _foo               <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>#</p>
+<p class="p23">        <span class="Apple-tab-span">	</span>ljmp <span class="Apple-converted-space">    </span>_foo_lazy_ptr              <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span># the symbol stub</p>
+<p class="p23">_foo_stub_1:<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>#</p>
+<p class="p23">        <span class="Apple-tab-span">	</span>pushl <span class="Apple-converted-space">  </span>$_foo_lazy_ptr              <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>#</p>
+<p class="p23"><span class="Apple-tab-span">	</span>        jmp <span class="Apple-converted-space">    </span>dyld_stub_binding_helper    <span class="Apple-tab-span">	</span>#</p>
+<p class="p24"><br></p>
+<p class="p23">        <span class="Apple-tab-span">	</span>.lazy_symbol_pointer<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>                #</p>
+<p class="p23">_foo_lazy_ptr:                              <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span># the symbol pointer</p>
+<p class="p23">        <span class="Apple-tab-span">	</span>.indirect_symbol _foo               <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>#</p>
+<p class="p23">        <span class="Apple-tab-span">	</span>.long<span class="Apple-tab-span">	</span>_foo_stub_1        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span># to be replaced by _foo's address</p>
+<p class="p24"><br></p>
+<p class="p22"><br></p>
+<p class="p21">In the assembly code, <b>_func</b> calls <b>_foo_stub</b>, which is responsible for finding the definition of the function <b>foo()</b>.<span class="Apple-converted-space">  </span><b>_foo_stub</b> jumps to the contents of <b>_foo_lazy_ptr</b>, initially causing the code at <b>_foo_stub_1</b> to be executed.<span class="Apple-converted-space">  </span>This value is initially the address for <b>_foo_stub1</b>, which calls the <b>dyld_stub_binding_helper()</b> function to overwrite the contents of<span class="Apple-converted-space">  </span><b>_foo_lazy_ptr</b> with the address of the real function, <b>_foo</b>.<span class="Apple-converted-space">  </span>This way,<span class="Apple-converted-space">  </span>jumps through <b>_foo_lazy_ptr</b> will immediately execute <b>foo()</b>'s code. <span class="Apple-converted-space">   </span></p>
+<p class="p22"><br></p>
+<p class="p21">The indirect symbol entries for <b>_foo</b> provide information to the static and dynamic linkers for binding the symbol stub.<span class="Apple-converted-space">  </span>Each symbol stub and lazy pointer entry must have exactly one such indirect symbol, associated with the first address in the stub or pointer entry.<span class="Apple-converted-space">  </span>See the description of the <b>.indirect_symbol</b> directive for more information.</p>
+<p class="p22"><br></p>
+<p class="p21">The static link editor places only one copy of each stub into the output file's section for a particular indirect symbol, and relocates all references to the stubs with the same indirect symbol to the stub in the output file.<span class="Apple-converted-space">  </span>Further, the static link editor eliminates a stub if a definition of the indirect symbol for that stub is present in the output file and that output file isn't a dynamically linked shared library file.<span class="Apple-converted-space">  </span>The stub can refer only to itself, one lazy symbol pointer (referring to the same indirect symbol as the stub), and the <b>dyld_stub_binding_helper()</b> function.<span class="Apple-converted-space">  </span>No global symbols can be defined in this type of section.<span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p8"><b>lazy_symbol_pointers</b> (S_LAZY_SYMBOL_POINTERS)</p>
+<p class="p9"><br></p>
+<p class="p21">A <b>lazy_symbol_pointers</b> section contains 4-byte symbol pointers that will eventually contain the value of the indirect symbol associated with the pointer.<span class="Apple-converted-space">  </span>These pointers are used by symbol stubs to lazily bind undefined function calls at run time.<span class="Apple-converted-space">  </span>A lazy symbol pointer initially contains an address in the symbol stub of instructions that cause the symbol pointer to be bound to the function definition (in the example above, the lazy pointer <b>_foo_lazy_ptr</b> initially contains the address for <b>_foo_stub_1</b> but gets overwritten with the address for <b>_foo</b>).<span class="Apple-converted-space">  </span>The dynamic link editor binds the indirect symbol associated with the lazy symbol pointer by overwriting it with the value of the symbol.</p>
+<p class="p22"><br></p>
+<p class="p21">The static link editor only places a copy of a lazy pointer in the output file if the corresponding symbol stub is in the output file.<span class="Apple-converted-space">  </span>Only the corresponding symbol stub can make a reference to a lazy symbol pointer, and no global symbols can be defined in this type of section.<span class="Apple-converted-space">  </span>There must be one indirect symbol assocated with each lazy symbol pointer.<span class="Apple-converted-space">  </span>An example of a <b>lazy_symbol_pointers</b> section is one in which the compiler has generated calls to undefined functions, each of which can be bound lazily at the time of the first call to the function.</p>
+<p class="p22"><br></p>
+<p class="p8"><b>non_lazy_symbol_pointers</b> (S_NON_LAZY_SYMBOL_POINTERS)</p>
+<p class="p9"><br></p>
+<p class="p21">A <b>non_lazy_symbol_pointers</b> section contains 4-byte symbol pointers that will contain the value of the indirect symbol associated with a pointer that may be set at any time before any code makes a reference to it.<span class="Apple-converted-space">  </span>These pointers are used by the code to reference undefined symbols.<span class="Apple-converted-space">  </span>Initially these pointers have no interesting value, but will get overwritten by the dynamic link editor with the value of the symbol for the associated indirect symbol before any code can make a reference to it.</p>
+<p class="p22"><br></p>
+<p class="p21">The static link editor places only one copy of each non-lazy pointer for its indirect symbol into the output file and relocates all references to the pointer with the same indirect symbol to the pointer in the output file.<span class="Apple-converted-space">  </span>The static link editor futher can fill in the pointer with the value of the symbol if a definition of the indirect symbol for that pointer is present in the output file.<span class="Apple-converted-space">  </span>No global symbols can be defined in this type of section.<span class="Apple-converted-space">  </span>There must be one indirect symbol assocated with each non-lazy symbol pointer.<span class="Apple-converted-space">  </span>An example of a <b>non_lazy_symbol_pointers</b> section is one in which the compiler has generated code to indirectly reference undefined symbols to be bound at run time—this preserves the sharing of the machine instructions by allowing the dynamic link editor to update references without writing on the instructions.</p>
+<p class="p22"><br></p>
+<p class="p21">Here's an example of assembly code referencing an element in the undefined</p>
+<p class="p21">structure.<span class="Apple-converted-space">  </span>The corresponding 'C' code would be:</p>
+<p class="p24"><br></p>
+<p class="p23"><span class="Apple-converted-space">    </span>struct s {</p>
+<p class="p23"><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>        int member1, member2;</p>
+<p class="p23"><span class="Apple-converted-space">    </span>};</p>
+<p class="p23"><span class="Apple-converted-space">    </span>extern struct s bar;</p>
+<p class="p23"><span class="Apple-converted-space">    </span>int func()</p>
+<p class="p23"><span class="Apple-converted-space">    </span>{</p>
+<p class="p23"><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>        return(bar.member2);</p>
+<p class="p23"><span class="Apple-converted-space">    </span>}</p>
+<p class="p24"><br></p>
+<p class="p22"><br></p>
+<p class="p21">The i386 assembly code might look like this:</p>
+<p class="p22"><br></p>
+<p class="p24"><br></p>
+<p class="p23">        <span class="Apple-tab-span">	</span>.text</p>
+<p class="p23"><span class="Apple-tab-span">	</span>        .align 4, 0x90</p>
+<p class="p23">.globl _func</p>
+<p class="p23">_func:</p>
+<p class="p23">        <span class="Apple-tab-span">	</span>movl _bar_non_lazy_ptr,%eax</p>
+<p class="p23">        <span class="Apple-tab-span">	</span>movl 4(%eax),%eax</p>
+<p class="p23">        <span class="Apple-tab-span">	</span>ret</p>
+<p class="p24"><br></p>
+<p class="p23"><span class="Apple-converted-space">       </span>.non_lazy_symbol_pointer</p>
+<p class="p23">_bar_non_lazy_ptr:</p>
+<p class="p23"><span class="Apple-converted-space">       </span>.indirect_symbol _bar</p>
+<p class="p23"><span class="Apple-converted-space">       </span>.long 0</p>
+<p class="p24"><br></p>
+<p class="p9"><br></p>
+<p class="p8"><b>mod_init_funcs</b> (S_MOD_INIT_FUNC_POINTERS)</p>
+<p class="p9"><br></p>
+<p class="p21">A <b>mod_init_funcs</b> section contains 4-byte pointers to functions that are to be called just after the module containing the pointer is bound into the program by the dynamic link editor.<span class="Apple-converted-space">  </span>The static link editor does no special processing for this section type except for disallowing section ordering.<span class="Apple-converted-space">  </span>This is done to maintain the order the functions will be called (which is the order their pointers appear in the original module).<span class="Apple-converted-space">  </span>There must be exactly one relocation entry for each pointer in this section.<span class="Apple-converted-space">  </span>An example of a <b>mod_init_funcs</b> section is one in which the compiler has generated code to call C++ constructors for modules that get dynamicly bound at run time.</p>
+<p class="p22"><br></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><b>Attribute Identifiers</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8"><b>none</b> (0)</p>
+<p class="p9"><br></p>
+<p class="p21">No attributes for this section.<span class="Apple-converted-space">  </span>This is the default section attribute.</p>
+<p class="p22"><br></p>
+<p class="p8"><b>pure_instructions</b> (S_ATTR_PURE_INSTRUCTIONS)</p>
+<p class="p9"><br></p>
+<p class="p21">The <b>pure_instructions</b> attribute means that this section contains nothing but machine instructions.<span class="Apple-converted-space">  </span>This attribute would be used for the (__TEXT,__text) section of NeXT compilers and sections which have a section type of <b>symbol_stubs</b>.</p>
+<p class="p22"><br></p>
+<p class="p8"><b>reloc_at_launch</b> (S_ATTR_RELOC_AT_LAUNCH)</p>
+<p class="p9"><br></p>
+<p class="p21">The <b>reloc_at_launch</b> attribute means that this section is to be relocated by the dynamic linker when the program is first run or first loaded into memory, regardless of whether a module is needed to bind undefined symbols.<span class="Apple-converted-space">  </span>Sections are normally relocated only when first referenced.<span class="Apple-converted-space">  </span>This attribute would be used for the (__OBJC,__message_refs) section of NeXT Objective C compiler to allow the Objective C run-time system to initialize images being loaded into a program.</p>
+<p class="p22"><br></p>
+<p class="p25"><b></b><br></p>
+<p class="p12"><b>Built-in Directives for Designating the Current Section</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p8">The directives described here are simply built-in equivalents for <b>.section</b> directives with specific arguments.</p>
+<p class="p9"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>Designating Sections in the __TEXT Segment</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">The directives listed below cause the assembler to begin assembling into the indicated section of the __TEXT segment.<span class="Apple-converted-space">  </span>Note that the underscore before __TEXT, __text, and the rest of the segment names is actually two underscore characters.</p>
+<p class="p9"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>Directive<span class="Apple-tab-span">	</span>Section</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p18"><b>.text</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__TEXT,__text)</p>
+<p class="p18"><b>.const</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__TEXT,__const)</p>
+<p class="p18"><b>.static_const</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__TEXT,__static_const)</p>
+<p class="p18"><b>.cstring</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__TEXT,__cstring)</p>
+<p class="p18"><b>.literal4</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__TEXT,__literal4)</p>
+<p class="p18"><b>.literal8</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__TEXT,__literal8)</p>
+<p class="p18"><b>.constructor</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__TEXT,__constructor)</p>
+<p class="p18"><b>.destructor</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__TEXT,__destructor)</p>
+<p class="p18"><b>.fvmlib_init0</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__TEXT,__fvmlib_init0)</p>
+<p class="p18"><b>.fvmlib_init1</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__TEXT,__fvmlib_init1)</p>
+<p class="p18"><b>.symbol_stub</b><span class="Apple-tab-span">	</span>(__TEXT,__symbol_stub)</p>
+<p class="p18"><b>.mod_init_func</b><span class="Apple-tab-span">	</span>(__TEXT,__mod_init_func)</p>
+<p class="p9"><br></p>
+<p class="p8">The following paragraphs describe the sections in the __TEXT segment and the types of information that should be assembled into each of them:</p>
+<p class="p9"><br></p>
+<p class="p8">(__TEXT,__text)</p>
+<p class="p8">This is equivalent to <b>.section __TEXT,__text,regular,pure_instructions</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">The compiler only places machine instructions in the (__TEXT,__text) section (no read-only data, jump tables or anything else).<span class="Apple-converted-space">  </span>With this the entire (__TEXT,__text) section is pure instructions and tools that operate on object files can take advantage of this and can locate the instructions of the program and not get confused with data that could have been mixed in.<span class="Apple-converted-space">  </span>To make this work all run-time support code linked into the program must also obey this rule (all NeXT library code follows this rule).</p>
+<p class="p22"><br></p>
+<p class="p8">(__TEXT,__const)</p>
+<p class="p8">This is equivalent to <b>.section __TEXT,__const</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8">The compiler places all data declared const in this section and all jump tables it generates for switch statements.</p>
+<p class="p9"><br></p>
+<p class="p8">(__TEXT,__static_const)</p>
+<p class="p8">This is equivalent to <b>.section __TEXT,__static_const</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">This is not currently used by the compiler.<span class="Apple-converted-space">  </span>It was added to the assembler so that the compiler may separate global and static const data into separate sections if it wished to.</p>
+<p class="p22"><br></p>
+<p class="p8">(__TEXT,__cstring)</p>
+<p class="p8">This is equivalent to <b>.section __TEXT,__cstring, cstring_literals</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">This section is marked with the section type S_LITERAL_CSTRING, which the link editor recognizes.<span class="Apple-converted-space">  </span>The link editor merges the like literal C strings in all the input object files to one unique C string in the output file.<span class="Apple-converted-space">  </span>Therefore this section must only contain C strings (a C string in a sequence of bytes that ends in a null byte, '\0', and does not contain any other null bytes except its terminator).<span class="Apple-converted-space">  </span>The compiler places literal C strings found in the code that are not initializers and do not contain any imbedded nulls in this section.</p>
+<p class="p22"><br></p>
+<p class="p8">(__TEXT,__literal4)</p>
+<p class="p8">This is equivalent to <b>.section __TEXT,__literal4,4byte_literals</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">This section is marked with the section type S_4BYTE_LITERALS, which the link editor recognizes.<span class="Apple-converted-space">  </span>The link editor then can merge the like 4 byte literals in all the input object files to one unique 4 byte literal in the output file.<span class="Apple-converted-space">  </span>Therefore this section must only contain 4 byte literals. This is typically intended for single precision floating-point constants and the compiler uses this section for that purpose.<span class="Apple-converted-space">  </span>On some machines it is more efficient to place these constants in line as immediates as part of the instruction (this is what is done on NeXT 68k machines when the optimizer is turned on).</p>
+<p class="p22"><br></p>
+<p class="p8">(__TEXT,__literal8)</p>
+<p class="p8">This is equivalent to <b>.section __TEXT,__literal8,8byte_literals</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">This section is marked with the section type S_8BYTE_LITERALS, which the link editor recognizes.<span class="Apple-converted-space">  </span>The link editor then can merge the like 8 byte literals in all the input object files to one unique 8 byte literal in the output file.<span class="Apple-converted-space">  </span>Therefore this section must only contain 8 byte literals. This is typically intended for double precision floating-point constants and the compiler uses this section for that purpose.<span class="Apple-converted-space">  </span>On some machines it is more efficient to place these constants in line as immediates as part of the instruction (this is what is done on NeXT 68k machines when the optimizer is turned on).</p>
+<p class="p22"><br></p>
+<p class="p8">(__TEXT,__constructor)</p>
+<p class="p8">This is equivalent to <b>.section __TEXT,__constructor</b><b></b></p>
+<p class="p8">(__TEXT,__destructor)</p>
+<p class="p8">This is equivalent to <b>.section __TEXT,__destructor</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">These sections are used by the C++ run-time system, and are reserved exclusively for the C++ compiler.</p>
+<p class="p22"><br></p>
+<p class="p8">(__TEXT,__fvmlib_init0) <span class="Apple-converted-space"> </span></p>
+<p class="p8">This is equivalent to <b>.section __TEXT,__fvmlib_init0</b><b></b></p>
+<p class="p8">(__TEXT,__fvmlib_init1) <span class="Apple-converted-space"> </span></p>
+<p class="p8">This is equivalent to <b>.section __TEXT,__fvmlib_init1</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">These two sections are used by the fixed virtual memory shared library initialization.<span class="Apple-converted-space">  </span>The compiler doesn't place anything in these sections, as they are reserved exclusively for the shared library mechanism.</p>
+<p class="p22"><br></p>
+<p class="p8">(__TEXT,__symbol_stub)</p>
+<p class="p8">This is equivalent to <b>.section __TEXT,__symbol_stub, symbol_stubs, pure_instructions,NBYTES</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">This section is of type <b>symbol_stubs</b> and has the attribute <b>pure_instructions</b>.<span class="Apple-converted-space">  </span>The compiler places symbol stubs in this section for undefined functions that are called in the module.<span class="Apple-converted-space">  </span>This is the standard symbol stub section for non position-independent code.<span class="Apple-converted-space">  </span>The value <b>NBYTES</b> is dependent on the target architecture.<span class="Apple-converted-space">  </span>The standard symbol stub for the m68k is 20 bytes and has an alignment of 2 bytes (<b>.align 1</b> or <b>.even</b>) .<span class="Apple-converted-space">  </span>For example, a stub for the symbol _foo would be (using a lazy symbol pointer Lfoo$stub_binder):</p>
+<p class="p22"><br></p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>.symbol_stub</p>
+<p class="p23"><span class="Apple-tab-span">	</span>Lfoo$stub:</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>.indirect_symbol _foo</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>movel   <span class="Apple-tab-span">	</span>L_foo$lazy_ptr,a0</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>jmp<span class="Apple-tab-span">	</span>     a0@</p>
+<p class="p23"><span class="Apple-tab-span">	</span>Lfoo$stub_binder:</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>movel   <span class="Apple-tab-span">	</span>#L_foo$lazy_ptr,sp@-</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>bra     <span class="Apple-tab-span">	</span>dyld_stub_binding_helper</p>
+<p class="p24"><br></p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>.lazy_symbol_pointer</p>
+<p class="p23"><span class="Apple-tab-span">	</span>L_foo$lazy_ptr:</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>.indirect_symbol _foo</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>.long<span class="Apple-tab-span">	</span>   Lfoo$stub_binder</p>
+<p class="p24"><br></p>
+<p class="p22"><br></p>
+<p class="p21">The standard symbol stub for the i386 is 16 bytes and has an alignment of 1 byte (.align 0).<span class="Apple-converted-space">  </span>For example a stub for the symbol _foo would be (using a lazy symbol pointer Lfoo$stub_binder):</p>
+<p class="p22"><br></p>
+<p class="p24"><br></p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>.symbol_stub</p>
+<p class="p23"><span class="Apple-tab-span">	</span>Lfoo$stub:</p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>.indirect_symbol _foo</p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>ljmp <span class="Apple-converted-space">    </span>L_foo$lazy_ptr</p>
+<p class="p23"><span class="Apple-tab-span">	</span>Lfoo$stub_binder:</p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>pushl <span class="Apple-converted-space">  </span>$L_foo$lazy_ptr</p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>jmp <span class="Apple-converted-space">    </span>dyld_stub_binding_helper</p>
+<p class="p24"><br></p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>.lazy_symbol_pointer</p>
+<p class="p23"><span class="Apple-tab-span">	</span>L_foo$lazy_ptr:</p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>.indirect_symbol _foo</p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>.long<span class="Apple-tab-span">	</span>Lfoo$stub_binder</p>
+<p class="p24"><br></p>
+<p class="p9"><br></p>
+<p class="p8">(__TEXT, __picsymbol_stub)</p>
+<p class="p8">This is equivalent to<span class="Apple-converted-space">    </span><b>.section __TEXT, __picsymbol_stub, symbol_stubs, pure_instructions, NBYTES</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">This section is of type <b>symbol_stubs</b> and has the attribute <b>pure_instructions</b>.<span class="Apple-converted-space">  </span>The compiler places symbol stubs in this section for undefined functions that are called in the module.<span class="Apple-converted-space">  </span>This is the standard symbol stub section for position-independent code.<span class="Apple-converted-space">  </span>The value of <b>NBYTES</b> is dependent on the target architecture.</p>
+<p class="p22"><br></p>
+<p class="p21">The standard position-independent symbol stub for the m68k is 24 bytes and has an alignment of 2 bytes (<b>.align 1</b> or<b> .even</b>).<span class="Apple-converted-space">  </span>For example a stub for the symbol _foo would be (using a lazy symbol pointer Lfoo$stub_binder):</p>
+<p class="p22"><br></p>
+<p class="p24"><br></p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>.picsymbol_stub</p>
+<p class="p23"><span class="Apple-tab-span">	</span>Lfoo$stub:</p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>.indirect_symbol _foo</p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>movel <span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>pc@(L_foo$lazy_ptr-.),a0</p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>jmp <span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>a0@</p>
+<p class="p23"><span class="Apple-tab-span">	</span>Lfoo$stub_binder:</p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>pea <span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>pc@(L_foo$lazy_ptr-.)</p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>bra <span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>dyld_stub_binding_helper</p>
+<p class="p24"><br></p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>.lazy_symbol_pointer</p>
+<p class="p23"><span class="Apple-tab-span">	</span>L_foo$lazy_ptr:</p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>.indirect_symbol _foo</p>
+<p class="p23"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>.long<span class="Apple-tab-span">	</span>Lfoo$stub_binder</p>
+<p class="p24"><br></p>
+<p class="p22"><br></p>
+<p class="p21">The standard position-independent symbol stub for the i386 is 26 bytes and has an alignment of 1 byte (<b>.align 0</b>).<span class="Apple-converted-space">  </span>For example a stub for the symbol _foo would be (using a lazy symbol pointer Lfoo$stub_binder):</p>
+<p class="p22"><br></p>
+<p class="p24"><br></p>
+<p class="p23"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>        .picsymbol_stub</p>
+<p class="p23"><span class="Apple-tab-span">	</span>Lfoo$stub:</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>.indirect_symbol _foo</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>call    <span class="Apple-tab-span">	</span>L1foo$stub</p>
+<p class="p23"><span class="Apple-tab-span">	</span>L1foo$stub:</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>popl    <span class="Apple-tab-span">	</span>%eax</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>movl    <span class="Apple-tab-span">	</span>L_foo$lazy_ptr-L1foo$stub(%eax),%ebx</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>jmp     <span class="Apple-tab-span">	</span>%ebx</p>
+<p class="p23"><span class="Apple-tab-span">	</span>Lfoo$stub_binder:</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>lea     <span class="Apple-tab-span">	</span>L_foo$lazy_ptr-L1foo$stub(%eax),%eax</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>pushl   <span class="Apple-tab-span">	</span>%eax</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>jmp <span class="Apple-converted-space">    </span>dyld_stub_binding_helper</p>
+<p class="p24"><br></p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>.lazy_symbol_pointer</p>
+<p class="p23"><span class="Apple-tab-span">	</span>L_foo$lazy_ptr:</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>.indirect_symbol _foo</p>
+<p class="p23">        <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>.long<span class="Apple-tab-span">	</span>Lfoo$stub_binder</p>
+<p class="p9"><br></p>
+<p class="p8">(__TEXT,__mod_init_func)</p>
+<p class="p8">This is equivalent to<span class="Apple-converted-space">    </span><b>.section __TEXT, __mod_init_func, mod_init_funcs</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">This section is of type <b>mod_init_funcs</b> and has no attributes.<span class="Apple-converted-space">  </span>The C++ compiler places a pointer to a function in this section for each function it creates to call the constructors (if the module has them).</p>
+<p class="p22"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>Designating Sections in the __DATA Segment</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">These directives cause the assembler to begin assembling into the indicated section of the __DATA segment:</p>
+<p class="p9"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>Directive<span class="Apple-tab-span">	</span>Section</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p18"><b>.data</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__DATA,__data)</p>
+<p class="p18"><b>.static_data</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__DATA,__static_data)</p>
+<p class="p18"><b>.non_lazy_symbol_pointer</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__DATA,__nl_symbol_pointer)</p>
+<p class="p18"><b>.lazy_symbol_pointer</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__DATA,__la_symbol_pointer)</p>
+<p class="p18"><b>.dyld</b><span class="Apple-tab-span">	</span>(__DATA,__dyld)</p>
+<p class="p9"><br></p>
+<p class="p8">The following paragraphs describe the sections in the __DATA segment and the types of information that should be assembled into each of them:</p>
+<p class="p9"><br></p>
+<p class="p8">(__DATA,__data)</p>
+<p class="p8">This is equivalent to<span class="Apple-converted-space">    </span><b>.section __DATA, __data</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">The compiler places all non-const initialized data (even initialized to zero) in this section.</p>
+<p class="p22"><br></p>
+<p class="p8">(__DATA,__static_data)</p>
+<p class="p8">This is equivalent to<span class="Apple-converted-space">    </span><b>.section __DATA, __static_data</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">This is not currently used by the compiler.<span class="Apple-converted-space">  </span>It was added to the assembler so that the compiler could separate global and static data symbol into separate sections if it wished to.</p>
+<p class="p22"><br></p>
+<p class="p8">(__DATA,__nl_symbol_ptr)</p>
+<p class="p8">This is equivalent to<span class="Apple-converted-space">    </span><b>.section __DATA, __nl_symbol_ptr,non_lazy_symbol_pointers</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">This section is of type <b>non_lazy_symbol_pointers</b> and has no attributes. The compiler places a non-lazy symbol pointer in this section for each undefined symbol referenced by the module (except for function calls).</p>
+<p class="p22"><br></p>
+<p class="p8">(__DATA,__la_symbol_ptr)</p>
+<p class="p8">This is equivalent to<span class="Apple-converted-space">    </span><b>.section __DATA, __la_symbol_ptr,lazy_symbol_pointers</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">This section is of type <b>lazy_symbol_pointers</b> and has no attributes.<span class="Apple-converted-space">  </span>The compiler places a lazy symbol pointer in this section for each symbol stub it creates for undefined functions that are called in the module. <span class="Apple-converted-space">  </span>(See __TEXT, __symbol_stub for examples.)</p>
+<p class="p22"><br></p>
+<p class="p8">(__DATA,__dyld)</p>
+<p class="p8">This is equivalent to<span class="Apple-converted-space">    </span><b>.section __DATA, __dyld,regular</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p21">This section is of type <b>regular</b> and has no attributes.<span class="Apple-converted-space">  </span>This section is used by the dynamic link editor.<span class="Apple-converted-space">  </span>The compiler doesn't place anything in this section, as it is reserved exclusively for the dynamic link editor.</p>
+<p class="p22"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>Designating Sections in the __OBJC Segment</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">These directives cause the assembler to begin assembling into the indicated section of the __OBJC segment:</p>
+<p class="p9"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>Directive<span class="Apple-tab-span">	</span>Section</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p18"><b>.objc_class</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__class)</p>
+<p class="p18"><b>.objc_meta_class</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__meta_class)</p>
+<p class="p18"><b>.objc_cat_cls_meth</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__cat_cls_meth)</p>
+<p class="p18"><b>.objc_cat_inst_meth</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__cat_inst_meth)</p>
+<p class="p18"><b>.objc_protocol</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__protocol)</p>
+<p class="p18"><b>.objc_string_object</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__string_object)</p>
+<p class="p18"><b>.objc_cls_meth</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__cls_meth)</p>
+<p class="p18"><b>.objc_inst_meth</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__inst_meth)</p>
+<p class="p18"><b>.objc_cls_refs</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__cls_refs)</p>
+<p class="p18"><b>.objc_message_refs</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__message_refs)</p>
+<p class="p18"><b>.objc_symbols</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__symbols)</p>
+<p class="p18"><b>.objc_category</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__category)</p>
+<p class="p18"><b>.objc_class_vars</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__class_vars)</p>
+<p class="p18"><b>.objc_instance_vars</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__instance_vars)</p>
+<p class="p18"><b>.objc_module_info</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__module_info)</p>
+<p class="p18"><b>.objc_class_names</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__class_names)</p>
+<p class="p18"><b>.objc_meth_var_names</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__meth_var_names)</p>
+<p class="p18"><b>.objc_meth_var_types</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__meth_var_types)</p>
+<p class="p18"><b>.objc_selector_strs</b><span class="Apple-converted-space">  <span class="Apple-tab-span">	</span></span>(__OBJC,__selector_strs)</p>
+<p class="p9"><br></p>
+<p class="p8">All sections in the __OBJC segment, including old sections that are no longer used and future sections that may be added, are exclusively reserved for the Objective C compiler's use.</p>
+<p class="p9"><br></p>
+<p class="p25"><b></b><br></p>
+<p class="p12"><b>Directives for Moving the Location Counter</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p8">This section describes directives that advance the location counter to a location higher in memory.<span class="Apple-converted-space">  </span>They have the additional effect of setting the intervening memory to some value.</p>
+<p class="p9"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>.align</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.align</b><span class="Apple-converted-space">  </span><i>expression</i> [ <b>,</b> <i>fill_expression</i> ]</p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.align</b> directive advances the location counter to the next expression boundary, if it isn't currently on such a boundary.<span class="Apple-converted-space">  </span><i>expression</i> is a power of 2 between 0 and 15 (not the result of the power of 2;<span class="Apple-converted-space">  </span>for example, the argument of<span class="Apple-converted-space">  </span>.<b>align 3</b> means 2 to the third).<span class="Apple-converted-space">  </span>The fill expression, if specified, must be absolute.<span class="Apple-converted-space">  </span>The space between the current value of the location counter and the desired value is filled with the low-order byte of the fill expression (or with zeros, if <i>fill_expression</i> isn't specified).</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="s2"><b>Note:<span class="Apple-converted-space">  </span></b></span>The assembler enforces no alignment for any bytes created in the object file (data or machine instructions).<span class="Apple-converted-space">  </span>You must supply the desired alignment before any directive or instruction.</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23"><span class="Apple-converted-space">        </span>.align 3</p>
+<p class="p23">one:<span class="Apple-converted-space">    </span>.double 0r1.0</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.org</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.org</b><span class="Apple-converted-space">  </span><i>expression</i> [ <b>,</b> <i>fill_expression</i> ]</p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.org</b> directive sets the location counter to <i>expression</i>, which must be a currently known absolute expression.<span class="Apple-converted-space">  </span>This directive can only move the location counter up in address.<span class="Apple-converted-space">  </span>The fill expression, if specified, must be absolute.<span class="Apple-converted-space">  </span>The space between the current value of the location counter and the desired value is filled with the low-order byte of the fill expression (or with zeros, if <i>fill_expression</i> isn't specified).</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="s2"><b>Note:<span class="Apple-converted-space">  </span></b></span>If the output file is later link-edited, the <b>.org</b> directive isn't preserved.</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.org 0x100,0xff</p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b>Directives for Generating Data</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p8">The directives described in this section all generate data (unless specified otherwise, the data goes into the current section).<span class="Apple-converted-space">  </span>In some respects they are similar to the directives in the previous section, “Directives for Moving the Location Counter”—they do have the effect of moving the location counter—but this isn't their primary purpose.</p>
+<p class="p9"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>.ascii and .asciz</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.ascii</b><span class="Apple-converted-space">  </span>[ <b>“</b><i>string</i><b>”</b> ] [ <b>,</b> <b>“</b><i>string</i><b>”</b> ] ...</p>
+<p class="p18"><b>.asciz</b><span class="Apple-converted-space">  </span>[ <b>“</b><i>string</i><b>”</b> ] [ <b>,</b> <b>“</b><i>string</i><b>”</b> ] ...</p>
+<p class="p9"><br></p>
+<p class="p8">These two directives translate character strings into their ASCII equivalents for use in the source program.<span class="Apple-converted-space">  </span>Each directive takes zero or more comma-separated, quoted strings.<span class="Apple-converted-space">  </span>Each string can contain any character or escape sequence that can appear in a character string; the newline character cannot appear, but it can be represented by the escape sequence <b>\012</b> or <b>\n</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span>The <b>.ascii</b> directive generates a sequence of ASCII characters. <span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span>The <b>.asciz</b> directive is similar, except that it automatically terminates the sequence of ASCII characters with the null character, \0 (necessary when generating strings usable by C programs).</p>
+<p class="p29"><br></p>
+<p class="p8">If no strings are specified, the directive is ignored.</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.ascii "Can't open the DSP.\0"</p>
+<p class="p23">.asciz "%s has changes.\tSave them?"</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.byte, .short, and .long</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.byte</b><span class="Apple-converted-space">  </span>[ <i>expression</i> ] [ <b>,</b> <i>expression</i> ] ...</p>
+<p class="p18"><b>.short</b><span class="Apple-converted-space">  </span>[ <i>expression</i> ] [ <b>,</b> <i>expression</i> ] ...</p>
+<p class="p18"><b>.long</b><span class="Apple-converted-space">  </span>[ <i>expression</i> ] [ <b>,</b> <i>expression</i> ] ...</p>
+<p class="p9"><br></p>
+<p class="p8">These directives reserve storage locations in the current section and initialize them with specified values.<span class="Apple-converted-space">  </span>Each directive takes zero or more comma-separated absolute expressions and generates a sequence of bytes for each expression.<span class="Apple-converted-space">  </span>The expressions are truncated to the size generated by the directive:</p>
+<p class="p9"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>.byte</b> generates one byte per expression</p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>.short</b> generates two bytes per expression</p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>.long</b> generates four bytes per expression</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.byte<span class="Apple-converted-space">  </span>74,0112,0x4A,0x4a,'J <span class="Apple-converted-space">          </span>| all the same byte</p>
+<p class="p23">.short 64206,0175316,0xface <span class="Apple-converted-space">          </span>| all the same short</p>
+<p class="p23">.long<span class="Apple-converted-space">  </span>-1234,037777775456,0xfffffb2e<span class="Apple-converted-space">  </span>| all the same long</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.single<span class="Apple-converted-space">  </span>and .double</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.single</b><span class="Apple-converted-space">  </span>[ <i>number</i> ] [ <b>,</b> <i>number</i> ] ...</p>
+<p class="p18"><b>.double</b><span class="Apple-converted-space">  </span>[ <i>number</i> ] [ <b>,</b> <i>number</i> ] ...</p>
+<p class="p9"><br></p>
+<p class="p8">These two directives reserve storage locations in the current section and initialize them with specified values.<span class="Apple-converted-space">  </span>Each directive takes zero or more comma-separated decimal floating-point numbers:</p>
+<p class="p9"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>.single</b> takes IEEE single-precision floating point numbers; it reserves four bytes for each number, and initializes them to the value of the corresponding number</p>
+<p class="p29"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>.double</b> takes IEEE double-precision floating point numbers; it reserves eight bytes for each number, and initializes them to the value of the corresponding number</p>
+<p class="p29"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.single 3.33333333333333310000e-01</p>
+<p class="p23">.double 0.00000000000000000000e+00</p>
+<p class="p23">.single +Infinity</p>
+<p class="p23">.double -Infinity</p>
+<p class="p23">.single NaN</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.fill</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p27"><b>.fill</b><i> repeat_expression</i> <b>,</b> <i>fill_size</i> <b>,</b> <i>fill_expression</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p8">The <b>.fill</b> directive advances the location counter by <i>repeat_expression</i> times <i>fill_size</i> bytes.</p>
+<p class="p9"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span> <i>fill_size</i> is in bytes, and must have the<span class="Apple-converted-space">  </span>value 1, 2, or 4</p>
+<p class="p10">•<span class="Apple-tab-span">	</span><i>repeat_expression</i> must be an absolute expression greater than zero</p>
+<p class="p10">•<span class="Apple-tab-span">	</span><i>fill_expression</i> may be any absolute expression (it gets truncated to the fill size)</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.fill 69,4,0xfeadface <span class="Apple-converted-space">  </span>| put out 69 0xfeadface's</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.space</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p27"><b>.space</b><i><span class="Apple-converted-space">  </span>num_bytes</i> [ <b>,</b> <i>fill_expression</i> ]</p>
+<p class="p30"><br></p>
+<p class="p8">The <b>.space</b> directive advances the location counter by <i>num_bytes</i>, where <i>num_bytes</i> is an absolute expression greater than zero.<span class="Apple-converted-space">  </span>The fill expression, if specified, must be absolute.<span class="Apple-converted-space">  </span>The space between the current value of the location counter and the desired value is filled with the low-order byte of the fill expression (or with zeros, if <i>fill_expression</i> isn't specified).</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">ten_ones:</p>
+<p class="p23"><span class="Apple-converted-space">          </span>.space 10,1</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.comm</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p27"><b>.comm</b><i><span class="Apple-converted-space">  </span>name</i><b>,</b> <i>size</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p8">The <b>.comm</b> directive creates a common symbol named <i>name</i> of <i>size</i> bytes.<span class="Apple-converted-space">  </span>If the symbol isn't defined elsewhere, its type is “common.” <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">The link editor allocates storage for common symbols that aren't otherwise defined.<span class="Apple-converted-space">  </span>Enough space is left after the symbol to hold the maximum size (in bytes) seen for each symbol in the (__DATA,__common) section. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">The link editor will align each such symbol (based on its size aligned to the next greater power of two) to the maximum alignment of the (__DATA,__common) section.<span class="Apple-converted-space">  </span>For information about how to change the maximum alignment, see the description of <b>-sectalign</b> in the <b>ld</b>(1) UNIX manual page. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.comm _global_uninitialized,4</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.lcomm</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p27"><b>.lcomm</b><span class="Apple-converted-space">  </span><i>name</i>????<b>,</b> <i>size</i> [ <b>,</b> <i>align</i> ]</p>
+<p class="p30"><br></p>
+<p class="p8">The <b>.lcomm</b> directive creates a symbol named <i>name</i> of <i>size</i> bytes in the (__DATA,__bss) section.<span class="Apple-converted-space">  </span>It will contain zeros at execution.<span class="Apple-converted-space">  </span>The name isn't declared as global, and hence will be unknown outside the object module.</p>
+<p class="p9"><br></p>
+<p class="p8">The optional <i>align</i> expression, if specified, causes the location counter to be rounded up to an <i>align</i> power-of-two boundary before assigning the location counter to the value of <i>name</i>.</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.lcomm abyte,1 <span class="Apple-converted-space">    </span>| <i>or:</i><span class="Apple-converted-space">  </span>.lcomm abyte,1,0</p>
+<p class="p23">.lcomm padding,7</p>
+<p class="p23">.lcomm adouble,8 <span class="Apple-converted-space">  </span>| <i>or:</i><span class="Apple-converted-space">  </span>.lcomm adouble,8,3</p>
+<p class="p9"><br></p>
+<p class="p8">These are the same as:</p>
+<p class="p9"><br></p>
+<p class="p23">.zerofill __DATA,__bss,abyte,1</p>
+<p class="p23">.lcomm __DATA,__bss,padding,7</p>
+<p class="p23">.lcomm __DATA,__bss,adouble,8</p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b>Directives for Dealing with Symbols</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p8">This section describes directives that have an effect on symbols and the symbol table.</p>
+<p class="p9"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>.globl</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.globl</b><span class="Apple-converted-space">  </span><i>symbol_name</i></p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.globl</b> directive makes <i>symbol_name</i> external.<span class="Apple-converted-space">  </span>If <i>symbol_name</i> is otherwise defined (by <b>.set</b> or by appearance as a label), it acts within the assembly exactly as if the <b>.globl</b> statement were not given; however, the link editor may be used to combine this object module with other modules referring to this symbol.</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23"><span class="Apple-converted-space">      </span>.globl abs</p>
+<p class="p23"><span class="Apple-converted-space">      </span>.set abs,1</p>
+<p class="p24"><br></p>
+<p class="p23"><span class="Apple-converted-space">      </span>.globl var</p>
+<p class="p23">var:<span class="Apple-converted-space">  </span>.long 2</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.indirect_symbol</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p9"><br></p>
+<p class="p8"><b>.indirect_symbol</b> <i>symbol_name</i></p>
+<p class="p9"><i></i><br></p>
+<p class="p8">The <b>.indirect_symbol</b> directive creates an indirect symbol with <i>symbol_name</i> and associates the current location with the indirect symbol.<span class="Apple-converted-space">  </span>An indirect symbol must be defined immediately before each item in a <b>symbol_stub</b>, <b>lazy_symbol_pointers</b>, and <b>non_lazy_symbol_pointers</b> section.<span class="Apple-converted-space">  </span>The static and dynamic linkers use <i>symbol_name</i> to identify the symbol associated with the following item.</p>
+<p class="p9"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>.reference</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.reference</b><span class="Apple-converted-space">  </span><i>symbol_name</i></p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.reference</b> directive causes <i>symbol_name</i> to be an undefined symbol that will be present in the output's symbol table.<span class="Apple-converted-space">  </span>This is useful in referencing a symbol without generating any bytes to do it (used, for example, by the Objective C run-time system to reference superclass objects).</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.reference<span class="Apple-converted-space">  </span>.objc_class_name_Object</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.private_extern</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p9"><br></p>
+<p class="p8"><b>.private_extern</b> <i>symbol_name</i></p>
+<p class="p9"><i></i><br></p>
+<p class="p8">The <b>.private_extern</b> directive makes <i>symbol_name</i> a private external symbol.<span class="Apple-converted-space">  </span>When the link editor combines this module with other modules (and the <b>-keep_private_externs</b> command-line option is not specified) the symbol turns it from global to static.</p>
+<p class="p9"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>.lazy_reference</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.lazy_reference</b><span class="Apple-converted-space">  </span><i>symbol_name</i></p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.reference</b> directive causes <i>symbol_name</i> to be a lazy undefined symbol that will be present in the output's symbol table.<span class="Apple-converted-space">  </span>This is useful in referencing a symbol without generating any bytes to do it (used, for example, by the Objective C run-time system with the dynamic linker to reference superclass objects but to allow the runtime to bind them on first use).</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.lazy_reference<span class="Apple-converted-space">  </span>.objc_class_name_Object</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.stabs, .stabn, and .stabd</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.stabs</b><span class="Apple-converted-space">  </span><i>n_name</i> <b>,</b> <i>n_type</i> <b>,</b> <i>n_other</i> <b>,</b> <i>n_desc</i> <b>,</b> <i>n_value</i></p>
+<p class="p18"><b>.stabn</b><span class="Apple-converted-space">  </span><i>n_type</i> <b>,</b> <i>n_other</i> <b>,</b> <i>n_desc</i> <b>,</b> <i>n_value</i></p>
+<p class="p18"><b>.stabd</b><span class="Apple-converted-space">  </span><i>n_type</i> <b>,</b> <i>n_other</i> <b>,</b> <i>n_desc</i></p>
+<p class="p9"><br></p>
+<p class="p8">These three directives are used to place symbols in the symbol table for the symbolic debugger (a “stab” is a <i>s</i>ymbol <i>tab</i>le entry). <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>.stabs</b> specifies all the fields in a symbol table entry.<span class="Apple-converted-space">  </span>The <i>n_name</i> is the name of a symbol; if the symbol name is null, the <b>.stabn</b> directive may be used instead.</p>
+<p class="p29"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>.stabn</b> is like <b>.stabs</b>, except that it uses a NULL ("") name. <span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>.stabd</b> is like <b>.stabn</b>, except that it uses the value of the location counter ( <b>.</b> ) as the <i>n_value</i> field.<span class="Apple-converted-space"> </span></p>
+<p class="p29"><br></p>
+<p class="p8">In each case, the <i>n_type</i> field is assumed to contain a 4.3BSD-like value for the N_TYPE bits.<span class="Apple-converted-space">  </span>For <b>.stabs</b> and <b>.stabn</b> the <b>n_sect</b> field of the Mach-O file's <b>nlist</b> is set to the section number of the symbol for the specified <i>n_value</i> parameter.<span class="Apple-converted-space">  </span>For <b>.stabd</b> the <b>n_sect</b> field is set to the current section number for the location counter.<span class="Apple-converted-space">  </span>The <b>nlist</b> structure is defined in <b>mach-o/nlist.h</b>.</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="s2"><b>Note:<span class="Apple-converted-space">  </span></b></span>The <i>n_other</i> field of a stab directive is ignored.</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.stabs<span class="Apple-converted-space">  </span>"hello.c",100,0,0,Ltext</p>
+<p class="p23">.stabn<span class="Apple-converted-space">  </span>192,0,0,LBB2</p>
+<p class="p23">.stabd<span class="Apple-converted-space">  </span>68,0,15</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.desc</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.desc</b><span class="Apple-converted-space">  </span><i>symbol_name</i> <b>,</b> <i>absolute_expression</i></p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.desc</b> directive sets the <b>n_desc</b> field of the specified symbol to<i> absolute_expression</i>.</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.desc<span class="Apple-converted-space">  </span>_main,0xface</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.set</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.set</b><span class="Apple-converted-space">  </span><i>symbol_name</i> <b>,</b> <i>absolute_expression</i></p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.set</b> directive creates the symbol <i>symbol_name</i> and sets its value to <i>absolute_expression</i>.<span class="Apple-converted-space">  </span>This is the same as using <i>symbol_name</i> <b>=</b> <i>absolute_expression</i>.</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.set one,1</p>
+<p class="p23">two = 2</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.lsym</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.lsym</b><span class="Apple-converted-space">  </span><i>symbol_name</i> <b>,</b> <i>expression</i></p>
+<p class="p9"><br></p>
+<p class="p8">A unique and otherwise unreferenceable symbol of the (<i>symbol_name</i>, <i>expression</i>) pair is created in the symbol table.<span class="Apple-converted-space">  </span>Some Fortran 77 compilers use this mechanism to communicate with the debugger.</p>
+<p class="p9"><br></p>
+<p class="p25"><b></b><br></p>
+<p class="p12"><b>Miscellaneous Directives</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p8">This section describes additional directives that don't fit into any of the previous sections.</p>
+<p class="p9"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>.abort</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.abort</b><i><span class="Apple-converted-space"> </span></i> [<span class="Apple-converted-space">  </span><b>"</b><i>abort_string</i><b>"</b> ]</p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.abort</b> directive causes the assembler to ignore all further input and quit processing.<span class="Apple-converted-space">  </span>No files are created.<span class="Apple-converted-space">  </span>The directive would be used, for example, in a pipe interconnected version of a compiler—the first major syntax error would cause the compiler to issue this directive, saving unnecessary work in assembling code that would have to be discarded anyway.</p>
+<p class="p9"><br></p>
+<p class="p8">The optional <b>"</b><i>abort_string</i><b>"</b> is printed as part of the error message when the <b>.abort</b> directive is encountered.</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">#ifndef VAR</p>
+<p class="p23"><span class="Apple-converted-space">    </span>.abort "You must define VAR to assemble this file."</p>
+<p class="p23">#endif</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.file and .line</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.file</b><span class="Apple-converted-space">  </span><i>file_name</i></p>
+<p class="p18"><b>.line</b><span class="Apple-converted-space">  </span><i>line_number</i></p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.file</b> directive causes the assembler to report error messages as if it were processing the file <i>file_name</i>.</p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.line</b> directive causes the assembler to report error messages as if it were processing the line <i>line_number</i>.<span class="Apple-converted-space">  </span>The next line after the <b>.line</b> directive is assumed to be <i>line_number</i>.</p>
+<p class="p9"><br></p>
+<p class="p8">The assembler turns C preprocessor comments of the form</p>
+<p class="p9"><br></p>
+<p class="p23"># <i>line_number</i> <i>file_name</i> <i>level</i></p>
+<p class="p9"><br></p>
+<p class="p8">into<span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p23">.line <i>line_number</i>; .file <i>file_name</i></p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.line 6</p>
+<p class="p23">nop <span class="Apple-converted-space">      </span>| this is line 6</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.if, .elseif, .else, and .endif</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.if</b> <i>expression</i></p>
+<p class="p18"><b>.elseif</b> <i>expression</i></p>
+<p class="p18">.else</p>
+<p class="p18">.endif</p>
+<p class="p9"><br></p>
+<p class="p8">These directives are used to delimit blocks of code that are to be assembled conditionally, depending on the value of an expression.<span class="Apple-converted-space">  </span>A block of conditional code may be nested within another block of conditional code.<span class="Apple-converted-space">  </span><i>Expression</i> must be an absolute expression.</p>
+<p class="p9"><br></p>
+<p class="p8">For each <b>.if</b> directive,</p>
+<p class="p9"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span>there must be a matching <b>.endif</b></p>
+<p class="p10">•<span class="Apple-tab-span">	</span>there may be as many intervening <b>.elseif</b>'s as desired</p>
+<p class="p10">•<span class="Apple-tab-span">	</span>there may be no more than one intervening <b>.else</b> before the tailing <b>.endif</b></p>
+<p class="p9"><br></p>
+<p class="p8">Labels or multiple statements must not be placed on the same line as any of these directives; otherwise, statements including these directives won't be recognized and will produce errors or incorrect conditional assembly.</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.if a==1</p>
+<p class="p23">.long 1</p>
+<p class="p23">.elseif a==2</p>
+<p class="p23">.long 2</p>
+<p class="p23">.else</p>
+<p class="p23">.long 3</p>
+<p class="p23">.endif</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.include</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.include</b> <i>filename</i></p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.include</b> directive causes the named file to be included at the current point in the assembly.<span class="Apple-converted-space">  </span>The <b>-I</b><i>dir</i> option to the assembler specifies alternative paths to be used in searching for the file if it isn't found in the current directory<span class="Apple-converted-space">  </span>(the default path, <b>/usr/include</b>, is always searched last).</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.include<span class="Apple-converted-space">  </span>macros.h</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.macro, .endmacro, .macros_on, and .macros_off</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18">.<b>macro</b></p>
+<p class="p18">.<b>endmacro</b></p>
+<p class="p18">.<b>macros_on</b></p>
+<p class="p18">.<b>macros_off</b></p>
+<p class="p9"><br></p>
+<p class="p8">These directives allow your to define simple macros (once a macro is defined, however, you can't redefine it).<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p9"><br></p>
+<p class="p23">.macro<span class="Apple-converted-space">  </span>var</p>
+<p class="p23">instruction_1<span class="Apple-converted-space">  </span>$0,$1</p>
+<p class="p23">instruction_2<span class="Apple-converted-space">  </span>$2</p>
+<p class="p23"><span class="Apple-converted-space"> </span>. . .</p>
+<p class="p23">instruction_N</p>
+<p class="p23">.long $n</p>
+<p class="p23">.endmacro</p>
+<p class="p9"><br></p>
+<p class="p8">$<i>d</i> (where <i>d</i> is a single decimal digit, 0 through 9) represents each argument—there can be at most 10 arguments.<span class="Apple-converted-space">  </span><i>$n</i> is replaced by the actual number of arguments the macro was invoked with.</p>
+<p class="p9"><br></p>
+<p class="p8">When you use a macro, arguments are separated by a comma (except inside matching parentheses—for example, <span class="s3">xxx(1,3,4),yyy</span> contains only two arguments).<span class="Apple-converted-space">  </span>You could use the macro defined above as follows:</p>
+<p class="p9"><br></p>
+<p class="p23">var<span class="Apple-converted-space">  </span>#0,@sp,4</p>
+<p class="p9"><br></p>
+<p class="p8">This would be expanded to:</p>
+<p class="p9"><br></p>
+<p class="p23">instruction_1 #0,@sp</p>
+<p class="p23">instruction_2 4</p>
+<p class="p23"><span class="Apple-converted-space"> </span>. . .</p>
+<p class="p23">instruction_N</p>
+<p class="p23">.long 3</p>
+<p class="p9"><br></p>
+<p class="p8">The directives <b>.macros_on</b> and <b>.macros_off</b> allow macros to be written that override an instruction or directive while still using the instruction or directive.<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p9"><br></p>
+<p class="p23">.macro .long</p>
+<p class="p23">.macros_off</p>
+<p class="p23">.long $0,$0</p>
+<p class="p23">.macros_on</p>
+<p class="p23">.endmacro</p>
+<p class="p9"><br></p>
+<p class="p8">If you don't specify an argument, the macro will substitute nothing (also see the <b>.abs</b> directive below).</p>
+<p class="p9"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>.abs</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.abs</b><span class="Apple-converted-space">  </span><i>symbol_name</i> <b>,</b> <i>expression</i></p>
+<p class="p9"><br></p>
+<p class="p8">This directive sets the value of <i>symbol_name</i> to 1 if <i>expression</i> is an absolute expression; otherwise, it sets the value to 0.</p>
+<p class="p9"><br></p>
+<p class="p8">EXAMPLE:</p>
+<p class="p17"><br></p>
+<p class="p23">.macro var</p>
+<p class="p23">.abs is_abs,$0</p>
+<p class="p23">.if is_abs==1</p>
+<p class="p23">.abort "must be absolute"</p>
+<p class="p23">.endif</p>
+<p class="p23">.endmacro</p>
+<p class="p28"><b></b><br></p>
+<p class="p15"><b>.dump and .load</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.dump</b> <i>filename</i></p>
+<p class="p18"><b>.load</b> <i>filename</i></p>
+<p class="p9"><br></p>
+<p class="p8">These directives let you dump and load the absolute symbols and macro definitions, for faster loading and faster assembly.</p>
+<p class="p9"><br></p>
+<p class="p8">These work like this:</p>
+<p class="p9"><br></p>
+<p class="p23">.include "big_file_1"</p>
+<p class="p23">.include "big_file_2"</p>
+<p class="p23">.include "big_file_3"</p>
+<p class="p23">. . .</p>
+<p class="p23">.include "big_file_N"</p>
+<p class="p23">.dump<span class="Apple-converted-space">    </span>"symbols.dump"</p>
+<p class="p9"><br></p>
+<p class="p8">The <b>.dump</b> directive writes out all the N_ABS symbols and macros.<span class="Apple-converted-space">  </span>You can later use the <b>.load</b> directive to load all the N_ABS symbols and macros faster than you could with <b>.include</b>:</p>
+<p class="p9"><br></p>
+<p class="p23">.load "symbols.dump"</p>
+<p class="p9"><br></p>
+<p class="p8">One useful side effect of loading symbols this way is that they aren't written out to the object file.</p>
+<p class="p9"><br></p>
+<p class="p25"><b></b><br></p>
+<p class="p12"><b>Architecture- and Processor-specific Directives</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p15"><b>M68000-Specific Directives</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">The following directives are specific to the M68000 architecture.</p>
+<p class="p9"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p15"><b>.word, .long, .quad, and .octa</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p8">SYNOPSIS:</p>
+<p class="p17"><br></p>
+<p class="p18"><b>.word</b><span class="Apple-converted-space">  </span>[ <i>expression</i> ] [ <b>,</b> <i>expression</i> ] ...</p>
+<p class="p18"><b>.int</b><span class="Apple-converted-space">  </span>[ <i>expression</i> ] [ <b>,</b> <i>expression</i> ] ...</p>
+<p class="p18"><b>.quad</b><span class="Apple-converted-space">  </span>[ <i>expression</i> ] [ <b>,</b> <i>expression</i> ] ...</p>
+<p class="p18"><b>.octa</b><span class="Apple-converted-space">  </span>[ <i>expression</i> ] [ <b>,</b> <i>expression</i> ] ...</p>
+<p class="p9"><br></p>
+<p class="p8">These directives reserve storage locations in the current section and initialize them with specified integral values.<span class="Apple-converted-space">  </span>Each directive takes zero or more comma-separated absolute expressions and generates a sequence of bytes for each expression.<span class="Apple-converted-space">  </span>The expressions are truncated to the size generated by the directive:</p>
+<p class="p9"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>.word</b> generates two bytes per expression</p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>.int</b> generates four bytes per expression</p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>.quad</b> generates eight bytes per expression</p>
+<p class="p10">•<span class="Apple-tab-span">	</span><b>.octa</b> generates sixteen bytes per expression</p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b>Additional Processor-Specific Directives</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p8">The following processor-specific directives are synonyms for other standard directives described earlier in this chapter; although they are listed here for completeness, their use isn't recommended; wherever possible, you should use the standard directive instead.</p>
+<p class="p9"><br></p>
+<p class="p8">The following are M68000-specific directives:</p>
+<p class="p9"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>M68000 Directive<span class="Apple-tab-span">	</span>Standard Directive</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p18">.skip<span class="Apple-tab-span">	</span>.space</p>
+<p class="p18">.float<span class="Apple-tab-span">	</span>.single</p>
+<p class="p18">.even<span class="Apple-tab-span">	</span>.align 1</p>
+<p class="p18">.proc<span class="Apple-tab-span">	</span><i>&lt;&lt;reserved for future use&gt;&gt;</i></p>
+<p class="p9"><br></p>
+<p class="p8">The following are i386-specific directives:</p>
+<p class="p9"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b>i386 Directive<span class="Apple-tab-span">	</span>Standard Directive</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p18">.ffloat<span class="Apple-tab-span">	</span>.single</p>
+<p class="p18">.dfloat<span class="Apple-tab-span">	</span>.double</p>
+<p class="p18">.tfloat<span class="Apple-tab-span">	</span>[expression] <span class="s4">‹</span> 80-bit IEEE extended precision floating-point</p>
+<p class="p18">.word<span class="Apple-tab-span">	</span>.short</p>
+<p class="p18">.value<span class="Apple-tab-span">	</span>.short</p>
+<p class="p18">.ident<span class="Apple-tab-span">	</span>(ignored)</p>
+<p class="p18">.def<span class="Apple-tab-span">	</span>(ignored)</p>
+<p class="p18">.optim<span class="Apple-tab-span">	</span>(ignored)</p>
+<p class="p18">.version<span class="Apple-tab-span">	</span>(ignored)</p>
+<p class="p18">.ln<span class="Apple-tab-span">	</span>(ignored)</p>
+<p class="p32"><br></p>
+</body>
+</html>

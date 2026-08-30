@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 10.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.0px; font: 12.0px Helvetica}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 10.0px; font: 9.0px Helvetica; min-height: 11.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 9.0px Helvetica}
+    p.p21 {margin: 0.0px 0.0px 0.0px 10.0px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 10.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 12.0px Helvetica}
+    p.p24 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p27 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p30 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 14.0px Times}
+    p.p33 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 20.0px Times; min-height: 24.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p36 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p37 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p39 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p42 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p44 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p48 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p49 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p50 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p51 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p52 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p53 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p54 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p55 {margin: 0.0px 0.0px 0.0px 95.0px; font: 30.0px Courier; min-height: 36.0px}
+    p.p56 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p57 {margin: 0.0px 0.0px 0.0px 75.0px; font: 2.0px Helvetica; min-height: 2.0px}
+    p.p58 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p59 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Helvetica}
+    p.p60 {margin: 0.0px 0.0px 0.0px 95.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p61 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Times}
+    p.p62 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Times; min-height: 8.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.s5 {font: 12.0px Times}
+    span.s6 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSBundle</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s2"> NSObject<span class="Apple-converted-space"> </span></span></p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s3"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span> NSObject (NSObject)<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span> Foundation/NSBundle.h<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="22pt" viewBox="0 0 597 22" role="img" aria-labelledby="eps-svg-1-title" data-source="NSBundle.rtfd/AtaGlance.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">AtaGlance.eps</title><defs>
+<g>
+<g id="eps-svg-1-glyph-0-0">
+<path d="M 8.859375 -6.265625 C 8.796875 -7.078125 8.625 -7.609375 8.234375 -8.140625 C 7.5 -9.09375 6.328125 -9.640625 4.90625 -9.640625 C 2.234375 -9.640625 0.578125 -7.71875 0.578125 -4.65625 C 0.578125 -1.59375 2.21875 0.296875 4.859375 0.296875 C 7.234375 0.296875 8.78125 -1.0625 8.90625 -3.234375 L 7 -3.234375 C 6.875 -2.03125 6.125 -1.34375 4.90625 -1.34375 C 3.40625 -1.34375 2.515625 -2.5625 2.515625 -4.625 C 2.515625 -6.71875 3.4375 -7.96875 4.984375 -7.96875 C 6.109375 -7.96875 6.75 -7.421875 7 -6.265625 Z M 8.859375 -6.265625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-1">
+<path d="M 2.6875 -9.484375 L 0.875 -9.484375 L 0.875 0 L 2.6875 0 Z M 2.6875 -9.484375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-2">
+<path d="M 6.8125 -0.21875 C 6.5 -0.515625 6.390625 -0.734375 6.390625 -1.078125 L 6.390625 -4.984375 C 6.390625 -6.40625 5.421875 -7.140625 3.515625 -7.140625 C 1.625 -7.140625 0.640625 -6.328125 0.515625 -4.703125 L 2.28125 -4.703125 C 2.359375 -5.4375 2.671875 -5.671875 3.5625 -5.671875 C 4.265625 -5.671875 4.609375 -5.4375 4.609375 -4.96875 C 4.609375 -4.734375 4.5 -4.53125 4.296875 -4.421875 C 4.0625 -4.296875 4.0625 -4.296875 3.15625 -4.140625 L 2.4375 -4.015625 C 1.046875 -3.78125 0.359375 -3.0625 0.359375 -1.8125 C 0.359375 -0.546875 1.203125 0.296875 2.5 0.296875 C 3.28125 0.296875 3.984375 -0.03125 4.625 -0.703125 C 4.625 -0.34375 4.671875 -0.203125 4.84375 0 L 6.8125 0 Z M 4.609375 -2.828125 C 4.609375 -1.765625 4.09375 -1.171875 3.171875 -1.171875 C 2.5625 -1.171875 2.1875 -1.5 2.1875 -2.015625 C 2.1875 -2.5625 2.46875 -2.828125 3.21875 -2.984375 L 3.84375 -3.09375 C 4.328125 -3.1875 4.40625 -3.21875 4.609375 -3.3125 Z M 4.609375 -2.828125 "/>
+</g>
+<g id="eps-svg-1-glyph-0-3">
+<path d="M 6.5625 -4.765625 C 6.53125 -6.234375 5.390625 -7.140625 3.515625 -7.140625 C 1.734375 -7.140625 0.625 -6.234375 0.625 -4.796875 C 0.625 -4.328125 0.765625 -3.921875 1.015625 -3.65625 C 1.265625 -3.40625 1.484375 -3.28125 2.15625 -3.0625 L 4.328125 -2.390625 C 4.78125 -2.25 4.9375 -2.109375 4.9375 -1.8125 C 4.9375 -1.390625 4.4375 -1.125 3.59375 -1.125 C 3.109375 -1.125 2.75 -1.203125 2.515625 -1.375 C 2.3125 -1.515625 2.234375 -1.65625 2.15625 -2.046875 L 0.375 -2.046875 C 0.421875 -0.5 1.5625 0.296875 3.6875 0.296875 C 4.671875 0.296875 5.40625 0.09375 5.921875 -0.328125 C 6.453125 -0.734375 6.765625 -1.390625 6.765625 -2.078125 C 6.765625 -2.984375 6.3125 -3.578125 5.375 -3.84375 L 3.078125 -4.515625 C 2.578125 -4.671875 2.4375 -4.765625 2.4375 -5.0625 C 2.4375 -5.453125 2.859375 -5.703125 3.5 -5.703125 C 4.375 -5.703125 4.796875 -5.390625 4.8125 -4.765625 Z M 6.5625 -4.765625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-4">
+</g>
+<g id="eps-svg-1-glyph-0-5">
+<path d="M 3.90625 -6.875 L 2.90625 -6.875 L 2.90625 -8.765625 L 1.078125 -8.765625 L 1.078125 -6.875 L 0.1875 -6.875 L 0.1875 -5.671875 L 1.078125 -5.671875 L 1.078125 -1.359375 C 1.078125 -0.25 1.65625 0.296875 2.859375 0.296875 C 3.28125 0.296875 3.578125 0.265625 3.90625 0.15625 L 3.90625 -1.125 C 3.734375 -1.09375 3.640625 -1.078125 3.5 -1.078125 C 3.015625 -1.078125 2.90625 -1.21875 2.90625 -1.84375 L 2.90625 -5.671875 L 3.90625 -5.671875 Z M 3.90625 -6.875 "/>
+</g>
+<g id="eps-svg-1-glyph-0-6">
+<path d="M 9.25 -5.09375 L 5.453125 -5.09375 L 5.453125 -3.46875 L 7.609375 -3.46875 C 7.546875 -2.9375 7.421875 -2.609375 7.140625 -2.28125 C 6.671875 -1.703125 5.9375 -1.359375 5.203125 -1.359375 C 3.609375 -1.359375 2.5 -2.75 2.5 -4.6875 C 2.5 -6.734375 3.484375 -7.96875 5.140625 -7.96875 C 5.828125 -7.96875 6.390625 -7.78125 6.828125 -7.390625 C 7.09375 -7.15625 7.234375 -6.9375 7.40625 -6.453125 L 9.25 -6.453125 C 9.015625 -8.40625 7.421875 -9.640625 5.140625 -9.640625 C 2.40625 -9.640625 0.546875 -7.625 0.546875 -4.671875 C 0.546875 -1.796875 2.421875 0.296875 4.984375 0.296875 C 6.25 0.296875 7.109375 -0.15625 7.84375 -1.21875 L 8.078125 0.03125 L 9.25 0.03125 Z M 9.25 -5.09375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-7">
+<path d="M 0.8125 -7.015625 L 0.8125 0 L 2.640625 0 L 2.640625 -4.21875 C 2.640625 -5.046875 3.21875 -5.59375 4.109375 -5.59375 C 4.890625 -5.59375 5.28125 -5.15625 5.28125 -4.328125 L 5.28125 0 L 7.09375 0 L 7.09375 -4.703125 C 7.09375 -6.265625 6.25 -7.140625 4.75 -7.140625 C 3.796875 -7.140625 3.15625 -6.796875 2.640625 -6 L 2.640625 -7.015625 Z M 0.8125 -7.015625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-8">
+<path d="M 6.78125 -4.390625 C 6.65625 -6.109375 5.53125 -7.140625 3.75 -7.140625 C 1.65625 -7.140625 0.4375 -5.765625 0.4375 -3.359375 C 0.4375 -1.046875 1.65625 0.296875 3.734375 0.296875 C 5.4375 0.296875 6.609375 -0.75 6.78125 -2.4375 L 5.046875 -2.4375 C 4.828125 -1.515625 4.453125 -1.171875 3.734375 -1.171875 C 2.8125 -1.171875 2.265625 -1.984375 2.265625 -3.359375 C 2.265625 -4.046875 2.390625 -4.65625 2.609375 -5.0625 C 2.828125 -5.453125 3.21875 -5.671875 3.75 -5.671875 C 4.484375 -5.671875 4.84375 -5.3125 5.046875 -4.390625 Z M 6.78125 -4.390625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-9">
+<path d="M 6.8125 -2.9375 C 6.828125 -3.09375 6.828125 -3.15625 6.828125 -3.25 C 6.828125 -3.953125 6.71875 -4.609375 6.546875 -5.09375 C 6.078125 -6.375 4.953125 -7.140625 3.53125 -7.140625 C 1.515625 -7.140625 0.28125 -5.6875 0.28125 -3.328125 C 0.28125 -1.078125 1.515625 0.296875 3.5 0.296875 C 5.0625 0.296875 6.34375 -0.578125 6.75 -1.96875 L 4.953125 -1.96875 C 4.734375 -1.421875 4.21875 -1.09375 3.5625 -1.09375 C 3.046875 -1.09375 2.625 -1.3125 2.359375 -1.703125 C 2.203125 -1.96875 2.125 -2.28125 2.109375 -2.9375 Z M 2.125 -4.140625 C 2.25 -5.21875 2.703125 -5.75 3.515625 -5.75 C 4.34375 -5.75 4.84375 -5.1875 4.921875 -4.140625 Z M 2.125 -4.140625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-10">
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 21.5 L 595.5 1.5 L 49.5 1.5 L 49.5 21.5 L 595.5 21.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 200 L 20 200 " transform="matrix(0.1, 0, 0, -0.1, 0, 22)"/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-0" x="67" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="76.386" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="80" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="87.228" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="94.456" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="101.684" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="105.298" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-5" x="112.526" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="116.855" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="120.469" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="127.697" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-6" x="131.311" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="141.425" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="145.039" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-7" x="152.267" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-8" x="160.21" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-9" x="167.438" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-10" x="174.666" y="17"/>
+</g>
+</svg></b><b></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p13"><b>Purpose</b></p>
+<p class="p14">An NSBundle represents a location in the file system that groups code and resources that can be used in a program. NSBundles locate program resources, dynamically load executable code, and assist in localization. You build a bundle in Project Builder using one of these project types: Application, pathForRFramework, Loadable Bundle, Palette.</p>
+<p class="p15"><br></p>
+<p class="p13"><b>Principal Attribute</b></p>
+<p class="p14">•<span class="Apple-tab-span">	</span>Directory path</p>
+<p class="p15"><br></p>
+<p class="p13"><b>Creation</b></p>
+<p class="p16"><span class="s4">-</span><b> </b>initWithPath:<span class="Apple-tab-span">	</span>(designated initializer)</p>
+<p class="p16">+ mainBundle<span class="Apple-tab-span">	</span>Returns the NSBundle for the application wrapper.</p>
+<p class="p16">+<b> </b>bundleForClass:<span class="Apple-tab-span">	</span>Returns the NSBundle in which the class is implemented.</p>
+<p class="p16">+ bundleWithPath:<span class="Apple-tab-span">	</span>Returns the NSBundle at a location in the file system.</p>
+<p class="p17"><br></p>
+<p class="p13"><b>Commonly Used Methods</b></p>
+<p class="p16"><span class="s4">-</span><b> </b>localizedStringForKey:value:table:<b><span class="Apple-tab-span">	</span></b>Returns a localized version of a string.</p>
+<p class="p16"><span class="s4">-</span> pathForResource:ofType:<span class="Apple-tab-span">	</span>Returns the path for the specified resource.</p>
+<p class="p16"><span class="s4">-</span> principalClass<span class="Apple-tab-span">	</span>Returns the principal class, dynamically loading code if needed.</p>
+<p class="p18"><br></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="9pt" viewBox="0 0 597 9" role="img" aria-labelledby="eps-svg-2-title" data-source="NSBundle.rtfd/AtaGlanceClose.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-2-title">AtaGlanceClose.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 7.5 L 595.5 0.25 L 49.5 0.25 L 49.5 7.5 L 595.5 7.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 20 L 20 20 " transform="matrix(0.1, 0, 0, -0.1, 0, 9)"/>
+</svg></b><b></b></p>
+<p class="p21"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p24"><b></b><br></p>
+<p class="p14">An NSBundle is an object that corresponds to a directory where related resources—including executable code—are stored. The directory, in essence, “bundles” a set of resources used by an application into convenient chunks, and the NSBundle object makes those resources available to the application. NSBundle can find requested resources in the directory and can dynamically load executable code. The term <i>bundle</i> refers both to the object and to the directory it represents.</p>
+<p class="p25"><br></p>
+<p class="p14">Bundles are useful in a variety of contexts. Since bundles combine executable code with the resources used by that code, they facilitate installation and localization. NSBundles are also used to locate specific resources, to obtain localized strings, to load code dynamically, and to determine which classes are loaded.</p>
+<p class="p25"><br></p>
+<p class="p14">Each resource in a bundle usually resides in its own file. Bundled resources include such things as:</p>
+<p class="p25"><br></p>
+<p class="p26">•<span class="Apple-tab-span">	</span>Executable code</p>
+<p class="p26">•<span class="Apple-tab-span">	</span>Images—TIFF or EPS images used by an application's user interface<span class="Apple-converted-space"> </span></p>
+<p class="p26">•<span class="Apple-tab-span">	</span>Sounds</p>
+<p class="p26">•<span class="Apple-tab-span">	</span>Localized character strings</p>
+<p class="p26">•<span class="Apple-tab-span">	</span>Nib files—Interface Builder files describing user-interface objects and their relationships<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p14">The Project Builder application defines four types of projects that build bundles as <i>file packages.</i> A file package is a directory that the Workspace Manager presents to users as if it were a simple file; the contents of the directory are hidden. The four types of Project Builder bundles are:</p>
+<p class="p25"><br></p>
+<p class="p26">•<span class="Apple-tab-span">	</span><b>Application</b>. The application wrapper is a bundle that contains the resources needed to launch the application, including the application executable. This bundle is also known as the main bundle. Its extension is “.app”.</p>
+<p class="p27"><br></p>
+<p class="p26">•<span class="Apple-tab-span">	</span><b>Framework</b>. A framework is a directory containing a dynamic shared library and all the resources that go with that library, such as header files, images, and documentation. Its extension is “.framework”.</p>
+<p class="p27"><br></p>
+<p class="p26">•<span class="Apple-tab-span">	</span><b>Loadable Bundle</b>. Like an application, a loadable bundle usually contains executable code and associated resources. Loadable bundles differ from applications and frameworks because they must be explicitly loaded into a running application. (See “Loadable Bundles,” below for more information.) The extension of a loadable bundle is conventionally “.bundle” but can be something else (for example, “.preference”).</p>
+<p class="p27"><br></p>
+<p class="p26">•<span class="Apple-tab-span">	</span><b>Palette</b>. A palette is a type of loadable bundle specialized for Interface Builder. It contains custom user-interface objects and compiled code that are loaded into an Interface Builder palette.</p>
+<p class="p27"><br></p>
+<p class="p14">For all types of bundles, the executable-code file of a bundle (of which there can be only one) is in the immediate bundle directory and takes the same name as the bundle, minus the extension. Bundles also encode (as a property list) the important attributes of the bundle, such as the main nib file name, executable name, document extensions, and so forth. You can access these attributes with NSBundle's <b>infoDictionary</b> method, which returns the file's contents as an NSDictionary.</p>
+<p class="p25"><br></p>
+<p class="p14">You shouldn't attempt subclassing NSBundle since the designated initializer, <b>initWithPath:</b>, might substitute another NSBundle for <b>self</b>.</p>
+<p class="p25"><br></p>
+<p class="p28"><br></p>
+<p class="p29"><b>The Main Bundle</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p14">Every application has at least one bundle—its <i>main bundle</i>—which is the “.app” directory where its executable file is located. This file is loaded into memory when the application is launched. It includes at least the <b>main()</b> function and other code necessary to start up the application. You obtain an NSBundle object corresponding to the main bundle with the class method <b>mainBundle</b>.</p>
+<p class="p25"><br></p>
+<p class="p28"><br></p>
+<p class="p29"><b>Framework Bundles</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p14">Frameworks are bundles that package dynamic shared libraries along with the nib files, images, and other resources that support the executable code and with the header files and documentation that describe the associated APIs. As long as your applications are dynamically linked with frameworks, you should have little need to do anything explicitly with those frameworks thereafter; in a running application, the framework code is automatically loaded, as needed. You can however, get an NSBundle object associated with a framework by invoking the class method <b>bundleForClass:</b> specifying, as the argument, a class that's defined in the framework.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p28"><br></p>
+<p class="p29"><b>Loadable Bundles and Dynamic Loading</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p14">An application can be organized into any number of other bundles in addition to the main bundle and the bundles of linked-in frameworks. Although these loadable bundles usually reside inside the application file package, they can be located anywhere in the file system. Each loadable-bundle directory—by convention, with a “.bundle” extension—is represented in the application by a separate NSBundle object. Through this object the application can dynamically load the code and resources in the bundle when it needs them. For example, an application for managing PostScript printers may have a bundle full of PostScript code to be downloaded to printers.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p14">The executable code files in loadable bundles hold class (and category) definitions that the NSBundle object can dynamically load while the application runs. When asked for a certain class (through the invocation of<b> classNamed:</b> or <b>principalClass</b>), the NSBundle loads the object file that contains the class definition (if it's not already loaded) and returns the class object; it also loads other classes and categories that are stored in the file.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p14">The major advantage of bundles is application extensibility. A set of bundled classes often supports a small collection of objects that can be integrated into the larger object network already in place. (NEXTSTEP Preferences is one example of this.) The linkage is established through an instance of the <i>principal class</i>. This object might have methods to return other objects that the application can talk to, but typically all messages from the application to the subnetwork are funneled through the one instance.</p>
+<p class="p25"><br></p>
+<p class="p14">Since each bundle can have only one executable file, that file should be kept free of localizable content. Anything that needs to be localized should be segregated into separate resource files and stored in localized-resource subdirectories.</p>
+<p class="p25"><br></p>
+<p class="p32"><span class="s3"><b>Note:<span class="Apple-tab-span">	</span></b></span>To create a loadable bundle—a bundle with dynamically loadable code—without using Project Builder, use the <b>ld</b>(1) <b>-bundle</b> flag on the <b>cc</b> command line.</p>
+<p class="p33"><br></p>
+<p class="p29"><b>Localized Resources</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p14">If an application is to be used in more than one part of the world, its resources may need to be customized, or “localized,” for language, country, or cultural region. An application may need, for example, to have separate Japanese, English, French, Hindu, and Swedish versions of the character strings that label menu commands.</p>
+<p class="p25"><br></p>
+<p class="p14">Resource files specific to a particular language are grouped together in a subdirectory of the bundle directory. The subdirectory has the name of the language (in English) followed by a “.lpro<span class="s5"><b>j</b></span>” extension (for “language project”). The application mentioned above, for example, would have <b>Japanese.lproj</b>, <b>English.lproj</b>, <b>French.lproj</b>, <b>Hindi.lproj</b>, and <b>Swedish.lproj</b> subdirectories. Each “.lproj” subdirectory in a bundle has the same set of files; all versions of a resource file must have the same name. Thus, <b>Hello.snd</b> in <b>French.lproj</b> should be the French counterpart to the Swedish <b>Hello.snd</b> in <b>Swedish.lproj</b>, and so on. If a resource doesn't need to be localized at all, it's stored in the bundle directory itself, not in the “.lproj” subdirectories.</p>
+<p class="p25"><br></p>
+<p class="p14">The user determines which set of localized resources will actually be used by the application. NSBundle objects rely on the language preferences set by the user in the Preferences application. Preferences lets users order a list of available languages so that the most preferred language is first, the second most preferred language is second, and so on.</p>
+<p class="p25"><br></p>
+<p class="p14">When an NSBundle is asked for a resource file, it provides the path to the resource that best matches the user's language preferences. For details, see the descriptions of<b> pathForResource:ofType:inDirectory</b> and <b>pathForResource:ofType:.</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b>Application Kit Additions to NSBundle</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p31"><b></b><br></p>
+<p class="p14">The Application Kit defines two categories of NSBundle, one for locating image resources and the other for loading nib files. The methods in these categories become part of the NSBundle class only for those applications that use the Application Kit. For details, see the NSBundleAddition specification in the Application Kit reference documentation.</p>
+<p class="p25"><br></p>
+<p class="p34"><br></p>
+<p class="p35"><b>Method Types<span class="Apple-converted-space"> </span></b></p>
+<p class="p24"><b></b><br></p>
+<p class="p36">Initializing an NSBundle<span class="Apple-tab-span">	</span><span class="s4">-</span> initWithPath:</p>
+<p class="p37"><br></p>
+<p class="p36">Getting an NSBundle<span class="Apple-tab-span">	</span>+ bundleForClass:</p>
+<p class="p38">+ bundleWithPath:</p>
+<p class="p38">+ mainBundle</p>
+<p class="p39"><br></p>
+<p class="p36">Getting a bundled class<span class="Apple-tab-span">	</span><span class="s4">-</span> classNamed:</p>
+<p class="p38"><span class="s4">-</span> principalClass</p>
+<p class="p39"><br></p>
+<p class="p36">Finding a resource<span class="Apple-tab-span">	</span><span class="s4">-</span> pathForResource:ofType:</p>
+<p class="p38"><span class="s4">-</span> pathForResource:ofType:inDirectory:</p>
+<p class="p38"><span class="s4">-</span> pathsForResourcesOfType:inDirectory:</p>
+<p class="p38"><span class="s4">-</span> resourcePath</p>
+<p class="p39"><br></p>
+<p class="p36">Getting the bundle directory<span class="Apple-tab-span">	</span><span class="s4">-</span> bundlePath</p>
+<p class="p37"><br></p>
+<p class="p36">Getting bundle information<span class="Apple-tab-span">	</span><span class="s4">-</span> infoDictionary</p>
+<p class="p37"><br></p>
+<p class="p36">Managing localized resources<span class="Apple-tab-span">	</span><span class="s4">-</span> localizedStringForKey:value:table:</p>
+<p class="p40"><br></p>
+<p class="p35"><b>Class Methods</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p29"><b></b><b>bundleForClass:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p41">+ (NSBundle *)<b>bundleForClass:</b>(Class)<i>aClass</i><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p14">Returns the NSBundle that dynamically loaded <i>aClass</i> (a loadable bundle), the NSBundle for the framework in which <i>aClass</i> is defined, or the main bundle object if <i>aClass</i> was not dynamically loaded or is not defined in a framework.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p43"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>mainBundle</b>, + <b>bundleWithPath:</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p29"><b></b><b>bundleWithPath:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p41">+ (NSBundle *)<b>bundleWithPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p14">Returns an NSBundle that corresponds to the specified directory <i>path</i> or <b>nil</b> if <i>path</i> does not identify an accessible bundle directory. This method allocates and initializes the returned object if it doesn't already exist.<span class="Apple-converted-space">   </span></p>
+<p class="p25"><br></p>
+<p class="p43"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>mainBundle</b>, + <b>bundleForClass:</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p29"><b></b><b>mainBundle</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p41">+ (NSBundle *)<b>mainBundle</b><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p14">Returns an NSBundle that corresponds to the directory where the application executable is located or <b>nil</b> if this executable is not located in a accessible bundle directory. This method allocates and initializes the returned NSBundle if it doesn't already exist.</p>
+<p class="p25"><br></p>
+<p class="p14">In general, the main bundle corresponds to an application file package or application wrapper: a directory that bears the name of the application and is marked by a “.app” extension.</p>
+<p class="p25"><br></p>
+<p class="p43"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>bundleForClass:</b>, + <b>bundleWithPath:</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p46"><b></b><br></p>
+<p class="p35"><b>Instance Methods</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p29"><b></b><b>bundlePath</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p41"><span class="s4">-</span> (NSString *)<b>bundlePath</b><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p14">Returns the full pathname of the receiver's bundle directory.</p>
+<p class="p25"><br></p>
+<p class="p47"><br></p>
+<p class="p29"><b></b><b>classNamed:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p41"><span class="s4">-</span> (Class)<b>classNamed:</b>(NSString *)<i>className</i><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p14">Returns the class named <i>className</i>. If the bundle's executable code is not yet loaded, this method dynamically loads it into memory. The method returns <b>nil</b> if <i>className</i> isn't one of the classes associated with the receiver or if there is an error in loading the executable code containing the class implementation. Classes (and categories) are loaded from just one file within the bundle directory; this code file has the same name as the directory, but without the extension (“.bundle,” “.app,” “.framework”). As a side-effect of code loading, the receiver posts NSBundleNotification for each class and category loaded; see “Notifications,” below for details.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p14">The following example loads a bundle's executable code containing the class “FaxWatcher.”</p>
+<p class="p25"><br></p>
+<p class="p48">- (void)loadBundle:(id)sender</p>
+<p class="p48">{</p>
+<p class="p48"><span class="Apple-converted-space">    </span>Class exampleClass;</p>
+<p class="p48"><span class="Apple-converted-space">    </span>id newInstance;</p>
+<p class="p48"><span class="Apple-converted-space">    </span>NSString *str = @"/me/Projects/BundleExample/BundleExample.bundle";</p>
+<p class="p48"><span class="Apple-converted-space">    </span>NSBundle *bundleToLoad = [NSBundle bundleWithPath:str];</p>
+<p class="p48"><span class="Apple-converted-space">    </span>if (exampleClass = [bundleToLoad classNamed:@”FaxWatcher”]) {</p>
+<p class="p48"><span class="Apple-converted-space">        </span>newInstance = [[exampleClass alloc] init];</p>
+<p class="p48"><span class="Apple-converted-space">        </span>// [newInstance doSomething];</p>
+<p class="p48"><span class="Apple-converted-space">     </span>}</p>
+<p class="p48">}</p>
+<p class="p49"><br></p>
+<p class="p43"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>principalClass</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p50"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>infoDictionary</b></p>
+<p class="p51"><b></b><br></p>
+<p class="p41"><span class="s4">-</span> (NSDictionary *)<b>infoDictionary</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p14">Returns a dictionary that contains information about the receiver. This information is extracted from the property list (<b>Info.plist</b>) associated with the bundle. The returned dictionary is empty if no <b>Info.plist</b> can be found. Common keys for accessing the values of the dictionary are NSExecutable, NSExtensions, NSIcon, NSMainNibFile, and NSPrincipalClass.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p43"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>principalClass</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p29"><b></b><b>initWithPath:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p41"><span class="s4">-</span> (id)<b>initWithPath:</b>(NSString *)<i>fullPath</i><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p14">Returns an NSBundle corresponding to the directory<i> fullPath</i>. This method initializes and returns a new instance only if there is no existing NSBundle associated with <i>fullPath</i>, in which case it deallocates <b>self</b> and returns the existing object. <i>fullPath</i> must be a full pathname for a directory; if it contains any symbolic links, they must be resolvable. If the directory doesn't exist or the user doesn't have access to it, this method returns <b>nil</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p14">It's not necessary to allocate and initialize an instance for the main bundle; use the <b>mainBundle</b> class method to get this instance. You can also use the <b>bundleWithPath:</b> class method to obtain a bundle identified by its directory path.</p>
+<p class="p25"><br></p>
+<p class="p43"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>bundleForClass:</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p29"><b></b><b>localizedStringForKey:value:table:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p41"><span class="s4">-</span> (NSString *)<b>localizedStringForKey:</b>(NSString *)<i>key<span class="Apple-converted-space"> </span></i></p>
+<p class="p52"><b>value:</b>(NSString *)<i>value<span class="Apple-converted-space"> </span></i></p>
+<p class="p52"><b>table:</b>(NSString *)<i>tableName</i><span class="Apple-converted-space"> </span></p>
+<p class="p53"><br></p>
+<p class="p14">Returns a localized version of the string designated by <i>key</i> in table <i>tableName</i>.<i> </i>The argument<i> tableName</i> specifies the receiver's string table to search. If <i>tableName</i> is <b>nil</b> or is an empty string, the method attempts to use the table in <b>Localizable.strings</b>; if this table is not present, it looks for any file with a “.strings” extension.<i> </i>The<i> value</i> argument specifies the value to return if a localized string can't be found in the table. If <i>value</i> is <b>nil</b> or an empty string, and a localized string is not found in the table, the method returns the key with all characters in uppercase; this will facilitate updating the table.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p14">This example cycles through a static array of keys when a button is clicked, gets the value for each key from a strings table named <b>Buttons.strings</b>, and sets the button title with the returned value.</p>
+<p class="p25"><br></p>
+<p class="p48">- (void)changeTitle:(id)sender</p>
+<p class="p48">{</p>
+<p class="p48"><span class="Apple-converted-space">    </span>static int keyIndex = 0;</p>
+<p class="p48"><span class="Apple-converted-space">    </span>NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];</p>
+<p class="p54"><br></p>
+<p class="p48"><span class="Apple-converted-space">    </span>NSString *locString = [thisBundle</p>
+<p class="p48"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>localizedStringForKey:assortedKeys[keyIndex++]<span class="Apple-converted-space"> </span></p>
+<p class="p48"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>value:@"" table:@"Buttons"];</p>
+<p class="p48"><span class="Apple-converted-space">    </span>[sender setTitle:locString];</p>
+<p class="p48"><span class="Apple-converted-space">    </span>if (keyIndex == MAXSTRINGS) keyIndex=0;</p>
+<p class="p48">}</p>
+<p class="p49"><br></p>
+<p class="p43"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>pathForResource:ofType:, </b><span class="s4">-</span><b> pathForResource:ofType:inDirectory:</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p29"><b></b><b>pathForResource:ofType:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p41"><span class="s4">-</span> (NSString *)<b>pathForResource:</b>(NSString *)<i>name </i><b>ofType:</b>(NSString *)<i>extension</i></p>
+<p class="p42"><i></i><br></p>
+<p class="p14">Returns the full pathname for the resource identified by <i>name</i> and having the specified file <i>extension</i>. If the <i>extension</i> argument is <b>nil</b> or an empty string (@””), the resource sought is identified by <i>name</i>, with no extension. The method first looks for the resource in the language-specific “.lproj” directory (the local language is determined by user defaults); if the resource is not there, it looks for a non-localized resource in the immediate bundle directory.</p>
+<p class="p25"><br></p>
+<p class="p14">The following code fragment gets the path to a localized sound, creates an Sound instance from it, and plays the sound.</p>
+<p class="p25"><br></p>
+<p class="p48"><span class="Apple-converted-space">    </span>NSString *soundPath;</p>
+<p class="p48"><span class="Apple-converted-space">    </span>Sound *thisSound;</p>
+<p class="p48"><span class="Apple-converted-space">    </span>NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];</p>
+<p class="p48"><span class="Apple-converted-space">    </span>if (soundPath = [thisBundle pathForResource:@"Hello" ofType:@"snd"]) {</p>
+<p class="p48"><span class="Apple-converted-space">        </span>thisSound = [[[Sound alloc] initFromSoundfile:soundPath] autorelease];</p>
+<p class="p48"><span class="Apple-converted-space">        </span>[thisSound play];</p>
+<p class="p48"><span class="Apple-converted-space">    </span>}</p>
+<p class="p48"><span class="s1">-</span> <b>localizedStringForKey:value:table:</b></p>
+<p class="p55"><b></b><br></p>
+<p class="p29"><b></b><b>pathForResource:ofType:inDirectory:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p41"><span class="s4">-</span> (NSString *)<b>pathForResource:</b>(NSString *)<i>name<span class="Apple-converted-space"> </span></i></p>
+<p class="p52"><b>ofType:</b>(NSString *)<i>extension<span class="Apple-converted-space"> </span></i></p>
+<p class="p52"><b>inDirectory:</b>(NSString *)<i>bundlePath<span class="Apple-converted-space"> </span></i></p>
+<p class="p53"><i></i><br></p>
+<p class="p14">Returns the full pathname for the resource identified by <i>name</i>, having the specified file name <i>extension</i>, and residing in the directory <i>bundlePath</i>; returns <b>nil</b> if no matching resource file exists in the bundle. The argument <i>bundlePath</i> must be a valid bundle directory or <b>nil</b>. The argument <i>extension</i> can be an empty string or <b>nil</b>; in either case the pathname returned is the first one encounted with <i>name</i>, regardless of the extension. If <i>bundlePath</i> is specified, the method searches in this order:</p>
+<p class="p25"><br></p>
+<p class="p14"><span class="Apple-tab-span">	</span>&lt;main bundle path&gt;<b>/Resources/</b><i>bundlePath</i><b>/</b>&lt;language.lproj&gt;<b>/</b><i>name</i>.<i>extension</i></p>
+<p class="p14"><i><span class="Apple-tab-span">	</span></i>&lt;main bundle path&gt;<b>/Resources/</b><i>bundlePath</i><b>/</b><i>name</i>.<i>extension</i></p>
+<p class="p14"><span class="Apple-tab-span">	</span>&lt;main bundle path&gt;<b>/</b><i>bundlePath</i><b>/</b>&lt;language.lproj&gt;<b>/</b><i>name</i>.<i>extension</i></p>
+<p class="p14"><span class="Apple-tab-span">	</span>&lt;main bundle path&gt;<b>/</b><i>bundlePath</i><b>/</b><i>name</i>.<i>extension</i></p>
+<p class="p25"><i></i><br></p>
+<p class="p14">The order of language directories searched corresponds to the user's preferences. If <i>bundlePath</i> is <b>nil</b>, the same search order as described above is followed, minus <i>bundlePath</i>.</p>
+<p class="p25"><br></p>
+<p class="p43"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>localizedStringForKey:value:table:</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p29"><b></b><b>pathsForResourcesOfType:inDirectory:</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p41"><span class="s4">-</span> (NSArray *)<b>pathsForResourcesOfType:</b>(NSString *)<i>extension<span class="Apple-converted-space"> </span></i></p>
+<p class="p52"><b>inDirectory:</b>(NSString *)<i>bundlePath<span class="Apple-converted-space"> </span></i></p>
+<p class="p53"><i></i><br></p>
+<p class="p14">Returns an array containing pathnames for all bundle resources having the specified file name <i>extension</i> and residing in the directory <i>bundlePath</i>; returns an empty array if no matching resource files are found. This method provides a means for dynamically discovering bundle resources. The argument <i>bundlePath</i> must be a valid bundle directory or <b>nil</b>. The <i>extension</i> argument can be an empty string or <b>nil</b>; if you specify either of these for <i>extension</i>, however, all bundle resources are returned. Although there is no guaranteed search order, all of the following directories will be searched:</p>
+<p class="p25"><br></p>
+<p class="p14"><span class="Apple-tab-span">	</span>&lt;main bundle path&gt;<b>/Resources/</b><i>bundlePath</i><b>/</b>&lt;language.lproj&gt;<b>/</b><i>name</i>.<i>extension</i></p>
+<p class="p14"><i><span class="Apple-tab-span">	</span></i>&lt;main bundle path&gt;<b>/Resources/</b><i>bundlePath</i><b>/</b><i>name</i>.<i>extension</i></p>
+<p class="p14"><span class="Apple-tab-span">	</span>&lt;main bundle path&gt;<b>/</b><i>bundlePath</i><b>/</b>&lt;language.lproj&gt;<b>/</b><i>name</i>.<i>extension</i></p>
+<p class="p14"><span class="Apple-tab-span">	</span>&lt;main bundle path&gt;<b>/</b><i>bundlePath</i><b>/</b><i>name</i>.<i>extension</i></p>
+<p class="p25"><i></i><br></p>
+<p class="p14">The language directories searched corresponds to the user's preferences. If <i>bundlePath</i> is <b>nil</b>, the same search order as described above is followed, minus <i>bundlePath</i>.</p>
+<p class="p25"><br></p>
+<p class="p43"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>localizedStringForKey:value:table:</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p29"><b></b><b>principalClass</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p41"><span class="s4">-</span> (Class)<b>principalClass</b><span class="Apple-converted-space"> </span></p>
+<p class="p42"><br></p>
+<p class="p14">Returns the NSBundle's principal class after ensuring that the code containing the definition of that class is dynamically loaded. If the NSBundle encounters errors in loading or if it can't find the executable code file in the bundle directory, it returns <b>nil</b>. The principal class typically controls all the other classes in the bundle; it should mediate between those classes and classes external to the bundle. Classes (and categories) are loaded from just one file within the bundle directory. Obtain the name of the code file to load from the dictionary returned from <b>infoDictionary</b>, using “NSExecutable” as the key. The NSBundle determines its principal class in one of two ways:</p>
+<p class="p25"><br></p>
+<p class="p26">•<span class="Apple-tab-span">	</span>It first looks in its own information dictionary, which extracts the information encoded in the bundle's property list (<b>Info.plist</b>). NSBundle obtains the principal class from the dictionary using the key NSPrincipalClass. For non-loadable bundles (applications and frameworks), if the principal class is not specified in the property list, the method returns <b>nil</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p27"><br></p>
+<p class="p26">•<span class="Apple-tab-span">	</span>If the principal class is not specified in the information dictionary, NSBundle identifies the first class loaded as the principal class. When several classes are linked into a dynamically loadable file, the default principal class is the first one listed on the <b>ld</b> command line. In the following example, Reporter would be the principal class:</p>
+<p class="p27"><br></p>
+<p class="p48">ld -o myBundle -r Reporter.o NotePad.o QueryList.o</p>
+<p class="p54"><br></p>
+<p class="p32"><span class="s3"><b>Note:<span class="Apple-tab-span">	</span></b></span>The order of classes in Project Builder's project browser is the order in which they will be linked. To designate the principal class, Control-drag the file containing its implementation to the top of the list.</p>
+<p class="p56"><br></p>
+<p class="p14">As a side-effect of code loading, the receiver posts NSBundleDidLoadNotification after each class and category is loaded; see “Notifications,” below for details.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p14">The following method obtains a bundle by specifying its path (<b>bundleWithPath:</b>), then loads the bundle with <b>principalClass</b> and uses the returned class object to allocate and initialize an instance of that class.</p>
+<p class="p25"><br></p>
+<p class="p48">- (void)loadBundle:(id)sender</p>
+<p class="p48">{</p>
+<p class="p48"><span class="Apple-converted-space">    </span>Class exampleClass;</p>
+<p class="p48"><span class="Apple-converted-space">    </span>id newInstance;</p>
+<p class="p48"><span class="Apple-converted-space">    </span>NSString *path = @"/tmp/Projects/BundleExample/BundleExample.bundle";</p>
+<p class="p48"><span class="Apple-converted-space">    </span>NSBundle *bundleToLoad = [NSBundle bundleWithPath:path];</p>
+<p class="p48"><span class="Apple-converted-space">    </span>if (exampleClass = [bundleToLoad principalClass]) {</p>
+<p class="p48"><span class="Apple-converted-space">        </span>newInstance = [[exampleClass alloc] init];</p>
+<p class="p48"><span class="Apple-converted-space">        </span>[newInstance doSomething];</p>
+<p class="p48"><span class="Apple-converted-space">     </span>}</p>
+<p class="p48"><span class="Apple-converted-space"> </span>}</p>
+<p class="p49"><br></p>
+<p class="p43"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>classNamed:</b>, <span class="s4">-</span> <b>infoDictionary</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p29"><b></b><b>resourcePath</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p41"><span class="s4">-</span> (NSString *)<b>resourcePath</b></p>
+<p class="p42"><b></b><br></p>
+<p class="p14">Returns the full pathname of the receiving bundle's subdirectory containing resources.</p>
+<p class="p25"><br></p>
+<p class="p43"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>bundlePath</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p46"><b></b><br></p>
+<p class="p35"><b>Notifications</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p14">The following notification is declared and posted by NSBundle.<span class="Apple-converted-space"> </span></p>
+<p class="p25"><br></p>
+<p class="p29"><b>NSBundleDidLoadNotification</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p57"><b></b><br></p>
+<p class="p36"><b>Notification Object</b><span class="Apple-tab-span">	</span>The NSBundle that dynamically loads classes</p>
+<p class="p37"><br></p>
+<p class="p36">userInfo Dictionary</p>
+<p class="p58"><br></p>
+<p class="p59"><b>Key<span class="Apple-tab-span">	</span>Value</b></p>
+<p class="p60"><b></b><br></p>
+<p class="p61">NSLoadedClasses<span class="Apple-tab-span">	</span>An NSArray containing the names (as NSStrings) of each</p>
+<p class="p61"><span class="Apple-tab-span">	</span>class that was loaded</p>
+<p class="p62"><br></p>
+<p class="p14">NSBundle posts NSBundleDidLoadNotification to notify observers which classes have been dynamically loaded. When a request is made to an NSBundle for a class (<b>classNamed:</b> or <b>principalClass</b>), the bundle dynamically loads the executable code file that contain the class implementation and all other class definitions contained in the file. After the module is loaded, the NSBundle posts a notification with a <b>userInfo</b> dictionary containing all classes that were loaded.</p>
+<p class="p25"><br></p>
+<p class="p14">In a typical use of this notification, an object might want to enumerate the <b>userInfo</b> NSArray to check if each loaded class conformed to a certain protocol (say, a protocol for a plug-and-play tool set); if a class does conform, the object would create an instance of that class and add the instance to another NSArray.</p>
+<p class="p25"><br></p>
+</body>
+</html>

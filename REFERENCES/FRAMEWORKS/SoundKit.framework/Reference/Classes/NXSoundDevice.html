@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 20.0px Times; min-height: 24.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 136.0px; text-indent: -61.0px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 136.0px; text-indent: -61.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 136.0px; text-indent: -61.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Helvetica}
+    p.p24 {margin: 0.0px 0.0px 0.0px 95.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Times}
+    p.p26 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 95.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p29 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p30 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p34 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p36 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35pt" height="20pt" viewBox="0 0 35 20" role="img" aria-labelledby="eps-svg-1-title" data-source="NXSoundDevice.rtfd/NS%2B.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">NS+.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 3.453125 5.011719 L 6.433594 5.011719 L 8.9375 11.984375 L 8.96875 11.953125 C 8.84375 10.617188 8.613281 9.296875 8.613281 7.960938 L 8.613281 5.011719 L 11.625 5.011719 L 11.625 16.59375 L 8.613281 16.59375 L 6.28125 9.910156 L 6.25 9.941406 C 6.328125 11.03125 6.464844 12.109375 6.464844 13.199219 L 6.464844 16.59375 L 3.453125 16.59375 L 3.453125 5.011719 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 13.777344 12.816406 C 14.207031 13.460938 14.960938 14.105469 15.761719 14.105469 C 16.191406 14.105469 16.679688 13.847656 16.679688 13.339844 C 16.679688 13.0625 16.589844 12.863281 16.433594 12.695312 C 16.296875 12.523438 16.113281 12.386719 15.914062 12.25 C 15.296875 11.773438 14.761719 11.328125 14.363281 10.773438 C 13.976562 10.234375 13.730469 9.589844 13.730469 8.746094 C 13.730469 7.394531 14.59375 4.9375 17.265625 4.9375 C 18.019531 4.9375 18.832031 5.167969 19.492188 5.519531 L 19.492188 9.039062 C 19.125 8.453125 18.371094 7.792969 17.648438 7.792969 C 17.28125 7.792969 16.835938 8.054688 16.835938 8.5 C 16.835938 8.746094 16.972656 8.960938 17.140625 9.144531 C 17.3125 9.332031 17.542969 9.484375 17.710938 9.621094 C 18.371094 10.082031 18.894531 10.511719 19.246094 11.035156 C 19.613281 11.558594 19.816406 12.171875 19.816406 13.046875 C 19.816406 15.195312 18.308594 16.917969 16.128906 16.917969 C 15.328125 16.917969 14.515625 16.75 13.777344 16.441406 L 13.777344 12.816406 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 24.5625 5.832031 L 26.917969 5.832031 L 26.917969 9.617188 L 30.339844 9.617188 L 30.339844 11.976562 L 26.917969 11.976562 L 26.917969 15.90625 L 24.5625 15.90625 L 24.5625 11.976562 L 21.144531 11.976562 L 21.144531 9.617188 L 24.5625 9.617188 L 24.5625 5.832031 "/>
+<path fill="none" stroke-width="15" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(61.177063%, 61.177063%, 61.177063%)" stroke-opacity="1" stroke-miterlimit="4" d="M 329.257812 7.5 L 329.257812 176.289062 L 7.5 176.289062 L 7.5 7.5 Z M 329.257812 7.5 " transform="matrix(0.1, 0, 0, -0.1, 0, 20)"/>
+</svg></b><b></b><b>NXSoundDevice</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5">Inherits From:<span class="Apple-tab-span">	</span>NSObject</p>
+<p class="p6"><br></p>
+<p class="p7">Conforms To:<span class="Apple-tab-span">	</span>NXSoundParameters</p>
+<p class="p8"><br></p>
+<p class="p7">Declared In:<span class="Apple-tab-span">	</span>SoundKit/NXSoundDevice.h</p>
+<p class="p8"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Class Description</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">NXSoundDevice is an abstract superclass; each subclass represents a sound input or output device. The Sound Kit provides two subclasses of NXSoundDevice:</p>
+<p class="p12"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>NXSoundIn represents sound input.</p>
+<p class="p13">•<span class="Apple-tab-span">	</span>NXSoundOut represents sound output.</p>
+<p class="p14"><br></p>
+<p class="p11">The utility of NXSoundDevice is invested in these subclasses; the NXSoundDevice class itself simply defines methods that are common to them. In addition, you can't create useful subclasses of NXSoundDevice yourself.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">Many applications needn't bother with NXSoundDevice and its subclasses; in general, the methods provided by the Sound class are sufficient for applications that record and play sounds. However, while Sound objects are easy to use, NXSoundDevices give you greater of sound resources. The primary advantages of NXSoundDevice objects are that you can:<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Reserve sound devices for exclusive use by your application.</p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Specify the host computer of the device that you want to use.</p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Specify the size and number of the sound data buffers used by the device.</p>
+<p class="p15"><br></p>
+<p class="p16"><b>Initializing and Reserving a Sound Device</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">You initialize an NXSoundDevice by connecting it to a sound driver. The <b>init</b> method connects it to the sound driver on the local host; <b>initOnHost: </b>lets you access the sound driver on some other machine. A single NXSoundDevice can be connected to only one sound driver (one host) at a time.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">Underneath the two NXSoundDevice subclasses lie specific sound driver devices: NXSoundIn represents the sound-in device, and NXSoundOut represents the sound-out device. You can connect any number of NXSoundOut and NXSoundIn instances to the same sound driver; in other words, you can initialize them on the same host.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">You can reserve a sound device for exclusive use by a particular NXSoundDevice object through the <b>setReserved:</b> method. While you have it reserved, no other application, nor any other NXSoundDevice within your application, can use your sound device. If it's unreserved, the sound device is shared: For sound-in, this means that more than one application can get a copy of the same recording. For sound-out, more than one application can play sounds at the same time (see the NXSoundOut class description for more on mixing sounds during playback).<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p19"><b>Warning:<span class="Apple-tab-span">	</span></b>The device reservation mechanism only ensures that no other application will be able to <i>share</i> a device with you—it doesn't prevent the device from being stolen altogether. If you reserve a device, and then a competing application comes along and reserves the same device, this second reservation will win and you'll be left with memories.</p>
+<p class="p20"><br></p>
+<p class="p21"><br></p>
+<p class="p16"><b>Devices and Streams</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">By themselves, NXSoundDevice objects are of limited use. An NXSoundOut object, for example, lets you manipulate the sound-out device, but it doesn't provide data to the device, thus the object isn't capable of making any sound. For this, you need to connect an NXPlayStream object to the NXSoundOut. (This is done by passing the NXSoundOut as the argument to NXPlayStream's <b>initOnDevice:</b> method.) Similarly, to record sound you must connect an NXRecordStream to an NXSoundIn object.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">NXPlayStream and NXRecordStream inherit from NXSoundStream, an abstract superclass that defines methods for its subclasses in much the same way that NXSoundDevice embodies the common functionality of NXSoundIn and NXSoundOut. You can connect more than one NXSoundStream to the same NXSoundDevice, but the NXRecordStream/NXSoundIn, NXPlayStream/NXSoundOut marriages must be honored; you can't connect an NXPlayStream to an NXSoundIn, for example.</p>
+<p class="p12"><br></p>
+<p class="p11">An NXSoundDevice can pause, resume, and abort all the NXSoundStreams that are connected to it. Each NXSoundDevice controls only its own NXSoundStreams; for example, if you initialize two NXSoundOut objects on the same host and connect a pair of NXPlayStreams to each (for a total of four NXPlayStreams), sending a <b>pauseStreams:</b> message to one of the NXSoundOuts will pause only the two streams that are connected to it—the other two streams are unaffected, even though both NXSoundOut objects are connected to the same sound driver device. This ability—to independently control groups of sound streams—is the only reason for creating multiple NXSoundDevices for the same driver device. You should never otherwise need to create more than one NXSoundOut and one NXSoundIn per host machine.</p>
+<p class="p12"><br></p>
+<p class="p22"><br></p>
+<p class="p16"><b>Sound Device Parameters</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">Many of the attributes of an NXSoundDevice object are set through NXSoundParameters protocol methods. See the NXSoundParameters protocol specification for descriptions of parameter-setting and -getting methods. There are three parameter keys that are common to the two NXSoundDevice subclasses:</p>
+<p class="p12"><br></p>
+<p class="p23"><b>Common NXSoundDevice Parameter Keys</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p25">NX_SoundDeviceBufferSize</p>
+<p class="p25">NX_SoundDeviceBufferCount</p>
+<p class="p25">NX_SoundDeviceDetectPeaks</p>
+<p class="p26"><br></p>
+<p class="p11">The NXSoundOut parameter keys are these:</p>
+<p class="p12"><br></p>
+<p class="p23"><b>NXSoundOut Parameter Keys</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p25">NX_SoundDeviceRampUp</p>
+<p class="p25">NX_SoundDeviceRampDown</p>
+<p class="p25">NX_SoundDeviceInsertZeros</p>
+<p class="p25">NX_SoundDeviceDeemphasize</p>
+<p class="p25">NX_SoundDeviceMuteSpeaker</p>
+<p class="p25">NX_SoundDeviceMuteHeadphone</p>
+<p class="p25">NX_SoundDeviceMuteLineOut</p>
+<p class="p25">NX_SoundDeviceOutputLoudness</p>
+<p class="p25">NX_SoundDeviceOutputAttenuationStereo</p>
+<p class="p25">NX_SoundDeviceOutputAttenuationLeft</p>
+<p class="p25">NX_SoundDeviceOutputAttenuationRight</p>
+<p class="p25">NX_SoundDeviceMonitorAttenuation</p>
+<p class="p26"><br></p>
+<p class="p11">And these are the NXSoundIn keys:</p>
+<p class="p12"><br></p>
+<p class="p23"><b>NXSoundIn Parameter Keys</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p25">NX_SoundDeviceAnalogInputSource</p>
+<p class="p25">NX_SoundDeviceInputGainStereo</p>
+<p class="p25">NX_SoundDeviceInputGainLeft</p>
+<p class="p25">NX_SoundDeviceInputGainRight</p>
+<p class="p26"><br></p>
+<p class="p19"><b>Warning:<span class="Apple-tab-span">	</span></b>Setting the values of any of these parameters affects the underlying device. In other words, all NXSoundOut objects that are initialized on a particular host will always have the same set of values for these three parameters; a change to one of the objects affects all the others. Similarly are all NXSoundIn objects affected by changes to a single NXSoundIn.</p>
+<p class="p20"><br></p>
+<p class="p11">Some of the parameter value-retrieving methods defined by NXSoundDevice are meant to be used to configure the NXSoundStream objects that you attach to a particular NXSoundDevice. Specifically, methods are provided that let you ask for the sampling rates, channel counts, and data formats (encodings) that are supported by the underlying hardware. See the “Setting up streams” method type for a list of these methods.</p>
+<p class="p12"><br></p>
+<p class="p22"><br></p>
+<p class="p16"><b>Sound Buffers</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">The sound-in and sound-out devices parcel sound data into equally sized “device buffers” and then send these buffers to the sound hardware. The size (in bytes) of these buffers is controlled by the NX_SoundDeviceBufferSize parameter; the largest a device buffer can be is a page of virtual memory, as given by the global variable <b>vm_page_size</b>. By default, sound-in buffers are 256 bytes and sound-out buffers are a page of virtual memory.</p>
+<p class="p12"><br></p>
+<p class="p11">You can also specify the number of device buffers, through the NX_SoundDeviceBufferCount<b> </b>parameter. By default, both sound-in and sound-out use four buffers. Device buffers are sent as soon as they're filled; by maintaining more than one buffer, the sound driver is able to “run ahead,” filling the extra buffers while the first one is being played (or emptied, in the case of recording). This provides a sort of cushion, allowing the buffer-filling process (which is run in a background thread) to proceed in jerks and starts while sound is played back (or recorded) without interruption.</p>
+<p class="p12"><br></p>
+<p class="p11">Note that if you resize or renumber the device buffers, all may be for nought unless you also adjust the size of the “stream buffers” that you enqueue on the NXSoundStream that you're using. For the best fit, the stream buffers should be no larger than the device buffer size times the device buffer count.</p>
+<p class="p12"><br></p>
+<p class="p11">The buffer attributes for a particular device are reset to their defaults when there are no active streams connected to the device. Because of this, you should always connect an NXSoundStream to your NXSoundDevice and open the stream (through NXSoundStream's <b>activate</b> method) before setting the device buffer size and count.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p22"><br></p>
+<p class="p16"><b>Peak Detection</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">You can set an NXSoundDevice to detect the peak, or maximum absolute amplitude, within <span class="Apple-converted-space">  </span>each device buffer of data. To enable this feature, you must set the boolean NX_SoundDeviceDetectPeaks parameter to YES.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">You can retrieve the most recent peak amplitudes (in stereo) through the <b>getPeakLeft:right:</b> method. The peak values returned by the method are normalized to fall within (0.0, 1.0), where 0.0 is no amplitude and 1.0 is the maximum amplitude supported by the data format. Old peak data is thrown away as the most recent peaks are detected—if you want an on-going and thorough chart of the peaks, you must query for this data promptly and consistently while sound is recording or playing. Typically, you set up a timed entry to invoke <b>getPeakLeft:right:</b> at a frequency that matches the rate at which device buffers are transferred.</p>
+<p class="p12"><br></p>
+<p class="p11">The NXSoundDevice itself doesn't perform the peak detection—it's done by the underlying device. This has a particular significance for sound-out: The data that's returned by <b>getPeakLeft:right:</b> is the peak amplitude of all sounds that are being played, <i>not</i> just those NXPlayStreams that are connected to the queried NXSoundOut object.</p>
+<p class="p12"><br></p>
+<p class="p22"><br></p>
+<p class="p16"><b>Sound Driver Reply Messages</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">As it's processing a sound stream, the sound driver sends Mach messages to a reply port that's managed by the NXSoundDevice class object. Each message contains either a status report—whether a sound has started, completed, aborted, and so on—or, in the case of sound-in, a buffer of recorded sound data.</p>
+<p class="p12"><br></p>
+<p class="p11">The NXSoundDevice class object interprets each of these driver messages and sends a corresponding Objective C message to the delegate of the appropriate NXSoundStream object (as described in the class specifications of NXSoundStream, NXPlayStream, and NXRecordStream). You can repress these messages by lowering the device's “thread threshold,” as explained in the setThreadThreshold: method.</p>
+<p class="p12"><br></p>
+<p class="p11">If you want the reply messages to be delivered as promptly as possible, you should create a separate thread in which the messages are received. This is done by sending setUseSeparateThread:YES to the NXSoundDevice class object. The thread threshold setting has no effect if you're using a separate thread.</p>
+<p class="p12"><br></p>
+<p class="p11">Although using a separate thread increases responsiveness to the sound driver, it may degrade overall system performance, thus degrading the synchronization between sound and graphics (for example). Also, if you're using a separate thread, the NXSoundStream delegate methods that are ultimately invoked mustn't invoke methods or call functions that aren't re-entrant, nor should they cause code to be sent to the PostScript interpreter—in other words, they mustn't draw.</p>
+<p class="p12"><br></p>
+<p class="p11">To have an effect, <b>setUseSeparateThread:</b> and <b>setThreadThreshold:</b> must be invoked <i>before</i> any NXSoundDevice objects are initialized.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p22"><br></p>
+<p class="p16"><b>Sound Device Timeout</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">The NXSoundDevice and NXSoundStream methods that communicate with the underlying driver do so by sending Mach messages to the driver. Such a method sends the Mach message and then waits for a reply from the driver; the method doesn't return—and your application hangs—until the driver responds. On a local host this usually isn't a concern—if your application is running, then the sound driver is running. However, if your application is using the sound driver on a remote host, this assurance is less certain; for example, if the remote host is powered off, then your application will hang when a driver-accessing method is invoked.</p>
+<p class="p12"><br></p>
+<p class="p11">You can specify the maximum amount of time to wait for the sound driver to respond through NXSoundDevice's <b>setTimeout:</b> class method. The method sets, in milliseconds, the time limit for all sound devices. <span class="Apple-converted-space">  </span>If the sound driver doesn't respond to a Mach message within the given amount of time, the method that caused the message to be sent is forced to return with the error code NX_SoundDeviceErrorTimeout (the sound device error codes are listed in the section “Types and Constants” under the heading “NXSoundDeviceError”).</p>
+<p class="p12"><br></p>
+<p class="p11">Although you can set the time limit to an excruciatingly specific interval, it's perhaps better thought of as acting as a boolean that determines whether your application can hang forever or not. The default setting (NX_SOUNDDEVICE_TIMEOUT_MAX) is extremely, perhaps frustratingly, patient. A more urgent setting, say ten seconds or so, will ensure that your application won't hang forever, while allowing enough time for even the sleepiest driver to wake up.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">The Sound Kit methods that access the sound driver, and so are liable to the time limit, are those that return an NXSoundDeviceError value (except for NXSoundDriver's<b> lastError</b>), plus these methods:</p>
+<p class="p12"><br></p>
+<p class="p23"><b>Method<span class="Apple-tab-span">	</span>Class</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p25">isReserved<span class="Apple-tab-span">	</span>NXSoundDevice</p>
+<p class="p25">pauseStreams:<span class="Apple-tab-span">	</span>NXSoundDevice</p>
+<p class="p25">resumeStreams:<span class="Apple-tab-span">	</span>NXSoundDevice</p>
+<p class="p25">abortStreams:<span class="Apple-tab-span">	</span>NXSoundDevice</p>
+<p class="p25">clipCount<span class="Apple-tab-span">	</span>NXSoundDevice<span class="Apple-converted-space"> </span></p>
+<p class="p25">pause:<span class="Apple-tab-span">	</span>NXSoundStream</p>
+<p class="p25">resume:<span class="Apple-tab-span">	</span>NXSoundStream</p>
+<p class="p25">abort:<span class="Apple-tab-span">	</span>NXSoundStream</p>
+<p class="p25">bytesProcessed<span class="Apple-tab-span">	</span>NXSoundStream</p>
+<p class="p26"><br></p>
+<p class="p27"><br></p>
+<p class="p9"><b>Adopted Protocols</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p28">NXSoundParameters<span class="Apple-tab-span">	</span><span class="s2">-</span> boolValueForParameter:</p>
+<p class="p29"><span class="s2">-</span> floatValueForParameter:</p>
+<p class="p29"><span class="s2">-</span> getParameters:count:</p>
+<p class="p29"><span class="s2">-</span> getValues:count:forParameter:</p>
+<p class="p29"><span class="s2">-</span> intValueForParameter:</p>
+<p class="p29"><span class="s2">-</span> isParameterPresent:</p>
+<p class="p29"><span class="s2">-</span> removeParameter:</p>
+<p class="p29"><span class="s2">-</span> setParameter:toBool:</p>
+<p class="p29"><span class="s2">-</span> setParameter:toFloat:</p>
+<p class="p29"><span class="s2">-</span> setParameter:toInt:</p>
+<p class="p30"><br></p>
+<p class="p9"><b>Method Types</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p28">Initializing and freeing an NXSoundDevice</p>
+<p class="p29"><span class="s2">-</span> init</p>
+<p class="p29"><span class="s2">-</span> initOnHost:</p>
+<p class="p31"><br></p>
+<p class="p28">Using a separate thread<span class="Apple-tab-span">	</span>+ replyThread</p>
+<p class="p29">+ isUsingSeparateThread</p>
+<p class="p29">+ setThreadThreshold:</p>
+<p class="p29">+ setUseSeparateThread:</p>
+<p class="p29">+ threadThreshold</p>
+<p class="p31"><br></p>
+<p class="p28">Examining ports<span class="Apple-tab-span">	</span><span class="s2">-</span> devicePort</p>
+<p class="p29">+ replyPort</p>
+<p class="p29"><span class="s2">-</span> streamOwnerPort</p>
+<p class="p31"><br></p>
+<p class="p28">Identifying the host computer<span class="Apple-tab-span">	</span><span class="s2">-</span> host</p>
+<p class="p32"><br></p>
+<p class="p28">Configuring the object<span class="Apple-tab-span">	</span><span class="s2">-</span> isReserved</p>
+<p class="p29"><span class="s2">-</span> setReserved:</p>
+<p class="p29"><span class="s2">-</span> setParameters:</p>
+<p class="p29"><span class="s2">-</span> parameters</p>
+<p class="p29"><span class="s2">-</span> name</p>
+<p class="p29">+ setTimeout:</p>
+<p class="p29">+ timeout</p>
+<p class="p31"><br></p>
+<p class="p28">Retrieving peak amplitudes<span class="Apple-tab-span">	</span><span class="s2">-</span> getPeakLeft:right:</p>
+<p class="p29"><span class="s2">-</span> clipCount</p>
+<p class="p31"><br></p>
+<p class="p28">Setting up streams<span class="Apple-tab-span">	</span><span class="s2">-</span> acceptsContinuousStreamSamplingRates</p>
+<p class="p29"><span class="s2">-</span> getStreamSamplingRates:low:high:</p>
+<p class="p29"><span class="s2">-</span> getStreamSamplingRates:count:</p>
+<p class="p29"><span class="s2">-</span> getStreamDataEncodings:count:</p>
+<p class="p29"><span class="s2">-</span> streamChannelCountLimit:</p>
+<p class="p31"><br></p>
+<p class="p28">Controlling streams<span class="Apple-tab-span">	</span><span class="s2">-</span> abortStreams:</p>
+<p class="p29"><span class="s2">-</span> pauseStreams:</p>
+<p class="p29"><span class="s2">-</span> resumeStreams:</p>
+<p class="p31"><br></p>
+<p class="p28">Handling errors<span class="Apple-tab-span">	</span><span class="s2">-</span> lastError</p>
+<p class="p29">+ textForError:</p>
+<p class="p30"><br></p>
+<p class="p9"><b>Class Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p16"><b></b><b>isUsingSeparateThread</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33">+ (BOOL)<b>isUsingSeparateThread</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns YES if the NXSoundDevice is using a separate thread to process messages from the driver to the reply port; otherwise, returns NO.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span>+<b> setUseSeparateThread:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>replyPort</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33">+ (port_t)<b>replyPort</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns the port to which the sound driver sends reply messages. You can't set this port yourself, and you normally don't need to note its identity; this method is provided so you can pass the reply port as an argument to a function such as <b>port_status()</b>.</p>
+<p class="p12"><br></p>
+<p class="p38"><br></p>
+<p class="p16"><b></b><b>replyThread</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33">+ (cthread_t)<b>replyThread</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns the thread in which messages from the sound driver are sent to the reply port. If the NXSoundDriver isn't using a separate thread for these messages, this returns NO_CTHREAD. The <b>cthread_t</b> type is defined in <b>mach/cthreads.h</b>.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span>+ <b>setUseSeparateThread:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>setThreadThreshold:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><b>+ setThreadThreshold:</b>(int)<i>threshold</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">Sets the threshold against which the application's current event threshold is compared as messages arrive from the driver. If <i>threshold </i>is higher than the event threshold, the message is delivered to the reply port (and so a message is sent to the delegate of the appropriate NXSoundStream), otherwise the message is ignored. By default, <i>threshold</i> is NX_MODALRESPTHRESHOLD, as defined in <b>AppKit/NSApplication.h</b>. If the NXSoundDevice is using a separate thread to receive driver messages, this method has no effect (messages are always received).</p>
+<p class="p12"><br></p>
+<p class="p11">This method does nothing and returns <b>nil</b> if your application contains any initialized NXSoundDevice objects. Otherwise it returns <b>self</b>.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span>+ <b>threadThreshold, </b>+<b> isUsingSeparateThread:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>setTimeout:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33">+ <b>setTimeout:</b>(unsigned int)<i>milliseconds</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">Sets the length of time, in milliseconds, that all sound devices will wait for a method that communicates with the sound driver to return, as explained in the class description, above. Returns <b>self</b>.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span>+ <b>timeout</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>setUseSeparateThread:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33">+<b> setUseSeparateThread:</b>(BOOL)<i>flag</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">If <i>flag</i> is YES, the NXSoundDevice class object will use a separate thread for processing messages from the sound driver. The NXSoundDevice class object interprets these Mach messages and sends corresponding Objective-C messages to the delegate of the appropriate NXSoundStream instance. If <i>flag </i>is NO, the sound driver messages are processed in the application's main thread.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">This method does nothing and returns <b>nil</b> if your application contains any initialized NXSoundDevice objects. Otherwise it returns <b>self</b>.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span>+<b> isUsingSeparateThread</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>textForError:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33">+ (NSString *)<b>textForError:</b>(NXSoundDeviceError)<i>errorCode</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">Returns a localized string that corresponds to <i>errorCode</i>. The sound device error codes are listed in the “Constants and Types” section.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span><b> lastError</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>threadThreshold</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33">+<b> </b>(int)<b>threadThreshold</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns the threshold that's used to determine whether messages from the sound driver are ignored. The default is NX_MODALRESPTHRESHOLD, as defined in <b>AppKit/NSApplication.h</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span>+ <b>setThreadThreshold:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>timeout</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33">+ (unsigned int)<b>timeout</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns the amount of time, in milliseconds, that driver-accessing methods are allowed to hang before being forced to return, as explained in the class description, above. The default is NX_SOUNDDEVICE_TIMEOUT_MAX (essentially forever).</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span>+ <b>setTimeout:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p39"><b></b><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p16"><b></b><b>abortStreams:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (void)<b>abortStreams:</b><i>sender</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">Aborts all streams that are connected to the NXSoundDevice. You should check the return value of <b>lastError</b> after invoking this method to see if an error occurred.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span><b> abort: </b>(NXSoundStream),<b> </b><span class="s2">-</span><b> lastError</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>acceptsContinuousStreamSamplingRates</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (BOOL)<b>acceptsContinuousStreamSamplingRates</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns YES if the underlying hardware accepts sampling rate values that are continuous (in other words, that are non-discrete). You use this method to determine the type of sampling rate values that you can set in a NXSoundParameters object that's applied to an NXSoundStream that's attached to this NXSoundDevice.</p>
+<p class="p12"><br></p>
+<p class="p35"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s2">-</span><b> getStreamSamplingRates:count:, </b><span class="s2">-</span><b> getStreamSamplingRatesLow:high:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>clipCount</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (unsigned int)<b>clipCount</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns the number of sample frames that have been clipped since the activation of the oldest connected stream. Clipping occurs when the amplitude of a sample is great than the greatest representable value for this device. The clip count is reset to 0 when the last stream is deactivated.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><b> </b><span class="s2">-</span> <b>getPeakLeft:right:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>devicePort</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span><b> </b>(port_t)<b>devicePort</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns the port that the NXSoundDevice uses to communicate with the sound driver. You can't set this port yourself, and you normally don't need to note its identity; this method is provided so you can pass the port as an argument to a function such as <b>port_status()</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p38"><br></p>
+<p class="p16"><b></b><b>getPeakLeft:right:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (NXSoundDeviceError)<b>getPeakLeft:</b>(float *)<i>leftAmp</i><b> right:</b>(float *)<i>rightAmp</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">Returns the most recent peak amplitudes detected by the NXSoundDevice's underlying sound device. For stereo sounds, peaks are detected independently for the two channels and returned by reference in <i>leftAmp</i> and <i>rightAmp</i>. For monophonic sounds, the same value is returned in both arguments. The peak values returned in the arguments are normalized to fall within (0.0, 1.0), where 0.0 is no amplitude and 1.0 is the maximum amplitude supported by the data format. See the class description for more information on peak detection. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span><b> clipCount</b> (NXSoundOut)</p>
+<p class="p36"><br></p>
+<p class="p37"><br></p>
+<p class="p16"><b></b><b>getStreamDataEncodings:count:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (NXSoundDeviceError)<b>getStreamDataEncodings:</b>(const NXSoundParameterTag **)<i>encodings </i><b>count:</b>(unsigned int *)<i>numEncodings</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">Returns, by reference in <i>encodings</i>, a list of the data encoding values that are accepted by the underlying hardware. The encodings are represented by parameter value tags; the number of encodings in the list is returned by reference in <i>numEncodings</i>. You then set an NXSoundStream object's encoding to a value plucked from the list.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span> <b>getStreamSamplingRatesLow:high:</b>, <span class="s2">-</span> <b>getStreamSamplingRates:count:</b>, <span class="s2">-</span> <b>streamChannelCountLimit:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>getStreamSamplingRates:count:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (NXSoundDeviceError)<b>getStreamSamplingRates:</b>(const float **)<i>rates</i> <b>count:</b>(unsigned int *)<i>numRates</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">Returns, by reference in <i>rates</i>, a list of the discrete sampling rates that are accepted by the underlying hardware. The number of sampling rates in the list is returned by reference in <i>numRates</i>. You then set an NXSoundStream object's sampling rate to a value plucked from the list. You invoke this method only if the NXSoundDevice doesn't accept continuous sampling rate values (as determined by the <b>acceptsContinuousStreamSamplingRates</b> method). If it accepts continuous values, use the <b>getStreamSamplingRatesLow:high:</b> method instead of this one.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span> <b>acceptsContinuousStreamSamplingRates</b>, <span class="s2">-</span> <b>getStreamSamplingRatesLow:high:</b>, <span class="s2">-</span> <b>streamChannelCountLimit:</b>, <span class="s2">-</span> <b>getStreamDataEncodings:count:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>getStreamSamplingRates:low:high:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (NXSoundDeviceError)<b>getStreamSamplingRatesLow:</b>(float *)<i>lowRate </i><b>high:</b>(float *)<i>highRate</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">Returns, by reference, the lowest and highest sampling rates that are accepted by the underlying hardware. You then set an NXSoundStream object's sampling rate to a value in the returned range. You invoke this method only if the NXSoundDevice accepts continuous sampling rate values (as determined by the <b>acceptsContinuousStreamSamplingRates</b> method). If it only accepts discrete values, use the <b>getStreamSamplingRates:count</b>: method to return this information.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span> <b>acceptsContinuousStreamSamplingRates</b>, <span class="s2">-</span> <b>getStreamSamplingRates:count:</b>, <span class="s2">-</span> <b>streamChannelCountLimit:</b>, <span class="s2">-</span> <b>getStreamDataEncodings:count:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>host</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span><b> </b>(NSString *)<b>host</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns the name of the computer on which the NXSoundDevice was initialized, or <b>nil</b> if it's the local host.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span><b> initOnHost:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>init</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (id)<b>init</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Initializes the NXSoundDevice on the machine specified by the NXHost default (normally the local host). Returns <b>nil</b> if the sound resources cannot be accessed; otherwise returns <b>self</b>.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span><b> initOnHost:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>initOnHost:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (id)<b>initOnHost:</b>(NSString *)<i>hostName</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">Initializes the NXSoundDevice on the machine named <i>hostName</i>. Returns <b>nil</b> if the sound resources cannot be accessed; otherwise returns <b>self</b>.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span><b> init</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>isReserved</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (BOOL)isReserved</p>
+<p class="p34"><br></p>
+<p class="p11">Returns YES if the device is reserved for exclusive access by this NXSoundDevice; otherwise, returns NO (the default).</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span><b> setReserved:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>lastError</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (NXSoundDeviceError)<b>lastError</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns the most recent sound device error associated with the NXSoundDevice. Many methods don't explicitly return an NXSoundDeviceError, but set an internal variable, which can be retrieved with this method. To retrieve localized text that describes the error, pass the value returned by this method to the <b>textForError:</b> class method.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span>+<b> textForError:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>name</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (NSString *)<b>name</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns the name of the NXSoundDevice's underlying device, as registered with the network.</p>
+<p class="p12"><br></p>
+<p class="p38"><br></p>
+<p class="p16"><b></b><b>parameters</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (id &lt;NXSoundParameters&gt;)<b>parameters</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns an object that contains the NXSoundDevice's parameter settings. The parameters take default value settings in a freshly initialized NXSoundDevice.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span> <b>setParameters:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>pauseStreams:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (void)<b>pauseStreams:</b><i>sender</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">Pauses all streams that are connected to the NXSoundDevice. You should check the return value of <b>lastError</b> after invoking this method to see if an error occurred.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span><b> pause: </b>(NXSoundStream),<b> </b><span class="s2">-</span><b> lastError</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>resumeStreams:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (void)<b>resumeStreams:</b><i>sender</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">Resumes all streams that are connected to the NXSoundDevice. You should check the return value of <b>lastError</b> after invoking this method to see if an error occurred.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span><b> resume: </b>(NXSoundStream),<b> </b><span class="s2">-</span><b> lastError</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>setParameters:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (NXSoundDeviceError)<b>setParameters:</b>(id &lt;NXSoundParameters&gt;)<i>parameterObject</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">Sets the NXSoundDevice's parameter values to those specified in the argument.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span> <b>parameters<span class="Apple-converted-space"> </span></b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>setReserved:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (NXSoundDeviceError)<b>setReserved:</b>(BOOL)<i>flag</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p11">If flag is YES, reserves the underlying device for exclusive access by the NXSoundDevice (even if it's currently reserved by another NXSoundDevice—the current owner is forced to yield). No other application, nor any other NXSoundDevice within your application, will be able access the device while it's reserved. Any currently active streams not connected to this NXSoundDevice instance are aborted. If flag is NO the device is made available to all NXSoundDevices. NXSoundDevices are unreserved by default. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span> <b>isReserved, </b><span class="s2">-</span><b> soundStreamDidAbort:deviceReserved:</b> (NXSoundStream delegate)</p>
+<p class="p36"><br></p>
+<p class="p37"><br></p>
+<p class="p16"><b></b><b>streamChannelCountLimit</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (unsigned int)<b>streamChannelCountLimit</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns the maximum number of channels of sound data that are accepted by the underlying hardware. To play a sound, you must set the channel count of any NXSoundStream object that's attached to this NXSoundDevice to a value not greater than that returned by this method.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p35">See also:<span class="Apple-tab-span">	</span><span class="s2">-</span> <b>getStreamSamplingRates:count:</b>, <span class="s2">-</span> <b>getStreamSamplingRatesLow:high:</b>, <span class="s2">-</span> <b>getStreamDataEncodings:count:</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p16"><b></b><b>streamOwnerPort</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p33"><span class="s2">-</span> (port_t)<b>streamOwnerPort</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p11">Returns the port that the NXSoundDevice uses to connect to the sound driver. You can't set this port yourself, and you normally don't need to note its identity; this method is provided in case you want to pass the port as an argument to a function such as <b>port_status()</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p40"><br></p>
+<p class="p12"><br></p>
+</body>
+</html>

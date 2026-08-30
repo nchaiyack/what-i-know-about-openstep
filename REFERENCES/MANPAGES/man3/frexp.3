@@ -1,0 +1,33 @@
+.\"	@(#)frexp.3	6.1 (Berkeley) 5/15/85
+.\"
+.TH FREXP 3 "August 1, 1992"
+.AT 3
+.SH NAME
+frexp, ldexp, modf \- split into mantissa and exponent
+.SH SYNOPSIS
+.nf
+.B #include <math.h>
+.PP
+.B double frexp(double \fIvalue\fP, int *\fIeptr\fP);
+.PP
+.B double ldexp(double \fIvalue\fP, int \fIexp\fP);
+.PP
+.B double modf(double \fIvalue\fP, double *\fIiptr\fP);
+.SH DESCRIPTION
+\fIfrexp\fR returns a mantissa \fIx\fR and (indirectly through \fIeptr\fR)
+an exponent \fIn\fR such that
+\fIx\fR multiplied by 2 raised to \fIn\fR is equal to \fIvalue\fR:
+.PP
+.DT
+	\fIvalue\fP = \fIx\fR*2^\fIn\fR
+.PP
+.I ldexp
+returns the quantity
+\fIvalue\fR*2^\fIexp\fR.
+.PP
+.I modf
+returns the positive fractional part of
+.I value
+and stores the integer part indirectly
+through 
+.I iptr.

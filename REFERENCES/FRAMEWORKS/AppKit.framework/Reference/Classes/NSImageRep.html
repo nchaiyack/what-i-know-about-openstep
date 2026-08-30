@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 12.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 95.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p19 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p23 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 110.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p28 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p30 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p33 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p35 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p38 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 12.0px Helvetica}
+    p.p41 {margin: 0.0px 0.0px 0.0px 116.0px; font: 14.0px Times}
+    p.p42 {margin: 0.0px 0.0px 0.0px 116.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 116.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 75.0px; font: 2.0px Helvetica; min-height: 2.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p48 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSImageRep</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s2">NSObject</span></p>
+<p class="p6"><br></p>
+<p class="p7"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s2">NSCoding</span></p>
+<p class="p8">NSCopying</p>
+<p class="p8">NSObject (NSObject)<span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSImageRep.h</p>
+<p class="p11"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14">NSImageRep is a semi-abstract superclass (“semi,” because it has some instance variables and implementation of its own); each of its subclasses knows how to draw an image from a particular kind of source data. While an NSImageRep subclass can be used directly, it's typically used through an NSImage object. An NSImage manages a group of representations, choosing the best one for the current output device.</p>
+<p class="p15"><br></p>
+<p class="p14">There are four subclasses defined in the Application Kit:</p>
+<p class="p15"><br></p>
+<p class="p16"><b>Subclass<span class="Apple-tab-span">	</span>Source Data</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18">NSBitmapImageRep<span class="Apple-tab-span">	</span>Tag Image File Format (TIFF), Windows bitmap (BMP) and other bitmap data</p>
+<p class="p19"><br></p>
+<p class="p18">NSCachedImageRep<span class="Apple-tab-span">	</span>A rendered image, usually in an off-screen window</p>
+<p class="p19"><br></p>
+<p class="p18">NSCustomImageRep<span class="Apple-tab-span">	</span>A delegated method that can draw the image</p>
+<p class="p19"><br></p>
+<p class="p18">NSEPSImageRep<span class="Apple-tab-span">	</span>Encapsulated PostScript code (EPS)</p>
+<p class="p19"><br></p>
+<p class="p14">You can define other NSImageRep subclasses for objects that render images from other types of source information. New subclasses must be added to the NSImageRep class registry by invoking the <b>registerImageRepClass:</b> class method. The NSImageRep subclass informs the registry of the data types it can support through its <b>imageUnfilteredFileTypes</b>, <b>imageUnfilteredPasteboardTypes</b>, and <b>canInitWithData:</b> class methods. Once an NSImageRep subclass is registered, an instance of that subclass is created any time NSImage encounters the type of data handled by that subclass.</p>
+<p class="p15"><br></p>
+<p class="p14">Subclasses which deal with file and pasteboard types should implement <b>imageUnfilteredFileTypes</b>, <b>imageUnfilteredPasteboardTypes</b>, <b>initWithData:</b>, <b>canInitWithData:</b>, and, if they have the ability to read multiple images from a file, <b>imageRepsWithData:</b>. These last three should not do any filtering; all filtering is automatic.</p>
+<p class="p15"><br></p>
+<p class="p20"><br></p>
+<p class="p12"><b>Adopted Protocols</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p21">NSCoding<span class="Apple-tab-span">	</span><span class="s4">-</span> encodeWithCoder:</p>
+<p class="p22"><span class="s4">-</span> initWithCoder:</p>
+<p class="p23"><br></p>
+<p class="p21">NSCopying<span class="Apple-tab-span">	</span><span class="s4">-</span> copyWithZone:</p>
+<p class="p24"><br></p>
+<p class="p12"><b>Method Types<span class="Apple-converted-space"> </span></b></p>
+<p class="p13"><b></b><br></p>
+<p class="p21">Creating an NSImageRep<span class="Apple-tab-span">	</span>+ imageRepsWithContentsOfFile:</p>
+<p class="p22">+ imageRepsWithPasteboard:</p>
+<p class="p22">+ imageRepWithContentsOfFile:</p>
+<p class="p22">+ imageRepWithPasteboard:</p>
+<p class="p23"><br></p>
+<p class="p21">Checking data types<span class="Apple-tab-span">	</span>+ canInitWithData:</p>
+<p class="p22">+ canInitWithPasteboard:</p>
+<p class="p22">+ imageFileTypes:</p>
+<p class="p22">+ imagePasteboardTypes:</p>
+<p class="p22">+ imageUnfilteredFileTypes:</p>
+<p class="p22">+ imageUnfilteredPasteboardTypes:</p>
+<p class="p23"><br></p>
+<p class="p21">Setting the size of the image<span class="Apple-tab-span">	</span><span class="s4">-</span> setSize:</p>
+<p class="p22"><span class="s4">-</span> size</p>
+<p class="p23"><br></p>
+<p class="p21">Specifying information about the representation</p>
+<p class="p22"><span class="s4">-</span> bitsPerSample</p>
+<p class="p22"><span class="s4">-</span> colorSpaceName</p>
+<p class="p22"><span class="s4">-</span> hasAlpha</p>
+<p class="p22"><span class="s4">-</span> isOpaque</p>
+<p class="p22"><span class="s4">-</span> pixelsHigh</p>
+<p class="p22"><span class="s4">-</span> pixelsWide</p>
+<p class="p22"><span class="s4">-</span> setAlpha:</p>
+<p class="p22"><span class="s4">-</span> setBitsPerSample:</p>
+<p class="p22"><span class="s4">-</span> setColorSpaceName:</p>
+<p class="p22"><span class="s4">-</span> setOpaque:</p>
+<p class="p22"><span class="s4">-</span> setPixelsHigh:</p>
+<p class="p22"><span class="s4">-</span> setPixelsWide:</p>
+<p class="p23"><br></p>
+<p class="p21">Drawing the image<span class="Apple-tab-span">	</span><span class="s4">-</span> draw</p>
+<p class="p22"><span class="s4">-</span> drawAtPoint:</p>
+<p class="p22"><span class="s4">-</span> drawInRect:</p>
+<p class="p23"><br></p>
+<p class="p21">Managing NSImageRep subclasses<span class="Apple-tab-span">	</span>+ imageRepClassForData:</p>
+<p class="p22">+ imageRepClassForFileType:</p>
+<p class="p22">+ imageRepClassForPasteboardType:</p>
+<p class="p22">+ registeredImageRepClasses</p>
+<p class="p22">+ registerImageRepClass:</p>
+<p class="p22">+ unregisterImageRepClass:</p>
+<p class="p25"><br></p>
+<p class="p12"><b>Notifications</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p21">When the NSImageRep class registry changes</p>
+<p class="p22">NSImageRepRegistryDidChangeNotification</p>
+<p class="p25"><br></p>
+<p class="p12"><b>Class Methods<span class="Apple-converted-space"> </span></b></p>
+<p class="p13"><b></b><br></p>
+<p class="p27"><b></b><b>canInitWithData:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (BOOL)<b>canInitWithData:</b>(NSData *)<i>data</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Overridden in subclasses to return YES if the receiver can initialize itself from <i>data</i>, and NO if it cannot. Note that this method doesn't need to do a comprehensive check; it should return NO only if it knows that the receiver can't initialize itself from <i>data</i>.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>canInitWithPasteboard:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (BOOL)<b>canInitWithPasteboard:</b>(NSPasteboard *)<i>pasteboard</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns YES if the NSImageRep can handle the data represented by pasteboard, otherwise returns NO.</p>
+<p class="p15"><br></p>
+<p class="p14">This method invokes the <b>imageUnfilteredPasteboardTypes</b> class method and checks the list of types returned by that method against the data types in pasteboard. If it finds a match, it returns YES. When creating a subclass of NSImageRep that accepts image data from a non-default pasteboard type, override the <b>imageUnfilteredPasteboardTypes</b> method to assure that this method returns the correct response.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>imageFileTypes</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (NSArray *)<b>imageFileTypes</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns an array of NSStrings representing all file types supported by NSImageRep or one of its subclasses. The list includes both those types returned by <b>the imageUnfilteredFileTypes</b> class method and those that can be converted to a supported type by a user-installed filter service. Don't override this method when subclassing NSImageRep—it always returns a valid list for any subclass of NSImageRep that correctly overrides the <b>imageUnfilteredFileTypes</b> method.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>imagePasteboardTypes</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (NSArray *)<b>imagePasteboardTypes</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns an array of NSStrings representing all pasteboard types supported by NSImageRep or one of its subclasses. The list includes both those types returned by the <b>imageUnfilteredPasteboardTypes</b> class method and those that can be converted by a user-installed filter service to a supported type. Don't override this method when subclassing NSImageRep—it always returns a valid list for any subclass of NSImageRep that correctly overrides the <b>imageUnfilteredPasteboardTypes</b> method.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>imageRepClassForData:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (Class)<b>imageRepClassForData:</b>(NSData *)<i>data</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns the NSImageRep subclass that handles data of type <i>data</i>, or <b>Nil</b> if the NSImage class registry contains no subclasses that handle data of the specified type.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>imageRepClassForFileType:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (Class)<b>imageRepClassForFileType:</b>(NSString *)<i>type</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns the NSImageRep subclass that handles files of type <i>type</i>, or <b>Nil</b> if the NSImage class registry contains no subclasses that handle files of the specified type.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>imageRepClassForPasteboardType:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (Class)<b>imageRepClassForPasteboardType:</b>(NSString *)<i>type</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns the NSImageRep subclass that handles pasteboard data of type <i>type</i>, or <b>Nil</b> if the NSImage class registry contains no subclasses that handle pasteboard data of the specified type.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>imageRepWithContentsOfFile:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (id)<b>imageRepWithContentsOfFile:</b>(NSString *)<i>filename</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">If sent to the NSImageRep class object, this method returns a newly-allocated instance of a subclass of NSImageRep (chosen through the use of <b>imageRepClassForFileType:</b>) that's initialized with the contents of the file <i>filename</i>. If sent to a subclass of NSImageRep that recognizes the type of file specified by <i>filename</i>, it returns an instance of that subclass initialized with the contents of the file <i>filename</i></p>
+<p class="p15"><i></i><br></p>
+<p class="p14"><b>imageRepWithContentsOfFile:</b> returns <b>nil</b> in any of the following cases:</p>
+<p class="p15"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>The message is sent to the NSImageRep class object, and there are no subclasses in the NSImageRep class registry that handle data of the type indicated by <i>filename</i>.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>The message is sent to a subclass of NSImageRep, and that subclass doesn't handle data of the type indicated by <i>filename</i>.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>The NSImageRep subclass is unable to initialize itself with the contents of <i>filename</i>.</p>
+<p class="p33"><br></p>
+<p class="p14"><i>filename</i> may be a full or relative pathname, and should include an extension that identifies the data type in the file. By default, the files handled are those with the extensions “tiff”, “tif”, “bmp”, and “eps”.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p14">The NSImageRep subclass is initialized by creating an NSData object based on the contents of the file, then passing it to <b>imageRepWithData:</b>.</p>
+<p class="p15"><br></p>
+<p class="p34"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ imageFileTypes</p>
+<p class="p35"><br></p>
+<p class="p36"><br></p>
+<p class="p27"><b></b><b>imageRepWithPasteboard:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (id)<b>imageRepWithPasteboard:</b>(NSPasteboard *)<i>pasteboard</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">If sent to the NSImageRep class object, this method returns a newly-allocated instance of a subclass of NSImageRep that's initialized with the data in <i>pasteboard</i>. If sent to a subclass of NSImageRep that recognizes the type of data contained in <i>pasteboard</i>, it returns an instance of that subclass initialized with the data in <i>pasteboard</i></p>
+<p class="p15"><i></i><br></p>
+<p class="p14"><b>imageRepWithPasteboard:</b> returns <b>nil</b> in any of the following cases:</p>
+<p class="p15"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>The message is sent to the NSImageRep class object, and there are no subclasses in the NSImageRep class registry that handle data of the type contained in <i>pasteboard</i>.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>The message is sent to a subclass of NSImageRep, and that subclass doesn't handle data of the type contained in <i>pasteboard</i>.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>The NSImageRep subclass is unable to initialize itself with the contents of <i>pasteboard</i>.</p>
+<p class="p33"><br></p>
+<p class="p14">The NSImageRep subclass is initialized by creating an NSData object based on the data in pasteboard, then passing it to <b>imageRepWithData:</b>.</p>
+<p class="p15"><br></p>
+<p class="p34"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ imagePasteboardTypes</p>
+<p class="p35"><br></p>
+<p class="p36"><br></p>
+<p class="p27"><b></b><b>imageRepsWithContentsOfFile:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (NSArray *)<b>imageRepsWithContentsOfFile:</b>(NSString *)<i>filename</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">If sent to the NSImageRep class object, this method returns an array of objects (all newly-allocated instances of a subclass of NSImageRep, chosen through the use of <b>imageRepClassForFileType:</b>) that have been initialized with the contents of the file <i>filename</i>. If sent to a subclass of NSImageRep that recognizes the type of file specified by <i>filename</i>, it returns an array of objects (all instances of that subclass) that have been initialized with the contents of the file <i>filename</i></p>
+<p class="p15"><i></i><br></p>
+<p class="p14"><b>imageRepsWithContentsOfFile:</b> returns <b>nil</b> in any of the following cases:</p>
+<p class="p15"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>The message is sent to the NSImageRep class object, and there are no subclasses in the NSImageRep class registry that handle data of the type indicated by <i>filename</i>.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>The message is sent to a subclass of NSImageRep, and that subclass doesn't handle data of the type indicated by <i>filename</i>.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>The NSImageRep subclass is unable to initialize itself with the contents of <i>filename</i>.</p>
+<p class="p33"><br></p>
+<p class="p14"><i>filename</i> may be a full or relative pathname, and should include an extension that identifies the data type in the file. By default, the files handled are those with the extensions “tiff”, “tif”, “bmp”, and “eps”.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p14">The NSImageRep subclass is initialized by creating an NSData object based on the contents of the file, then passing it to <b>imageRepsWithData:</b>.</p>
+<p class="p15"><br></p>
+<p class="p34"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ imageFileTypes</p>
+<p class="p35"><br></p>
+<p class="p36"><br></p>
+<p class="p27"><b></b><b>imageRepsWithPasteboard:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (NSArray *)<b>imageRepsWithPasteboard:</b>(NSPasteboard *)<i>pasteboard</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">If sent to the NSImageRep class object, this method returns an array of objects (all newly-allocated instances of a subclass of NSImageRep) that have been initialized with the data in <i>pasteboard</i>. If sent to a subclass of NSImageRep that recognizes the type of data contained in <i>pasteboard</i>, it returns an array of objects (all instances of that subclass) initialized with the data in <i>pasteboard</i></p>
+<p class="p15"><i></i><br></p>
+<p class="p14"><b>imageRepsWithPasteboard:</b> returns <b>nil</b> in any of the following cases:</p>
+<p class="p15"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>The message is sent to the NSImageRep class object, and there are no subclasses in the NSImageRep class registry that handle data of the type contained in <i>pasteboard</i>.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>The message is sent to a subclass of NSImageRep, and that subclass doesn't handle data of the type contained in <i>pasteboard</i>.</p>
+<p class="p33"><br></p>
+<p class="p32">•<span class="Apple-tab-span">	</span>The NSImageRep subclass is unable to initialize itself with the contents of <i>pasteboard</i>.</p>
+<p class="p33"><br></p>
+<p class="p14">The NSImageRep subclass is initialized by creating an NSData object based on the data in <i>pasteboard</i>, then passing it to <b>imageRepsWithData:</b>.</p>
+<p class="p15"><br></p>
+<p class="p34"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ imagePasteboardTypes</p>
+<p class="p35"><br></p>
+<p class="p36"><br></p>
+<p class="p27"><b></b><b>imageUnfilteredFileTypes</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (NSArray *)<b>imageUnfilteredFileTypes</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns an array of NSStrings representing all file types (extensions) supported by the NSImageRep. By default, the returned array is empty.</p>
+<p class="p15"><br></p>
+<p class="p14">When creating a subclass of NSImageRep, override this method to return a list of strings representing the supported file types. For example, NSBitmapImageRep implements the following code for this method:</p>
+<p class="p15"><br></p>
+<p class="p37">+ (NSArray *)imageUnfilteredFileTypes {</p>
+<p class="p37">    static NSArray *types = nil;</p>
+<p class="p38"><br></p>
+<p class="p37">    if (!types) types = [[NSArray alloc]<span class="Apple-converted-space"> </span></p>
+<p class="p37">        initWithObjects:@"tiff", @"tif", @"bmp", nil];</p>
+<p class="p37">    return types;</p>
+<p class="p37">}</p>
+<p class="p39"><br></p>
+<p class="p14">If your subclass supports the types supported by its superclass, you must explicitly get the array of types from the superclass and put them in the array returned by this method.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p34"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>imageFileTypes</b>, + <b>imageUnfilteredFileTypes:</b> (NSImage)</p>
+<p class="p35"><br></p>
+<p class="p36"><br></p>
+<p class="p27"><b></b><b>imageUnfilteredPasteboardTypes</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (NSArray *)<b>imageUnfilteredPasteboardTypes</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns an array representing all pasteboard types supported by the NSImageRep. By default, the returned array is empty.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p14">When creating a subclass of NSImageRep, override this method to return a list representing the supported pasteboard types. For example, NSBitmapImageRep implements the following code for this method:</p>
+<p class="p15"><br></p>
+<p class="p37">+ (NSArray *)imageUnfilteredPasteboardTypes {</p>
+<p class="p37">    static NSArray *types = nil;</p>
+<p class="p38"><br></p>
+<p class="p37">    if (!types) types = [[NSArray alloc] initWithObjects:NSTIFFPboardType, nil];</p>
+<p class="p37">    return types;</p>
+<p class="p37">}</p>
+<p class="p39"><br></p>
+<p class="p14">If your subclass supports the types supported by its superclass, you must explicitly get the list of types from the superclass and add them to the array returned by this method.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p34"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>imagePasteboardTypes</b>, + <b>imageUnfilteredPasteboardTypes:</b> (NSImage)</p>
+<p class="p35"><br></p>
+<p class="p36"><br></p>
+<p class="p27"><b></b><b>registerImageRepClass:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (void)<b>registerImageRepClass:</b>(Class)<i>imageRepClass</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Adds <i>imageRepClass</i> to the registry of available NSImageRep classes. This method posts the NSImageRepRegistryChangedNotification notification, along with the receiving object, to the default notification center.</p>
+<p class="p15"><br></p>
+<p class="p14">A good place to add image representation classes to the registry is in the <b>load</b> class method.</p>
+<p class="p15"><br></p>
+<p class="p34"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>load</b> (NSObject)</p>
+<p class="p35"><br></p>
+<p class="p36"><br></p>
+<p class="p27"><b></b><b>registeredImageRepClasses</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (NSArray *)<b>registeredImageRepClasses</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns an array containing the registered NSImageRep classes.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>unregisterImageRepClass:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29">+ (void)<b>unregisterImageRepClass:</b>(Class)<i>imageRepClass</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Removes <i>imageRepClass</i> from the registry of available NSImageRep classes. This method posts the NSImageRepRegistryChangedNotification notification, along with the receiving object, to the default notification center.</p>
+<p class="p15"><br></p>
+<p class="p20"><br></p>
+<p class="p12"><b>Instance Methods</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p27"><b></b><b>bitsPerSample</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (int)<b>bitsPerSample</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns the number of bits used to specify a single pixel in each component of the data.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>colorSpaceName</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSString *)<b>colorSpaceName</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns<i> </i>the name if the image's color space, or NSCalibratedRGBColorSpace if no name has been assigned.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>draw</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (BOOL)<b>draw</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Implemented by subclasses to draw the image at location (0.0, 0.0) in the current coordinate system. Subclass methods return YES if the image is successfully drawn, and NO if it isn't. This version of the method simply returns YES.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>drawAtPoint:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (BOOL)<b>drawAtPoint:</b>(NSPoint)<i>aPoint</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Sets the current coordinates to those indicated by <i>aPoint</i>, invokes the receiver's <b>draw</b> method draw the image at that point, then restores the current coordinates to their original setting. If <i>aPoint</i> is (0.0, 0.0), <b>drawAtPoint:</b> simply invokes <b>draw</b>.</p>
+<p class="p15"><br></p>
+<p class="p14">This method returns NO without translating, scaling, or drawing if the size of the image has not been set. Otherwise it returns the value returned by the <b>draw</b> method, which indicates whether the image is successfully drawn.</p>
+<p class="p15"><br></p>
+<p class="p34"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> setSize:</b><span class="Apple-converted-space"> </span></p>
+<p class="p35"><br></p>
+<p class="p36"><br></p>
+<p class="p27"><b></b><b>drawInRect:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (BOOL)<b>drawInRect:</b>(NSRect)<i>rect</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Draws the image so that it fits inside the rectangle referred to by <i>rect</i>. The current coordinates are set to the point specified in the rectangle and are scaled so the image will fit within the rectangle. The receiver's <b>draw</b> method is then invoked to draw the image. After draw has been invoked, the current coordinates and scale factors are restored to their original settings.</p>
+<p class="p15"><br></p>
+<p class="p14">This method returns NO without translating, scaling, or drawing if the size of the image has not been set. Otherwise it returns the value returned by the <b>draw</b> method, which indicates whether the image is successfully drawn.</p>
+<p class="p15"><br></p>
+<p class="p34"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> setSize:</b><span class="Apple-converted-space"> </span></p>
+<p class="p35"><br></p>
+<p class="p36"><br></p>
+<p class="p27"><b></b><b>hasAlpha</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (BOOL)<b>hasAlpha</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns YES if the receiver has been informed that the image has a coverage component (alpha), and NO if not.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>isOpaque</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (BOOL)<b>isOpaque</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns YES if the receiver is opaque; NO otherwise. Use this method to test whether an NSImageRep completely covers the area within the rectangle returned by size:. Use the method setOpaque: to set the value returned by this method.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>pixelsHigh</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (int)<b>pixelsHigh</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns the height of the image in pixels, as specified in the image data.</p>
+<p class="p15"><br></p>
+<p class="p40"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> size:</span></p>
+<p class="p35"><br></p>
+<p class="p36"><br></p>
+<p class="p27"><b></b><b>pixelsWide</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (int)<b>pixelsWide</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns the width of the image in pixels, as specified in the image data.</p>
+<p class="p15"><br></p>
+<p class="p40"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> size:</span></p>
+<p class="p35"><br></p>
+<p class="p36"><br></p>
+<p class="p27"><b></b><b>setAlpha:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>setAlpha:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Informs the NSImageRep whether the image has an alpha component. <i>flag</i> should be YES if it does, and NO if it doesn't.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>setBitsPerSample:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>setBitsPerSample:</b>(int)<i>anInt</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Informs the NSImageRep that the image has <i>anInt</i> bits of data for each pixel in each component.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>setColorSpaceName:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>setColorSpaceName:</b>(NSString *)<i>string</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Informs the receiver of the image's color space. By default, an NSImageRep's color space name is NSCalibratedRGBColorSpace. Color space names are defined as part of the NSColor class, in NSGraphics.h. The following are valid color space names:</p>
+<p class="p15"><br></p>
+<p class="p41">NSCalibratedWhiteColorSpace</p>
+<p class="p41">NSCalibratedBlackColorSpace</p>
+<p class="p41">NSCalibratedRGBColorSpace</p>
+<p class="p41">NSDeviceWhiteColorSpace</p>
+<p class="p41">NSDeviceBlackColorSpace</p>
+<p class="p41">NSDeviceRGBColorSpace</p>
+<p class="p41">NSDeviceCMYKColorSpace</p>
+<p class="p41">NSNamedColorSpace</p>
+<p class="p41">NSCustomColorSpace</p>
+<p class="p42"><br></p>
+<p class="p43"><br></p>
+<p class="p27"><b></b><b>setOpaque:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>setOpaque:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Sets opacity of the NSImageRep's image. If flag is YES, the image is opaque.</p>
+<p class="p15"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><b></b><b>setPixelsHigh:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>setPixelsHigh:</b>(int)<i>anInt</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Informs the NSImageRep that the data specifies an image <i>anInt</i> pixels high.</p>
+<p class="p15"><br></p>
+<p class="p40"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> setSize:</span></p>
+<p class="p35"><br></p>
+<p class="p36"><br></p>
+<p class="p27"><b></b><b>setPixelsWide:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>setPixelsWide:</b>(int)<i>anInt</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Informs the NSImageRep that the data specifies an image <i>anInt</i> pixels wide.</p>
+<p class="p15"><br></p>
+<p class="p40"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> setSize:</span></p>
+<p class="p35"><br></p>
+<p class="p36"><br></p>
+<p class="p27"><b></b><b>setSize:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>setSize:</b>(NSSize)<i>aSize</i><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Sets the size of the image in units of the base coordinate system. This determines the size of the image when it's rendered; it's not necessarily the same as the width and height of the image in pixels as specified in the image data. You must set the image size before you can render it.</p>
+<p class="p15"><br></p>
+<p class="p34"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> draw</b>, <span class="s4">-</span><b> setPixelsHigh:</b>, <span class="s4">-</span><b> setPixelsWide:</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p36"><b></b><br></p>
+<p class="p27"><b></b><b>size</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSSize)<b>size</b><span class="Apple-converted-space"> </span></p>
+<p class="p30"><br></p>
+<p class="p14">Returns the size of the image in units of the base coordinate system. This is the size of the image when it's rendered; it's not necessarily the same as the width and height of the image in pixels as specified in the image data.</p>
+<p class="p15"><br></p>
+<p class="p34"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span><b> pixelsHigh:</b>, <span class="s4">-</span><b> pixelsWide:</b></p>
+<p class="p35"><b></b><br></p>
+<p class="p44"><b></b><br></p>
+<p class="p12"><b>Notifications</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14">NSImageRep declares and posts the following notification. In addition, it posts notifications that are declared by its superclass, NSObject. See the NSObject class specification for more information.</p>
+<p class="p15"><br></p>
+<p class="p27"><b>NSImageRepRegistryDidChangeNotification</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p45"><b></b><br></p>
+<p class="p21"><b>Notification Object</b><span class="Apple-tab-span">	</span>The notifying NSImageRep.</p>
+<p class="p46"><br></p>
+<p class="p21"><b>Userinfo</b><span class="Apple-tab-span">	</span>none</p>
+<p class="p47"><br></p>
+<p class="p14">Posted when the NSImageRep class registry changes, either through the use of <b>registerImageRepClass:</b> or <b>unregisterImageRepClass:</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p15"><br></p>
+<p class="p48"><br></p>
+</body>
+</html>

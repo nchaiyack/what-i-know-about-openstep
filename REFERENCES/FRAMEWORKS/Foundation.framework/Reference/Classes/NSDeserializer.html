@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.2px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.2px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.6px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 75.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 12.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSDeserializer</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s2">NSObject</span></p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s3"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSObject (NSObject)</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSSerialization.h</p>
+<p class="p8"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">The NSDeserializer class declares methods that convert an abstract representation of a property list (as contained in an NSData object) into a graph of property list objects in memory. The NSDeserializer class object itself provides these methods; you don't create instances of NSDeserializer. Options to these methods allow you to specify that container objects (arrays or dictionaries) in the resulting graph be mutable or immutable; that deserialization begin at the start of the data or from some position within it; or that deserialization occur lazily, so that a property list is deserialized only if it is actually going to be accessed. See the NSSerializer specification for more information on serialization.</p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p9"><b>Class Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p14"><b></b><b>deserializePropertyListFromData:atCursor:mutableContainers:</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">+ (id)<b>deserializePropertyListFromData:</b>(NSData *)<i>data</i></p>
+<p class="p17"><b>atCursor:</b>(unsigned *)<i>cursor</i></p>
+<p class="p17"><b>mutableContainers:</b>(BOOL)<i>mutable</i><span class="Apple-converted-space"> </span></p>
+<p class="p18"><br></p>
+<p class="p11">Returns a property list object corresponding to the abstract representation<i> </i>in <i>data</i> at the location <i>cursor</i>. If <i>mutable</i> is YES and the object is a dictionary or an array, the re-composed object is made mutable. Returns <b>nil</b> if the object is not a valid one for property lists.</p>
+<p class="p12"><br></p>
+<p class="p19"><br></p>
+<p class="p14"><b></b><b>deserializePropertyListFromData:mutableContainers:</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">+ (id)<b>deserializePropertyListFromData:</b>(NSData *)<i>serialization</i> <b>mutableContainers:</b>(BOOL)<i>mutable</i><span class="Apple-converted-space"> </span></p>
+<p class="p20"><br></p>
+<p class="p11">Returns a property list object corresponding to the abstract representation<i> </i>in <i>serialization</i> or <b>nil</b> if <i>serialization</i> doesn't represent a property list. If <i>mutable</i> is YES and the object is a dictionary or an array, the re-composed object is made mutable.</p>
+<p class="p12"><br></p>
+<p class="p19"><br></p>
+<p class="p14"><b></b><b>deserializePropertyListLazilyFromData:atCursor:length:mutableContainers:</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">+ (id)<b>deserializePropertyListLazilyFromData:</b>(NSData *)<i>data</i></p>
+<p class="p17"><b>atCursor:</b>(unsigned *)<i>cursor</i></p>
+<p class="p17"><b>length:</b>(unsigned)<i>length</i></p>
+<p class="p17"><b>mutableContainers:</b>(BOOL)<i>mutable</i><span class="Apple-converted-space"> </span></p>
+<p class="p18"><br></p>
+<p class="p11">Returns a property list from <i>data</i> at location cursor or <b>nil</b> if <i>data</i> doesn't represent a property list. The deserialization proceeds lazily. That is, if the data at <i>cursor</i> has a length greater than <i>length</i>, a proxy is substituted for the actual property list as long as the constituent objects of that property list are not being accessed. If <i>mutable</i> is YES and the object is a dictionary or an array, the re-composed object is made mutable.</p>
+<p class="p12"><br></p>
+</body>
+</html>

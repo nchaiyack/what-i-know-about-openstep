@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 50.4px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 50.4px; font: 24.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 50.4px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 151.2px; font: 14.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 151.2px; font: 10.0px Times; min-height: 13.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 170.1px; font: 12.0px Courier}
+    p.p9 {margin: 0.0px 0.0px 0.0px 151.2px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 151.2px; font: 14.0px Helvetica}
+    p.p11 {margin: 0.0px 0.0px 0.0px 151.2px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 5.0px Times; min-height: 6.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 14.0px Times; min-height: 18.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 151.2px; font: 5.0px Times; min-height: 6.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 170.1px; text-indent: -18.9px; font: 14.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 10.0px Times; min-height: 13.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 5.0px Courier; min-height: 6.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 12.0px Courier}
+    p.p20 {margin: 0.0px 0.0px 0.0px 151.2px; font: 12.0px Courier}
+    p.p21 {margin: 0.0px 0.0px 0.0px 151.2px; font: 12.0px Courier; min-height: 14.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 151.2px; font: 30.0px Helvetica; min-height: 36.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 10.0px Helvetica}
+    span.s3 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><br></p>
+<p class="p4"><b>Kernel-Server Loader Functions</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6">To use these functions, you must compile with the kernload library.<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p7"><br></p>
+<p class="p8"><b>cc myprog.c -lkernload</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p10"><b>kern_loader_abort()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Shut down or reconfigure <b>kern_loader</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_abort(</b>port_t <i>loader_port</i>, port_t <i>priv_port</i>, boolean_t <i>restart</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span><b>kern_loader</b> port, obtained from <b>kern_loader_look_up()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>priv_port</i>:<span class="Apple-converted-space">  </span>The privileged port for this host, returned by <b>host_priv_self()</b>.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>restart</i>:<span class="Apple-converted-space">  </span>If true, reconfigure <b>kern_loader</b>.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This function unloads and deallocates all loadable kernel servers and then, depending on the value of <i>restart</i>, kills or reconfigures the kernel-server loader.<span class="Apple-converted-space">  </span>If <i>restart</i> is true, then <b>kern_loader</b> rereads its configuration file (<b>etc/kern_loader.conf</b>) to determine which servers it should allocate and load.</p>
+<p class="p17"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>/* Get kern_loader's port. */</p>
+<p class="p20">error=kern_loader_look_up(&amp;loader_port);</p>
+<p class="p20">if (error != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't find kern_loader's port", error);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">/* Reconfigure kern_loader. */</p>
+<p class="p20">error=kern_loader_abort(loader_port, host_priv_self(), TRUE);</p>
+<p class="p20">if (error != KERN_SUCCESS)</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't stop kern_loader", error);</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>KERN_SUCCESS:<span class="Apple-converted-space">  </span>The call was successful.</p>
+<p class="p17"><br></p>
+<p class="p6">KERN_LOADER_NO_PERMISSION:<span class="Apple-converted-space">  </span><i>priv_port</i> isn't the host's privileged port.<span class="Apple-converted-space">  </span>(Make sure <b>host_priv_self()</b> is called by a process with superuser permission.)</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_delete_server()</b>,<b> kern_loader_look_up()</b>,<b> kern_loader_unload_server()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_add_server()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Allocate a loadable kernel server</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_add_server(</b>port_t <i>loader_port</i>, port_t <i>task_port</i>, server_reloc_t <i>server_reloc</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span><b>kern_loader</b> port, obtained from calling <b>kern_loader_look_up()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>task_port</i>:<span class="Apple-converted-space">  </span>The kernel's task port, obtained using <b>task_by_unix_pid()</b>. <span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p6"><i>server_reloc</i>:<span class="Apple-converted-space">  </span>The server's relocatable object file.<span class="Apple-converted-space">  </span>For example, the relocatable object file of the MIDI driver is “/usr/lib/kern_loader/Midi/mididriver_reloc”. <span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This function prepares the loadable kernel server to be loaded into the kernel.<span class="Apple-converted-space">  </span>The server isn't loaded unless it automatically loads when allocated. <span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p6">If the server is already loaded or allocated, then the server is unloaded (if necessary) and allocated again from scratch.</p>
+<p class="p7"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>/* Get kern_loader's port. */</p>
+<p class="p20">r = kern_loader_look_up(&amp;loader_port);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't get loader_port", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">/* Get the kernel's task port. */</p>
+<p class="p20">r = task_by_unix_pid(task_self(), 0, &amp;kernel_task);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't get kernel_task", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(2);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">/* Add the server. */</p>
+<p class="p20">r = kern_loader_add_server(loader_port, kernel_task,<span class="Apple-converted-space"> </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>"/usr/lib/kern_loader/Midi/midi_reloc");</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Call to kern_loader_abort failed", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(3);</p>
+<p class="p20">}</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>KERN_SUCCESS:<span class="Apple-converted-space">  </span>The server has been successfully allocated.</p>
+<p class="p17"><br></p>
+<p class="p6">KERN_LOADER_NO_PERMISSION:<span class="Apple-converted-space">  </span><i>task_port</i> wasn't the kernel's task port.<span class="Apple-converted-space">  </span>(Make sure <b>task_by_unix_pid()</b> is called by a process with superuser permission.)</p>
+<p class="p7"><br></p>
+<p class="p6">KERN_LOADER_SERVER_WONT_LOAD:<span class="Apple-converted-space">  </span>The kernel-server loader couldn't use <i>server_reloc</i> to build an loadable object file, or it couldn't understand the load or unload commands, or it couldn't link the loadable object file against <b>/mach</b>.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_delete_server()</b>, <b>kern_loader_look_up()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_delete_server()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Delete a loadable kernel server</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_delete_server(</b>port_t <i>loader_port</i>, port_t <i>task_port</i>, server_name_t <i>server_name</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span><b>kern_loader</b> port, obtained from calling <b>kern_loader_look_up()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>task_port</i>:<span class="Apple-converted-space">  </span>The kernel's task port, obtained using <b>task_by_unix_pid()</b>. <span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p6"><i>server_name</i>:<span class="Apple-converted-space">  </span>The string associated with the server.<span class="Apple-converted-space">  </span>For example, the name of the MIDI driver is “mididriver”.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This function removes the loadable kernel server from <b>kern_loader</b> control.<span class="Apple-converted-space">  </span>If the server is currently loaded, then it's unloaded.</p>
+<p class="p17"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>/* Get kern_loader's port. */</p>
+<p class="p20">error=kern_loader_look_up(&amp;loader_port);</p>
+<p class="p20">if (error != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't find kern_loader's port", error);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">/* Get the kernel's task port. */</p>
+<p class="p20">error=task_by_unix_pid(task_self(), 0, &amp;kern_port);</p>
+<p class="p20">if (error != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>mach_error("Error looking up kernel port", error);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(2);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">/* Delete the server. */</p>
+<p class="p20">error=kern_loader_delete_server(loader_port, kern_port, "mididriver");</p>
+<p class="p20">if (error != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't delete mididriver", error);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(3);</p>
+<p class="p20">}</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>KERN_SUCCESS:<span class="Apple-converted-space">  </span>The call succeeded.</p>
+<p class="p17"><br></p>
+<p class="p6">KERN_LOADER_NO_PERMISSION:<span class="Apple-converted-space">  </span><i>task_port</i> wasn't the kernel's task port.<span class="Apple-converted-space">  </span>(Make sure <b>task_by_unix_pid()</b> is called by a process with superuser permission.)</p>
+<p class="p7"><br></p>
+<p class="p6">KERN_LOADER_UNKNOWN_SERVER:<span class="Apple-converted-space">  </span><i>server_name</i> wasn't recognized. <span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_add_server()</b>, <b>kern_loader_look_up()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_error(), kern_loader_error_string()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Display or return an error message</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader_error.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">void <b>kern_loader_error(</b>const char *<i>string</i>, kern_return_t <i>error</i><b>)</b></p>
+<p class="p16">const char *<b>kern_loader_error_string(</b>kern_return_t <i>error</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>string</i>:<span class="Apple-converted-space">  </span>The string to be printed along with the error message.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>error</i>:<span class="Apple-converted-space">  </span>The value returned by a Mach function.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>These functions act like <b>mach_error()</b> and <b>mach_error_string()</b>, except that they also understand errors from the kernel-server loader functions. <span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p6">The <b>kern_loader_error()</b> function prints to <b>stderr</b> the <i>string</i>, followed by the string corresponding to <i>error</i>, followed by <i>error</i> in parentheses.<span class="Apple-converted-space">  </span>The <b>kern_loader_error_string()</b> function returns the string that corresponds to <i>error</i>.</p>
+<p class="p7"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>error=kern_loader_delete_server(loader_port, kern_port, "mididriver");</p>
+<p class="p20">if (error != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't delete mididriver", error);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(3);</p>
+<p class="p20">}</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>mach_error()</b>,<b> mach_error_string()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_get_log()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Request a message containing kernel log data</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader_types.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_get_log(</b>port_t <i>loader_port</i>, port_t <i>server_com_port</i>, port_t <i>reply_port</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span><b>kern_loader</b> port, obtained from <b>kern_loader_look_up()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>server_com_port</i>:<span class="Apple-converted-space">  </span>The loadable kernel server's communication port, obtained from <b>kern_loader_server_com_port()</b>.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>reply_port</i>:<span class="Apple-converted-space">  </span>The port to which <b>kern_loader</b> should send the reply message.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This function requests a reply message containing data logged by a loadable kernel server.<span class="Apple-converted-space">  </span>Before calling this function for the first time on a server, you should turn the server's logging on by calling <b>kern_loader_log_level()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6">You must supply the implementation of the reply message, as described in Chapter 3, “Using Loadable Kernel Servers.”</p>
+<p class="p7"><br></p>
+<p class="p6">Each item of logged data is preceded by a time stamp.<span class="Apple-converted-space">  </span>The time stamp is a relative indicator of when the data was logged by the loadable kernel server.</p>
+<p class="p7"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span><span class="Apple-converted-space">    </span>r = kern_loader_look_up(&amp;kl_port);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>mach_error("Can't find kernel loader", r);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p21"><span class="Apple-converted-space">    </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>r = port_allocate(task_self(), &amp;reply_port);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>mach_error("Can't allocate reply port", r);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* Get the server's communication port. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>r = task_by_unix_pid(task_self(), 0, &amp;kern_port);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>mach_error("Error looking up kernel's port", r);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p20"><span class="Apple-converted-space">    </span>r = kern_loader_server_com_port(kl_port, kern_port, MYDRIVER_NAME,</p>
+<p class="p20"><span class="Apple-converted-space">        </span>&amp;server_com_port);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>kern_loader_error("Error looking up server com port", r);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p21"><span class="Apple-converted-space">    </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* Set the log level so we'll get log messages. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>r = kern_loader_log_level(kl_port, server_com_port, LOG_NOTICE);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>kern_loader_error("Can't change log level", r);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* Get the first log message. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>r = kern_loader_get_log(kl_port, server_com_port, reply_port);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>kern_loader_error("Error calling kern_loader_get_log", r);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* Listen for the asynchronous reply message. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>listen(reply_port);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">kern_loader_reply_t kern_loader_reply = {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0,<span class="Apple-converted-space">            </span>/* argument to pass to function */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0,<span class="Apple-converted-space">            </span>/* timeout for rpc return msg_send */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0,<span class="Apple-converted-space">            </span>/* string function */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0,<span class="Apple-converted-space">            </span>/* ping function */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>log_data<span class="Apple-converted-space">      </span>/* log_data function */</p>
+<p class="p20">};</p>
+<p class="p21"><br></p>
+<p class="p20">void listen(port_name_t port)</p>
+<p class="p20">{</p>
+<p class="p20"><span class="Apple-converted-space">    </span>char<span class="Apple-converted-space">          </span>msg_buf[kern_loader_replyMaxRequestSize];</p>
+<p class="p20"><span class="Apple-converted-space">    </span>msg_header_t *msg = (msg_header_t *)msg_buf;</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_return_t r;</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>while (1) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>/* Receive the next message in the queue. */</p>
+<p class="p20"><span class="Apple-converted-space">        </span>msg-&gt;msg_size = kern_loader_replyMaxRequestSize;</p>
+<p class="p20"><span class="Apple-converted-space">        </span>msg-&gt;msg_local_port = port;</p>
+<p class="p20"><span class="Apple-converted-space">        </span>r = msg_receive(msg, MSG_OPTION_NONE, 0);</p>
+<p class="p21"><span class="Apple-converted-space">    </span></p>
+<p class="p20"><span class="Apple-converted-space">        </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">            </span>mach_error("listen msg_receive", r);</p>
+<p class="p20"><span class="Apple-converted-space">            </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>}</p>
+<p class="p21"><span class="Apple-converted-space">                </span></p>
+<p class="p20"><span class="Apple-converted-space">        </span>/* Handle the message we just received. */</p>
+<p class="p20"><span class="Apple-converted-space">        </span>kern_loader_reply_handler(msg, &amp;kern_loader_reply);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">kern_return_t log_data(void *arg, printf_data_t log_data, unsigned int log_data_count)</p>
+<p class="p20">{</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_return_t r;</p>
+<p class="p21"><span class="Apple-converted-space">    </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* Print the string we were passed, with our prefix. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>printf("log_data: %s", log_data);</p>
+<p class="p21"><span class="Apple-converted-space">    </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* Deallocate the memory used for the string. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>vm_deallocate(task_self(), (vm_address_t)log_data,<span class="Apple-converted-space"> </span></p>
+<p class="p20"><span class="Apple-converted-space">        </span>log_data_count*sizeof(*log_data));</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* Get another log message. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>r = kern_loader_get_log(kl_port, server_com_port, reply_port);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>kern_loader_error("Error calling kern_loader_get_log", r);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p20"><span class="Apple-converted-space">    </span>return KERN_SUCCESS;</p>
+<p class="p20">}</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>KERN_SUCCESS:<span class="Apple-converted-space">  </span>The call succeeded.</p>
+<p class="p17"><br></p>
+<p class="p6">KERN_LOADER_UNKNOWN_SERVER:<span class="Apple-converted-space">  </span>The server is either unknown or has been deallocated.</p>
+<p class="p7"><br></p>
+<p class="p6">KERN_LOADER_SERVER_UNLOADED:<span class="Apple-converted-space">  </span>The server is only allocated, not loaded.</p>
+<p class="p7"><br></p>
+<p class="p6">KERN_LOADER_PORT_EXISTS:<span class="Apple-converted-space">  </span>Someone is already receiving log messages for this server.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_log_level()</b>, <b>kern_loader_look_up()</b>, <b>kern_loader_reply_handler()</b>, <b>kern_loader_server_com_port()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_load_server()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Load a loadable kernel server</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_load_server(</b>port_t <i>loader_port</i>, server_name_t <i>server_name</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span><b>kern_loader</b> port, obtained from <b>kern_loader_look_up()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>server_name</i>:<span class="Apple-converted-space">  </span>The string associated with the server.<span class="Apple-converted-space">  </span>For example, the MIDI driver's name is “mididriver”.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This function loads a loadable kernel server that has already been allocated.<span class="Apple-converted-space">  </span>If the server's relocatable object file has changed since allocation, then the server is allocated again from scratch.<span class="Apple-converted-space">  </span>This function has no effect on servers that are already loaded; it simply returns KERN_SUCCESS.</p>
+<p class="p17"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>/* Get kern_loader's port. */</p>
+<p class="p20">error=kern_loader_look_up(&amp;loader_port);</p>
+<p class="p20">if (error != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't find kern_loader's port", error);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">/* Load the server. */</p>
+<p class="p20">error=kern_loader_load_server(loader_port, "mididriver");</p>
+<p class="p20">if (error != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't load the server", error);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(2);</p>
+<p class="p20">}</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>KERN_SUCCESS:<span class="Apple-converted-space">  </span>The server was successfully loaded.</p>
+<p class="p17"><br></p>
+<p class="p6">KERN_LOADER_UNKNOWN_SERVER:<span class="Apple-converted-space">  </span><i>server_name</i> wasn't recognized. <span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p6">KERN_LOADER_SERVER_WONT_LOAD:<span class="Apple-converted-space">  </span>The server couldn't be loaded.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_look_up()</b>, <b>kern_loader_unload_server()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_log_level()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Set the level of data being logged by a loadable kernel server</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_log_level(</b>port_t <i>loader_port</i>, port_t <i>server_com_port</i>, int <i>log_level</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span><b>kern_loader</b> port, obtained from <b>kern_loader_look_up()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>server_com_port</i>:<span class="Apple-converted-space">  </span>The loadable kernel server's communication port, obtained from <b>kern_loader_server_com_port()</b>.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>log_level</i>:<span class="Apple-converted-space">  </span>An integer indicating the minimum priority of data to be logged.<span class="Apple-converted-space">  </span>A value of zero turns logging off. <span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This function determines which data logged by a loadable kernel server gets kept.<span class="Apple-converted-space">  </span>When the server is first loaded, none of its log messages are kept since its log level is initialized to zero.<span class="Apple-converted-space">  </span>If you set <i>log_level</i> to a value greater than zero, then messages logged at a priority equal to or higher than <i>log_level</i> are kept.<span class="Apple-converted-space">  </span>If you reset the log level to zero, no more log messages are kept until the log level is once again set to a positive value.</p>
+<p class="p17"><br></p>
+<p class="p6">Each server can have its own conventions for log priorities.</p>
+<p class="p7"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>r = kern_loader_look_up(&amp;kl_port);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>mach_error("Can't find kernel loader", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">/* Get the server's communication port. */</p>
+<p class="p20">r = task_by_unix_pid(task_self(), 0, &amp;kern_port);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>mach_error("Error looking up kernel's port", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p20">r = kern_loader_server_com_port(kl_port, kern_port, MYDRIVER_NAME,</p>
+<p class="p20"><span class="Apple-converted-space">    </span>&amp;server_com_port);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Error looking up server com port", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">/* Set the log level so we'll get log messages. */</p>
+<p class="p20">r = kern_loader_log_level(kl_port, server_com_port, LOG_NOTICE);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Can't change log level", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>KERN_SUCCESS:<span class="Apple-converted-space">  </span>The log level was successfully set.</p>
+<p class="p17"><br></p>
+<p class="p6">KERN_LOADER_UNKNOWN_SERVER:<span class="Apple-converted-space">  </span><i>server_com_port</i> wasn't valid.</p>
+<p class="p7"><br></p>
+<p class="p6">KERN_LOADER_SERVER_UNLOADED:<span class="Apple-converted-space">  </span>The server isn't currently loaded.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_look_up()</b>, <b>kern_loader_server_com_port()</b>, <b>kern_loader_log_level()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_look_up()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get the <b>kern_loader</b> port</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader_types.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_look_up(</b>port_t *<i>loader_port</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span>Returns the port on which <b>kern_loader</b> receives messages.</p>
+<p class="p17"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This function returns the service port for the kernel-server loader. <span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>/* Get kern_loader's port. */</p>
+<p class="p20">error=kern_loader_look_up(&amp;loader_port);</p>
+<p class="p20">if (error != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't find kern_loader's port", error);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>KERN_SUCCESS:<span class="Apple-converted-space">  </span>The call succeeded.</p>
+<p class="p17"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_server_com_port()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_ping()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Request a synchronization message</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader_types.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_ping(</b>port_t <i>loader_port</i>, port_t <i>ping_port</i>, int <i>id</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span><b>kern_loader</b> port, obtained from calling <b>kern_loader_look_up()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>ping_port</i>:<span class="Apple-converted-space">  </span>The port to which the ping message should be sent.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>id</i>:<span class="Apple-converted-space">  </span>A value to be sent in the message.<span class="Apple-converted-space">  </span>You can use this as you wish.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>You can use this function to make sure that all outstanding status messages have been sent to your program.<span class="Apple-converted-space">  </span>For example, if you call <b>kern_loader_status_port()</b>, you might want to call <b>kern_loader_ping()</b> at some point afterward.<span class="Apple-converted-space">  </span>When you receive the ping message, you'll know that you've received all status messages that were queued before you called <b>kern_loader_ping()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6">Another reason to call <b>kern_loader_ping()</b> is to check whether <b>kern_loader</b> has fallen into an unresponsive state. <span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p6">You must implement the ping message yourself, as described in Chapter 3.<span class="Apple-converted-space">  </span>The <b>kern_loader_ping()</b> function returns a value indicating whether the message was successfully sent to <i>ping_port</i>.</p>
+<p class="p7"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span><span class="Apple-converted-space">    </span>r = kern_loader_look_up(&amp;kl_port);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>mach_error("kl_util: can't find kernel loader", r);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>r = port_allocate(task_self(), &amp;reply_port);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>mach_error("kl_util: can't allocate reply port", r);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* Create a thread to listen on reply_port. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>cthread_detach(cthread_fork((cthread_fn_t)ping_thread,</p>
+<p class="p20"><span class="Apple-converted-space">        </span>(any_t)reply_port));</p>
+<p class="p21"><span class="Apple-converted-space">        </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* . . . */</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* Get a ping message sent to the reply port. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>r=kern_loader_ping(kl_port, reply_port, 0);</p>
+<p class="p21"><span class="Apple-converted-space">    </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* Wait for ping() to kill us.<span class="Apple-converted-space">  </span>Exit if we receive a signal. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>pause();</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(0);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">kern_loader_reply_t kern_loader_reply = {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0, <span class="Apple-converted-space">      </span>/* argument to pass to function */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0, <span class="Apple-converted-space">      </span>/* timeout for rpc return msg_send */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0, <span class="Apple-converted-space">      </span>/* string function */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>ping,<span class="Apple-converted-space">    </span>/* ping function */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0<span class="Apple-converted-space">        </span>/* log_data function */</p>
+<p class="p20">};</p>
+<p class="p21"><br></p>
+<p class="p20">void ping_thread(port_name_t port)</p>
+<p class="p20">{</p>
+<p class="p20"><span class="Apple-converted-space">    </span>char<span class="Apple-converted-space">          </span>msg_buf[kern_loader_replyMaxRequestSize];</p>
+<p class="p20"><span class="Apple-converted-space">    </span>msg_header_t *msg = (msg_header_t *)msg_buf;</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_return_t r;</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* message handling loop */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>while (TRUE) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>/* Receive the next message in the queue. */</p>
+<p class="p20"><span class="Apple-converted-space">        </span>msg-&gt;msg_size = kern_loader_replyMaxRequestSize;</p>
+<p class="p20"><span class="Apple-converted-space">        </span>msg-&gt;msg_local_port = port;</p>
+<p class="p20"><span class="Apple-converted-space">        </span>r = msg_receive(msg, MSG_OPTION_NONE, 0);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>if (r != KERN_SUCCESS)</p>
+<p class="p20"><span class="Apple-converted-space">            </span>break;</p>
+<p class="p21"><span class="Apple-converted-space">            </span></p>
+<p class="p20"><span class="Apple-converted-space">        </span>/* Handle the message we just received. */</p>
+<p class="p20"><span class="Apple-converted-space">        </span>kern_loader_reply_handler(msg, &amp;kern_loader_reply);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p21"><span class="Apple-converted-space">    </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* We get here only if msg_receive returned an error. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>mach_error("ping_thread receive", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">/* This function is called after a kern_loader_ping. */</p>
+<p class="p20">kern_return_t ping (void *arg, int id)</p>
+<p class="p20">{</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(0);<span class="Apple-converted-space">    </span>/* Kill this process. */</p>
+<p class="p20">}</p>
+<p class="p14"><b></b><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_reply_handler()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_reply_handler()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Handle a message from the kernel-server loader</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader_reply_handler.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_reply_handler(</b>msg_header_t *<i>msg</i>, kern_loader_reply_t *<i>kern_loader_reply</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>msg</i>:<span class="Apple-converted-space">  </span>The message you just received from the kernel-server loader.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>kern_loader_reply</i>:<span class="Apple-converted-space">  </span>A pointer to the structure that specifies which of your functions handle each type of reply from the kernel-server loader.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>You must use this function if you use <b>kern_loader_ping()</b>, <b>kern_loader_get_log()</b>, or <b>kern_loader_status_port()</b>.<span class="Apple-converted-space">  </span>Those routines cause an asynchronous reply message from the kernel-server loader; this reply message must be passed to <b>kern_loader_reply_handler()</b>, which forwards the message data to your <i>ping_func()</i>, <i>log_func()</i>, or <i>string_func()</i> function. <span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p6">This function returns the value that is returned by your <i>ping_func()</i>, <i>log_func()</i>, or <i>string_func()</i> function.<span class="Apple-converted-space">  </span>See Chapter 3 for more information on implementing these functions.</p>
+<p class="p7"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>kern_loader_reply_t kern_loader_reply = {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0,<span class="Apple-converted-space">            </span>/* argument to pass to function */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0,<span class="Apple-converted-space">            </span>/* timeout for rpc return msg_send */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0,<span class="Apple-converted-space">            </span>/* string function */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0,<span class="Apple-converted-space">            </span>/* ping function */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>log_data<span class="Apple-converted-space">      </span>/* log_data function */</p>
+<p class="p20">};</p>
+<p class="p21"><br></p>
+<p class="p20">void listen(port_name_t port)</p>
+<p class="p20">{</p>
+<p class="p20"><span class="Apple-converted-space">    </span>char<span class="Apple-converted-space">          </span>msg_buf[kern_loader_replyMaxRequestSize];</p>
+<p class="p20"><span class="Apple-converted-space">   </span>msg_header_t *msg = (msg_header_t *)msg_buf;</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_return_t r;</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>while (1) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>/* Receive the next message in the queue. */</p>
+<p class="p20"><span class="Apple-converted-space">        </span>msg-&gt;msg_size = kern_loader_replyMaxRequestSize;</p>
+<p class="p20"><span class="Apple-converted-space">        </span>msg-&gt;msg_local_port = port;</p>
+<p class="p20"><span class="Apple-converted-space">        </span>r = msg_receive(msg, MSG_OPTION_NONE, 0);</p>
+<p class="p21"><span class="Apple-converted-space">    </span></p>
+<p class="p20"><span class="Apple-converted-space">        </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">            </span>mach_error("listen msg_receive", r);</p>
+<p class="p20"><span class="Apple-converted-space">            </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>}</p>
+<p class="p21"><span class="Apple-converted-space">                </span></p>
+<p class="p20"><span class="Apple-converted-space">        </span>/* Handle the message we just received. */</p>
+<p class="p20"><span class="Apple-converted-space">        </span>kern_loader_reply_handler(msg, &amp;kern_loader_reply);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p20">}</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_get_log()</b>, <b>kern_loader_ping()</b>, <b>kern_loader_status_port()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_server_com_port()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get a loadable kernel server's communication port</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_server_com_port(</b>port_t <i>loader_port</i>, port_t <i>task_port</i>, server_name_t <i>server_name</i>, port_t *<i>server_com_port</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span><b>kern_loader</b> port, obtained from calling <b>kern_loader_look_up()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>task_port</i>:<span class="Apple-converted-space">  </span>The kernel port for the task in which the loadable kernel server is executing.<span class="Apple-converted-space">  </span>This is returned by <b>kern_loader_server_task_port()</b>.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>server_name</i>:<span class="Apple-converted-space">  </span>The string associated with the server.<span class="Apple-converted-space">  </span>For example, the name of the MIDI driver is “mididriver”.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>server_com_port</i>:<span class="Apple-converted-space">  </span>Returns the server's communication port.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>A loadable kernel server's communication port is used for logging-related functions, such as <b>kern_loader_get_log()</b> and <b>kern_loader_log_level()</b>.</p>
+<p class="p17"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>/* Get kern_loader's port. */</p>
+<p class="p20">r = kern_loader_look_up(&amp;kl_port);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>mach_error("Can't find kernel loader", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">/* Get the kernel's task port. */</p>
+<p class="p20">r = task_by_unix_pid(task_self(), 0, &amp;kern_port);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>mach_error("Error looking up kernel's port", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">/* Get the server's com port. */</p>
+<p class="p20">r = kern_loader_server_com_port(kl_port, kern_port, MYDRIVER_NAME,</p>
+<p class="p20"><span class="Apple-converted-space">    </span>&amp;server_com_port);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Error looking up server com port", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>KERN_SUCCESS:<span class="Apple-converted-space">  </span>The call succeeded.</p>
+<p class="p17"><br></p>
+<p class="p6">KERN_LOADER_NO_PERMISSION:<span class="Apple-converted-space">  </span><i>task_port</i> wasn't the server's task port.</p>
+<p class="p7"><br></p>
+<p class="p6">KERN_LOADER_UNKNOWN_SERVER:<span class="Apple-converted-space">  </span><i>server_name</i> wasn't recognized. <span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_get_log()</b>, <b>kern_loader_log_level()</b>, <b>kern_loader_look_up()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_server_info()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get information about a loadable kernel server</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader_reply.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_server_info(</b>port_t <i>loader_port</i>, port_t <i>task_port</i>, server_name_t <i>server_name</i>, server_state_t *<i>server_state</i>, vm_address_t *<i>load_address</i>, vm_size_t *<i>load_size</i>, server_reloc_t <i>relocatable</i>, server_reloc_t <i>loadable</i>, port_name_array_t *<i>port_list</i>, unsigned int *<i>port_list_count</i>, port_name_string_array_t *<i>port_names</i>, unsigned int *<i>port_names_count</i>, boolean_array_t *<i>advertised</i>, unsigned int *<i>advertised_count</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span><b>kern_loader</b> port, obtained from calling <b>kern_loader_look_up()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>task_port</i>:<span class="Apple-converted-space">  </span>The kernel's task port, obtained using <b>task_by_unix_pid()</b>.<span class="Apple-converted-space">  </span>Specify PORT_NULL if you don't want to have data returned in <i>port_list</i>.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>server_name</i>:<span class="Apple-converted-space">  </span>The string associated with the server.<span class="Apple-converted-space">  </span>For example, the name of the MIDI driver is “mididriver”.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>server_state</i>:<span class="Apple-converted-space">  </span>Returns the state of the loadable kernel server.<span class="Apple-converted-space">  </span>The value is one of the following:<span class="Apple-converted-space">  </span>Zombie, Allocating, Allocated, Loading, Loaded, Unloading, Deallocated (as defined in the header file <b>kernserv/kern_loader_types.h</b>).</p>
+<p class="p7"><br></p>
+<p class="p6"><i>load_address</i>:<span class="Apple-converted-space">  </span>Returns the address in the kernel address space where the server starts.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>load_size</i>:<span class="Apple-converted-space">  </span>Returns the number of bytes used by the server.<span class="Apple-converted-space">  </span><i>load_address</i> + <i>load_size</i><span class="s3"> -</span> 1 is the last address in the kernel map that's used by the server's text and data.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>relocatable</i>:<span class="Apple-converted-space">  </span>Returns the location of the relocatable object file for the server.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>loadable</i>:<span class="Apple-converted-space">  </span>Returns the location of the loadable object file (if any) for this server.<span class="Apple-converted-space">  </span>This is a file created by <b>kern_loader</b> from <i>relocatable</i> and then loaded against <b>/mach</b>.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>port_list</i>:<span class="Apple-converted-space">  </span>Returns the ports that the server has made available to <b>kern_loader</b>, using the HMAP or SMAP load command.<span class="Apple-converted-space">  </span>If you don't pass in the correct <i>task_port</i>, this list will consist of null ports.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>port_list_count</i>:<span class="Apple-converted-space">  </span>Returns the number of ports that the server has made available to <b>kern_loader</b>.<span class="Apple-converted-space">  </span>Even if <i>task_port</i> isn't valid, and nothing is returned in <i>port_list</i>, this argument holds the number of ports that would have been returned.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>port_names</i>:<span class="Apple-converted-space">  </span>Returns the strings associated with the ports in <i>port_list</i>.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>port_names_count</i>:<span class="Apple-converted-space">  </span>Returns the number of names in <i>port_names</i>.<span class="Apple-converted-space">  </span>This number is the same as <i>port_list_count</i>.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>advertised</i>:<span class="Apple-converted-space">  </span>For each entry in <i>port_list</i>, returns true if the port is advertised with the Network Name Server.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>advertised_count</i>:<span class="Apple-converted-space">  </span>Returns the number of entries in <i>advertised</i>.<span class="Apple-converted-space">  </span>This number is the same as <i>port_list_count</i>.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span><b>kern_loader_server_info()</b> returns information about a particular loadable kernel server.</p>
+<p class="p17"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>/* Get kern_loader's port. */</p>
+<p class="p20">error=kern_loader_look_up(&amp;loader_port);</p>
+<p class="p20">if (error != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't find kern_loader's port", error);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">/* Get the information. */</p>
+<p class="p20">error=kern_loader_server_info(loader_port, PORT_NULL, "mididriver",<span class="Apple-converted-space"> </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>&amp;server_state, &amp;load_addr, &amp;load_size, relocatable, loadable,<span class="Apple-converted-space"> </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>(port_name_array_t *)&amp;scratch, &amp;count, &amp;port_names, &amp;count,</p>
+<p class="p20"><span class="Apple-converted-space">    </span>&amp;advertised, &amp;count);</p>
+<p class="p20">if (error != KERN_SUCCESS)</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't get info on mididriver", error);</p>
+<p class="p20">else<span class="Apple-converted-space"> </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>printf("The relocatable object file is located at:<span class="Apple-converted-space">  </span>%s\n",</p>
+<p class="p20"><span class="Apple-converted-space">    </span>relocatable);</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>KERN_SUCCESS:<span class="Apple-converted-space">  </span>The call succeeded.</p>
+<p class="p17"><br></p>
+<p class="p6">KERN_LOADER_UNKNOWN_SERVER:<span class="Apple-converted-space">  </span><i>server_name</i> wasn't recognized. <span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_look_up()</b>, <b>kern_loader_server_list()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_server_list()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get the names of all known loadable kernel servers</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_server_list(</b>port_t <i>loader_port</i>, server_name_array_t *<i>server_names</i>, unsigned int *<i>server_names_count</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span><b>kern_loader</b> port, obtained from calling <b>kern_loader_look_up()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>server_names</i>:<span class="Apple-converted-space">  </span>Returns an array whose entries are the strings associated with all known servers.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>server_names_count</i>:<span class="Apple-converted-space">  </span>Returns the number of entries in <i>server_names</i>.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>Use this function to get the string associated with each loadable kernel server that <b>kern_loader</b> is keeping track of.</p>
+<p class="p17"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>r = kern_loader_look_up(&amp;loader_port);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't get loader_port", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">r = kern_loader_server_list(loader_port, &amp;server_names, &amp;count);</p>
+<p class="p20">if (r != KERN_SUCCESS)</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't get the list", r);</p>
+<p class="p20">else</p>
+<p class="p20"><span class="Apple-converted-space">    </span>for (i=0; i&lt;count; i++)</p>
+<p class="p20"><span class="Apple-converted-space">        </span>printf("Server %d:<span class="Apple-converted-space">  </span>%s\n", i, server_names[i]);</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>KERN_SUCCESS:<span class="Apple-converted-space">  </span>The call succeeded.</p>
+<p class="p17"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_look_up()</b>, <b>kern_loader_server_info()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_server_task_port()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get the task port of a loadable kernel server</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_server_task_port(</b>port_t <i>loader_port</i>, port_t <i>kernel_port</i>, server_name_t <i>server_name</i>, port_t *<i>server_task_port</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span><b>kern_loader</b> port, obtained from calling <b>kern_loader_look_up()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>kernel_port</i>:<span class="Apple-converted-space">  </span>The kernel's task port.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>server_name</i>:<span class="Apple-converted-space">  </span>The string associated with a loaded server.<span class="Apple-converted-space">  </span>For example, the name of the MIDI driver is “mididriver”.</p>
+<p class="p7"><br></p>
+<p class="p6"><i>server_task_port</i>:<span class="Apple-converted-space">  </span>Returns the kernel port for the task in which the loadable kernel server is executing.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This function returns the task port of the server.<span class="Apple-converted-space">  </span>Each loadable kernel server currently executes in its own task, but uses the kernel address space.<span class="Apple-converted-space">  </span>The port returned by <b>kern_loader_server_task_port() </b>isn't necessary for any other kernel-server loader functions, but might be useful for gathering debugging information.</p>
+<p class="p17"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>port_t<span class="Apple-converted-space">              </span>loader_port, kernel_task, server_port;</p>
+<p class="p20">kern_return_t <span class="Apple-converted-space">      </span>r;</p>
+<p class="p20">port_name_array_t <span class="Apple-converted-space">  </span>names;</p>
+<p class="p20">unsigned int<span class="Apple-converted-space">        </span>i, names_count, types_count;</p>
+<p class="p20">port_type_array_t <span class="Apple-converted-space">  </span>types;</p>
+<p class="p21"><br></p>
+<p class="p20">r = kern_loader_look_up(&amp;loader_port);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't get loader_port", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">r = task_by_unix_pid(task_self(), 0, &amp;kernel_task);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't get kernel_task", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(2);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">r = kern_loader_server_task_port(loader_port, kernel_task, "mididriver",<span class="Apple-converted-space"> </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>&amp;server_port);</p>
+<p class="p20">if (r != KERN_SUCCESS)</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't get the server port", r);</p>
+<p class="p20">else</p>
+<p class="p20"><span class="Apple-converted-space">    </span>printf("Midi's task port is %d\n", server_port);</p>
+<p class="p21"><br></p>
+<p class="p20">r = port_names((task_t)server_port, &amp;names, &amp;names_count, &amp;types,<span class="Apple-converted-space"> </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>&amp;types_count);</p>
+<p class="p20">if (r != KERN_SUCCESS)</p>
+<p class="p20"><span class="Apple-converted-space">    </span>mach_error("Error calling port_names()", r);</p>
+<p class="p20">else</p>
+<p class="p20"><span class="Apple-converted-space">    </span>for (i=0; i&lt;names_count; i++)</p>
+<p class="p20"><span class="Apple-converted-space">        </span>printf("Port %d has type %d\n", names[i], types[i]);</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>KERN_SUCCESS:<span class="Apple-converted-space">  </span>The call succeeded.</p>
+<p class="p17"><br></p>
+<p class="p6">KERN_LOADER_NO_PERMISSION:<span class="Apple-converted-space">  </span><i>task_port</i> wasn't the server's task port.</p>
+<p class="p7"><br></p>
+<p class="p6">KERN_LOADER_UNKNOWN_SERVER:<span class="Apple-converted-space">  </span><i>server_name</i> wasn't recognized. <span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_look_up()</b>, <b>kern_loader_server_com_port()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_status_port()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Specify a port for <b>kern_loader</b> to send status to</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_status_port(</b>port_t <i>loader_port</i>, port_t <i>listen_port</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span><b>kern_loader</b> port, obtained from calling <b>kern_loader_look_up()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>listen_port</i>:<span class="Apple-converted-space">  </span>The port we want to receive the status messages on.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>Use this function to get general status from <b>kern_loader</b>.<span class="Apple-converted-space">  </span>You can receive many reply messages as the result of just one call to <b>kern_loader_status_port()</b>. <span class="Apple-converted-space"> </span></p>
+<p class="p17"><br></p>
+<p class="p6">You must define the function that handles status reply messages, as described in Chapter 3.<span class="Apple-converted-space">  </span>This function receives the status string along with its priority, using the priorities defined in the header file <b>sys/syslog.h</b> (LOG_EMERG, LOG_ALERT, and so on).</p>
+<p class="p7"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span><span class="Apple-converted-space">    </span>r = kern_loader_look_up(&amp;kl_port);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>mach_error("kl_util: can't find kernel loader", r);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>r = port_allocate(task_self(), &amp;status_port);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>mach_error("kl_util: can't allocate reply port", r);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p21"><span class="Apple-converted-space">    </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* Get generic status messages on this port. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>r = kern_loader_status_port(kl_port, status_port);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>kern_loader_error("Couldn't specify status port", r);</p>
+<p class="p20"><span class="Apple-converted-space">            </span>exit(1);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* Create a thread to listen on status_port. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>cthread_detach(cthread_fork((cthread_fn_t)receive_thread,</p>
+<p class="p20"><span class="Apple-converted-space">        </span>(any_t)status_port));</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/*<span class="Apple-converted-space"> </span></p>
+<p class="p20"><span class="Apple-converted-space">     </span>* Sleep for a while so we can enter kl_util commands at a shell<span class="Apple-converted-space"> </span></p>
+<p class="p20"><span class="Apple-converted-space">     </span>* window.<span class="Apple-converted-space">  </span>The output of all commands (except status lines from</p>
+<p class="p20"><span class="Apple-converted-space">     </span>* kl_util -s) will show up in both the window that's running this</p>
+<p class="p20"><span class="Apple-converted-space">     </span>* program and in the window that's running kl_util.<span class="Apple-converted-space">  </span>(kl_util<span class="Apple-converted-space"> </span></p>
+<p class="p20"><span class="Apple-converted-space">     </span>* also has a status port registered.)</p>
+<p class="p20"><span class="Apple-converted-space">     </span>*/</p>
+<p class="p20"><span class="Apple-converted-space">    </span>sleep(30);</p>
+<p class="p21"><span class="Apple-converted-space">        </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(0);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">kern_loader_reply_t kern_loader_reply = {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0, <span class="Apple-converted-space">              </span>/* argument to pass to function */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0, <span class="Apple-converted-space">              </span>/* timeout for rpc return msg_send */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>print_string,<span class="Apple-converted-space">    </span>/* string function */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0, <span class="Apple-converted-space">              </span>/* reply_ping function */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>0<span class="Apple-converted-space">                </span>/* log_data function */</p>
+<p class="p20">};</p>
+<p class="p21"><br></p>
+<p class="p20">void receive_thread(port_name_t port)</p>
+<p class="p20">{</p>
+<p class="p20"><span class="Apple-converted-space">    </span>char<span class="Apple-converted-space">          </span>msg_buf[kern_loader_replyMaxRequestSize];</p>
+<p class="p20"><span class="Apple-converted-space">    </span>msg_header_t *msg = (msg_header_t *)msg_buf;</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_return_t r;</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* message handling loop */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>while (TRUE) {</p>
+<p class="p20"><span class="Apple-converted-space">        </span>/* Receive the next message in the queue. */</p>
+<p class="p20"><span class="Apple-converted-space">        </span>msg-&gt;msg_size = kern_loader_replyMaxRequestSize;</p>
+<p class="p20"><span class="Apple-converted-space">        </span>msg-&gt;msg_local_port = port;</p>
+<p class="p20"><span class="Apple-converted-space">        </span>r = msg_receive(msg, MSG_OPTION_NONE, 0);</p>
+<p class="p20"><span class="Apple-converted-space">        </span>if (r != KERN_SUCCESS)</p>
+<p class="p20"><span class="Apple-converted-space">            </span>break;</p>
+<p class="p21"><span class="Apple-converted-space">           </span></p>
+<p class="p20"><span class="Apple-converted-space">        </span>/* Handle the message we just received. */</p>
+<p class="p20"><span class="Apple-converted-space">        </span>kern_loader_reply_handler(msg, &amp;kern_loader_reply);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>}</p>
+<p class="p21"><br></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* We get here only if msg_receive returned an error. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>mach_error("receive_thread receive", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">/* Called every time kern_loader has status to report. */</p>
+<p class="p20">kern_return_t print_string(void *arg, printf_data_t string,<span class="Apple-converted-space"> </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>u_int string_count, int level)</p>
+<p class="p20">{ <span class="Apple-converted-space">   </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* If the string is empty, return. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>if (string_count == 0 || !string)</p>
+<p class="p20"><span class="Apple-converted-space">        </span>return KERN_SUCCESS;</p>
+<p class="p21"><span class="Apple-converted-space">        </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>/* Print the string we were passed, with our prefix. */</p>
+<p class="p20"><span class="Apple-converted-space">    </span>printf("print_string: %s", string);</p>
+<p class="p21"><span class="Apple-converted-space">    </span></p>
+<p class="p20"><span class="Apple-converted-space">    </span>return KERN_SUCCESS;</p>
+<p class="p20">}</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>KERN_SUCCESS:<span class="Apple-converted-space">  </span>The call succeeded.</p>
+<p class="p17"><br></p>
+<p class="p6">SEND_INVALID_PORT:<span class="Apple-converted-space">  </span><i>listen_port</i> isn't a valid port.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_look_up()</b>, <b>kern_loader_reply_handler()</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p10"><b>kern_loader_unload_server()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Unload a loadable kernel server</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;mach/mach.h&gt;</b></p>
+<p class="p6"><b>#import &lt;kernserv/kern_loader.h&gt;</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16">kern_return_t <b>kern_loader_unload_server(</b>port_t <i>loader_port</i>, port_t <i>task_port</i>, server_name_t <i>server_name</i><b>)</b></p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>loader_port</i>:<span class="Apple-converted-space">  </span><b>kern_loader</b> port, obtained from calling <b>kern_loader_look_up()</b>.</p>
+<p class="p17"><br></p>
+<p class="p6"><i>task_port</i>:<span class="Apple-converted-space">  </span>The kernel's task port, obtained using <b>task_by_unix_pid()</b>. <span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p6"><i>server_name</i>:<span class="Apple-converted-space">  </span>The string associated with the server.<span class="Apple-converted-space">  </span>For example, the name of the MIDI driver is “mididriver”.</p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>Use this function to unload a running loadable kernel server, leaving it allocated.</p>
+<p class="p17"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>r = kern_loader_look_up(&amp;loader_port);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't get loader_port", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(1);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">r = task_by_unix_pid(task_self(), 0, &amp;kernel_task);</p>
+<p class="p20">if (r != KERN_SUCCESS) {</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't get kernel_task", r);</p>
+<p class="p20"><span class="Apple-converted-space">    </span>exit(2);</p>
+<p class="p20">}</p>
+<p class="p21"><br></p>
+<p class="p20">r = kern_loader_unload_server(loader_port, kernel_task,</p>
+<p class="p20"><span class="Apple-converted-space">    </span>"NextDimension");</p>
+<p class="p20">if (r != KERN_SUCCESS)</p>
+<p class="p20"><span class="Apple-converted-space">    </span>kern_loader_error("Couldn't unload the server", r);</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>RETURN<span class="Apple-tab-span">	</span></b></span>KERN_SUCCESS:<span class="Apple-converted-space">  </span>The server was successfully unloaded.</p>
+<p class="p17"><br></p>
+<p class="p6">KERN_LOADER_SERVER_UNLOADED:<span class="Apple-converted-space">  </span>The server was already unloaded.</p>
+<p class="p7"><br></p>
+<p class="p6">KERN_LOADER_NO_PERMISSION:<span class="Apple-converted-space">  </span><i>task_port</i> wasn't the kernel's task port.<span class="Apple-converted-space">  </span>(Make sure <b>task_by_unix_pid()</b> is called by a process with superuser permission.)</p>
+<p class="p7"><br></p>
+<p class="p6">KERN_LOADER_UNKNOWN_SERVER:<span class="Apple-converted-space">  </span><i>server_name</i> wasn't recognized. <span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>kern_loader_load_server()</b>, <b>kern_loader_look_up()</b></p>
+<p class="p17"><b></b><br></p>
+</body>
+</html>

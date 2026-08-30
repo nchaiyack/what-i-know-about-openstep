@@ -1,0 +1,213 @@
+.TH READ 2 "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+read, readv \- read input
+.SH BSD SYNOPSIS
+.nf
+.ft B
+int read(int \fIfd\fP, char *\fIbuf\fP, int \fInbytes\fP);
+.PP
+.ft B
+#include <sys/types.h>
+#include <sys/uio.h>
+.PP
+.ft B
+int readv(int \fIfd\fP, struct iovec *\fIiov\fP, int \fIiovcnt\fP);
+.fi
+.SH POSIX SYNOPSIS
+.nf
+.ft B
+size_t read(int \fIfd\fP, const void *\fIbuf\fP, size_t \fInbytes\fP);
+.SH DESCRIPTION
+The
+.I read
+function attempts to read
+.I nbytes
+of data from the object
+referenced by the descriptor
+.I fd
+into the buffer pointed to by
+.IR buf .
+.PP
+With objects capable of seeking,
+.I read
+starts at the position
+given by the seek pointer
+associated with
+.I fd
+(see
+.IR lseek (2)).
+Upon return,
+the seek pointer for
+.I fd
+is incremented by the number of bytes actually read.
+.PP
+Objects that are not capable of seeking
+always read from their current position.
+The value of the pointer associated
+with such an object is undefined.
+.PP
+Upon successful completion,
+.I read
+returns the number of bytes
+actually read and placed in the buffer.
+The system guarantees to read
+the number of bytes requested
+if the descriptor references a normal file
+that has that many bytes left before the end-of-file,
+but in no other case.
+If the returned value is 0,
+then end-of-file has been reached.
+.PP
+When
+.I read
+returns greater than zero,
+the \fIst_atime\fR field of the
+file is updated.
+.PP
+The
+.I readv
+function performs a scattered read,
+puting input data into the
+.I iovcnt
+buffers specified by the members of the
+.I iov
+array:
+.IR iov [0],
+.IR iov [1],
+...,
+.IR iov [
+.I iovcnt
+\- 1].
+The return value of
+.I readv
+is the same as that for
+.IR read .
+.PP
+The
+.I iovec
+structure is defined as
+.PP
+.nf
+.RS
+.DT
+struct iovec {
+	caddr_t	iov_base;
+	int	iov_len;
+};
+.RE
+.fi
+.PP
+Each 
+.I iovec
+entry specifies the base address and length of an area
+in memory where data should be placed. 
+.I Readv
+will always fill an area completely before proceeding
+to the next.
+POSIX applications should not use
+.IR readv .
+.PP
+POSIX applications may expect the following behavior
+when attempting to
+.I read
+(but not
+.IR readv )
+from an empty pipe or FIFO:
+.TP 5
+(1)
+If no process has the pipe open for writing,
+.I read
+returns zero to indicate end-of-file.
+.TP 5
+(2)
+If some process has the pipe open for writing
+and O_NONBLOCK is set,
+.I read
+returns \-1 and sets
+.I errno
+to [EAGAIN].
+.TP 5
+(3)
+If some process has the pipe open for writing
+and O_NONBLOCK is clear,
+.I read
+will block until some data is written
+or the pipe is closed by all
+processes that had the pipe open for writing.
+.PP
+POSIX applications may expect the following behavior
+when attempting to read a file
+(other than a pipe or FIFO)
+that supports non-blocking reads
+and has no data currently available:
+.TP 5
+(1)
+If O_NONBLOCK is set, \fIread\fR returns \-1 and sets \fIerrno\fR to
+[EAGAIN].
+.TP 5
+(2)
+If O_NONBLOCK is clear, \fIread\fR blocks until some data becomes available.
+.SH "RETURN VALUE
+If successful, the number of bytes actually read is returned.  Otherwise, a
+\-1 is returned and the global variable \fIerrno\fP is set to indicate the
+error.
+.SH "ERRORS
+\fIRead\fP will fail if one or more of the following are true:
+.TP 15
+[EAGAIN]
+(POSIX only)
+The O_NONBLOCK flag is set for the file descriptor and the process would be
+delayed in the read operation.
+.TP 15
+[EBADF]
+\fIfd\fP is not a valid file or socket descriptor open for reading.
+.TP 15
+[EFAULT]
+\fIbuf\fP points outside the allocated address space.
+.TP 15
+[EIO]
+An I/O error occurred while reading from the file system;
+or,
+the process is in a background process group and is attempting to read from its
+controlling terminal, and either the process is ignoring or blocking the
+SIGTTIN signal or the process group of the process is orphaned.
+.TP 15
+[EINTR]
+A read from a slow device was interrupted before
+any data arrived by the delivery of a signal.
+.TP 15
+[EINVAL]
+The pointer associated with \fIfd\fP was negative;
+or,
+An attempt was made to read greater than SSIZE_MAX bytes.
+.TP 15
+[EWOULDBLOCK]
+The file was marked for non-blocking I/O by
+.IR fcntl (2),
+and no data were ready to be read.
+.PP
+In addition,
+the following errors may occur with
+.IR readv :
+.TP 15
+[EFAULT]
+Part of the \fIiov\fP points outside the process's allocated address space.
+.TP 15
+[EINVAL]
+.I Iovcnt
+was less than or equal to 0, or greater than 16.;
+or,
+one of the
+.I iov_len
+values in the
+.I iov
+array was negative;
+or,
+the sum of the
+.I iov_len
+values in the
+.I iov
+array overflowed a 32-bit integer.
+.SH "SEE ALSO"
+creat(2), dup(2), fcntl(2), lseek(2), open(2), pipe(2)

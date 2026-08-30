@@ -1,0 +1,46 @@
+.\"
+.\"	@(#)setsid.2	8/1/92
+.\"
+.TH SETSID 2P "August 1, 1992"
+.UC 5
+.SH NAME
+setsid \- (POSIX only) create session and set process group ID
+.SH SYNOPSIS
+.nf
+.ft B
+#include <sys/types.h>
+.PP
+.ft B
+pid_t setsid(void);
+.ft R
+.fi
+.SH DESCRIPTION
+The information in this specification applies
+only to POSIX applications.
+.PP
+If the calling process is not a process group leader, the
+.I setsid
+function creates a new session.  The calling process is the
+session leader of the new session, the process group leader of
+a new process group, and has no controlling terminal.
+The process group ID of the calling process is set to the
+process ID of the calling process.  The calling process is
+the only process in the new process group and the only process
+in the new session.
+.SH "RETURN VALUE"
+A successful call to
+.I setsid
+returns the value of the process group ID of the calling
+process. 
+A value of \-1 indicates that an error occurred, and the error
+code is stored in the global variable \fIerrno\fP\|.
+.SH "ERRORS"
+A possible error for \fIsetsid\fP is:
+.TP 15
+[EPERM]
+The calling process is already a process group leader, or the
+process group ID of a process other than the calling process
+matches the process ID of the calling process.
+.SH "SEE ALSO
+execve(2), exit(2), fork(2), getpid(2), kill(2), setpgid(2P),
+sigaction(2P)

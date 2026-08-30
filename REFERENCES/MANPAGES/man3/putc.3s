@@ -1,0 +1,89 @@
+.\"	@(#)putc.3s	6.2 (Berkeley) 11/6/85
+.\"
+.TH PUTC 3S  "August 1, 1992"
+.ds ]W ANSI C
+.SH NAME
+putc, putchar, fputc \- put character on a stream
+.SH SYNOPSIS
+.B #include <stdio.h>
+.PP
+.B int putc(int \fIc\fP, FILE *\fIstream\fP);
+.PP
+.B int putchar(int \fIc\fP);
+.PP
+.B int fputc(int \fIc\fP, FILE *\fIstream\fP);
+.PP
+.B int putw(int \fIw\fP, FILE *\fIstream\fP);
+.SH DESCRIPTION
+.I Putc
+appends the character
+.I c
+(converted to an unsigned char)
+to the named output
+.IR stream .
+It returns the character written.
+.PP
+.IR Putchar ( c )
+is defined as 
+.IR putc ( c ,
+.BR stdout ).
+.PP
+.I Fputc
+behaves like 
+.IR putc ,
+but is a genuine function rather than a macro.
+.PP
+.I Putw
+appends word
+(that is, an
+.BR int )
+.I w
+to the output
+.IR stream .
+It returns the word written.
+.I Putw
+neither assumes nor causes special alignment in the file.
+.I Putw
+is 
+neither ANSI- nor POSIX-compliant.
+.SH "RETURN VALUE"
+These functions return the character written.
+If a write error occurs,
+the error indicator for the stream is set,
+.I errno
+is set, and
+.SM
+.B EOF
+is returned.
+Since
+.SM
+.B EOF
+is a valid integer,
+.IR ferror (3S)
+should be used to detect 
+.I putw
+errors.
+.SH ERRORS
+The underlying function of these functions
+is \fIwrite\fR(2).  The error conditions specified for \fIread\fR(2)
+apply to 
+them.
+.SH BUGS
+Because it is implemented as a macro,
+.I putc
+treats a
+.I stream
+argument with side effects improperly.  In particular
+\*(lqputc(c, *f++)\*(rq
+.PP
+doesn't work sensibly.
+.PP
+Errors can occur long after the call to
+.IR putc .
+.SH "SEE ALSO"
+fopen(3S),
+fclose(3S),
+getc(3S),
+puts(3S),
+printf(3S),
+fread(3S)

@@ -1,0 +1,954 @@
+.rn '' }`
+''' $RCSfile$$Revision$$Date$
+''' 
+''' $Log$
+''' 
+.de Sh
+.br
+.if t .Sp
+.ne 5
+.PP
+\fB\\$1\fR
+.PP
+..
+.de Sp
+.if t .sp .5v
+.if n .sp
+..
+.de Ip
+.br
+.ie \\n(.$>=3 .ne \\$3
+.el .ne 3
+.IP "\\$1" \\$2
+..
+.de Vb
+.ft CW
+.nf
+.ne \\$1
+..
+.de Ve
+.ft R
+
+.fi
+..
+'''
+'''
+'''     Set up \*(-- to give an unbreakable dash;
+'''     string Tr holds user defined translation string.
+'''     Bell System Logo is used as a dummy character.
+'''
+.tr \(*W-|\(bv\*(Tr
+.ie n \{\
+.ds -- \(*W-
+.if (\n(.H=4u)&(1m=24u) .ds -- \(*W\h'-12u'\(*W\h'-12u'-\" diablo 10 pitch
+.if (\n(.H=4u)&(1m=20u) .ds -- \(*W\h'-12u'\(*W\h'-8u'-\" diablo 12 pitch
+.ds L" ""
+.ds R" ""
+.ds L' '
+.ds R' '
+'br\}
+.el\{\
+.ds -- \(em\|
+.tr \*(Tr
+.ds L" ``
+.ds R" ''
+.ds L' `
+.ds R' '
+.if t .ds PI \(*p
+.if n .ds PI PI
+'br\}
+.TH PERLGUTS 1 "\*(RP"
+.UC
+.if n .hy 0 
+.if n .na
+.ds C+ C\v'-.1v'\h'-1p'\s-2+\h'-1p'+\s0\v'.1v'\h'-1p'
+.de CQ          \" put $1 in typewriter font
+.ft CW
+'if n "\c
+'if t \\&\\$1\c
+'if n \\&\\$1\c
+'if n \&"
+\\&\\$2 \\$3 \\$4 \\$5 \\$6 \\$7
+'.ft R
+..
+.\" @(#)ms.acc 1.5 88/02/08 SMI; from UCB 4.2
+.	\" AM - accent mark definitions
+.bd S B 3
+.	\" fudge factors for nroff and troff
+.if n \{\
+.	ds #H 0
+.	ds #V .8m
+.	ds #F .3m
+.	ds #[ \f1
+.	ds #] \fP
+.\}
+.if t \{\
+.	ds #H ((1u-(\\\\n(.fu%2u))*.13m)
+.	ds #V .6m
+.	ds #F 0
+.	ds #[ \&
+.	ds #] \&
+.\}
+.	\" simple accents for nroff and troff
+.if n \{\
+.	ds ' \&
+.	ds ` \&
+.	ds ^ \&
+.	ds , \&
+.	ds ~ ~
+.	ds ? ?
+.	ds ! !
+.	ds / 
+.	ds q 
+.\}
+.if t \{\
+.	ds ' \\k:\h'-(\\n(.wu*8/10-\*(#H)'\'\h"|\\n:u"
+.	ds ` \\k:\h'-(\\n(.wu*8/10-\*(#H)'\`\h'|\\n:u'
+.	ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'^\h'|\\n:u'
+.	ds , \\k:\h'-(\\n(.wu*8/10)',\h'|\\n:u'
+.	ds ~ \\k:\h'-(\\n(.wu-\*(#H-.1m)'~\h'|\\n:u'
+.	ds ? \s-2c\h'-\w'c'u*7/10'\u\h'\*(#H'\zi\d\s+2\h'\w'c'u*8/10'
+.	ds ! \s-2\(or\s+2\h'-\w'\(or'u'\v'-.8m'.\v'.8m'
+.	ds / \\k:\h'-(\\n(.wu*8/10-\*(#H)'\z\(sl\h'|\\n:u'
+.	ds q o\h'-\w'o'u*8/10'\s-4\v'.4m'\z\(*i\v'-.4m'\s+4\h'\w'o'u*8/10'
+.\}
+.	\" troff and (daisy-wheel) nroff accents
+.ds : \\k:\h'-(\\n(.wu*8/10-\*(#H+.1m+\*(#F)'\v'-\*(#V'\z.\h'.2m+\*(#F'.\h'|\\n:u'\v'\*(#V'
+.ds 8 \h'\*(#H'\(*b\h'-\*(#H'
+.ds v \\k:\h'-(\\n(.wu*9/10-\*(#H)'\v'-\*(#V'\*(#[\s-4v\s0\v'\*(#V'\h'|\\n:u'\*(#]
+.ds _ \\k:\h'-(\\n(.wu*9/10-\*(#H+(\*(#F*2/3))'\v'-.4m'\z\(hy\v'.4m'\h'|\\n:u'
+.ds . \\k:\h'-(\\n(.wu*8/10)'\v'\*(#V*4/10'\z.\v'-\*(#V*4/10'\h'|\\n:u'
+.ds 3 \*(#[\v'.2m'\s-2\&3\s0\v'-.2m'\*(#]
+.ds o \\k:\h'-(\\n(.wu+\w'\(de'u-\*(#H)/2u'\v'-.3n'\*(#[\z\(de\v'.3n'\h'|\\n:u'\*(#]
+.ds d- \h'\*(#H'\(pd\h'-\w'~'u'\v'-.25m'\f2\(hy\fP\v'.25m'\h'-\*(#H'
+.ds D- D\\k:\h'-\w'D'u'\v'-.11m'\z\(hy\v'.11m'\h'|\\n:u'
+.ds th \*(#[\v'.3m'\s+1I\s-1\v'-.3m'\h'-(\w'I'u*2/3)'\s-1o\s+1\*(#]
+.ds Th \*(#[\s+2I\s-2\h'-\w'I'u*3/5'\v'-.3m'o\v'.3m'\*(#]
+.ds ae a\h'-(\w'a'u*4/10)'e
+.ds Ae A\h'-(\w'A'u*4/10)'E
+.ds oe o\h'-(\w'o'u*4/10)'e
+.ds Oe O\h'-(\w'O'u*4/10)'E
+.	\" corrections for vroff
+.if v .ds ~ \\k:\h'-(\\n(.wu*9/10-\*(#H)'\s-2\u~\d\s+2\h'|\\n:u'
+.if v .ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'\v'-.4m'^\v'.4m'\h'|\\n:u'
+.	\" for low resolution devices (crt and lpr)
+.if \n(.H>23 .if \n(.V>19 \
+\{\
+.	ds : e
+.	ds 8 ss
+.	ds v \h'-1'\o'\(aa\(ga'
+.	ds _ \h'-1'^
+.	ds . \h'-1'.
+.	ds 3 3
+.	ds o a
+.	ds d- d\h'-1'\(ga
+.	ds D- D\h'-1'\(hy
+.	ds th \o'bp'
+.	ds Th \o'LP'
+.	ds ae ae
+.	ds Ae AE
+.	ds oe oe
+.	ds Oe OE
+.\}
+.rm #[ #] #H #V #F C
+.SH "NAME"
+perlguts \- Perl's Internal Functions
+.SH "DESCRIPTION"
+This document attempts to describe some of the internal functions of the
+Perl executable.  It is far from complete and probably contains many errors.
+Please refer any questions or comments to the author below.
+.SH "Datatypes"
+Perl has three typedefs that handle Perl's three main data types:
+.PP
+.Vb 3
+\&    SV  Scalar Value
+\&    AV  Array Value
+\&    HV  Hash Value
+.Ve
+Each typedef has specific routines that manipulate the various data types.
+.Sh "What is an \*(L"IV\*(R"?"
+Perl uses a special typedef \s-1IV\s0 which is large enough to hold either an
+integer or a pointer.
+.PP
+Perl also uses two special typedefs, I32 and I16, which will always be at
+least 32-bits and 16-bits long, respectively.
+.Sh "Working with \s-1SV\s0's"
+An \s-1SV\s0 can be created and loaded with one command.  There are four types of
+values that can be loaded: an integer value (\s-1IV\s0), a double (\s-1NV\s0), a string,
+(\s-1PV\s0), and another scalar (\s-1SV\s0).
+.PP
+The four routines are:
+.PP
+.Vb 4
+\&    SV*  newSViv(IV);
+\&    SV*  newSVnv(double);
+\&    SV*  newSVpv(char*, int);
+\&    SV*  newSVsv(SV*);
+.Ve
+To change the value of an *already-existing* scalar, there are five routines:
+.PP
+.Vb 5
+\&    void  sv_setiv(SV*, IV);
+\&    void  sv_setnv(SV*, double);
+\&    void  sv_setpvn(SV*, char*, int)
+\&    void  sv_setpv(SV*, char*);
+\&    void  sv_setsv(SV*, SV*);
+.Ve
+Notice that you can choose to specify the length of the string to be
+assigned by using \f(CWsv_setpvn\fR or \f(CWnewSVpv\fR, or you may allow Perl to
+calculate the length by using \f(CWsv_setpv\fR or specifying 0 as the second
+argument to \f(CWnewSVpv\fR.  Be warned, though, that Perl will determine the
+string's length by using \f(CWstrlen\fR, which depends on the string terminating
+with a \s-1NUL\s0 character.
+.PP
+To access the actual value that an \s-1SV\s0 points to, you can use the macros:
+.PP
+.Vb 3
+\&    SvIV(SV*)
+\&    SvNV(SV*)
+\&    SvPV(SV*, STRLEN len)
+.Ve
+which will automatically coerce the actual scalar type into an \s-1IV\s0, double,
+or string.
+.PP
+In the \f(CWSvPV\fR macro, the length of the string returned is placed into the
+variable \f(CWlen\fR (this is a macro, so you do \fInot\fR use \f(CW&len\fR).  If you do not
+care what the length of the data is, use the global variable \f(CWna\fR.  Remember,
+however, that Perl allows arbitrary strings of data that may both contain
+\s-1NUL\s0's and not be terminated by a \s-1NUL\s0.
+.PP
+If you simply want to know if the scalar value is \s-1TRUE\s0, you can use:
+.PP
+.Vb 1
+\&    SvTRUE(SV*)
+.Ve
+Although Perl will automatically grow strings for you, if you need to force
+Perl to allocate more memory for your \s-1SV\s0, you can use the macro
+.PP
+.Vb 1
+\&    SvGROW(SV*, STRLEN newlen)
+.Ve
+which will determine if more memory needs to be allocated.  If so, it will
+call the function \f(CWsv_grow\fR.  Note that \f(CWSvGROW\fR can only increase, not
+decrease, the allocated memory of an \s-1SV\s0.
+.PP
+If you have an \s-1SV\s0 and want to know what kind of data Perl thinks is stored
+in it, you can use the following macros to check the type of \s-1SV\s0 you have.
+.PP
+.Vb 3
+\&    SvIOK(SV*)
+\&    SvNOK(SV*)
+\&    SvPOK(SV*)
+.Ve
+You can get and set the current length of the string stored in an \s-1SV\s0 with
+the following macros:
+.PP
+.Vb 2
+\&    SvCUR(SV*)
+\&    SvCUR_set(SV*, I32 val)
+.Ve
+But note that these are valid only if \f(CWSvPOK()\fR is true.
+.PP
+If you want to append something to the end of string stored in an \f(CWSV*\fR,
+you can use the following functions:
+.PP
+.Vb 3
+\&    void  sv_catpv(SV*, char*);
+\&    void  sv_catpvn(SV*, char*, int);
+\&    void  sv_catsv(SV*, SV*);
+.Ve
+The first function calculates the length of the string to be appended by
+using \f(CWstrlen\fR.  In the second, you specify the length of the string
+yourself.  The third function extends the string stored in the first \s-1SV\s0
+with the string stored in the second \s-1SV\s0.  It also forces the second \s-1SV\s0 to
+be interpreted as a string.
+.PP
+If you know the name of a scalar variable, you can get a pointer to its \s-1SV\s0
+by using the following:
+.PP
+.Vb 1
+\&    SV*  perl_get_sv("varname", FALSE);
+.Ve
+This returns \s-1NULL\s0 if the variable does not exist.
+.PP
+If you want to know if this variable (or any other \s-1SV\s0) is actually \f(CWdefined\fR,
+you can call:
+.PP
+.Vb 1
+\&    SvOK(SV*)
+.Ve
+The scalar \f(CWundef\fR value is stored in an \s-1SV\s0 instance called \f(CWsv_undef\fR.  Its
+address can be used whenever an \f(CWSV*\fR is needed.
+.PP
+There are also the two values \f(CWsv_yes\fR and \f(CWsv_no\fR, which contain Boolean
+\s-1TRUE\s0 and \s-1FALSE\s0 values, respectively.  Like \f(CWsv_undef\fR, their addresses can
+be used whenever an \f(CWSV*\fR is needed.
+.PP
+Do not be fooled into thinking that \f(CW(SV *) 0\fR is the same as \f(CW&sv_undef\fR.
+Take this code:
+.PP
+.Vb 5
+\&    SV* sv = (SV*) 0;
+\&    if (I-am-to-return-a-real-value) {
+\&            sv = sv_2mortal(newSViv(42));
+\&    }
+\&    sv_setsv(ST(0), sv);
+.Ve
+This code tries to return a new \s-1SV\s0 (which contains the value 42) if it should
+return a real value, or undef otherwise.  Instead it has returned a null
+pointer which, somewhere down the line, will cause a segmentation violation,
+or just weird results.  Change the zero to \f(CW&sv_undef\fR in the first line and
+all will be well.
+.PP
+To free an \s-1SV\s0 that you've created, call \f(CWSvREFCNT_dec(SV*)\fR.  Normally this
+call is not necessary.  See the section on \fB\s-1MORTALITY\s0\fR.
+.Sh "What's Really Stored in an \s-1SV\s0?"
+Recall that the usual method of determining the type of scalar you have is
+to use \f(CWSv*OK\fR macros.  Since a scalar can be both a number and a string,
+usually these macros will always return \s-1TRUE\s0 and calling the \f(CWSv*V\fR
+macros will do the appropriate conversion of string to integer/double or
+integer/double to string.
+.PP
+If you \fIreally\fR need to know if you have an integer, double, or string
+pointer in an \s-1SV\s0, you can use the following three macros instead:
+.PP
+.Vb 3
+\&    SvIOKp(SV*)
+\&    SvNOKp(SV*)
+\&    SvPOKp(SV*)
+.Ve
+These will tell you if you truly have an integer, double, or string pointer
+stored in your \s-1SV\s0.  The \*(L"p\*(R" stands for private.
+.PP
+In general, though, it's best to just use the \f(CWSv*V\fR macros.
+.Sh "Working with \s-1AV\s0's"
+There are two ways to create and load an \s-1AV\s0.  The first method just creates
+an empty \s-1AV\s0:
+.PP
+.Vb 1
+\&    AV*  newAV();
+.Ve
+The second method both creates the \s-1AV\s0 and initially populates it with \s-1SV\s0's:
+.PP
+.Vb 1
+\&    AV*  av_make(I32 num, SV **ptr);
+.Ve
+The second argument points to an array containing \f(CWnum\fR \f(CWSV*\fR's.  Once the
+\s-1AV\s0 has been created, the \s-1SV\s0's can be destroyed, if so desired.
+.PP
+Once the \s-1AV\s0 has been created, the following operations are possible on \s-1AV\s0's:
+.PP
+.Vb 4
+\&    void  av_push(AV*, SV*);
+\&    SV*   av_pop(AV*);
+\&    SV*   av_shift(AV*);
+\&    void  av_unshift(AV*, I32 num);
+.Ve
+These should be familiar operations, with the exception of \f(CWav_unshift\fR.
+This routine adds \f(CWnum\fR elements at the front of the array with the \f(CWundef\fR
+value.  You must then use \f(CWav_store\fR (described below) to assign values
+to these new elements.
+.PP
+Here are some other functions:
+.PP
+.Vb 1
+\&    I32   av_len(AV*); /* Returns highest index value in array */
+.Ve
+.Vb 5
+\&    SV**  av_fetch(AV*, I32 key, I32 lval);
+\&            /* Fetches value at key offset, but it stores an undef value
+\&               at the offset if lval is non-zero */
+\&    SV**  av_store(AV*, I32 key, SV* val);
+\&            /* Stores val at offset key */
+.Ve
+Take note that these two functions return \f(CWSV**\fR's, not \f(CWSV*\fR's.
+.PP
+.Vb 4
+\&    void  av_clear(AV*);
+\&            /* Clear out all elements, but leave the array */
+\&    void  av_undef(AV*);
+\&            /* Undefines the array, removing all elements */
+.Ve
+If you know the name of an array variable, you can get a pointer to its \s-1AV\s0
+by using the following:
+.PP
+.Vb 1
+\&    AV*  perl_get_av("varname", FALSE);
+.Ve
+This returns \s-1NULL\s0 if the variable does not exist.
+.Sh "Working with \s-1HV\s0's"
+To create an \s-1HV\s0, you use the following routine:
+.PP
+.Vb 1
+\&    HV*  newHV();
+.Ve
+Once the \s-1HV\s0 has been created, the following operations are possible on \s-1HV\s0's:
+.PP
+.Vb 2
+\&    SV**  hv_store(HV*, char* key, U32 klen, SV* val, U32 hash);
+\&    SV**  hv_fetch(HV*, char* key, U32 klen, I32 lval);
+.Ve
+The \f(CWklen\fR parameter is the length of the key being passed in.  The \f(CWval\fR
+argument contains the \s-1SV\s0 pointer to the scalar being stored, and \f(CWhash\fR is
+the pre-computed hash value (zero if you want \f(CWhv_store\fR to calculate it
+for you).  The \f(CWlval\fR parameter indicates whether this fetch is actually a
+part of a store operation.
+.PP
+Remember that \f(CWhv_store\fR and \f(CWhv_fetch\fR return \f(CWSV**\fR's and not just
+\f(CWSV*\fR.  In order to access the scalar value, you must first dereference
+the return value.  However, you should check to make sure that the return
+value is not \s-1NULL\s0 before dereferencing it.
+.PP
+These two functions check if a hash table entry exists, and deletes it.
+.PP
+.Vb 2
+\&    bool  hv_exists(HV*, char* key, U32 klen);
+\&    SV*   hv_delete(HV*, char* key, U32 klen, I32 flags);
+.Ve
+And more miscellaneous functions:
+.PP
+.Vb 4
+\&    void   hv_clear(HV*);
+\&            /* Clears all entries in hash table */
+\&    void   hv_undef(HV*);
+\&            /* Undefines the hash table */
+.Ve
+Perl keeps the actual data in linked list of structures with a typedef of \s-1HE\s0.
+These contain the actual key and value pointers (plus extra administrative
+overhead).  The key is a string pointer; the value is an \f(CWSV*\fR.  However,
+once you have an \f(CWHE*\fR, to get the actual key and value, use the routines
+specified below.
+.PP
+.Vb 16
+\&    I32    hv_iterinit(HV*);
+\&            /* Prepares starting point to traverse hash table */
+\&    HE*    hv_iternext(HV*);
+\&            /* Get the next entry, and return a pointer to a
+\&               structure that has both the key and value */
+\&    char*  hv_iterkey(HE* entry, I32* retlen);
+\&            /* Get the key from an HE structure and also return
+\&               the length of the key string */
+\&    SV*     hv_iterval(HV*, HE* entry);
+\&            /* Return a SV pointer to the value of the HE
+\&               structure */
+\&    SV*     hv_iternextsv(HV*, char** key, I32* retlen);
+\&            /* This convenience routine combines hv_iternext,
+\&               hv_iterkey, and hv_iterval.  The key and retlen
+\&               arguments are return values for the key and its
+\&               length.  The value is returned in the SV* argument */
+.Ve
+If you know the name of a hash variable, you can get a pointer to its \s-1HV\s0
+by using the following:
+.PP
+.Vb 1
+\&    HV*  perl_get_hv("varname", FALSE);
+.Ve
+This returns \s-1NULL\s0 if the variable does not exist.
+.PP
+The hash algorithm, for those who are interested, is:
+.PP
+.Vb 5
+\&    i = klen;
+\&    hash = 0;
+\&    s = key;
+\&    while (i--)
+\&        hash = hash * 33 + *s++;
+.Ve
+.SH "Creating New Variables"
+To create a new Perl variable, which can be accessed from your Perl script,
+use the following routines, depending on the variable type.
+.PP
+.Vb 3
+\&    SV*  perl_get_sv("varname", TRUE);
+\&    AV*  perl_get_av("varname", TRUE);
+\&    HV*  perl_get_hv("varname", TRUE);
+.Ve
+Notice the use of TRUE as the second parameter.  The new variable can now
+be set, using the routines appropriate to the data type.
+.PP
+There are additional bits that may be OR'ed with the TRUE argument to enable
+certain extra features.  Those bits are:
+.PP
+.Vb 9
+\&    0x02  Marks the variable as multiply defined, thus preventing the
+\&          "Indentifier <varname> used only once: possible typo" warning.
+\&    0x04  Issues a "Had to create <varname> unexpectedly" warning if
+\&          the variable didn't actually exist.  This is useful if
+\&          you expected the variable to already exist and want to propagate
+\&          this warning back to the user.
+\&        
+\&If the C<varname> argument does not contain a package specifier, it is
+\&created in the current package.
+.Ve
+.Sh "References"
+References are a special type of scalar that point to other data types
+(including references).
+.PP
+To create a reference, use the following command:
+.PP
+.Vb 1
+\&    SV*  newRV((SV*) thing);
+.Ve
+The \f(CWthing\fR argument can be any of an \f(CWSV*\fR, \f(CWAV*\fR, or \f(CWHV*\fR.  Once
+you have a reference, you can use the following macro to dereference the
+reference:
+.PP
+.Vb 1
+\&    SvRV(SV*)
+.Ve
+then call the appropriate routines, casting the returned \f(CWSV*\fR to either an
+\f(CWAV*\fR or \f(CWHV*\fR, if required.
+.PP
+To determine if an \s-1SV\s0 is a reference, you can use the following macro:
+.PP
+.Vb 1
+\&    SvROK(SV*)
+.Ve
+To actually discover what the reference refers to, you must use the following
+macro and then check the value returned.
+.PP
+.Vb 1
+\&    SvTYPE(SvRV(SV*))
+.Ve
+The most useful types that will be returned are:
+.PP
+.Vb 7
+\&    SVt_IV    Scalar
+\&    SVt_NV    Scalar
+\&    SVt_PV    Scalar
+\&    SVt_PVAV  Array
+\&    SVt_PVHV  Hash
+\&    SVt_PVCV  Code
+\&    SVt_PVMG  Blessed Scalar
+.Ve
+.SH "XSUB's and the Argument Stack"
+The XSUB mechanism is a simple way for Perl programs to access C subroutines.
+An XSUB routine will have a stack that contains the arguments from the Perl
+program, and a way to map from the Perl data structures to a C equivalent.
+.PP
+The stack arguments are accessible through the \f(CWST(n)\fR macro, which returns
+the \f(CWn\fR'th stack argument.  Argument 0 is the first argument passed in the
+Perl subroutine call.  These arguments are \f(CWSV*\fR, and can be used anywhere
+an \f(CWSV*\fR is used.
+.PP
+Most of the time, output from the C routine can be handled through use of
+the RETVAL and OUTPUT directives.  However, there are some cases where the
+argument stack is not already long enough to handle all the return values.
+An example is the POSIX \fItzname()\fR call, which takes no arguments, but returns
+two, the local timezone's standard and summer time abbreviations.
+.PP
+To handle this situation, the PPCODE directive is used and the stack is
+extended using the macro:
+.PP
+.Vb 1
+\&    EXTEND(sp, num);
+.Ve
+where \f(CWsp\fR is the stack pointer, and \f(CWnum\fR is the number of elements the
+stack should be extended by.
+.PP
+Now that there is room on the stack, values can be pushed on it using the
+macros to push IV's, doubles, strings, and SV pointers respectively:
+.PP
+.Vb 4
+\&    PUSHi(IV)
+\&    PUSHn(double)
+\&    PUSHp(char*, I32)
+\&    PUSHs(SV*)
+.Ve
+And now the Perl program calling \f(CWtzname\fR, the two values will be assigned
+as in:
+.PP
+.Vb 1
+\&    ($standard_abbrev, $summer_abbrev) = POSIX::tzname;
+.Ve
+An alternate (and possibly simpler) method to pushing values on the stack is
+to use the macros:
+.PP
+.Vb 4
+\&    XPUSHi(IV)
+\&    XPUSHn(double)
+\&    XPUSHp(char*, I32)
+\&    XPUSHs(SV*)
+.Ve
+These macros automatically adjust the stack for you, if needed.
+.PP
+For more information, consult the \fIperlapi\fR manpage.
+.SH "Mortality"
+In Perl, values are normally \*(L"immortal\*(R" -- that is, they are not freed unless
+explicitly done so (via the Perl \f(CWundef\fR call or other routines in Perl
+itself).
+.PP
+Add cruft about reference counts.
+.PP
+In the above example with \f(CWtzname\fR, we needed to create two new SV's to push
+onto the argument stack, that being the two strings.  However, we don't want
+these new SV's to stick around forever because they will eventually be
+copied into the SV's that hold the two scalar variables.
+.PP
+An SV (or AV or HV) that is \*(L"mortal\*(R" acts in all ways as a normal \*(L"immortal\*(R"
+SV, AV, or HV, but is only valid in the \*(L"current context\*(R".  When the Perl
+interpreter leaves the current context, the mortal SV, AV, or HV is
+automatically freed.  Generally the \*(L"current context\*(R" means a single
+Perl statement.
+.PP
+To create a mortal variable, use the functions:
+.PP
+.Vb 3
+\&    SV*  sv_newmortal()
+\&    SV*  sv_2mortal(SV*)
+\&    SV*  sv_mortalcopy(SV*)
+.Ve
+The first call creates a mortal SV, the second converts an existing SV to
+a mortal SV, the third creates a mortal copy of an existing SV.
+.PP
+The mortal routines are not just for SV's -- AV's and HV's can be made mortal
+by passing their address (and casting them to \f(CWSV*\fR) to the \f(CWsv_2mortal\fR or
+\f(CWsv_mortalcopy\fR routines.
+.PP
+From Ilya:
+Beware that the \fIsv_2mortal()\fR call is eventually equivalent to
+\fIsvREFCNT_dec()\fR. A value can happily be mortal in two different contexts,
+and it will be \fIsvREFCNT_dec()\fRed twice, once on exit from these
+contexts. It can also be mortal twice in the same context. This means
+that you should be very careful to make a value mortal exactly as many
+times as it is needed. The value that go to the Perl stack \fIshould\fR
+be mortal.
+.PP
+You should be careful about creating mortal variables.  It is possible for
+strange things to happen should you make the same value mortal within
+multiple contexts.
+.SH "Stashes and Objects"
+A stash is a hash table (associative array) that contains all of the
+different objects that are contained within a package.  Each key of the
+stash is a symbol name (shared by all the different types of objects
+that have the same name), and each value in the hash table is called a
+GV (for Glob Value).  This GV in turn contains references to the various
+objects of that name, including (but not limited to) the following:
+    
+    Scalar Value
+    Array Value
+    Hash Value
+    File Handle
+    Directory Handle
+    Format
+    Subroutine
+.PP
+Perl stores various stashes in a separate GV structure (for global
+variable) but represents them with an HV structure.  The keys in this
+larger GV are the various package names; the values are the \f(CWGV*\fR's
+which are stashes.  It may help to think of a stash purely as an HV,
+and that the term \*(L"GV\*(R" means the global variable hash.
+.PP
+To get the stash pointer for a particular package, use the function:
+.PP
+.Vb 2
+\&    HV*  gv_stashpv(char* name, I32 create)
+\&    HV*  gv_stashsv(SV*, I32 create)
+.Ve
+The first function takes a literal string, the second uses the string stored
+in the SV.  Remember that a stash is just a hash table, so you get back an
+\f(CWHV*\fR.
+.PP
+The name that \f(CWgv_stash*v\fR wants is the name of the package whose symbol table
+you want.  The default package is called \f(CWmain\fR.  If you have multiply nested
+packages, pass their names to \f(CWgv_stash*v\fR, separated by \f(CW::\fR as in the Perl
+language itself.
+.PP
+Alternately, if you have an SV that is a blessed reference, you can find
+out the stash pointer by using:
+.PP
+.Vb 1
+\&    HV*  SvSTASH(SvRV(SV*));
+.Ve
+then use the following to get the package name itself:
+.PP
+.Vb 1
+\&    char*  HvNAME(HV* stash);
+.Ve
+If you need to return a blessed value to your Perl script, you can use the
+following function:
+.PP
+.Vb 1
+\&    SV*  sv_bless(SV*, HV* stash)
+.Ve
+where the first argument, an \f(CWSV*\fR, must be a reference, and the second
+argument is a stash.  The returned \f(CWSV*\fR can now be used in the same way
+as any other SV.
+.PP
+For more information on references and blessings, consult the \fIperlref\fR manpage.
+.SH "Magic"
+[This section still under construction.  Ignore everything here.  Post no
+bills.  Everything not permitted is forbidden.]
+.PP
+# Version 6, 1995/1/27
+.PP
+Any SV may be magical, that is, it has special features that a normal
+SV does not have.  These features are stored in the SV structure in a
+linked list of \f(CWstruct magic\fR's, typedef'ed to \f(CWMAGIC\fR.
+.PP
+.Vb 10
+\&    struct magic {
+\&        MAGIC*      mg_moremagic;
+\&        MGVTBL*     mg_virtual;
+\&        U16         mg_private;
+\&        char        mg_type;
+\&        U8          mg_flags;
+\&        SV*         mg_obj;
+\&        char*       mg_ptr;
+\&        I32         mg_len;
+\&    };
+.Ve
+Note this is current as of patchlevel 0, and could change at any time.
+.Sh "Assigning Magic"
+Perl adds magic to an \s-1SV\s0 using the sv_magic function:
+.PP
+.Vb 1
+\&    void sv_magic(SV* sv, SV* obj, int how, char* name, I32 namlen);
+.Ve
+The \f(CWsv\fR argument is a pointer to the \s-1SV\s0 that is to acquire a new magical
+feature.
+.PP
+If \f(CWsv\fR is not already magical, Perl uses the \f(CWSvUPGRADE\fR macro to
+set the \f(CWSVt_PVMG\fR flag for the \f(CWsv\fR.  Perl then continues by adding
+it to the beginning of the linked list of magical features.  Any prior
+entry of the same type of magic is deleted.  Note that this can be
+overriden, and multiple instances of the same type of magic can be
+associated with an \s-1SV\s0.
+.PP
+The \f(CWname\fR and \f(CWnamlem\fR arguments are used to associate a string with
+the magic, typically the name of a variable. \f(CWnamlem\fR is stored in the
+\f(CWmg_len\fR field and if \f(CWname\fR is non-null and \f(CWnamlem\fR >= 0 a malloc'd
+copy of the name is stored in \f(CWmg_ptr\fR field.
+.PP
+The sv_magic function uses \f(CWhow\fR to determine which, if any, predefined
+\*(L"Magic Virtual Table\*(R" should be assigned to the \f(CWmg_virtual\fR field.
+See the \*(L"Magic Virtual Table\*(R" section below.
+.PP
+The \f(CWobj\fR argument is stored in the \f(CWmg_obj\fR field of the \f(CWMAGIC\fR
+structure.  If it is not the same as the \f(CWsv\fR argument, the reference
+count of the \f(CWobj\fR object is incremented.  If it is the same, or if
+the \f(CWhow\fR argument is \*(L"#\*(R", or if it is a null pointer, then \f(CWobj\fR is
+merely stored, without the reference count being incremented.
+.Sh "Magic Virtual Tables"
+The \f(CWmg_virtual\fR field in the \f(CWMAGIC\fR structure is a pointer to a
+\f(CWMGVTBL\fR, which is a structure of function pointers and stands for
+\*(L"Magic Virtual Table\*(R" to handle the various operations that might be
+applied to that variable.
+.PP
+The \f(CWMGVTBL\fR has five pointers to the following routine types:
+.PP
+.Vb 5
+\&    int  (*svt_get)(SV* sv, MAGIC* mg);
+\&    int  (*svt_set)(SV* sv, MAGIC* mg);
+\&    U32  (*svt_len)(SV* sv, MAGIC* mg);
+\&    int  (*svt_clear)(SV* sv, MAGIC* mg);
+\&    int  (*svt_free)(SV* sv, MAGIC* mg);
+.Ve
+This \s-1MGVTBL\s0 structure is set at compile-time in \f(CWperl.h\fR and there are
+currently 19 types (or 21 with overloading turned on).  These different
+structures contain pointers to various routines that perform additional
+actions depending on which function is being called.
+.PP
+.Vb 7
+\&    Function pointer    Action taken
+\&    ----------------    ------------
+\&    svt_get             Do something after the value of the SV is retrieved.
+\&    svt_set             Do something after the SV is assigned a value.
+\&    svt_len             Report on the SV's length.
+\&    svt_clear           Clear something the SV represents.
+\&    svt_free            Free any extra storage associated with the SV.
+.Ve
+For instance, the \s-1MGVTBL\s0 structure called \f(CWvtbl_sv\fR (which corresponds
+to an \f(CWmg_type\fR of \*(L'\e0') contains:
+.PP
+.Vb 1
+\&    { magic_get, magic_set, magic_len, 0, 0 }
+.Ve
+Thus, when an \s-1SV\s0 is determined to be magical and of type \*(L'\e0\*(R', if a get
+operation is being performed, the routine \f(CWmagic_get\fR is called.  All
+the various routines for the various magical types begin with \f(CWmagic_\fR.
+.PP
+The current kinds of Magic Virtual Tables are:
+.PP
+.Vb 27
+\&    mg_type  MGVTBL              Type of magicalness
+\&    -------  ------              -------------------
+\&    \e0       vtbl_sv             Regexp???
+\&    A        vtbl_amagic         Operator Overloading
+\&    a        vtbl_amagicelem     Operator Overloading
+\&    c        0                   Used in Operator Overloading
+\&    B        vtbl_bm             Boyer-Moore???
+\&    E        vtbl_env            %ENV hash
+\&    e        vtbl_envelem        %ENV hash element
+\&    g        vtbl_mglob          Regexp /g flag???
+\&    I        vtbl_isa            @ISA array
+\&    i        vtbl_isaelem        @ISA array element
+\&    L        0 (but sets RMAGICAL)     Perl Module/Debugger???
+\&    l        vtbl_dbline         Debugger?
+\&    P        vtbl_pack           Tied Array or Hash
+\&    p        vtbl_packelem       Tied Array or Hash element
+\&    q        vtbl_packelem       Tied Scalar or Handle
+\&    S        vtbl_sig            Signal Hash
+\&    s        vtbl_sigelem        Signal Hash element
+\&    t        vtbl_taint          Taintedness
+\&    U        vtbl_uvar           ???
+\&    v        vtbl_vec            Vector
+\&    x        vtbl_substr         Substring???
+\&    *        vtbl_glob           GV???
+\&    #        vtbl_arylen         Array Length
+\&    .        vtbl_pos            $. scalar variable
+\&    ~        Reserved for extensions, but multiple extensions may clash
+.Ve
+When an upper-case and lower-case letter both exist in the table, then the
+upper-case letter is used to represent some kind of composite type (a list
+or a hash), and the lower-case letter is used to represent an element of
+that composite type.
+.Sh "Finding Magic"
+.PP
+.Vb 1
+\&    MAGIC* mg_find(SV*, int type); /* Finds the magic pointer of that type */
+.Ve
+This routine returns a pointer to the \f(CWMAGIC\fR structure stored in the \s-1SV\s0.
+If the \s-1SV\s0 does not have that magical feature, \f(CWNULL\fR is returned.  Also,
+if the \s-1SV\s0 is not of type SVt_PVMG, Perl may core-dump.
+.PP
+.Vb 1
+\&    int mg_copy(SV* sv, SV* nsv, char* key, STRLEN klen);
+.Ve
+This routine checks to see what types of magic \f(CWsv\fR has.  If the mg_type
+field is an upper-case letter, then the mg_obj is copied to \f(CWnsv\fR, but
+the mg_type field is changed to be the lower-case letter.
+.SH "Double-Typed SV's"
+Scalar variables normally contain only one type of value, an integer,
+double, pointer, or reference.  Perl will automatically convert the
+actual scalar data from the stored type into the requested type.
+.PP
+Some scalar variables contain more than one type of scalar data.  For
+example, the variable \f(CW$!\fR contains either the numeric value of \f(CWerrno\fR
+or its string equivalent from either \f(CWstrerror\fR or \f(CWsys_errlist[]\fR.
+.PP
+To force multiple data values into an SV, you must do two things: use the
+\f(CWsv_set*v\fR routines to add the additional scalar type, then set a flag
+so that Perl will believe it contains more than one type of data.  The
+four macros to set the flags are:
+.PP
+.Vb 4
+\&        SvIOK_on
+\&        SvNOK_on
+\&        SvPOK_on
+\&        SvROK_on
+.Ve
+The particular macro you must use depends on which \f(CWsv_set*v\fR routine
+you called first.  This is because every \f(CWsv_set*v\fR routine turns on
+only the bit for the particular type of data being set, and turns off
+all the rest.
+.PP
+For example, to create a new Perl variable called \*(L"dberror\*(R" that contains
+both the numeric and descriptive string error values, you could use the
+following code:
+.PP
+.Vb 2
+\&    extern int  dberror;
+\&    extern char *dberror_list;
+.Ve
+.Vb 4
+\&    SV* sv = perl_get_sv("dberror", TRUE);
+\&    sv_setiv(sv, (IV) dberror);
+\&    sv_setpv(sv, dberror_list[dberror]);
+\&    SvIOK_on(sv);
+.Ve
+If the order of \f(CWsv_setiv\fR and \f(CWsv_setpv\fR had been reversed, then the
+macro \f(CWSvPOK_on\fR would need to be called instead of \f(CWSvIOK_on\fR.
+.SH "Calling Perl Routines from within C Programs"
+There are four routines that can be used to call a Perl subroutine from
+within a C program.  These four are:
+.PP
+.Vb 4
+\&    I32  perl_call_sv(SV*, I32);
+\&    I32  perl_call_pv(char*, I32);
+\&    I32  perl_call_method(char*, I32);
+\&    I32  perl_call_argv(char*, I32, register char**);
+.Ve
+The routine most often used is \f(CWperl_call_sv\fR.  The \f(CWSV*\fR argument
+contains either the name of the Perl subroutine to be called, or a
+reference to the subroutine.  The second argument consists of flags
+that control the context in which the subroutine is called, whether
+or not the subroutine is being passed arguments, how errors should be
+trapped, and how to treat return values.
+.PP
+All four routines return the number of arguments that the subroutine returned
+on the Perl stack.
+.PP
+When using any of these routines (except \f(CWperl_call_argv\fR), the programmer
+must manipulate the Perl stack.  These include the following macros and
+functions:
+.PP
+.Vb 9
+\&    dSP
+\&    PUSHMARK()
+\&    PUTBACK
+\&    SPAGAIN
+\&    ENTER
+\&    SAVETMPS
+\&    FREETMPS
+\&    LEAVE
+\&    XPUSH*()
+.Ve
+For more information, consult the \fIperlcall\fR manpage.
+.SH "Memory Allocation"
+It is strongly suggested that you use the version of malloc that is distributed
+with Perl.  It keeps pools of various sizes of unallocated memory in order to
+more quickly satisfy allocation requests.
+However, on some platforms, it may cause spurious malloc or free errors.
+.PP
+.Vb 3
+\&    New(x, pointer, number, type);
+\&    Newc(x, pointer, number, type, cast);
+\&    Newz(x, pointer, number, type);
+.Ve
+These three macros are used to initially allocate memory.  The first argument
+\f(CWx\fR was a \*(L"magic cookie\*(R" that was used to keep track of who called the macro,
+to help when debugging memory problems.  However, the current code makes no
+use of this feature (Larry has switched to using a run-time memory checker),
+so this argument can be any number.
+.PP
+The second argument \f(CWpointer\fR will point to the newly allocated memory.
+The third and fourth arguments \f(CWnumber\fR and \f(CWtype\fR specify how many of
+the specified type of data structure should be allocated.  The argument
+\f(CWtype\fR is passed to \f(CWsizeof\fR.  The final argument to \f(CWNewc\fR, \f(CWcast\fR,
+should be used if the \f(CWpointer\fR argument is different from the \f(CWtype\fR
+argument.
+.PP
+Unlike the \f(CWNew\fR and \f(CWNewc\fR macros, the \f(CWNewz\fR macro calls \f(CWmemzero\fR
+to zero out all the newly allocated memory.
+.PP
+.Vb 3
+\&    Renew(pointer, number, type);
+\&    Renewc(pointer, number, type, cast);
+\&    Safefree(pointer)
+.Ve
+These three macros are used to change a memory buffer size or to free a
+piece of memory no longer needed.  The arguments to \f(CWRenew\fR and \f(CWRenewc\fR
+match those of \f(CWNew\fR and \f(CWNewc\fR with the exception of not needing the
+\*(L"magic cookie\*(R" argument.
+.PP
+.Vb 3
+\&    Move(source, dest, number, type);
+\&    Copy(source, dest, number, type);
+\&    Zero(dest, number, type);
+.Ve
+These three macros are used to move, copy, or zero out previously allocated
+memory.  The \f(CWsource\fR and \f(CWdest\fR arguments point to the source and
+destination starting points.  Perl will move, copy, or zero out \f(CWnumber\fR
+instances of the size of the \f(CWtype\fR data structure (using the \f(CWsizeof\fR
+function).
+.SH "AUTHOR"
+Jeff Okamoto <okamoto@corp.hp.com>
+.PP
+With lots of help and suggestions from Dean Roehrich, Malcolm Beattie,
+Andreas Koenig, Paul Hudson, Ilya Zakharevich, Paul Marquess, Neil
+Bowers, Matthew Green, Tim Bunce, and Spider Boardman.
+.SH "DATE"
+Version 19: 1995/4/26
+
+.rn }` ''

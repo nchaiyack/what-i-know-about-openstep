@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 28.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 35.0px Helvetica; min-height: 42.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 10.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 14.0px Times}
+    p.p10 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 36.0px Helvetica; min-height: 43.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 26.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 12.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 12.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 10.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 75.0px; font: 12.0px Helvetica}
+    p.p25 {margin: 0.0px 0.0px 0.0px 75.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p27 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 75.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 10.0px; font: 9.0px Helvetica; min-height: 11.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 9.0px Helvetica}
+    p.p31 {margin: 0.0px 0.0px 0.0px 10.0px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 10.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 12.0px Helvetica}
+    p.p34 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p37 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p41 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p42 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p43 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p48 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p49 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p50 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p51 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p52 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p53 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p54 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p55 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p56 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p57 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p58 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 12.0px Helvetica}
+    p.p59 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p60 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p61 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.0px Helvetica}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Times}
+    span.s5 {font: 14.0px Symbol}
+    span.s6 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">c<span class="Apple-tab-span">	</span></span><b>NSSet Class Cluster</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Class Cluster Description</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7">The NSSet, NSMutableSet, and NSCountedSet classes declare the programmatic interface for objects that store unordered sets of objects.</p>
+<p class="p8"><br></p>
+<p class="p7">Because of the nature of class clusters, the objects you create with the NSSet class cluster are not actual instances of NSSet or NSMutableSet. Rather, the instances belong to one of their private subclasses. (For convenience, we use the term <i>set</i> to refer to any one of these instances without specifying its exact class membership.) Although a set's class is private, its interface is public, as declared by the abstract superclasses NSSet and NSMutableSet.Note that NSCountedSet is not part of the class cluster; it is a concrete subclass of NSMutableSet.</p>
+<p class="p8"><br></p>
+<p class="p7">NSSet declares the programmatic interface for static sets of objects. You establish a static set's entries when it's created, and thereafter the entries can't be modified. NSMutableSet, on the other hand, declares a programmatic interface for dynamic sets of objects. A dynamic—or mutable—set allows the addition and deletion of entries at any time, automatically allocating memory as needed.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">Use sets as an alternative to arrays when the order of elements isn't important and performance in testing whether an object is contained in the set <i>is</i> a consideration—while arrays are ordered, testing for membership is slower than with sets.</p>
+<p class="p8"><br></p>
+<p class="p7">Objects in a set must respond to the NSObject protocol methods <b>hash</b> and <b>isEqual:</b>. See the NSObject protocol for more information.</p>
+<p class="p8"><br></p>
+<p class="p9"><span class="s3"><b>Note:<span class="Apple-tab-span">	</span></b></span>If mutable objects are stored in a set, either the <b>hash</b> method of the objects shouldn't depend on the internal state of the mutable objects or the mutable objects shouldn't be modified while they're in the set (note that it can be difficult to know whether or not a given object is in a collection).</p>
+<p class="p10"><br></p>
+<p class="p7">Objects added to a set are not copied; rather, each object receives a <b>retain</b> message before it's added to a set.</p>
+<p class="p8"><br></p>
+<p class="p7">Generally, you create a temporary set by sending one of the <b>set…</b> methods to the NSSet class object. These methods return an NSSet object containing the elements (if any) you pass in as arguments. The <b>set</b> method is a “convenience” method to create an empty mutable set. Newly created instances of NSSet created by invoking the <b>allocWithZone:</b> method can be populated with objects using any of the <b>init…</b> methods.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">The set classes adopt the NSCopying and NSMutableCopying protocols, making it convenient to convert a set of one type to the other.</p>
+<p class="p8"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s2">i<span class="Apple-tab-span">	</span></span><b></b><b>NSSet</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s4">NSObject</span></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s4">NSCoding</span></p>
+<p class="p17">NSCopying</p>
+<p class="p17">NSMutableCopying</p>
+<p class="p17">NSObject (NSObject)<span class="Apple-converted-space"> </span></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSSet.h</p>
+<p class="p20"><br></p>
+<p class="p21"><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p5"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="22pt" viewBox="0 0 597 22" role="img" aria-labelledby="eps-svg-1-title" data-source="NSSetClassCluster.rtfd/AtaGlance.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">AtaGlance.eps</title><defs>
+<g>
+<g id="eps-svg-1-glyph-0-0">
+<path d="M 8.859375 -6.265625 C 8.796875 -7.078125 8.625 -7.609375 8.234375 -8.140625 C 7.5 -9.09375 6.328125 -9.640625 4.90625 -9.640625 C 2.234375 -9.640625 0.578125 -7.71875 0.578125 -4.65625 C 0.578125 -1.59375 2.21875 0.296875 4.859375 0.296875 C 7.234375 0.296875 8.78125 -1.0625 8.90625 -3.234375 L 7 -3.234375 C 6.875 -2.03125 6.125 -1.34375 4.90625 -1.34375 C 3.40625 -1.34375 2.515625 -2.5625 2.515625 -4.625 C 2.515625 -6.71875 3.4375 -7.96875 4.984375 -7.96875 C 6.109375 -7.96875 6.75 -7.421875 7 -6.265625 Z M 8.859375 -6.265625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-1">
+<path d="M 2.6875 -9.484375 L 0.875 -9.484375 L 0.875 0 L 2.6875 0 Z M 2.6875 -9.484375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-2">
+<path d="M 6.8125 -0.21875 C 6.5 -0.515625 6.390625 -0.734375 6.390625 -1.078125 L 6.390625 -4.984375 C 6.390625 -6.40625 5.421875 -7.140625 3.515625 -7.140625 C 1.625 -7.140625 0.640625 -6.328125 0.515625 -4.703125 L 2.28125 -4.703125 C 2.359375 -5.4375 2.671875 -5.671875 3.5625 -5.671875 C 4.265625 -5.671875 4.609375 -5.4375 4.609375 -4.96875 C 4.609375 -4.734375 4.5 -4.53125 4.296875 -4.421875 C 4.0625 -4.296875 4.0625 -4.296875 3.15625 -4.140625 L 2.4375 -4.015625 C 1.046875 -3.78125 0.359375 -3.0625 0.359375 -1.8125 C 0.359375 -0.546875 1.203125 0.296875 2.5 0.296875 C 3.28125 0.296875 3.984375 -0.03125 4.625 -0.703125 C 4.625 -0.34375 4.671875 -0.203125 4.84375 0 L 6.8125 0 Z M 4.609375 -2.828125 C 4.609375 -1.765625 4.09375 -1.171875 3.171875 -1.171875 C 2.5625 -1.171875 2.1875 -1.5 2.1875 -2.015625 C 2.1875 -2.5625 2.46875 -2.828125 3.21875 -2.984375 L 3.84375 -3.09375 C 4.328125 -3.1875 4.40625 -3.21875 4.609375 -3.3125 Z M 4.609375 -2.828125 "/>
+</g>
+<g id="eps-svg-1-glyph-0-3">
+<path d="M 6.5625 -4.765625 C 6.53125 -6.234375 5.390625 -7.140625 3.515625 -7.140625 C 1.734375 -7.140625 0.625 -6.234375 0.625 -4.796875 C 0.625 -4.328125 0.765625 -3.921875 1.015625 -3.65625 C 1.265625 -3.40625 1.484375 -3.28125 2.15625 -3.0625 L 4.328125 -2.390625 C 4.78125 -2.25 4.9375 -2.109375 4.9375 -1.8125 C 4.9375 -1.390625 4.4375 -1.125 3.59375 -1.125 C 3.109375 -1.125 2.75 -1.203125 2.515625 -1.375 C 2.3125 -1.515625 2.234375 -1.65625 2.15625 -2.046875 L 0.375 -2.046875 C 0.421875 -0.5 1.5625 0.296875 3.6875 0.296875 C 4.671875 0.296875 5.40625 0.09375 5.921875 -0.328125 C 6.453125 -0.734375 6.765625 -1.390625 6.765625 -2.078125 C 6.765625 -2.984375 6.3125 -3.578125 5.375 -3.84375 L 3.078125 -4.515625 C 2.578125 -4.671875 2.4375 -4.765625 2.4375 -5.0625 C 2.4375 -5.453125 2.859375 -5.703125 3.5 -5.703125 C 4.375 -5.703125 4.796875 -5.390625 4.8125 -4.765625 Z M 6.5625 -4.765625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-4">
+</g>
+<g id="eps-svg-1-glyph-0-5">
+<path d="M 3.90625 -6.875 L 2.90625 -6.875 L 2.90625 -8.765625 L 1.078125 -8.765625 L 1.078125 -6.875 L 0.1875 -6.875 L 0.1875 -5.671875 L 1.078125 -5.671875 L 1.078125 -1.359375 C 1.078125 -0.25 1.65625 0.296875 2.859375 0.296875 C 3.28125 0.296875 3.578125 0.265625 3.90625 0.15625 L 3.90625 -1.125 C 3.734375 -1.09375 3.640625 -1.078125 3.5 -1.078125 C 3.015625 -1.078125 2.90625 -1.21875 2.90625 -1.84375 L 2.90625 -5.671875 L 3.90625 -5.671875 Z M 3.90625 -6.875 "/>
+</g>
+<g id="eps-svg-1-glyph-0-6">
+<path d="M 9.25 -5.09375 L 5.453125 -5.09375 L 5.453125 -3.46875 L 7.609375 -3.46875 C 7.546875 -2.9375 7.421875 -2.609375 7.140625 -2.28125 C 6.671875 -1.703125 5.9375 -1.359375 5.203125 -1.359375 C 3.609375 -1.359375 2.5 -2.75 2.5 -4.6875 C 2.5 -6.734375 3.484375 -7.96875 5.140625 -7.96875 C 5.828125 -7.96875 6.390625 -7.78125 6.828125 -7.390625 C 7.09375 -7.15625 7.234375 -6.9375 7.40625 -6.453125 L 9.25 -6.453125 C 9.015625 -8.40625 7.421875 -9.640625 5.140625 -9.640625 C 2.40625 -9.640625 0.546875 -7.625 0.546875 -4.671875 C 0.546875 -1.796875 2.421875 0.296875 4.984375 0.296875 C 6.25 0.296875 7.109375 -0.15625 7.84375 -1.21875 L 8.078125 0.03125 L 9.25 0.03125 Z M 9.25 -5.09375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-7">
+<path d="M 0.8125 -7.015625 L 0.8125 0 L 2.640625 0 L 2.640625 -4.21875 C 2.640625 -5.046875 3.21875 -5.59375 4.109375 -5.59375 C 4.890625 -5.59375 5.28125 -5.15625 5.28125 -4.328125 L 5.28125 0 L 7.09375 0 L 7.09375 -4.703125 C 7.09375 -6.265625 6.25 -7.140625 4.75 -7.140625 C 3.796875 -7.140625 3.15625 -6.796875 2.640625 -6 L 2.640625 -7.015625 Z M 0.8125 -7.015625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-8">
+<path d="M 6.78125 -4.390625 C 6.65625 -6.109375 5.53125 -7.140625 3.75 -7.140625 C 1.65625 -7.140625 0.4375 -5.765625 0.4375 -3.359375 C 0.4375 -1.046875 1.65625 0.296875 3.734375 0.296875 C 5.4375 0.296875 6.609375 -0.75 6.78125 -2.4375 L 5.046875 -2.4375 C 4.828125 -1.515625 4.453125 -1.171875 3.734375 -1.171875 C 2.8125 -1.171875 2.265625 -1.984375 2.265625 -3.359375 C 2.265625 -4.046875 2.390625 -4.65625 2.609375 -5.0625 C 2.828125 -5.453125 3.21875 -5.671875 3.75 -5.671875 C 4.484375 -5.671875 4.84375 -5.3125 5.046875 -4.390625 Z M 6.78125 -4.390625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-9">
+<path d="M 6.8125 -2.9375 C 6.828125 -3.09375 6.828125 -3.15625 6.828125 -3.25 C 6.828125 -3.953125 6.71875 -4.609375 6.546875 -5.09375 C 6.078125 -6.375 4.953125 -7.140625 3.53125 -7.140625 C 1.515625 -7.140625 0.28125 -5.6875 0.28125 -3.328125 C 0.28125 -1.078125 1.515625 0.296875 3.5 0.296875 C 5.0625 0.296875 6.34375 -0.578125 6.75 -1.96875 L 4.953125 -1.96875 C 4.734375 -1.421875 4.21875 -1.09375 3.5625 -1.09375 C 3.046875 -1.09375 2.625 -1.3125 2.359375 -1.703125 C 2.203125 -1.96875 2.125 -2.28125 2.109375 -2.9375 Z M 2.125 -4.140625 C 2.25 -5.21875 2.703125 -5.75 3.515625 -5.75 C 4.34375 -5.75 4.84375 -5.1875 4.921875 -4.140625 Z M 2.125 -4.140625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-10">
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 21.5 L 595.5 1.5 L 49.5 1.5 L 49.5 21.5 L 595.5 21.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 200 L 20 200 " transform="matrix(0.1, 0, 0, -0.1, 0, 22)"/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-0" x="67" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="76.386" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="80" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="87.228" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="94.456" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="101.684" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="105.298" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-5" x="112.526" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="116.855" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="120.469" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="127.697" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-6" x="131.311" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="141.425" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="145.039" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-7" x="152.267" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-8" x="160.21" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-9" x="167.438" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-10" x="174.666" y="17"/>
+</g>
+</svg></b><b></b></p>
+<p class="p23"><b></b><br></p>
+<p class="p24"><b>Purpose</b></p>
+<p class="p7">An NSSet object stores an immutable set of objects.</p>
+<p class="p25"><br></p>
+<p class="p24"><b>Principal Attributes</b></p>
+<p class="p7">•<span class="Apple-tab-span">	</span>The objects that make up the set.</p>
+<p class="p25"><br></p>
+<p class="p24"><b>Creation</b></p>
+<p class="p26">+ set<span class="Apple-tab-span">	</span>Returns an empty set.</p>
+<p class="p26">+ setWithArray:<span class="Apple-tab-span">	</span>Returns a set containing a number of objects from an array.</p>
+<p class="p26">+ setWithObject:<span class="Apple-tab-span">	</span>Returns a set containing a single object.</p>
+<p class="p26">+ setWithObjects:<span class="Apple-tab-span">	</span>Returns a set containing a number of objects.</p>
+<p class="p26">+ setWithObjects:count:<span class="Apple-tab-span">	</span>Returns a set containing a specified number of objects.</p>
+<p class="p26">+ setWithSet:<span class="Apple-tab-span">	</span>Returns a set containing a number of objects from another set.</p>
+<p class="p27"><br></p>
+<p class="p24"><b>Commonly Used Methods</b></p>
+<p class="p26"><span class="s5">-</span> allObjects<span class="Apple-tab-span">	</span>Returns an array containing the set's member objects.</p>
+<p class="p26"><span class="s5">-</span> count<span class="Apple-tab-span">	</span>Returns the number of objects in the set.</p>
+<p class="p26"><span class="s5">-</span> containsObject:<span class="Apple-tab-span">	</span>Indicates whether a given object is present in the set.</p>
+<p class="p27"><br></p>
+<p class="p24"><b>Primitive Methods</b></p>
+<p class="p7"><span class="s5">-</span> count</p>
+<p class="p7"><span class="s5">-</span> member:</p>
+<p class="p7"><span class="s5">-</span> objectEnumerator</p>
+<p class="p28"><br></p>
+<p class="p29"><b></b><br></p>
+<p class="p30"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="9pt" viewBox="0 0 597 9" role="img" aria-labelledby="eps-svg-2-title" data-source="NSSetClassCluster.rtfd/AtaGlanceClose.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-2-title">AtaGlanceClose.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 7.5 L 595.5 0.25 L 49.5 0.25 L 49.5 7.5 L 595.5 7.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 20 L 20 20 " transform="matrix(0.1, 0, 0, -0.1, 0, 9)"/>
+</svg></b><b></b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b>Class Description</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p7">The NSSet class declares the programmatic interface to an object that manages an immutable set of objects. NSSet provides support for the mathematical concept of a <i>set</i>. A set, both in its mathematical sense and in the implementation of NSSet, is an <i>unordered</i> collection of distinct elements. The NSMutableSet and NSCountedSet classes are provided for sets whose contents may be altered.</p>
+<p class="p8"><br></p>
+<p class="p7">NSSet provides methods for querying the elements of the set. <b>allObjects</b> returns an array containing the objects in a set.<b> anyObject</b> returns some object in the set.<b> count</b> returns the number of objects currently in the set.<b> member:</b> returns the object in the set that is equal to a specified object. Additionally, the <b>intersectsSet:</b> tests for set intersection, <b>isEqualToSet:</b> tests for set equality, and <b>isSubsetOfSet:</b> tests for one set being a subset of another.</p>
+<p class="p8"><br></p>
+<p class="p7">The <b>objectEnumerator</b> method provides for traversing elements of the set one by one.</p>
+<p class="p8"><br></p>
+<p class="p7">NSSet's <b>makeObjectsPerform:</b> and <b>makeObjectsPerform:withObject:</b> methods provides for sending messages to individual objects in the set.</p>
+<p class="p8"><br></p>
+<p class="p35"><br></p>
+<p class="p36"><b>Exceptions</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">NSSet implements the <b>encodeWithCoder:</b> method, which raises NSInternalInconsistencyException if the number of objects enumerated for encoding turns out to be unequal to the number of objects in the set.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p39"><br></p>
+<p class="p40"><b>Adopted Protocols</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p41">NSCoding<span class="Apple-tab-span">	</span><span class="s5">-</span> encodeWithCoder:</p>
+<p class="p42"><span class="s5">-</span> initWithCoder:</p>
+<p class="p43"><br></p>
+<p class="p41">NSCopying<span class="Apple-tab-span">	</span><span class="s5">-</span> copyWithZone:</p>
+<p class="p44"><br></p>
+<p class="p41">NSMutableCopying<span class="Apple-tab-span">	</span><span class="s5">-</span> mutableCopyWithZone:</p>
+<p class="p45"><br></p>
+<p class="p40"><b>Method Types</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p41">Creating a set<span class="Apple-tab-span">	</span>+ allocWithZone:</p>
+<p class="p42">+ set</p>
+<p class="p42">+ setWithArray:</p>
+<p class="p42">+ setWithObject:</p>
+<p class="p42">+ setWithObjects:</p>
+<p class="p42"><span class="s5">-</span> initWithArray:</p>
+<p class="p42"><span class="s5">-</span> initWithObjects:</p>
+<p class="p42"><span class="s5">-</span> initWithObjects:count:</p>
+<p class="p42"><span class="s5">-</span> initWithSet:</p>
+<p class="p42"><span class="s5">-</span> initWithSet:copyItems:</p>
+<p class="p43"><br></p>
+<p class="p41">Counting entries<span class="Apple-tab-span">	</span><span class="s5">-</span> count<span class="Apple-converted-space"> </span></p>
+<p class="p44"><br></p>
+<p class="p41">Accessing the members<span class="Apple-tab-span">	</span><span class="s5">-</span> allObjects</p>
+<p class="p42"><span class="s5">-</span> anyObject</p>
+<p class="p42"><span class="s5">-</span> containsObject:</p>
+<p class="p42"><span class="s5">-</span> makeObjectsPerform:</p>
+<p class="p42"><span class="s5">-</span> makeObjectsPerform:withObject:</p>
+<p class="p42"><span class="s5">-</span> member:</p>
+<p class="p42"><span class="s5">-</span> objectEnumerator</p>
+<p class="p43"><br></p>
+<p class="p41">Comparing sets<span class="Apple-tab-span">	</span><span class="s5">-</span> isSubsetOfSet:</p>
+<p class="p42"><span class="s5">-</span> intersectsSet:</p>
+<p class="p42"><span class="s5">-</span> isEqualToSet:</p>
+<p class="p43"><br></p>
+<p class="p41">Describing a set<span class="Apple-tab-span">	</span><span class="s5">-</span> description</p>
+<p class="p42"><span class="s5">-</span> descriptionWithLocale:</p>
+<p class="p46"><br></p>
+<p class="p40"><b>Class Methods</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p36"><b></b><b>allocWithZone:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47">+ (id)<b>allocWithZone:</b>(NSZone *)<i>zone</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Creates and returns an uninitialized set in the specified zone. If the receiver is the NSSet class object, an instance of an immutable private subclass is returned; otherwise, an object of the receiver's class is returned.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">Typically, you create temporary sets using the <b>set... </b>class methods, not the <b>allocWithZone:</b> and<b> init... </b>methods. Note that it's your responsibility to free objects created with the <b>allocWithZone:</b> method.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ set</b>, <b>+ setWithObject:</b>, <b>+ setWithObjects:</b>, <b>+ setWithArray:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>set</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47">+ (id)<b>set</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p7">Creates and returns an empty set. This method is declared primarily for the use of mutable subclasses of NSSet.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ setWithArray:</b>, <b>+ setWithObject:</b>, <b>+ setWithObjects:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>setWithArray:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47">+ (id)<b>setWithArray:</b>(NSArray *)<i>anArray</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Creates and returns a set containing those objects contained within the array <i>anArray</i>.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ set</b>, <b>+ setWithObject:</b>, <b>+ setWithObjects:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>setWithObject:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47">+ (id)<b>setWithObject:</b>(id)<i>anObject</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Creates and returns a set containing a single member, <i>anObject</i>.<i> anObject</i> receives a <b>retain</b> message after being added to the set.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ setWithArray:</b>, <b>+ set</b>, <b>+ setWithObjects:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>setWithObjects:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47">+ (id)<b>setWithObjects:</b>(id)<i>anObject, ...</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Creates and returns a set containing the objects in the argument list. The argument list is a comma-separated list of objects ending with <b>nil</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">As an example, the following code excerpt creates a set containing three different types of elements (assuming <i>aPath</i> exits):</p>
+<p class="p8"><br></p>
+<p class="p52">NSSet *mySet;</p>
+<p class="p52">NSData *someData = [NSData dataWithContentsOfFile:aPath]; <span class="Apple-converted-space"> </span></p>
+<p class="p52">NSValue *aValue = [NSNumber numberWithInt:5];<span class="Apple-converted-space"> </span></p>
+<p class="p52">NSString *aString = @”a string”;</p>
+<p class="p53"><br></p>
+<p class="p52">mySet = [NSSet setWithObjects:someData, aValue, aString, nil];</p>
+<p class="p54"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ setWithArray:</b>, <b>+ set</b>, <b>+ setWithObject:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p55"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setWithObjects:count:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p47">+ (id)<b>setWithObjects:</b>(id *)<i>objects</i> <b>count:</b>(unsigned int)<i>count</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Creates and returns a set containing <i>count</i> objects from the list of objects specified by <i>objects</i>.</p>
+<p class="p8"><br></p>
+<p class="p57"><br></p>
+<p class="p55"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setWithSet:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p47">+ (id)<b>setWithArray:</b>(NSSet *)<i>aSet</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Creates and returns a set containing those objects contained within the set <i>aSet</i>.</p>
+<p class="p8"><br></p>
+<p class="p39"><br></p>
+<p class="p40"><b>Instance Methods</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p36"><b></b><b>allObjects</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (NSArray *)<b>allObjects</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p7">Returns an array containing the receiver's members, or an empty array if the receiver has no members. The order of the objects in the array isn't defined.</p>
+<p class="p8"><br></p>
+<p class="p57"><br></p>
+<p class="p36"><b></b><b>anyObject</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (id)<b>anyObject</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p7">Returns one of the objects in the set (essentially chosen at random), or <b>nil</b> if the set contains no objects.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>allObjects</b>, <span class="s5">-</span> <b>objectEnumerator</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>containsObject:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (BOOL)<b>containsObject:</b>(id)<i>anObject</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Returns YES if <i>anObject</i> is present in the set, NO otherwise.</p>
+<p class="p8"><br></p>
+<p class="p58"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s5">-</span><span class="s4"> <b>member:</b></span></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>count</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (unsigned int)<b>count</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p7">Returns the number of members in the set.</p>
+<p class="p8"><br></p>
+<p class="p57"><br></p>
+<p class="p36"><b></b><b>description</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (NSString *)<b>description</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p7">Returns a string object that represents the contents of the receiver, formatted as a property list.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>descriptionWithLocale:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>descriptionWithLocale:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (NSString *)<b>descriptionWithLocale:</b>(NSDictionary *)<i>locale</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Returns a string object that represents the contents of the receiver, formatted as a property list. <i>locale</i> specifies options used for formatting each of the receiver's members (each is sent <b>descriptionWithLocale:</b>, and <i>locale</i> is passed along as the sole parameter); specify <b>nil</b> if you don't want them formatted.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>description</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>hash</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47">@protocol NSObject</p>
+<p class="p47"><span class="s5">-</span> (unsigned int)<b>hash</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p7">Returns an unsigned integer that can be used as a table address in a hash table structure. For a set, <b>hash</b> returns the number of members in the set. If two sets are equal (as determined by the <b>isEqual:</b> method), they will have the same hash value.</p>
+<p class="p8"><br></p>
+<p class="p58"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s5">-</span><span class="s4"> <b>isEqual:</b></span></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>initWithArray:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (id)<b>initWithArray:</b>(NSArray *)<i>array</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Initializes a newly allocated set with the objects that are contained in <i>array</i>. This method steps through <i>array</i>, adding members to the new set as it goes. Each object receives a <b>retain</b> message as it is added to the set. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>initWithObjects:</b>, <span class="s5">-</span> <b>initWithObjects:count:</b>,<b> </b><span class="s5">-</span><b> initWithSet:, </b><span class="s5">-</span><b> initWithSet:copyItems:</b>, +<b>setWithArray:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>initWithObjects:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (id)<b>initWithObjects:</b>(id)<i>anObject...</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Initializes a newly allocated set with members taken from the specified list of <i>objects</i>. <b>initWithObjects:</b> takes a comma-separated list of objects terminated by <b>nil</b>. Each object receives a <b>retain</b> message as it is added to the set. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>initWithArray:</b>, <span class="s5">-</span> <b>initWithObjects:count:</b>,<b> </b><span class="s5">-</span><b> initWithSet:, </b><span class="s5">-</span><b> initWithSet:copyItems:</b>, +<b>setWithObjects:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>initWithObjects:count:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (id)<b>initWithObjects:</b>(id *)<i>objects </i><b>count:</b>(unsigned)<i>count</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Initializes a newly allocated set with <i>count</i> members. This method steps through the <i>objects</i> array, creating members in the new set as it goes. Each object receives a <b>retain</b> message as it is added to the set. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>initWithArray:</b>, <span class="s5">-</span> <b>initWithObjects:</b>, <span class="s5">-</span><b> initWithSet:, </b><span class="s5">-</span><b> initWithSet:copyItems:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>initWithSet:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (id)<b>initWithSet:</b>(NSSet *)<i>otherSet</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Initializes a newly allocated set by placing in it the objects contained in <i>otherSet</i>. Each object is retained as it is added to the receiver. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>initWithArray:</b>, <span class="s5">-</span> <b>initWithObjects:</b>, <span class="s5">-</span> <b>initWithObjects:count:</b>,<b> </b><span class="s5">-</span><b> initWithSet:copyItems:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>initWithSet:copyItems:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (id)<b>initWithSet:</b>(NSSet *)<i>otherSet</i> <b>copyItems:</b>(BOOL)<i>flag</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Initializes a newly allocated set and, if <i>flag</i> is NO, places in it the objects contained in <i>otherSet</i>. If <i>flag</i> is YES, the members of <i>otherSet</i> are copied, and the copies are added to the receiver. (Note that <b>copyWithZone:</b> is invoked in making these copies. Thus, the receiver's new member objects may be immutable, even though their counterparts in <i>otherSet</i> were mutable. Also, members must conform to the NSCopying protocol)</p>
+<p class="p8"><br></p>
+<p class="p7">This method returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>initWithArray:</b>, <span class="s5">-</span> <b>initWithObjects:</b>, <span class="s5">-</span> <b>initWithObjects:count:</b>,<b> </b><span class="s5">-</span><b> initWithSet:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>intersectsSet:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (BOOL)<b>intersectsSet:</b>(NSSet *)<i>otherSet</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Returns YES if at least one object in the receiver is also present in <i>otherSet</i>, NO otherwise.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s5">-</span> <b>isEqualToSet:</b>, <span class="s5">-</span> <b>isSubsetOfSet:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>isEqual:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47">@protocol NSObject</p>
+<p class="p47"><span class="s5">-</span> (BOOL)<b>isEqual:</b>(id)<i>anObject</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Returns YES if the receiver and <i>anObject</i> are equal; otherwise returns NO. A YES return value indicates that the receiver and <i>anObject </i>both inherit from NSSet and<i> </i>contain the same contents (as determined by the <b>isEqualToSet:</b> method).</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span><b> isEqualToSet:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>isEqualToSet:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (BOOL)<b>isEqualToSet:</b>(NSSet *)<i>otherSet</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Compares the receiving set to <i>otherSet</i>. If the contents of <i>otherSet</i> are equal to the contents of the receiver, this method returns YES. If not, it returns NO.</p>
+<p class="p8"><br></p>
+<p class="p7">Two sets have equal contents if they each have the same number of members and if each member of one set is present in the other.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s5">-</span> <b>intersectsSet:</b>, <span class="s5">-</span> <b>isEqual:</b> (NSObject protocol), <span class="s5">-</span> <b>isSubsetOfSet:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>isSubsetOfSet:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (BOOL)<b>isSubsetOfSet:</b>(NSSet *)<i>otherSet</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Returns YES if every object in the receiver is also present in <i>otherSet</i>, NO otherwise.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>intersectsSet:</b>, <span class="s5">-</span> <b>isEqualToSet:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>makeObjectsPerform:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (void)<b>makeObjectsPerform:</b>(SEL)<i>aSelector</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Sends <i>aSelector</i> to each object in the set. The <i>aSelector</i> method must be one that takes no arguments. It shouldn't have the side effect of modifying this set. The messages are sent using the <b>perform:</b> method declared in the NSObject protocol.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s5">-</span> <b>makeObjectsPerform:withObject:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>makeObjectsPerform:withObject:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (void)<b>makeObjectsPerform:</b>(SEL)<i>aSelector</i><b> withObject:</b>(id)<i>anObject</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Sends <i>aSelector</i> to each object in the set. The message is sent each time with <i>anObject</i> as the argument, so the <i>aSelector</i> method must be one that takes a single argument of type <b>id</b>. The <i>aSelector</i> method shouldn't, as a side effect, modify this set. The messages are sent using the <b>perform:with:</b> method declared in the NSObject protocol.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>makeObjectsPerform:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>member:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (id)<b>member:</b>(id)<i>anObject</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">If <i>anObject</i> is present in the set (as determined by <b>isEqual:</b>), the object in the set is returned. Otherwise, <b>member:</b> returns <b>nil</b>.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>containsObject:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>objectEnumerator</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (NSEnumerator *)<b>objectEnumerator</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p7">Returns an enumerator object that lets you access each object in the set:</p>
+<p class="p8"><br></p>
+<p class="p52">NSEnumerator *enumerator = [mySet objectEnumerator];</p>
+<p class="p52">id value;</p>
+<p class="p53"><br></p>
+<p class="p52">while ((value = [enumerator nextObject])) {</p>
+<p class="p52"><span class="Apple-converted-space">    </span>/* code that acts on the set's values */<span class="Apple-converted-space"> </span></p>
+<p class="p52">}</p>
+<p class="p54"><br></p>
+<p class="p7">When this method is used with mutable subclasses of NSSet, your code shouldn't modify the set during enumeration. If you intend to modify the set, use the <b>allObjects</b> method to create a “snapshot” of the set's members. Enumerate the snapshot, but make your modifications to the original set.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>nextObject </b>(NSEnumerator)</p>
+<p class="p50"><br></p>
+<p class="p11"><br></p>
+<p class="p11"><br></p>
+<p class="p12"><span class="s2">i<span class="Apple-tab-span">	</span></span><b></b><b>NSMutableSet</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p59"><span class="s3"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSSet : NSObject</p>
+<p class="p15"><br></p>
+<p class="p16"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s4">NSCoding</span></p>
+<p class="p17">NSCopying</p>
+<p class="p17">NSMutableCopying (NSSet)<span class="Apple-converted-space"> </span></p>
+<p class="p17">NSObject (NSObject)<span class="Apple-converted-space"> </span></p>
+<p class="p18"><br></p>
+<p class="p19"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSSet.h</p>
+<p class="p20"><br></p>
+<p class="p21"><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p5"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="22pt" viewBox="0 0 597 22" role="img" aria-labelledby="eps-svg-3-title" data-source="NSSetClassCluster.rtfd/AtaGlance.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-3-title">AtaGlance.eps</title><defs>
+<g>
+<g id="eps-svg-3-glyph-0-0">
+<path d="M 8.859375 -6.265625 C 8.796875 -7.078125 8.625 -7.609375 8.234375 -8.140625 C 7.5 -9.09375 6.328125 -9.640625 4.90625 -9.640625 C 2.234375 -9.640625 0.578125 -7.71875 0.578125 -4.65625 C 0.578125 -1.59375 2.21875 0.296875 4.859375 0.296875 C 7.234375 0.296875 8.78125 -1.0625 8.90625 -3.234375 L 7 -3.234375 C 6.875 -2.03125 6.125 -1.34375 4.90625 -1.34375 C 3.40625 -1.34375 2.515625 -2.5625 2.515625 -4.625 C 2.515625 -6.71875 3.4375 -7.96875 4.984375 -7.96875 C 6.109375 -7.96875 6.75 -7.421875 7 -6.265625 Z M 8.859375 -6.265625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-1">
+<path d="M 2.6875 -9.484375 L 0.875 -9.484375 L 0.875 0 L 2.6875 0 Z M 2.6875 -9.484375 "/>
+</g>
+<g id="eps-svg-3-glyph-0-2">
+<path d="M 6.8125 -0.21875 C 6.5 -0.515625 6.390625 -0.734375 6.390625 -1.078125 L 6.390625 -4.984375 C 6.390625 -6.40625 5.421875 -7.140625 3.515625 -7.140625 C 1.625 -7.140625 0.640625 -6.328125 0.515625 -4.703125 L 2.28125 -4.703125 C 2.359375 -5.4375 2.671875 -5.671875 3.5625 -5.671875 C 4.265625 -5.671875 4.609375 -5.4375 4.609375 -4.96875 C 4.609375 -4.734375 4.5 -4.53125 4.296875 -4.421875 C 4.0625 -4.296875 4.0625 -4.296875 3.15625 -4.140625 L 2.4375 -4.015625 C 1.046875 -3.78125 0.359375 -3.0625 0.359375 -1.8125 C 0.359375 -0.546875 1.203125 0.296875 2.5 0.296875 C 3.28125 0.296875 3.984375 -0.03125 4.625 -0.703125 C 4.625 -0.34375 4.671875 -0.203125 4.84375 0 L 6.8125 0 Z M 4.609375 -2.828125 C 4.609375 -1.765625 4.09375 -1.171875 3.171875 -1.171875 C 2.5625 -1.171875 2.1875 -1.5 2.1875 -2.015625 C 2.1875 -2.5625 2.46875 -2.828125 3.21875 -2.984375 L 3.84375 -3.09375 C 4.328125 -3.1875 4.40625 -3.21875 4.609375 -3.3125 Z M 4.609375 -2.828125 "/>
+</g>
+<g id="eps-svg-3-glyph-0-3">
+<path d="M 6.5625 -4.765625 C 6.53125 -6.234375 5.390625 -7.140625 3.515625 -7.140625 C 1.734375 -7.140625 0.625 -6.234375 0.625 -4.796875 C 0.625 -4.328125 0.765625 -3.921875 1.015625 -3.65625 C 1.265625 -3.40625 1.484375 -3.28125 2.15625 -3.0625 L 4.328125 -2.390625 C 4.78125 -2.25 4.9375 -2.109375 4.9375 -1.8125 C 4.9375 -1.390625 4.4375 -1.125 3.59375 -1.125 C 3.109375 -1.125 2.75 -1.203125 2.515625 -1.375 C 2.3125 -1.515625 2.234375 -1.65625 2.15625 -2.046875 L 0.375 -2.046875 C 0.421875 -0.5 1.5625 0.296875 3.6875 0.296875 C 4.671875 0.296875 5.40625 0.09375 5.921875 -0.328125 C 6.453125 -0.734375 6.765625 -1.390625 6.765625 -2.078125 C 6.765625 -2.984375 6.3125 -3.578125 5.375 -3.84375 L 3.078125 -4.515625 C 2.578125 -4.671875 2.4375 -4.765625 2.4375 -5.0625 C 2.4375 -5.453125 2.859375 -5.703125 3.5 -5.703125 C 4.375 -5.703125 4.796875 -5.390625 4.8125 -4.765625 Z M 6.5625 -4.765625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-4">
+</g>
+<g id="eps-svg-3-glyph-0-5">
+<path d="M 3.90625 -6.875 L 2.90625 -6.875 L 2.90625 -8.765625 L 1.078125 -8.765625 L 1.078125 -6.875 L 0.1875 -6.875 L 0.1875 -5.671875 L 1.078125 -5.671875 L 1.078125 -1.359375 C 1.078125 -0.25 1.65625 0.296875 2.859375 0.296875 C 3.28125 0.296875 3.578125 0.265625 3.90625 0.15625 L 3.90625 -1.125 C 3.734375 -1.09375 3.640625 -1.078125 3.5 -1.078125 C 3.015625 -1.078125 2.90625 -1.21875 2.90625 -1.84375 L 2.90625 -5.671875 L 3.90625 -5.671875 Z M 3.90625 -6.875 "/>
+</g>
+<g id="eps-svg-3-glyph-0-6">
+<path d="M 9.25 -5.09375 L 5.453125 -5.09375 L 5.453125 -3.46875 L 7.609375 -3.46875 C 7.546875 -2.9375 7.421875 -2.609375 7.140625 -2.28125 C 6.671875 -1.703125 5.9375 -1.359375 5.203125 -1.359375 C 3.609375 -1.359375 2.5 -2.75 2.5 -4.6875 C 2.5 -6.734375 3.484375 -7.96875 5.140625 -7.96875 C 5.828125 -7.96875 6.390625 -7.78125 6.828125 -7.390625 C 7.09375 -7.15625 7.234375 -6.9375 7.40625 -6.453125 L 9.25 -6.453125 C 9.015625 -8.40625 7.421875 -9.640625 5.140625 -9.640625 C 2.40625 -9.640625 0.546875 -7.625 0.546875 -4.671875 C 0.546875 -1.796875 2.421875 0.296875 4.984375 0.296875 C 6.25 0.296875 7.109375 -0.15625 7.84375 -1.21875 L 8.078125 0.03125 L 9.25 0.03125 Z M 9.25 -5.09375 "/>
+</g>
+<g id="eps-svg-3-glyph-0-7">
+<path d="M 0.8125 -7.015625 L 0.8125 0 L 2.640625 0 L 2.640625 -4.21875 C 2.640625 -5.046875 3.21875 -5.59375 4.109375 -5.59375 C 4.890625 -5.59375 5.28125 -5.15625 5.28125 -4.328125 L 5.28125 0 L 7.09375 0 L 7.09375 -4.703125 C 7.09375 -6.265625 6.25 -7.140625 4.75 -7.140625 C 3.796875 -7.140625 3.15625 -6.796875 2.640625 -6 L 2.640625 -7.015625 Z M 0.8125 -7.015625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-8">
+<path d="M 6.78125 -4.390625 C 6.65625 -6.109375 5.53125 -7.140625 3.75 -7.140625 C 1.65625 -7.140625 0.4375 -5.765625 0.4375 -3.359375 C 0.4375 -1.046875 1.65625 0.296875 3.734375 0.296875 C 5.4375 0.296875 6.609375 -0.75 6.78125 -2.4375 L 5.046875 -2.4375 C 4.828125 -1.515625 4.453125 -1.171875 3.734375 -1.171875 C 2.8125 -1.171875 2.265625 -1.984375 2.265625 -3.359375 C 2.265625 -4.046875 2.390625 -4.65625 2.609375 -5.0625 C 2.828125 -5.453125 3.21875 -5.671875 3.75 -5.671875 C 4.484375 -5.671875 4.84375 -5.3125 5.046875 -4.390625 Z M 6.78125 -4.390625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-9">
+<path d="M 6.8125 -2.9375 C 6.828125 -3.09375 6.828125 -3.15625 6.828125 -3.25 C 6.828125 -3.953125 6.71875 -4.609375 6.546875 -5.09375 C 6.078125 -6.375 4.953125 -7.140625 3.53125 -7.140625 C 1.515625 -7.140625 0.28125 -5.6875 0.28125 -3.328125 C 0.28125 -1.078125 1.515625 0.296875 3.5 0.296875 C 5.0625 0.296875 6.34375 -0.578125 6.75 -1.96875 L 4.953125 -1.96875 C 4.734375 -1.421875 4.21875 -1.09375 3.5625 -1.09375 C 3.046875 -1.09375 2.625 -1.3125 2.359375 -1.703125 C 2.203125 -1.96875 2.125 -2.28125 2.109375 -2.9375 Z M 2.125 -4.140625 C 2.25 -5.21875 2.703125 -5.75 3.515625 -5.75 C 4.34375 -5.75 4.84375 -5.1875 4.921875 -4.140625 Z M 2.125 -4.140625 "/>
+</g>
+<g id="eps-svg-3-glyph-0-10">
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 21.5 L 595.5 1.5 L 49.5 1.5 L 49.5 21.5 L 595.5 21.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 200 L 20 200 " transform="matrix(0.1, 0, 0, -0.1, 0, 22)"/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#eps-svg-3-glyph-0-0" x="67" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-1" x="76.386" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="80" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-3" x="87.228" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-3" x="94.456" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-4" x="101.684" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="105.298" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-5" x="112.526" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-4" x="116.855" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="120.469" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-4" x="127.697" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-6" x="131.311" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-1" x="141.425" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-2" x="145.039" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-7" x="152.267" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-8" x="160.21" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-9" x="167.438" y="17"/>
+<use xlink:href="#eps-svg-3-glyph-0-10" x="174.666" y="17"/>
+</g>
+</svg></b><b></b></p>
+<p class="p23"><b></b><br></p>
+<p class="p24"><b>Purpose</b></p>
+<p class="p7">An NSMutableSet object stores a modifiable set of objects.</p>
+<p class="p25"><br></p>
+<p class="p24"><b>Principal Attributes</b></p>
+<p class="p7">•<span class="Apple-tab-span">	</span>The objects that make up the set.</p>
+<p class="p25"><br></p>
+<p class="p24"><b>Creation</b></p>
+<p class="p26">+ setWithCapacity:<span class="Apple-tab-span">	</span>Returns An empty set with enough allocated memory to hold a specified number of objects.</p>
+<p class="p27"><br></p>
+<p class="p24"><b>Commonly Used Methods</b></p>
+<p class="p26"><span class="s5">-</span> addObject:<span class="Apple-tab-span">	</span>Adds an object to the set, if it isn't already a member.</p>
+<p class="p26"><span class="s5">-</span> removeObject:<span class="Apple-tab-span">	</span>Removes an object from the set.</p>
+<p class="p27"><br></p>
+<p class="p24"><b>Primitive Methods</b></p>
+<p class="p26"><span class="s5">-</span> addObject:</p>
+<p class="p26"><span class="s5">-</span> removeObject:</p>
+<p class="p60"><br></p>
+<p class="p29"><b></b><br></p>
+<p class="p30"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="9pt" viewBox="0 0 597 9" role="img" aria-labelledby="eps-svg-4-title" data-source="NSSetClassCluster.rtfd/AtaGlanceClose.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-4-title">AtaGlanceClose.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 7.5 L 595.5 0.25 L 49.5 0.25 L 49.5 7.5 L 595.5 7.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 20 L 20 20 " transform="matrix(0.1, 0, 0, -0.1, 0, 9)"/>
+</svg></b><b></b></p>
+<p class="p31"><b></b><br></p>
+<p class="p32"><b></b><br></p>
+<p class="p33"><b>Class Description</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p7">The NSMutableSet class declares the programmatic interface to an object that manages a mutable set of objects. NSMutableSet provides support for the mathematical concept of a <i>set</i>. A set, both in its mathematical sense, and in the NSMutableSet implementation, is an <i>unordered</i> collection of distinct elements. The NSCountedSet class, which is a concrete subclass of NSMutableSet, supports mutable sets that can contain multiple instances of the same element. The NSSet class supports creating and managing immutable sets.</p>
+<p class="p8"><br></p>
+<p class="p7">Objects are added to an NSMutableSet with <b>addObject:</b>, which adds a single object to the set; <b>addObjectsFromArray:</b>, which adds all objects from a specified array to the set; or with<b> unionSet:</b>, which adds all the objects from another set.</p>
+<p class="p8"><br></p>
+<p class="p7">Objects are removed from an NSMutableSet using any of the methods<b> intersectSet:</b>, <b>minusSet:</b>,<b> removeAllObjects</b>, or <b>removeObject:</b>.</p>
+<p class="p8"><br></p>
+<p class="p39"><br></p>
+<p class="p40"><b>Method Types</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p41">Creating an NSMutableSet<span class="Apple-tab-span">	</span>+ allocWithZone:</p>
+<p class="p42">+ setWithCapacity:</p>
+<p class="p42"><span class="s5">-</span> initWithCapacity:</p>
+<p class="p43"><br></p>
+<p class="p41">Adding and removing entries<span class="Apple-tab-span">	</span><span class="s5">-</span> addObject:</p>
+<p class="p42"><span class="s5">-</span> removeObject:</p>
+<p class="p42"><span class="s5">-</span> removeAllObjects</p>
+<p class="p42"><span class="s5">-</span> addObjectsFromArray:</p>
+<p class="p43"><br></p>
+<p class="p41">Combining and recombining sets<span class="Apple-tab-span">	</span><span class="s5">-</span> unionSet:</p>
+<p class="p42"><span class="s5">-</span> minusSet:</p>
+<p class="p42"><span class="s5">-</span> intersectSet:</p>
+<p class="p42"><span class="s5">-</span> setSet:</p>
+<p class="p46"><br></p>
+<p class="p40"><b>Class Methods</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p36"><b></b><b>allocWithZone:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47">+ (id)<b>allocWithZone:</b>(NSZone *)<i>zone</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Creates and returns an uninitialized mutable set in the specified zone. If the receiver is the NSMutableSet class object, an instance of a mutable private subclass is returned; otherwise, an object of the receiver's class is returned.</p>
+<p class="p8"><br></p>
+<p class="p7">Typically, you create temporary sets using the <b>set... </b>class methods, not the <b>allocWithZone:</b> and<b> init... </b>methods.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>initWithCapacity:</b>, + <b>set</b> (NSSet),<b> </b>+ <b>setWithObjects:count: </b>(NSSet)</p>
+<p class="p50"><br></p>
+<p class="p51"><br></p>
+<p class="p36"><b></b><b>setWithCapacity:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47">+ (id)<b>setWithCapacity:</b>(unsigned)<i>numItems</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Creates and returns a mutable set, giving it enough allocated memory to hold <i>numItems</i> members. Mutable sets allocate additional memory as needed, so <i>numItems</i> simply establishes the object's initial capacity.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s5">-</span> <b>initWithCapacity:</b>, + <b>set</b> (NSSet), + <b>setWithObjects:count: </b>(NSSet)</p>
+<p class="p50"><br></p>
+<p class="p61"><br></p>
+<p class="p40"><b>Instance Methods</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p36"><b></b><b>addObject:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (void)<b>addObject:</b>(id)<i>anObject</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Adds the specified object to the receiver if it is not already a member. <i>anObject</i> is sent a <b>retain</b> message as it is added to the receiver. If <i>anObject</i> is already present in the set, this method has no effect on either the set or on <i>anObject</i>.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>addObjectsFromArray:</b>, <span class="s5">-</span> <b>unionSet:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>addObjectsFromArray:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (void)<b>addObjectsFromArray:</b>(NSArray *)<i>anArray</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Adds each object contained in <i>anArray</i> to the receiver, if that object is not already a member. The new member<i> </i>is retained. If a given element of the array is already present in the set, this method has no effect on either the set or on the array element.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>addObject:</b>, <span class="s5">-</span> <b>unionSet:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>initWithCapacity:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (id)<b>initWithCapacity:</b>(unsigned)<i>numItems</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Initializes a newly allocated mutable set, giving it enough allocated memory to hold <i>numItems</i> members. Mutable sets allocate additional memory as needed, so <i>numItems</i> simply establishes the object's initial capacity. Returns <b>self</b>.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">+</span> <b>setWithCapacity:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>intersectSet:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (void)<b>intersectSet:</b>(NSSet *)<i>otherSet</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Removes from the receiver each object that isn't a member of <i>otherSet</i>. Each object that's removed from the receiver is sent a <b>release</b> message.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>removeObject:</b>, <span class="s5">-</span> <b>removeAllObjects</b>,<b> </b><span class="s5">-</span><b> minusSet:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>minusSet:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (void)<b>minusSet:</b>(NSSet *)<i>otherSet</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Removes from the receiver each object contained in <i>otherSet</i> that is also present in the receiver. Each object that's successfully removed from the receiver is sent a <b>release</b> message. If any member of <i>otherSet</i> isn't present in the receiving set, this method has no effect on either the receiver or on the <i>otherSet</i> member.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>removeObject:</b>, <span class="s5">-</span> <b>removeAllObjects</b>,<b> </b><span class="s5">-</span><b> intersectSet:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>removeAllObjects</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (void)<b>removeAllObjects</b></p>
+<p class="p48"><b></b><br></p>
+<p class="p7">Empties the set of all of its members. Each member is sent a <b>release</b> message.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>removeObject:</b>,<b> </b><span class="s5">-</span> <b>minusSet:</b>, <span class="s5">-</span> <b>intersectSet:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p36"><b></b><b>removeObject:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (void)<b>removeObject:</b>(id)<i>anObject</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Removes <i>anObject</i> from the set. The removed object is sent a <b>release</b> message if it was a member of the receiver.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>removeAllObjects</b>,<b> </b><span class="s5">-</span> <b>minusSet:</b>, <span class="s5">-</span> <b>intersectSet:</b></p>
+<p class="p50"><b></b><br></p>
+<p class="p51"><b></b><br></p>
+<p class="p55"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setSet:</b></p>
+<p class="p56"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (void)<b>setSet:</b>(NSSet *)<i>otherSet</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Empties the receiver, then adds each object contained in <i>otherSet</i> to the receiver The new member is sent a <b>retain</b> message as it is added to the receiver.</p>
+<p class="p8"><br></p>
+<p class="p57"><br></p>
+<p class="p36"><b></b><b>unionSet:</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p47"><span class="s5">-</span> (void)<b>unionSet:</b>(NSSet *)<i>otherSet</i></p>
+<p class="p48"><i></i><br></p>
+<p class="p7">Adds each object contained in <i>otherSet</i> to the receiver, if that object is not already a member. The new member is sent a <b>retain</b> message as it is added to the receiver. If any member of <i>otherSet</i> is already present in the receiver, this method has no effect on either the receiver or on the <i>otherSet</i> member.</p>
+<p class="p8"><br></p>
+<p class="p49"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>addObject:</b>, <span class="s5">-</span> <b>addObjectsFromArray:</b></p>
+<p class="p50"><b></b><br></p>
+</body>
+</html>

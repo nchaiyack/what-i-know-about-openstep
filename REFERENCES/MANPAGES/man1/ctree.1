@@ -1,0 +1,93 @@
+.TH CTREE 1 "May 30 1985"
+.UC 4
+.SH NAME
+ctree \- print C function-call trees
+.SH SYNOPSIS
+.B ctree
+[\fB-nqFGMST\fP]
+[\fB-i indent\fP]
+[\fB-l level\fP]
+[\fB-c columns\fP]
+[\fB-t tagpath\fP]
+[\fBfunctions...\fP]
+.SH DESCRIPTION
+.I Ctree
+uses the \fItags\fP file
+produced by \fIctags\fP(1)
+to print a display of the calling
+hierarchy in C programs.
+This can be used as a ``road map'' for browsing
+large or unfamiliar software systems.
+If no \fIfunctions\fP are given,
+all uncalled functions in the \fItags\fP
+file (like \fImain\fP) are used.
+Options provide control over formatting.
+Default output looks like this:
+.sp
+.ft L
+.in +5
+.na
+.nf
+Mptags(){ Case# Default# 
+   Error(){ Quiet Status } 
+   Int# Quiet^ Quote Status^ Verbose 
+   doTag(){ 
+      FindTag(){ Error^ 
+         SearchTagsFile(){ Error^ } 
+         null# tagpath 
+      } 
+   } 
+   ...
+}
+.ft R
+.in -5
+.fi
+.sp
+\fIMptags\fP is the main function in a file
+called \fIptags.c\fP.
+Functions \- \fIMptags, Error, doTag,\fP
+etc \- are marked with parenthesis \fB()\fP.
+Macros \- \fICase, Define, Int,\fP etc \-
+are marked with a pound sign \fB#\fP.
+A circumflex \fB^\fP means a symbol
+has appeared earlier in the listing
+(so functions are only enumerated once).
+Unmarked symbols \- \fIQuiet, Status,\fP etc \-
+are global variables.
+Indentation and curly braces show
+the calling hierarchy;
+thus, \fIdoTag\fP calls
+\fIFindTag\fP, which calls
+\fIError, SearchTagsFile, null,\fP
+and \fItagpath\fP.
+.SH OPTIONS
+.IP \fB-n\fP
+put each symbol on a new line,
+instead of the compact form above.
+.IP \fB-FGMST\fP
+suppress printing of functions,
+globals, macros, structs,
+or typedefs, respectively.
+.IP \fB-q\fP
+\fIquiet\fP - don't print the type
+labels (\fB#\fP, \fB()\fP).
+.IP "\fB-c columns\fP"
+wrap lines greater than \fIcolumns\fP
+wide (default=80).
+.IP "\fB-i indent\fP"
+Use \fIindent\fP as the indentation string
+(three spaces is the default).
+.IP "\fB-l level\fP"
+limit the depth of the tree to \fIlevel\fP.
+.IP "\fB-t tagpath\fP"
+set the path of tag files searched to \fItagpath\fP
+(the default is \fI$TAGS\fP, or failing that, \fItags\fP).
+.SH DIAGNOSTICS
+Exits with status 1 if nothing was printed.
+.SH FILES
+.DT
+tags		tags file used
+.SH SEE ALSO
+ctags(1), ptags(1), cman(1)
+.SH AUTHOR
+Michael Hawley

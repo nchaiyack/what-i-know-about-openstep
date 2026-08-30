@@ -1,0 +1,130 @@
+.TH TRANSCRIPT 1 "6 March 91" "Adobe Systems"
+\" Copyright (c) 1987 Adobe Systems Incorporated. All Rights Reserved.
+\" ATTN GOVERNMENT END USERS: See notice of rights in file /usr/lib/transcript/Notice
+\" RCSID: $Header: /disks/hobo/vp6/snichols/rel3.0/transcript/man/RCS/transcript.1p,v 3.0 1991/06/17 17:24:02 snichols Exp $
+.ds PS P\s-2OST\s+2S\s-2CRIPT\s+2
+.ds TS T\s-2RAN\s+2S\s-2CRIPT\s+2
+.SH NAME
+TRANSCRIPT \- Programs for accessing  P\s-2OST\s+2S\s-2CRIPT\s+2 printers
+.SH DESCRIPTION
+The \*(TS package is a suite of UNIX programs that enables
+UNIX systems to access state-of-the-art \*(PS printers.
+The package transforms UNIX documents and graphics files
+into \*(PS format.
+The \*(PS language is a device-independent programming language and print
+file format for describing the appearance of printed pages. \*(PS
+documents can combine text, graphics, line art, and scanned images
+for printing on raster devices.  \*(PS files will print
+.I without modification
+on any \*(PS printer.
+.sp
+The \*(TS package includes
+translator filters for
+common UNIX document file formats like
+.IR troff ,
+.IR ditroff ,
+and
+.IR plot .
+It also includes filters for "line-printer" listings,
+Diablo 630 print files, and Tektronix 4014 files.
+\*(TS software is fully integrated into the
+spooling architecture, and includes the communications filters
+necessary to print job banner pages, do page accounting,
+and perform full RS232 communication with a \*(PS printer.
+.sp
+The following filters are provided with \*(TS.  See the appropriate
+manual page for each filter for more details.
+.TP .75i
+.I enscript
+Convert plain text files into \*(PS format. Fonts, headings, and
+limited formatting options may be specified, as well as spooling options.
+.TP
+.I ps4014
+Convert Tektronix 4014 graphics terminal commands into \*(PS format.
+.TP
+.I ps630
+Convert Diablo 630 word-processing file into \*(PS format.
+.TP
+.I psplot
+Convert UNIX plot(1) format file into \*(PS format.
+.TP
+.I pslpr
+Reverse page order and/or select specified pages in \*(PS format file.
+Pslpr also provides other document management services, such as font
+downloading, downloading of other resources such as procsets, and handling
+of printer-specific features.  It is similar in function to psdman, but is
+invoked by the user, so the user has more control over things like from
+where fonts and resources are obtained.  These services are provided for
+documents that conform to the Document Structuring Convventions.  See the
+.IR pslpr (8)
+manual page for a more complete description of this filter and its
+various functions.
+.TP
+.I psnup
+Print multiple virtual pages in \*(PS format file, for documents that
+conform to the Document Structuring Conventions.
+See the
+.IR psnup (8)
+manual page for a more complete description of this filter and its
+various functions.
+.TP
+.I psroff
+Convert
+.RI [ di ] troff (1)
+input into \*(PS format.
+This is actually a shell script.
+See the
+.IR psroff (1)
+manual page for more information.
+.TP
+.I ptroff
+Convert
+.RI [ o ] troff (1)
+input into \*(PS format.
+This is actually a shell script.
+See the
+.IR ptroff (1)
+manual page for more information.
+.TP
+.I pscomm
+The program that performs serial communication with the \*(PS printer.
+This is normally invisible to the casual user.
+See the
+.IR pscomm (8)
+manual page for a more complete description.
+.TP
+.I psdman
+The \*(TS document manager.  Invoked by 
+.I psinterface
+(System V), or
+.I psint.sh
+(BSD)
+to process print files.  Calls 
+.I
+enscript
+to convert text files to \*(PS, if necessary.
+.I psdman 
+is normally invisible to the user, and is not intended 
+to be invoked in a command line.  Psdman performs document management
+functions such as page reversal (if desired), font downloading, other
+resource downloading, and handling of printer-specific features, for
+documents that conform to the Document Structuring Conventions.
+See the
+.IR psdman (8)
+manual page for a more complete description.
+.SH FILES
+.TP
+/usr/lib/transcript
+Most data files for the \*(TS package can be found in this directory.
+.SH "SEE ALSO"
+enscript(1), ps4014(1), ps630(1), psplot(1), pslpr(1), psroff(1), ptroff(1)
+.br
+psnup(1),psdman(1), psfonts(1), pssymbols(1), pscat(1), psdit(1), 
+.br
+pscomm(8), postscript(7)
+.SH AUTHOR
+Adobe Systems Incorporated
+.SH NOTES
+\*(PS is a registered trademark of Adobe Systems Incorporated.
+.br
+\*(TS is a trademark of Adobe Systems Incorporated.

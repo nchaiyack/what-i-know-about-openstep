@@ -1,0 +1,76 @@
+{
+    APPCLASS = NSApplication; 
+    FILESTABLE = {
+        BUNDLES = (); 
+        CLASSES = (
+            Controller.m, 
+            Document.m, 
+            IntegerFormatter.m, 
+            Preferences.m, 
+            TextFinder.m, 
+            YapOutput.m, 
+            YapDocument.m
+        ); 
+        FRAMEWORKS = (AppKit.framework, Foundation.framework); 
+        H_FILES = (
+            Controller.h, 
+            Document.h, 
+            IntegerFormatter.h, 
+            Preferences.h, 
+            TextFinder.h, 
+            YapOutput.h, 
+            YapDocument.h
+        ); 
+        IMAGES = (Yap.tiff, YapApp.ico, YapTitle.tiff); 
+        INTERFACES = (
+            Document.nib, 
+            FindPanel.nib, 
+            Info.nib, 
+            Preferences.nib, 
+            Yap.nib, 
+            "Yap-winnt.nib"
+        ); 
+        LIBS = (); 
+        OTHER_LINKED = (YapWrap.psw, Yap_main.m); 
+        OTHER_RESOURCES = (FindPanel.strings, IntegerFormatter.strings, Localizable.strings); 
+        OTHER_SOURCES = (
+            Makefile.preamble, 
+            Makefile, 
+            Makefile.postamble, 
+            m.template, 
+            h.template, 
+            README.rtf
+        ); 
+        SUBPROJECTS = (); 
+        TOOLS = (); 
+    }; 
+    GENERATEMAIN = YES; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {
+        Document.nib = Document.nib; 
+        FindPanel.nib = FindPanel.nib; 
+        FindPanel.strings = FindPanel.strings; 
+        Info.nib = Info.nib; 
+        IntegerFormatter.strings = IntegerFormatter.strings; 
+        Localizable.strings = Localizable.strings; 
+        Preferences.nib = Preferences.nib; 
+        "Yap-winnt.nib" = "Yap-winnt.nib"; 
+        Yap.nib = Yap.nib; 
+    }; 
+    MAKEFILEDIR = "$(NEXT_ROOT)/NextDeveloper/Makefiles/pb_makefiles"; 
+    NEXTSTEP_APPICON = Yap.tiff; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    NEXTSTEP_DOCUMENTEXTENSIONS = (); 
+    NEXTSTEP_INSTALLDIR = /NextDeveloper/Apps; 
+    NEXTSTEP_MAINNIB = Yap; 
+    PDO_UNIX_MAINNIB = Yap; 
+    PROJECTNAME = Yap; 
+    PROJECTTYPE = Application; 
+    PROJECTVERSION = 2.6; 
+    SYSTEMEXTENSIONS = (); 
+    WINDOWS_APPICON = YapApp.ico; 
+    WINDOWS_BUILDTOOL = $NEXT_ROOT/NextDeveloper/Executables/make; 
+    WINDOWS_DOCUMENTEXTENSIONS = (); 
+    WINDOWS_INSTALLDIR = /NextDemos; 
+    WINDOWS_MAINNIB = Yap; 
+}

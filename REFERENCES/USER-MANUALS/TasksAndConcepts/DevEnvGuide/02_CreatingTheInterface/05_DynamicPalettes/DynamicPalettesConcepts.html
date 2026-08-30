@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.0px Times; min-height: 10.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 25.0px; font: 18.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 25.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 25.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 10.0px Times; min-height: 13.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><b></b><b>Tools for Interface Crafters: Static and Dynamic Palettes</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6">A palette is a special display that holds one or more reusable objects. You can drag these objects from the palette to your application's interface. There are two types of palettes: static and dynamic. To the user, they seem identical, but the differences are many.</p>
+<p class="p7"><br></p>
+<p class="p6">Static palettes are built as a project and have code defining their objects; dynamic palettes include no special code—they're unique configurations of (mostly) standard OpenStep objects. Consequently, static palettes must be compiled, but you can create dynamic palettes on the fly, without writing and compiling code. Objects on static palettes can have inspectors and editors, which dynamic-palette objects cannot have.</p>
+<p class="p7"><br></p>
+<p class="p6">Creating static palettes (and their inspectors and editors) is a more complex process than creating dynamic palettes, but the resulting product has more value added to it. For example, if you want to store a button that has the title OK, you use a dynamic palette because the change involves only the Interface Builder Inspector panel. However, if you want to store a custom subclass of NSButton, you use a static palette. A static palette can store both the button and your custom code.</p>
+<p class="p7"><br></p>
+<p class="p6">Dynamic palettes are a great convenience. You can save collections of your objects, with or without their interconnections, to a dynamic palette at any time. You can save dynamic palettes and store them in the file system, just as you do with the traditional compiled palette. You can remove the palette from the Palette window and, when you need it again, just load it back into Interface Builder.</p>
+<p class="p7"><br></p>
+<p class="p6">The possible practical uses of dynamic palettes are numerous You can use them to:</p>
+<p class="p7"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Store collections of often-used view objects configured with specific sizes and other attributes.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Hold windows and panels that are replicated in your projects (such as Infopanels).<span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Store versions of interfaces.</p>
+<p class="p9"><br></p>
+<p class="p8">•<span class="Apple-tab-span">	</span>Keep interconnected objects as a template that you can later use as-is or modify for particular circumstances. For instance, you could store a group of text fields and their delegate, or a set of controls and their connections to a controller object.</p>
+<p class="p9"><br></p>
+<p class="p6">You can also use dynamic palettes for prototyping and group work. For instance, you could design an interface or a part of an interface, store the objects on a dynamic palette, and then mail the palette file to all interested parties.</p>
+<p class="p7"><br></p>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 163.8px; font: 50.0px Helvetica; min-height: 60.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 163.8px; font: 28.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 163.8px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Helvetica}
+    p.p7 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 163.8px; text-indent: -100.8px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 163.8px; text-indent: -100.8px; font: 14.0px Times; min-height: 18.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 63.0px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 163.8px; text-indent: -100.8px; font: 10.0px Times; min-height: 13.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 163.8px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 63.0px; font: 14.0px Helvetica}
+    p.p14 {margin: 0.0px 0.0px 0.0px 63.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 163.8px; font: 5.0px Times; min-height: 6.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 182.6px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 182.6px; font: 10.0px Times; min-height: 13.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 163.8px; font: 10.0px Times; min-height: 13.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 182.7px; font: 12.0px Courier}
+    p.p21 {margin: 0.0px 0.0px 0.0px 182.7px; text-indent: -18.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 182.7px; text-indent: -18.9px; font: 14.0px Times}
+    p.p23 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 10.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><br></p>
+<p class="p4"><b>Defined Types</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b>Cache</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>typedef struct objc_cache *<b>Cache</b>;</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This is the defined type for a class's run-time cache of frequently used methods.<span class="Apple-converted-space">  </span>Each class has its own cache.</p>
+<p class="p11"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>Category</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>typedef struct objc_category *<b>Category</b>;</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This is the type name for the structure that contains information about a category definition.</p>
+<p class="p11"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>Ivar</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>typedef struct objc_ivar *<b>Ivar</b>;</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The Ivar type identifies a structure containing information about a single instance variable—including the name of the variable, its type, and its location in the object data structure.</p>
+<p class="p11"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>marg_list</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>typedef void *<b>marg_list</b>;</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This type is a pointer to the arguments that were passed in a message.<span class="Apple-converted-space">  </span>It's used by the Object class's <b>forward::</b> method.</p>
+<p class="p11"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>Method</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>typedef struct objc_method *<b>Method</b>;</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The Method type designates a structure containing information about a single method—including its return and argument types, the method selector, and the location of the method implementation.</p>
+<p class="p11"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>Module</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-runtime.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>typedef struct objc_module *<b>Module</b>;</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This data type refers to a file that contributes to an Objective C program.<span class="Apple-converted-space">  </span>The compiler produces a Module data structure for each file that it encounters.</p>
+<p class="p11"><br></p>
+<p class="p5"><b></b><br></p>
+<p class="p4"><b>Symbolic Constants</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b>Type Constants</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p13"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span><b>Constant<span class="Apple-tab-span">	</span>Meaning<span class="Apple-tab-span">	</span>Defined As</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p15">_C_ID<span class="Apple-tab-span">	</span><b>id</b><span class="Apple-tab-span">	</span>`@'</p>
+<p class="p15">_C_CLASS<span class="Apple-tab-span">	</span>Class<span class="Apple-tab-span">	</span>`#'</p>
+<p class="p15">_C_SEL<span class="Apple-tab-span">	</span>SEL<span class="Apple-tab-span">	</span>`:'</p>
+<p class="p15">_C_VOID<span class="Apple-tab-span">	</span><b>void</b><span class="Apple-tab-span">	</span>`v'</p>
+<p class="p15">_C_CHR<span class="Apple-tab-span">	</span><b>char</b><span class="Apple-tab-span">	</span>`c'</p>
+<p class="p15">_C_UCHR<span class="Apple-tab-span">	</span><b>unsigned char</b><span class="Apple-tab-span">	</span>`C'</p>
+<p class="p15">_C_SHT<span class="Apple-tab-span">	</span><b>short</b><span class="Apple-tab-span">	</span>`s'</p>
+<p class="p15">_C_USHT<span class="Apple-tab-span">	</span><b>unsigned short</b><span class="Apple-tab-span">	</span>`S'</p>
+<p class="p15">_C_INT<span class="Apple-tab-span">	</span><b>int</b><span class="Apple-tab-span">	</span>`i'</p>
+<p class="p15">_C_UINT<span class="Apple-tab-span">	</span><b>unsigned int</b><span class="Apple-tab-span">	</span>`I'</p>
+<p class="p15">_C_LNG<span class="Apple-tab-span">	</span><b>long</b><span class="Apple-tab-span">	</span>`l'</p>
+<p class="p15">_C_ULNG<span class="Apple-tab-span">	</span><b>unsigned long</b><span class="Apple-tab-span">	</span>`L'</p>
+<p class="p15">_C_FLT<span class="Apple-tab-span">	</span><b>float</b><span class="Apple-tab-span">	</span>`f'</p>
+<p class="p15">_C_DBL<span class="Apple-tab-span">	</span><b>double</b><span class="Apple-tab-span">	</span>`d'</p>
+<p class="p15">_C_UNDEF<span class="Apple-tab-span">	</span>an undefined type<span class="Apple-tab-span">	</span>`?'</p>
+<p class="p15">_C_PTR<span class="Apple-tab-span">	</span>a pointer<span class="Apple-tab-span">	</span>`^'</p>
+<p class="p15">_C_CHARPTR<span class="Apple-tab-span">	</span><b>char *</b><span class="Apple-tab-span">	</span>`*'</p>
+<p class="p15">_C_BFLD<span class="Apple-tab-span">	</span>a bitfield<span class="Apple-tab-span">	</span>`b'</p>
+<p class="p15">_C_ARY_B<span class="Apple-tab-span">	</span>begin an array<span class="Apple-tab-span">	</span>`['</p>
+<p class="p15">_C_ARY_E<span class="Apple-tab-span">	</span>end an array<span class="Apple-tab-span">	</span>`]'</p>
+<p class="p15">_C_UNION_B<span class="Apple-tab-span">	</span>begin a union<span class="Apple-tab-span">	</span>`('</p>
+<p class="p15">_C_UNION_E<span class="Apple-tab-span">	</span>end a union<span class="Apple-tab-span">	</span>`)'</p>
+<p class="p15">_C_STRUCT_B<span class="Apple-tab-span">	</span>begin a structure<span class="Apple-tab-span">	</span>`{'</p>
+<p class="p15">_C_STRUCT_E<span class="Apple-tab-span">	</span>end a structure<span class="Apple-tab-span">	</span>`}'</p>
+<p class="p16"><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>These constants identify the character codes used to store method return and argument types.<span class="Apple-converted-space">  </span>They're the same codes returned by the <b>@encode()</b> directive.</p>
+<p class="p11"><br></p>
+<p class="p5"><b></b><br></p>
+<p class="p4"><b>Structures</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b>objc_cache</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>struct <b>objc_cache</b> {</p>
+<p class="p15"><span class="Apple-tab-span">	</span>unsigned int <b>mask</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>unsigned int <b>occupied</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>Method <b>buckets</b>[1];</p>
+<p class="p15">};</p>
+<p class="p16"><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This structure stores a class-specific cache of the methods most recently used by instances of the class or by the class object.<span class="Apple-converted-space">  </span>The Cache data type is defined as a pointer to an <b>objc_cache</b> structure.</p>
+<p class="p11"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>objc_category</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>struct <b>objc_category</b> {</p>
+<p class="p15"><span class="Apple-tab-span">	</span>char *<b>category_name</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>char *<b>class_name</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_method_list *<b>instance_methods</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_method_list *<b>class_methods</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_protocol_list *<b>protocols</b>;</p>
+<p class="p15">};</p>
+<p class="p16"><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This structure stores the information contained in a category definition.<span class="Apple-converted-space">  </span>Its fields are:</p>
+<p class="p11"><br></p>
+<p class="p17">category_name<span class="Apple-tab-span">	</span>The name assigned to the category in source code</p>
+<p class="p17">class_name<span class="Apple-tab-span">	</span>The name of the class that the category belongs to</p>
+<p class="p17">instance_methods<span class="Apple-tab-span">	</span>A list of instance methods defined in the category</p>
+<p class="p17">class_methods<span class="Apple-tab-span">	</span>A list of class methods defined in the category</p>
+<p class="p17">protocols<span class="Apple-tab-span">	</span>A list of the protocols adopted in the category</p>
+<p class="p18"><br></p>
+<p class="p15">The Category data type is defined as a pointer to an <b>obj_category</b> structure.</p>
+<p class="p19"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>objc_class</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>struct <b>objc_class</b> {</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_class *<b>isa</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_class *<b>super_class</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>const char *<b>name</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>long <b>version</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>long <b>info</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>long <b>instance_size</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_ivar_list *<b>ivars</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_method_list *<b>methods</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_cache *<b>cache</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_protocol_list *<b>protocols</b>;</p>
+<p class="p15">};</p>
+<p class="p16"><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This structure holds information about a class definition.<span class="Apple-converted-space">  </span>Its fields are:</p>
+<p class="p11"><br></p>
+<p class="p17">isa<span class="Apple-tab-span">	</span>The metaclass of this class</p>
+<p class="p17">super_class<span class="Apple-tab-span">	</span>The superclass of this class</p>
+<p class="p17">name<span class="Apple-tab-span">	</span>The name of this class</p>
+<p class="p17">version<span class="Apple-tab-span">	</span>The current version of the class (as set by <b>setVersion:</b>)</p>
+<p class="p17">info<span class="Apple-tab-span">	</span>The current status of the class</p>
+<p class="p17">instance_size<span class="Apple-tab-span">	</span>The number of bytes to allocate for an instance of the class</p>
+<p class="p17">ivars<span class="Apple-tab-span">	</span>The instance variables declared in the class interface</p>
+<p class="p17">methods<span class="Apple-tab-span">	</span>The instance methods defined in the class implementation</p>
+<p class="p17">cache<span class="Apple-tab-span">	</span>The cache of recently used methods</p>
+<p class="p17">protocols<span class="Apple-tab-span">	</span>The protocols adopted by the class</p>
+<p class="p18"><br></p>
+<p class="p15">This structure is also used to store metaclass information, in which case the <b>methods</b> field lists class methods rather than instance methods.</p>
+<p class="p19"><br></p>
+<p class="p15">The Class data type is defined (in <b>objc.h</b>) as a pointer to an <b>objc_class</b> structure.</p>
+<p class="p19"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>objc_ivar</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>struct <b>objc_ivar</b> {</p>
+<p class="p15"><span class="Apple-tab-span">	</span>char *<b>ivar_name</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>char *<b>ivar_type</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>int <b>ivar_offset</b>;</p>
+<p class="p15">};</p>
+<p class="p16"><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This structure describes a single instance variable.<span class="Apple-converted-space">  </span>It's fields are:</p>
+<p class="p11"><br></p>
+<p class="p17">ivar_name<span class="Apple-tab-span">	</span>The name of the instance variable</p>
+<p class="p17">ivar_type<span class="Apple-tab-span">	</span>The data type declared for the instance variable</p>
+<p class="p17">ivar_offset<span class="Apple-tab-span">	</span>The position of the variable in the object (as an offset in bytes)</p>
+<p class="p18"><br></p>
+<p class="p15">The Ivar data type is defined as a pointer to an <b>objc_ivar</b> structure.</p>
+<p class="p19"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>objc_ivar_list</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>struct <b>objc_ivar_list</b> {</p>
+<p class="p15"><span class="Apple-tab-span">	</span>int <b>ivar_count</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_ivar <b>ivar_list</b>[1];</p>
+<p class="p15">};</p>
+<p class="p16"><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This structure holds information about the instance variables declared in a class definition.<span class="Apple-converted-space">  </span>The first field, <b>ivar_count</b>, gives the number of variables declared and the second field, <b>ivar_list</b>, is a variable-length array of all the variables.</p>
+<p class="p11"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>objc_method</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>struct <b>objc_method</b> {</p>
+<p class="p15"><span class="Apple-tab-span">	</span>SEL <b>method_name</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>char *<b>method_types</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>IMP <b>method_imp</b>;</p>
+<p class="p15">};</p>
+<p class="p16"><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This structure describes a single method implemented by the class.<span class="Apple-converted-space">  </span>The fields are:</p>
+<p class="p11"><br></p>
+<p class="p17">method_name<span class="Apple-tab-span">	</span>The method selector (not the full name)</p>
+<p class="p17">method_types<span class="Apple-tab-span">	</span>A string encoding the method return and argument types</p>
+<p class="p17">method_imp<span class="Apple-tab-span">	</span>A pointer to the method implementation</p>
+<p class="p18"><br></p>
+<p class="p15">The Method data type is defined as a pointer to an <b>objc_method</b> structure.</p>
+<p class="p19"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>objc_method_description</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/Protocol.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>struct <b>objc_method_description</b> {</p>
+<p class="p15"><span class="Apple-tab-span">	</span>SEL<b> name</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>char *<b>types</b>;</p>
+<p class="p15">};</p>
+<p class="p16"><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This structure holds the method information returned by two methods defined in the Protocol class,<span class="Apple-converted-space">  </span><b>descriptionForClassMethod:</b> and <b>descriptionForInstanceMethod:</b>, and by two Object methods, <b>descriptionForMethod:</b> and <b>descriptionForInstanceMethod:</b>.</p>
+<p class="p11"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>objc_method_description_list</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/Protocol.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>struct <b>objc_method_description_list</b> {</p>
+<p class="p15"><span class="Apple-tab-span">	</span>int <b>count</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_method_description <b>list</b>[1];</p>
+<p class="p15">};</p>
+<p class="p16"><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This structure points to a list of <b>objc_method_description</b> structures.<span class="Apple-converted-space">  </span>Typically the list describes all the methods declared in a particular protocol.</p>
+<p class="p11"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>objc_method_list</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>struct <b>objc_method_list</b> {</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_method_list *<b>method_next</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>int <b>method_count</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_method <b>method_list</b>[1];</p>
+<p class="p15">};</p>
+<p class="p16"><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This structure lists all the class or all the instance methods defined within a class or category (within one group bracketed by <b>@implementation</b> and <b>@end</b>).<span class="Apple-converted-space">  </span>Its fields are:</p>
+<p class="p11"><br></p>
+<p class="p17">method_next<span class="Apple-tab-span">	</span>A pointer to another group of methods for the same class</p>
+<p class="p17">method_count<span class="Apple-tab-span">	</span>The number of methods listed in this group</p>
+<p class="p17">method_list<span class="Apple-tab-span">	</span>A variable-length array of method descriptions</p>
+<p class="p18"><br></p>
+<p class="p15">Class methods and instance methods are listed in separate structures.</p>
+<p class="p19"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>objc_module</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-runtime.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>struct <b>objc_module</b> {</p>
+<p class="p15"><span class="Apple-tab-span">	</span>unsigned long<b> version</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>unsigned long <b>size</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>const char *<b>name</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>Symtab <b>symtab</b>;</p>
+<p class="p15">};</p>
+<p class="p16"><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This structure holds information about an object file compiled from Objective C source code.<span class="Apple-converted-space">  </span>Its fields are:</p>
+<p class="p11"><br></p>
+<p class="p17">version<span class="Apple-tab-span">	</span>The version of run-time data structures</p>
+<p class="p17">size<span class="Apple-tab-span">	</span>The size of the module in bytes</p>
+<p class="p17">name<span class="Apple-tab-span">	</span>The name of the file</p>
+<p class="p17">symtab<span class="Apple-tab-span">	</span>An obsolete field</p>
+<p class="p18"><br></p>
+<p class="p15">The Module data type is defined as a pointer to this structure.</p>
+<p class="p19"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>objc_protocol_list</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-class.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>struct <b>objc_protocol_list</b> {</p>
+<p class="p15"><span class="Apple-tab-span">	</span>struct objc_protocol_list *<b>next</b></p>
+<p class="p15"><span class="Apple-tab-span">	</span>int <b>count</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>Protocol *<b>list</b>[1];</p>
+<p class="p15">};</p>
+<p class="p16"><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This structure lists all the protocols adopted by a class in one place.<span class="Apple-converted-space">  </span>Separate lists are kept for the class interface and for each category that adopts protocols on the class's behalf.<span class="Apple-converted-space">  </span>The fields of the structure are:</p>
+<p class="p11"><br></p>
+<p class="p17">next<span class="Apple-tab-span">	</span>A pointer to another list of protocols adopted by the class</p>
+<p class="p17">count<span class="Apple-tab-span">	</span>The number of protocols listed here</p>
+<p class="p17">list<span class="Apple-tab-span">	</span>A variable-length array of Protocol objects</p>
+<p class="p18"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p6"><b>objc_super</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-runtime.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>struct <b>objc_super</b> {</p>
+<p class="p15"><span class="Apple-tab-span">	</span>id <b>receiver</b>;</p>
+<p class="p15"><span class="Apple-tab-span">	</span>Class <b>class</b>;</p>
+<p class="p15">};</p>
+<p class="p16"><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This structure helps the messaging function find which method implementation to invoke in response to a message sent to <b>super</b>.<span class="Apple-converted-space">  </span>Its fields are:</p>
+<p class="p11"><br></p>
+<p class="p17">receiver<span class="Apple-tab-span">	</span>The receiver of the message (the object designated by <b>super</b>)</p>
+<p class="p17">class<span class="Apple-tab-span">	</span>The class where the message is sent</p>
+<p class="p18"><br></p>
+<p class="p5"><b></b><br></p>
+<p class="p4"><b>Global Variables</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b>Function Pointers</b></p>
+<p class="p7"><b></b><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DECLARED IN<span class="Apple-tab-span">	</span></b></span>objc/objc-runtime.h</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span>id <b>(*_alloc)(</b>Class <i>aClass</i>, unsigned int <i>indexedIvarBytes</i><b>)</b></p>
+<p class="p15">id <b>(*_dealloc)(</b>Object *<i>anObject</i><b>)</b></p>
+<p class="p15">id <b>(*_realloc)(</b>Object *<i>anObject</i>, unsigned int <i>numBytes</i><b>)</b></p>
+<p class="p15">id <b>(*_copy)(</b>Object *<i>anObject</i>, unsigned int <i>indexedIvarBytes</i><b>)</b></p>
+<p class="p15">id <b>(*_zoneAlloc)(</b>Class <i>aClass</i>, unsigned int <i>indexedIvarBytes</i>, NXZone *<i>zone</i><b>)</b></p>
+<p class="p15">id <b>(*_zoneRealloc)(</b>Object *<i>anObject</i>, unsigned int <i>numBytes</i>, NXZone *<i>zone</i><b>)</b></p>
+<p class="p15">id <b>(*_zoneCopy)(</b>Object *<i>anObject</i>, unsigned int <i>indexedIvarByte</i>s, NXZone *<i>zone</i><b>)</b></p>
+<p class="p15">void <b>(*_error)(</b>Object *<i>anObject</i>, const char *<i>format</i>, va_list <i>ap</i><b>)</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>These variables point to the functions that the run-time system uses to manage memory and handle errors.<span class="Apple-converted-space">  </span>By reassigning a variable, a function can be replaced with another of the same type.<span class="Apple-converted-space">  </span>The example below shows a temporary reassignment of the <b>_zoneAlloc</b> function:</p>
+<p class="p11"><br></p>
+<p class="p20">id (*theFunction)();</p>
+<p class="p20">theFunction = _zoneAlloc;</p>
+<p class="p20">_zoneAlloc = someOtherFunction;</p>
+<p class="p20">/*</p>
+<p class="p20"><span class="Apple-converted-space"> </span>* <i>code that calls the class_createInstanceFromZone() function,</i></p>
+<p class="p20"><span class="Apple-converted-space"> </span>* <i>or sends alloc and allocFromZone: messages, goes here</i></p>
+<p class="p20"><span class="Apple-converted-space"> </span>*/</p>
+<p class="p20">_zoneAlloc = theFunction;</p>
+<p class="p21"><br></p>
+<p class="p22">•<span class="Apple-tab-span">	</span><b>_alloc</b> points to the function, called through <b>class_createInstance()</b>, used to allocate memory for new instances, and _<b>zoneAlloc</b> points to the function, called through <b>class_createInstanceFromZone()</b>, used to allocate the memory for a new instance from a specified <i>zone</i>.</p>
+<p class="p21"><br></p>
+<p class="p22">•<span class="Apple-tab-span">	</span><b>_dealloc</b> points to the function, called through <b>object_dispose()</b>, used to free instances.</p>
+<p class="p21"><br></p>
+<p class="p22">•<span class="Apple-tab-span">	</span><b>_realloc</b> points to the function, called through <b>object_realloc()</b>, used to reallocate memory for an object, and <b>_zoneRealloc</b> points to the function, called through <b>object_reallocFromZone()</b>, used to reallocate memory from a specified <i>zone</i>.</p>
+<p class="p21"><br></p>
+<p class="p22">•<span class="Apple-tab-span">	</span><b>_copy</b> points to the function, called through <b>object_copy()</b>, used to create an exact copy of an object, and <b>_zoneCopy</b> points to the function, called through <b>object_copyFromZone()</b>, used to create the copy from memory in the specified <i>zone</i>.</p>
+<p class="p21"><br></p>
+<p class="p22">•<span class="Apple-tab-span">	</span><b>_error</b> points to the function that the run-time system calls in response to an error.<span class="Apple-converted-space">  </span>By default, it prints formatted error messages to the standard error stream (or logs them to the console if there is no standard error stream) and calls <b>abort()</b> to produce a core file.</p>
+<p class="p21"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><br></p>
+</body>
+</html>

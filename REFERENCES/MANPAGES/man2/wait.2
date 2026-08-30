@@ -1,0 +1,374 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\" @(#)wait.2	1.2 88/05/27 4.0NFSSRC SMI; from 1.28 88/03/07 SMI; from UCB 4.3
+.TH WAIT 2 "27 May 1988"
+.SH NAME
+wait, wait3, wait4, WIFSTOPPED, WIFSIGNALED, WIFEXITED \- wait for process to terminate or stop (BSD version)
+.SH SYNOPSIS
+.B #include <sys/wait.h>
+.LP
+.nf
+.B int wait(statusp)
+.B union wait \(**statusp;
+.fi
+.LP
+.B int wait((union wait \(**)0)
+.LP
+.nf
+.B #include <sys/time.h>
+.B #include <sys/resource.h>
+.fi
+.LP
+.nf
+.ft B
+int wait3(statusp, options, rusage)
+union wait \(**statusp;
+int options;
+struct rusage \(**rusage;
+.ft R
+.fi
+.LP
+.nf
+.ft B
+int wait4(pid, statusp, options, rusage)
+int pid;
+union wait \(**statusp;
+int options;
+struct rusage \(**rusage;
+.ft R
+.fi
+.LP
+.nf
+.B \s-1WIFSTOPPED\s0(status)
+.B union wait status;
+.fi
+.LP
+.nf
+.B \s-1WIFSIGNALED\s0(status)
+.B union wait status;
+.fi
+.LP
+.nf
+.B \s-1WIFEXITED\s0(status)
+.B union wait status;
+.fi
+.SH DESCRIPTION
+.IX  wait  ""  \fLwait\fP
+.IX  "processes and protection"  wait  ""  \fLwait\fP
+.IX  wait3  ""  \fLwait3\fP
+.IX  "processes and protection"  wait3  ""  \fLwait3\fP
+.IX  wait4  ""  \fLwait4\fP
+.IX  "processes and protection"  wait4  ""  \fLwait4\fP
+.LP
+This is the BSD specification for \fIwait\fR.
+For the POSIX specification, see \fIwait\fR(2P).
+.PP
+.B wait(\|)
+delays its caller until a signal is received or
+one of its child
+processes terminates or stops due to tracing.
+If any child has died or stopped due to tracing and this has not been
+reported using
+.BR wait ,
+return is immediate, returning the process
+.SM ID
+and exit status of one of those children.
+If that child had died, it is discarded.
+If there are no children, return is immediate with
+the value \-1 returned.
+If there are only running or stopped but reported children,
+the calling process is blocked.
+.LP
+If
+.I status
+is not a
+.SM NULL
+pointer, then on return from a successful
+.B wait(\|)
+call the status of the child process whose process
+.SM ID
+is the return value of
+.B wait(\|)
+is stored in the
+.B wait(\|)
+union pointed to by
+.IR status .
+The
+.B w_status
+member of that union is an
+.BR int ;
+it indicates the cause of termination and other information about the
+terminated process in the following manner:
+.RS
+.TP 5
+\-
+If the low-order 8 bits of
+.B w_status
+are equal to 0177, the child process has stopped; see
+.BR ptrace (2)
+and
+.BR sigvec (2).
+.TP 5
+\-
+If the low-order 8 bits of
+.B w_status
+are non-zero and are not equal to 0177, the child process terminated
+due to a signal; the low-order 7 bits of
+.B w_status
+contain the number of the signal that terminated the process.
+In addition, if the low-order seventh bit of
+.B w_status
+(that is, bit 0200) is set, a ``core image'' of the process was produced; see
+.BR sigvec (2).
+.TP 5
+\-
+Otherwise, the child process terminated due to an
+.B exit(\|)
+call; the 8 bits higher up from the low-order 8 bits of
+.B w_status
+contain the low-order 8 bits of the argument that the child process
+passed to
+.BR exit ;
+see
+.BR exit (2).
+.RE
+.br
+.ne 5
+.LP
+Other members of the
+.B wait(\|)
+union can be used to extract this information more conveniently:
+.RS
+.TP 5
+\-
+If the \fBw_stopval\fR member has the value
+.SM
+.BR WSTOPPED \s0,
+the child process has stopped; the
+value of the
+.B w_stopsig
+member is the signal that stopped the process.
+.TP 5
+\-
+If the
+.B w_termsig
+member is non-zero, the child process terminated due to a signal; the
+value of the
+.B w_termsig
+member is the number of the signal that terminated the process.  If the
+.B w_coredump
+member is non-zero, a core dump was produced.
+.TP 5
+\-
+Otherwise, the child process terminated due to an
+.B exit(\|)
+call; the value of the
+.B w_retcode
+member is the low-order 8 bits of the argument that the child process
+passed to
+.BR exit .
+.RE
+.LP
+The other members of the
+.B wait(\|)
+union merely provide an alternate way of analyzing the status.  The
+value stored in the
+.B w_status
+field is compatible with the values stored by other versions of the
+.SM UNIX
+system, and an argument of type
+.B "int \(**"
+may be provided instead of an argument of type
+.B "union wait \(**"
+for compatibility with those versions.
+.LP
+.B wait3(\|)
+is an alternate interface that
+allows both non-blocking status collection and
+the collection of the status of children stopped by any means.
+The
+.I status
+parameter is defined as above.  The
+.I options
+parameter is used to indicate the call should not block if
+there are no processes that have status to report
+.RB ( \s-1\fBWNOHANG\s0 ),
+and/or that children of the current process that are stopped
+due to a
+.SM
+.BR SIGTTIN \s0,
+.SM
+.BR SIGTTOU \s0,
+.SM
+.BR SIGTSTP \s0,
+or
+.SM
+.BR SIGSTOP
+signal are eligible to have
+their status reported as well
+.RB ( \s-1\fBWUNTRACED\s0 ).
+A terminated child is discarded after it reports status, and a stopped
+process will not report its status more than once.
+If
+.I rusage
+is not a
+.SM NULL
+pointer, a summary of the resources used by the terminated
+process and all its
+children is returned.  (This information is currently not available
+for stopped processes.)
+.LP
+When the
+.SM WNOHANG
+option is specified and no processes
+have status to report,
+.B wait3(\|)
+returns 0.  The
+.SM
+.BR WNOHANG
+and
+.SM
+.BR WUNTRACED
+options may be combined by
+.SM OR\s0ing
+the two values.
+.LP
+.B wait4(\|)
+is another alternate interface.  With a
+.I pid
+argument of 0, it is equivalent to
+.BR wait3 .
+If
+.I pid
+has a nonzero value, then
+.B wait4(\|)
+returns status only for the indicated process
+.SM ID\s0,
+but not for any other child processes.
+.LP
+.SM
+.BR WIFSTOPPED \s0,
+.SM
+.BR WIFSIGNALED \s0,
+.SM
+.BR WIFEXITED \s0,
+are macros that take an argument
+.IR status ,
+of type
+.RB ` "union wait" ',
+as returned by
+.BR wait ,
+.BR wait2 ,
+.BR wait3 ,
+or
+.BR wait4 .
+.SM
+.BR WIFSTOPPED
+evaluates to true (1) when the process for which the
+.B wait(\|)
+call was made is stopped, or to false (0) otherwise.
+.SM
+.BR WIFSIGNALED
+evaluates to true when the process was terminated with a signal.
+.SM
+.BR WIFEXITED
+evaluates to true when the process exited by using an
+.BR exit (2)
+call.
+.SH NOTES
+If a parent process terminates without
+waiting on its children,
+the initialization process
+(process
+.SM ID
+= 1)
+inherits the children.
+.LP
+.BR wait ,
+.BR wait3 ,
+and
+.B wait4(\|)
+are automatically restarted when a process receives a
+signal while awaiting termination of a child process, unless the
+.SM
+.BR SV_INTERRUPT
+bit is set in the flags for that signal.
+.SH "RETURN VALUE
+If
+.B wait(\|)
+returns due to a stopped
+or terminated child process, the process ID of the child
+is returned to the calling process.  Otherwise, a value of \-1
+is returned and
+.B errno
+is set to indicate the error.
+.LP
+.B wait3(\|)
+and
+.B wait4(\|)
+return 0 if
+.SM
+.BR WNOHANG
+is specified and there are
+no stopped or exited children, and return the process
+.SM ID
+of the
+child process if they return due to a stopped or terminated child
+process.  Otherwise, they return a value of \-1
+and set
+.B errno
+to indicate the error.
+.SH ERRORS
+.BR wait ,
+.BR wait3 ,
+or
+.BR wait4
+will fail and return immediately if one or more of the following
+are true:
+.TP 20
+.SM ECHILD
+The calling process has no existing unwaited-for
+child processes.
+.TP
+.SM EFAULT
+The
+\fIstatus\fP or
+.I rusage
+arguments point to an illegal address.
+.LP
+.BR wait ,
+.BR wait3 ,
+and
+.BR wait4
+will terminate prematurely, return \-1, and set
+.B errno
+to
+.SM EINTR
+upon the arrival of a signal whose
+.SM
+.BR SV_INTERRUPT
+bit in its flags field is set (see
+.BR sigvec (2)
+and
+.BR siginterrupt (3)).
+.SH "SEE ALSO"
+.BR exit (2),
+.BR getrusage (2),
+.BR sigvec (2),
+.BR siginterrupt (3),
+.BR signal (3),
+.BR wait (2P)
+.SH WARNINGS
+Calls to
+.B wait
+with an argument of 
+.B 0
+should be cast to type
+.RB ` union wait * ',
+as in:
+.IP
+.B wait( (union wait *) 0)
+.LP
+Otherwise the compiler might complain.

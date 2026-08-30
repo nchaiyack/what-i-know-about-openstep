@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 163.8px; font: 10.0px Times; min-height: 13.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Times; min-height: 18.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 25.1px; font: 44.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 25.1px; font: 60.0px Times; min-height: 72.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 340.1px; text-indent: -176.4px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 340.1px; text-indent: -176.4px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 63.0px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 63.0px; font: 26.0px Helvetica}
+    p.p11 {margin: 0.0px 0.0px 0.0px 63.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 163.8px; font: 14.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 182.7px; text-indent: -18.9px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 182.7px; text-indent: -18.9px; font: 10.0px Times; min-height: 13.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><br></p>
+<p class="p3"><br></p>
+<p class="p5"><i>Run-Time System</i></p>
+<p class="p6"><i></i><br></p>
+<p class="p7"><span class="s2"><b>Library:<span class="Apple-tab-span">	</span></b></span>libsys_s.a</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s2"><b>Header File Directory:<span class="Apple-tab-span">	</span></b></span>/NextDeveloper/Headers/objc</p>
+<p class="p8"><br></p>
+<p class="p9"><b></b><br></p>
+<p class="p10"><b>Introduction</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12">The Objective C language pushes many decisions from compile time to run time.<span class="Apple-converted-space">  </span>For example, objects are dynamically allocated and initialized at run time, messages are dynamically bound to method implementations, and objects assigned to <b>id</b> variables are dynamically typed.<span class="Apple-converted-space">  </span>To correctly and efficiently carry out these tasks as a program executes, the language depends on a <i>run-time system</i>—a body of code to operate the object-oriented machinery.</p>
+<p class="p3"><br></p>
+<p class="p12">The run-time system consists mainly of:</p>
+<p class="p3"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>Data structures that the compiler develops from class and category definitions and from protocol declarations, and</p>
+<p class="p14"><br></p>
+<p class="p13">•<span class="Apple-tab-span">	</span>The functions that operate on those structures and that are called by compiled Objective C code to produce the desired results.</p>
+<p class="p14"><br></p>
+<p class="p12">For example, the compiler translates an Objective C message into a call on a messaging function, usually <b>objc_msgSend()</b>, which locates the method implementation that should be invoked in response to the message.<span class="Apple-converted-space">  </span>The messaging function is what makes dynamic binding work.<span class="Apple-converted-space">  </span>It and the data structures it requires are part of the run-time system.</p>
+<p class="p3"><br></p>
+<p class="p12">For the most part, the run-time system operates behind the scenes.<span class="Apple-converted-space">  </span>It has a public interface in part to declare common elements that every Objective C program uses—such as the <b>id</b> data type.<span class="Apple-converted-space">  </span>But mainly the interface exists to provide access to run-time code from outside Objective C.<span class="Apple-converted-space">  </span>Therefore, most of the elements documented here will rarely if ever appear in Objective C programs.</p>
+<p class="p3"><br></p>
+<p class="p12"><span class="s2"><b>Note:<span class="Apple-converted-space">  </span></b></span>The principal interface to the run-time system is contained in the Object class.<span class="Apple-converted-space">  </span>Because this class is fundamental to all NEXTSTEP software kits, it's presented at the very beginning of this manual, in Chapter 1, “Root Class.”</p>
+<p class="p3"><br></p>
+<p class="p4"><br></p>
+<p class="p3"><br></p>
+</body>
+</html>

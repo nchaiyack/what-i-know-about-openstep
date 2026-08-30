@@ -1,0 +1,92 @@
+.TH TCDRAIN 3P  "August 1, 1992"
+.UC 4
+.SH NAME
+tcdrain, tcflow, tcflush, tcsendbreak - line control functions
+.SH SYNOPSIS
+.nf
+.B #include <termios.h>
+.PP
+.B int tcdrain(int \fIfildes\fP);
+.PP
+.B int tcflow(int \fIfildes\fP, int \fIaction\fP);
+.PP
+.B int tcflush(int \fIfildes\fP, int \fIqueue_selector\fP);
+.PP
+.B int tcsendbreak(int \fIfildes\fP, int \fIduration\fP);
+.fi
+.fi
+.SH DESCRIPTION
+The \fItcdrain\fR function waits until all output written to the device
+referred to by \fIfildes\fR has been transmitted.
+.PP
+The \fItcflow\fR function controls the flow of output, and attempts
+to control the flow of input, for the device referred to by
+\fIfildes\fR.  The possible values of the \fIaction\fR argument are
+the following constants defined in <termios.h>:
+.in +5
+.PP
+.IP "\fBConstant\fR" 15
+\fBDescription\fR
+.IP "TCOOFF" 12
+Suspend output from the device.
+.IP "TCOON" 12
+Restart suspended output from the device.
+.IP "TCIOFF" 12
+Transmit a STOP character, with the intention of stopping the
+terminal from sending any data.
+.IP "TCION" 12
+Transmit a START character, with the intention of telling the
+terminal to restart the transmission of data.
+.in
+.PP
+The \fItcflush\fR function discards any data written to the device
+referred by \fIfildes\fR but not transmitted, or data received, but not
+read, depending on the value of \fIqueue_selector\fR.  The possible
+values of the \fIqueue_selector\fR are the following constants defined in
+<termios.h>:
+.in +5
+.PP
+.IP "\fBConstant\fR" 15
+\fBDescription\fR
+.IP "TCIFLUSH"	
+Flush all data received but not yet read (input queue).
+.IP "TCOFLUSH"
+Flush all data written but not yet transmitted (output queue). 
+.IP TCIOFLUSH	
+Flush both the input and output queues.
+.in
+.PP
+The \fItcsendbreak\fR causes the transmission of a break condition - a
+continuous stream of zero-valued bits.  This occurs only if the file
+descriptor \fIfildes\fR is associated with a asynchronous communications
+line.  The transmission lasts for 400 milliseconds.
+.SH "RETURN VALUE"
+Upon successful completion, a value of zero is returned.  Otherwise a
+value of -1 is returned and \fIerrno\fR is set to indicate the error.
+.SH "ERRORS"
+If any of the following conditions occur, \fItcdrain\fR, \fItcflow\fR,
+\fItcflush\fR and \fItcsendbreak\fR return -1
+and sets errno to the corresponding value:
+.TP 15 
+[EBADF]
+The \fIfildes\fR argument is not a valid file descriptor.
+.TP 15
+[ENOTTY]
+The file associated with \fIfildes\fR is not a terminal.
+.PP
+The following error condition may apply to \fItcdrain\fR:
+.TP 15
+[EINTR]
+A signal interrupted the function.
+.PP
+The following error condition may apply to \fItcflow\fR: 
+.TP 15
+[EINVAL]
+The \fIaction\fR  argument is not a proper value.
+.PP
+The following error condition may apply to \fItcflush\fR: 
+.TP 15
+[EINVAL]
+The \fIqueue_selector\fR  argument is not a proper value.
+.SH "SEE ALSO"
+termios(4P)

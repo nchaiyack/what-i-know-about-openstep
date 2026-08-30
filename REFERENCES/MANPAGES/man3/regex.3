@@ -1,0 +1,87 @@
+.\" @(#)regex.3 1.1 86/07/10 SMI; from UCB 4.2
+.TH REGEX 3 "4 March 1983"
+.SH NAME
+regex, re_comp, re_exec, recmp, re_compile, re_match \- regular expression handler
+.SH SYNOPSIS
+.nf
+\fBchar *re_comp(s)\fP
+\fBchar *s;\fP
+.LP
+\fBre_exec(s)\fP
+\fBchar *s;\fP
+.LP
+\fBrecmp(pattern,target)\fP
+\fBchar *pattern, *target;\fP
+.LP
+#include <regex.h>
+struct regex {
+	char	expbuf[ESIZE];
+	char	*braslist[NBRA];
+	char	*braelist[NBRA];
+	char	circf;
+	char	*start, *end; /* pointers to occurrence in 's' */
+};
+
+\fBstruct regex *re_compile(s,fold)\fP
+\fBchar *s;\fP
+\fBint fold;\fP
+
+\fBre_match(s,r)
+char *s;
+struct regex *r;\fP
+.fi
+.IX  "re_comp function"  ""  "\fLre_comp\fP \(em compile regular expression"
+.IX  "re_exec function"  ""  "\fLre_exec\fP \(em execute regular expression"
+.IX  "regular expressions"  compile  "regular expressions"  "compile \(em\fLre_comp\fP"
+.IX  "regular expressions"  execute  "regular expressions"  "execute \(em \fLre_exec\fP"
+.IX  "compile regular expression"  ""  "compile regular expression \(em \fLre_comp\fP"
+.IX  "execute regular expression"  ""  "execute regular expression \(em \fLre_exec\fP"
+.SH DESCRIPTION
+\fIRe_comp\fP compiles a string into an internal form suitable for pattern
+matching. \fIRe_exec \fP
+checks the argument string against the last string passed to \fIre_comp.\fP
+.LP
+\fIRe_comp\fP returns 0 if the string \fIs\fP
+was compiled successfully; otherwise a string containing an
+error message is returned. If \fIre_comp\fP
+is passed 0 or a null string, it returns without changing the currently
+compiled regular expression.
+.LP
+\fIRe_exec\fP returns 1 if the string \fIs\fP
+matches the last compiled regular expression, 0 if the string \fIs\fP
+failed to match the last compiled regular expression, and -1 if the compiled
+regular expression was invalid (indicating an internal error).
+.LP
+\fIRecmp\fR is analogous to \fIstrcmp\fR(3),
+but takes a regular expression \fIpattern\fR and returns
+0 if it is matched in the \fItarget\fR string, 1 if not,
+or -1 on error (bad regular expression).
+.LP
+The strings passed to both \fIre_comp\fP and \fIre_exec\fP
+may have trailing or embedded newline characters; 
+they are terminated by nulls.
+The regular expressions recognized are described in the manual entry for 
+.IR ed (1),
+given the above difference.
+.LP
+\fIRe_compile\fR returns a pointer to a \fIregex\fR structure.
+This information is also kept in the static area used by \fIre_comp()\fR;
+If the \fIfold\fR variable is true, the compiled regular expression
+will match either upper or lower case.  It may be deallocated with \fIfree()\fR.
+\fIRe_match\fR is the same as \fIre_exec\fR with an explicit \fIregex\fR buffer.
+After calling \fIRe_match\fR, the pointers \fIr->start\fR and \fIr->end\fR
+point to the beginning and end of the matched expression in \fIs\fR.
+.SH "SEE ALSO"
+ed(1), ex(1), egrep(1), fgrep(1), grep(1)
+.SH DIAGNOSTICS
+\fIRe_exec\fP returns -1 for an internal error.
+.LP
+\fIRe_comp\fP returns one of the following strings if an error occurs:
+.IP "\fINo previous regular expression\fP",
+.IP "\fIRegular expression too long\fP",
+.IP "\fIunmatched \e(\fP",
+.IP "\fImissing ]\fP",
+.IP "\fItoo many \e(\e) pairs\fP",
+.IP "\fIunmatched \e)\fP".
+.LP
+\fIRe_compile\fR returns NULL for any of these errors.

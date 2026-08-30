@@ -1,0 +1,68 @@
+.\" @(#)nfsstat.8	1.2 87/08/23 3.2/4.3NFSSRC
+.\" @(#)nfsstat.8	1.2 87/02/10 NFSSRC
+.\" @(#)nfsstat.8 1.1 86/09/25 SMI;
+.TH NFSSTAT 8 "17 February 1986"
+.SH NAME
+nfsstat \- Network File System statistics
+.SH SYNOPSIS
+.B nfsstat
+[
+.B \-csnrz
+]
+.SH DESCRIPTION
+.IX  "nfsstat command"  ""  "\fLnfsstat\fP \(em display network statistics"
+.IX  "NFS statistics, display \(em \fLnfsstat\fP"
+.IX  "statistics of NFS, display \(em \fLnfsstat\fP"
+.I Nfsstat
+displays statistical information about the
+Network File System (NFS) and 
+Remote Procedure Call (RPC) 
+interfaces to the kernel.
+It can also be used to reinitialize this information.
+If no options are given the default is
+.IP
+nfsstat \-csnr
+.PP
+That is, print everything and reinitialize nothing.
+.SH OPTIONS
+.TP
+.B \-c
+Display client information.
+Only the client side NFS and RPC information will be printed.
+Can be combined with the
+.B \-n
+and
+.B \-r
+options to print client NFS or client RPC information only.
+.TP
+.B \-s
+Display server information.
+Works like the
+.B \-c
+option above.
+.TP
+.B \-n
+Display NFS information.
+NFS information for both the client and server side will be printed.
+Can be combined with the
+.B \-c
+and
+.B \-s
+options to print client or server NFS information only.
+.TP
+.B \-r
+Display RPC information.
+Works like the
+.B \-n
+option above.
+.TP
+.B \-z
+Zero (reinitialize) statistics.
+This option is for use by the superuser only, and
+can be combined with any of the above options to
+zero particular sets of statistics after printing them.
+.SH FILES
+.ta \w'/dev/kmem\0\0\0'u
+/mach 	system namelist
+.br
+/dev/kmem	kernel memory

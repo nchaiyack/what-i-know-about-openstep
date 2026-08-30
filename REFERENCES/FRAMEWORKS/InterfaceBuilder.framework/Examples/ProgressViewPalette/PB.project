@@ -1,0 +1,30 @@
+{
+    DYNAMIC_CODE_GEN = YES; 
+    FILESTABLE = {
+        BUNDLES = (); 
+        CLASSES = (ProgressView.m, ProgressViewInspector.m, ProgressViewPalette.m); 
+        FRAMEWORKS = (InterfaceBuilder, AppKit, Foundation); 
+        H_FILES = (ProgressView.h, ProgressViewInspector.h, ProgressViewPalette.h); 
+        INTERFACES = (ProgressViewInspector.nib, ProgressViewPalette.nib); 
+        LIBS = (); 
+        OTHER_RESOURCES = (palette.table); 
+        OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble, README.rtf); 
+        SUBPROJECTS = (); 
+        TOOLS = (); 
+    }; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {
+        ProgressViewInspector.nib = ProgressViewInspector.nib; 
+        ProgressViewPalette.nib = ProgressViewPalette.nib; 
+    }; 
+    MAKEFILEDIR = "$(NEXT_ROOT)/NextDeveloper/Makefiles/pb_makefiles"; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    NEXTSTEP_INSTALLDIR = /LocalDeveloper/Palettes; 
+    PDO_UNIX_BUILDTOOL = $NEXT_ROOT/NextDeveloper/bin/make; 
+    PDO_UNIX_INSTALLDIR = /LocalDeveloper/Palettes; 
+    PROJECTNAME = ProgressViewPalette; 
+    PROJECTTYPE = Palette; 
+    PROJECTVERSION = 2.6; 
+    WINDOWS_BUILDTOOL = $NEXT_ROOT/NextDeveloper/Executables/make; 
+    WINDOWS_INSTALLDIR = /LocalDeveloper/Palettes; 
+}

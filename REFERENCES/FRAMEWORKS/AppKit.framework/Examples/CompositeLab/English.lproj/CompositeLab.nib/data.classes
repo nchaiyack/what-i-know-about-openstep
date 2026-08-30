@@ -1,0 +1,19 @@
+"CompositeView" = {
+    ACTIONS = {
+        "changeBackgroundColor:" = id; 
+        "changeCustomImage:" = id; 
+        "changeDestColor:" = id; 
+        "changeSourceColor:" = id; 
+        "draggingExited:" = id; 
+        "setOperator:" = id; 
+        "setSourcePicture:" = id; 
+    }; 
+    OUTLETS = {
+        backColorWell = id; 
+        destColorWell = id; 
+        sourceColorWell = id; 
+        sourcePictureMatrix = id; 
+    }; 
+    SUPERCLASS = NSView; 
+};
+"FirstResponder" = {ACTIONS = {}; CATEGORY = LocalActions; OUTLETS = {}; };

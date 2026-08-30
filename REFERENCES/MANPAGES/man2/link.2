@@ -1,0 +1,116 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)link.2	6.3 (Berkeley) 8/26/85
+.\"
+.TH LINK 2 "August 1, 1992"
+.UC 4
+.SH NAME
+link \- make a hard link to a file
+.SH SYNOPSIS
+.nf
+.ft B
+int link(const char *\fIexisting\fP, const char *\fInew\fP);
+.ft R
+.fi
+.SH DESCRIPTION
+The
+.IR link 
+function creates a hard link whose pathname is specified by the \fInew\fP
+argument, to an existing file whose pathname is specified by \fIexisting\fP.
+Both the file and its link share equal access and rights to
+the underlying object.
+.PP
+Both pathnames must reside in the same file system\(emlinking across
+file systems is not permitted.
+Further, for BSD applications,
+the \fIexisting\fP argument may not name a directory
+unless the calling process'
+ID is that of the super-user.
+POSIX applications can never link a directory.
+.PP
+Upon successful completion, the
+.IR link 
+function increments the link count of the file by one.
+It also marks for update the \fIst_ctime\fP field of the file, and the
+\fIst_ctime\fP and \fIst_mtime\fP fields of the directory in which the
+link is created.
+.SH "RETURN VALUE"
+Upon successful completion, the
+.IR link 
+function returns a value of zero.  Otherwise, a value of -1 is returned and
+\fIerrno\fP is set to indicate the error.
+.SH "ERRORS"
+If any of the following conditions occurs, the
+.IR link 
+function returns -1 and sets \fIerrno\fP to the corresponding value:
+.TP 15
+[EACCES]
+A component of either path prefix denies search permission,
+or the requested link requires writing in a directory with a mode
+that denies write permission.
+.TP 15
+[EDQUOT]
+The directory in which the entry for the new link
+is being placed cannot be extended because the
+user's quota of disk blocks on the file system
+containing the directory has been exhausted.
+.TP 15
+[EEXIST]
+The link named by \fInew\fP already exists.
+.TP 15
+[EFAULT]
+One of the pathnames specified
+is outside the process's allocated address space.
+.TP 15
+[EINVAL]
+Either pathname contains a character with the high-order bit set.
+.TP 15
+[EIO]
+An I/O error occurred while reading from or writing to 
+the file system to make the directory entry.
+.TP 15
+[ELOOP]
+Too many symbolic links were encountered in translating one of the pathnames.
+.TP 15
+[EMLINK]
+The number of links to \fIexisting\fP would exceed {LINK_MAX} (POSIX only).
+.TP 15
+[ENAMETOOLONG]
+A component of
+.I path
+exceeds 255 characters,
+or the entire pathname exceeds 1023 characters.
+For POSIX applications these values are given
+by the constants {NAME_MAX} and {PATH_MAX}, respectively.
+.TP 15
+[ENOENT]
+A component of either path prefix does not exist,
+the file named by \fIexisting\fP does not exist,
+or either \fIexisting\fP or \fInew\fP points to an empty string.
+.TP 15
+[ENOSPC]
+The directory in which the entry for the new link is being placed
+cannot be extended because there is no space left on the file
+system containing the directory.
+.TP 15
+[ENOTDIR]
+A component of either path prefix is not a directory.
+.TP 15
+[EPERM]
+The file named by \fIexisting\fP is a directory
+(and for BSD applications the calling process' ID
+isn't that of the super-user).
+.TP 15
+[EROFS]
+The requested link requires writing in a directory on a read-only file
+system.
+.TP 15
+[EXDEV]
+The link named by \fInew\fP and the file named by \fIexisting\fP
+are on different file systems.
+.SH "SEE ALSO"
+rename(2),
+symlink(2),
+unlink(2)

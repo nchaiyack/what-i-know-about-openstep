@@ -1,0 +1,52 @@
+.TH GETCWD 3P "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+getcwd \- (POSIX only) get current working directory pathname
+.SH SYNOPSIS
+.nf
+.ft B
+char *getcwd(char *\fIbuf\fP, size_t \fIsize\fP);
+.ft R
+.fi
+.SH DESCRIPTION
+.I Getcwd
+is a POSIX function.
+BSD provides this functionality with the
+.IR getwd (3)
+function.
+.PP
+The
+.IR getcwd 
+function copies the absolute pathname of the current working directory
+to the array pointed to by \fIbuf\fP and returns a pointer to the result.
+The \fIsize\fP argument is the size in bytes of the array.
+.PP
+If \fIbuf\fP is NULL, then
+.IR getcwd 
+allocates an array of \fIchar\fP, copies the pathname and returns
+a pointer to the array.
+.SH "RETURN VALUE"
+Upon successful completion,
+.IR getcwd 
+returns the \fIbuf\P argument.
+Otherwise, a NULL pointer is returned and \fIerrno\fP is set
+to indicate the error.
+.SH ERRORS
+If any of the following conditions occurs, the
+.IR getcwd 
+function returns a NULL pointer and
+sets \fIerrno\fP to the corresponding value:
+.TP 15
+[EAGAIN]
+The \fIbuf\fP argument is NULL and
+.IR getcwd 
+fails to allocate an array for the pathname.
+.TP 15
+[EINVAL]
+The \fIsize\fP argument is zero.
+.TP 15
+[ERANGE]
+The \fIsize\fP argument is greater than zero but smaller than the
+length of the absolute pathname of the current directory plus 1.
+.SH "SEE ALSO"
+chdir(2), getwd(3)

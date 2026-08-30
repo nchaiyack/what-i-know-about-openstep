@@ -1,0 +1,201 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)string.3	6.5 (Berkeley) 10/22/87
+.\"
+.TH STRING 3  "August 1, 1992"
+.UC 4
+.SH NAME
+index, rindex, strcasecmp, strcat, strncasecmp, strncat, 
+strcmp, strncmp, strcpy, strncpy, strchr, strrchr, strspn, 
+strcspn, strpbrk, strstr, strtok, strlen \- string operations
+.SH SYNOPSIS
+.B #include <string.h>
+.PP
+.B char *strcat(char *\fIs\fP, const char *\fIappend\fP);
+.PP
+.B char *strncat(char *\fIs\fP, const char *\fIappend\fP, 
+.B size_t \fIcount\fP);
+.PP
+.B int strcmp(const char *\fIs1\fP, 
+.B const char *\fIs2\fP);
+.PP
+.B int strncmp(const char *\fIs1\fP, 
+.B const char *\fIs2\fP, 
+.B size_t \fIcount\fP);
+.PP
+.B char *strcpy(char *\fIto\fP, const char *\fIfrom\fP);
+.PP
+.B char *strncpy(char *\fIto\fP, const char *\fIfrom\fP, 
+.B size_t \fIcount\fP);
+.PP
+.B char *strchr(const char *\fIs\fP, int \fIc\fP);
+.PP
+.B char *strrchr(const char *\fIs\fP, int \fIc\fP);
+.PP
+.B size_t strspn(const char *\fIs1\fP, 
+.B const char *\fIs2\fP);
+.PP
+.B size_t strcspn(const char *\fIs1\fP, 
+.B const char *\fIs2\fP);
+.PP
+.B char *strpbrk(const char *\fIs1\fP, 
+.B const char *\fIs2\fP);
+.PP
+.B char *strstr(const char *\fIs1\fP, 
+.B const char *\fIs2\fP);
+.PP
+.B char *strtok(char *\fIs1\fP, const char *\fIs2\fP);
+.PP
+.B size_t strlen(const char *\fIs\fP);
+.SH "(ALSO AVAILABLE IN BSD)"
+.B int strcasecmp(const char *\fIs1\fP, 
+.B const char *\fIs2\fP);
+.PP
+.B int strncasecmp(const char *\fIs1\fP, 
+.B const char *\fIs2\fP, 
+.B size_t \fIn\fP);
+.PP
+.B char *index(const char *\fIs\fP, int \fIc\fP);
+.PP
+.B char *rindex(const char *\fIs\fP, int \fIc\fP);
+.SH DESCRIPTION
+These functions operate on null-terminated strings.
+They do not check for overflow of any receiving string.
+.PP
+\fIStrcat\fP appends a copy of string \fIappend\fP to the end of string
+\fIs\fP. \fIStrncat\fP appends at most \fIcount\fP characters.  Both
+return a pointer to the null-terminated result.
+.PP
+\fIStrcmp\fP compares its arguments and returns an integer greater than,
+equal to, or less than 0, according as \fIs1\fP is lexicographically
+greater than, equal to, or less than \fIs2\fP.  \fIStrncmp\fP makes the
+same comparison but looks at at most \fIcount\fP characters.
+.PP
+\fIStrcpy\fP copies string \fIfrom\fP to \fIto\fP, stopping after the
+null character has been copied.  \fIStrncpy\fP copies exactly \fIcount\fP
+characters, appending nulls if \fIfrom\fP is less than \fIcount\fP
+characters in length; the target may not be null-terminated if the
+length of \fIfrom\fP is \fIcount\fP or more.  Both return \fIto\fP.
+.PP
+\fIStrchr\fP locates the first occurrence of \fIc\fP in the 
+string pointed to by \fIs\fP.  The terminating null character
+is not considered to be part of the string.  \fIStrchr\fP
+returns a pointer to the located character, or a null pointer
+if the character does not occur in the string.
+.PP
+\fIStrrchr\fP locates the last occurrence of \fIc\fP in the 
+string pointed to by \fIs\fP.  The terminating null character
+is not considered to be part of the string.  \fIStrrchr\fP
+returns a pointer to the located character, or a null pointer
+if the character does not occur in the string.
+.PP
+\fIStrspn\fP computes the length of the maximum initial segment
+of the string pointed to by \fIs1\fP which consists entirely
+of characters from the string pointed to by \fIs2\fP.  
+\fIStrspn\fP returns the length of the segment.
+.PP
+\fIStrcspn\fP computes the length of the maximum initial segment
+of the string pointed to by \fIs1\fP which consists entirely
+of characters not from the string pointed to by \fIs2\fP.  
+\fIStrcspn\fP returns the length of the segment.
+.PP
+\fIStrpbrk\fP returns a pointer to the first occurrence in string 
+\fIs1\fP of any character from the string \fIs2\fP, or
+a NULL pointer if no character from \fIs2\fP exists in \fIs1\fP.
+.PP
+\fIStrstr\fP returns a pointer to the first occurrence of  
+the pattern string \fIs2\fP in string \fIs1\fP. For example, if \fIs1\fP
+is ``string thing'' and \fIs2\fP is ``ing'', \fIstrstr\fP
+returns ``ing thing''.  If \fIs2\fP does not appear in \fIs1\fP, 
+\fIstrstr\fP returns NULL.
+.PP
+A sequence of calls to \fIstrtok\fP breaks the string pointed to
+by \fIs1\fP into a sequence of tokens, each of which is delimited
+by a character from the string pointed to by \fIs2\fP.
+The first call in the sequence has \fIs1\fP as its first argument, and 
+is followed by calls with a null pointer as their first argument.  The 
+separator string pointed to by \fIs2\fP may be different from call
+to call.
+.PP
+The first call in the sequence searches the string pointed to by
+\fIs1\fP for the first character that is not contained in the
+current separator string pointed to by \fIs2\fP.  If no such
+character is found, then there are no tokens in the string pointed to 
+by \fIs1\fP and \fIstrtok\fP returns a null pointer.  If such a
+character is found, it is the start of the first token.
+.PP
+\fIStrtok\fP then searches from there for a character that is
+contained in the current separator string.  If no such character
+is found, the current token extends to the end of the string pointed
+to by \fIs1\fP, and subsequent searches for a token will return
+a null pointer.  If such a character is found, it is overwritten
+by a null character, which terminates the current token.  
+\fIStrtok\fP saves a pointer to the following character, from which
+the next search for a token will start.
+.PP
+Each subsequent call, with a null pointer  as the value of the
+first argument, starts searching from the saved pointer and
+behaves as described above.
+.PP
+\fIStrtok\fP returns a pointer to the first character of a token,
+or a null pointer if there is no token.
+.PP
+\fIStrlen\fP returns the number of characters in string \fIs\fP, not
+including the null-terminating character.
+.SH "BSD ADDITIONS"
+The
+.I strcasecmp
+and
+.I strncasecmp
+functions perform as
+.I strcmp
+and
+.IR strncmp ,
+but are case-insensitive
+(that is, they convert characters
+in each string to lowercase before
+comparing them).
+.PP
+The
+.I index
+and
+.I rindex
+functions are equivalent to
+.I strchr
+and
+.IR strrchr ,
+respectively.
+.PP
+These routines assume the ASCII character set when equating lower
+and upper case characters.
+.SH "WARNINGS"
+.I Strcmp
+and
+.I strncmp
+use native character comparison, which is signed on some machines,
+but may be unsigned on other machines. Thus the sign of the value
+returned when one of the characters has its high-order bit set is
+implementation-dependent.
+.PP
+.I Strcasecmp
+and
+.I strncasecmp
+use native character comparison as above and assume the ASCII
+character set.
+.PP
+On many machines you cannot use a NULL pointer to indicate a 
+null string. A NULL pointer is an error and results in an abort
+of the program. If you wish to indicate a null string, you must
+have a pointer that points to an explicit null string. On some
+implementations of the C language on some machines, a NULL pointer, 
+if dereferenced, would yield a null string; this
+highly non-portable trick was used in some programs. Programmers
+using a NULL pointer to represent an empty string should be aware
+of this portability issue; even on machines where dereferencing a
+pointer does not cause an abort of the program, it does not
+necessarily yield a null string.
+
+Character movement is performed differently in different 
+implementations. Thus overlapping moves may yield surprises.

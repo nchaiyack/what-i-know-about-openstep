@@ -1,0 +1,33 @@
+.TH MOUNT_SWAPFS 8 "July 30, 1991"
+.SH NAME
+mount_swapfs \- mount swapfs filesystem (internal command)
+.SH SYNOPSIS
+.B /usr/etc/mount_swapfs
+.I backfile 
+.I frontfile swapfs 
+.I opts
+.SH DESCRIPTION
+.I mount_swapfs
+is a command invoked by 
+.I mount(8) 
+to mount the swapfs filesystem.  The swapfs filesystem is used for optimizing swap performance and disk usage. 
+.I mount_swapfs
+is not intended to be launched directly. Instead, you can invoke this command through 
+.I mount(8) 
+by using the "-t swapfs" option.
+.I backfile
+is the name of the backing store which the swapfs filesystem will write into.
+.I frontfile
+is the name of the mount point where the swapfs filesystem will be mounted.  The swapfs only contains one file, and it will appear at the named mount point.
+.B swapfs
+is literally the characters in "swapfs".
+.I opts
+are the mount options passed from 
+.I mount(8). 
+They are ignored by
+.I mount_swapfs.
+.SH "SEE ALSO"
+mount(8), mach_swapon(8)
+.SH BUGS
+.I frontfile
+must not exist before mounting.

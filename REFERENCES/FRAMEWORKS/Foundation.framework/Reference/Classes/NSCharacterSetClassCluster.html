@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 28.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 35.0px Helvetica; min-height: 42.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 10.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p14 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 36.0px Helvetica; min-height: 43.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 26.0px Helvetica}
+    p.p21 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 12.0px Helvetica}
+    p.p23 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 12.0px Helvetica}
+    p.p25 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p26 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p28 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p30 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p33 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p34 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p38 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p39 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p40 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p44 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 95.0px; font: 30.0px Courier; min-height: 36.0px}
+    p.p46 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 14.0px Times}
+    p.p47 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p48 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p49 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.0px Helvetica}
+    span.s3 {font: 14.0px Times}
+    span.s4 {font: 12.0px Helvetica}
+    span.s5 {font: 14.0px Symbol}
+    span.s6 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">c<span class="Apple-tab-span">	</span></span><b>NSCharacterSet Class Cluster</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Class Cluster Description</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7">An NSCharacterSet object represents a set of Unicode characters. NSString and NSScanner objects use NSCharacterSets to group characters together for searching operations, so that they can find any of a particular set of characters during a search. The cluster's two public classes, NSCharacterSet and NSMutableCharacterSet, declare the programmatic interface for static and dynamic character sets, respectively.</p>
+<p class="p8"><br></p>
+<p class="p7">The objects you create using these classes are referred to as <i>character set objects</i> (and when no confusion will result, merely as <i>character sets</i>). Because of the nature of class clusters, character set objects aren't actual instances of the NSCharacterSet or NSMutableCharacterSet classes but of one of their private subclasses. Although a character set object's class is private, its interface is public, as declared by these abstract superclasses, NSCharacterSet and NSMutableCharacterSet. (See “Class Clusters” in the introduction to the Foundation Kit for more information on class clusters and on creating subclasses within a cluster.) The character set classes adopt the NSCopying and NSMutableCopying protocols, making it convenient to convert a character set of one type to the other.</p>
+<p class="p8"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><b>Building a Character Set</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">NSCharacterSet defines class methods that return commonly used character sets, such as letters (uppercase or lowercase), decimal digits, whitespace, and so on. These “standard” character sets are always immutable, even if created by sending a message to NSMutableCharacterSet. See “Standard Character Sets and Unicode Definitions” below for more information on standard character sets.</p>
+<p class="p8"><br></p>
+<p class="p7">You can use a standard character set as a starting point for building a custom set by making a mutable copy of it and changing that. (You can also start from scratch by creating a mutable character set with <b>alloc</b> and <b>init</b> and adding characters to it.) For example, this fragment creates a character set containing letters, digits, and basic punctuation:</p>
+<p class="p8"><br></p>
+<p class="p13">NSMutableCharacterSet *workingSet;</p>
+<p class="p13">NSCharacterSet *finalCharSet;</p>
+<p class="p14"><br></p>
+<p class="p13">workingSet = [[NSCharacterSet alphanumericCharacterSet] mutableCopy];</p>
+<p class="p13">[workingSet addCharactersInString:@";:,."];</p>
+<p class="p13">finalCharSet = [workingSet copy];</p>
+<p class="p13">[workingSet release];</p>
+<p class="p15"><br></p>
+<p class="p7">For performance reasons (explained in “Using a Character Set”), always finish by converting the working mutable character set into an immutable set. If you need to keep changing the character set after you've created it, of course, you should just use the mutable set.</p>
+<p class="p8"><br></p>
+<p class="p7">If your application frequently uses a custom character set, you'll want to save its definition in a resource file and load that instead of explicitly adding individual characters each time you need to create the set. You can save a character set by getting its bitmap representation (an NSData object) and saving that object to a file:</p>
+<p class="p8"><br></p>
+<p class="p13">NSString *filename;<span class="Apple-converted-space">    </span>/* Assume this exists. */</p>
+<p class="p13">NSString *absolutePath;</p>
+<p class="p13">NSData *charSetRep;</p>
+<p class="p13">BOOL result;</p>
+<p class="p14"><br></p>
+<p class="p13">absolutePath = [filename stringByStandardizingPath];</p>
+<p class="p13">charSetRep = [finalCharSet bitmapRepresentation];</p>
+<p class="p13">result = [charSetRep writeToFile:absolutePath atomically:YES];</p>
+<p class="p15"><br></p>
+<p class="p7">Character set filenames by convention use the extension <b>.bitmap</b>. If you intend for others to use your character set files, you should follow this convention. To read a character set file with a <b>.bitmap</b> extension, simply use the <b>characterSetWithContentsOfFile:</b> method.</p>
+<p class="p8"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><b>Using a Character Set</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">A character set object doesn't perform any tasks; it simply holds a set of character values to limit operations on strings. The NSString and NSScanner classes define methods that take NSCharacterSets as arguments to find any of several characters. For example, this code excerpt finds the range of the first uppercase letter in <b>myString</b>:</p>
+<p class="p8"><br></p>
+<p class="p13">NSString *myString = @"some text in an NSString...";</p>
+<p class="p13">NSRange letterRange;</p>
+<p class="p14"><br></p>
+<p class="p13">letterRange = [myString rangeOfCharacterFromSet:[NSCharacterSet</p>
+<p class="p13"><span class="Apple-converted-space">    </span>uppercaseLetterCharacterSet]];</p>
+<p class="p15"><br></p>
+<p class="p7">After this fragment executes, <b>letterRange.location</b> is equal to the index of the first “N” in “NSString” after <b>rangeOfCharacterFromSet:</b> is invoked. If the first letter of the string were “S” then <b>letterRange.location</b> would be 0.</p>
+<p class="p8"><br></p>
+<p class="p7">Because character sets often participate in performance-critical code, you should be aware of the aspects of their use that can affect the performance of your application. Mutable character sets are generally much more expensive than immutable character sets. They consume more memory and are costly to invert (an operation often performed in scanning a string). Because of this, you should follow these guidelines:</p>
+<p class="p8"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Create as few mutable character sets as possible.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Cache character sets (in a global dictionary, perhaps) instead of continually recreating them.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>When creating a custom set that doesn't need to change after creation, make an immutable copy of the final character set for actual use, and dispose of the working mutable character set. Alternatively, create a character set file as described in “Building a Character Set” and store it in your application's main bundle.</p>
+<p class="p17"><br></p>
+<p class="p16">•<span class="Apple-tab-span">	</span>Similarly, avoid archiving character set objects; store them in character set files instead. Archiving can result in a character set being duplicated in different archive files, resulting in wasted disk space and duplicates in memory for each separate archive read.</p>
+<p class="p17"><br></p>
+<p class="p18"><br></p>
+<p class="p10"><b>Standard Character Sets and Unicode Definitions</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p7">The standard character sets, such as that returned by <b>letterCharacterSet</b>, are formally defined in terms of the normative and informative categories established by the Unicode standard, such as Uppercase Letter, Combining Mark, and so on. The formal definition of a standard character set is in most cases given as one or more of the categories defined in the standard. For example, the set returned by <b>lowercaseLetterCharacterSet</b> include all characters in normative category Lowercase Letters, while the set returned by <b>letterCharacterSet</b> includes the characters in all of the Letter categories.</p>
+<p class="p8"><br></p>
+<p class="p7">Note that the definitions of the categories themselves may change with new versions of the Unicode standard. You can download the files that define category membership from <b>http://www.unicode.org/</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p19"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2">i<span class="Apple-tab-span">	</span></span><b></b><b>NSCharacterSet</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p22"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s3">NSObject</span></p>
+<p class="p23"><br></p>
+<p class="p24"><b>Conforms To:<span class="Apple-tab-span">	</span></b><span class="s3">NSCoding</span></p>
+<p class="p25">NSCopying</p>
+<p class="p25">NSMutableCopying</p>
+<p class="p25">NSObject (NSObject)</p>
+<p class="p26"><br></p>
+<p class="p27"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSCharacterSet.h</p>
+<p class="p28"><br></p>
+<p class="p28"><br></p>
+<p class="p29"><b>Class Description</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p7">The NSCharacterSet class declares the programmatic interface for an object that manages a set of Unicode characters (see the NSString class cluster specification for information on Unicode). NSCharacterSet's principal primitive method, <b>characterIsMember:</b>, provides the basis for all other instance methods in its interface. A subclass of NSCharacterSet needs only to implement this method, plus <b>mutableCopyWithZone:</b>, for proper behavior. For optimal performance, a subclass should also override <b>bitmapRepresentation</b> which otherwise works by invoking <b>characterIsMember:</b> for every possible Unicode value.</p>
+<p class="p8"><br></p>
+<p class="p31"><br></p>
+<p class="p29"><b>Adopted Protocols</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p32">NSCoding<span class="Apple-tab-span">	</span><span class="s5">-</span> encodeWithCoder:</p>
+<p class="p33"><span class="s5">-</span> initWithCoder:</p>
+<p class="p34"><br></p>
+<p class="p32">NSCopying<span class="Apple-tab-span">	</span><span class="s5">-</span> copyWithZone:</p>
+<p class="p35"><br></p>
+<p class="p32">NSMutableCopying<span class="Apple-tab-span">	</span><span class="s5">-</span> mutableCopyWithZone:</p>
+<p class="p36"><br></p>
+<p class="p29"><b>Method Types</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p32">Creating a standard character set<span class="Apple-tab-span">	</span>+ alphanumericCharacterSet</p>
+<p class="p33">+ controlCharacterSet</p>
+<p class="p33">+ decimalDigitCharacterSet</p>
+<p class="p33">+ decomposableCharacterSet</p>
+<p class="p33">+ illegalCharacterSet</p>
+<p class="p33">+ letterCharacterSet</p>
+<p class="p33">+ lowercaseLetterCharacterSet</p>
+<p class="p33">+ nonBaseCharacterSet</p>
+<p class="p33">+ punctuationCharacterSet</p>
+<p class="p33">+ uppercaseLetterCharacterSet</p>
+<p class="p33">+ whitespaceAndNewlineCharacterSet</p>
+<p class="p33">+ whitespaceCharacterSet</p>
+<p class="p34"><br></p>
+<p class="p32">Creating a custom character set<span class="Apple-tab-span">	</span>+ characterSetWithRange:</p>
+<p class="p33">+ characterSetWithCharactersInString:</p>
+<p class="p33">+ characterSetWithBitmapRepresentation:</p>
+<p class="p34"><br></p>
+<p class="p32">Opening a character set file<span class="Apple-tab-span">	</span>+ characterSetWithContentsOfFile:</p>
+<p class="p35"><br></p>
+<p class="p32">Testing set membership<span class="Apple-tab-span">	</span><span class="s5">-</span> characterIsMember:</p>
+<p class="p35"><br></p>
+<p class="p32">Inverting a character set<span class="Apple-tab-span">	</span><span class="s5">-</span> invertedSet</p>
+<p class="p35"><br></p>
+<p class="p32">Getting a binary representation<span class="Apple-tab-span">	</span><span class="s5">-</span> bitmapRepresentation</p>
+<p class="p36"><br></p>
+<p class="p29"><b>Class Methods</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p10"><b></b><b>alphanumericCharacterSet</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>alphanumericCharacterSet</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns a character set containing the characters in the categories Letters, Marks, and Numbers. Informally, this is the set of all characters used as basic units of alphabets, syllabaries, ideographs, and digits.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>letterCharacterSet</b>, + <b>decimalDigitCharacterSet</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>characterSetWithBitmapRepresentation:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>characterSetWithBitmapRepresentation:</b>(NSData *)<i>data</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p7">Returns a character set containing characters determined by the bitmap representation <i>data</i>. This method is useful for creating a character set object with data from a file or other external data source.</p>
+<p class="p8"><br></p>
+<p class="p7">A raw bitmap representation of a character set is a byte array of 2<span class="s4"><b>16</b></span> bits (that is, 8192 bytes). The value of the bit at position <i>n</i> represents the presence in the character set of the character with decimal Unicode value <i>n</i>. To add a character with decimal Unicode value <i>n</i> to a raw bitmap representation, use a statement such as:</p>
+<p class="p8"><br></p>
+<p class="p13">unsigned char bitmapRep[8192];</p>
+<p class="p14"><br></p>
+<p class="p13">bitmapRep[n &gt;&gt; 3] |= (((unsigned int)1) &lt;&lt; (n &amp; 7));</p>
+<p class="p15"><br></p>
+<p class="p7">To remove that character:</p>
+<p class="p8"><br></p>
+<p class="p13">bitmapRep[n &gt;&gt; 3] &amp;= ~(((unsigned int)1) &lt;&lt; (n &amp; 7));</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>bitmapRepresentation</b>, + <b>characterSetWithContentsOfFile:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>characterSetWithCharactersInString:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>characterSetWithCharactersInString:</b>(NSString *)<i>aString</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p7">Returns a character set containing the characters in <i>aString</i>. Returns an empty character set if <i>aString</i> is empty.</p>
+<p class="p8"><br></p>
+<p class="p42"><br></p>
+<p class="p43"><span class="s6">p<span class="Apple-tab-span">	</span></span><b>characterSetWithContentsOfFile:</b></p>
+<p class="p44"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>characterSetWithContentsOfFile:</b>(NSString *)<i>path</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p7">Returns a character set read from the bitmap representation stored in the file at <i>path</i>, which must end with the extension <b>.bitmap</b>. To read a bitmap representation from any file, use NSData's <b>dataWithContentsOfFile:</b> method and pass the result to <b>characterSetWithBitmapRepresentation:</b>.</p>
+<p class="p8"><br></p>
+<p class="p7">This method doesn't perform filename-based uniquing of the character sets it creates. To prevent duplication of character sets in memory, cache them and make them available through an API that checks whether the requested set has already been loaded.</p>
+<p class="p8"><br></p>
+<p class="p42"><br></p>
+<p class="p10"><b></b><b>characterSetWithRange:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>characterSetWithRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p7">Returns a character set containing characters whose Unicode values are given by <i>aRange</i>. <i>aRange.location</i> is the value of the first character, and <i>aRange.location</i> + <i>aRange.length</i> <span class="s5">-</span> 1 is the value of the last. Returns an empty character set if <i>aRange.length</i> is 0.</p>
+<p class="p8"><br></p>
+<p class="p7">This code excerpt creates a character set object containing the lowercase English alphabetic characters:</p>
+<p class="p8"><br></p>
+<p class="p13">NSRange lcEnglishRange;</p>
+<p class="p13">NSCharacterSet *lcEnglishLetters;</p>
+<p class="p14"><br></p>
+<p class="p13">lcEnglishRange.location = (unsigned int)'a';</p>
+<p class="p13">lcEnglishRange.length = 26;</p>
+<p class="p13">lcEnglishLetters = [NSCharacterSet</p>
+<p class="p13"><span class="Apple-converted-space">    </span>characterSetWithRange:lcEnglishRange];</p>
+<p class="p45"><br></p>
+<p class="p10"><b></b><b>controlCharacterSet</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>controlCharacterSet</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns a character set containing the characters in the categories of Control or Format Characters. These are specifically the Unicode values U+0000 to U+001F and U+007F to U+009F.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>illegalCharacterSet</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>decimalDigitCharacterSet</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>decimalDigitCharacterSet</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns a character set containing the characters in the category of Decimal Numbers. Informally, this is the set of all characters used to represent the decimal values 0 through 9. These include, for example, the decimal digits of the Indic scripts and Arabic.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>alphanumericCharacterSet</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>decomposableCharacterSet</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>decomposableCharacterSet</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns a character set containing all individual Unicode characters that can also be represented as composed character sequences (such as for letters with accents), by the definition of “standard decomposition” in version 1.1 of the Unicode character encoding standard. These include compatibility characters as well as precomposed characters.</p>
+<p class="p8"><br></p>
+<p class="p46"><span class="s4"><b>Note:<span class="Apple-tab-span">	</span></b></span>This character set doesn't currently include the Hangul characters defined in version 2.0 of the Unicode standard.</p>
+<p class="p47"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>nonBaseCharacterSet</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>illegalCharacterSet</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>illegalCharacterSet</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns a character set containing values in the category of Non-Characters, or that have not yet been defined in version 2.0 of the Unicode standard.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>controlCharacterSet</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>letterCharacterSet</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>letterCharacterSet</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns a character set containing the characters in the categories Letters and Marks. Informally, this is the set of all characters used as letters of alphabets and ideographs.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>alphanumericCharacterSet</b>, + <b>lowercaseLetterCharacterSet</b>, + <b>uppercaseLetterCharacterSet</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>lowercaseLetterCharacterSet</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>lowercaseLetterCharacterSet</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns a character set containing the characters in the category of Lowercase Letters. Informally, this is the set of all characters used as lowercase letters in alphabets which make case distinctions.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>uppercaseLetterCharacterSet</b>, + <b>letterCharacterSet</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>nonBaseCharacterSet</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>nonBaseCharacterSet</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns a character set containing the characters in the category of Marks. This set is also defined as all legal Unicode characters with a non-spacing priority greater than zero. Informally, this is the set of all characters used as modifiers of base characters.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>decomposableCharacterSet</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b>punctuationCharacterSet</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>punctuationCharacterSet</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns a character set containing the characters in the category of Punctuation. Informally, this is the set of all non-whitespace characters used to separate linguistic units in scripts, such as periods, dashes, parentheses, and so on.</p>
+<p class="p8"><br></p>
+<p class="p42"><br></p>
+<p class="p10"><b></b><b>uppercaseLetterCharacterSet</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>uppercaseLetterCharacterSet</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns a character set containing the characters in the category of Uppercase Letters. Informally, this is the set of all characters used as uppercase letters in alphabets which make case distinctions.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>lowercaseLetterCharacterSet</b>, + <b>letterCharacterSet</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>whitespaceAndNewlineCharacterSet</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>whitespaceAndNewlineCharacterSet</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns a character set containing only the whitespace characters space (U+0020) and tab (U+0009) and the newline character (U+000A).</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>whitespaceCharacterSet</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>whitespaceCharacterSet</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37">+ (NSCharacterSet *)<b>whitespaceCharacterSet</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns a character set containing only the in-line whitespace characters space (U+0020) and tab (U+0009). This set doesn't contain the newline or carriage return characters.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>whitespaceAndNewlineCharacterSet</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p48"><b></b><br></p>
+<p class="p29"><b>Instance Methods</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p10"><b></b><b>characterIsMember:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37"><span class="s5">-</span> (BOOL)<b>characterIsMember:</b>(unichar)<i>aCharacter</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p7">Returns YES if <i>aCharacter</i> is in the receiving character set, NO if it isn't.</p>
+<p class="p8"><br></p>
+<p class="p42"><br></p>
+<p class="p10"><b></b><b>bitmapRepresentation</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37"><span class="s5">-</span> (NSData *)<b>bitmapRepresentation</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns an NSData object encoding the receiving character set in binary format. This format is suitable for saving to a file or otherwise transmitting or archiving.</p>
+<p class="p8"><br></p>
+<p class="p7">A raw bitmap representation of a character set is a byte array of 2<span class="s4"><b>16</b></span> bits (that is, 8192 bytes). The value of the bit at position <i>n</i> represents the presence in the character set of the character with decimal Unicode value <i>n</i>. To test for the presence of a character with decimal Unicode value <i>n</i> in a raw bitmap representation, use an expression such as:</p>
+<p class="p8"><br></p>
+<p class="p13">unsigned char bitmapRep[8192];</p>
+<p class="p14"><br></p>
+<p class="p13">if (bitmapRep[n &gt;&gt; 3] &amp; (((unsigned int)1) &lt;&lt; (n &amp; 7))) {</p>
+<p class="p13"><span class="Apple-converted-space">    </span>/* Character is present. */</p>
+<p class="p13">}</p>
+<p class="p15"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>characterSetWithBitmapRepresentation:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>invertedSet</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37"><span class="s5">-</span> (NSCharacterSet *)<b>invertedSet</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Returns a character set containing only characters that <i>don't</i> exist in the receiver. Inverting an immutable character set is much more efficient that inverting a mutable character set.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>invert</b> (NSMutableCharacterSet)</p>
+<p class="p40"><br></p>
+<p class="p19"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2">i<span class="Apple-tab-span">	</span></span><b></b><b>NSMutableCharacterSet</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p49"><span class="s4"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSCharacterSet : NSObject</p>
+<p class="p23"><br></p>
+<p class="p27"><span class="s4"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSCoding (NSCharacterSet)<span class="Apple-converted-space"> </span></p>
+<p class="p25">NSCopying (NSCharacterSet)<span class="Apple-converted-space"> </span></p>
+<p class="p25">NSMutableCopying (NSCharacterSet)<span class="Apple-converted-space"> </span></p>
+<p class="p25">NSObject (NSObject)</p>
+<p class="p26"><br></p>
+<p class="p27"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSCharacterSet.h</p>
+<p class="p28"><br></p>
+<p class="p28"><br></p>
+<p class="p29"><b>Class Description</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p7">The NSMutableCharacterSet class declares the programmatic interface to objects that manage a modifiable set of Unicode characters. You can add or remove characters from a mutable character set as numeric values in NSRanges or as character values in strings; combine character sets by union or intersection; and invert a character set.</p>
+<p class="p8"><br></p>
+<p class="p7">Mutable character sets are less efficient to use than immutable character sets. If you don't need to change a character set after creating it, create an immutable copy with <b>copy</b> and use that.</p>
+<p class="p8"><br></p>
+<p class="p7">NSMutableCharacterSet defines no primitive methods. Subclasses must implement all methods declared by this class in addition to the primitives of NSCharacterSet. They must also implement <b>mutableCopyWithZone:</b>.</p>
+<p class="p8"><br></p>
+<p class="p31"><br></p>
+<p class="p29"><b>Method Types</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p32">Adding and removing characters<span class="Apple-tab-span">	</span><span class="s5">-</span> addCharactersInRange:</p>
+<p class="p33"><span class="s5">-</span> removeCharactersInRange:</p>
+<p class="p33"><span class="s5">-</span> addCharactersInString:</p>
+<p class="p33"><span class="s5">-</span> removeCharactersInString:</p>
+<p class="p34"><br></p>
+<p class="p32">Combining character sets<span class="Apple-tab-span">	</span><span class="s5">-</span> formIntersectionWithCharacterSet:</p>
+<p class="p33"><span class="s5">-</span> formUnionWithCharacterSet:</p>
+<p class="p34"><br></p>
+<p class="p32">Inverting a character set<span class="Apple-tab-span">	</span><span class="s5">-</span> invert</p>
+<p class="p36"><br></p>
+<p class="p29"><b>Instance Methods</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p10"><b></b><b>addCharactersInRange:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37"><span class="s5">-</span> (void)<b>addCharactersInRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p7">Adds the characters whose integer values are given by <i>aRange</i> to the receiver. <i>aRange.location</i> is the value of the first character to add, <i>aRange</i> <i>range.location</i> + <i>aRange.length</i> <span class="s5">-</span> 1 is the value of the last. If <i>aRange.length</i> is 0 this method has no effect.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>removeCharactersInRange:</b>, <span class="s5">-</span> <b>addCharactersInString:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>addCharactersInString:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37"><span class="s5">-</span> (void)<b>addCharactersInString:</b>(NSString *)<i>aString</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p7">Adds the characters in <i>aString</i> to those in the receiver. This method has no effect if <i>aString</i> is empty.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>removeCharactersInString:</b>, <span class="s5">-</span> <b>addCharactersInRange:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>formIntersectionWithCharacterSet:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37"><span class="s5">-</span> (void)<b>formIntersectionWithCharacterSet:</b>(NSCharacterSet *)<i>otherSet</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p7">Modifies the receiver so that it contains only characters that exist in both the receiver and in <i>otherSet</i>.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>formUnionWithCharacterSet:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>formUnionWithCharacterSet:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37"><span class="s5">-</span> (void)<b>formUnionWithCharacterSet:</b>(NSCharacterSet *)<i>otherSet</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p7">Modifies the receiver so that it contains all characters that exist in either the receiver or <i>otherSet</i>.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>formIntersectionWithCharacterSet:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>invert</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37"><span class="s5">-</span> (void)<b>invert</b></p>
+<p class="p38"><b></b><br></p>
+<p class="p7">Replaces all of the characters in the receiver with all the characters it didn't previously contain. Inverting a mutable character set, whether by <b>invert</b> or by <b>invertedSet</b>, is much less efficient that inverting an immutable character set with <b>invertedSet</b>.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>invertedSet</b> (NSCharacterSet)</p>
+<p class="p40"><br></p>
+<p class="p41"><br></p>
+<p class="p10"><b></b><b>removeCharactersInRange:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37"><span class="s5">-</span> (void)<b>removeCharactersInRange:</b>(NSRange)<i>aRange</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p7">Removes from the receiver the characters whose integer values are given by <i>aRange</i>. <i>aRange.location</i> is the value of the first character to remove, and <i>aRange.location</i> + <i>aRange.length</i> <span class="s5">-</span> 1 is the value of the last. If <i>aRange.length</i> is 0 this method has no effect.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>addCharactersInRange:</b>, <span class="s5">-</span> <b>removeCharactersInString:</b></p>
+<p class="p40"><b></b><br></p>
+<p class="p41"><b></b><br></p>
+<p class="p10"><b></b><b>removeCharactersInString:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p37"><span class="s5">-</span> (void)<b>removeCharactersInString:</b>(NSString *)<i>aString</i></p>
+<p class="p38"><i></i><br></p>
+<p class="p7">Removes the characters in <i>aString</i> from those in the receiver. This method has no effect if <i>aString</i> is empty.</p>
+<p class="p8"><br></p>
+<p class="p39"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>addCharactersInString:</b>, <span class="s5">-</span> <b>removeCharactersInRange:</b></p>
+<p class="p40"><b></b><br></p>
+</body>
+</html>

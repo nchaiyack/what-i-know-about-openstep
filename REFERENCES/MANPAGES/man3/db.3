@@ -1,0 +1,480 @@
+.TH DB 3 "June 6, 1989" "NeXT Computer, Inc."
+.SH NAME
+db - introduction to the hashed database library functions
+.SH SYNOPSIS
+.ft L
+#include <db/db.h>
+.sp
+typedef struct {
+.br
+	char *s;
+.br
+	short n;
+.br
+} Datum;
+.sp
+typedef struct {
+.br
+	Datum k, c;
+.br
+} Data;
+.sp
+typedef struct {
+.br
+	char *name;	\fI/* the name of the database */\fP
+.br
+	int flag;		\fI/* flag word - see bit defines in db.h */\fP
+.br
+	int D, L;	\fI/* directory and leaf file descriptors */\fP
+.br
+} Database;
+.ft R
+.sp
+.PP
+.ft L
+.SH DESCRIPTION
+These functions constitute the hashed database library, libdb. 
+The link editor searches this library under the "-ldb_p" or "-lsys_s" options.
+Declarations for these functions may be obtained from the include file 
+<db/db.h>.
+
+\fIlibdb\fP implements extensibly hashed databases whose records
+are arbitrary \fIkey/content\fP pairs.
+The databases can be very large - on the order of 500 million blocks. 
+A single \fIkey/content\fP pair is retrieved in 0, 1, 
+or sometimes 2, disk accesses.
+.sp
+.KS
+Sample code to open, read and write a database:
+.ft F
+.sp
+.in +4
+.ps -1
+.vs -1
+.nf
+#include <db/db.h>
+
+Database *db = dbOpen("x");
+Data d;
+char k[500], c[500];
+
+d.k = StrDatum("foo");
+d.c = StrDatum("bar");
+
+if (! dbStore(db, &d))
+	dbError(...);
+
+d.k = StrDatum("barbar");
+if (dbFetch(db, &d))
+	printf("%s", d.c.s);
+.vs +1
+.ps +1
+.in -4
+.fi
+.ft R
+.KE
+.sp 2
+.KS
+.SH SUMMARY
+.ft L
+Database *\fBdbOpen\fP\fR(char *\fIname\fP) 
+.ft R
+.sp
+Opens database \fIname\fP for access, 
+creating the directory and leaf files "name.[DL]" if they don't already exist.
+An open Database descriptor is returned, or NULL if there was some failure.
+.KE
+.sp 2
+.KS
+int 
+\fBdbClose\fP\fR(Database *\fIdb\fP) 
+.ft R
+.sp
+Closes \fIdb\fP, closing the directory and leaf files "name.[DL]", 
+freeing up memory used by \fIdb\fP, and flushing any unwritten data to disk.
+.KE
+.sp 2
+.KS
+int 
+\fBdbStore\fP\fR(Database *\fIdb\fP, Data *\fId\fP) 
+.ft R
+.sp
+Stores the \fIkey/content\fP pair \fId\fP in database \fIdb\fP.
+.KE
+.sp 2
+.KS
+int 
+\fBdbFetch\fP\fR(Database *\fIdb\fP, Data *\fId\fP) 
+.ft R
+.sp
+With the key portion \fId\->k\fP known, 
+attempts to fill in the content portion, \fId\->c\fP, from the database.
+Only the key portion, \fId\->k\fP, need be specified. 
+.KE
+.sp 2
+.KS
+int 
+\fBdbFind\fP\fR(Database *\fIdb\fP, Data *\fId\fP) 
+.ft R
+.sp
+True if \fId\->k\fP is in \fIdb\fP.
+Only the key portion, \fId\->k\fP, need be specified. 
+The sizes of both portions of the record are returned in \fId\fP.
+\fIdbGet()\fP may be called subsequently to read the contents.
+.KE
+.sp 2
+.KS
+int 
+\fBdbDelete\fP\fR(Database *\fIdb\fP, Data *\fId\fP) 
+.ft R
+.sp
+Removes \fId\fP from database \fIdb\fP.
+Only the key portion, \fId\->k\fP, need be specified.
+.KE
+.sp 2
+.KS
+int 
+\fBdbFirst\fP\fR(Database *\fIdb\fP, Data *\fId\fP) 
+.ft R
+.sp
+Locates the first record in database \fIdb\fP.
+The sizes of both portions of the record are returned in \fId\fP.
+.sp
+To traverse and print a database of \fIstring\fP pairs:
+.ft F
+.sp
+.in +4
+.ps -1
+.vs -1
+.nf
+Data d;
+char k[1024], c[1024];
+
+d.k.s = k;
+d.c.s = c;
+for (dbFirst(db, &d); dbGet(db, &d); dbNext(db, &d))
+	printf("%s: %s\\n", k, c);
+.vs +1
+.ps +1
+.in -4
+.fi
+.ft R
+.KE
+.sp 2
+.KS
+int 
+\fBdbGet\fP\fR(Database *\fIdb\fP, Data *\fId\fP) 
+.ft R
+.sp
+Puts both the key and content portions of the current record in \fId\fP.
+\fIdbGet()\fP may be called following a call to 
+\fIdbFirst()\fP, \fIdbNext()\fP or \fIdbFind()\fP.
+.KE
+.sp 2
+.KS
+int 
+\fBdbSetKey\fP\fR(Database *\fIdb\fP, Data *\fId\fP) 
+.ft R
+.sp
+Puts the key portion and the size of the content portion 
+of the current record in \fId\fP.
+\fIdbSetKey()\fP may be called following a call to 
+\fIdbFirst()\fP, \fIdbNext()\fP or \fIdbFind()\fP.
+\fIdbSetKey()\fP is useful for ascertaining the size of the content portion
+before calling \fIdbGet()\fP.
+.KE
+.sp 2
+.KS
+int 
+\fBdbNext\fP\fR(Database *\fIdb\fP, Data *\fId\fP) 
+.ft R
+.sp
+Locates the next record in Database \fIdb\fP.
+The sizes of both the key and content portions of the record 
+are returned in \fId\fP.
+The order followed by \fIdbNext()\fP is uninteresting, 
+being determined by a hash function.
+\fIdbNext()\fP fails when the end of the database is reached.
+See \fIdbFirst()\fP.
+.KE
+.sp 2
+.KS
+int 
+\fBdbExists\fP\fR(char *\fIname\fP) 
+.ft R
+.sp
+True if database \fIname\fP exists
+(ie, if directory and leaf files ``name.[DL]'' exist).
+.KE
+.sp 2
+.KS
+int 
+\fBdbCreate\fP\fR(char *\fIname\fP) 
+.ft R
+.sp
+Creates directory and leaf files ``name.[DL]'' for a new database.
+Both the directory and leaf files will be truncated (overwritten) 
+if they already exist. The default leaf size, \fIdbLeafSize\fP, 
+will be \fILEAFSIZE\fP as defined in db.h  
+unless set by the application to some other value.
+All leaf sizes are rounded to the nearest larger magic number 
+for memory allocation.
+.KE
+.sp 2
+.KS
+Database *
+\fBdbInit\fP\fR(char *\fIname\fP) 
+.ft R
+.sp
+Prepares database \fIname\fP for use.
+The directory file, usually \fIname.D\fP, and the leaf file, 
+usually \fIname.L\fP, must already exist
+(they can be created with \fIdbCreate()\fP).
+The directory and leaf files are opened for access using 
+the global variable \fIdbFlags\fP.
+If write access is requested by \fIdbFlags\fP, 
+but denied by the operating system, 
+\fIdnInit()\fP will attempt to open the files for reading only.
+The type of access acquired is indicated by the dbFlagReadOnly bit 
+in the descriptor flag word.
+Returns the opened Database if successful, otherwise returns NULL.
+.KE
+.sp 2
+.KS
+int 
+\fBdbCompress\fP\fR(Database *\fIdb\fP) 
+.ft R
+.sp
+Compresses database \fIdb\fP by removing all empty space from existing blocks.
+A compressed database is readable only, 
+and does not support writing or deletion.
+.KE
+.sp 2
+.KS
+int 
+\fBdbExpand\fP\fR(Database *\fIdb\fP) 
+.ft R
+.sp
+Reverses the compression of database \fIdb\fP performed by \fIdbCompress()\fP.
+An expanded database supports writing and deletion.
+.KE
+.sp 2
+.KS
+int 
+\fBdbUnlink\fP\fR(char *\fIname\fP) 
+.ft R
+.sp
+Unlinks (removes) ``name.[DL]'', the directory and leaf files 
+associated with database \fIname\fP.
+.KE
+.sp 2
+.KS
+void
+\fBdbFlush\fP\fR(Database *\fIdb\fP) 
+.ft R
+.sp
+Writes any unwritten blocks to disk.
+Unwritten blocks are also written by \fIdbClose()\fP.
+All leaf and directory writes are buffered 
+if \fIdb\->flag & dbFlagBuffered\fP. This is the default. 
+Set \fIdb\->flag &= ~dbFlagBuffered\fP after calling 
+\fIdbInit()\fP or \fIdbOpen()\fP to make writes synchronous.
+.KE
+.sp 2
+.KS
+void
+\fBdbSetCache\fP\fR(Database *\fIdb\fP, short \fIlimit\fP, int \fIprivate\fP) 
+.ft R
+.sp
+\fIdbSetCache()\fP changes the open block cache used by database \fIdb\fP. 
+By default, all open databases share a public cache.
+.sp
+If \fIprivate\fP is true, a private cache is established for \fIdb\fP. 
+The new cache will hold at most \fIlimit\fP blocks.
+Any private cache previously in use by \fIdb\fP is flushed and deallocated.
+.sp
+If \fIprivate\fP is false, \fIdb\fP is returned to the public cache.
+Any private cache previously in use by \fIdb\fP is flushed and deallocated.
+.sp
+Any read of \fIdb\fP following a call to \fIdbSetCache()\fP 
+is guaranteed to be synchronous.
+The number of blocks in the public cache is limited by 
+the global variable \fIdbMaxLeafBuf\fP. 
+.KE
+.sp 2
+.KS
+int 
+\fBdbLock\fP\fR(Database *\fIdb\fP) 
+.ft R
+.sp
+Guarantees exclusive access to \fIdb\fP 
+by locking the leaf file with \fIflock()\fP. 
+May block indefinitely waiting for exclusive access.
+.KE
+.sp 2
+.KS
+int 
+\fBdbUnlock\fP\fR(Database *\fIdb\fP) 
+.ft R
+.sp
+Unlocks \fIdb\fP.
+.KE
+.sp 2
+.KS
+int 
+\fBdbWaitLock\fP\fR(Database *\fIdb\fP, \fIcount\fP, unsigned \fIpause\fP) 
+.ft R
+.sp
+Tries to lock \fIdb\fP.
+Makes \fIcount\fP attempts, trying forever if \fIcount\fP < 0,
+and waiting for \fIpause\fP seconds after each unsuccessful try.
+Returns 1 if \fIdb\fP is successfully locked, otherwise 0.
+.sp
+For example, to try at most 5 times, pausing 3 seconds between attempts:
+.sp
+.ft F
+.in +4
+.ps -1
+.vs -1
+.nf
+if (! dbWaitLock(db, 5, 3))
+	fprintf(stderr, "Couldn't lock '%s'\\n", db\->name);
+.vs +1
+.ps +1
+.in -4
+.fi
+.ft R
+.KE
+.sp 2
+.KS
+Datum
+\fBStrDatum\fP\fR(char *\fIs\fP) 
+.ft R
+.sp
+Constructs and returns a \fIDatum\fP from string \fIs\fP.
+.KE
+.sp 2
+.KS
+Data
+\fBStrData\fP\fR(char *\fIk\fP, char *\fIc\fP) 
+.ft R
+.sp
+Constructs and returns a \fIData\fP pair from strings \fIk\fP and \fIc\fP.
+.KE
+.sp 2
+.KS
+Data
+\fBdbData\fP\fR(Datum \fIk\fP, Datum \fIc\fP) 
+.ft R
+.sp
+Constructs and returns a \fIData\fP pair with key \fIk\fP and content \fIc\fP.
+.KE
+.sp 2
+.KS
+int 
+\fBdbPrint\fP\fR(Database *\fIdb\fP, char *\fIk\fP, char *\fIc\fP) 
+.ft R
+.sp
+Stores the \fIkey/content\fP pair (k, c) in Database \fIdb\fP.
+.KE
+.sp 2
+.KS
+int 
+\fBdbScan\fP\fR(Database *\fIdb\fP, char *\fIk\fP, char *\fIc\fP) 
+.ft R
+.sp
+Given key \fIk\fP, fetches the contents of the matching record
+from \fIdb\fP and puts them in \fIc\fP.
+.KE
+.sp 2
+.KS
+void
+\fBdbCat\fP\fR(FILE *\fIf\fP, Database *\fIdb\fP, int (*\fIpfunc\fP) ()) 
+.ft R
+.sp
+Catenates the contents of \fIdb\fP on FILE \fIf\fP,
+calling the function \fIpfunc(f, data)\fP for each 
+\fIkey/content\fP pair in the database.
+If \fIpfunc\fP is null, \fIdbPrintKC()\fP is used by default.
+.KE
+.sp 2
+.KS
+void
+\fBdbPrintKC\fP\fR(FILE *\fIf\fP, Data *\fId\fP) 
+.ft R
+.sp
+Prints the \fIkey/content\fP pair \fId\fP on stream \fIf\fP, 
+separating the key from the content by a tab. 
+Both key and content are assumed to be strings.
+.KE
+.sp 2
+.KS
+int 
+\fBdbError\fP\fR(dbErrorType \fIerrno\fP, char *\fIfmt\fP, \fIargs\fP) 
+.ft R
+.sp
+If the global variable \fIdbErrors\fP is zero, which it is by default, 
+\fIdbError\fP sets \fIerrno\fP into the global variable \fIdbErrorNo\fP.
+\fIdbErrorNo\fP is set reliably by every call to the library.
+If the global variable \fIdbErrors\fP is non zero, 
+\fIdbError\fP prints a diagnostic message to the FILE \fIdbMsgs\fP, 
+which is \fIstderr\fP by default.
+\fIfmt\fP and \fIargs\fP are used as in \fIprintf()\fP.
+.KE
+.sp 2
+.SH GLOBALS
+.KS
+.TP
+.B char *dbDirExtension, *dbLeafExtension;
+The leaf and directory file extensions, 
+normally \fID\fP and \fIL\fP by default.
+.KE
+.sp
+.KS
+.TP
+.B int dbErrors;		
+If true, error messages are printed. 
+By default, error messages are not printed.
+.KE
+.sp
+.KS
+.TP
+.B int dbMaxLeafBuf;
+Maximum number of open blocks in the public cache. See \fIdbSetCache()\fP.
+.KE
+.sp
+.KS
+.TP
+.B int dbLeafSize;	
+Used by \fIdbCreate()\fP to set the block size for new databases. 
+The value of \fIdbLeafSize\fP is rounded to the nearest larger magic number
+for memory allocation. The default is LEAFSIZE, as defined in \fBdb.h\fP.
+.KE
+.sp
+.KS
+.TP
+.B int dbMode;
+Sets the file creation mode used by \fIdbCreate()\fP. The default is 0644.
+The actual protection mode of a file created by \fIdbCreate()\fP 
+will be determined
+by the combination of \fIdbMode\fP and the current \fIumask\fP.
+.KE
+.sp
+.KS
+.TP
+.B int dbFlags;
+Sets the file access flags used by \fIdbInit()\fP. The default, -1, is ignored.
+.KE
+.sp
+.KS
+.TP
+.B FILE *dbMsgs;
+The file descriptor for error message output.  The default is \fIstderr\fP.
+.KE
+.sp
+.sp
+.KS
+.ft R
+.SH DIAGNOSTICS
+Unless otherwise indicated, all functions return SUCCESS (1) or FAILURE (0).
+.KE

@@ -1,0 +1,45 @@
+.\" @(#)rwall.1c	1.3 87/07/28 3.2/4.3NFSSRC
+.TH RWALL 1C "4 August 1986"
+.SH NAME
+rwall \- write to all users over a network
+.SH SYNOPSIS
+.B rwall
+.I hostname .\|.\|.
+.br
+.B rwall
+.B \-n
+.I netgroup .\|.\|.
+.br
+.B rwall
+.B \-h
+host
+.B \-n
+.I netgroup
+.SH DESCRIPTION
+.IX  "write to all users on network \(em \fLrwall\fP"
+.IX  network  rwall  ""  "\fLrwall\fP \(em write to all users"
+.IX  "broadcast messages to all users on network \(em \fLrwall\fR"
+.I Rwall
+reads a message from standard input until end-of-file.
+It then sends this message,
+preceded by the line ``Broadcast Message ...'',
+to all users logged in on the specified host machines.
+With the
+.B -n
+option,
+it sends to the specified network groups,
+which are defined in
+.IR netgroup (5).
+.PP
+A machine can only receive such a message if it is running
+.IR rwalld (8),
+which is normally started up 
+by the daemon
+.IR inetd (8).
+.SH "SEE ALSO"
+wall(1), netgroup(5), rwalld(8C), shutdown(8)
+.SH BUGS
+The timeout is fairly short in order to be able to send to
+a large group of machines (some of which may be down)
+in a reasonable amount of time.
+Thus the message may not get through to a heavily loaded machine.

@@ -1,0 +1,3 @@
+"FirstResponder" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSObject; };
+"ProgressView" = {ACTIONS = {"increment:" = id; }; OUTLETS = {}; SUPERCLASS = NSView; };
+"ProgressViewPalette" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = IBPalette; };

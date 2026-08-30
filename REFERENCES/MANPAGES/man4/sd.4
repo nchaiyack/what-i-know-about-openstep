@@ -1,0 +1,252 @@
+.TH SD 4 "June 30, 1989" "NeXT Computer, Inc."
+.SH NAME
+sd \- SCSI disk device driver
+.SH SYNOPSIS
+device_name as sd[0-6] at sc0 target [0-6] lun [0-7]
+.SH DESCRIPTION
+This driver allows access
+to a number of disk drives
+with standard SCSI interfaces.
+The driver has both block and character oriented interfaces.
+The form of the block device is
+.RS
+.nf
+.sp
+/dev/sd<unit><partition>
+.sp
+.fi
+.RE
+where <unit> is a digit from 0 to 15,
+and <partition> is a letter from ``a'' to ``h,''
+indicating the partition on the disk.
+For example,
+/dev/sd1b refers to
+unit 1,
+partition b.
+Similarly,
+a character device is accessed by
+.RS
+.nf
+.sp
+/dev/rsd<unit><partition>
+.sp
+.fi
+.RE
+.PP 
+Partition h of the character device
+is a special device called the ``live'' partition;
+for example, sd1h.
+I/O to and from the live partition
+is used to access disks that do not have a valid label,
+and to access portions of disks
+normally inaccessible to read(2) and write(2) calls
+\(em
+for example,
+the front porch.
+(Reading and writing the other partitions of 
+the character device,
+and all partitions of the block device,
+requires a valid label on the disk.)
+I/O using the live partition has the following 
+restrictions:
+.IP \(bu 3
+Reads and writes must start on a sector boundary.
+.IP \(bu 3
+The length of reads and writes
+must be an integral multiple of the sector size.
+.SH
+Multiple Volume Support
+.PP
+The sd driver supports drives with removable media.
+In a manner similar to the fd(4) and od(4) drivers,
+the devices in /dev refer to volumes,
+not to drives.
+One physical drive
+can have multiple volumes associated with it
+at any given time.
+Each drive has associated with it
+one permanent volume at boot time
+\(em
+drive 0 is associated with volume 0 (/dev/rsd0? and /dev/sd0?),
+drive 1 with volume 1,
+etc.
+Henceforth,
+additional volumes can be assigned to a drive
+if one of the following occurs:
+.IP \(bu 3
+A DKIOCEJECT ioctl is executed on a volume,
+but the device remains open.
+Then 
+a new volume (removable disk) is inserted in the empty drive.
+This new disk 
+will be assigned to the next available volume number,
+and will henceforth be associated with this drive.
+.IP \(bu 3
+An open() call is executed on a volume
+not currently assigned to a drive.
+(See the DKIOCFREEVOL ioctl, below.)
+.PP
+In both of these cases,
+the following occurs when an I/O is attempted on a volume
+not currently present in a drive:
+.IP 1. 3
+The volume currently present in the desired drive is ejected.
+(If any references still remain to this device,
+the volume will be ``remembered,''
+and will not be reassigned;
+otherwise,
+the volume information is discarded,
+and the volume may be reassigned at a later time.)
+.IP 2. 3
+An alert panel is displayed
+asking for the desired volume (by name, if known).
+.IP 3. 3
+The user takes one of two actions:
+.RS
+.IP \(bu 3 
+The desired volume is inserted;
+the alert panel is then removed.
+.IP \(bu 3
+The user clicks on the ``Cancel'' button in the alert panel,
+causing the I/O to the missing volume
+to be aborted with a status of ENODEV.
+.RE
+.PP
+Another feature of removable media support
+is automatic mounting of newly inserted volumes.
+If a disk is inserted in an empty drive,
+the disk will be mounted
+if it has a valid label
+and is in a consistent (``clean'') state.
+If it does not have a valid label,
+or has a file system in an inconsistent state,
+the user will be asked by the Workspace Manager
+(via an alert panel) if he/she wants to initialize it
+(or repair it, if ``unclean'').
+Answering in the affirmative
+results in the disk ultimately being mounted in the root directory.
+.PP
+The following operations are allowed by the SCSI disk driver:
+.TP
+open()
+See open(2).
+.TP
+close() 
+See close(2).
+.TP
+read()
+See read(2).
+.TP
+write()
+See write(2).
+.TP	 
+strategy()
+This is the standard block device entry point
+used by the UNIX file system.
+This is only valid for the block disk device.
+.TP	 	 
+ioctl()
+The general form of an ioctl() call is 
+.RS
+.nf
+ioctl(int d, u_int request, char *argp)
+.fi
+.RE
+.LP
+The following ioctl requests are currently defined
+(see /NextDeveloper/Headers/bsd/dev/disk.h and 
+/NextDeveloper/Headers/bsd/dev/scsireg.h):
+.TP	
+DKIOCGLABEL
+Get disk label;
+argp points to a pointer to a struct disk_label
+(see /NextDeveloper/Headers/bsd/dev/disk.h).
+Copy the label of the current disk
+into user address space.
+.TP
+DKIOCSLABEL
+Write disk label;
+argp points to a pointer to a struct 
+disk_label.
+(Must be superuser to execute this call.)
+.TP
+DKIOCINFO
+Get drive info;
+argp points to a struct drive_info
+(see
+/NextDeveloper/Headers/bsd/dev/disk.h).
+.TP
+DKIOCSFORMAT
+Set ``disk formatted'' flag;
+argp points to an int;
+if *argp is non-zero,
+the driver henceforth assumes the disk is formatted,
+else the driver marks the disk as unformatted.
+.TP
+DKIOCGFORMAT
+Get "disk formatted" flag;
+argp points to an int,
+and *argp will be 1 if the disk is formatted,
+else *argp will be 0.
+.TP
+DKIOCEJECT
+Eject the disk.
+Only valid for drives with removable media.
+See ``Multiple Volume Support.''
+.TP
+SDIOCGETCAP
+Get disk capacity;
+argp points to a struct capacity_reply
+(see /NextDeveloper/Headers/bsd/dev/scsireg.h).
+.TP
+DKIOCGFREEVOL
+Get the number of the next free volume;
+argp points to an int.
+This ioctl is 
+normally executed on the SCSI Disk Controller device, /dev/sdc0.
+It is used 
+when an application wants to determine
+the volume number not currently in use.
+If this ioctl returns a value of 3,
+for example,
+a subsequent open of /dev/rsd3a
+will result in an alert panel
+requesting a new disk for volume 3.
+.TP
+SDIOCSRQ
+Execute an arbitrary SCSI command using the scsi_req mechanism.
+(Must be superuser to execute this call.)
+.PP				
+For SDIOCSRQ,
+argp points to a struct scsi_req,
+defined in /NextDeveloper/Headers/bsd/dev/scsireg.h,
+as are all other constants used with this mechanism.
+This struct contains both the input to the 
+sd driver required for execution of a command
+(SCSI CDB bytes, address at which DMA will occur, etc.)
+as well as the status block upon return.
+The following status is provided:
+.TP			    
+srp->sr_io_status
+Indicates success, I/O timeout, SCSI
+check status, DMA overrun, etc.
+.TP
+srp->sr_scsi_status
+The actual SCSI status byte returned by the target.
+.TP
+srp->sr_dma_xfr
+Number of data bytes actually transferred to/from device.
+.TP
+srp->sr_exec_time
+Command execution time,
+with microsecond resolution.
+.SH FILES
+.nf
+/NextDeveloper/Headers/bsd/dev/scsireg.h
+/NextDeveloper/Headers/bsd/dev/disk.h
+/dev/rsd?
+/dev/sd??
+/dev/sdc0
+.fi
+.SH "SEE ALSO"
+open(2), read(2), write(2), ioctl(2), close(2)

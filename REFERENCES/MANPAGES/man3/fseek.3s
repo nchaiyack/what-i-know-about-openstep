@@ -1,0 +1,110 @@
+.\"	@(#)fseek.3s	6.3 (Berkeley) 2/24/86
+.\"
+.TH FSEEK 3S  "August 1, 1992"
+.ds ]W ANSI C
+.SH NAME
+fseek, ftell, rewind, fgetpos, fsetpos \- reposition a stream
+.SH SYNOPSIS
+.B #include <stdio.h>
+.PP
+.B int fseek(FILE *stream, 
+.B long int \fIoffset\fP, int \fIwhence\fP);
+.PP
+.B long int ftell(FILE *\fIstream\fP);
+.PP
+.B void rewind(FILE *\fIstream\fP);
+.PP
+.B int fgetpos(FILE *\fIstream\fP, fpos_t *\fIpos\fP);
+.PP
+.B int fsetpos(FILE *\fIstream\fP, const fpos_t *\fIpos\fP);
+.SH DESCRIPTION
+.I Fseek
+sets the position of the next input or output
+operation on the
+.IR stream .
+The new position is at the signed distance
+.I offset
+bytes
+from the beginning, the current position, or the end of the file,
+according as 
+.I whence
+has the value SEEK_SET, SEEK_CUR, or SEEK_END.
+.I Fseek
+undoes any effects of
+.IR  ungetc (3S).
+.PP
+.I Ftell
+returns the current value of the offset relative to the beginning
+of the file associated with the named
+.IR stream .
+It is measured in bytes on UNIX;
+on some other systems it is a magic cookie,
+and the only foolproof way to obtain an 
+.I offset
+for
+.IR fseek .
+.PP
+.I Fgetpos
+stores the current value of the file position
+indicator for the stream pointed to by
+.I stream
+in the object pointed to by
+.IR pos .
+The value stored contains unspecified information usable
+by the
+.I fsetpos
+function for repositioning the stream to its
+position at the time of the call to the 
+.I fgetpos
+function.
+.PP
+.I Fsetpos
+sets the file position indicator for the stream pointed to by
+.I stream
+according to the value of the object pointed to by
+.IR pos ,
+which must be value returned by an earlier call to
+.I fgetpos
+on the same stream.
+A successful call clears the end-of-file indicator for the
+stream and undoes any effects of the
+.I ungetc
+function on the same stream. After call on an update stream,
+the next operation may be either input or output.
+.PP
+.IR Rewind ( stream )
+is equivalent to: \*(lq(void) fseek (\fIstream\fP, 0L, SEEK_CUR)\*(rq
+.SH "RETURN VALUE"
+.I Fseek
+returns zero if successful, otherwise \-1.
+.PP
+.I Ftell
+returns the current value of the file position indicator for
+the stream, otherwise \-1L is returned.
+.PP
+Both 
+.I fseek
+and
+.I ftell
+stores an error code in \fIerrno\fR when unsuccessful. 
+.SH ERRORS
+The underlying functions of
+.I fseek
+and
+.I ftell
+are
+.IR write (2)
+and
+.IR lseek (2).
+The error conditions specified for
+.IR write (2) 
+and
+.IR lseek (2)
+apply to 
+.I fseek
+and
+.I ftell.
+.SH "SEE ALSO"
+lseek(2),
+write(2),
+fopen(3S)

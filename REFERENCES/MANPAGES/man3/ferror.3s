@@ -1,0 +1,55 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)ferror.3s	6.3 (Berkeley) 5/14/86
+.\"
+.TH FERROR 3S  "August 1, 1992"
+.ds ]W ANSI C
+.SH NAME
+ferror, feof, clearerr, fileno \- stream status inquiries
+.SH SYNOPSIS
+.B #include <stdio.h>
+.PP
+.B int feof(FILE *\fIstream\fP);
+.PP
+.B int ferror(FILE *\fIstream\fP);
+.PP
+.B void clearerr(FILE *\fIstream\fP);
+.PP
+.B int fileno(FILE *\fIstream\fP);
+.fi
+.SH DESCRIPTION
+.I Feof
+returns non-zero when end of file is read on the named input
+.IR stream ,
+otherwise zero.
+Unless cleared by
+.IR clearerr ,
+the end-of-file indication lasts until
+the stream is closed.
+.PP
+.I Ferror
+returns non-zero when an error has occurred reading or writing
+the named
+.IR stream ,
+otherwise zero.
+Unless cleared by
+.IR clearerr ,
+the error indication lasts until
+the stream is closed.
+.PP
+.I Clearerr
+resets the error and end-of-file indicators on the named
+.IR stream .
+.PP
+.I Fileno
+(which is not an ANSI C function)
+returns the integer file descriptor
+associated with the
+.IR stream ,
+see
+.IR open (2).
+.SH "SEE ALSO"
+open(2),
+fopen(3S)

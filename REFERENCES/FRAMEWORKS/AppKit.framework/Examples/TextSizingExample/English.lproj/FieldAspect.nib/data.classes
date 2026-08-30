@@ -1,0 +1,14 @@
+"FieldAspect" = {
+    ACTIONS = {}; 
+    OUTLETS = {
+        centerAlignedBox = id; 
+        leftAlignedBox = id; 
+        rightAlignedBox = id; 
+        scrollingCenterAlignedBox = id; 
+        scrollingLeftAlignedBox = id; 
+        scrollingRightAlignedBox = id; 
+    }; 
+    SUPERCLASS = Aspect; 
+};
+"Aspect" = {ACTIONS = {}; OUTLETS = {view = id; window = id; }; SUPERCLASS = NSObject; };
+"FirstResponder" = {ACTIONS = {}; CATEGORY = LocalActions; OUTLETS = {}; };

@@ -1,0 +1,95 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)times.3c	6.1 (Berkeley) 5/9/85
+.\"
+.TH TIMES 3C "August 1, 1992"
+.UC 4
+.SH NAME
+times \- get process times
+.SH SYNOPSIS
+.nf
+.B "#include <sys/times.h>
+.PP
+.B clock_t times(struct tms *\fIbuffer\fR);
+.fi
+.SH DESCRIPTION
+.ft B
+For non-POSIX applications this interface is obsoleted by getrusage(2).
+.ft R
+.PP
+.I Times
+returns time-accounting information
+for the current process
+and for the terminated child processes
+of the current process.
+All times are in 1/HZ seconds, where HZ is 60.
+.PP
+The 
+.I tms
+structure contains the following members:
+.IP
+.PP
+.RS
+.IP "\fBMember Type\fR" 20
+\fBMember Name\fR
+.IP \fIclock_t\fR 20
+\fItms_utime\fP	
+.IP \fIclock_t\fR 20
+\fItms_stime\fP
+.IP \fIclock_t\fR 20
+\fItms_cutime\fP
+.IP \fIclock_t\fR 20
+\fItms_cstime\fP
+.RE
+.IP
+.PP
+The times of a terminated child process are included in the
+.I tms_cutime 
+and
+.I tms_cstime
+members of the parent when a 
+.I wait
+or 
+.I waitpid 
+function returns the process ID of this terminated child.  If a child
+process has not waited for its terminated children, their times are 
+not included in its times.
+.PP
+The value 
+.I tms_utime 
+is the CPU time charged for the execution of user
+intructions.
+.PP
+The value
+.I tms_stime
+is the CPU time charged for execution by the system on behalf
+of the process.
+.PP
+The value
+.I tms_cutime
+is the sum of the 
+.IR tms_utime 's
+s and
+.IR tms_cutime 's
+of the child processes.
+.PP
+The value 
+.I tms_cstime 
+is the sum of the 
+.I tms_stime
+s and
+.I tms_cstime
+s of the child processes.
+.SH "RETURN VALUE"
+Upon successful completion,
+.I times
+shall return the elapsed real time, in
+clock ticks.  If 
+.I times
+fails, a value of ((
+.I clock_t
+)-1) is returned. 
+.SH "SEE ALSO"
+time(1), exec(2), fork(2), sysconf(2P), getrusage(2), wait(2), time(3C)

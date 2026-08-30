@@ -1,0 +1,441 @@
+.\" man page for dvips
+.TH DVIPS 1 "16 July 1987"
+.SH NAME
+dvips \- convert a TeX dvi file to PostScript (PostScript is a
+trademark of Adobe Systems, Inc.)
+.SH SYNOPSIS
+.B dvips
+[
+.B -c
+.I num
+]
+[
+.B -d
+.I num
+]
+[
+.B -f
+]
+[
+.B -h
+.I file
+]
+[
+.B -m
+]
+[
+.B -n
+.I num
+]
+[
+.B -o
+.I file
+]
+[
+.B -p
+.I num
+]
+[
+.B -q
+]
+[
+.B -r
+]
+[
+.B -s
+.I str	
+]
+[
+.B -t
+.I modename
+]
+[
+.B -C
+.I num
+]
+[
+.B -D
+.I num
+]
+[
+.B -N
+]
+[
+.B -Z
+]
+[
+.B -?
+]
+.IR file [.dvi]
+.br
+.SH DESCRIPTION
+.B dvips
+is a program that converts a
+.I dvi
+file
+.IR file [.dvi]
+produced by TeX and converts it to PostScript,
+and writes the result to
+.IR file [.ps].
+The result requires a small amount of 
+PostScript source to precede it, before it can be successfully printed.
+By default, that PostScript code is prepended to the output.
+If no file
+is specified in the command line, the dvi file is read from the standard 
+input stream.
+The dvi file may be specified without the
+.I .dvi
+extension.
+If the
+.B MakeTeXPK
+program is installed,
+.B dvips
+will automatically generate fonts that don't already exit.
+.SH OPTIONS
+The
+.IR file [.dvi]
+argument is optional.
+Other arguments are:
+.IP "\fB-c\fP \fInum\fP"
+Generate
+.I num
+copies.
+Default is 1.
+.IP "\fB-d\fP \fInum\fP"
+Set the debug flag.
+Usually should not be used by normal users.
+This will only work if
+.B dvips
+has been compiled with the DEBUG option.
+See the file
+.I debug.h
+in the sources to see what the values of
+.I num
+can be.
+.IP "\fP-f\fP"
+Run as a filter.
+Read the dvi file from standard input and write the PostScript to
+standard output.
+.IP "\fB-h\fP \fIname\fP"
+Use file
+.I name
+as an additional header file.
+.IP "\fB-m\fP"
+Sepcify manual feed for printer.
+.IP "\fB-n\fP \fInum\fP"
+.I num
+pages will be printed out.
+Default is 100000.
+.IP "\fB-o\fP \fIname\fP"
+The output will be sent to file
+.I name.
+Default is
+.IR file .ps.
+If the first character of the file name is an exclamation mark, then
+the remainder will be used as an argument to popen; thus, specifying
+!lpr as the output file will automatically queue the file.
+.IP "\fB-p\fP \fInum\fP"
+The first page printed will be the one numbered
+.I num.
+Default is 1.
+.IP "\fB-q\fP"
+Run in quiet mode.
+Don't chatter about pages converted, etc.; only report errors to stderr.
+.IP "\fB-r\fP"
+Stack pages in reverse order.
+Normally, page one will be printed first.
+.IP "\fB-t\fP \fImodename\fP"
+This sets the mode to \fImodename\fP.
+Currently, the only modes allowable are:
+\fBletter\fP, which selects \fIletter\fP size (image area of 8 by
+10.92 inches on a 8.5 by 11 inch page),
+\fBa4\fP, which selects \fIa4\fP size,
+\fBnote\fP, which selects \fInote\fP size (image area of 7.69 by
+10.16 inches centered on a 8.5 by 11 inch page) paper;
+\fBlegal\fP, which selects \fIlegal\fP size (image area of 6.72 by
+13 inches centered on a 8.5 by 14 inch page) paper;
+\fBlandscape\fP, which rotates
+a \fIletter\fP size (image area of 8 by 10.92 inches on a 8.5 by 11
+inch page) document by ninety degrees.
+The default mode is \fIletter\fP.
+.IP "\fB-C\fP \fInum\fP"
+Create
+.I num
+copies, but collated.
+Slower than the
+.B -c
+option, but easier on the humans.
+.IP "\fB-D\fP \fInum\fP"
+Set the resolution in dpi (dots per inch) to
+.I num.
+.IP "\fB-N\fP"
+Turns off structured comments; this might be necessary on some systems
+that try to interpret the comments in weird ways.
+.IP "\fB-Z\fP"
+Enables the downloading of compressed fonts.
+Useful at high resolutions.
+.IP "\fB-?\fP"
+Print out the banner identifying the program.
+.SH "CONFIG FILE OPTIONS"
+The config file can be used to set many of the options to configure
+.B dvips
+for a particular site.
+These will probably be set by the installer so normal users can skip
+this section.
+The config file is usually called
+.I config.ps
+in the prologue directory.
+If the initial
+character is a space, an asterisk, a pound sign, or a semicolon,
+the line is ignored.
+If the initial character, for example, is an "o",
+the remainder of the line is considered to be the default file output 
+name (e.g. /dev/lpr).
+The options are:
+.IP "\fBD\fP \fInum\fP"
+Sets the resolution to
+.I num
+dots per inch (dpi).
+.IP "\fBm\fP \fInum\fP"
+.I num
+is the memory allocated to fonts in the printer.
+Default is 900000.
+.IP "\fBo\fP \fIname\fP"
+The default output file is set to
+.I name.
+.IP "\fBt\fP \fIpath\fP"
+The path to search for the tfm files is
+.I path.
+The TEXFONTS environment variable will override this.
+.IP "\fBp\fP \fIpath\fP"
+The path to search for the font files is
+.I path.
+The TEXPKS environment variable will override this.
+.IP "\fBr\fP"
+Default to reversing the pages.
+.IP "\fBq\fP"
+Run in quiet mode by default.
+.IP "\fBf\fP"
+Run as a filter by default.
+.IP "\fBh\fP \fIname\fP"
+Add
+.I name
+as a header file to be downloaded at the beginning.
+.SH "PostScript Font Support"
+Most users need not concern themselves with installation instructions
+in this section, but will need to read this if they want to use
+PostScript fonts in TeX.
+This version of dvips also supports PostScript fonts.
+You need tfm files for the fonts;
+the program
+.B afm2tfm
+will create them as follows:
+.sp
+.ce
+afm2tfm Times-Roman.afm Times-Roman.tfm
+.sp
+and the
+.IR tfm 's
+should be placed in the same directory as the other tfm's (usually
+/usr/lib/tex/fonts/tfm).
+(The most common ones are in the tfm directory.)
+You may also want to add a line to
+.I psfonts.map
+like the following:
+.sp
+.ce
+Times-Roman
+.sp
+to tell the PostScript driver that it has a PostScript font to
+play with.
+(A sample list is in psfonts.map.)
+Also, the supplied 
+.I texps.ps
+file should be placed in the
+prologue directory.
+To use the font, simply:
+.sp
+.nf
+.na
+        \efont\emyfont=Times-Roman % scaled, or at, or whatever.
+        \emyfont
+        Hello, I am being typeset in Times-Roman.
+.fi
+.ad
+.sp
+Note that the font name
+.B must
+be specified in the correct case,
+with the correct hyphens, both in
+the config file
+and in your TeX document---otherwise things won't work.
+These fonts can be scaled to any size.
+Go wild!
+.sp     
+Note that even though the PostScript fonts are built into the
+printer, using them takes up VM and takes time.
+You may find
+downloading the computer modern fonts to be faster than using
+the built-in PostScript fonts!
+.sp     
+So, if you start running out of memory for your Linotronic jobs,
+you might consider using PostScript fonts.
+Some people even think they look better.
+.sp     
+.B Note:
+Helvetica-Narrow style fonts won't work---these fonts are
+brain-damaged somehow, in that the width entries in the `Metrics'
+dictionary are scaled wrong.
+.SH "\especial OPTIONS"
+This dvi driver allows the inclusion of PostScript
+to be inserted in a TeX file via TeX's \especial command.
+The format of the \especial command is as follows:
+.sp
+.nf
+.na
+   \especial{psfile="filename"}
+   \especial{psfile="filename"[ key=value]*}
+.fi
+.ad
+.sp
+The first form will download the PostScript file called
+.I filename
+such that the current point will be the origin of the PostScript
+co-ordinate system.
+The second form is a generalization of the first in which you are
+allowed to specify transformations on the PostScript in the file
+.I filename.
+After the filename, you are allowed to enter, in any order,
+.I key=value
+pairs separated by spaces.
+The possible keys are:
+.sp
+.nf
+.na
+.ta 2i
+psfile	The PostScript file to include
+hoffset	The horizontal offset
+voffset	The vertical offset
+hsize	The horizontal clipping size
+vsize	The vertical clipping size
+hscale	The horizontal scaling factor
+vscale	The vertical scaling factor
+angle	The rotation
+.fi
+.ad
+.sp
+The hoffset, voffset, hsize, and vsize are given in PostScript units
+(1/72 of an inch).
+The hscale and vscale are given in non-dimensioned percentage units, and the
+rotate value is specified in degrees counterclockwise.
+Thus
+.sp
+.ce
+\especial{psfile=foo.ps hoffset=72 hscale=90 vscale=90}
+.sp
+will shift the graphics produced by file
+.I foo.ps
+right by 1", and will 
+draw it at 0.9 normal size.
+Hsize and vsize are given relative to the 
+(0,0) point of the drawing and are unaffected by offsets and scales.
+Offsets are given relative to the point of the \especial command, and are
+unaffected by scales.
+.sp
+If the file contains
+.I "Encapsulated Post Script"
+(EPS) commands, then it is possible to use a simpler
+.B \especial
+command that will automatically reserve the required space.
+.sp
+To use, simply 
+.sp     
+.na
+.nf
+        \einput epsf
+        \eespffile{filename.ps}
+.fi
+.ad
+.sp
+A
+.I vbox
+of the appropriate size for the bounding box will be built.
+By default, the graphic will have its `natural' width.
+If you wish to set the graphic at a different width,
+simply set the dimension `\eepsfxsize'
+to something else, such as `\ehsize', and all will be well.
+This vbox can be centered with \ecenterline, or treated as any other vbox.
+.sp
+If the bounding box is not found, a bounding box of `72 0 540 324' is
+assumed.
+If the PostScript file to be included is not EPSF, it is
+recommended that the
+.I psfile
+special be used instead.
+.sp
+Literal specials include text in the TeX document literally into the
+output PostScript file, and are intended for those whose favorite
+graphics language is raw PostScript.
+.sp
+.ce
+\especial{" \fItext\fP}
+.sp
+includes
+.I text
+literally in the output PostScript document,
+after positioning correctly, opening the special library,
+and reverting to the PostScript convention of 72 units=1in.
+By positioning correctly, what is meant is that the origin is translated
+to the current page position.
+.sp
+.ce
+\especial{! \fItext\fP}
+.sp
+includes
+.I text
+literally in the prologue, putting
+definitions in the special library; good for definitions you intend
+to use with the above \fB\" special\fP.
+Note that such specials will always
+be included in the prologue, independent of which pages are selected to
+print or what page such specials might be found on.
+This allows correct printing of selected pages,
+even when literal PostScript definitions are used.
+.sp
+The
+.B "\especial{landscape}"
+command may be used to set the whole document in landscape mode.
+For this to work correctly, this command must be early enough in the
+document.
+Also see the
+.B -M
+option.
+.sp
+The
+.B "\especial{header="
+.IB filename }
+command may be used to add
+.I filename
+as a header file (i.e a file that will be downloaded before the
+start of processing).
+This is usually used for Macintosh header files.
+Also see the
+.B -h
+option.
+.SH FILES
+These are usually system dependent, but look at:
+.sp
+.br
+.ta 3i
+the prologue dir	/usr/lib/tex/ps
+.br
+the tfm dir	/usr/lib/tex/fonts/tfm
+.br
+the font dir	/usr/lib/tex/fonts/pk
+.SH "SEE ALSO"
+mf(1), tex(1), lpr(1)
+.SH BUGS
+Rejects any file with the string "IBM" in it.
+This is considered to be a feature by some.
+.SH AUTHOR
+Tomas Rokicki <rokicki@polya.stanford.edu>

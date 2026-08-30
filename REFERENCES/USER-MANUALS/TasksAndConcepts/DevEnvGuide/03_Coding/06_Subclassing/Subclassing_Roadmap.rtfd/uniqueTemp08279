@@ -1,0 +1,61 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;}
+\paperw14220
+\paperh12660
+\margl120
+\margr0
+{\colortbl;\red0\green0\blue255;}
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\pard\tx2160\fc0\cf0{\NeXTHelpLink62 \markername ;\linkFilename NamingANewClass.rtfd;\linkMarkername ;}
+¬}\pard\tx2160\f0\b0\i0\ulnone\fs24\fc0\cf0   Next Section\
+
+\pard\fs64\fc0\cf0 \
+
+{\f2\b\fs52{\NeXTHelpMarker79 \markername Aroadmaptomakingoraddingcustomclasses;}
+¬}\f2\b\i0\ulnone\ql\fs52\fi0\li0\gray0\fc0\cf0\up0\dn0 A roadmap to making or adding custom classes \
+
+\fs38 \
+
+{\pard\tx800\fs24\fi-320\li800\gray108\fc1\cf1{\NeXTGraphic127 arrow.eps \width160 \height120
+}
+¬}\pard\tx800\f2\b\i0\ulnone\fs24\fi-320\li800\gray108\fc1\cf1 	Determine which flowchart applies to your situation.\
+
+\fs6 \
+
+{\fs24{\NeXTGraphic183 arrow.eps \width160 \height120
+}
+¬}\pard\tx800\f2\b\i0\ulnone\fs24\fi-320\li800\gray108\fc1\cf1 	Follow the tasks in this chapter in the order specified by that flowchart.\
+
+\fs6 \
+
+\pard\f0\b0\fs28\li500\fc0\cf0 This chapter differs from the other chapters in this book because its subject is different. Creating a class (or adding an existing class) is not a set of discrete, modular tasks, but a process consisting of many interdependent tasks. The order of tasks in this chapter is therefore significant; with some exceptions, you need only follow the tasks sequentially, from first task to last task, and you'll end up with a useful class.\
+
+\fs20 \
+
+\fs28 But those exceptions are significant, and so flowcharts are provided to point the way. The flowchart on the facing page guides you through the tasks required to define and implement a subclass of the NSObject class or of the NSView class. An additional flowchart identifies the tasks you must complete to integrate an existing class into an application.\
+
+\fs20 \
+
+\fs28 This chapter also differs from other chapters in this book because it covers a topic that involves both Interface Builder and Project Builder. To start creating a class, you use Interface Builder. It helps you locate the class in the hierarchy, name it, connect an instance of it with other objects in an application, and generate template source files. When Interface Builder's role is done, you switch to Project Builder and provide the most important contribution, the source code that gives your class its distinctive behavior. (As an alternative, you can start creating a class in Project Builder then add it to Interface Builder and make the connections to other objects later.) \
+
+\fs20 \
+
+\fs10\fi1700\li460 	
+{{\NeXTGraphic1737 LgFlowchart5.eps \width6900 \height10100
+}
+¬}\f0\b0\i0\ulnone\ql\fs10\fi1700\li460\gray0\fc0\cf0\up0\dn0 \
+
+\fs4\fi0\li500 \
+
+\fs20 \
+
+\pard\tx-3540\fs24\li1440\gray108\fc1\cf1 If you branch to "Implementing a subclass of NSView" after specifying outlets and actions, complete only the step "Making an Insance of an NSView Subclass" in that task for now, and go on to the next task. Do the rest of "Implementing a subclass of NSView" after you've generated code files.\
+\
+After generating code files, you must switch over to Project Builder and open the header and implementation files.\
+
+\pard\fs10\li500\fc0\cf0 \
+
+{\fi1660{\NeXTGraphic2150 

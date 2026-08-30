@@ -1,0 +1,178 @@
+.TH NP 4 "August 10, 1988" "NeXT Computer, Inc."
+.SH NAME
+np \- NeXT Laser Printer interface
+.SH "SYNOPSIS \(em Kernel Configuration"
+.nf
+.ft B
+device np0 at bus? csr 0x0200f000
+.fi
+.ft R
+.SH "SYNOPSIS \(em Programmatic Interface"
+\fB#include <sys/ioctl.h>\fP
+.br
+\fB#include <bsd/dev/npio.h>\fP
+.br
+.SH DESCRIPTION
+.IX  "np device"  ""  "\fLnp\fP \(em NeXT Laser Printer device driver"  ""  PAGE STAR.IX  "NeXT Printer" "interface \(em \fLnpio\fP" "" PAGE START
+The NeXT Laser Printer is a 300/400 DPI high-speed, non-impact
+(low noise) printer based on electrophotography and laser
+technology.  It is based on the Canon LBP-SX series laser printer engine.
+The printer also can be selected to feed automatically from a paper
+cartridge or manually.  Print rates can go as high as eight pages per
+minute.
+.LP
+The device driver allows a NeXT Laser Printer to be
+attached to \fI/dev/np0\fP.  Upon opening \fI/dev/np0\fP the 
+printer is powered on and initialized to 400 DPI and cassette feeding.
+Only one task can have the printer open at a time.
+The printer can only be opened with the \fBO_WRONLY\fP flag. The
+\fBO_NDELAY\fP flag will cause the open to return before the printer
+has completed the power on and initialize cycle.  The following error codes
+are returned by open:
+.LP
+.TP .90i
+.SM
+.B ENODEV
+There is no printer connected to the printer port.
+.TP
+.SM
+.B EIO
+An IO error in initializing the printer.
+.LP
+Please note that with \fBO_NDELAY\fP set, you will not get power on, or
+initialization errors reported.  All subsequent ioctl and write operations
+other than power on/off requests will fail with the \fBEPWROFF\fP error.
+The correct way to determine when the open has completed the power
+on and initialization is to select for write and exceptional conditions.
+If the open fails for some reason, the printer will be left in the
+powered off state.
+.LP
+The printer interface supports the \fBFNDELAY\fP file descriptor status
+flag.  When this flag is set, all operations that would block will
+instead return the \fBEWOULDBLOCK\fP error code.  The printer interface
+also supports the \fBFASYNC\fP file descriptor status flag.  When
+this flag is set, the write operation will return at once instead of
+waiting for the page to complete.
+.LP
+A number of additional ioctl operations are available on the
+printer interface.  The following definitions are from <sys/npio.h>
+.LP
+.nf
+/*
+ * Structures and definitions for NeXT Laser Printer io control commands
+ */
+
+/* Paper types */
+enum np_papersize { NOCASSETTE, A4, LETTER, B5, LEGAL };
+
+.IX "ioctls for NeXT Laser Printer" "NPIOCPOP" "\fLioctl\fP's for NeXT Laser Printer" "\fLNPIOCPOP\fP \(em printer operation"
+#define	NPIOCPOP	_IOWR('p', 1, struct npop) /* do a printer op */
+
+/* Structure for NPIOCPOP - printer op command */
+struct npop {
+	short	np_op;		/* operations defined below */
+	union {
+		int	        	npd_power;     	/* Power */
+		unsigned char	npd_resolution;	/* 300/400 DPI */
+		struct {
+			int	left;	/* # of bits to indent on left */
+			int	top;  	/* # of lines from top of page */
+				/*
+				 * NOTE: less than a 200 line top margin
+				 * 	is questionable.  Experiment.
+				 */
+			int	width;	/* width in #'s of longwords  */
+			int	height;	/* height in lines */
+		}		npd_margins;
+		struct np_stat {
+			u_int	flags;
+			u_int	retrans;
+		}		npd_status;
+		enum np_papersize	npd_size;
+		boolean_t		npd_bool;
+	} np_Data;
+};
+#define np_power     	np_Data.npd_power
+#define np_margins   	np_Data.npd_margins
+#define np_resolution	np_Data.npd_resolution
+#define np_status    	np_Data.npd_status
+#define np_size      	np_Data.npd_size
+#define np_bool      	np_Data.npd_bool
+
+/* Operations */
+#define NPSETPOWER     	0  /* turn the printer on/off */
+#define NPSETMARGINS   	1  /* Set the printer margins */
+#define NPSETRESOLUTION	2  /* Set the printer resolution */
+#define NPGETSTATUS    	3  /* Get the printer status */
+#define NPCLEARRETRANS 	4  /* Clear the retransmit counter */
+#define NPGETPAPERSIZE 	5  /* Get the paper size */
+#define NPSETMANUALFEED	6  /* Set manual feed based on npop.np_bool */
+
+/* Resolutions */
+#define DPI300         	0
+#define DPI400         	1
+
+/* Status bits */
+#define NPPAPERDELIVERY	0x0001  /* Paper is being processed in printer */
+#define NPDATARETRANS  	0x0002  /* Data should be retransmitted due to jam
+						      or poor video signal.  Number of pages
+						      is in npop.np_stat.retrans.  Clear this
+						      with the NPCLEARRETRANS command. */
+#define NPCOLD     		0x0004  /* Fixing assembly not yet hot enough */
+#define NPNOCARTRIDGE  	0x0008  /* No cartridge in printer */
+#define NPNOPAPER      	0x0010  /* No paper in printer */
+#define NPPAPERJAM     	0x0020  /* Paper jam */
+#define NPDOOROPEN     	0x0040  /* Door open */
+#define NPNOTONER      	0x0080  /* Toner low */
+#define NPHARDWAREBAD  	0x0100  /* Hardware failure */
+#define NPMANUALFEED   	0x0200  /* Manual feed selected */
+.fi
+.ft R
+.LP
+Images consist of a bitmap of the pixels to put on the page.  A 1 in
+the bitmap will cause a black mark to be placed on the page, and a 0
+will leave a pixel white.  The page has four margin parameters: left
+(the number of pixels to indent on the left hand side); top (the
+number of lines to come down from the top of the page); width (the
+width of the image in numbers of 32-bit longwords); and height
+(the number of lines in the image).
+.LP
+To print a page, you first need to set the image margins for the page with
+the NPSETMARGINS printer command.  Then you submit the image with the
+\fIwrite\fP command.  The image data must be page aligned at the beginning,
+and must be quadword (increments of four longwords) aligned at the end.
+.SH "ERROR CONDITIONS"
+The printer can be in one of four states -- off, ready, printing, or
+error.  The write operation and all NPIOCPOP commands except NPSETOP
+will return EPWROFF if the printer is powered off.  The write operation
+the NPGETPAPERSIZE and the NPSETMANUALFEED commands may block waiting for
+the printer to be in the ready state unless the FNDELAY flag has been
+set, in which case, they will return EWOULDBLOCK if the printer is printing
+and EDEVERR if the printer is in the error state.
+.LP
+More error information about the printer can be retrieved with the NPGETSTATUS
+command.
+.LP
+Other error codes that may be returned include:
+.TP 15
+ENOINIT
+The margins were not set before write was called.
+.TP 15
+EDEVERR
+The printer is in the error state.
+.TP 15
+ENXIO
+Unknown NPIOCPOP command.
+.TP 15
+ENXIO
+Unknown minor device number on open.
+.TP 15
+EIO
+I/O error talking to printer.
+.TP 15
+EBUSY
+Printer is already open.
+.SH FILES
+/dev/np0	printer device
+.SH "SEE ALSO"
+close(2), fcntl(2), ioctl(2), open(2), write(2)

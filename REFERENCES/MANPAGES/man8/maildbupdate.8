@@ -1,0 +1,46 @@
+.TH MAILDBUPDATE 8 "August 10, 1994" "NeXT Computer, Inc."
+.SH "NAME"
+mailDBupdate \- manage users and aliases for \fB/NextApps/Mail.app\fR
+.SH "SYNOPSIS"
+.B mailDBupdate
+[ \fB-A\fR ] [ \fB-a\fR \fIaliases_domain\fR ] [ \fB-u\fR \fIusers_domain\fR ] [ \fB-o\fR \fIdirectory\fR ]
+.SH "DESCRIPTION"
+.I mailDBupdate
+creates and maintains the 
+.B aliases
+and
+.B passwd
+files that are normally found in the directory \fB\/LocalLibrary\/Images\/People\fR.  The contents of these two files appear in the Users, Groups, and Login Names components of 
+Mail's Addresses panel.
+.sp
+Normally,
+.I mailDBupdate
+reads the subdirectories of the
+.B \/aliases
+and
+.B \/users
+directories in the root NetInfo domain.  Aliases are written to the
+.B aliases
+file, and login names for user accounts are written to the
+.B passwd
+file.  Alternate domains for both aliases and user accounts can be specified with the 
+.B -a
+and
+.B -u
+options.
+.sp
+When invoked with the 
+.B -A
+option,
+.I mailDBupdate
+appends to its output files.  It does not check for duplicate entries that may already exist in the files.
+.sp
+The output files are normally written in \fB\/LocalLibrary\/Images\/People\fR, but an alternate directory may be specified following the 
+.I -o
+option.  However, note that Mail only searches for 
+.I aliases
+and
+.I passwd
+files in \fB\/LocalLibaray\/Images\/People\fR.
+.SH "SEE ALSO"
+passwd(5), aliases(5), nidump(8)

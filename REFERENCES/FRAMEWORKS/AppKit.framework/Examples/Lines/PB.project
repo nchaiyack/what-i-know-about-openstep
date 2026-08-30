@@ -1,0 +1,36 @@
+{
+    APPCLASS = NSApplication; 
+    FILESTABLE = {
+        BUNDLES = (); 
+        CLASSES = (LinesView.m, UserPath.m); 
+        FRAMEWORKS = (Foundation.framework, AppKit.framework); 
+        H_FILES = (LinesView.h, UserPath.h); 
+        IMAGES = (); 
+        INTERFACES = (Lines.nib); 
+        LIBS = (); 
+        M_FILES = (); 
+        OTHER_LIBS = (); 
+        OTHER_LINKED = (Lines_main.m); 
+        OTHER_RESOURCES = (); 
+        OTHER_SOURCES = (README.rtf); 
+        SUBPROJECTS = (); 
+        TOOLS = (); 
+    }; 
+    GENERATEMAIN = YES; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {Lines.nib = Lines.nib; }; 
+    MAKEFILEDIR = "$(NEXT_ROOT)/NextDeveloper/Makefiles/pb_makefiles"; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    NEXTSTEP_DOCUMENTEXTENSIONS = (); 
+    NEXTSTEP_INSTALLDIR = /LocalDeveloper/Demos; 
+    NEXTSTEP_MAINNIB = Lines; 
+    PDO_UNIX_INSTALLDIR = "$(HOME)/Apps"; 
+    PDO_UNIX_MAINNIB = Lines; 
+    PROJECTNAME = Lines; 
+    PROJECTTYPE = Application; 
+    PROJECTVERSION = 2.6; 
+    WINDOWS_BUILDTOOL = $NEXT_ROOT/NextDeveloper/Executables/make; 
+    WINDOWS_DOCUMENTEXTENSIONS = (); 
+    WINDOWS_INSTALLDIR = /LocalDeveloper/Demos; 
+    WINDOWS_MAINNIB = Lines; 
+}

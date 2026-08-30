@@ -1,0 +1,49 @@
+"Controller" = {
+    ACTIONS = {"createNew:" = id; "open:" = id; "saveAll:" = id; "showInfoPanel:" = id; }; 
+    OUTLETS = {}; 
+    SUPERCLASS = NSObject; 
+};
+"FirstResponder" = {
+    ACTIONS = {
+        "alignJustified:" = id; 
+        "close:" = id; 
+        "enterSelection:" = id; 
+        "findNext:" = id; 
+        "findPrevious:" = id; 
+        "jumpToSelection:" = id; 
+        "orderFrontFindPanel:" = id; 
+        "printDocument:" = id; 
+        "revert:" = id; 
+        "save:" = id; 
+        "saveAs:" = id; 
+        "saveTo:" = id; 
+        "toggleHyphenation:" = id; 
+        "togglePageBreaks:" = id; 
+        "toggleRich:" = id; 
+    }; 
+    OUTLETS = {}; 
+    SUPERCLASS = NSObject; 
+};
+"Preferences" = {
+    ACTIONS = {
+        "changePlainTextFont:" = id; 
+        "changeRichTextFont:" = id; 
+        "miscChanged:" = id; 
+        "ok:" = id; 
+        "revert:" = id; 
+        "revertToDefault:" = id; 
+        "showPanel:" = id; 
+    }; 
+    OUTLETS = {
+        deleteBackupMatrix = id; 
+        plainTextEncodingPopup = id; 
+        plainTextFontNameField = id; 
+        richTextFontNameField = id; 
+        richTextMatrix = id; 
+        saveFilesWritableButton = id; 
+        showPageBreaksButton = id; 
+        windowHeightField = id; 
+        windowWidthField = id; 
+    }; 
+    SUPERCLASS = NSObject; 
+};

@@ -1,0 +1,7 @@
+"ConverterController" = {
+    ACTIONS = ("convert:", "loadBundle:"); 
+    OUTLETS = (converter, dollarField, rateField, totalField); 
+    SUPERCLASS = NSObject; 
+};
+"Converter" = {SUPERCLASS = NSObject; };
+"FirstResponder" = {CATEGORY = LocalActions; };

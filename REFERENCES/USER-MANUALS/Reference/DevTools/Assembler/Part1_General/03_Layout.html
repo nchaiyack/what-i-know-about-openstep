@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 50.0px; font: 10.0px Helvetica; color: #0000ff; min-height: 12.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 50.0px; font: 42.0px Helvetica; color: #0000ff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 50.0px; font: 24.0px Helvetica; color: #0000ff; min-height: 29.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 12.0px; font: 44.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 12.0px; font: 60.0px Times; min-height: 72.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 151.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 151.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 170.0px; font: 12.0px Courier}
+    p.p11 {margin: 0.0px 0.0px 0.0px 170.0px; text-indent: -19.0px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 50.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 50.0px; font: 26.0px Helvetica}
+    p.p14 {margin: 0.0px 0.0px 0.0px 50.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 50.0px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 170.0px; text-indent: -19.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 151.0px; font: 26.0px Helvetica; min-height: 31.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 151.0px; font: 24.0px Helvetica}
+    p.p19 {margin: 0.0px 0.0px 0.0px 151.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 151.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 151.0px; font: 18.0px Helvetica}
+    p.p22 {margin: 0.0px 0.0px 0.0px 226.0px; text-indent: -51.0px; font: 3.0px Times; min-height: 4.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 226.0px; text-indent: -51.0px; font: 14.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 226.0px; text-indent: -51.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 170.0px; font: 14.0px Times}
+    p.p26 {margin: 0.0px 0.0px 0.0px 170.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 151.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 226.0px; font: 14.0px Times}
+    p.p29 {margin: 0.0px 0.0px 0.0px 226.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 151.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><br></p>
+<p class="p4"><b>3</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><i>Assembly Language Statements</i></p>
+<p class="p7"><i></i><br></p>
+<p class="p8">This chapter describes the assembly language statements that make up an assembly language program.</p>
+<p class="p9"><br></p>
+<p class="p8">The general format of an assembly language statement is shown below.<span class="Apple-converted-space">  </span>Each of the fields shown here is described in detail in one of the following sections.</p>
+<p class="p9"><br></p>
+<p class="p10">[ <i>label_field</i> ] [ <i>opcode_field</i> [ <i>operand_field</i> ] ] [ <i>comment_field</i> ]</p>
+<p class="p9"><br></p>
+<p class="p8">A line may contain multiple statements separated by semicolons, or by at (@) signs for the hppa, which may then be followed by a single comment:</p>
+<p class="p9"><br></p>
+<p class="p10">[ <i>statement</i> [ <b>;</b> <i>statement</i> ...] ] [ <i>comment_field</i> ]</p>
+<p class="p10">[ <i>statement</i> [ <b>@</b> <i>statement</i> ...] ] [ <i>comment_field</i> ]</p>
+<p class="p9"><br></p>
+<p class="p8">The following rules apply to the use of whitespace within a statement:</p>
+<p class="p9"><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>Spaces or tabs are used to separate fields.</p>
+<p class="p11">•<span class="Apple-tab-span">	</span>At least one space or tab must occur between the opcode field and the operand field.</p>
+<p class="p11">•<span class="Apple-tab-span">	</span>Spaces may appear within the operand field.</p>
+<p class="p11">•<span class="Apple-tab-span">	</span>Spaces and tabs are significant when they appear in a character string.</p>
+<p class="p12"><b></b><br></p>
+<p class="p13"><b>Label Field</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p8">Labels are identifiers that you use to tag the locations of program and data objects.<span class="Apple-converted-space">  </span>Each label is composed of an identifier and a terminating colon.<span class="Apple-converted-space">  </span>The format of the label field is:</p>
+<p class="p9"><br></p>
+<p class="p10"><i>identifier</i>: [ <i>identifier</i>: ] ...</p>
+<p class="p9"><br></p>
+<p class="p8">The optional label field can only occur first in a statement.<span class="Apple-converted-space">  </span>The following example shows a label field containing two labels, followed by a (M68000-style) comment:</p>
+<p class="p9"><br></p>
+<p class="p10">var: VAR:<span class="Apple-converted-space">  </span>| two labels defined here</p>
+<p class="p9"><br></p>
+<p class="p8">As shown here, letters in identifiers are case-sensitive, and both uppercase and lowercase letters may be used.</p>
+<p class="p9"><br></p>
+<p class="p15"><b></b><br></p>
+<p class="p13"><b>Operation Code Field</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p8">The operation code field of an assembly language statement identifies the statement as a machine instruction, an assembler directive, or a macro defined by the programmer:</p>
+<p class="p9"><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>A machine instruction is indicated by an instruction mnemonic.<span class="Apple-converted-space">  </span>An assembly language statement that contains an instruction mnemonic is intended to produce a single executable machine instruction.<span class="Apple-converted-space">  </span>The operation and use of each instruction is described in the manufacturer's user manual.</p>
+<p class="p16"><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>An assembler directive (or pseudo-op) performs some function during the assembly process.<span class="Apple-converted-space">  </span>It doesn't produce any executable code, but it may assign space for data in the program.</p>
+<p class="p16"><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>Macros are defined with the <b>.macro</b> directive (see Chapter 4 for more information).</p>
+<p class="p16"><br></p>
+<p class="p8">One or more spaces or tabs must separate the operation code field from the following operand field in a statement.<span class="Apple-converted-space">  </span>Spaces or tabs are optional between the label and operation code fields, but they help to improve the readability of the program.</p>
+<p class="p9"><br></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b>Architecture- and Processor-Specific Caveats</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b>M68000 (including MC68882)</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>Many M68000 machine instructions can operate on byte, word, or long word data.<span class="Apple-converted-space">  </span>The desired size is indicated as part of the instruction mnemonic by adding a trailing <b>b</b>, <b>w</b>, or <b>l</b>:</p>
+<p class="p16"><br></p>
+<p class="p22"><br></p>
+<p class="p23"><b>b</b><span class="Apple-tab-span">	</span>byte (8-bit) data</p>
+<p class="p24"><br></p>
+<p class="p23"><b>w</b><span class="Apple-tab-span">	</span>word (16-bit) data</p>
+<p class="p24"><br></p>
+<p class="p23"><b>l</b><span class="Apple-tab-span">	</span>long word (32-bit) data</p>
+<p class="p24"><br></p>
+<p class="p25">For instance, a <b>movb</b> instruction moves a byte of data, but a <b>movw</b> instruction moves a 16-bit word of data.<span class="Apple-converted-space">  </span>In general, the default size for data manipulation instructions on the 68030 and 68040 processors is 16-bit word.</p>
+<p class="p26"><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>Many 68882 instructions (as well as built-in floating-point instructions on the 68040) can operate on other types of data besides byte, word, or long word integer data.<span class="Apple-converted-space">  </span>Again, the size required is specified as part of the instruction mnemonic by a trailing letter:</p>
+<p class="p16"><br></p>
+<p class="p22"><br></p>
+<p class="p23"><b>s</b><span class="Apple-tab-span">	</span>single-precision (32-bit) floating-point data</p>
+<p class="p24"><br></p>
+<p class="p23"><b>d</b><span class="Apple-tab-span">	</span>double-precision (64-bit) floating-point data</p>
+<p class="p24"><br></p>
+<p class="p23"><b>x</b><span class="Apple-tab-span">	</span>extended-precision (96-bit) floating-point data</p>
+<p class="p24"><br></p>
+<p class="p23"><b>p</b><span class="Apple-tab-span">	</span>packed decimal (96-bit) floating-point data (note that the assembler currently doesn't support packed immediate formats)</p>
+<p class="p24"><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><b>Intel i386 Architecture</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>As with the Motorola 68000 family, i386 instructions can operate on byte, word, or long word data (the last is called “double word” by Intel).<span class="Apple-converted-space">  </span>The size can be indicated in the same way as it is for the MC68000.<span class="Apple-converted-space">  </span>If no size is specified, the assembler attempts to determine the size from the operands.<span class="Apple-converted-space">  </span>For example, if the 16-bit names for registers are used as operands, a 16-bit operation will be performed.<span class="Apple-converted-space">  </span>When both a size specifier and a size-specific register name are given, the size specifier is used.<span class="Apple-converted-space">  </span>Thus, the following are all correct and result in the same operation:</p>
+<p class="p16"><br></p>
+<p class="p10"><span class="Apple-converted-space"> </span>movw<span class="Apple-converted-space">    </span>%bx,%cx</p>
+<p class="p10"><span class="Apple-converted-space"> </span>mov <span class="Apple-converted-space">    </span>%bx,%cx</p>
+<p class="p10"><span class="Apple-converted-space"> </span>movw<span class="Apple-converted-space">    </span>%ebx,%ecx</p>
+<p class="p16"><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>An i386 operation code can also contain optional prefixes, which are separated from the operation code by a slash (`/') character.<span class="Apple-converted-space">  </span>The prefix mnemonics are:</p>
+<p class="p16"><br></p>
+<p class="p22"><br></p>
+<p class="p23"><b>data16</b><span class="Apple-tab-span">	</span>operation uses 16-bit data</p>
+<p class="p24"><br></p>
+<p class="p23"><b>addr16</b><span class="Apple-tab-span">	</span>operation uses 16-bit addresses</p>
+<p class="p24"><br></p>
+<p class="p23"><b>lock</b><span class="Apple-tab-span">	</span>exclusive memory lock</p>
+<p class="p24"><br></p>
+<p class="p23"><b>wait</b><span class="Apple-tab-span">	</span>wait for pending numeric exceptions</p>
+<p class="p24"><br></p>
+<p class="p23"><b>cs</b>, <b>ds</b>, <b>es</b>, <b>fs</b>, <b>gs</b>, <b>ss</b></p>
+<p class="p28">segment register override</p>
+<p class="p29"><br></p>
+<p class="p23"><b>rep</b>, <b>repe</b>, <b>repne</b></p>
+<p class="p28">repeat prefixes for string instructions</p>
+<p class="p29"><br></p>
+<p class="p25">More than one prefix may be specified for some operation codes.<span class="Apple-converted-space">  </span>For example:</p>
+<p class="p26"><br></p>
+<p class="p10">lock/fs/xchgl<span class="Apple-converted-space">    </span>%ebx,4(%ebp)</p>
+<p class="p26"><br></p>
+<p class="p25">Segment register overrides and the 16-bit data specifications are usually given as part of the operation code itself or of its operands.<span class="Apple-converted-space">  </span>For example, the following two lines of assembly generate the same instructions:</p>
+<p class="p26"><br></p>
+<p class="p10">movw<span class="Apple-converted-space">            </span>%bx,%fs:4(%ebp)</p>
+<p class="p10">data16/fs/movl<span class="Apple-converted-space">  </span>%bx,4(%ebp)</p>
+<p class="p26"><br></p>
+<p class="p25">Not all prefixes are allowed with all instructions.<span class="Apple-converted-space">  </span>The assembler does check that the repeat prefixes for strings instructions are used correctly, but doesn't otherwise check for correct usage.</p>
+<p class="p26"><br></p>
+<p class="p15"><b></b><br></p>
+<p class="p13"><b>Operand Field</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p8">The operand field of an assembly language statement supplies the arguments to the machine instruction, assembler directive, or macro.</p>
+<p class="p9"><br></p>
+<p class="p8">The operand field may contain one or more operands, depending on the requirements of the preceding machine instruction or assembler directive.<span class="Apple-converted-space">  </span>Some machine instructions and assembler directives don't take any operand, and some take two or more.<span class="Apple-converted-space">  </span>If the operand field contains more than one operand, the operands are generally separated by commas, as shown here:</p>
+<p class="p9"><br></p>
+<p class="p10">[ operand [ , operand ] ... ]</p>
+<p class="p9"><br></p>
+<p class="p8">The following types of objects can be operands:</p>
+<p class="p9"><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>register operands</p>
+<p class="p11">•<span class="Apple-tab-span">	</span>register pairs</p>
+<p class="p11">•<span class="Apple-tab-span">	</span>address operands</p>
+<p class="p11">•<span class="Apple-tab-span">	</span>string constants</p>
+<p class="p11">•<span class="Apple-tab-span">	</span>floating-point constants</p>
+<p class="p11">•<span class="Apple-tab-span">	</span>register lists</p>
+<p class="p11">•<span class="Apple-tab-span">	</span>expressions</p>
+<p class="p9"><br></p>
+<p class="p8">Register operands in a machine instruction refer to the machine registers of the processor or coprocessor.<span class="Apple-converted-space">  </span>Register names may appear in mixed case.</p>
+<p class="p9"><br></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b>Architecture- and Processor-Specific Caveats</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b>Intel 386 Architecture</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>The NeXT assembler orders operand fields for i386 instructions in the reverse order from Intel's conventions.<span class="Apple-converted-space">  </span>Intel's convention is destination first, source second;<span class="Apple-converted-space">  </span>NeXT's is source first, destination second.<span class="Apple-converted-space">  </span>Where Intel documentation would describe the Compare and Exchange instruction for 32-bit operands as follows:</p>
+<p class="p16"><br></p>
+<p class="p10">CMPXCHG<span class="Apple-converted-space">  </span><i>r/m32</i>,<i>r32</i><span class="Apple-converted-space">    </span># Intel processor manual convention</p>
+<p class="p26"><br></p>
+<p class="p25">The NeXT assembler syntax for this same instruction is:</p>
+<p class="p26"><br></p>
+<p class="p10">cmpxchg<span class="Apple-converted-space">  </span><i>r32</i>,<i>r/m32</i><span class="Apple-converted-space">    </span># NeXT assembler syntax</p>
+<p class="p26"><br></p>
+<p class="p25">So an example of actual assembly code for the NeXT would be:</p>
+<p class="p26"><br></p>
+<p class="p10">cmpxchg<span class="Apple-converted-space">  </span>%ebx,(%eax)<span class="Apple-converted-space">  </span># NeXT assembly code</p>
+<p class="p12"><b></b><br></p>
+<p class="p13"><b>Comment Field</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p8">The assembler recognizes two types of comments in source code:</p>
+<p class="p9"><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>A line whose first non-whitespace character is the hash character ( # ) is a comment.<span class="Apple-converted-space">  </span>This style of comment is useful for passing C preprocessor output through the assembler.<span class="Apple-converted-space">  </span>Note that comments of the form</p>
+<p class="p16"><br></p>
+<p class="p10"><span class="Apple-converted-space">     </span># <i>line_number</i> <i>file_name</i> <i>level</i><span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8"><span class="Apple-tab-span">	</span>get turned into</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="Apple-converted-space">    </span>.line <i>line_number</i>; .file <i>file_name</i></p>
+<p class="p26"><br></p>
+<p class="p25">This can cause problems when comments of this form which aren't intended to specify line numbers precede assembly errors, since the error will be reported as occurring on a line relative to that specified in the comment.<span class="Apple-converted-space">  </span>Suppose a program contains these two lines of assembly source:</p>
+<p class="p26"><br></p>
+<p class="p10"># 500</p>
+<p class="p10"><span class="Apple-converted-space">  </span>.var</p>
+<p class="p26"><br></p>
+<p class="p25">If “.var” hasn't been defined, this fragment will result in the following error message:</p>
+<p class="p26"><br></p>
+<p class="p10">var.s:500:Unknown pseudo-op: .var</p>
+<p class="p16"><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>A comment field, appearing on a line after one or more statements.<span class="Apple-converted-space">  </span>The comment field consists of the appropriate comment character and all the characters that follow it on the line:</p>
+<p class="p16"><br></p>
+<p class="p22"><br></p>
+<p class="p23"><b>|</b><span class="Apple-tab-span">	</span>comment character for MC68000 processors</p>
+<p class="p24"><br></p>
+<p class="p23">;<span class="Apple-tab-span">	</span>comment character for hppa processors</p>
+<p class="p24"><br></p>
+<p class="p23">#<span class="Apple-tab-span">	</span>comment character for i386 architecture processors</p>
+<p class="p24"><br></p>
+<p class="p25">An assembly language source line can consist of just the comment field; in this case, it's equivalent to using the hash character comment style:</p>
+<p class="p26"><br></p>
+<p class="p10"># This is a comment.</p>
+<p class="p10">| This is a comment.</p>
+<p class="p26"><br></p>
+<p class="p25">Note the warning given above for hash character comments beginning with a number.</p>
+<p class="p26"><br></p>
+<p class="p15"><b></b><br></p>
+<p class="p13"><b>Direct Assignment Statements</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p8">This section describes direct assignment statements, which don't conform to the normal statement syntax described throughout this chapter.<span class="Apple-converted-space">  </span>A direct assignment statement can be used to assign the value of an expression to an identifier.<span class="Apple-converted-space">  </span>The format of a direct assignment statement is:</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="Apple-converted-space"> </span><i>identifier</i> <b>=</b> <i>expression</i></p>
+<p class="p9"><br></p>
+<p class="p8">If <i>expression</i> in a direct assignment is absolute, <i>identifier</i> is also absolute, and it may be treated as a constant in subsequent expressions.<span class="Apple-converted-space">  </span>If <i>expression</i> is relocatable, <i>identifier</i> is also relocatable, and it is considered to be declared in the same program section as the expression.</p>
+<p class="p9"><br></p>
+<p class="p8">The use of an assignment statement is analogous to using the <b>.set</b> directive (described in the following chapter), except that the <b>.set</b> directive requires that <i>expression</i> be absolute.</p>
+<p class="p9"><br></p>
+<p class="p8">Once an identifier has been defined by a direct assignment statement, it may be redefined—its value is then the result of the last assignment statement.<span class="Apple-converted-space">  </span>There are a few restrictions, however, concerning the redefinition of identifiers:</p>
+<p class="p9"><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>Register identifiers may not be redefined.</p>
+<p class="p16"><br></p>
+<p class="p11">•<span class="Apple-tab-span">	</span>An identifier that has already been used as a label should not be redefined, since this would amount to redefining the address of a place in the program.<span class="Apple-converted-space">  </span>Moreover, an identifier that has been defined in a direct assignment statement cannot later be used as a label.<span class="Apple-converted-space">  </span>Only the second situation produces an assembler error message.</p>
+<p class="p16"><br></p>
+<p class="p30"><br></p>
+<p class="p9"><br></p>
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p18 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p21 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p25 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p28 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p30 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p33 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 95.0px; font: 14.0px Times}
+    p.p37 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 95.0px; font: 23.0px Times; min-height: 28.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.0px Helvetica}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.s5 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">p<span class="Apple-tab-span">	</span></span><b></b><b>NSComboBox</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><span class="s3"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSTextField : NSControl : NSView : NSResponder : NSObject<span class="Apple-converted-space"> </span></p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s3"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSObject (NSObject)<span class="Apple-converted-space"> </span></p>
+<p class="p8">NSCoding</p>
+<p class="p8">NSCopying</p>
+<p class="p9"><br></p>
+<p class="p7"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span> AppKit/NSComboBox.h<span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p13">An NSComboBox is a kind of NSControl that allows you to either enter text directly (as you would with an NSTextField), or click the attached arrow at the right of the combo box and select from a displayed (“pop-up”) list of items. Use this control whenever you want the user to enter information that can be selected from a finite list of options. Note that while you can construct your NSComboBox so that users are restricted to only selecting items from the combo box's pop-up list, this isn't the combo box's normal behavior: a user can either select an item from the list, or enter text that may or may not be contained in the pop-up list.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">While the pop-up list is visible, typing into the text field causes an incremental search to be performed on the list. If there's a match, the selection in the pop-up list changes to reflect the match.</p>
+<p class="p14"><br></p>
+<p class="p13">The NSComboBox normally looks like this:</p>
+<p class="p15"><br></p>
+<p class="p13"><img src="NSComboBox.rtfd/combobox.jpg" alt="combobox.jpg"></p>
+<p class="p14"><br></p>
+<p class="p13">When you click the downward-pointing arrow at the right-hand side of the text field the pop-up list appears, like this:</p>
+<p class="p15"><br></p>
+<p class="p13"><img src="NSComboBox.rtfd/comboboxlist.jpg" alt="comboboxlist.jpg"></p>
+<p class="p14"><br></p>
+<p class="p13">If there isn't sufficient room for the pop-up list to be displayed below the text field, it's instead displayed above the text field. Selecting an item from the list, clicking anywhere outside the control, or activating another window dismisses the pop-up list.</p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><b>Providing Data for the Combo Box's Pop-Up List</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><b></b><br></p>
+<p class="p13">The NSComboBox control can be set up to populate the pop-up list either from an internal item list or from an object that you provide, called its <i>data source</i>. If you use a data source, your data source object can store items in any way, but it must be able to identify them by an integer index. See the NSComboBoxDataSource informal protocol specification for more information on constructing an NSComboBox data source.</p>
+<p class="p14"><br></p>
+<p class="p13">NSComboBox provides a complete set of methods that allow you to add, insert, and delete items in the internal item list for combo boxes that don't use a data source.</p>
+<p class="p14"><br></p>
+<p class="p13">Use <b>setUsesDataSource:</b> to specify whether a given combo box uses a data source or maintains an internal list of items. A combo box can only use one or the other; for instance, if you construct combo box that uses a data source and then attempt to execute an item-oriented method—such as <b>addItemWithObjectValue:</b>—a warning will be logged and the method will have no effect.</p>
+<p class="p14"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><b>Interacting with the Text Field</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p19"><b></b><br></p>
+<p class="p13">Because NSComboBox is a type of NSControl, you typically use the methods provided by the NSControl class—such as <b>stringValue</b>, <b>floatValue</b>, or <b>intValue</b>—when working with the contents of the combo box's text field; see the NSControl class specification for more information on these methods. NSControl's <b>set...Value:</b> methods are also useful, primarily when initializing a combo box. For instance, the following excerpt shows how to “pre-select” the third item in the list of a combo box that maintains an internal item list:</p>
+<p class="p14"><br></p>
+<p class="p20">[myComboBox selectItemAtIndex:2];<span class="Apple-tab-span">	</span>// List items start at index 0</p>
+<p class="p20">[myComboBox setObjectValue:[myComboBox objectValueOfSelectedItem]];</p>
+<p class="p21"><br></p>
+<p class="p13">To do the same thing for a combo box that relies upon a data source, use:</p>
+<p class="p14"><br></p>
+<p class="p20">[myComboBox selectItemAtIndex:2];</p>
+<p class="p20">[myComboBox setObjectValue:[myComboBoxDataSource comboBox:myComboBox<span class="Apple-converted-space"> </span></p>
+<p class="p20">    objectValueForItemAtIndex:[myComboBox indexOfSelectedItem]]];</p>
+<p class="p21"><br></p>
+<p class="p13">Note that NSComboBox is a also a subclass of NSTextField, and thus inherits all of NSTextField's methods. NSComboBox relies heavily upon its cell class, NSComboBoxCell. NSComboBoxCell is a NSTextFieldCell subclass, which combines a text field cell with a button cell.</p>
+<p class="p14"><br></p>
+<p class="p22"><br></p>
+<p class="p11"><b>Method Types</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p23">Setting display attributes:<span class="Apple-tab-span">	</span><span class="s4">-</span> hasVerticalScroller</p>
+<p class="p24"><span class="s4">-</span> intercellSpacing</p>
+<p class="p24"><span class="s4">-</span> itemHeight</p>
+<p class="p24"><span class="s4">-</span> numberOfVisibleItems</p>
+<p class="p24"><span class="s4">-</span> setHasVerticalScroller:</p>
+<p class="p24"><span class="s4">-</span> setIntercellSpacing:</p>
+<p class="p24"><span class="s4">-</span> setItemHeight:</p>
+<p class="p24"><span class="s4">-</span> setNumberOfVisibleItems:</p>
+<p class="p25"><br></p>
+<p class="p23">Setting a data source:<span class="Apple-tab-span">	</span><span class="s4">-</span> dataSource</p>
+<p class="p24"><span class="s4">-</span> setDataSource:</p>
+<p class="p24"><span class="s4">-</span> setUsesDataSource:</p>
+<p class="p24"><span class="s4">-</span> usesDataSource</p>
+<p class="p25"><br></p>
+<p class="p23">Working with an internal list:<span class="Apple-tab-span">	</span><span class="s4">-</span> addItemsWithObjectValues:</p>
+<p class="p24"><span class="s4">-</span> addItemWithObjectValue:</p>
+<p class="p24"><span class="s4">-</span> insertItemWithObjectValue:atIndex:</p>
+<p class="p24"><span class="s4">-</span> objectValues</p>
+<p class="p24"><span class="s4">-</span> removeAllItems</p>
+<p class="p24"><span class="s4">-</span> removeItemAtIndex:</p>
+<p class="p24"><span class="s4">-</span> removeItemWithObjectValue:</p>
+<p class="p24"><span class="s4">-</span> numberOfItems</p>
+<p class="p25"><br></p>
+<p class="p23">Manipulating the displayed list:<span class="Apple-tab-span">	</span><span class="s4">-</span> indexOfItemWithObjectValue:</p>
+<p class="p24"><span class="s4">-</span> itemObjectValueAtIndex:</p>
+<p class="p24"><span class="s4">-</span> noteNumberOfItemsChanged</p>
+<p class="p24"><span class="s4">-</span> reloadData</p>
+<p class="p24"><span class="s4">-</span> scrollItemAtIndexToTop:</p>
+<p class="p24"><span class="s4">-</span> scrollItemAtIndexToVisible:</p>
+<p class="p25"><br></p>
+<p class="p23">Manipulating the selection:<span class="Apple-tab-span">	</span><span class="s4">-</span> deselectItemAtIndex:</p>
+<p class="p24"><span class="s4">-</span> indexOfSelectedItem</p>
+<p class="p24"><span class="s4">-</span> objectValueOfSelectedItem</p>
+<p class="p24"><span class="s4">-</span> selectItemAtIndex:</p>
+<p class="p24"><span class="s4">-</span> selectItemWithObjectValue:</p>
+<p class="p25"><br></p>
+<p class="p23">Encoding a ComboBox<span class="Apple-tab-span">	</span><span class="s4">-</span> encodeWithCoder:</p>
+<p class="p24"><span class="s4">-</span> initWithCoder:</p>
+<p class="p26"><br></p>
+<p class="p11"><b>Instance Methods<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>addItemsWithObjectValues:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>addItemsWithObjectValues:</b>(id)<i>objects</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Adds multiple objects to the end of the combo box's internal item list. This method logs a warning if <b>usesDataSource</b> returns YES.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>addItemWithObjectValue:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>addItemWithObjectValue:</b>(id)<i>anObject</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Adds <i>anObject</i> to the end of the combo box's internal item list. This method logs a warning if <b>usesDataSource</b> returns YES.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>dataSource</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (id)<b>dataSource</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p13">Returns the object that provides the data displayed in the receiver's pop-up list. This method logs a warning if <b>usesDataSource</b> returns NO. See the class description and the NSComboBoxDataSource informal protocol specification for more information on combo box data source objects.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>deselectItemAtIndex:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>deselectItemAtIndex:</b>(int)<i>index</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Deselects the pop-up list item at <i>index</i> if it's selected. If the selection does in fact change, this method posts an NSComboBoxSelectionDidChangeNotification to the default notification center.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>indexOfSelectedItem</b>, <span class="s4">-</span> <b>numberOfItems</b>, <span class="s4">-</span> <b>selectItemAtIndex:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>encodeWithCoder:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>encodeWithCoder:</b>(NSCoder *)<i>encoder</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Encodes the receiver using <i>encoder</i>. If the receiver uses a data source, the data source is conditionally encoded as well.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>initWithCoder:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>hasVerticalScroller</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (BOOL)<b>hasVerticalScroller</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p13">Returns YES if the receiver will display a vertical scroller. Note that the scoller will be displayed even if the pop-up list contains fewer items than will fit in the area specified for display. Returns NO if the receiver won't display a vertical scroller.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>numberOfItems</b>, <span class="s4">-</span> <b>numberOfVisibleItems</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>indexOfItemWithObjectValue:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (int)<b>indexOfItemWithObjectValue:</b>(id)<i>anObject</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Searches the receiver's internal item list for <i>anObject</i> and returns the lowest index whose corresponding value is equal to <i>anObject</i>. Objects are considered equal if they have the same <b>id</b> or if <b>isEqual:</b> returns YES. If none of the objects in the receiver's internal item list are equal to <i>anObject</i>, <b>indexOfItemObjectValue:</b> returns NSNotFound. This method logs a warning if <b>usesDataSource</b> returns YES.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>selectItemWithObjectValue:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>indexOfSelectedItem</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (int)<b>indexOfSelectedItem</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p13">Returns the index of the last item selected from the receiver's pop-up list, or -1 if no item is selected. Note that nothing is initially selected in a newly-initialized combo box.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>objectValueOfSelectedItem</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>initWithCoder:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (id)<b>initWithCoder:</b>(NSCoder *)<i>decoder</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Initializes a newly-allocated instance from data in <i>decoder</i>. If the decoded instance uses a data source, <b>initWithCoder:</b> decodes the data source as well. Returns <b>self</b>.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>encodeWithCoder:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>insertItemWithObjectValue:atIndex:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>insertItemWithObjectValue:</b>(id)<i>anObject</i> <b>atIndex:</b>(int)<i>index</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Inserts <i>anObject</i> at <i>index</i> in the combo box's internal item list, shifting the previous item at <i>index</i>—along with all following items—down one slot to make room. This method logs a warning if <b>usesDataSource</b> returns YES.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>addItemWithObjectValue:</b>, <span class="s4">-</span> <b>numberOfItems</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>intercellSpacing</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSSize)<b>intercellSpacing</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p13">Returns the horizontal and vertical spacing between cells in the receiver's pop-up list. The default spacing is (3.0, 2.0).</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>itemHeight</b>, <span class="s4">-</span> <b>numberOfVisibleItems</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>itemHeight</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (float)<b>itemHeight</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p13">Returns the height of each item in the receiver's pop-up list. The default item height is 16.0.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>intercellSpacing</b>, <span class="s4">-</span> <b>numberOfVisibleItems</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>itemObjectValueAtIndex:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (id)<b>itemObjectValueAtIndex:</b>(int)<i>index</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Returns the object located at <i>index</i> within the receiver's internal item list. If <i>index</i> is beyond the end of the list, an NSRangeException is raised. This method logs a warning if <b>usesDataSource</b> returns YES.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>objectValueOfSelectedItem</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>noteNumberOfItemsChanged</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>noteNumberOfItemsChanged</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p13">Informs the receiver that the number of items in its data source has changed, allowing the receiver to update the scrollers in its displayed pop-up list without actually reloading data into the receiver. This method is particularly useful for a data source that continually receives data in the background over a period of time, in which case the NSComboBox can remain responsive to the user while the data is received.</p>
+<p class="p14"><br></p>
+<p class="p13">See the NSComboBoxDataSource informal protocol specification for information on the messages an NSComboBox sends to its data source.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>-<span class="s4">-</span> <b>reloadData</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>numberOfItems</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (int)<b>numberOfItems</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p13">Returns the total number of items in the pop-up list.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>numberOfItemsInComboBox:</b> (NSComboBoxDataSource protocol), <span class="s4">-</span> <b>numberOfVisibleItems</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>numberOfVisibleItems</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (int)<b>numberOfVisibleItems</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p13">Returns the maximum number of items visible at any one time in the pop-up list.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>numberOfItems</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>objectValueOfSelectedItem</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (id)<b>objectValueOfSelectedItem</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p13">Returns the object from the receiver's internal item list corresponding to the last item selected from the pop-up list, or <b>nil</b> if no item is selected. Note that nothing is initially selected in a newly-initialized combo box. This method logs a warning if <b>usesDataSource</b> returns YES.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>comboBox:objectValueForItemAtIndex:</b> (NSComboBoxDataSource protocol), <span class="s4">-</span> <b>indexOfSelectedItem</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>objectValues</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (NSArray *)<b>objectValues</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p13">Returns as an array the receiver's internal item list. This method logs a warning if <b>usesDataSource</b> returns YES.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>reloadData</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>reloadData</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p13">Marks the receiver as needing redisplay, so that it will reload the data for visible pop-up items and draw the new values.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>noteNumberOfItemsChanged</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>removeAllItems</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>removeAllItems</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p13">Removes all items from the receiver's internal item list. This method logs a warning if <b>usesDataSource</b> returns YES.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>objectValues</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>removeItemAtIndex:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>removeItemAtIndex:</b>(int)<i>index</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Removes the object at <i>index</i> from the receiver's internal item list and moves all items beyond <i>index</i> up one slot to fill the gap. The removed object receives a release message. This method raises an NSRangeException if <i>index</i> is beyond the end of the list, and logs a warning if <b>usesDataSource</b> returns YES.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>removeItemWithObjectValue:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>removeItemWithObjectValue:</b>(id)<i>anObject</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Removes all occurrences of <i>anObject</i> from the receiver's internal item list. Objects are considered equal if they have the same <b>id</b> or if <b>isEqual:</b> returns YES. This method logs a warning if <b>usesDataSource</b> returns YES.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>indexOfItemWithObjectValue:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>scrollItemAtIndexToTop:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>scrollItemAtIndexToTop:</b>(int)<i>index</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Scrolls the receiver's pop-up list vertically so that the item specified by <i>index</i> is as close to the top as possible. The pop-up list need not be displayed at the time this method is invoked.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>scrollItemAtIndexToVisible:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>scrollItemAtIndexToVisible:</b>(int)<i>index</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Scrolls the receiver's pop-up list vertically so that the item specified by <i>index</i> is visible. The pop-up list need not be displayed at the time this method is invoked.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>selectItemAtIndex:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>selectItemAtIndex:</b>(int)<i>index</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Selects the pop-up list row at <i>index</i>. Posts NSComboBoxSelectionDidChangeNotification to the default notification center if the selection does in fact change. Note that this method does not alter the contents of the combo box's text field—see “Interacting with the Text Field” in the class description for more information.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setObjectValue:</b> (NSControl)</p>
+<p class="p33"><br></p>
+<p class="p34"><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>selectItemWithObjectValue:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>selectItemWithObjectValue:</b>(id)<i>anObject</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Selects the first pop-up list item that corresponds to <i>anObject</i>. Objects are considered equal if they have the same <b>id</b> or if <b>isEqual:</b> returns YES. Posts NSComboBoxSelectionDidChangeNotification to the default notification center if the selection does in fact change. Note that this method doesn't alter the contents of the combo box's text field—see “Interacting with the Text Field” in the class description for more information.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setObjectValue:</b> (NSControl)</p>
+<p class="p33"><br></p>
+<p class="p34"><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setDataSource:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>setDataSource:</b>(id)<i>aSource</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Sets the receiver's data source to <i>aSource</i>. <i>aSource</i> should implement the appropriate methods of the NSComboBoxDataSource informal protocol. This method doesn't automatically set <b>usesDataSource</b> to NO, and in fact logs a warning if <b>usesDataSource</b> returns NO.</p>
+<p class="p14"><br></p>
+<p class="p13">This method logs a warning if <i>aSource</i> doesn't respond to either <b>numberOfRowsInComboBox:</b> or <b>comboBox:objectValueForItemAtIndex:</b>.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setUsesDataSource:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setHasVerticalScroller:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>setHasVerticalScroller:</b>(BOOL)<i>flag</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Determines according to <i>flag</i> whether the receiver displays a vertical scroller. By default, <i>flag</i> is YES. If <i>flag</i> is NO and the combo box has more list items (either in its internal item list or from its data source) than are allowed by <b>numberOfVisibleItems</b>, only a subset will be displayed. NSComboBox's <b>scroll...</b> methods can be used to position this subset within the pop-up list.</p>
+<p class="p14"><br></p>
+<p class="p13">Note that if <i>flag</i> is YES, a scroller will be displayed even if the combo box has fewer list items than are allowed by <b>numberOfVisibleItems</b>.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>numberOfItems</b>, <span class="s4">-</span><b> scrollItemAtIndexToTop:, </b><span class="s4">-</span><b> scrollItemAtIndexToVisible:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setIntercellSpacing:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>setIntercellSpacing:</b>(NSSize)<i>aSize</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Sets the width and height between pop-up list items to those in <i>aSize</i>. The default intercell spacing is (3.0, 2.0).</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setItemHeight:</b>, <span class="s4">-</span> <b>setNumberOfVisibleItems:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setItemHeight:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>setItemHeight:</b>(float)<i>itemHeight</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Sets the height for items to <i>itemHeight</i>.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setIntercellSpacing:</b>, <span class="s4">-</span> <b>setNumberOfVisibleItems:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setNumberOfVisibleItems:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>setNumberOfVisibleItems:</b>(int)<i>visibleItems</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Sets the maximum number of items that will be visible at one time in the receiver's pop-up list to <i>visibleItems</i>.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>numberOfItems</b>, <span class="s4">-</span> <b>setItemHeight:</b>, <span class="s4">-</span> <b>setIntercellSpacing:</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p34"><b></b><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>setUsesDataSource:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (void)<b>setUsesDataSource:</b>(BOOL)<i>flag</i></p>
+<p class="p30"><i></i><br></p>
+<p class="p13">Sets according to <i>flag</i> whether the receiver uses an external data source (specified by <b>setDataSource:</b>) to populate the receiver's pop-up list.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p27"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>usesDataSource</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><span class="s4">-</span> (BOOL)<b>usesDataSource</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p13">Returns YES if the receiver uses an external data source to populate the receiver's pop-up list, NO if it uses an internal item list.</p>
+<p class="p14"><br></p>
+<p class="p32"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>dataSource</b></p>
+<p class="p33"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p11"><b>Notifications</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p17"><b>NSComboBoxSelectionDidChangeNotification</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">Posted after the NSComboBox's pop-up list selection changes. The notification contains:</p>
+<p class="p14"><br></p>
+<p class="p36"><b>Notification Object</b><span class="Apple-tab-span">	</span>The NSComboBox whose selection changed.</p>
+<p class="p37"><br></p>
+<p class="p36"><b>Userinfo</b><span class="Apple-tab-span">	</span>None</p>
+<p class="p37"><br></p>
+<p class="p38"><br></p>
+<p class="p17"><b>NSComboBoxCellSelectionIsChangingNotification</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">Posted whenever the NSComboBox's pop-up list selection is changing. The notification contains:</p>
+<p class="p14"><br></p>
+<p class="p36"><b>Notification Object</b><span class="Apple-tab-span">	</span>The NSComboBox whose selection is changing.</p>
+<p class="p37"><br></p>
+<p class="p36"><b>Userinfo</b><span class="Apple-tab-span">	</span>None</p>
+<p class="p37"><br></p>
+<p class="p38"><br></p>
+<p class="p17"><b>NSComboBoxCellWillPopUpNotification</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">Posted whenever the NSComboBox's pop-up list is going to be displayed. The notification contains:</p>
+<p class="p14"><br></p>
+<p class="p36"><b>Notification Object</b><span class="Apple-tab-span">	</span>The NSComboBox whose popup window will be displayed.</p>
+<p class="p37"><br></p>
+<p class="p36"><b>Userinfo</b><span class="Apple-tab-span">	</span>None</p>
+<p class="p37"><br></p>
+<p class="p38"><br></p>
+<p class="p17"><b>NSComboBoxCellWillDismissNotification</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">Posted whenever the NSComboBox's pop-up list is about to be dismissed. The notification contains:</p>
+<p class="p14"><br></p>
+<p class="p36"><b>Notification Object</b><span class="Apple-tab-span">	</span>The NSComboBox whose pop-up list will be dismissed.</p>
+<p class="p37"><br></p>
+<p class="p36"><b>Userinfo</b><span class="Apple-tab-span">	</span>None</p>
+<p class="p37"><br></p>
+<p class="p15"><br></p>
+<p class="p14"><br></p>
+</body>
+</html>

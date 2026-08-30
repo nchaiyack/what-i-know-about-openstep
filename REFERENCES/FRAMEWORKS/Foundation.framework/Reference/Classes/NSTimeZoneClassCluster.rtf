@@ -1,0 +1,645 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fnil NeXTdoc;\f3\fswiss Helvetica;\f4\fmodern Courier;\f5\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1997 by Apple Computer, Inc.  All Rights Reserved.\
+\
+
+\pard\tx1460\f2\fs72\fi-760\li1460\fc0\cf0 c	
+\f3\b\fs56 NSTimeZone Class Cluster\
+
+\fs70 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li200\fc0\cf0 Class Cluster Description\
+
+\fs14 \
+
+\f0\b0\fs28\li1500 From the NSTimeZone class cluster, you can obtain immutable objects that represent time zones. Time zone are split at lines of longitude and are split latitudinally at political boundaries. For example, US/Pacific and Canada/Pacific are two time zone regions. They are roughly the same time zone, but they differ when Daylight Savings Time is in effect. \
+
+\fs14 \
+
+\fs28 The abstract class, NSTimeZone, represents knowledge about a geopolitical time zone region (such as ªUS/Pacificº or ªCanada/Pacificº). An abstract public subclass of NSTimeZone, NSTimeZoneDetail, provides the specific details about a time zone: its colloquial abbreviation (such as ªPSTº), its offset from Greenwich Mean Time (GMT), and whether it is a Daylight Savings Time time zone.\
+
+\fs14 \
+
+\fs28 NSTimeZone objects are used in conjunction with NSDate objects. NSDate objects represent dates as 
+\i universal time
+\i0 . Universal time treats a date and time value as identical in, for instance, Redwood City and New York City. There is no provision for locale and, consequently, for time zone. Provision for locale is critical for string representations and other expressions of conventional dates and times. NSTimeZone expands the temporal value of date objects so that they reflect locale information related to time zones. \
+
+\fs14 \
+
+\fs28 NSTimeZone objects are referred to simply as 
+\i time zone objects
+\i0 . Because of the nature of class clusters, time zone objects returned by this class are 
+\i not
+\i0  instances of that abstract class (or of NSTimeZoneDetail) but of one of their private subclasses. Although a time zone object's class is private, its interface is public, as declared by the abstract superclass, NSTimeZone. (See ªClass Clustersº in the introduction to the Foundation Kit for more information on class clusters and creating subclasses within a cluster.)\
+
+\fs14 \
+
+\fs28 You use the class methods 
+\b defaultTimeZone
+\b0 , 
+\b localTimeZone
+\b0 , 
+\b timeZoneWithName:
+\b0 , 
+\b timeZoneWithAbbreviation:
+\b0 , and 
+\b timeZoneForSecondsFromGMT:
+\b0  to get suitable time zone objects. The instance method 
+\b timeZoneDetailForDate:
+\b0  returns the time-zone detail object for a specific date.\
+
+\fs14 \
+
+\fs28 NSTimeZoneDetail doesn't itself provide any class methods for obtaining time zone objects. It exists mainly as a refinement of NSTimeZone. It does, however, provide accessor methods for obtaining abbreviations and GMT offsets and for determining whether the time zone is a Daylight Savings Time time zone.\
+
+\fs14 \
+
+\fs28 Subclassing NSTimeZone or NSTimeZoneDetail is not recommended.\
+
+\fs14 \
+
+\pard\tx1460\f2\fs72\fi-760\li1460\fc0\cf0 \
+i	
+{\f3\b\fs52{\NeXTHelpMarker2552 \markername NS_DEV_DOCFOR:objc_class:NSTimeZone;}
+¬}\pard\tx1460\f3\b\i0\ulnone\fs52\fi-760\li1460\fc0\cf0 NSTimeZone\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject\
+
+\fs20 \
+
+\f3\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding, NSCopying\
+
+\fi0 NSObject (NSObject) \
+
+\fs20 \
+
+\f3\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 Foundation/NSDate.h\
+
+\fs20 \
+\
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Class Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSTimeZone is an abstract class that defines the behavior of time zone objects. Time zone objects represent geopolitical regions. Consequently, these objects have names for these regions. Time zone objects, in their detail form, also represent a temporal offset, either plus or minus, from Greenwich Mean Time (GMT) and an abbreviation (such as ªPSTº). \
+
+\fs14 \
+
+\pard\tx2300\f3\b\fs24\fi-800\li2300\fc0\cf0 Note:	
+\f0\b0\fs28 By itself, the NSTimeZone class only 
+\i names
+\i0  a time zone. It does not associate an abbreviation or a temporal offset with a time zone; that's done by NSTimeZoneDetail. An instance of NSTimeZone, however, ªknowsº about the set of time-zone detail objects related to it and can provide the one associated with a given date specified in 
+\b timeZoneDetailForDate:
+\b0 .\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The system supplies many choices for time zones. The system stores time zone information in the directory 
+\b NextLibrary/Frameworks/Foundation.framework/Resources/TimeZoneInfo
+\b0  on Windows platforms and 
+\b /etc/zoneinfo
+\b0  on Mach platforms. The files in this directory store time zone information. The NSTimeZone class object can provide you with the information in this directory. The class method 
+\b timeZoneArray
+\b0  lists the geopolitical time zone regions to choose from for each longitudinal area. The class method 
+\b abbreviationDictionary
+\b0  selects a subset of geopolitical regions that provide a non-overlapping set of abbreviations from their NSTimeZoneDetail instances. For example, the geopolitical regions US/Pacific and Canada/Pacific are both in the same longitudinal area and both use the abbreviation ªPST.º 
+\b abbreviationDictionary
+\b0  limits the choices for an abbreviation so that there is one geopolitical region per abbreviation. Depending on where you are, the following message will return either ªUS/Pacificº or ªCanada/Pacificº.\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f4\fs24\li1900\fc0\cf0 [[NSTimeZone abbreviationDictionary] objectForKey:@"PST"];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 The 
+\b RegionsDictionary
+\b0  file in the time zone information directory supplies these methods with the information necessary to make such choices. \
+
+\fs14 \
+
+\fs28 NSTimeZone provides several class methods to get time zone objects, with or without detail: 
+\b timeZoneWithName:
+\b0 , 
+\b timeZoneWithAbbreviation:
+\b0 , and 
+\b timeZoneForSecondsFromGMT:
+\b0 . The class also permits you to set the default time zone for your locale (
+\b setDefaultTimeZone:
+\b0 ) You can access this default time zone at any time with the 
+\b defaultTimeZone
+\b0  class method, and with the 
+\b localTimeZone
+\b0  class method, you can get a relative time zone object that decodes itself to become the default time zone for any locale in which it finds itself. \
+
+\fs14 \
+
+\fs28 Some NSCalendarDate methods return date objects that are automatically bound to time-zone detail objects. These date objects use the functionality of NSTimeZone to adjust dates for the proper locale. Unless you specify otherwise, objects returned from NSCalendarDate are bound to the default time zone for the current locale. A useful instance method is 
+\b timeZoneDetailForDate:
+\b0 , which returns a time-zone detail object associated with a specific date. \
+
+\fs14 \
+
+\fs56 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Adopted Protocols\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 NSCoding	
+\f1 -
+\f0 €encodeWithCoder:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €initWithCoder:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 NSCopying	
+\f1 -
+\f0 €copyWithZone:\
+
+\fs70 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Getting time zones	+€timeZoneWithAbbreviation:\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€timeZoneWithName:\
++€timeZoneForSecondsFromGMT:\
+
+\f1 -
+\f0 €timeZoneDetailForDate:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting the default time zone	+€localTimeZone\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€defaultTimeZone\
++€setDefaultTimeZone:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting time zone information	+€timeZoneArray\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€abbreviationDictionary\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Getting information about a specific time zone\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €timeZoneDetailArray\
+
+\f1 -
+\f0 €timeZoneName\
+
+\fs70 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker6119 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZone-abbreviationDictionary];}
+¬}\f3\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 abbreviationDictionary\
+
+\fs6 \
+
+\f0\b0\fs28\fi-620\li2520 +€(NSDictionary€*)
+\b abbreviationDictionary\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a dictionary holding the mappings of time zone region name to time zone abbreviation. Region names are typically file names in the directory 
+\b /NextLibrary/Frameworks/Foundation.framework/Resources/TimeZoneInfo
+\b0  on Windows platforms and 
+\b /etc/zoneinfo
+\b0  on Mach platforms. For example, the ªUS/Pacificº region is mapped to the abbreviations ªPSTº and ªPDT.º Because a region may have more than one abbreviation associated with it, the region is the value and the abbreviation is the key.\
+
+\fs14 \
+
+\fs28 More than one region may use the same abbreviation. For example, US/Pacific and Canada/Pacific both use the abbreviation ªPST.º 
+\b abbreviationDictionary
+\b0  limits the choices for an abbreviation so that there is one geopolitical region per abbreviation. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€timeZoneArray, 
+\f1 -
+\f0 €timeZoneDetailArray\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker6979 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZone-defaultTimeZone];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 defaultTimeZone\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSTimeZoneDetail€*)
+\b defaultTimeZone\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the default time zone, set for the current locale.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\fs28 +€localTimeZone
+\b0 , 
+\b +€setDefaultTimeZone: \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker7148 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZone-localTimeZone];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 localTimeZone\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSTimeZone€*)
+\b localTimeZone\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the default time zone in the current locale. During decoding, the object replaces itself with the current default time zone. This behavior is particularly useful for NSCalendarDate objects that are archived or sent as Distributed Objects and interpreted in different locales. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\fs28 +€defaultTimeZone
+\b0 ,€
+\b +€setDefaultTimeZone:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker7534 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZone-setDefaultTimeZone:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 setDefaultTimeZone:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(void)
+\b setDefaultTimeZone
+\b0\i :
+\i0 (NSTimeZone€*)
+\i aTimeZone\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Sets the time zone appropriate for the current locale. There can be only one default time zone, so by setting a new default time zone, you lose the previous one. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\fs28 +€defaultTimeZone
+\b0 , 
+\b +€localTimeZone\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker7819 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZone-timeZoneArray];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 timeZoneArray\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSArray€*)
+\b timeZoneArray\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns an array containing arrays of strings showing all current region names for each longitudinal area. Each array is grouped per latitudinal region (US/Pacific, US/Pacific-New, Canada/Pacific, for instance). \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +
+\b €abbreviationDictionary
+\b0 , 
+\f1 -
+\f0 €
+\b timeZoneDetailArray\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker8137 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZone-timeZoneForSecondsFromGMT:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 timeZoneForSecondsFromGMT:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSTimeZone€*)
+\b timeZoneForSecondsFromGMT
+\b0\i :
+\i0 (int)
+\i seconds\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the time zone object with 
+\i seconds
+\i0  offset from Greenwich Mean Time. If there is no object matching the offset, this method creates and returns a new time zone object bearing the value 
+\i seconds
+\i0  as a name. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b timeZoneWithAbbreviation:
+\b0 ,€+€
+\b timeZoneWithName:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\fs28\li1500\fc0\cf0{\NeXTHelpMarker8495 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZone-timeZoneWithAbbreviation:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 timeZoneWithAbbreviation:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSTimeZoneDetail€*)
+\b timeZoneWithAbbreviation:
+\b0 (NSString€*)
+\i abbreviation\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the time zone object identified by 
+\i abbreviation
+\i0 . Returns 
+\b nil
+\b0  if there is no match for 
+\i abbreviation
+\i0 . \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b abbreviationDictionary
+\b0 , +€
+\b timeZoneForSecondsFromGMT:
+\b0 , +€
+\b timeZoneWithName:
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker8795 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZone-timeZoneWithName:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 timeZoneWithName:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSTimeZone€*)
+\b timeZoneWithName
+\b0\i :
+\i0 (NSString€*)
+\i aTimeZoneName\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns the time zone object identified by the geopolitical region with the name 
+\i aTimeZoneName
+\i0 . It searches both the 
+\b RegionsDictionary
+\b0  and the time zone information directory for matching names. Returns 
+\b nil
+\b0  if there is no match on the name. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b timeZoneForSecondsFromGMT:
+\b0 ,€+€
+\b timeZoneWithAbbreviation:\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f3\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker9206 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZone-timeZoneDetailArray];}
+¬}\f3\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 timeZoneDetailArray\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0 €(NSArray€*)
+\b timeZoneDetailArray\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns an array object that contains NSTimeZoneDetail objects associated with the current time zone object. For example, the US/Pacific time zone has two time-zone detail objects associated with itÐone for Pacific Standard Time and one for Pacific Daylight Time.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b timeZoneArray
+\b0 , 
+\f1 -
+\f0 €
+\b timeZoneName
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker9572 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZone-timeZoneDetailForDate:];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 timeZoneDetailForDate:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSTimeZoneDetail€*)
+\b timeZoneDetailForDate:
+\b0 (NSDate€*)
+\i date
+\b\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the time-zone detail object that is associated with the 
+\i date
+\i0 . Invoke this method when a region's time zone (that is, its offset value from GMT) varies over the year, as happens between Standard Time and Daylight Savings Time.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b timeZoneDetailArray
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker9928 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZone-timeZoneName];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 timeZoneName\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString€*)
+\b timeZoneName \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the geopolitical region name that identifies the time zone. \
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f3\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b timeZoneDetailArray \
+
+\fs14 \
+
+\pard\tx1460\f2\b0\fs72\fi-760\li1460\fc0\cf0 \
+\
+i	
+{\f3\b\fs52{\NeXTHelpMarker10080 \markername NS_DEV_DOCFOR:objc_class:NSTimeZoneDetail;}
+¬}\pard\tx1460\f3\b\i0\ulnone\fs52\fi-760\li1460\fc0\cf0 NSTimeZoneDetail\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSTimeZone : NSObject\
+
+\fs20 \
+
+\f3\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding, NSCopying (NSTimeZone) \
+
+\fi0 NSObject (NSObject) \
+
+\fs20 \
+
+\f3\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 Foundation/NSDate.h\
+
+\fs20 \
+\
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Class Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSTimeZone is an abstract class that refines the behavior provided by NSTimeZone. NSTimeZone identifies a geopolitical region with a name (such as ªUS/Pacificº). NSTimeZoneDetail augments this region name with more specific information appropriate for a particular date within its geopolitical region: an abbreviation, an offset (in seconds) from Greenwich Mean Time (GMT), and an indication of whether this is a Daylight Savings Time time zone. The specificity afforded through NSTimeZoneDetail helps to resolve conflicts between abbreviations and offsets that can arise within regions.\
+
+\fs14 \
+
+\fs28 Even though it is an abstract subclass of NSTimeZone, NSTimeZoneDetail does 
+\i not
+\i0  have class methods that create and return time zone objects. See the specification of NSTimeZone for creation methods.\
+
+\fs14 \
+
+\fs28 However, NSTimeZoneDetail does have accessor methods that allow you to get the abbreviation and temporal offset of a time zone object, as well as determine whether this is a Daylight Savings Time time zone.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Getting time zone information	
+\f1 -
+\f0 €isDaylightSavingTimeZone\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €timeZoneAbbreviation\
+
+\f1 -
+\f0 €timeZoneSecondsFromGMT\
+
+\fs70 \
+
+\pard\f3\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker11396 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZoneDetail-isDaylightSavingTimeZone];}
+¬}\f3\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 isDaylightSavingTimeZone\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0 €(BOOL)
+\b isDaylightSavingTimeZone\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns YES if the time-zone detail object is used in the representation of dates during Daylight Savings Time. \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker11572 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZoneDetail-timeZoneAbbreviation];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 timeZoneAbbreviation\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSString *)
+\b timeZoneAbbreviation\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the abbreviation for the time zone object, such as ªEDTº (Eastern Daylight Time).\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f3\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker11723 \markername NS_DEV_DOCFOR:objc_method:[NSTimeZoneDetail-timeZoneSecondsFromGMT];}
+¬}\pard\tx8260\f3\b\i0\ulnone\fs28\li1500\fc0\cf0 timeZoneSecondsFromGMT\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(int)
+\b timeZoneSecondsFromGMT\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the difference in seconds between the receiver and GMT. This offset can be a positive or negative value.\
+
+\fs14 \
+
+}

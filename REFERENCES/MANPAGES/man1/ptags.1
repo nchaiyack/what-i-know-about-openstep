@@ -1,0 +1,69 @@
+.TH PTAGS 1 "February 17, 1989" "NeXT Computer, Inc."
+.SH NAME
+ptags \- print tag information
+.SH SYNOPSIS
+.B ptags
+[\fB-aflstceqQSv\fR]
+[\fB-T\fR \fItagpath\fR]
+[\fB-N\fR \fInumber\fR]
+[\fIobject\fR ...]
+.SH DESCRIPTION
+The \fIptags\fR command
+prints information about objects indexed in
+a tags file created by \fIctags\fR(1).
+If no \fIobject\fRs are given as arguments they are read from \fIstdin\fR.
+The \fB-flstce\fR options specify which fields to print;
+if none of these options are given, the entire entry
+(file, location, size, type, caller list, callee list) is printed.
+A string beginning with a slash, \fI/words ...\fR,
+may be appended to an object name, causing only those index entries
+for \fIobject\fR which also reference \fIwords\fR to be printed.
+For instance,
+.ft CW
+.in +5
+ptags new/timer.c
+.in -5
+.ft R
+attempts to print the tag information for \fBnew\fR found in
+the file \fBtimer.c\fR.
+.SH OPTIONS
+.IP \fB-a\fR
+Print all occurrences of the given \fIobject\fR.
+.IP \fB-f\fR
+Print the \fIfile\fR in which each object is defined.
+.IP \fB-l\fR
+Print the \fIlocation\fR (search pattern or line number)
+of each object definition.
+.IP \fB-s\fR
+Print the \fIsize\fR of each object (in lines).
+.IP \fB-t\fR
+Print the \fItype\fR of each object (function, macro, global, etc).
+.IP \fB-c\fR
+Print the \fIcaller\fR list for each object.
+.IP \fB-e\fR
+Print the \fIcallee\fR list for each object.
+.IP \fB-q\fR
+Suppress error messages.
+.IP \fB-Q\fR
+Surround locations (search patterns) and callee/caller lists
+with single quotes \fB'...'\fR, to simplify the use of \fIptags\fR
+in shell scripts.
+.IP \fB-S\fR
+Attempt to locate and print the source text for the given \fIobject\fR.
+.IP \fB-v\fR
+Print ``\fItagfile\fR: \fIobject\fR:'' before the fields for each object.
+.IP \fB-T\fR\ \fItagpath\fR
+Set the path of tag files searched to \fItagpath\fR
+(the default is $TAGS).
+Giving the \fB-T\fR option more than once appends to the path
+(i.e., \fB-T"a b"\fR is equivalent to \fB-T a -T b\fR).
+.IP \fB-N\fR\ \fInumber\fR
+If there's more than one occurrence of the given \fIobject\fR,
+print at most \fInumber\fR of them (default is 1).
+.SH DIAGNOSTICS
+Exits with status 1 if a tag was not found.
+.SH FILES
+.DT
+tags		default tags file searched
+.SH SEE ALSO
+ctags(1), ctree(1)

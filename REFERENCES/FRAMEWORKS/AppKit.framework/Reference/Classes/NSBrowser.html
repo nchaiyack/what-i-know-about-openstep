@@ -1,0 +1,963 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.2px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.2px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.7px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.6px; font: 13.0px Times; min-height: 16.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 75.6px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 75.6px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 75.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 14.0px Times}
+    p.p21 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 5.0px Times; min-height: 6.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 5.0px Times; min-height: 6.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 35.0px Times; min-height: 42.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p26 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 14.0px Times}
+    p.p28 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 75.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 12.0px Helvetica}
+    p.p33 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p34 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Helvetica}
+    span.s3 {font: 14.0px Symbol}
+    span.s4 {font: 14.0px Times}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSBrowser</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><span class="s2"><b>Inherits From:<span class="Apple-tab-span">	</span></b></span>NSControl : NSView : NSResponder : NSObject</p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s2"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSCoding (NSResponder)</p>
+<p class="p8">NSObject (NSObject)</p>
+<p class="p9"><br></p>
+<p class="p7"><span class="s2"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSBrowser.h <span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b>Class Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p13">NSBrowser provides a user interface for displaying and selecting items from a list of data, or from hierarchically organized lists of data such as directory paths. When working with a hierarchy of data, the levels are displayed in columns, which are numbered from left to right, beginning with 0. Each column consists of an NSScrollView containing an NSMatrix filled with NSBrowserCells. NSBrowser relies on a delegate to provide the data in its NSBrowserCells. See the NSBrowserCell class description for more on its implementation.</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Browser Selection</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">An entry in an NSBrowser's column can be either a branch node (such as a directory) or a leaf node (such as a file). When the user selects a single branch node entry in a column, the NSBrowser sends itself the <b>addColumn</b> message, which messages its delegate to load the next column. The user's selection can be represented as a character string; if the selection is hierarchical (for example, a filename within a directory), each component of the path to the selected node is separated by “/”. To use some other character as the delimiter, invoke <b>setPathSeparator:</b>.</p>
+<p class="p14"><br></p>
+<p class="p13">An NSBrowser can be set to allow selection of multiple entries in a column, or to limit selection to a single entry. When set for multiple selection, it can also be set to limit multiple selection to leaf nodes only, or to allow selection of both types of nodes together.</p>
+<p class="p14"><br></p>
+<p class="p13">As a subclass of NSControl, NSBrowser has a target object and action message. Each time the user selects one or more entries in a column, the action message is sent to the target. NSBrowser also adds an action to be sent when the user double-clicks on an entry, which allows the user to select items without any action being taken, and then double-click to invoke some useful action such as opening a file.</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>User Interface Features</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">The user interface features of an NSBrowser can be changed in a number of ways. The NSBrowser may or may not have a horizontal scroller. (The NSBrowser's columns, by contrast, always have vertical scrollers—although a scroller's buttons and knob might be invisible if the column doesn't contain many entries.) You generally shouldn't create an NSBrowser without a horizontal scroller; if you do, you must make sure the bounds rectangle of the NSBrowser is wide enough that all the columns can be displayed. An NSBrowser's columns may be bordered and titled, bordered and untitled, or unbordered and untitled. A column's title may be taken from the selected entry in the column to its left, or may be provided explicitly by the NSBrowser or its delegate.</p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>NSBrowser's Delegate</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p13">NSBrowser requires a delegate to provide it with data to display. The delegate is responsible for providing the data and for setting each item as a branch or leaf node, enabled or disabled. It can also receive notification of events like scrolling and requests for validation of columns that may have changed.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p13">You can implement one of two delegate types: active or passive. An active delegate creates a column's rows (that is, the NSBrowserCells) itself, while a passive one leaves that job to the NSBrowser. Normally, passive delegates are preferable, because they're easier to implement. An active delegate must implement <b>browser:createRowsForColumn:inMatrix:</b> to create the rows of the specified column. A passive delegate, on the other hand, must implement<b> browser:numberOfRowsInColumn:</b> to let the NSBrowser know how many rows to create. These two methods are mutually exclusive; you can implement one or the other, but not both. (The NSBrowser ascertains what type of delegate it has by which method the delegate responds to.)</p>
+<p class="p14"><br></p>
+<p class="p13">Both types of delegate implement <b>browser:willDisplayCell:atRow:column:</b> to set up state (such as the cell's string value and whether the cell is a leaf or a branch) before an individual cell is displayed. (This delegate method doesn't need to invoke NSBrowserCell's <b>setLoaded:</b> method, because the NSBrowser can determine that state by itself.) An active delegate can instead set all the cells' state at the time the cells are created, in which case it doesn't need to implement <b>browser:willDisplayCell:atRow:column:</b>. However, a passive delegate must always implement this method.</p>
+<p class="p14"><br></p>
+<p class="p19"><br></p>
+<p class="p11"><b>Method Types<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p20">Setting component classes<span class="Apple-tab-span">	</span>+ cellClass</p>
+<p class="p21"><span class="s3">-</span> setCellClass:</p>
+<p class="p21"><span class="s3">-</span> cellPrototype</p>
+<p class="p21"><span class="s3">-</span> setCellPrototype:</p>
+<p class="p21"><span class="s3">-</span> matrixClass</p>
+<p class="p21"><span class="s3">-</span> setMatrixClass:</p>
+<p class="p22"><br></p>
+<p class="p20">Getting matrices,<span class="Apple-converted-space">  </span>cells, and rows<span class="Apple-tab-span">	</span><span class="s3">-</span> selectedCell</p>
+<p class="p21"><span class="s3">-</span> selectedCellInColumn:</p>
+<p class="p21"><span class="s3">-</span> selectedCells</p>
+<p class="p21"><span class="s3">-</span> selectAll:</p>
+<p class="p21"><span class="s3">-</span> selectedRowInColumn:</p>
+<p class="p21"><span class="s3">-</span> selectRow:inColumn:</p>
+<p class="p21"><span class="s3">-</span> loadedCellAtRow:column:</p>
+<p class="p21"><span class="s3">-</span> matrixInColumn:</p>
+<p class="p22"><br></p>
+<p class="p20">Getting and setting paths<span class="Apple-tab-span">	</span><span class="s3">-</span> path</p>
+<p class="p21"><span class="s3">-</span> setPath:</p>
+<p class="p21"><span class="s3">-</span> pathToColumn:</p>
+<p class="p21"><span class="s3">-</span> pathSeparator</p>
+<p class="p21"><span class="s3">-</span> setPathSeparator:</p>
+<p class="p22"><br></p>
+<p class="p20">Manipulating columns<span class="Apple-tab-span">	</span><span class="s3">-</span> addColumn</p>
+<p class="p21"><span class="s3">-</span> displayAllColumns</p>
+<p class="p21"><span class="s3">-</span> displayColumn:</p>
+<p class="p21"><span class="s3">-</span> columnOfMatrix:</p>
+<p class="p21"><span class="s3">-</span> selectedColumn</p>
+<p class="p21"><span class="s3">-</span> lastColumn</p>
+<p class="p21"><span class="s3">-</span> setLastColumn:</p>
+<p class="p21"><span class="s3">-</span> firstVisibleColumn</p>
+<p class="p21"><span class="s3">-</span> numberOfVisibleColumns</p>
+<p class="p21"><span class="s3">-</span> lastVisibleColumn</p>
+<p class="p21"><span class="s3">-</span> validateVisibleColumns</p>
+<p class="p22"><br></p>
+<p class="p20">Loading columns<span class="Apple-tab-span">	</span><span class="s3">-</span> isLoaded</p>
+<p class="p21"><span class="s3">-</span> loadColumnZero</p>
+<p class="p21"><span class="s3">-</span> reloadColumn:</p>
+<p class="p22"><br></p>
+<p class="p20">Setting selection characteristics<span class="Apple-tab-span">	</span><span class="s3">-</span> allowsBranchSelection</p>
+<p class="p21"><span class="s3">-</span> setAllowsBranchSelection:</p>
+<p class="p21"><span class="s3">-</span> allowsEmptySelection</p>
+<p class="p21"><span class="s3">-</span> setAllowsEmptySelection:</p>
+<p class="p21"><span class="s3">-</span> allowsMultipleSelection</p>
+<p class="p21"><span class="s3">-</span> setAllowsMultipleSelection:</p>
+<p class="p22"><br></p>
+<p class="p20">Setting column characteristics<span class="Apple-tab-span">	</span><span class="s3">-</span> reusesColumns</p>
+<p class="p21"><span class="s3">-</span> setReusesColumns:</p>
+<p class="p21"><span class="s3">-</span> maxVisibleColumns</p>
+<p class="p21"><span class="s3">-</span> setMaxVisibleColumns:</p>
+<p class="p21"><span class="s3">-</span> minColumnWidth</p>
+<p class="p21"><span class="s3">-</span> setMinColumnWidth:</p>
+<p class="p21"><span class="s3">-</span> separatesColumns</p>
+<p class="p21"><span class="s3">-</span> setSeparatesColumns:</p>
+<p class="p21"><span class="s3">-</span> takesTitleFromPreviousColumn</p>
+<p class="p21"><span class="s3">-</span> setTakesTitleFromPreviousColumn:</p>
+<p class="p22"><br></p>
+<p class="p20">Manipulating column titles<span class="Apple-tab-span">	</span><span class="s3">-</span> titleOfColumn:</p>
+<p class="p21"><span class="s3">-</span> setTitle:ofColumn:</p>
+<p class="p21"><span class="s3">-</span> isTitled</p>
+<p class="p21"><span class="s3">-</span> setTitled:</p>
+<p class="p21"><span class="s3">-</span> drawTitle:inRect:ofColumn:</p>
+<p class="p21"><span class="s3">-</span> titleHeight</p>
+<p class="p21"><span class="s3">-</span> titleFrameOfColumn:</p>
+<p class="p22"><br></p>
+<p class="p20">Scrolling an NSBrowser<span class="Apple-tab-span">	</span><span class="s3">-</span> scrollColumnToVisible:</p>
+<p class="p21"><span class="s3">-</span> scrollColumnsLeftBy:</p>
+<p class="p21"><span class="s3">-</span> scrollColumnsRightBy:</p>
+<p class="p21"><span class="s3">-</span> updateScroller</p>
+<p class="p21"><span class="s3">-</span> scrollViaScroller:</p>
+<p class="p22"><br></p>
+<p class="p20">Showing a horizontal scroller<span class="Apple-tab-span">	</span><span class="s3">-</span> hasHorizontalScroller</p>
+<p class="p21"><span class="s3">-</span> setHasHorizontalScroller:</p>
+<p class="p22"><br></p>
+<p class="p20">Setting the behavior of arrow keys<span class="Apple-tab-span">	</span><span class="s3">-</span> acceptsArrowKeys</p>
+<p class="p21"><span class="s3">-</span> setAcceptsArrowKeys:</p>
+<p class="p21"><span class="s3">-</span> sendsActionOnArrowKeys</p>
+<p class="p21"><span class="s3">-</span> setSendsActionOnArrowKeys:</p>
+<p class="p22"><br></p>
+<p class="p20">Getting column frames<span class="Apple-tab-span">	</span><span class="s3">-</span> frameOfColumn:</p>
+<p class="p21"><span class="s3">-</span> frameOfInsideOfColumn:</p>
+<p class="p22"><br></p>
+<p class="p20">Arranging browser components<span class="Apple-tab-span">	</span><span class="s3">-</span> tile</p>
+<p class="p23"><br></p>
+<p class="p20">Setting the delegate<span class="Apple-tab-span">	</span><span class="s3">-</span> delegate</p>
+<p class="p21"><span class="s3">-</span> setDelegate:</p>
+<p class="p22"><br></p>
+<p class="p20">Target and action<span class="Apple-tab-span">	</span><span class="s3">-</span> doubleAction</p>
+<p class="p21"><span class="s3">-</span> setDoubleAction:</p>
+<p class="p21"><span class="s3">-</span> sendAction</p>
+<p class="p22"><br></p>
+<p class="p20">Event handling<span class="Apple-tab-span">	</span><span class="s3">-</span> doClick:</p>
+<p class="p21"><span class="s3">-</span> doDoubleClick:</p>
+<p class="p24"><br></p>
+<p class="p11"><b>Class Methods<span class="Apple-converted-space"> </span></b></p>
+<p class="p12"><b></b><br></p>
+<p class="p16"><b></b><b>cellClass</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25">+ (Class)<b>cellClass</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the NSBrowserCell class (regardless of whether a <b>setCellClass:</b> message has been sent to a particular instance)</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>cellPrototype</b>,<span class="s3">-</span> s<b>etCellPrototype:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b></b><br></p>
+<p class="p11"><b>Instance Methods</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p16"><b></b><b>acceptsArrowKeys</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>acceptsArrowKeys</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns YES if the arrow keys are enabled.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setAcceptsArrowKeys:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>addColumn</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>addColumn</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Adds a column to the right of the last column.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>columnOfMatrix:</b>, <span class="s3">-</span> <b>displayColumn:</b>, <span class="s3">-</span> <b>selectedColumn</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>allowsBranchSelection</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>allowsBranchSelection</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns whether the user can select branch items when multiple selection is enabled.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setAllowsBranchSelection:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>allowsEmptySelection</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>allowsEmptySelection</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns whether there can be nothing selected.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setAllowsEmptySelection:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>allowsMultipleSelection</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>allowsMultipleSelection</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns whether the user can select multiple items.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setAllowsMultipleSelection:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>cellPrototype</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (id)<b>cellPrototype</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the NSBrowser's prototype NSCell.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setCellPrototype:</b>, <span class="s3">-</span> <b>setCellClass:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>columnOfMatrix:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (int)<b>columnOfMatrix:</b>(NSMatrix *)<i>matrix</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the column number in which <i>matrix</i> is located.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>matrixInColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>delegate</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (id)<b>delegate</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the NSBrowser's delegate.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setDelegate:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>displayAllColumns</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>displayAllColumns</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Updates the NSBrowser to display all loaded columns.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>addColumn</b>, <span class="s3">-</span> <b>validateVisibleColumns</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>displayColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>displayColumn:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Updates the NSBrowser to display the column with the given index.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>addColumn</b>, <span class="s3">-</span> <b>validateVisibleColumns</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>doClick:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>doClick:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Responds to (single) mouse clicks in a column of the NSBrowser.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>sendAction</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>doDoubleClick:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>doDoubleClick:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Responds to double-clicks in a column of the NSBrowser.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setDoubleAction:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>doubleAction</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (SEL)<b>doubleAction</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the NSBrowser's double-click action method.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setDoubleAction:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>drawTitle:inRect:ofColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>drawTitle:</b>(NSString *)<i>title </i><b>inRect:</b>(NSRect)<i>aRect </i><b>ofColumn:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Draws the title for the column at index column.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>titleFrameOfColumn:</b>, <span class="s3">-</span> <b>titleHeight</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>firstVisibleColumn</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (int)<b>firstVisibleColumn</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the index of the first visible column.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>lastVisibleColumn</b>, <span class="s3">-</span> <b>numberOfVisibleColumns</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>frameOfColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (NSRect)<b>frameOfColumn:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the rectangle containing the column at index column.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>frameOfInsideOfColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (NSRect)<b>frameOfInsideOfColumn:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the rectangle containing the column at index column, not including borders.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>hasHorizontalScroller</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>hasHorizontalScroller</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns whether an NSScroller is used to scroll horizontally.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setHasHorizontalScroller:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>isLoaded</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>isLoaded</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns whether column zero is loaded.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>loadColumnZero</b>, <span class="s3">-</span> <b>reloadColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>isTitled</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>isTitled</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns whether columns display titles.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setTitled:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>lastColumn</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (int)<b>lastColumn</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the index of the last column loaded.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>selectedColumn</b>, <span class="s3">-</span> <b>setLastColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>lastVisibleColumn</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (int)<b>lastVisibleColumn</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the index of the last visible column.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>firstVisibleColumn</b>, <span class="s3">-</span> <b>numberOfVisibleColumns</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>loadColumnZero</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>loadColumnZero</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Loads column zero; unloads previously loaded columns.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>isLoaded</b>, <span class="s3">-</span> <b>reloadColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>loadedCellAtRow:column:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (id)<b>loadedCellAtRow:</b>(int)<i>row </i><b>column:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Loads if necessary and returns the NSCell at <i>row</i> in <i>column</i>.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>selectedCellInColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>matrixClass</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (Class)<b>matrixClass</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the class of NSMatrix used in the NSBrowser's columns.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setMatrixClass:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>matrixInColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (NSMatrix *)<b>matrixInColumn:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the matrix located in the column identified by index <i>column</i>.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>maxVisibleColumns</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (int)<b>maxVisibleColumns</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the maximum number of visible columns.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setMaxVisibleColumns:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>minColumnWidth</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (float)<b>minColumnWidth</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the minimum column width in pixels.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setMinColumnWidth:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>numberOfVisibleColumns</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (int)<b>numberOfVisibleColumns</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the number of columns visible.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>validateVisibleColumns</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>path</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (NSString *)<b>path</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the browser's current path.</p>
+<p class="p14"><br></p>
+<p class="p32"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s3">-</span><span class="s4"> <b>setPath:</b></span></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>pathSeparator</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (NSString *)<b>pathSeparator</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the path separator. The default is “/”.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setPathSeparator:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>pathToColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (NSString *)<b>pathToColumn:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns a string representing the path from the first column up to, but not including, the column at index <i>column</i>.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>path</b>, <span class="s3">-</span> <b>setPath:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>reloadColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>reloadColumn:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Reloads <i>column</i> if it is loaded; sets it as the last column.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>isLoaded</b>, <span class="s3">-</span> <b>loadColumnZero</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>reusesColumns</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>reusesColumns</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns YES if NSMatrix objects aren't freed when their columns are unloaded.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setReusesColumns</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>scrollColumnToVisible:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>scrollColumnToVisible:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Scrolls to make the column at index column visible.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>scrollViaScroller:</b>, <span class="s3">-</span> <b>updateScroller</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>scrollColumnsLeftBy:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>scrollColumnsLeftBy:</b>(int)<i>shiftAmount</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Scrolls columns left by shiftAmount columns.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>scrollViaScroller:</b>, <span class="s3">-</span> <b>updateScroller</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>scrollColumnsRightBy:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>scrollColumnsRightBy:</b>(int)<i>shiftAmount</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Scrolls columns right by shiftAmount columns.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>scrollViaScroller:</b>, <span class="s3">-</span> <b>updateScroller</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>scrollViaScroller:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>scrollViaScroller:</b>(NSScroller *)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Scrolls columns left or right based on an NSScroller.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>updateScroller</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>selectAll:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>selectAll:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Selects all NSCells in the last column of the NSBrowser.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>selectedCell</b>, <span class="s3">-</span> <b>selectedCells</b>, <span class="s3">-</span> <b>selectedColumn</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>selectRow:inColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>selectRow:</b>(int)<i>row</i> <b>inColumn:</b>(int)<i>column</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p13">Selects the cell at index <i>row</i> in the column identified by index <i>column</i>.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>loadedCellAtRow:column:</b>, <span class="s3">-</span> <b>selectedRowInColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>selectedCell</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (id)<b>selectedCell</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the last (rightmost and lowest) selected NSCell.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>loadedCellAtRow:column:</b>, <span class="s3">-</span> <b>selectedCell</b>s, <span class="s3">-</span> <b>selectRow:inColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>selectedCellInColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (id)<b>selectedCellInColumn:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the last (lowest) NSCell that's selected in column.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>loadedCellAtRow:column:</b>, <span class="s3">-</span> <b>selectedCell</b>, <span class="s3">-</span> <b>selectedRowInColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>selectedCells</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (NSArray *)<b>selectedCells</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns all cells selected in the rightmost column.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>selectAll:</b>, <span class="s3">-</span> <b>selectedCell</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>selectedColumn</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (int)<b>selectedColumn</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the index of the last column with a selected item.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>columnOfMatrix</b>, <span class="s3">-</span> <b>selectAll:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>selectedRowInColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (int)<b>selectedRowInColumn:</b>(int)<i>column</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p13">Returns the row index of the selected cell in the column specified by index <i>column</i>.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>loadedCellAtRow:column:</b>, <span class="s3">-</span> <b>selectedCell</b>, <span class="s3">-</span> <b>selectedCellInColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>sendAction</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>sendAction</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sends the action message to the target. Returns YES upon success, NO if no target for the message could be found.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>sendsActionOnArrowKeys</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>sendsActionOnArrowKeys</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns NO if pressing an arrow key only scrolls the browser, YES if it also sends the action message specified by <b>setAction:</b>.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span> <span class="s3">-</span> <b>acceptsArrowKeys</b>, <span class="s3">-</span> <b>setSendsActionOnArrayKeys:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>separatesColumns</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>separatesColumns</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns whether columns are separated by bezeled borders.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setSeparatesColumns:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setAcceptsArrowKeys:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setAcceptsArrowKeys:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Enables or disables the arrow keys as used for navigating within and between browsers.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>acceptsArrowKeys</b>, <span class="s3">-</span> <b>sendsActionOnArrowKeys</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setAllowsBranchSelection:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setAllowsBranchSelection:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets whether the user can select branch items when multiple selection is enabled.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>allowsBranchSelection</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setAllowsEmptySelection:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setAllowsEmptySelection:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets whether there can be nothing selected.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>allowsEmptySelection</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setAllowsMultipleSelection:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setAllowsMultipleSelection:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets whether the user can select multiple items.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>allowsMultipleSelection</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setCellClass:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setCellClass:</b>(Class)<i>factoryId</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets the class of NSCell used in the columns of the NSBrowser.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>cellClass:</b>, <span class="s3">-</span> <b>cellPrototype</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p30"><br></p>
+<p class="p16"><b></b><b>setCellPrototype:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setCellPrototype:</b>(NSCell *)<i>aCell</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets the NSCell instance copied to display items in the columns of NSBrowser.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>cellClass:</b>, <span class="s3">-</span> <b>cellPrototype</b><span class="Apple-converted-space"> </span></p>
+<p class="p28"><br></p>
+<p class="p30"><br></p>
+<p class="p16"><b></b><b>setDelegate:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setDelegate:</b>(id)<i>anObject</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets the NSBrowser's delegate to <i>anObject</i>. Raises NSBrowserIllegalDelegateException if the delegate specified by <i>anObject</i> doesn't respond to <b>browser:willDisplayCell:atRow:column:</b> and either of the methods <b>browser:numberOfRowsInColumn:</b> or <b>browser:createRowsForColumn:inMatrix:</b>.</p>
+<p class="p14"><br></p>
+<p class="p32"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s3">-</span><span class="s4"> <b>delegate</b></span></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setDoubleAction:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setDoubleAction:</b>(SEL)<i>aSelector</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets the NSBrowser's double-click action to <i>aSelector</i>.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>doubleAction</b>, <span class="s3">-</span> <b>sendAction</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setHasHorizontalScroller:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setHasHorizontalScroller:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets whether an NSScroller is used to scroll horizontally.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>hasHorizontalScroller</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setLastColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setLastColumn:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets the last column to column.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>lastColumn</b>, <span class="s3">-</span> <b>lastVisibleColumn</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setMatrixClass:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setMatrixClass:</b>(Class)<i>factoryId</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets the matrix class (NSMatrix or an NSMatrix subclass) used in the NSBrowser's columns.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>matrixClass</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setMaxVisibleColumns:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setMaxVisibleColumns:</b>(int)<i>columnCount</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets the maximum number of columns displayed.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>maxVisibleColumns</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setMinColumnWidth:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setMinColumnWidth:</b>(float)<i>columnWidth</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets the minimum column width in pixels.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>minColumnWidth</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setPath:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>setPath:</b>(NSString *)<i>path</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Parses <i>path</i> and selects corresponding items in the NSBrowser columns.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>path</b>, <span class="s3">-</span><b> pathToColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setPathSeparator:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setPathSeparator:</b>(NSString *)<i>newString</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets the path separator to <i>newString</i>.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>pathSeparator</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setReusesColumns:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setReusesColumns:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">If <i>flag</i> is YES, prevents NSMatrix objects from being freed when their columns are unloaded, so they can be reused.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>resusesColumns</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setSendsActionOnArrowKeys:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setSendsActionOnArrowKeys:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets whether pressing an arrow key will cause the action message to be sent (in addition to causing scrolling).<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>sendsActionOnArrowKeys</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setSeparatesColumns:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setSeparatesColumns:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets whether to separate columns with bezeled borders.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>separatesColumns</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setTakesTitleFromPreviousColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setTakesTitleFromPreviousColumn:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets whether the title of a column is set to the string value of the selected NSCell in the previous column.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>takesTitleFromPreviousColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setTitle:ofColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setTitle:</b>(NSString *)<i>aString </i><b>ofColumn:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets the title of the column at index <i>column</i> to <i>aString</i>.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>titleOfColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>setTitled:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>setTitled:</b>(BOOL)<i>flag</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Sets whether columns display titles.</p>
+<p class="p14"><br></p>
+<p class="p32"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s3">-</span><span class="s4"> <b>isTitled</b></span></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>takesTitleFromPreviousColumn</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>takesTitleFromPreviousColumn</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns YES if the title of a column is set to the string value of the selected NSCell in the previous column.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setTakesTitleFromPreviousColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>tile</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>tile</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Adjusts the various subviews of NSBrowser—scrollers, columns, titles, and so on—without redrawing.<span class="Apple-converted-space">  </span>Your code shouldn't send this message.<span class="Apple-converted-space">  </span>It's invoked any time the appearance of the NSBrowser changes.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>titleFrameOfColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (NSRect)<b>titleFrameOfColumn:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the bounds of the title frame for the column at index <i>column</i>.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>drawTitle:inRect:ofColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>titleHeight</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (float)<b>titleHeight</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the height of column titles.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>drawTitle:inRect:ofColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>titleOfColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (NSString *)<b>titleOfColumn:</b>(int)<i>column</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Returns the title displayed for the column at index <i>column</i>.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setTitle:ofColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>updateScroller</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>updateScroller</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Updates the horizontal scroller to reflect column positions.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>scrollViaScroller:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>validateVisibleColumns</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>validateVisibleColumns</b><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p13">Invokes delegate method <b>browser:isColumnValid:</b> for visible columns.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>numberOfVisibleColumn</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b></b><br></p>
+<p class="p11"><b>Methods Implemented By the Delegate</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p16"><b></b><b>browser:createRowsForColumn:inMatrix:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>browser:</b>(NSBrowser *)<i>sender</i></p>
+<p class="p33"><b>createRowsForColumn:</b>(int)<i>column</i></p>
+<p class="p33"><b>inMatrix:</b>(NSMatrix *)<i>matrix</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p13">Creates a row in matrix for each row of data to be displayed in column of the browser. Either this method or <b>browser:numberOfRowsInColumn:</b> must be implemented, but not both (or an NSBrowserIllegalDelegateException will be raised).</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>browser:willDisplayCell:atRow:column:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>browser:isColumnValid:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>browser:</b>(NSBrowser *)<i>sender</i> <b>isColumnValid:</b>(int)<i>column</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p13">Returns whether the contents of the specified column are valid. If NO is returned, <i>sender</i> reloads the column. This method is invoked in response to <b>validateVisibleColumns</b> being sent to <i>sender</i>.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>browser:numberOfRowsInColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (int)<b>browser:</b>(NSBrowser *)<i>sender</i> <b>numberOfRowsInColumn:</b>(int)<i>column</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p13">Returns the number of rows of data in the column at index <i>column</i>. Either this method or <b>browser:createRowsForColumn:inMatrix:</b> must be implemented, but not both.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>browser:willDisplayCell:atRow:column:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>browser:selectCellWithString:inColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>browser:</b>(NSBrowser *)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p33"><b>selectCellWithString:</b>(NSString *)<i>title</i></p>
+<p class="p33"><b>inColumn:</b>(int)<i>column</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p13">Asks the delegate to select the NSCell with title <i>title</i> in the column at index <i>column</i>. If the delegate returns NO, the NSCell is not selected.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>selectedCellInColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>browser:selectRow:inColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (BOOL)<b>browser:</b>(NSBrowser *)<i>sender</i></p>
+<p class="p33"><b>selectRow:</b>(int)<i>row</i></p>
+<p class="p33"><b>inColumn:</b>(int)<i>column</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p13">Asks the delegate to select the NSCell at row <i>row</i> in the column at index <i>column</i>. If the delegate returns NO, the NSCell is not selected.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>selectedRowInColumn:</b>, <span class="s3">-</span> <b>selectRow:inColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>browser:titleOfColumn:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (NSString *)<b>browser:</b>(NSBrowser *)<i>sender</i> <b>titleOfColumn:</b>(int)<i>column</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p13">Asks the delegate for the title to display above the column at index <i>column</i>.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>setTitle:ofColumn:</b>, <span class="s3">-</span><b> titleOfColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>browser:willDisplayCell:atRow:column:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>browser:</b>(NSBrowser *)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p33"><b>willDisplayCell:</b>(id)<i>cell</i><span class="Apple-converted-space"> </span></p>
+<p class="p33"><b>atRow:</b>(int)<i>row</i><span class="Apple-converted-space"> </span></p>
+<p class="p33"><b>column:</b>(int)<i>column</i></p>
+<p class="p34"><i></i><br></p>
+<p class="p13">Notifies the delegate before the NSBrowser displays the specified <i>cell</i> at <i>row</i> in <i>column</i>. The delegate should set any state necessary for the correct display of the cell.</p>
+<p class="p14"><br></p>
+<p class="p27"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s3">-</span> <b>browser:createRowsForColumn:inMatrix:,</b> <span class="s3">-</span> <b>browser:numberOfRowsInColumn:</b></p>
+<p class="p28"><b></b><br></p>
+<p class="p30"><b></b><br></p>
+<p class="p16"><b></b><b>browserDidScroll:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>browserDidScroll:</b>(NSBrowser *)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p13">Notifies the delegate when the NSBrowser has scrolled.</p>
+<p class="p14"><br></p>
+<p class="p31"><br></p>
+<p class="p16"><b></b><b>browserWillScroll:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p25"><span class="s3">-</span> (void)<b>browserWillScroll:</b>(NSBrowser *)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p13">Notifies the delegate when the NSBrowser will scroll.<span class="Apple-converted-space"> </span></p>
+<p class="p14"><br></p>
+</body>
+</html>

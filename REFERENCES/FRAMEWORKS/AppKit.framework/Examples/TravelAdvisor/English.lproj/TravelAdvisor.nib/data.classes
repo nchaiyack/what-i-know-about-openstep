@@ -1,0 +1,33 @@
+"Converter" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSObject; };
+"Country" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSObject; };
+"FirstResponder" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSObject; };
+"TAController" = {
+    ACTIONS = {
+        "addRecord:" = id; 
+        "blankFields:" = id; 
+        "convertCelsius:" = id; 
+        "convertCurrency:" = id; 
+        "deleteRecord:" = id; 
+        "handleTVClick:" = id; 
+        "nextRecord:" = id; 
+        "priorRecord:" = id; 
+        "switchChecked:" = id; 
+    }; 
+    OUTLETS = {
+        celsius = id; 
+        commentsField = id; 
+        commentsLabel = id; 
+        converter = id; 
+        countryField = id; 
+        currencyDollarsField = id; 
+        currencyLocalField = id; 
+        currencyNameField = id; 
+        currencyRateField = id; 
+        englishSpokenSwitch = id; 
+        fahrenheit = id; 
+        languagesField = id; 
+        logisticsForm = id; 
+        tableView = id; 
+    }; 
+    SUPERCLASS = NSObject; 
+};

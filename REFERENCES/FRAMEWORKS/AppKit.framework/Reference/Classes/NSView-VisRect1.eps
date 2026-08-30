@@ -1,0 +1,1778 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Adobe Illustrator(TM) 3.0.1.
+%%For: () ()
+%%Title: (/Net/seaport/projects/PubsDev/DocsInProgress/NextDev/ApplicationKit/Classes/Art/NSView-VisRect1.eps)
+%%CreationDate: (2/2/96) (13:24)
+%%BoundingBox: 60 430 607 623
+%%DocumentProcessColors: Black
+%%DocumentFonts: Helvetica
+%%DocumentSuppliedResources: procset Adobe_packedarray 2.0 0
+%%+ procset Adobe_cmykcolor 1.1 0
+%%+ procset Adobe_cshow 1.1 0
+%%+ procset Adobe_customcolor 1.0 0
+%%+ procset Adobe_typography_AI3 1.0 1
+%%+ procset Adobe_IllustratorA_AI3 1.0 1
+%AI3_ColorUsage: Black&White
+%AI3_TemplateBox: 306 396 306 396
+%AI3_TileBox: 30 31 582 761
+%AI3_DocumentPreview: Header
+%%Template:
+%%PageOrigin:30 31
+%%AI3_PaperRect:0 792 612 0
+%%AI3_Margin:30 31 30 31
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Adobe_packedarray 2.0 0
+%%Title: (Packed Array Operators)
+%%Version: 2.0 
+%%CreationDate: (8/2/90) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+userdict /Adobe_packedarray 5 dict dup begin put
+/initialize			% - initialize -
+{
+/packedarray where
+	{
+	pop
+	}
+	{
+	Adobe_packedarray begin
+	Adobe_packedarray
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/packedarray		% arguments count packedarray array
+{
+array astore readonly
+} def
+/setpacking			% boolean setpacking -
+{
+pop
+} def
+/currentpacking		% - setpacking boolean
+{
+false
+} def
+currentdict readonly pop end
+%%EndResource
+Adobe_packedarray /initialize get exec
+
+%%BeginResource: procset Adobe_cmykcolor 1.1 0
+%%Title: (CMYK Color Operators)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cmykcolor 4 dict dup begin put
+/initialize			% - initialize -
+{
+/setcmykcolor where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cmykcolor_vars 2 dict dup begin put
+	/_setrgbcolor
+		/setrgbcolor load def
+	/_currentrgbcolor
+		/currentrgbcolor load def
+	Adobe_cmykcolor begin
+	Adobe_cmykcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	end
+	Adobe_cmykcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_cmykcolor eq
+	{
+	end
+	} if
+} def
+/setcmykcolor		% cyan magenta yellow black setcmykcolor -
+{
+1 sub 4 1 roll
+3
+	{
+	3 index add neg dup 0 lt
+		{
+		pop 0
+		} if
+	3 1 roll
+	} repeat
+Adobe_cmykcolor_vars /_setrgbcolor get exec
+pop
+} def 
+/currentcmykcolor	% - currentcmykcolor cyan magenta yellow black
+{
+Adobe_cmykcolor_vars /_currentrgbcolor get exec
+3
+	{
+	1 sub neg 3 1 roll
+	} repeat
+0
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_cshow 1.1 0
+%%Title: (cshow Operator)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cshow 3 dict dup begin put
+/initialize			% - initialize -
+{
+/cshow where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cshow_vars 1 dict dup begin put
+	/_cshow		% - _cshow proc
+		{} def
+	Adobe_cshow begin
+	Adobe_cshow
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/cshow				% proc string cshow -
+{
+exch
+Adobe_cshow_vars
+	exch /_cshow
+	exch put
+	{
+	0 0 Adobe_cshow_vars /_cshow get exec
+	} forall
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_customcolor 1.0 0
+%%Title: (Custom Color Operators)
+%%Version: 1.0 
+%%CreationDate: (5/9/88) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_customcolor 5 dict dup begin put
+/initialize			% - initialize -
+{
+/setcustomcolor where
+	{
+	pop
+	}
+	{
+	Adobe_customcolor begin
+	Adobe_customcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	Adobe_customcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_customcolor eq
+	{
+	end
+	} if
+} def
+/findcmykcustomcolor	% cyan magenta yellow black name findcmykcustomcolor object
+{
+5 packedarray
+}  def
+/setcustomcolor		% object tint setcustomcolor -
+{
+exch
+aload pop pop
+4
+	{
+	4 index mul 4 1 roll
+	} repeat
+5 -1 roll pop
+setcmykcolor
+} def
+/setoverprint		% boolean setoverprint -
+{
+pop
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_typography_AI3 1.0 1
+%%Title: (Typography Operators)
+%%Version: 1.0 
+%%CreationDate:(5/31/90) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_typography_AI3 47 dict dup begin put
+/initialize			% - initialize -
+{
+/TZ
+ where
+	{
+	pop
+	}
+	{
+	Adobe_typography_AI3 begin
+	Adobe_typography_AI3
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	Adobe_typography_AI3 begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_typography_AI3 eq
+	{
+	end
+	} if
+} def
+
+% [ number value stream [ array for encoding modification ] modifyEncoding ==> [ modified array ]
+/modifyEncoding
+{
+	/_tempEncode exch ddef
+	
+	% pointer for sequential encodings
+	/_pntr 0 ddef
+	
+	{
+		% get bottom object
+		counttomark -1 roll
+
+		% is it a mark ?
+		dup type dup /marktype eq 		
+		{
+			% exit
+			pop pop exit
+		}
+		{
+			% ... object ... type ....
+
+			% insert if a nametype
+			/nametype eq
+			{
+				% insert the name at _pntr and increment pointer
+				_tempEncode /_pntr dup load dup 3 1 roll 1 add ddef 3 -1 roll
+				put
+			}
+			{
+				% reset _pntr if it's a number
+				/_pntr exch ddef					
+			}
+			ifelse
+		}
+		ifelse
+	}
+	loop	
+	
+	% return the modified encoding
+	_tempEncode
+}
+def
+
+/TE	% Set std platform encoding 	% (encoding pairs) TE -
+{
+	StandardEncoding 256 array copy modifyEncoding 
+	/_nativeEncoding exch def
+} def
+
+% re-define font
+% expected arguments
+% for 'normal fonts : 
+%	[ /_Helvetica-Bold/Helvetica-Bold direction fontScript defaultEncoding TZ
+%
+% for cartographic, pictographic, and expert fonts :
+% 	[ ... number value stream ... /_Helvetica-Bold/Helvetica-Bold 
+%	direction fontScript defaultEncoding TZ
+/TZ		
+{
+	% platform dependent coding flag
+	/_useNativeEncoding exch def
+
+	% pop fontScript & direction
+	pop pop
+	
+	% create a new dictionary with length
+	% equal to original dictionary length + 2
+	% copy all the key/value pairs except FID
+	findfont dup length 2 add dict
+	
+	begin
+	
+		% copy all the values but the FID
+		% into the new dictionary
+		mark exch
+		{
+			1 index /FID ne { def } if cleartomark mark
+		}
+		forall
+		% discard last mark
+		pop
+		
+		% define FontName
+		/FontName exch def
+		
+		% if no re-encoding stream is present
+		% then if the use platform encoding flag is true
+		% install AI platform encoding
+		% else leave the base encoding in effect
+
+		counttomark 0 eq
+		{
+			1 _useNativeEncoding eq
+			{
+				/Encoding _nativeEncoding def
+			}
+			if
+			% clean up
+			cleartomark
+		}
+		{	
+			% custom encoding to be done
+			% start off with a copy of the font's standard encoding
+			/Encoding load 256 array copy 
+			modifyEncoding /Encoding exch def
+		}
+		ifelse		
+		FontName currentdict
+	end
+	
+	% register the new font
+	definefont pop
+}
+def
+
+% text painting operators
+/tr					% string tr ax ay string 
+{
+_ax _ay 3 2 roll
+} def
+/trj				% string trj cx cy fillchar ax ay string 
+{
+_cx _cy _sp _ax _ay 6 5 roll
+} def
+
+/a0
+{
+/Tx	% text							% textString Tx -
+	{
+	dup 
+	currentpoint 3 2 roll
+	tr _psf
+	newpath moveto
+	tr _ctm _pss
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	dup
+	currentpoint 3 2 roll
+	trj _pjsf
+	newpath moveto
+	trj _ctm _pjss
+	} ddef
+	
+} def
+/a1
+{
+/Tx	% text							% textString Tx -
+	{
+	dup currentpoint 4 2 roll gsave
+	dup currentpoint 3 2 roll
+	tr _psf
+	newpath moveto
+	tr _ctm _pss
+	grestore 3 1 roll moveto tr sp
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	dup currentpoint 4 2 roll gsave
+	dup currentpoint 3 2 roll
+	trj _pjsf
+	newpath moveto
+	trj _ctm _pjss
+	grestore 3 1 roll moveto tr sp
+	} ddef
+	
+} def
+
+/e0
+{
+/Tx	% text							% textString Tx -
+	{
+	tr _psf
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	trj _pjsf
+	} ddef
+} def
+
+/e1
+{
+/Tx	% text							% textString Tx -
+	{
+	dup currentpoint 4 2 roll gsave 
+	tr _psf  
+	grestore 3 1 roll moveto tr sp 
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	dup currentpoint 4 2 roll gsave 
+	trj _pjsf
+	grestore 3 1 roll moveto tr sp 
+	} ddef
+} def
+
+/i0
+{
+/Tx	% text							% textString Tx -
+	{
+	tr sp
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	trj jsp
+	} ddef
+} def
+
+/i1
+{
+W N
+} def
+
+/o0
+{
+/Tx	% text							% textString Tx -
+	{
+	tr sw rmoveto
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	trj swj rmoveto
+	} ddef
+} def
+
+/r0
+{
+/Tx	% text							% textString Tx -
+	{
+	tr _ctm _pss
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	trj _ctm _pjss
+	} ddef
+} def
+
+/r1
+{
+/Tx	% text							% textString Tx -
+	{
+	dup currentpoint 4 2 roll currentpoint gsave newpath moveto
+	tr _ctm _pss 
+	grestore 3 1 roll moveto tr sp 
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	dup currentpoint 4 2 roll currentpoint gsave newpath moveto
+	trj _ctm _pjss
+	grestore 3 1 roll moveto tr sp 
+	} ddef
+} def
+
+% font operators
+
+% Binding
+/To	% begin text 					% bindType To -
+{
+	pop _ctm currentmatrix pop
+} def
+
+/TO	% end text					% TO -
+{
+	Te _ctm setmatrix newpath
+} def
+
+% Text paths
+/Tp	% begin text path				% a b c d tx ty startPt Tp -
+{
+	pop _tm astore pop _ctm setmatrix 
+	_tDict begin /W {} def /h {} def
+} def
+
+/TP	% end text path					% TP -
+{
+	end
+	iTm 0 0 moveto
+} def
+
+% Render mode & matrix operators
+/Tr	% begin render					% render Tr - 
+{
+	_render 3 le {currentpoint newpath moveto} if
+	dup 8 eq {pop 0} {dup 9 eq {pop 1} if} ifelse
+	dup /_render exch ddef
+	_renderStart exch get load exec
+} def
+
+/iTm % internal set text matrix		% - iTm -	(uses _tm as implicit argument)
+{
+_ctm setmatrix _tm concat 0 _rise translate _hs 1 scale
+} def
+
+/Tm % set text matrix				% a b c d tx ty Tm -
+{
+_tm astore pop iTm 0 0 moveto
+} def
+
+/Td % translate text matrix 		% tx ty Td -
+{
+_mtx translate _tm _tm concatmatrix pop iTm 0 0 moveto
+} def
+
+/Te	% end render					% - Te -
+{
+	_render -1 eq {} {_renderEnd _render get dup null ne {load exec} {pop} ifelse} ifelse
+	/_render -1 ddef
+} def
+
+
+% Attributes
+/Ta	% set alignment					% alignment Ta -
+{
+pop
+} def
+
+/Tf	% set font name and size		% fontname size Tf -
+{
+dup 1000 div /_fScl exch ddef
+exch findfont exch scalefont setfont
+} def
+
+/Tl	% set leading					% leading paragraphLeading Tl -
+{
+pop
+0 exch _leading astore pop
+} def
+
+/Tt	% set user tracking				% userTracking Tt -
+{
+pop
+} def
+
+/TW % set word spacing				% minSpace optSpace maxSpace TW -
+{
+3 npop
+} def
+
+/Tw	% set computed word spacing		% wordSpace Tw
+{
+/_cx exch ddef
+} def
+
+/TC % set character spacing			% minSpace optSpace maxSpace TC -
+{
+3 npop
+} def
+
+/Tc	% set computed char spacing 	% charSpace Tc -
+{
+/_ax exch ddef
+} def
+
+/Ts % set super/subscripting (rise)	% rise Ts -
+{
+/_rise exch ddef
+currentpoint
+iTm
+moveto
+} def
+
+/Ti	% set indentation				% firstStartIndent otherStartIndent stopIndent Ti -
+{
+3 npop
+} def
+
+/Tz % set horizontal scaling		% scalePercent Tz -
+{
+100 div /_hs exch ddef
+iTm
+} def
+
+/TA % set pairwise kerning			% autoKern TA -
+									%	autoKern = 0 -> no pair kerning
+									%			 = 1 -> automatic pair kerning
+{
+pop
+} def
+
+/Tq % set hanging quotes			% hangingQuotes Tq -
+									%	hangingQuotes 	= 0 -> no hanging quotes
+									%			 		= 1 -> hanging quotes
+{
+pop
+} def
+
+
+% Text Bodies
+/TX {pop} def
+
+%/Tx	% non-justified text			% textString Tx -
+%/Tj	% justified text				% textString Tj -
+
+/Tk	% kern							% autoKern kernValue Tk -
+									%  	autoKern = 0 -> manual kern, = 1 -> auto kern
+									%	kernValue = kern value in em/1000 space
+{
+exch pop _fScl mul neg 0 rmoveto
+} def
+/TK	% non-printing kern				% autoKern kernValue TK -
+{
+2 npop
+} def
+
+/T* % carriage return & line feed	% - T* -
+{
+_leading aload pop neg Td
+} def
+
+/T*- % carriage return & negative line feed	% - T*- -
+{
+_leading aload pop Td
+} def
+
+/T-	% print a discretionary hyphen	% - T- -
+{
+_hyphen Tx
+} def
+
+/T+	% discretionary hyphen hyphen	% - T+ -
+{} def
+
+/TR	% reset pattern matrix 			% a b c d tx ty TR -
+{
+_ctm currentmatrix pop 	
+_tm astore pop 
+iTm 0 0 moveto 
+} def
+
+/TS	% special chars					% textString justified TS -
+{
+0 eq {Tx} {Tj} ifelse
+} def
+
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+
+%%BeginResource: procset Adobe_IllustratorA_AI3 1.0 1
+%%Title: (Adobe Illustrator (R) Version 3.0 Abbreviated Prolog)
+%%Version: 1.0 
+%%CreationDate: (7/22/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_IllustratorA_AI3 61 dict dup begin put
+% initialization
+/initialize				% - initialize -
+{
+% 47 vars, but leave slack of 10 entries for custom Postscript fragments
+userdict /Adobe_IllustratorA_AI3_vars 57 dict dup begin put
+
+% paint operands
+/_lp /none def
+/_pf {} def
+/_ps {} def
+/_psf {} def
+/_pss {} def
+/_pjsf {} def
+/_pjss {} def
+/_pola 0 def
+/_doClip 0 def
+
+% paint operators
+/cf	currentflat def	% - cf flatness
+
+% typography operands
+/_tm matrix def
+/_renderStart [/e0 /r0 /a0 /o0 /e1 /r1 /a1 /i0] def 
+/_renderEnd [null null null null /i1 /i1 /i1 /i1] def
+/_render -1 def
+/_rise 0 def
+/_ax 0 def			% x character spacing	(_ax, _ay, _cx, _cy follows awidthshow naming convention)
+/_ay 0 def			% y character spacing
+/_cx 0 def			% x word spacing
+/_cy 0 def			% y word spacing
+/_leading [0 0] def
+/_ctm matrix def
+/_mtx matrix def
+/_sp 16#020 def
+/_hyphen (-) def
+/_fScl 0 def
+/_cnt 0 def
+/_hs 1 def
+/_nativeEncoding 0 def
+/_useNativeEncoding 0 def
+/_tempEncode 0 def
+/_pntr 0 def
+/_tDict 2 dict def
+
+% typography operators
+/Tx {} def
+/Tj {} def
+
+% compound path operators
+/CRender {} def
+
+% printing
+/_AI3_savepage {} def
+
+% color operands
+/_gf null def
+/_cf 4 array def
+/_if null def
+/_of false def
+/_fc {} def
+/_gs null def
+/_cs 4 array def
+/_is null def
+/_os false def
+/_sc {} def
+/_i null def
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3
+	{
+	dup xcheck
+		{
+		bind
+		} if
+	pop pop
+	} forall
+end
+end
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3_vars begin
+newpath
+} def
+/terminate				% - terminate -
+{
+end
+end
+} def
+% definition operators
+/_					% - _ null
+null def
+/ddef				% key value ddef -
+{
+Adobe_IllustratorA_AI3_vars 3 1 roll put
+} def
+/xput				% key value literal xput -
+{
+dup load dup length exch maxlength eq
+	{
+	dup dup load dup
+	length 2 mul dict copy def
+	} if
+load begin def end
+} def
+/npop				% integer npop -
+{
+	{
+	pop
+	} repeat
+} def
+% marking operators
+/sw					% ax ay string sw x y 
+{
+dup length exch stringwidth
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add
+} def
+/swj				% cx cy fillchar ax ay string swj x y
+{
+dup 4 1 roll
+dup length exch stringwidth 
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add 
+6 2 roll /_cnt 0 ddef
+{1 index eq {/_cnt _cnt 1 add ddef} if} forall pop
+exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop
+} def
+/ss					% ax ay string matrix ss -
+{
+4 1 roll
+	{				% matrix ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put pop
+	gsave
+	false charpath currentpoint
+	4 index setmatrix
+	stroke
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+3 npop
+} def
+/jss				% cx cy fillchar ax ay string matrix jss -
+{
+4 1 roll
+	{				% cx cy fillchar matrix ax ay char 0 0 {proc} -   
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	gsave
+	_sp eq 
+		{
+		exch 6 index 6 index 6 index 5 -1 roll widthshow  
+		currentpoint
+		}
+		{
+		false charpath currentpoint
+		4 index setmatrix stroke
+		}ifelse
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+6 npop
+} def
+
+% path operators
+/sp					% ax ay string sp -
+{
+	{
+	2 npop (0) exch
+	2 copy 0 exch put pop
+	false charpath
+	2 copy rmoveto
+	} exch cshow
+2 npop
+} def
+/jsp					% cx cy fillchar ax ay string jsp -
+{
+	{					% cx cy fillchar ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	_sp eq 
+		{
+		exch 5 index 5 index 5 index 5 -1 roll widthshow  
+		}
+		{
+		false charpath
+		}ifelse
+	2 copy rmoveto
+	} exch cshow
+5 npop
+} def
+
+% path construction operators
+/pl				% x y pl x y
+{
+transform
+0.25 sub round 0.25 add exch
+0.25 sub round 0.25 add exch
+itransform
+} def
+/setstrokeadjust where
+	{
+	pop true setstrokeadjust
+	/c				% x1 y1 x2 y2 x3 y3 c -
+	{
+	curveto
+	} def
+	/C
+	/c load def
+	/v				% x2 y2 x3 y3 v -
+	{
+	currentpoint 6 2 roll curveto
+	} def
+	/V
+	/v load def
+	/y				% x1 y1 x2 y2 y -
+	{
+	2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l				% x y l -
+	{
+	lineto
+	} def
+	/L
+	/l load def
+	/m				% x y m -
+	{
+	moveto
+	} def
+	}
+	{%else
+	/c
+	{
+	pl curveto
+	} def
+	/C
+	/c load def
+	/v
+	{
+	currentpoint 6 2 roll pl curveto
+	} def
+	/V
+	/v load def
+	/y
+	{
+	pl 2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l
+	{
+	pl lineto
+	} def
+	/L
+	/l load def
+	/m
+	{
+	pl moveto
+	} def
+	}ifelse
+
+% graphic state operators
+/d					% array phase d -
+{
+setdash
+} def
+/cf	{} def			% - cf flatness
+/i					% flatness i -
+{
+dup 0 eq
+	{
+	pop cf
+	} if
+setflat
+} def
+/j					% linejoin j -
+{
+setlinejoin
+} def
+/J					% linecap J -
+{
+setlinecap
+} def
+/M					% miterlimit M -
+{
+setmiterlimit
+} def
+/w					% linewidth w -
+{
+setlinewidth
+} def
+
+% path painting operators
+/H					% - H -
+{} def
+/h					% - h -
+{
+closepath
+} def
+/N					% - N -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq {clip /_doClip 0 ddef} if 
+	newpath
+	} 
+	{
+	/CRender {N} ddef
+	}ifelse
+} def
+/n					% - n -
+{N} def
+/F					% - F -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _pf grestore clip newpath /_lp /none ddef _fc 
+		/_doClip 0 ddef
+		}
+		{
+		_pf
+		}ifelse
+	} 
+	{
+	/CRender {F} ddef
+	}ifelse
+} def
+/f					% - f -
+{
+closepath
+F
+} def
+/S					% - S -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _ps grestore clip newpath /_lp /none ddef _sc 
+		/_doClip 0 ddef
+		}
+		{
+		_ps
+		}ifelse
+	} 
+	{
+	/CRender {S} ddef
+	}ifelse
+} def
+/s					% - s -
+{
+closepath
+S
+} def
+/B					% - B -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 	% F clears _doClip
+	gsave F grestore 
+		{
+		gsave S grestore clip newpath /_lp /none ddef _sc
+		/_doClip 0 ddef
+		} 
+		{
+		S
+		}ifelse
+	}
+	{
+	/CRender {B} ddef
+	}ifelse
+} def
+/b					% - b -
+{
+closepath
+B
+} def
+/W					% - W -
+{
+/_doClip 1 ddef
+} def
+/*					% - [string] * -
+{
+count 0 ne 
+	{
+	dup type (stringtype) eq {pop} if
+	} if 
+_pola 0 eq {newpath} if
+} def
+
+% group operators
+/u					% - u -
+{} def
+/U					% - U -
+{} def
+/q					% - q -
+{
+_pola 0 eq {gsave} if
+} def
+/Q					% - Q -
+{
+_pola 0 eq {grestore} if
+} def
+/*u					% - *u -
+{
+_pola 1 add /_pola exch ddef
+} def
+/*U					% - *U -
+{
+_pola 1 sub /_pola exch ddef 
+_pola 0 eq {CRender} if
+} def
+/D					% polarized D -
+{pop} def
+/*w					% - *w -
+{} def
+/*W					% - *W -
+{} def
+
+% place operators
+/`					% matrix llx lly urx ury string ` -
+{
+/_i save ddef
+6 1 roll 4 npop
+concat
+userdict begin
+/showpage {} def
+false setoverprint
+pop
+} def
+/~					% - ~ -
+{
+end
+_i restore
+} def
+
+% color operators
+/O					% flag O -
+{
+0 ne
+/_of exch ddef
+/_lp /none ddef
+} def
+/R					% flag R -
+{
+0 ne
+/_os exch ddef
+/_lp /none ddef
+} def
+/g					% gray g -
+{
+/_gf exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_gf setgray
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/G					% gray G -
+{
+/_gs exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_gs setgray
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/k					% cyan magenta yellow black k -
+{
+_cf astore pop
+/_fc
+{
+_lp /fill ne
+	{
+	_of setoverprint
+	_cf aload pop setcmykcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/K					% cyan magenta yellow black K -
+{
+_cs astore pop
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_cs aload pop setcmykcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/x					% cyan magenta yellow black name gray x -
+{
+/_gf exch ddef
+findcmykcustomcolor
+/_if exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_if _gf 1 exch sub setcustomcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/X					% cyan magenta yellow black name gray X -
+{
+/_gs exch ddef
+findcmykcustomcolor
+/_is exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_is _gs 1 exch sub setcustomcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+
+% locked object operator
+/A					% value A -
+{
+pop
+} def
+
+currentdict readonly pop end
+setpacking
+
+% annotate page operator
+/annotatepage
+{
+} def
+%%EndResource
+%AI3-Grid.0 9 9 7 0.666667 0.666667 0.666667 1
+%%EndProlog
+%%BeginSetup
+%%IncludeFont: Helvetica
+Adobe_cmykcolor /initialize get exec
+
+Adobe_cshow /initialize get exec
+
+Adobe_customcolor /initialize get exec
+
+Adobe_typography_AI3 /initialize get exec
+
+
+Adobe_IllustratorA_AI3 /initialize get exec
+
+[
+129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla
+/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply
+/divide/copyright 176/registered 181/brokenbar 190/logicalnot 
+192/onesuperior 201/twosuperior 204/threesuperior 209/plusminus
+/onequarter/onehalf/threequarters/agrave/aacute/acircumflex
+/atilde/adieresis/aring/ccedilla/egrave/eacute/ecircumflex
+/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth/ntilde 
+236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis
+TE
+%AI3_BeginEncoding: _Helvetica Helvetica
+[/_Helvetica/Helvetica 0 0 1 TZ
+%AI3_EndEncoding
+%%EndSetup
+0 A
+u
+0 O
+0.667 g
+0 i 0 J 0 j 1 w 4 M []0 d
+%AI3_Note:
+0 D
+288 450 m
+288 594 L
+72 594 L
+72 450 L
+288 450 L
+f
+U
+u
+0 R
+0 G
+0.15 w 10 M [2 2 ]0 d
+230.46 596.33 m
+263.358 534.424 l
+254.726 505.698 l
+225.012 561.522 l
+230.46 596.33 l
+s
+257.768 609.49 m
+261.164 611.258 l
+275.74 583.878 l
+244.256 591.874 l
+254.16 573.266 l
+250.34 571.284 l
+236.048 598.1 l
+268.098 589.962 l
+257.768 609.49 l
+s
+308.144 596.968 m
+281.612 582.958 l
+283.31 579.704 l
+294.912 585.86 l
+307.294 562.654 l
+310.762 564.492 l
+298.38 587.698 l
+309.842 593.784 l
+308.144 596.968 l
+s
+263.77 541.772 m
+267.59 540.712 l
+273.758 558.692 l
+291.476 553.522 l
+292.79 557.346 l
+274.82 562.512 l
+279.772 579.492 l
+275.952 580.552 l
+271 563.572 l
+253.382 568.666 l
+252.25 564.846 l
+269.938 559.752 l
+263.77 541.772 l
+s
+315 537.176 m
+314.144 534.98 l
+256 504 l
+265.126 534.424 l
+315.0273 560.8956 l
+S
+u
+315.0232 562.8402 m
+264.42 535.98 l
+230.812 599.16 l
+271.7827 620.9768 l
+S
+277.9623 620.986 m
+270.7663 616.9102 267.7331 607.1151 271.706 599.656 c
+275.74 592.086 285.504 588.83 293.214 592.864 c
+299.228 596.048 302.2 602.414 301.564 608.642 c
+297.602 608.288 l
+298.308 603.476 296.044 598.524 291.516 596.118 c
+286.07 593.218 278.428 595.836 275.528 601.282 c
+299.752 614.174 L
+298.2682 617.15 295.9122 619.4708 293.1371 620.9744 c
+S
+300.1875 620.9989 m
+315 593.1418 l
+S
+0 O
+1 g
+274.042 604.608 m
+272.698 609.136 275.032 615.504 279.844 618.122 c
+284.654 620.598 290.952 619.254 294.134 615.292 c
+294.134 615.292 l
+274.042 604.608 l
+b
+U
+U
+0 g
+1 w []0 d
+401.562 554.16 m
+464.672 587.766 l
+498.35 524.516 l
+435.17 490.98 l
+401.562 554.16 l
+f
+401.21 551.33 m
+434.108 489.424 l
+425.476 460.698 l
+395.762 516.522 l
+401.21 551.33 l
+f
+1 g
+428.518 564.49 m
+431.914 566.258 l
+446.49 538.878 l
+415.006 546.874 l
+424.91 528.266 l
+421.09 526.284 l
+406.798 553.1 l
+438.848 544.962 l
+428.518 564.49 l
+f
+478.894 551.968 m
+452.362 537.958 l
+454.06 534.704 l
+465.662 540.86 l
+478.044 517.654 l
+481.512 519.492 l
+469.13 542.698 l
+480.592 548.784 l
+478.894 551.968 l
+f
+435.524 497.276 m
+439.344 496.216 l
+444.508 513.692 l
+462.48 508.526 l
+463.54 512.346 l
+445.57 517.512 l
+450.522 534.492 l
+446.702 535.552 l
+441.75 518.572 l
+424.132 523.666 l
+423 519.846 l
+440.688 514.752 l
+435.524 497.276 l
+f
+0 g
+485.898 490.484 m
+426.75 459 l
+435.876 489.424 l
+497.36 522.04 l
+485.898 490.484 l
+f
+u
+1 g
+457.746 566.496 m
+444.792 559.608 l
+443.448 564.136 445.782 570.504 450.594 573.122 c
+455.404 575.598 461.702 574.254 464.884 570.292 c
+464.884 570.292 l
+457.746 566.496 L
+458.686 562.886 L
+470.502 569.174 L
+466.616 576.968 456.748 580.268 449.036 576.164 c
+441.608 572.202 438.424 562.226 442.456 554.656 c
+446.49 547.086 456.254 543.83 463.964 547.864 c
+469.978 551.048 472.95 557.414 472.314 563.642 c
+468.352 563.288 l
+469.058 558.476 466.794 553.524 462.266 551.118 c
+456.82 548.218 449.178 550.836 446.278 556.282 c
+458.686 562.886 L
+457.746 566.496 L
+f
+U
+0 To
+1 0 0 1 72 432 0 Tp
+TP
+0 Tr
+0 g
+4 M
+/_Helvetica 12 Tf
+0 Ts
+100 Tz
+0 Tt
+0 TA
+0 0 5 TC
+100 100 200 TW
+0 0 0 Ti
+0 Ta
+0 Tq
+0 0 Tl
+0 Tc
+0 Tw
+(Frame at \(85.0, 30.0\), size \(50.0, 65.0\)\r) Tx 
+TO
+0 To
+1 0 0 1 396 445.5 0 Tp
+TP
+0 Tr
+(Bounds at \(0.0, 0.0\), size \(50.0, 70.0\)\r) Tx 
+TO
+u
+0 R
+0.5 G
+2 w
+486 459 m
+486 576 L
+396 576 L
+396 459 L
+486 459 L
+s
+U
+0 G
+1 w
+337.5 432 m
+337.5 612 l
+S
+0 To
+1 0 0 1 75 582 0 Tp
+TP
+0 Tr
+0 O
+0 g
+(superview\r) Tx 
+TO
+u
+0 R
+0.16 G
+2 w
+459 549 m
+459 459 L
+396 459 L
+396 549 L
+459 549 L
+s
+U
+0 To
+1 0 0 1 396 432 0 Tp
+TP
+0 Tr
+0 O
+0 g
+1 w
+(Visible at \(0.0, 0.0\), size \(35.0, 50.0\)\r) Tx 
+TO
+u
+u
+1 g
+288 594 m
+288 504 L
+225 504 L
+225 594 L
+288 594 L
+f
+U
+0 g
+10 M
+231.6995 593.9976 m
+263.358 534.424 l
+254.726 505.698 l
+225.012 561.522 l
+230.0983 594 l
+231.6995 593.9976 l
+f
+4 M
+265.9701 593.9845 m
+268.098 589.962 l
+252.1434 594 l
+265.9701 593.9845 l
+f
+10 M
+288.0192 521.0435 m
+256 504 l
+265.126 534.424 l
+288 546.5574 l
+288.0192 521.0435 l
+f
+u
+4 M
+288.0133 548.5033 m
+264.42 535.98 l
+233.548 594 l
+238.2342 593.998 l
+250.34 571.284 l
+254.16 573.266 l
+244.256 591.874 l
+275.74 583.878 l
+270.3642 593.9761 l
+276.8689 593.9542 l
+280.109 591.7673 284.095 590.7566 287.9981 591.239 c
+288.0516 586.3584 l
+281.612 582.958 l
+283.31 579.704 l
+288.0122 582.199 l
+288 558.7236 l
+274.82 562.512 l
+279.772 579.492 l
+275.952 580.552 l
+271 563.572 l
+253.382 568.666 l
+252.25 564.846 l
+269.938 559.752 l
+263.77 541.772 l
+267.59 540.712 l
+273.758 558.692 l
+288 554.6027 l
+288.0133 548.5033 l
+f
+U
+U
+u
+0 R
+0.5 G
+[2 2 ]0 d
+225 593.9925 m
+225 621 L
+315 621 L
+315 504 L
+288.0275 504 L
+S
+U
+u
+0 G
+2 w []0 d
+396 472.5 m
+396 459 l
+409.5 459 l
+S
+0 O
+0 g
+1 w
+396 479.2501 m
+393.75 470.25 l
+396 471.25 l
+398.25 470.25 l
+396 479.2501 l
+f
+416.25 459 m
+407.25 461.25 l
+408.25 459 l
+407.25 456.75 l
+416.25 459 l
+f
+0 To
+1 0 0 1 393.75 459 0 Tp
+TP
+-48.0229 0 Td
+0 Tr
+/_Helvetica 11.9996 Tf
+2 Ta
+(\(0) Tx 
+/_Helvetica 12 Tf
+(.0) Tx 
+/_Helvetica 11.9996 Tf
+(, 0) Tx 
+/_Helvetica 12 Tf
+(.0) Tx 
+/_Helvetica 11.9996 Tf
+(\)\r) Tx 
+TO
+U
+%%PageTrailer
+%%Trailer
+Adobe_IllustratorA_AI3 /terminate get exec
+
+Adobe_typography_AI3 /terminate get exec
+
+
+Adobe_customcolor /terminate get exec
+
+Adobe_cshow /terminate get exec
+
+Adobe_cmykcolor /terminate get exec
+
+Adobe_packedarray /terminate get exec
+
+%%EOF

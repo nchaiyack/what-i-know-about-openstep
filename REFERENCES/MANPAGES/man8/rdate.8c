@@ -1,0 +1,26 @@
+.TH RDATE 8C "22 July 1993"
+.SH NAME
+rdate \- set system date from a remote host
+.SH SYNOPSIS
+.B /usr/ucb/rdate
+.I hostname
+.SH DESCRIPTION
+.B rdate
+sets the local date and
+time from the
+.I hostname
+given as the argument.
+You must be super-user on the local system.
+On typical UNIX systems,
+.B rdate
+is often inserted as part of the
+.B /etc/rc.local
+startup script.  
+NEXTSTEP systems instead typically use
+the network time synchronization
+daemon 
+.IR ntpd (8).
+.SH FILES
+/etc/rc.local	startup script
+.SH SEE ALSO
+date(1), ntpd(8)

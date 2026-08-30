@@ -1,0 +1,7 @@
+F	SimplePlayer.app	SimplePlayer	app
+F	SimplePlayer	SimplePlayer	app
+S	mov	SimplePlayer	MovieFile
+S	movie	SimplePlayer	MovieFile
+S	MOV	SimplePlayer	MovieFile
+S	moov	SimplePlayer	MovieFile
+S	qt	SimplePlayer	MovieFile

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 50.4px; font: 10.0px Helvetica; color: #ff00ff; min-height: 12.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 50.4px; font: 42.0px Helvetica; color: #ff00ff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 50.4px; font: 24.0px Helvetica; color: #ff00ff; min-height: 29.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 12.6px; font: 44.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 12.6px; font: 60.0px Times; min-height: 72.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 151.2px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 151.2px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 170.1px; text-indent: -18.9px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 170.1px; text-indent: -18.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 50.4px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 50.4px; font: 26.0px Helvetica}
+    p.p14 {margin: 0.0px 0.0px 0.0px 50.4px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 151.2px; font: 26.0px Helvetica; min-height: 31.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 151.2px; font: 24.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 151.2px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 189.0px; text-indent: -18.9px; font: 14.0px Times}
+    p.p19 {margin: 0.0px 0.0px 0.0px 170.1px; font: 12.0px Courier}
+    p.p20 {margin: 0.0px 0.0px 0.0px 170.1px; font: 12.0px Courier; min-height: 14.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 151.2px; font: 35.0px Helvetica; min-height: 42.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 170.1px; font: 2.0px Helvetica; min-height: 2.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 170.1px; font: 14.0px Helvetica}
+    p.p24 {margin: 0.0px 0.0px 0.0px 170.1px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 277.1px; text-indent: -107.1px; font: 14.0px Times}
+    p.p26 {margin: 0.0px 0.0px 0.0px 277.1px; text-indent: -107.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 170.1px; font: 14.0px Times}
+    p.p28 {margin: 0.0px 0.0px 0.0px 170.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 50.4px; font: 40.0px Helvetica; min-height: 48.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><br></p>
+<p class="p4"><b>8</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><i>Network Modules</i></p>
+<p class="p7"><i></i><br></p>
+<p class="p8">Loadable kernel servers that serve as network modules use special functions and interfaces in addition to the ones available to all loadable kernel servers.<span class="Apple-converted-space">  </span>This chapter discusses how to write network modules.<span class="Apple-converted-space">  </span>The special functions that network modules can use are described in detail in Chapter 10, “Kernel Support Functions,” under the section “Network Functions.”</p>
+<p class="p9"><br></p>
+<p class="p8">The NeXT Mach kernel supports the following types of network modules:</p>
+<p class="p9"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><i>Network device drivers</i>.<span class="Apple-converted-space">  </span>A network device driver sends and receives packets to and from some network media.</p>
+<p class="p11"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><i>Protocol handlers</i>.<span class="Apple-converted-space">  </span>On input, a protocol handler receives packets from network device drivers and forwards the data to the interested programs.<span class="Apple-converted-space">  </span>On output, the protocol handler takes data from programs, puts the data into packets, and sends these packets to the appropriate network device driver.</p>
+<p class="p11"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span><i>Packet sniffers</i>.<span class="Apple-converted-space">  </span>A packet sniffer examines input packets for diagnostic purposes. <span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p8">If you're familiar with UNIX 4.3BSD networking primitives, you'll find many similarities to what's described in this chapter.<span class="Apple-converted-space">  </span>The biggest difference is that a common programming interface like the socket mechanism isn't defined.<span class="Apple-converted-space">  </span>While sockets work well for TCP/IP, they don't generalize well to other protocols. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">If you're writing a protocol handler and want to open it up to programmers, you must define your own interface for communication between user programs and your protocol handler.</p>
+<p class="p9"><br></p>
+<p class="p8">This chapter first gives an overview of NeXT networking support, and then discusses the objects you'll use in your network module.<span class="Apple-converted-space">  </span>The next section has details on the routines that you should implement.<span class="Apple-converted-space">  </span>The chapter ends with notes on implementing specific interfaces.</p>
+<p class="p9"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p13"><b>Overview</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p8">Here's a simplified view of what happens when a network packet is received by a NeXT computer:</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2">1.<span class="Apple-tab-span">	</span></span>The packet is received by the appropriate network device driver, which puts the packet into a data structure called a <i>netbuf</i> (netbufs are discussed in the next section). <span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2">2.<span class="Apple-tab-span">	</span></span>The driver calls the dispatcher (by calling <b>if_handle_input()</b>). <span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2">3.<span class="Apple-tab-span">	</span></span>The dispatcher polls all registered packet sniffers and protocol handlers until it finds a protocol handler that accepts the packet. <span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2">4.<span class="Apple-tab-span">	</span></span>If the protocol handler is an IP (Internet Protocol) handler, it sends the packet up to the kernel by calling <b>inet_queue()</b>. <span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p8">When a packet is sent out onto the network, the following events happen:</p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2">1.<span class="Apple-tab-span">	</span></span>The output function of the protocol handler is called.<span class="Apple-converted-space">  </span>One of the arguments is a netbuf containing the packet to be sent.<span class="Apple-converted-space">  </span>(This netbuf must have been previously allocated by the network device driver; how netbufs are allocated is described later in this chapter.)</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2">2.<span class="Apple-tab-span">	</span></span>The protocol handler calls the appropriate network device driver's output function, passing it the netbuf containing the packet.</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2">3.<span class="Apple-tab-span">	</span></span>The device driver puts the packet out onto the network.</p>
+<p class="p11"><br></p>
+<p class="p8">Note that there's one extra step in the case of the input packet:<span class="Apple-converted-space">  </span>A dispatcher is called.<span class="Apple-converted-space">  </span>This happens because a network device driver doesn't know what its associated protocol handler is, but the protocol handler knows which driver to call.<span class="Apple-converted-space">  </span>The dispatcher doesn't query the modules in any particular order, except that it queries all packet sniffers before querying any protocol handlers.</p>
+<p class="p9"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p13"><b>Network Objects</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p8">The NeXT kernel includes two abstractions especially for network modules:</p>
+<p class="p9"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Network buffers, known as <i>netbufs</i></p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Network interfaces, known as <i>netifs</i></p>
+<p class="p9"><br></p>
+<p class="p8">Each of these abstractions is discussed in the following subsections.<span class="Apple-converted-space">  </span>The associated C functions are described in detail in Chapter 10.</p>
+<p class="p9"><br></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b>Network Buffers (Netbufs)</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p8">The NeXT kernel uses netbufs for dealing with network packet buffers.<span class="Apple-converted-space">  </span>Netbufs are an interface to an abstract sequence of bytes that can be read and written.<span class="Apple-converted-space">  </span>The sequence has an original starting point and ending point, but these can be changed.<span class="Apple-converted-space">  </span>An input network packet typically has its starting point advanced as the various headers are pulled off.<span class="Apple-converted-space">  </span>Similarly, an output packet has its starting point retreated as headers are inserted.</p>
+<p class="p9"><br></p>
+<p class="p8">Operating beyond the range of the original starting and ending points isn't currently detected as an error.<span class="Apple-converted-space">  </span>This means that an outgoing netbuf should be copied into a larger netbuf if the information being added to its top requires more bytes than are available between the current ending point and the original starting point. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b>Network Interfaces (Netifs)</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p8">Netifs are used to handle the installation and usage of network modules.<span class="Apple-converted-space">  </span>Remember that a network module is one of three things:<span class="Apple-converted-space">  </span>a network device driver, a protocol handler, or a packet sniffer. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">Each network module initializes and installs its netif (thus registering itself) by calling <b>if_attach()</b>.<span class="Apple-converted-space">  </span>A network device driver should immediately register itself by calling <b>if_attach()</b> at load time.<span class="Apple-converted-space">  </span>Protocol handlers and packet sniffers, on the other hand, don't have to register themselves until their services are required.<span class="Apple-converted-space">  </span>They determine whether to register themselves in a callback function that they supply as an argument to the function <b>if_registervirtual()</b>.<span class="Apple-converted-space">  </span>This callback function is called once for each network device driver; it should call <b>if_attach()</b> if the module isn't already registered and it wants to receive input packets from the specified driver.</p>
+<p class="p9"><br></p>
+<p class="p12"><b></b><br></p>
+<p class="p13"><b>Functions Implemented in the Network Module</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p8">Besides a callback function, your network module needs to supply certain functions so that other modules can call it.<span class="Apple-converted-space">  </span>When your network module calls <b>if_attach()</b>, you must specify the locations of five functions:</p>
+<p class="p9"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Initialization function—Does any initialization that's required to change the module's state to “on.”</p>
+<p class="p11"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Input function—Receives packets from lower layers and either consumes them or passes them on to other modules.</p>
+<p class="p11"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Output function—Sends packets from higher layers.</p>
+<p class="p11"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Getbuf function—Provides netbufs for higher layers to use in impending sends.</p>
+<p class="p11"><br></p>
+<p class="p10">•<span class="Apple-tab-span">	</span>Control function—Provides any necessary operations the above functions don't. <span class="Apple-converted-space"> </span></p>
+<p class="p11"><br></p>
+<p class="p8"><span class="s2"><b>Note:<span class="Apple-converted-space">  </span></b></span>You should specify null to <b>if_attach()</b> for any unimplemented function.</p>
+<p class="p9"><br></p>
+<p class="p8">These five functions, along with the callback function, are described in more detail in the following subsections.</p>
+<p class="p9"><br></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b>Callback Function</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p8">A <i>callback function</i> is required in protocol handlers and packet sniffers, but isn't appropriate in network device drivers.<span class="Apple-converted-space">  </span>It must have the following syntax:</p>
+<p class="p9"><br></p>
+<p class="p18">void <i>callback_func</i>(void *<i>private</i>, netif_t <i>realif</i>)</p>
+<p class="p9"><br></p>
+<p class="p8">The purpose of the callback function is to determine whether its network module is interested in a particular device driver and, if necessary, to register its module (using <b>if_attach()</b>).<span class="Apple-converted-space">  </span>The callback function is called once for each current and future network device driver, so it can keep information about more than one network device driver.</p>
+<p class="p9"><br></p>
+<p class="p8">The callback function is specified in the network module's call to <b>if_registervirtual()</b>.<span class="Apple-converted-space">  </span>The <i>private</i> argument is the data that was specified in the call to <b>if_registervirtual()</b>.<span class="Apple-converted-space">  </span>The<i> realif</i> argument is a pointer to the network device driver for which this function is being called.<span class="Apple-converted-space">  </span>The following code is an example of a typical callback function for a protocol handler.</p>
+<p class="p9"><br></p>
+<p class="p19">static void myhandler_attach(void *private, netif_t rifp)</p>
+<p class="p19">{</p>
+<p class="p19"><span class="Apple-converted-space">    </span>netif_t ifp;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>const char *name;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>int unit;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>void *ifprivate;</p>
+<p class="p20"><br></p>
+<p class="p19"><span class="Apple-converted-space">    </span>if (strcmp(if_type(rifp), IFTYPE_ETHERNET) != 0) {</p>
+<p class="p19"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>}</p>
+<p class="p20"><br></p>
+<p class="p19"><span class="Apple-converted-space">    </span>ifprivate = (void *)kalloc(sizeof(myhandler_private_t));</p>
+<p class="p19"><span class="Apple-converted-space">    </span>name = MYNAME;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>unit = MYUNIT;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>ifp = if_attach(NULL, myhandler_input, myhandler_output,<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="Apple-converted-space">        </span>myhandler_getbuf, myhandler_control, name, unit, IFTYPE_IP,<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="Apple-converted-space">        </span>MYMTU, IFF_BROADCAST, NETIFCLASS_VIRTUAL, ifprivate);</p>
+<p class="p20"><span class="Apple-converted-space">    </span></p>
+<p class="p19"><span class="Apple-converted-space">    </span>(myhandler_private_t *)if_private(ifp)-&gt;rifp = rifp;</p>
+<p class="p20"><br></p>
+<p class="p19"><span class="Apple-converted-space">    </span>if_control(rifp, IFCONTROL_GETADDR, MYHANDLER_ADDRP(ifp));</p>
+<p class="p20"><br></p>
+<p class="p19"><span class="Apple-converted-space">    </span>if (verbose) {</p>
+<p class="p19"><span class="Apple-converted-space">        </span>printf("IP protocol enabled for interface %s%d, type</p>
+<p class="p19"><span class="Apple-converted-space">            </span>\"%s\"\n", name, unit, MYDRIVER_TYPE);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>}</p>
+<p class="p19"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p19">}</p>
+<p class="p20"><br></p>
+<p class="p19">void myhandler_config(void)</p>
+<p class="p19">{</p>
+<p class="p19"><span class="Apple-converted-space">    </span>if_registervirtual(myhandler_attach, NULL);</p>
+<p class="p19">}</p>
+<p class="p21"><b></b><br></p>
+<p class="p16"><b>Initialization Function</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p8">An <i>initialization function</i> is not required but is often found in network device drivers.<span class="Apple-converted-space">  </span>It must have the following syntax:</p>
+<p class="p9"><br></p>
+<p class="p18">int <i>init_func</i>(netif_t <i>netif</i>)</p>
+<p class="p9"><br></p>
+<p class="p8">The initialization function takes a pointer to its module's netif structure and performs any necessary initialization.<span class="Apple-converted-space">  </span>For example, a network device driver should perform any steps necessary to have its hardware ready to run.<span class="Apple-converted-space">  </span>You can determine what the integer return value (if any) should be.<span class="Apple-converted-space">  </span>The following is an example of an initialization function.</p>
+<p class="p9"><br></p>
+<p class="p19">int mydriver_init(netif_t netif)</p>
+<p class="p19">{</p>
+<p class="p19"><span class="Apple-converted-space">    </span>unsigned unit = if_unit(netif);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>register struct mydriver_data_t *is = &amp;mydriver_data[unit];</p>
+<p class="p20"><br></p>
+<p class="p19"><span class="Apple-converted-space">    </span>if (is-&gt;is_flags &amp; HW_RUNNING)</p>
+<p class="p19"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p20"><br></p>
+<p class="p19"><span class="Apple-converted-space">    </span>is-&gt;is_flags |= HW_RUNNING;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>/* Initialize software structures and the hardware. */</p>
+<p class="p19"><span class="Apple-converted-space">    </span>/* ... */</p>
+<p class="p19"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p19">}</p>
+<p class="p21"><b></b><br></p>
+<p class="p16"><b>Input Function</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p8">An <i>input function</i> is required in protocol handlers and packet sniffers, but not in network device drivers.<span class="Apple-converted-space">  </span>It must have the following syntax:</p>
+<p class="p9"><br></p>
+<p class="p18">int <i>input_func</i>(netif_t <i>netif</i>, netif_t <i>realnetif</i>, netbuf_t <i>packet</i>, void *<i>extra</i>)</p>
+<p class="p9"><br></p>
+<p class="p8">The input function takes a pointer to its module's netif (<i>netif</i>), a pointer to the calling network device driver (<i>realnetif</i>), the input packet, and optional extra data.<span class="Apple-converted-space">  </span>This function should examine the input packet and decide if it wants the packet.<span class="Apple-converted-space">  </span>If so, this function should return zero and take responsibility for freeing the packet.<span class="Apple-converted-space">  </span>Otherwise, this function should return EAFNOSUPPORT to allow other modules to receive the packet.<span class="Apple-converted-space">  </span>Packet sniffers should always return EAFNOSUPPORT.</p>
+<p class="p9"><br></p>
+<p class="p8">For example, an IP handler getting packets from an Ethernet device would check if an Ethernet packet's protocol number is the value for IP.<span class="Apple-converted-space">  </span>If so, the IP handler should handle the packet and return zero.</p>
+<p class="p9"><br></p>
+<p class="p8">Since this function might be called at interrupt priority, it should only queue packets.<span class="Apple-converted-space">  </span>Another thread should pull the packets off of the queue and process them.</p>
+<p class="p9"><br></p>
+<p class="p8">The following code is a typical input function of a protocol handler.</p>
+<p class="p9"><br></p>
+<p class="p19">static int venip_input(netif_t ifp, netif_t rifp, netbuf_t nb,</p>
+<p class="p19"><span class="Apple-converted-space">    </span>void *extra)</p>
+<p class="p19">{</p>
+<p class="p19"><span class="Apple-converted-space">    </span>short etype;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>short offset;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>short size;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>trailer_data_t trailer_data;</p>
+<p class="p20"><br></p>
+<p class="p19"><span class="Apple-converted-space">    </span>/* Do we want packets from this driver? */</p>
+<p class="p19"><span class="Apple-converted-space">    </span>if ((myhandler_private_t *)if_private(ifp)-&gt;rifp != rifp) {</p>
+<p class="p19"><span class="Apple-converted-space">        </span>return (EAFNOSUPPORT);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>}</p>
+<p class="p20"><br></p>
+<p class="p19"><span class="Apple-converted-space">    </span>/*<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="Apple-converted-space">     </span>* Check fields in the packet to see whether they match</p>
+<p class="p19"><span class="Apple-converted-space">     </span>* the protocol we understand.</p>
+<p class="p19"><span class="Apple-converted-space">     </span>*/</p>
+<p class="p19"><span class="Apple-converted-space">    </span>nb_read(nb, MYTYPEOFFSET, sizeof(etype), &amp;etype);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>etype = htons(etype);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>/*<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="Apple-converted-space">     </span>* Handle ethernet trailer protocol.</p>
+<p class="p19"><span class="Apple-converted-space">     </span>*/<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="Apple-converted-space">    </span>if (etype &gt;= ETHERTYPE_TRAIL &amp;&amp;</p>
+<p class="p19"><span class="Apple-converted-space">        </span>etype &lt; ETHERTYPE_TRAIL + ETHERTYPE_NTRAILER) {</p>
+<p class="p19"><span class="Apple-converted-space">        </span>offset = (etype - ETHERTYPE_TRAIL) * 512;</p>
+<p class="p19"><span class="Apple-converted-space">        </span>if (offset == 0 || (ETHERHDRSIZE + offset +<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="Apple-converted-space">                    </span>sizeof(trailer_data) &gt;=</p>
+<p class="p19"><span class="Apple-converted-space">                    </span>nb_size(nb))) {</p>
+<p class="p19"><span class="Apple-converted-space">            </span>return (EAFNOSUPPORT);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>}</p>
+<p class="p19"><span class="Apple-converted-space">        </span>nb_read(nb, ETHERHDRSIZE + offset, sizeof(trailer_data),</p>
+<p class="p19"><span class="Apple-converted-space">            </span>&amp;trailer_data);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>etype = htons(trailer_data.etype);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>if (etype != ETHERTYPE_IP &amp;&amp;</p>
+<p class="p19"><span class="Apple-converted-space">            </span>etype != ETHERTYPE_ARP) {</p>
+<p class="p19"><span class="Apple-converted-space">            </span>return (EAFNOSUPPORT);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>}</p>
+<p class="p19"><span class="Apple-converted-space">        </span>size = htons(trailer_data.length);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>if (ETHERHDRSIZE + offset + size &gt; nb_size(nb)) {</p>
+<p class="p19"><span class="Apple-converted-space">            </span>return (EAFNOSUPPORT);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>}</p>
+<p class="p19"><span class="Apple-converted-space">        </span>/*<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="Apple-converted-space">         </span>* trailer_fix() is a private function that converts trailer</p>
+<p class="p19"><span class="Apple-converted-space">         </span>* packet to regular ethernet packet.</p>
+<p class="p19"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p19"><span class="Apple-converted-space">        </span>trailer_fix(nb, offset, size - sizeof(trailer_data));</p>
+<p class="p19"><span class="Apple-converted-space">    </span>}</p>
+<p class="p19"><span class="Apple-converted-space">    </span>switch (etype) {</p>
+<p class="p19"><span class="Apple-converted-space">    </span>case ETHERTYPE_IP:</p>
+<p class="p19"><span class="Apple-converted-space">        </span>nb_shrink_top(nb, ETHERHDRSIZE);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>if_ipackets_set(ifp, if_ipackets(ifp) + 1);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>inet_queue(ifp, nb);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>break;</p>
+<p class="p19"><span class="Apple-converted-space">        </span>/* Put other cases here as necessary. */</p>
+<p class="p19"><span class="Apple-converted-space">        </span>default:</p>
+<p class="p19"><span class="Apple-converted-space">        </span>/*<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="Apple-converted-space">         </span>* Do not free buf:<span class="Apple-converted-space">  </span>let others handle it</p>
+<p class="p19"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p19"><span class="Apple-converted-space">        </span>return (EAFNOSUPPORT);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>}</p>
+<p class="p19"><span class="Apple-converted-space">    </span>return (0);</p>
+<p class="p19">}</p>
+<p class="p21"><b></b><br></p>
+<p class="p16"><b>Output Function</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p8">All network modules except packet sniffers must have an <i>output function</i>.<span class="Apple-converted-space">  </span>The syntax of this function must be the following: <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p18">int <i>output_func</i>(netif_t <i>netif</i>, netbuf_t <i>packet</i>, void *<i>address</i>)</p>
+<p class="p9"><br></p>
+<p class="p8">The output function takes a pointer to the module's netif, a pointer to a packet, and an address.<span class="Apple-converted-space">  </span>How this function works depends on whether it's part of a protocol handler or of a network device driver. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">If this function is part of a protocol handler, it should assume the packet and address are strictly protocol-level entities, containing no device-dependent information.<span class="Apple-converted-space">  </span>The function should add network device information to the packet and call the network device driver's output routine.<span class="Apple-converted-space">  </span>The netbuf that holds the packet should have been returned by this module's getbuf function, as described later in this chapter.</p>
+<p class="p9"><br></p>
+<p class="p8">If this function is part of a network device driver, it should assume the packet and address are device-level entities.<span class="Apple-converted-space">  </span>The function should simply deliver the packet to the given device-level address.<span class="Apple-converted-space">  </span>Its return value should be zero if no error occurred; otherwise, return an error number from the header file <b>sys/errno.h</b>. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">The following example illustrates a typical output function.</p>
+<p class="p9"><br></p>
+<p class="p19">static int venip_output(netif_t ifp, netbuf_t nb, void *addr)</p>
+<p class="p19">{</p>
+<p class="p19"><span class="Apple-converted-space">    </span>struct sockaddr *dst = (struct sockaddr *)addr;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>struct ether_header eh;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>struct in_addr idst;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>int off;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>int usetrailers;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>netif_t rifp = VENIP_RIF(ifp);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>int error;</p>
+<p class="p20"><br></p>
+<p class="p19"><span class="Apple-converted-space">    </span>switch (dst-&gt;sa_family) {</p>
+<p class="p19"><span class="Apple-converted-space">    </span>case AF_UNSPEC:</p>
+<p class="p19"><span class="Apple-converted-space">        </span>bcopy(dst-&gt;sa_data, &amp;eh, sizeof(eh));</p>
+<p class="p19"><span class="Apple-converted-space">        </span>break;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>case AF_INET:</p>
+<p class="p19"><span class="Apple-converted-space">        </span>idst = ((struct sockaddr_in *)dst)-&gt;sin_addr;</p>
+<p class="p19"><span class="Apple-converted-space">        </span>/* ... */</p>
+<p class="p19"><span class="Apple-converted-space">        </span>/*</p>
+<p class="p19"><span class="Apple-converted-space">         </span>* Resolve the en address using arp.<span class="Apple-converted-space">  </span>Return 0 if the address</p>
+<p class="p19"><span class="Apple-converted-space">         </span>* wasn't resolved.</p>
+<p class="p19"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p19"><span class="Apple-converted-space">         </span>/*</p>
+<p class="p19"><span class="Apple-converted-space">         </span>* XXX:<span class="Apple-converted-space">  </span>trailers not supported for output</p>
+<p class="p19"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p19"><span class="Apple-converted-space">        </span>eh.ether_type = htons(ETHERTYPE_IP);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>break;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>default:</p>
+<p class="p19"><span class="Apple-converted-space">        </span>nb_free(nb);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>return (EAFNOSUPPORT);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>}</p>
+<p class="p19"><span class="Apple-converted-space">    </span>nb_grow_top(nb, ETHERHDRSIZE);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>nb_write(nb, ETYPEOFFSET, sizeof(eh.ether_type),<span class="Apple-converted-space"> </span></p>
+<p class="p19"><span class="Apple-converted-space">         </span>(void *)&amp;eh.ether_type);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>error = if_output(rifp, nb, (void *)&amp;eh.ether_dhost);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>if (error == 0) {</p>
+<p class="p19"><span class="Apple-converted-space">        </span>if_opackets_set(ifp, if_opackets(ifp) + 1);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p19"><span class="Apple-converted-space">        </span>if_oerrors_set(ifp, if_oerrors(ifp) + 1);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>}</p>
+<p class="p19"><span class="Apple-converted-space">    </span>return (error);</p>
+<p class="p19">}</p>
+<p class="p21"><b></b><br></p>
+<p class="p16"><b>Getbuf Function</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p8">A <i>getbuf function</i> is required in all modules except packet sniffers.<span class="Apple-converted-space">  </span>It must have the following syntax:</p>
+<p class="p9"><br></p>
+<p class="p18">netbuf_t <i>getbuf_func</i>(netif_t <i>netif</i>)</p>
+<p class="p9"><br></p>
+<p class="p8">This function returns a netbuf to be used for an impending output call.<span class="Apple-converted-space">  </span>Only network device drivers should allocate these netbufs.<span class="Apple-converted-space">  </span>Protocol handlers should instead call the appropriate network device driver's getbuf function to do the allocation.<span class="Apple-converted-space">  </span>After allocation from the network device driver and before returning the result, the protocol handler should leave enough room at the top of the netbuf for its own output function to later insert a header.</p>
+<p class="p9"><br></p>
+<p class="p8">A getbuf function doesn't always have to return a buffer.<span class="Apple-converted-space">  </span>For example, you might want to limit the number of buffers your module can allocate (say, 200 kilobytes worth) so that it won't use up too much wired-down kernel memory.<span class="Apple-converted-space">  </span>When a getbuf function fails to return a buffer, it should return null.</p>
+<p class="p9"><br></p>
+<p class="p8">In a protocol handler:</p>
+<p class="p9"><br></p>
+<p class="p19">static netbuf_t venip_getbuf(netif_t ifp)</p>
+<p class="p19">{</p>
+<p class="p19"><span class="Apple-converted-space">    </span>netif_t<span class="Apple-converted-space">  </span>rifp = VENIP_RIF(ifp);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>netbuf_t nb;</p>
+<p class="p20"><br></p>
+<p class="p19"><span class="Apple-converted-space">    </span>nb = if_getbuf(rifp);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>if (nb == NULL) {</p>
+<p class="p19"><span class="Apple-converted-space">        </span>return(NULL);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>}</p>
+<p class="p19"><span class="Apple-converted-space">    </span>nb_shrink_top(nb, ETHERHDRSIZE);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>return(nb);</p>
+<p class="p19">}</p>
+<p class="p9"><br></p>
+<p class="p8">In a driver: <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p19">static netbuf_t engetbuf(struct ifnet *ifp)</p>
+<p class="p19">{</p>
+<p class="p19"><span class="Apple-converted-space">    </span>if (numbufs == MAXALLOC)</p>
+<p class="p19"><span class="Apple-converted-space">        </span>return(NULL);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>else {</p>
+<p class="p19"><span class="Apple-converted-space">        </span>numbufs++;</p>
+<p class="p19"><span class="Apple-converted-space">        </span>return(nb_alloc(HDR_SIZE + ETHERMTU));</p>
+<p class="p19"><span class="Apple-converted-space">    </span>}</p>
+<p class="p19">}</p>
+<p class="p21"><b></b><br></p>
+<p class="p16"><b>Control Function</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p8">The <i>control function</i> isn't required, but it's useful in all three kinds of network modules.<span class="Apple-converted-space">  </span>It must have the following syntax:</p>
+<p class="p9"><br></p>
+<p class="p18">int <i>control_func</i>(netif_t <i>netif</i>, const char *<i>command</i>, void *<i>data</i>)</p>
+<p class="p9"><br></p>
+<p class="p8">The control function performs arbitrary operations; the character string <i>command</i> is used to select between these operations.<span class="Apple-converted-space">  </span>There are five standard operations that you can choose to implement, although you can also define your own.<span class="Apple-converted-space">  </span>The command strings corresponding to the standard operations are listed in the following table; constants for the strings (such as IFCONTROL_SET_FLAGS for “setflags”) are declared in the header file <b>net/netif.h</b> (under the <b>bsd</b> directory of <b>/NextDeveloper/Headers</b>).</p>
+<p class="p9"><br></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><b>Command<span class="Apple-tab-span">	</span>Operation</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p25">“setflags”<span class="Apple-tab-span">	</span>Request to have interface flags turned on or off.<span class="Apple-converted-space">  </span>The <i>data</i> argument for this command is of type <b>union ifr_ifru</b> (which is declared in the header file <b>net/if.h</b>).</p>
+<p class="p26"><br></p>
+<p class="p27">“setaddr”<span class="Apple-tab-span">	</span>Set the address on the interface.</p>
+<p class="p28"><br></p>
+<p class="p27">“getaddr”<span class="Apple-tab-span">	</span>Get the address of the interface.</p>
+<p class="p28"><br></p>
+<p class="p27">“autoaddr”<span class="Apple-tab-span">	</span>Automatically set the address of the interface.</p>
+<p class="p28"><br></p>
+<p class="p25">“unix-ioctl”<span class="Apple-tab-span">	</span>Perform a UNIX <b>ioctl()</b> command.<span class="Apple-converted-space">  </span>This is only for compatibility; <b>ioctl()</b> isn't a recommended interface for network drivers.<span class="Apple-converted-space">  </span>The argument is of type <b>if_ioctl_t *</b>, where the <b>if_ioctl_t</b> structure contains the UNIX ioctl request (for example, SIOCSIFADDR) in the <b>ioctl_command</b> field and the ioctl data in the <b>ioctl_data</b> field.</p>
+<p class="p26"><br></p>
+<p class="p8">An example of a control function follows.</p>
+<p class="p9"><br></p>
+<p class="p19">static int</p>
+<p class="p19">venip_control(netif_t ifp, const char *command, void *data)</p>
+<p class="p19">{</p>
+<p class="p19"><span class="Apple-converted-space">    </span>netif_t rifp = VENIP_RIF(ifp);</p>
+<p class="p19"><span class="Apple-converted-space">    </span>unsigned ioctl_command;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>void *ioctl_data;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>int s;</p>
+<p class="p19"><span class="Apple-converted-space">    </span>struct sockaddr_in *sin = (struct sockaddr_in *)data;</p>
+<p class="p20"><br></p>
+<p class="p19"><span class="Apple-converted-space">    </span>if (strcmp(command, IFCONTROL_AUTOADDR) == 0) {</p>
+<p class="p19"><span class="Apple-converted-space">        </span>/*</p>
+<p class="p19"><span class="Apple-converted-space">         </span>* Automatically set the address</p>
+<p class="p19"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p19"><span class="Apple-converted-space">        </span>if (sin-&gt;sin_family != AF_INET) {</p>
+<p class="p19"><span class="Apple-converted-space">            </span>return (EAFNOSUPPORT);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>}</p>
+<p class="p19"><span class="Apple-converted-space">        </span>/* ... */</p>
+<p class="p19"><span class="Apple-converted-space">    </span>} else if (strcmp(command, IFCONTROL_SETADDR) == 0) {</p>
+<p class="p19"><span class="Apple-converted-space">        </span>/*</p>
+<p class="p19"><span class="Apple-converted-space">         </span>* Manually set address</p>
+<p class="p19"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p19"><span class="Apple-converted-space">        </span>if (sin-&gt;sin_family != AF_INET) {</p>
+<p class="p19"><span class="Apple-converted-space">            </span>return (EAFNOSUPPORT);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>}</p>
+<p class="p19"><span class="Apple-converted-space">        </span>if_flags_set(ifp, if_flags(ifp) | IFF_UP);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>if_init(rifp);</p>
+<p class="p19"><span class="Apple-converted-space">        </span>VENIP_PRIVATE(ifp)-&gt;vp_ipaddr = sin-&gt;sin_addr;</p>
+<p class="p19"><span class="Apple-converted-space">        </span>/* ... */</p>
+<p class="p19"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p19"><span class="Apple-converted-space">        </span>/*</p>
+<p class="p19"><span class="Apple-converted-space">         </span>* Let lower layer handle</p>
+<p class="p19"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p19"><span class="Apple-converted-space">        </span>return (if_control(rifp, command, data));</p>
+<p class="p19"><span class="Apple-converted-space">    </span>}</p>
+<p class="p19"><span class="Apple-converted-space">    </span>return (0);</p>
+<p class="p19">}</p>
+<p class="p29"><b></b><br></p>
+<p class="p13"><b>Notes for Specific Interfaces</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p8">This section contains notes about implementing Ethernet and TCP/IP interfaces.</p>
+<p class="p9"><br></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b>Ethernet Interfaces</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p8">Network device drivers that implement the 10-megabit-per-second Ethernet protocol should register their type as IFTYPE_ETHERNET (defined in the header file<b> net/etherdefs.h</b>).<span class="Apple-converted-space">  </span>One 10-megabit Ethernet network device driver comes standard with the NeXT operating system.<span class="Apple-converted-space">  </span>The type of the address passed to the Ethernet driver's output function for output should be a 6-byte character array (which is cast to <b>void *</b>).</p>
+<p class="p9"><br></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b>TCP/IP Interfaces</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p8">IP protocol handlers can hand over their input packets to the kernel for processing by calling <b>inet_queue()</b>.</p>
+<p class="p9"><br></p>
+<p class="p8">IP protocol handlers should specify their type as “Internet Protocol” when they call <b>if_attach()</b>.<span class="Apple-converted-space">  </span>The NeXT operating system comes with two TCP/IP modules—one for delivery over Ethernet, and one for delivery over loopback.<span class="Apple-converted-space">  </span>The type of address used by IP protocol handlers should be <b>struct sockaddr_in</b>, which is defined in the header file <b>netinet/in.h</b>.</p>
+<p class="p9"><br></p>
+</body>
+</html>

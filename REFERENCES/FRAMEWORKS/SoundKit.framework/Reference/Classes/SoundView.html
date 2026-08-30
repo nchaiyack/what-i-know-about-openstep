@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p21 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p23 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p26 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p29 {margin: 0.0px 0.0px 0.0px 95.0px; font: 30.0px Courier; min-height: 36.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35pt" height="20pt" viewBox="0 0 35 20" role="img" aria-labelledby="eps-svg-1-title" data-source="SoundView.rtfd/NS%2B.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">NS+.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 3.453125 5.011719 L 6.433594 5.011719 L 8.9375 11.984375 L 8.96875 11.953125 C 8.84375 10.617188 8.613281 9.296875 8.613281 7.960938 L 8.613281 5.011719 L 11.625 5.011719 L 11.625 16.59375 L 8.613281 16.59375 L 6.28125 9.910156 L 6.25 9.941406 C 6.328125 11.03125 6.464844 12.109375 6.464844 13.199219 L 6.464844 16.59375 L 3.453125 16.59375 L 3.453125 5.011719 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 13.777344 12.816406 C 14.207031 13.460938 14.960938 14.105469 15.761719 14.105469 C 16.191406 14.105469 16.679688 13.847656 16.679688 13.339844 C 16.679688 13.0625 16.589844 12.863281 16.433594 12.695312 C 16.296875 12.523438 16.113281 12.386719 15.914062 12.25 C 15.296875 11.773438 14.761719 11.328125 14.363281 10.773438 C 13.976562 10.234375 13.730469 9.589844 13.730469 8.746094 C 13.730469 7.394531 14.59375 4.9375 17.265625 4.9375 C 18.019531 4.9375 18.832031 5.167969 19.492188 5.519531 L 19.492188 9.039062 C 19.125 8.453125 18.371094 7.792969 17.648438 7.792969 C 17.28125 7.792969 16.835938 8.054688 16.835938 8.5 C 16.835938 8.746094 16.972656 8.960938 17.140625 9.144531 C 17.3125 9.332031 17.542969 9.484375 17.710938 9.621094 C 18.371094 10.082031 18.894531 10.511719 19.246094 11.035156 C 19.613281 11.558594 19.816406 12.171875 19.816406 13.046875 C 19.816406 15.195312 18.308594 16.917969 16.128906 16.917969 C 15.328125 16.917969 14.515625 16.75 13.777344 16.441406 L 13.777344 12.816406 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 24.5625 5.832031 L 26.917969 5.832031 L 26.917969 9.617188 L 30.339844 9.617188 L 30.339844 11.976562 L 26.917969 11.976562 L 26.917969 15.90625 L 24.5625 15.90625 L 24.5625 11.976562 L 21.144531 11.976562 L 21.144531 9.617188 L 24.5625 9.617188 L 24.5625 5.832031 "/>
+<path fill="none" stroke-width="15" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(61.177063%, 61.177063%, 61.177063%)" stroke-opacity="1" stroke-miterlimit="4" d="M 329.257812 7.5 L 329.257812 176.289062 L 7.5 176.289062 L 7.5 7.5 Z M 329.257812 7.5 " transform="matrix(0.1, 0, 0, -0.1, 0, 20)"/>
+</svg></b><b></b><b>SoundView</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5">Inherits From:<span class="Apple-tab-span">	</span>NSView : NSResponder : NSObject</p>
+<p class="p6"><br></p>
+<p class="p7">Declared In:<span class="Apple-tab-span">	</span>SoundKit/SoundView.h</p>
+<p class="p8"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Class Description</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">A SoundView object provides a graphical representation of sound data. This data is taken from an associated Sound object. In addition to displaying a Sound object's data, a SoundView provides methods that let you play and record into the Sound object, and perform simple cut, copy, and paste editing of its data. A cursor into the display is provided, allowing the user to set the insertion point and to create a selection over the sound data.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><b>Sound Display</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p11">Sounds are displayed on a two-dimensional graph. The amplitudes of individual samples are measured vertically and plotted against time, which proceeds left to right along the horizontal axis. A SoundView's coordinate system is scaled and translated (vertically) so full amplitude fits within the bounds rectangle with 0.0 amplitude running through the center of the view.</p>
+<p class="p12"><br></p>
+<p class="p11">For many sounds, the length of the sound data in samples is greater than the horizontal measure of the bounds rectangle. A SoundView employs a reduction factor to determine the ratio of samples to display units and plots the minimum and maximum amplitude values of the samples within that ratio. For example, a reduction factor of 10.0 means that the minimum and maximum values among the first ten samples are plotted in the first display unit, the minimum and maximum values of the next ten samples are displayed in the second display unit and so on.</p>
+<p class="p12"><br></p>
+<p class="p11">Lines are drawn between the chosen values to yield a continuous shape. Two drawing modes are provided:</p>
+<p class="p12"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>In NX_SOUNDVIEW_WAVE mode, the drawing is rendered in an oscilloscopic fashion.</p>
+<p class="p18"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>In NX_SOUNDVIEW_MINMAX mode, two lines are drawn, one to connect the maximum values, and one to connect the minimum values.</p>
+<p class="p18"><br></p>
+<p class="p11">As you zoom in (as the reduction factor decreases), the two drawing modes become indistinguishable.</p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p14"><b>Autoscaling the Display</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><b></b><br></p>
+<p class="p11">When a SoundView's sound data changes (due to editing or recording), the manner in which the SoundView is redisplayed depends on its <b>autoscale</b> flag. With autoscaling disabled, the SoundView's frame grows or shrinks (horizontally) to fit the new sound data and the reduction factor is unchanged. If autoscaling is enabled, the reduction factor is automatically recomputed to maintain a constant frame size. By default, autoscaling is disabled; this is to accommodate the use of a SoundView object as the document of an NSScrollView.</p>
+<p class="p12"><br></p>
+<p class="p19"><br></p>
+<p class="p9"><b>Method Types</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p20">Initializing a SoundView object <span class="Apple-tab-span">	</span><span class="s2">-</span> initWithFrame:</p>
+<p class="p21"><br></p>
+<p class="p20">Modifying the object<span class="Apple-tab-span">	</span><span class="s2">-</span> scaleToFit</p>
+<p class="p22"><span class="s2">-</span> setBackgroundColor:</p>
+<p class="p22"><span class="s2">-</span> setBezeled:</p>
+<p class="p22"><span class="s2">-</span> setContinuous:</p>
+<p class="p22"><span class="s2">-</span> setDelegate:</p>
+<p class="p22"><span class="s2">-</span> setDisplayMode:</p>
+<p class="p22"><span class="s2">-</span> setEnabled:</p>
+<p class="p22"><span class="s2">-</span> setForegroundColor:</p>
+<p class="p22"><span class="s2">-</span> setOptimizedForSpeed:</p>
+<p class="p22"><span class="s2">-</span> setSound:</p>
+<p class="p22"><span class="s2">-</span> sizeToFit</p>
+<p class="p23"><br></p>
+<p class="p20">Querying the object<span class="Apple-tab-span">	</span><span class="s2">-</span> backgroundColor</p>
+<p class="p22"><span class="s2">-</span> delegate</p>
+<p class="p22"><span class="s2">-</span> displayMode</p>
+<p class="p22"><span class="s2">-</span> foregroundColor</p>
+<p class="p22"><span class="s2">-</span> getSelection:size:</p>
+<p class="p22"><span class="s2">-</span> isAutoScale</p>
+<p class="p22"><span class="s2">-</span> isBezeled</p>
+<p class="p22"><span class="s2">-</span> isContinuous</p>
+<p class="p22"><span class="s2">-</span> isEnabled</p>
+<p class="p22"><span class="s2">-</span> isOptimizedForSpeed</p>
+<p class="p22"><span class="s2">-</span> reductionFactor</p>
+<p class="p22"><span class="s2">-</span> sound</p>
+<p class="p23"><br></p>
+<p class="p20">Selecting and editing the sound data<span class="Apple-tab-span">	</span><span class="s2">-</span> copy:</p>
+<p class="p22"><span class="s2">-</span> cut:</p>
+<p class="p22"><span class="s2">-</span> delete:</p>
+<p class="p22"><span class="s2">-</span> mouseDown:</p>
+<p class="p22"><span class="s2">-</span> paste:</p>
+<p class="p22"><span class="s2">-</span> selectAll:</p>
+<p class="p22"><span class="s2">-</span> setSelection:size:</p>
+<p class="p22"><span class="s2">-</span> isEditable</p>
+<p class="p22"><span class="s2">-</span> setEditable:</p>
+<p class="p23"><br></p>
+<p class="p20">Pasteboard and Services support<span class="Apple-tab-span">	</span><span class="s2">-</span> pasteboard:provideData:</p>
+<p class="p22"><span class="s2">-</span> readSelectionFromPasteboard:</p>
+<p class="p22"><span class="s2">-</span> validRequestorForSendType:returnType:</p>
+<p class="p22"><span class="s2">-</span> writeSelectionToPasteboard:types:</p>
+<p class="p23"><br></p>
+<p class="p20">Modifying the display coordinates<span class="Apple-tab-span">	</span><span class="s2">-</span> setAutoscale:</p>
+<p class="p22"><span class="s2">-</span> setReductionFactor:</p>
+<p class="p23"><br></p>
+<p class="p20">Drawing the object<span class="Apple-tab-span">	</span><span class="s2">-</span> drawSelf::</p>
+<p class="p22"><span class="s2">-</span> drawSamplesFrom:to:</p>
+<p class="p22"><span class="s2">-</span> hideCursor</p>
+<p class="p22"><span class="s2">-</span> showCursor</p>
+<p class="p22"><span class="s2">-</span> setFrameSize:</p>
+<p class="p23"><br></p>
+<p class="p20">Responding to events<span class="Apple-tab-span">	</span><span class="s2">-</span> acceptsFirstResponder</p>
+<p class="p22"><span class="s2">-</span> becomeFirstResponder</p>
+<p class="p22"><span class="s2">-</span> resignFirstResponder</p>
+<p class="p23"><br></p>
+<p class="p20">Performing the sound data<span class="Apple-tab-span">	</span><span class="s2">-</span> pause:</p>
+<p class="p22"><span class="s2">-</span> isPlayable</p>
+<p class="p22"><span class="s2">-</span> play:</p>
+<p class="p22"><span class="s2">-</span> record:</p>
+<p class="p22"><span class="s2">-</span> resume:</p>
+<p class="p22"><span class="s2">-</span> soundBeingProcessed</p>
+<p class="p22"><span class="s2">-</span> stop:</p>
+<p class="p23"><br></p>
+<p class="p20">Accessing the delegate<span class="Apple-tab-span">	</span><span class="s2">-</span> didPlay:</p>
+<p class="p22"><span class="s2">-</span> didRecord:</p>
+<p class="p22"><span class="s2">-</span> hadError:</p>
+<p class="p22"><span class="s2">-</span> tellDelegate:</p>
+<p class="p22"><span class="s2">-</span> willPlay:</p>
+<p class="p22"><span class="s2">-</span> willRecord:</p>
+<p class="p24"><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p14"><b></b><b>acceptsFirstResponder</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>acceptsFirstResponder</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">If the SoundView is enabled, this returns YES, allowing the SoundView to become the first responder. Otherwise, it returns NO. This method is automatically invoked by objects defined by the Application Kit; you should never need to invoke it directly.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>backgroundColor</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (NSColor *)<b>backgroundColor</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns the SoundView's background gray value (NSColor's <b>whiteColor</b> by default).</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>becomeFirstResponder</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>becomeFirstResponder</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Promotes the SoundView to first responder, and returns YES. You never invoke this method directly.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>copy:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>copy:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Copies the current selection to the pasteboard.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>cut:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>cut:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Deletes the current selection from the SoundView, copies it to the pasteboard, and sends a <b>soundDidChange:</b> message to the delegate. The insertion point is positioned to where the selection used to start.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>delegate</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (id)<b>delegate</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns the SoundView's delegate object.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>delete:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>delete:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Deletes the current selection from the SoundView's Sound and sends the <b>soundDidChange:</b> message to the delegate. The deletion isn't placed on the pasteboard.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>didPlay:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>didPlay:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Used to redirect delegate messages from the SoundView's Sound object; you never invoke this method directly.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>didRecord:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>didRecord:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Used to redirect delegate messages from the SoundView's Sound object; you never invoke this method directly.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>displayMode</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (int)<b>displayMode</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns the SoundView's display mode, one of NX_SOUNDVIEW_WAVE (oscilloscopic display) or NX_SOUNDVIEW_MINMAX (minimum/maximum display; this is the default).</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>drawRect:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> <b>drawRect:</b>(NSRect)<i>aRect</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Displays the SoundView's sound data. The selection is highlighted and the cursor is drawn (if it isn't currently hidden).</p>
+<p class="p12"><br></p>
+<p class="p11">You never send the <b>drawRect:</b> message directly to a SoundView object. To cause a SoundView to draw itself, send it one of the display messages defined by the NSView class.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>drawSamplesFrom:to:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>drawSamplesFrom:</b>(int)<i>first </i><b>to:</b>(int)<i>last</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Redisplays the given range of samples. Returns YES if there is data that can be displayed, NO otherwise.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>foregroundColor</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (NSColor *)<b>foregroundColor</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns the SoundView's foreground gray value (NSColor's <b>blackColor</b> by default).</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>getSelection:size:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>getSelection:</b>(int *)<i>firstSample </i><b>size:</b>(int *)<i>sampleCount</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Returns the selection by reference. The index of the selection's first sample (counting from 0) is returned in <i>firstSample</i>. The size of the selection in samples is returned in <i>sampleCount</i>.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>hadError:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>hadError:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Used to redirect delegate messages from the SoundView's Sound object; you never invoke this method directly.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>hideCursor</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>hideCursor</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Hides the SoundView's cursor. This is usually handled automatically.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>initWithFrame:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (id)<b>initWithFrame:</b>(NSRect)<i>frameRect</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Initializes the SoundView, fitting the object within the rectangle pointing to by <i>frameRect</i>. The initialized SoundView doesn't contain any sound data. <span class="Apple-converted-space">  </span>Returns <b>self</b>.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>isAutoScale</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>isAutoScale</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns YES if the SoundView is in autoscaling mode, otherwise returns NO.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>isBezeled</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>isBezeled</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns YES if the SoundView has a bezeled border, otherwise returns NO (the default).</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>isContinuous</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>isContinuous</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns YES if the SoundView responds to mouse-dragged events (as set through <b>setContinuous:</b>). The default is NO.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>isEditable</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>isEditable</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns YES if the SoundView's sound data can be edited.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>isEnabled</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>isEnabled</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns YES if the SoundView is enabled, otherwise returns NO. The mouse has no effect in a disabled SoundView. By default, a SoundView is enabled.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>isOptimizedForSpeed</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>isOptimizedForSpeed</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns YES if the SoundView is optimized for speedy display. SoundViews are optimized by default.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>isPlayable</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>isPlayable</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns YES if the SoundView's sound data can be played without first being converted.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>mouseDown:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>mouseDown:</b>(NSEvent *)<i>theEvent</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Allows a selection to be defined by clicking and dragging the mouse. This method takes control until a mouse-up occurs. While dragging, the selected region is highlighted. On mouse up, the delegate is sent the <b>selectionChanged:</b> message. If <b>isContinuous</b> is YES, <b>selectionChanged:</b> messages are also sent while the mouse is being dragged. You never invoke this method; it's invoked automatically in response to the user's actions.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>paste:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>paste:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Replaces the current selection with a copy of the sound data currently on the pasteboard. If there is no selection the pasteboard data is inserted at the cursor position. The pasteboard data must be compatible with the SoundView's data, as determined by the Sound method <b>compatibleWith:</b>. If the paste is successful, the <b>soundDidChange:</b> message is sent to the delegate.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>pasteboard:provideData:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>pasteboard:</b>(NSPasteboard *)<i>thePasteboard </i><b>provideData:</b>(NSString *)<i>type</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Places the SoundView's entire sound on the given pasteboard. Currently, the <i>type</i> argument must be “NXSoundPboardType”, the pasteboard type that represents sound data.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>pause:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>pause:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Pauses the current playback or recording session by invoking Sound's <b>pause:</b> method.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>play:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>play:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Play the current selection by invoking Sound's <b>play:</b> method. If there is no selection, the SoundView's entire Sound is played. The <b>willPlay:</b> message is sent to the delegate before the selection is played; <b>didPlay:</b> is sent when the selection is done playing.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>readSelectionFromPasteboard:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>readSelectionFromPasteboard:</b>(NSPasteboard *)<i>thePasteboard</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Replaces the SoundView's current selection with the sound data on the given pasteboard. The pasteboard data is converted to the format of the data in the SoundView (if possible). If the SoundView has no selection, the pasteboard data is inserted at the cursor position. Sets the current error code for the SoundView's Sound object (which you can retrieve by sending <b>processingError</b> to the Sound) and returns YES.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>record:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>record:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Replaces the SoundView's current selection with newly recorded material. If there is no selection, the recording is inserted at the cursor. The <b>willRecord:</b> message is sent to the delegate before the recording is started; <b>didRecord:</b> is sent after the recording has completed. Recorded data is always taken from the CODEC microphone input.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>reductionFactor</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (float)<b>reductionFactor</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns the SoundView's reduction factor, computed as follows:</p>
+<p class="p12"><br></p>
+<p class="p28">reductionFactor = sampleCount / displayUnits</p>
+<p class="p29"><br></p>
+<p class="p14"><b></b><b>resignFirstResponder</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>resignFirstResponder</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Resigns the position of first responder. Returns YES.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>resume:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>resume:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Resumes the current playback or recording session by invoking Sound's <b>resume:</b> method.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>scaleToFit</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>scaleToFit</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Recomputes the SoundView's reduction factor to fit the sound data (horizontally) within the current frame. Invoked automatically when the SoundView's data changes and the SoundView is in autoscale mode. If the SoundView isn't in autoscale mode, <b>sizeToFit</b> is invoked when the data changes. You never invoke this method directly; a subclass can reimplement this method to provide specialized behavior.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>selectAll:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>selectAll:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Creates a selection over the SoundView's entire Sound.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setAutoscale:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>setAutoscale:</b>(BOOL)<i>aFlag</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sets the SoundView's automatic scaling mode, used to determine how the SoundView is redisplayed when its data changes. With autoscaling enabled (<i>aFlag</i> is YES), the SoundView's reduction factor is recomputed so the sound data fits within the view frame. If it's disabled (<i>aFlag</i> is NO), the frame is resized and the reduction factor is unchanged. If the SoundView is in an NSScrollView, autoscaling should be disabled (autoscaling is disabled by default).</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setBackgroundColor:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>setBackgroundGray:</b>(NSColor *)<i>aColor</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sets the SoundView's background gray value to <i>aColor</i>; the default is NSColor's <b>whiteColor</b>.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setBezeled:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>setBezeled:</b>(BOOL)<i>aFlag</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">If <i>aFlag</i> is YES, the display is given a bezeled border. By default, the border of a SoundView display isn't bezeled. If autodisplay is enabled, the Sound is automatically redisplayed.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setContinuous:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>setContinuous:</b>(BOOL)<i>aFlag</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sets the state of continuous action messages. If <i>aFlag</i> is YES, <b>selectionChanged:</b> messages are sent to the delegate as the mouse is being dragged. If NO, the message is sent only on mouse up. The default is NO.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setDelegate:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>setDelegate:</b>(id)<i>anObject</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sets the SoundView's delegate to <i>anObject</i>. The delegate is sent messages when the user changes or acts on the selection.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setDisplayMode:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>setDisplayMode:</b>(int)<i>aMode</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sets the SoundView's display mode, either NX_SOUNDVIEW_WAVE or NX_SOUNDVIEW_MINMAX (the default). If autodisplaying is enabled, the Sound is automatically redisplayed.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setEditable:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>setEditable:</b>(BOOL)<i>aFlag</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Enables or disables editing in the SoundView as <i>aFlag</i> is YES or NO. By default, a SoundView is editable.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setEnabled:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>setEnabled:</b>(BOOL)<i>aFlag</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Enables or disables the SoundView as <i>aFlag</i> is YES or NO. The mouse has no effect in a disabled SoundView. By default, a SoundView is enabled.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setForegroundColor:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>setForegroundColor:</b>(NSColor *)<i>aColor</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sets the SoundView's foreground gray value to <i>aColor</i>. The default is NSColor's <b>blackColor</b>.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setFrameSize:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>setFrameSize:</b>(NSSize)<i>newSize</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sets the width and height of the SoundView's frame. If autodisplaying is enabled, the SoundView is automatically redisplayed.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setOptimizedForSpeed:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>setOptimizedForSpeed:</b>(BOOL)<i>flag</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sets the SoundView to optimize its display mechanism. Optimization greatly increases the speed with which data can be drawn, particularly for large sounds. It does so at the loss of some precision in representing the sound data; however, these inaccuracies are corrected as you zoom in on the data. All SoundView's are optimized by default.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setReductionFactor:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>setReductionFactor:</b>(float)<i>reductionFactor</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Recomputes the size of the SoundView's frame, if autoscaling is disabled. The frame's size (in display units) is set according to the following formula:</p>
+<p class="p12"><br></p>
+<p class="p28">displayUnits = sampleCount / reductionFactor</p>
+<p class="p30"><br></p>
+<p class="p11">Increasing the reduction factor zooms out, decreasing zooms in on the data. If autodisplaying is enabled, the Sound is automatically redisplayed.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">If the SoundView is in autoscaling mode, or <i>reductionFactor</i> is less than 1.0, the method avoids computing the frame size and returns NO. (In autoscaling mode, the reduction factor is automatically recomputed when the sound data changes—see <b>scaleToFit:</b>.) Otherwise, the method returns YES. If <i>reductionFactor</i> is the same as the current reduction factor, the method returns immediately without recomputing the frame size.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setSelection:size:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>setSelection:</b>(int)<i>firstSample </i><b>size:</b>(int)<i>sampleCount</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sets the selection to be <i>sampleCount</i> samples wide, starting with sample <i>firstSample</i> (samples are counted from 0).</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>setSound:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>setSound:</b>(Sound *)<i>aSound</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sets the SoundView's Sound object to <i>aSound</i>. If autoscaling is enabled, the drawing coordinate system is adjusted so <i>aSound</i>'s data fits within the current frame. Otherwise, the frame is resized to accommodate the length of the data. If autodisplaying is enabled, the SoundView is automatically redisplayed.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>showCursor</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>showCursor</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Displays the SoundView's cursor. This is usually handled automatically.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>sizeToFit</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>sizeToFit</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Resizes the SoundView's frame (horizontally) to maintain a constant reduction factor. This method is invoked automatically when the SoundView's data changes and the SoundView isn't in autoscale mode. If the SoundView is in autoscale mode, <b>scaleToFit</b> is invoked when the data changes. You never invoke this method directly; a subclass can reimplement this method to provide specialized behavior.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>sound</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (Sound *)<b>sound</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns a pointer to the SoundView's Sound object.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>soundBeingProcessed</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (id)<b>soundBeingProcessed</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p11">Returns the Sound object that's currently being played or recorded into. Note that the actual Sound object that's being performed isn't necessarily the object returned by SoundView's <b>sound </b>method; for efficiency, SoundView creates a private performance Sound object. While this is generally an implementation detail, this method is supplied in case the SoundView's delegate needs to know exactly which object will be (or was) performed.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>stop:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>stop:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Stops the SoundView's current recording or playback.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>tellDelegate:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>tellDelegate:</b>(SEL)<i>theMessage</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sends <i>theMessage</i> to the SoundView's delegate with the SoundView as the argument. If the delegate doesn't respond to the message, then it isn't sent. You normally never invoke this method; it's invoked automatically when an action, such as playing or editing, is performed. However, you can invoke it in the design of a SoundView subclass.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>validRequestorForSendType:returnType:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (id)<b>validRequestorForSendType:</b>(NSString *)<i>sendType </i><b>returnType:</b>(NSString *)<i>returnType</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">You never invoke this method; it's implemented to support services that act on sound data.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>willPlay:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>willPlay:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Used to redirect delegate messages from the SoundView's Sound object; you never invoke this method directly.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>willRecord:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>willRecord:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Used to redirect delegate messages from the SoundView's Sound object; you never invoke this method directly.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>writeSelectionToPasteboard:types:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (BOOL)<b>writeSelectionToPasteboard:</b>(NSPasteboard *)<i>thePasteboard</i><b> types:</b>(NSArray *)<i>pboardTypes</i><span class="Apple-converted-space"> </span></p>
+<p class="p26"><br></p>
+<p class="p11">Places a copy of the SoundView's current selection on the given pasteboard. The <i>pboardTypes</i> argument is currently ignored. Returns YES if the selection was successfully copied to the pasteboard.</p>
+<p class="p12"><br></p>
+<p class="p19"><br></p>
+<p class="p9"><b>Methods Implemented By the Delegate</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p14"><b></b><b>didPlay:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>didPlay:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sent to the delegate just after the SoundView's sound is played.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>didRecord:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>didRecord:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sent to the delegate just after the SoundView's sound is recorded into.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>hadError:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>hadError:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sent to the delegate if an error is encountered during recording or playback of the SoundView's sound.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>selectionChanged:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>selectionChanged:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sent to the delegate when the SoundView's selection changes.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>soundDidChange:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>soundDidChange:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sent to the delegate when the SoundView's sound data is edited.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>willFree:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>willFree:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sent to the delegate when the SoundView is freed.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>willPlay:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>willPlay:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sent to the delegate just before the SoundView's sound is played.</p>
+<p class="p12"><br></p>
+<p class="p27"><br></p>
+<p class="p14"><b></b><b>willRecord:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p25"><span class="s2">-</span> (void)<b>willRecord:</b>(id)<i>sender</i></p>
+<p class="p26"><i></i><br></p>
+<p class="p11">Sent to the delegate just before the SoundView's sound is recorded into.</p>
+<p class="p12"><br></p>
+</body>
+</html>

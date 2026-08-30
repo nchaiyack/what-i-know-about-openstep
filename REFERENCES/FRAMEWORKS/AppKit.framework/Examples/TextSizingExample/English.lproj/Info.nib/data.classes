@@ -1,0 +1,6 @@
+"Controller" = {
+    ACTIONS = {"aspectPopUpAction:" = id; "infoAction:" = id; "loadDocumentAction:" = id; }; 
+    OUTLETS = {aspectPopUpButton = id; infoPanel = id; swapView = id; }; 
+    SUPERCLASS = NSObject; 
+};
+"FirstResponder" = {ACTIONS = {}; CATEGORY = LocalActions; OUTLETS = {}; };

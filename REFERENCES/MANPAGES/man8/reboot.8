@@ -1,0 +1,140 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)reboot.8	6.4 (Berkeley) 5/28/86
+.\"
+.TH REBOOT 8 "Febuary 5, 1990"
+.UC 4
+.SH NAME
+reboot \- UNIX bootstrapping procedures
+.SH SYNOPSIS
+.B /usr/etc/reboot
+[
+.B \-n
+] [
+.B \-q
+] [
+.B boot_command
+]
+.SH DESCRIPTION
+.PP
+UNIX is started by placing it in memory
+and transferring to the entry point.
+Since the system is not reenterable,
+it is necessary to read it in from disk or ethernet
+each time it is to be bootstrapped.
+.PP
+.B Rebooting a running system.
+When a UNIX is running and a reboot is desired,
+.IR shutdown (8)
+is normally used.
+If there are no users then
+.B /usr/etc/reboot
+can be used.
+Reboot causes the disks to be synced and allows the system
+to perform other shutdown activities such as resynchronizing
+hardware time-of-day clocks.
+A multi-user reboot (as described below) is then initiated.
+This causes a system to be
+booted and an automatic disk check to be performed.  If all this succeeds
+without incident, the system is then brought up for many users.
+.PP
+Options to reboot are:
+.TP
+.B \-n
+Avoids the sync.  It can be used if a disk or the processor
+is on fire. 
+.TP
+.B \-q
+Reboots quickly and ungracefully, without shutting down running
+processes first.
+.TP
+.B boot_command
+Allows a new boot command to be specified.  Normally the system is rebooted using
+the previous boot command, but using this option allows a new boot command to be
+specified without requiring the user to halt the system and
+enter the new boot command from the console.
+.PP
+.I Reboot
+normally logs the reboot using
+.IR syslog (8)
+and places a shutdown record in the login accounting file
+/usr/adm/wtmp.
+These actions are inhibited if the
+.B \-n
+or
+.B \-q
+options are present.
+.PP
+.B Cold starts.
+The ROM monitor automatically starts the NeXT computer when the power is
+turned on or when the computer is rebooted.
+The 
+.I boot
+program finds the corresponding file on the given device 
+(\fIodmach\fR for an optical drive,
+\fIsdmach\fR for a SCSI drive),
+loads that file
+into memory, and starts the program at the entry address
+specified in the program header (after clearing off the high bit
+of the specified entry address).
+.PP
+If you want to stop the boot sequence, hold down the Command key and
+press the backquote key on the numeric keypad -- the ROM monitor will
+display a text window containing the "NeXT>" prompt.
+You can then use the ROM monitor's boot command (\fBb\fR)
+to start the boot sequence over, possibly specifying a different boot device.
+.PP
+The syntax of the \fBb\fR boot command is:
+.IP
+\fIdevice\fR[(\fIctrl\fR,\fIunit\fR,\fIpart\fR)][\fIfile\fR][\fIflags\fR]
+.PP
+where
+.I device
+is the type of the device to be searched,
+.I ctrl
+is the controller number,
+.I unit
+is the unit number of the disk or tape,
+and
+.I part
+is the disk partition number.
+Possible values for \fIflags\fR are:
+.TP
+.B \-a
+Ask for the name of the root device
+.TP
+.B \-b
+Don't process the rc.boot file
+.TP
+.B \-s
+Boot in single-user mode instead of multi-user mode
+.TP
+.B \-i
+Ask for the name of the init program (the default is /usr/etc/init)
+.TP
+.B \-p
+Don't automatically reboot after a system panic
+.PP
+The following devices are supported:
+.TP
+.B sd
+SCSI disk drive
+.TP
+.B od
+optical disk drive
+.TP
+.B en
+ethernet
+.SH FILES
+/mach	system code
+.br
+.SH "SEE ALSO"
+fsck(8),
+halt(8),
+init(8),
+newfs(8),
+rc(8),
+shutdown(8),
+syslogd(8).

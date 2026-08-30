@@ -1,0 +1,71 @@
+.TH GDB 1 "June 15, 1989" "Free Software Foundation, Inc."
+.SH NAME
+gdb \- GNU Debugger
+.SH SYNOPSIS
+\fBgdb\fP [ \fIoptions\fP ] [ \fIname\fR ] [ \fIcore\fR ]
+.SH DESCRIPTION
+\fBgdb\fP is a source-level symbolic debugger for C programs, created by
+Richard M. Stallman for the GNU Project and distributed by the
+Free Software Foundation.
+\fBgdb\fP has something of the flavor of \fIdbx\fP,
+but has more features and power.
+.PP
+GDB is invoked with the shell command \fBgdb\fR.
+Once started, it reads commands
+from the terminal until you quit by giving the \fBquit\fR command.
+\fIname\fR is the name of your executable program, and \fIcore\fR,
+if specified, is the name of the core dump file to be examined.
+.PP
+\fBgdb\fR has been substantially
+modified and extended by NeXT Software, Inc.
+to support the use of Objective-C and
+Mach.
+.SH OPTIONS
+If you need to specify more precisely the files to debugged, you can do so
+with the following command-line options.
+All the options and command line arguments given are processed in
+sequential order.  The order makes a difference when the \fB-x\fR command is
+used.
+.TP
+\fB-s\fR \fIfile\fR
+Read symbol table from \fIfile\fR.
+.TP
+\fB-e\fR \fIfile\fR
+Use \fIfile\fR as the executable file to execute when appropriate,
+and for examining pure data in conjunction with a core dump.
+.TP
+\fB-se\fR \fIfile\fR
+Read symbol table from \fIfile\fR and use it as the executable file.
+.TP
+\fB-c\fR \fIfile\fR
+Use \fIfile\fR as a core dump file to examine.
+.TP
+\fB-x\fR \fIfile\fR
+Execute GDB commands from \fIfile\fR.
+.TP
+\fB-d\fR \fIdirectory\fR
+Add \fIdirectory\fR to the path to search for source files.
+.PP
+The following additional command-line options can be used to affect certain
+aspects of the behavior of \fBgdb\fR:
+.TP
+\fB-nx\fR
+Don't execute commands from the init files \fB.gdbinit\fR.  Normally, the
+commands in these files are executed after all the command options and
+arguments have been processed.
+.TP
+\fB-q\fR
+Quiet.  Don't print the usual introductory messages.
+.TP
+\fB-batch\fR
+Run in batch mode.  Exit with code 1 after processing all the
+command files specified with \fB-x\fR (and \fB.gdbinit\fR, if not inhibited).
+Exit also if, due to an error, GDB would otherwise attempt to read a command
+from the terminal.
+.TP
+\fB-fullname\fR
+This option is used when Emacs runs GDB as a subprocess.  It
+tells GDB to produce the full file name and line number each time a stack
+frame is displayed (which includes each time the program stops).
+.SH "SEE ALSO"
+cc(1)

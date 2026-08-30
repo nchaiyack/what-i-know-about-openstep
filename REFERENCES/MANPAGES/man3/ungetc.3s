@@ -1,0 +1,38 @@
+.\"	@(#)ungetc.3s	6.1 (Berkeley) 5/15/85
+.\"
+.TH UNGETC 3S  "August 1, 1992"
+.ds ]W ANSI C
+.SH NAME
+ungetc \- push character back into input stream
+.SH SYNOPSIS
+.B #include <stdio.h>
+.PP
+.B int ungetc(int \fIc\fP, FILE *\fIstream\fP);
+.SH DESCRIPTION
+.I Ungetc
+pushes the character
+.I c
+(converted to an unsigned char)
+back on an input stream.  That character will be returned by the next
+.I getc
+call on that stream.
+.PP
+One character of pushback is guaranteed provided
+something has been read from the stream and the stream is actually buffered.
+Attempts to push EOF are rejected.
+.PP
+.IR  Fseek (3S),
+.IR  fsetpos (3S),
+or
+.IR  rewind (3S)
+erases all memory of pushed back characters.
+.SH "RETURN VALUE"
+.I Ungetc
+returns the character pushed back after conversion, or
+EOF if unsuccessful.
+.SH "SEE ALSO"
+getc(3S),
+setbuf(3S),
+fseek(3S),
+fsetpos(3S),
+rewind(3S)

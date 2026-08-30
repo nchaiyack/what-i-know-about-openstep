@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.2px; text-indent: -37.9px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 76.0px; text-indent: -0.4px; font: 14.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 76.0px; text-indent: -0.4px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 12.0px Helvetica}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 25.0px Times; min-height: 30.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p11 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 75.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.6px; text-indent: -25.1px; font: 14.0px Helvetica}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.6px; text-indent: -25.1px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 75.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.5px Helvetica}
+    span.s3 {font: 14.0px Times}
+    span.s4 {font: 12.0px Helvetica}
+    span.s5 {font: 26.0px Helvetica}
+    span.s6 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">p<span class="Apple-tab-span">	</span></span><b></b><b>NSComboBoxDataSource</b></p>
+<p class="p4"><b>(Informal Protocol)</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b>Category Of:<span class="Apple-tab-span">	</span></b><span class="s3">NSObject</span></p>
+<p class="p7"><br></p>
+<p class="p8"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSComboBox.h<span class="Apple-converted-space"> </span></p>
+<p class="p7"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><b>Category Description</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12">The NSComboBoxDataSource category declares the methods that an NSComboBox uses to access the contents of its data source object. The combo box determines how many items to display by sending a <b>numberOfItemsInComboBox:</b> message, and accesses individual values with the <b>comboBox:objectValueForItemAtIndex:</b> method. Incremental searches—performed when a user types into the combo box's text field while the pop-up list is displayed—are performed by sending <b>comboBox:indexOfItemWithStringValue:</b> messages to the combo box's data source.</p>
+<p class="p13"><br></p>
+<p class="p12">The NSComboBox treats objects provided by its data source as values to be displayed in the combo box's pop-up list. If these objects aren't of common value classes—such as NSString, NSNumber, and so on—you'll need to create a custom NSFormatter to display them. See the NSFormatter class specification for more information.</p>
+<p class="p13"><br></p>
+<p class="p12">When an NSComboBoxDataSource is asked to supply a data item, the NSComboBox that sends the request is provided as a parameter. This allows a single data source object to manage several sets of data, choosing the appropriate set based on the identify of the NSComboBox that sends the message.</p>
+<p class="p13"><br></p>
+<p class="p14"><br></p>
+<p class="p10"><b>Instance Methods</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p15"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>comboBox:indexOfItemWithStringValue:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><span class="s6">-</span> (unsigned int)<b>comboBox:</b>(NSComboBox *)<i>aComboBox</i> <b>indexOfItemWithStringValue:</b>(NSString *)<i>aString</i></p>
+<p class="p18"><i></i><br></p>
+<p class="p12">An NSComboBox uses this method to perform incremental—or “smart”—searched when the user types into the text field with the pop-up list displayed. Your implementation of this method should return the index for the item which matches <i>aString</i>, or NSNotFound if no item matches. This method is optional; if you don't provide an implementation for this method, no searches occur.</p>
+<p class="p13"><br></p>
+<p class="p19"><br></p>
+<p class="p15"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>comboBox:objectValueForItemAtIndex:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><span class="s6">-</span> (id)<b>comboBox:</b>(NSComboBox *)<i>aComboBox</i> <b>objectValueForItemAtIndex:</b>(int)<i>index</i></p>
+<p class="p18"><i></i><br></p>
+<p class="p12">Implement this method to return the object that corresponds to the item at <i>index</i> in <i>aComboBox</i>. Your data source must implement this method.</p>
+<p class="p13"><br></p>
+<p class="p19"><br></p>
+<p class="p15"><span class="s5">p<span class="Apple-tab-span">	</span></span><b></b><b>numberOfItemsInComboBox:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><span class="s6">-</span> (int)<b>numberOfItemsInComboBox:</b>(NSComboBox *)<i>aComboBox</i></p>
+<p class="p18"><i></i><br></p>
+<p class="p12">Implement this method to return the number of items managed for <i>aComboBox</i> by your data source object. An NSComboBox uses this method to determine how many items it should display in its pop-up list. Your data source must implement this method.</p>
+<p class="p13"><br></p>
+<p class="p20"><br></p>
+<p class="p13"><br></p>
+</body>
+</html>

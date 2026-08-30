@@ -1,0 +1,205 @@
+.TH EXECL 3 "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+execl, execv, execle, execlp, execvp, environ \- execute a file
+.SH SYNOPSIS
+.nf
+.B "int execl(const char *\fIname\fP, const char *\fIarg0\fP, const char *\fIarg1\fP, ...,"
+.br
+.B "       const char *\fIargn\fP, (char *) 0);"
+.PP
+.B "int execv(const char *\fIpath\fP, const char *\fIargv\fP[]);"
+.PP
+.B "int execle(const char *\fIpath\fP, const char *\fIarg0\fP, const char *\fIarg1\fP, ...,"
+.br
+.B "       const char *\fIargn\fP, (char *) 0, const char *\fIenvp\fP[]);"
+.PP
+.B "int execlp(const char *\fIfile\fP, const char *\fIarg0\fP, const char *\fIarg1\fP, ...,"
+.br
+.B "        const char *\fIargn\fP, (char *) 0);"
+.PP
+.B "int execvp(const char *\fIfile\fP, const char *\fIargv\fP[]);"
+.PP
+.B extern char **environ;
+.fi
+.SH DESCRIPTION
+These routines provide various interfaces to the
+.IR execve (2)
+and
+.IR execv (2)
+system calls.  Refer to 
+.IR  execve (2)
+or
+.IR execv (2)
+for a description of their properties; only
+brief descriptions are provided here.
+.PP
+The
+.I exec
+family of functions in all its forms overlays the calling process with the
+named file, then transfers to the entry point of the core image of the file.
+There can be no return from a successful exec; the calling core image is lost.
+An unsuccessful exec generates a return value of \-1.
+.PP
+The
+.I path
+argument is a pointer to the name of the file to be executed.  The pointers
+.IR arg [0],
+.IR arg [1]...
+address null-terminated strings.  Conventionally
+.IR arg [0]
+is the name of the file.
+.PP
+.IR Execl 
+is useful when a known file with known arguments is
+being called;
+the arguments to
+.IR execl 
+are the character strings constituting the file and the arguments; the first
+argument is conventionally the same as the file name (or its last component).
+A 0 argument must end the argument list.
+.PP
+The
+.IR execv 
+version is useful when the number of arguments is unknown in advance; the
+arguments to
+.IR execv 
+are the name of the file to be executed and a vector of strings containing the
+arguments.  The last argument string must be followed by a 0 pointer.
+.PP
+The 
+.IR execlp
+and
+.IR execvp 
+interfaces take the argument
+.I file
+that is used to construct a pathname that identifies the new process image
+file.  If the 
+.I file
+argument contains a slash character, the
+.I file
+argument is used as the pathname for this file.  Otherwise, the path prefix
+for this file is obtained by a search of the directories passed as the 
+environment variable
+.BR PATH .
+If this environment variable is not present, then the directories 
+\fI/bin\fR and \fI/usr/bin\fR are searched.
+.PP
+When a C program is executed,
+it is called as follows:
+.PP
+.nf
+	main(int argc, char *argv[]);
+.fi
+.PP
+where
+.I argc
+is the argument count and
+.I argv 
+is an array of character pointers to the arguments themselves.  As indicated,
+.I argc
+is conventionally at least one and the first member of the array points to a
+string containing the name of the file.
+.PP
+.I Argv
+is directly usable in another
+.I execv
+because
+.IR argv [ argc ]
+is 0.
+.PP
+Additionally, the following variable:
+.nf
+.sp
+	extern char **environ;
+.sp
+.fi
+is initialized as a pointer to an array of character pointers to the
+environment strings.
+Each string consists of a name, an \*(lq=\*(rq, and a null-terminated value.
+The array of pointers is terminated by a null pointer.
+The shell
+.IR sh (1)
+passes an environment entry for each global shell variable defined when the
+program is called.  See
+.IR environ (7)
+for some conventionally used names.  The C run-time start-off routine places a
+copy of
+.I envp
+in the global cell
+.IR environ ,
+which is used by
+.IR execv (2)
+and
+.IR execl (2)
+to pass the environment to any subprograms executed by the current program.
+.SH FILES
+.ta \w'/bin/sh    'u
+/bin/sh	shell, invoked if command file found
+by
+.I execlp
+or
+.I execvp
+.SH ERRORS
+The following errors may occur:
+.TP 15
+[E2BIG]
+The number of bytes used by the argument list and the environment list of the
+new process image is greater than the system-imposed limit of {ARG_MAX} bytes.
+.TP 15
+[EACCES]
+Search permission is denied for a directory listed in the path
+prefix of the new processes image file, or the new process image
+file denies execution permission, or the new process image file is
+not a regular file.
+.TP 15
+[ENAMETOOLONG]
+A pathname component
+exceeds 255 characters;
+or,
+.I pathname
+or
+.IR file ,
+or an element of the environment variable
+.B PATH
+prefixed to
+.IR file ,
+exceeds 1023 characters.
+For POSIX applications these values are given
+by the constants {NAME_MAX} and {PATH_MAX}, respectively.
+.TP 15
+[ENOENT]
+One or more components of the pathname of the new process image
+file do not exist, or the \fIpath\fR or \fIfile\fR argument points
+to an empty string.
+.TP 15
+[ENOTDIR]
+A component of the path prefix of the new process image file is not a directory.
+.TP 15
+[ENOEXEC]
+The new process image file has the appropriate access permission,
+but is not in the proper format.
+.SH DIAGNOSTICS
+If the file cannot be found,
+if it is not executable,
+if it does not start with a valid magic number (see
+.IR a.out (5)),
+if maximum memory is exceeded,
+or if the arguments require too much space,
+a return
+constitutes the diagnostic;
+the return value is \-1.
+Even for the super-user,
+at least one of the execute-permission bits must be set for
+a file to be executed.
+.SH BUGS
+If
+.I execvp
+is called to execute a file that turns out to be a shell command file, and if
+it is impossible to execute the shell, the values of
+.IR argv [0]
+and
+.IR argv [\-1]
+will be modified before return.
+.SH "SEE ALSO"
+execve(2), fork(2), getenv(3), environ(7), csh(1)

@@ -1,0 +1,1175 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f5\fnil NeXTdoc;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh12580
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\f2\b\fs52\li1460{\NeXTHelpMarker62 \markername NS_DEV_DOCFOR:objc_class:NSDPSContext;}
+¬}\f2\b\i0\ulnone\ql\fs52\fi0\li1460\gray0\fc0\cf0\up0\dn0 NSDPSContext\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject \
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSObject (NSObject) \
+
+\fs20 \
+
+\f2\b\fs24 Declared In:	
+\f0\b0\fs28 AppKit/NSDPSContext.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 The NSDPSContext class is the programmatic interface to objects that represent Display PostScript System 
+\i contexts
+\i0 . A context can be thought of as a 
+\i destination
+\i0  to which PostScript code is sent for execution. Each Display PostScript context contains its own complete PostScript environment including its own local VM (PostScript Virtual Memory). Every context has its own set of stacks, including an operand stack, graphics state stack, dictionary stack, and execution stack. Every context also contains a 
+\b FontDirectory
+\b0  which is local to that context, plus a 
+\b SharedFontDirectory
+\b0  that is shared across all contexts. There are three built-in dictionaries in the dictionary stack. From top to bottom, they are 
+\b userdict
+\b0 , 
+\b globaldict
+\b0 , and 
+\b systemdict
+\b0 . 
+\b userdict
+\b0  is private to the context, while 
+\b globaldict
+\b0  and 
+\b systemdict
+\b0  are shared by all contexts. 
+\b globaldict
+\b0  is a modifiable dictionary containing information common to all contexts. 
+\b systemdict
+\b0  is a read-only dictionary containing all the PostScript operators.\
+
+\fs14 \
+
+\fs28 At any time there is the notion of the 
+\i current context
+\i0 . The current context for the current thread may be set using 
+\b setCurrentContext:.\
+
+\fs14 \
+
+\b0\fs28 NSDPSContext objects by default write their output to a specified 
+\i data
+\i0  destination. This is used for printing, faxing, and for generation of saved EPS (Encapsulated PostScript) code. The means to create contexts that interact with displays are platform-specific. \
+
+\fs14 \
+
+\fs28 The NSApplication object creates an NSDPSContext by default.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 NSDPSContext Objects and Display PostScript System Context Records\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 When an NSDPSContext object is created, it creates and manages a 
+\i DPSContext
+\i0  record. Programmers familiar with the client side C function interface to the Display PostScript System can access the DPSContext record by sending a 
+\b context
+\b0  message to an NSDPSContext object. You can then operate on this context record using any of the functions or single operator functions defined in the Display PostScript System client library. Conversely, you can create an NSDPSContext object from a DPSContext record with the 
+\b DPSContextObject() 
+\b0 function, as defined in ªClient Library Functionsº. You can then work with the created NSDPSContext object using any of the methods described here.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 General Exception Conditions\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 A variety of exceptions can be raised from NSDPSContext. In most cases, exceptions are raised because of errors returned from the Display PostScript Server. Exceptions are listed under ªTypes and Constants.º Also see the 
+\i Display PostScript System, Client Library Reference Manual
+\i0 , by Adobe Systems Incorporated, for more details on Display PostScript System error names and their possible causes.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types \
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Initializing a context	
+\f1 -
+\f0 €initWithMutableData:forDebuggin:languageEncoding:\
+
+\fi0  €€nameEncoding:textProc:errorProc:\
+
+\fs10 \
+
+\fs28\fi-4840 Testing the drawing destination	
+\f1 -
+\f0 €isDrawingToScreen\
+
+\fs10 \
+
+\fs28 Accessing context data	
+\f1 -
+\f0 €mutableData\
+
+\fs10 \
+
+\fs28 Setting and identifying the current context\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 + currentContext\
++€setCurrentContext:\
+
+\f1 -
+\f0 €DPSContext\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Controlling the context	
+\f1 -
+\f0 €flush\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €interruptExecution\
+
+\f1 -
+\f0 €notifyObjectWhenFinishedExecuting:\
+
+\f1 -
+\f0 €resetCommunications\
+
+\f1 -
+\f0 €wait\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Managing returned text and errors	+€stringForDPSError:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €errorProc\
+
+\f1 -
+\f0 €setErrorProc:\
+
+\f1 -
+\f0 €setTextProc:\
+
+\f1 -
+\f0 €textProc\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Sending raw data	
+\f1 -
+\f0 €printFormat:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €printFormat:arguments:\
+
+\f1 -
+\f0 €writeData:\
+
+\f1 -
+\f0 €writePostScriptWithLanguageEncodingConversion:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Managing binary object sequences	
+\f1 -
+\f0 €awaitReturnValues\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €writeBOSArray:count:ofType:\
+
+\f1 -
+\f0 €writeBOSNumString:length:ofType:scale:\
+
+\f1 -
+\f0 €writeBOSString:length:\
+
+\f1 -
+\f0 €writeBinaryObjectSequence:length:\
+
+\f1 -
+\f0 €updateNameMap\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Managing chained contexts	
+\f1 -
+\f0 €chainChildContext:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €childContext\
+
+\f1 -
+\f0 €parentContext\
+
+\f1 -
+\f0  unchainContext\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Controlling  the wait cursor	
+\f1 -
+\f0 €startWaitCursorTimer\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €setWaitCursorEnabled:\
+
+\f1 -
+\f0 €isWaitCursorEnabled\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Debugging aids	+€areAllContextsOutputTraced\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€areAllContextsSynchronized\
++€setAllContextsOutputTraced:\
++€setAllContextsSynchronized:\
+
+\f1 -
+\f0 €isOutputTraced\
+
+\f1 -
+\f0 €isSynchronized\
+
+\f1 -
+\f0 €setOutputTraced:\
+
+\f1 -
+\f0 €setSynchronized:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods \
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker4125 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-areAllContextsOutputTraced];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 areAllContextsOutputTraced\
+
+\fs6 \
+
+\f0\b0\fs28\fi-620\li2520 + (BOOL)
+\b areAllContextsOutputTraced
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the data flowing between the application's contexts and their destinations is copied to diagnostic output.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker4315 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-areAllContextsSynchronized];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 areAllContextsSynchronized\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (BOOL)
+\b areAllContextsSynchronized
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if all NSPDSContext objects invoke the wait method after sending each batch of output. \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker4483 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-currentContext];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 currentContext\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSDPSContext *)
+\b currentContext
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the current context of the current thread.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker4588 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-setAllContextsOutputTraced:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setAllContextsOutputTraced:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (void)
+\b setAllContextsOutputTraced:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Causes the data (PostScript code, return values, and so forth) flowing between the all the application's contexts and their destinations to be copied to diagnostic output.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker4840 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-setAllContextsSynchronized:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setAllContextsSynchronized:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (void)
+\b setAllContextsSynchronized:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Causes the 
+\b wait
+\b0  method to be invoked each time an NSDPSContext object sends a batch of output to its destination.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5034 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-setCurrentContext:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setCurrentContext:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (void)
+\b setCurrentContext:
+\b0 (NSDPSContext *)
+\i context
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Installs 
+\i context
+\i0  as the current context of the current thread.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5172 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-stringForDPSError:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 stringForDPSError:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 + (NSString *)
+\b stringForDPSError:
+\b0 (const DPSBinObjSeqRec *)
+\i error
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns a string representation of 
+\i error
+\i0 .\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker5320 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-DPSContext];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 DPSContext\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0  (DPSContext)
+\b DPSContext
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the corresponding DPScontext.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5400 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-awaitReturnValues];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 awaitReturnValues\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b awaitReturnValues
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Waits for all return values from the result table.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5501 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-chainChildContext:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 chainChildContext:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b chainChildContext:
+\b0 (NSDPSContext *)
+\i child
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Links 
+\i child
+\i0  (and all of it's children) to the receiver as its chained context, a context that receives a copy of all PostScript code sent to the receiver. \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5730 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-childContext];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 childContext\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSDPSContext *)
+\b childContext
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the receiver's child context, or 
+\b nil
+\b0  if none exists.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5841 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-errorProc];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 errorProc\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (DPSErrorProc)
+\b errorProc
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the context's error callback function.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker5930 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-flush];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 flush\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b flush
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Forces any buffered data to be sent to its destination.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker6012 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-initWithMutableData:forDebugging:languageEncoding:nameEncoding:textProc:errorProc:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 initWithMutableData:forDebugging:languageEncoding:nameEncoding:textProc:\
+errorProc:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  
+\b initWithMutableData:
+\b0 (NSMutableData *)
+\i data 
+\b\i0 forDebugging:
+\b0 (BOOL)
+\i debug 
+\b\i0 languageEncoding:
+\b0 (DPSProgramEncoding)
+\i langEnc 
+\b\i0 nameEncoding:
+\b0 (DPSNameEncoding)
+\i nameEnc 
+\b\i0 textProc:
+\b0 (DPSTextProc)
+\i tProc 
+\b\i0 errorProc:
+\b0 (DPSErrorProc)
+\i errorProc
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Initializes a newly allocated NSDPSContext that writes itsoutput to 
+\i data
+\i0  using the language and name encodingsspecified by 
+\i langEnc
+\i0  and 
+\i nameEnc
+\i0 . The callback functions 
+\i tProc
+\i0  and 
+\i errorProc
+\i0  handle text and errorsgenerated by the context. If 
+\i debug
+\i0  is YES, the output is given in human-readable form in which large structures (such as images) may be represented by comments. \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker6687 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-interruptExecution];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 interruptExecution\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b interruptExecution
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Interrupts execution in the receiver's context.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker6787 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-isDrawingToScreen];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isDrawingToScreen\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isDrawingToScreen
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the drawing destination is the screen.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker6891 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-isOutputTraced];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isOutputTraced\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isOutputTraced
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns YES if the data flowing between the application's single context and its destination is copied to diagnostic output.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker7060 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-isSynchronized];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 isSynchronized\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isSynchronized
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns whether the 
+\b wait
+\b0  method is invoked each time the receiver sends a batch of output to the server.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker7211 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-isWaitCursorEnabled];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 isWaitCursorEnabled\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (BOOL)
+\b isWaitCursorEnabled
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns whether the wait cursor is enabled.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\fs28 PScurrentwaitcursorenabled()
+\b0  \
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker7350 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-mutableData];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 mutableData\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSMutableData *)
+\b mutableData
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the receiver's data object.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker7435 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-notifyObjectWhenFinishedExecuting:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 notifyObjectWhenFinishedExecuting:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b notifyObjectWhenFinishedExecuting:
+\b0 (id )
+\i object
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Registers 
+\i object
+\i0  to receive a 
+\b contextFinishedExecuting
+\b0 : message when the NSDPSContext's destination is ready to receive more input.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker7662 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-parentContext];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 parentContext\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (NSDPSContext *)
+\b parentContext
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the receiver's parent context, or 
+\b nil
+\b0  if none exists.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker7776 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-printFormat:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 printFormat:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b printFormat:
+\b0 (NSString *)
+\i format,...
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Constructs a string from 
+\i format
+\i0  and following string objects (in the manner of 
+\b printf()
+\b0 ) and sends it to the context's destination.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker7970 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-printFormat:arguments:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 printFormat:arguments:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b printFormat:
+\b0 (NSString *)
+\i format 
+\b\i0 arguments:
+\b0 (va_list)
+\i argList
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Constructs a string from 
+\i format
+\i0  and 
+\i argList
+\i0  (in themanner of 
+\b vprintf()
+\b0 ) and sends it to the context's destination.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker8180 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-resetCommunication];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 resetCommunication\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b resetCommunication
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Discards any data that hasn't already been sent to its destination.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker8300 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-setErrorProc:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setErrorProc:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setErrorProc:
+\b0 (DPSErrorProc)
+\i proc
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the context's error callback function to 
+\i proc
+\i0 .\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker8412 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-setOutputTraced:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setOutputTraced:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setOutputTraced:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Causes the data (PostScript code, return values, and so on) flowing between the application's single context and the Display PostScript server to be copied to diagnostic output.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker8648 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-setSynchronized:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setSynchronized:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setSynchronized:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets whether the 
+\b wait
+\b0  method is invoked each time the receiver sends a batch of output to its destination.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker8813 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-setTextProc:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 setTextProc:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setTextProc:
+\b0 (DPSTextProc)
+\i proc
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets the context's text callback function to 
+\i proc
+\i0 .\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker8923 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-setWaitCursorEnabled:];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 setWaitCursorEnabled:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b setWaitCursorEnabled:
+\b0 (BOOL)
+\i flag
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sets whether the wait cursor is enabled or disabled according to 
+\i flag
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 PSsetwaitcursorenabled()\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+{\f2\b\fs28{\NeXTHelpMarker9100 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-startWaitCursorTimer];}
+¬}\pard\tx1500\tx8260\f2\b\i0\ulnone\fs28\fi-520\li1500\fc0\cf0 startWaitCursorTimer\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b startWaitCursorTimer
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Generates a pseudo-event to start wait cursor timer.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 setWaitCursorEnabled:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker9242 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-textProc];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 textProc\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (DPSTextProc)
+\b textProc
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Returns the context's text callback function.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker9327 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-unchainContext];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 unchainContext\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b unchainContext
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Unlinks the child context (and all of it's children) from the receiver's list of chained contexts.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker9470 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-updateNameMap];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 updateNameMap\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b updateNameMap
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Updates the context's name map from the client library's name map.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker9579 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-wait];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 wait\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b wait
+\b0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Waits until the NSDPSContext's destination is ready to receive more input.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker9678 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-writeBOSArray:count:ofType:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 writeBOSArray:count:ofType:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b writeBOSArray:
+\b0 (const void *)
+\i data 
+\b\i0 count:
+\b0 (unsigned int)
+\i items 
+\b\i0 ofType:
+\b0 (DPSDefinedType)
+\i type
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Write an array to the context's destination as part of a  binary object sequence. The array is taken from 
+\i data
+\i0  and consists of 
+\i items
+\i0  items of type 
+\i type
+\i0 .\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker9960 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-writeBOSNumString:length:ofType:scale:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 writeBOSNumString:length:ofType:scale:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b writeBOSNumString:
+\b0 (const void *)
+\i data 
+\b\i0 length:
+\b0 (unsigned int)
+\i count 
+\b\i0 ofType:
+\b0 (DPSDefinedType)
+\i type 
+\b\i0 scale:
+\b0 (int)
+\i scale
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Write a number string to the context's destination as part of a binary object sequence. The string is taken from 
+\i data
+\i0 as described by 
+\i count
+\i0 , 
+\i type,
+\i0  and 
+\i scale.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\i0\fs28\li1500\fc0\cf0{\NeXTHelpMarker10279 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-writeBOSString:length:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 writeBOSString:length:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b writeBOSString:
+\b0 (const void *)
+\i data 
+\b\i0 length:
+\b0 (unsigned int)
+\i bytes
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Write a string to the context's destination as part of a binary object sequence. The string is taken from 
+\i bytes
+\i0  (a count)
+\i  
+\i0 of 
+\i data.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\i0\fs28\li1500\fc0\cf0{\NeXTHelpMarker10508 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-writeBinaryObjectSequence:length:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 writeBinaryObjectSequence:length:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b writeBinaryObjectSequence:
+\b0 (const void *)
+\i data 
+\b\i0 length:
+\b0 (unsigned int)
+\i bytes
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Write a binary object sequence to the context's destination. The sequence consists of 
+\i bytes
+\i0  (a count) of 
+\i data.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\i0\fs28\li1500\fc0\cf0{\NeXTHelpMarker10739 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-writeData:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 writeData:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b writeData:
+\b0 (NSData *)
+\i buf
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Sends the PostScript data in 
+\i buf
+\i0  to the context's destination.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker10851 \markername NS_DEV_DOCFOR:objc_method:[NSDPSContext-writePostScriptWithLanguageEncodingConversion:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 writePostScriptWithLanguageEncodingConversion:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0  (void)
+\b writePostScriptWithLanguageEncodingConversion:
+\b0 (NSData *)
+\i buf
+\i0  \
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 Writes the PostScript data in 
+\i buf
+\i0  to the context's destination. The data, formatted as plain text, encoded tokens, or a binary object sequence, is converted as necessary depending on the language encoding of the receiving context.\
+
+\fs14 \
+
+}

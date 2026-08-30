@@ -1,0 +1,150 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)setjmp.3	6.2 (Berkeley) 1/9/86
+.\"
+.TH SETJMP 3 "August 1, 1992"
+.UC 4
+.SH NAME
+setjmp, longjmp, sigsetjmp, siglongjmp \- non-local goto
+.SH SYNOPSIS
+.nf
+.B #include <setjmp.h>
+.PP
+.B int setjmp(jmp_buf \fIenv\fP);
+.PP
+.B void longjmp( jmp_buf \fIenv\fP, int \fIval\fP);
+.fi
+.SH (AVAILABLE ONLY IN POSIX)
+.nf
+.B int sigsetjmp(jmp_buf \fIenv\fP, int \fIsavemask\fP);
+.PP
+.B void siglongjmp(jmp_buf \fIenv\fP, int \fIval\fP);
+.fi
+.SH (AVAILABLE ONLY IN BSD)
+.nf
+.B int _setjmp(jmp_buf \fIenv\fP);
+.PP
+.B void _longjmp(jmp_buf \fIenv\fP, int \fIval\fP);
+.fi
+.SH DESCRIPTION
+These routines are useful for dealing with errors 
+and interrupts encountered in
+a low-level subroutine of a program.
+.PP
+.I Setjmp 
+saves its stack environment in
+.I env
+for later use by
+.I longjmp.
+If the return is from a direct invocation,    
+.I setjmp
+returns the value zero.  If the return is from a call to 
+.IR longjmp ,
+.I setjmp 
+returns a nonzero value.
+.PP
+.I Longjmp
+restores the environment saved by the last call of
+.IR setjmp 
+in the same invocation of the program, with the corresponding
+.I env
+argument.
+It then returns in such a way that execution
+continues as if the call of 
+.I setjmp
+had just returned the value
+.I val
+to the function that invoked
+.I setjmp,
+which must not itself have returned in the interim.
+All accessible data have values as of the time
+.I longjmp
+was called, except that the values of objects of automatic storage duration
+that are local to the function containing the invocation of the 
+corresponding
+.I setjmp 
+that do not have volatile-qualified type and have been changed
+between the 
+.I setjmp
+invocation and 
+.I longjmp 
+call are indeterminate.
+.PP
+The routines 
+.I sigsetjmp 
+and
+.I siglongjmp 
+are identical to 
+.I setjmp
+and
+.I longjmp
+but allow the calling process to control its signal mask.
+If the value of 
+.I savemask 
+is not zero, 
+.I sigsetjmp
+saves the current signal mask of the process
+as part of the calling environment.
+If 
+.I savemask 
+is zero 
+.I sigsetjmp
+is identical to
+.I setjmp.
+If the 
+.I env
+argument was initialized by a call to the
+.I sigsetjmp 
+function with a nonzero 
+.I savemask 
+argument, 
+.I siglongjmp 
+restores the saved signal mask.
+.PP
+The BSD functions
+.I _setjmp
+and
+.I _longjmp
+are equivalent to
+.I sigsetjmp
+with a
+.I savemask
+of 0
+and
+.IR siglongjmp,
+respectively.
+.SH "RETURN VALUE"
+After 
+a long jump is completed, program execution continues
+as if the corresponding invocation of 
+a set-jump
+has just returned the value specified by
+.I val.
+A long jump cannot cause the 
+set-jmp function to return the value 0; if
+.I val 
+is 0, 
+the set-jmp function
+returns the value 1.
+.SH ERRORS
+.PP
+If the contents of the
+.I jmp_buf
+are corrupted, or correspond to an environment that has already returned,
+.I longjmp
+calls the routine 
+.IR longjmperror .
+If
+.I longjmperror
+returns the program is aborted.
+The default version of 
+.I longjmperror
+prints the message ``longjmp botch'' to standard error and returns.
+User programs wishing to exit more gracefully can write their own
+versions of 
+.IR longjmperror .
+.SH "SEE ALSO"
+sigaction(2P), sigprocmask(2P), sigsuspend(2P),
+sigvec(2), sigstack(2), signal(3)

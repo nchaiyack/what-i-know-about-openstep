@@ -1,0 +1,84 @@
+.TH LSEEK 2 "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+lseek \- move read/write pointer
+.SH BSD SYNOPSIS
+.nf
+.ft B
+#include <sys/file.h>
+.PP
+.nf
+.ft B
+.ta 1.45i 1.8i 2.0i
+#define L_SET	0	/* set the seek pointer */
+#define L_INCR	1	/* increment the seek pointer */
+#define L_XTND	2	/* extend the file size */
+.PP
+.ft B
+off_t lseek(int \fIfd\fP, off_t \fIoffset\fP, int \fIwhence\fP);
+.fi
+.ft R
+.SH POSIX SYNOPSIS
+.nf
+.ft B
+#include <sys/types.h>
+.br
+#include <unistd.h>
+.PP
+.nf
+.ft B
+.ta 1.45i 1.8i 2.0i
+#define SEEK_SET	0	/* set the seek pointer */
+#define SEEK_CUR	1	/* increment the seek pointer */
+#define SEEK_END	2	/* extend the file size */
+.PP
+.ft B
+off_t lseek(int \fIfd\fP, off_t \fIoffset\fP, int \fIwhence\fP);
+.fi
+.ft R
+.SH DESCRIPTION
+The descriptor \fIfd\fP refers to a file or device open for reading and/or
+writing.  The \fIlseek\fP function sets the file pointer of \fIfd\fP as
+follows:
+.TP 5
+(1)
+If \fIwhence\fP is L_SET (SEEK_SET for POSIX applications), the offset is set to \fIoffset\fP bytes.
+.TP 5
+(2)
+If \fIwhence\fP is L_INCR (SEEK_CUR for POSIX applications), the offset is set to its current value plus
+\fIoffset\fP bytes.
+.TP 5
+(3)
+If \fIwhence\fP is L_XTND (SEEK_END for POSIX applications), the offset is set to the size of the file plus
+\fIoffset\fP bytes.
+.PP
+Upon successful completion, the resulting pointer location
+as measured in bytes from beginning of the file is returned.
+Some devices are incapable of seeking.  The value of the pointer
+associated with such a device is undefined.
+.PP
+Seeking far beyond the end of a file, then writing,
+creates a gap or \*(lqhole\*(rq, which occupies no
+physical space and reads as zeros.
+The \fIlseek\fP function does not, by itself, extend the size of the file.
+.SH "RETURN VALUE
+Upon successful completion,
+the current file pointer value is returned.
+Otherwise,
+a value of \-1 is returned and \fIerrno\fP is set to indicate
+the error.
+.SH ERRORS
+The \fIlseek\fP function will fail and the file pointer will remain
+unchanged if:
+.TP 15
+[EBADF]
+\fIfd\fP is not an open file descriptor.
+.TP 15
+[ESPIPE]
+\fIfd\fP is associated with a pipe or a socket.
+.TP 15
+[EINVAL]
+\fIwhence\fP is not a proper value,
+or the resulting file offset is less than 0.
+.SH "SEE ALSO"
+creat(2), dup(2), fcntl(2), open(2), read(2), sigaction(2P), write(2)

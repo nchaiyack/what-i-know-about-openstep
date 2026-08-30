@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 75.6px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 75.6px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p10 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 95.8px; font: 12.0px Courier}
+    p.p12 {margin: 0.0px 0.0px 0.0px 95.8px; font: 7.0px Courier; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 95.8px; font: 12.0px Courier; min-height: 14.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 95.8px; font: 35.0px Courier; min-height: 42.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Helvetica}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.6px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p19 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 14.0px Times}
+    p.p21 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 23.0px Times; min-height: 28.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Helvetica}
+    span.s3 {font: 14.0px Times}
+    span.s4 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NSObjCTypeSerializationCallBack</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><span class="s2"><b>Adopted By:<span class="Apple-tab-span">	</span></b></span>No OpenStep classes</p>
+<p class="p6"><br></p>
+<p class="p5"><span class="s2"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSSerialization.h</p>
+<p class="p6"><br></p>
+<p class="p6"><br></p>
+<p class="p7"><b>Protocol Description<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">An object conforms to the NSObjCTypeSerializationCallBack protocol so that it can intervene in the serialization and deserialization process. The primary purpose of this protocol is to allow for the serialization of objects and other data types that aren't directly supported by OpenStep's serialization facility. (See the NSSerializer class specification for information on serialization.)<span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p9">NSMutableData declares the method that's used to begin the serialization process:</p>
+<p class="p10"><br></p>
+<p class="p11">- (void)serializeDataAt:(const void *)data</p>
+<p class="p11"><span class="Apple-converted-space">    </span>ofObjCType:(const char *)type</p>
+<p class="p11"><span class="Apple-converted-space">    </span>context:(id &lt;NSObjCTypeSerializationCallBack&gt;)callback</p>
+<p class="p12"><br></p>
+<p class="p9">This method can serialize all standard Objective C types (<b>int</b>, <b>float</b>, character strings, and so on) except for objects, <b>union</b>, and <b>void *</b>. If, during the serialization process, an object is encountered, the object passed as the callback argument above is asked to provide the serialization.</p>
+<p class="p10"><br></p>
+<p class="p9">Suppose that the type being serialized is a structure of this description:</p>
+<p class="p10"><br></p>
+<p class="p11">struct stockRecord {</p>
+<p class="p11"><span class="Apple-converted-space">    </span>NSString *stockName;</p>
+<p class="p11"><span class="Apple-converted-space">    </span>float value;</p>
+<p class="p11">};</p>
+<p class="p12"><br></p>
+<p class="p9">The Objective C type code for this structure is {@f}, so the serialization process begins with this message: (Assume that <b>theData</b> is the NSMutableData object that's doing the serialization and <b>helper</b> is an object that conforms to the NSObjCTypeSerializationCallBack protocol.)</p>
+<p class="p10"><br></p>
+<p class="p11">struct stockRecord aRecord = {@<span class="s3">"</span>aCompany<span class="s3">"</span>, 34.7};</p>
+<p class="p13"><br></p>
+<p class="p11">[theData serializeDataAt:&amp;aRecord ofObjCType:<span class="s3">"{@f}"</span> context:helper];</p>
+<p class="p12"><br></p>
+<p class="p9">Since the first field of the structure is an unsupported type, the helper object is sent a <b>serializeObjectAt:ofObjCType:intoData:</b> message, letting it serialize the object. <b>helper</b> might implement the method in this way:</p>
+<p class="p10"><br></p>
+<p class="p11">- (void)serializeObjectAt:(id *)objectPtr</p>
+<p class="p11"><span class="Apple-converted-space">    </span>ofObjCType:(const char *)type</p>
+<p class="p11"><span class="Apple-converted-space">    </span>intoData:(NSMutableData *)theMutableData</p>
+<p class="p11">{</p>
+<p class="p11"><span class="Apple-converted-space">    </span>NSString *nameObject;</p>
+<p class="p11"><span class="Apple-converted-space">    </span>char *companyName</p>
+<p class="p13"><br></p>
+<p class="p11"><span class="Apple-converted-space">    </span>nameObject = *objectPtr;</p>
+<p class="p11"><span class="Apple-converted-space">    </span>companyName = [nameObject cString];</p>
+<p class="p13"><br></p>
+<p class="p11"><span class="Apple-converted-space">    </span>[theData serializeDataAt:&amp;companyName ofObjCType:@encode(typeof(companyName))</p>
+<p class="p11"><span class="Apple-converted-space">        </span>context:nil];</p>
+<p class="p11">}</p>
+<p class="p12"><br></p>
+<p class="p9">The callback object is free to serialize the target object as it wishes. In this case, <b>helper</b> simply extracts the company name from the NSString object and then has that character string serialized. Once this callback method finishes executing, the original method (<b>serializeDataAt:ofObjCType:context:</b>) resumes execution and serializes the second field of the structure. Since this second field contains a supported type (<b>float</b>), the callback method is not invoked again.</p>
+<p class="p10"><br></p>
+<p class="p9">Deserialization follows a similar pattern, except in this case NSData declares the central method <b>deserializeDataAt:ofObjCType:atCursor:context:</b>. The deserialization of the example structure starts with a message to the NSData object that contains the serialized data:</p>
+<p class="p10"><br></p>
+<p class="p11">(unsigned *)cursor = 0;</p>
+<p class="p13"><br></p>
+<p class="p11">[theData deserializeDataAt:&amp;aRecord ofObjCType:"{@f}" cursor:&amp;cursor</p>
+<p class="p11"><span class="Apple-converted-space">    </span>context:helper];</p>
+<p class="p12"><br></p>
+<p class="p9">(The cursor argument is a pointer to zero since we're starting at the beginning of the data in the NSData object.)<span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p9">When this method is invoked, the callback object receives a <b>deserializeObjectAt:ofObjCType:fromData:atCursor:</b> message, as declared in this protocol. The callback object can then reestablish the first field of the structure. For example, <b>helper</b> might implement the method in this way:</p>
+<p class="p10"><br></p>
+<p class="p11">- (void) deserializeObjectAt:(id *)objectPtr</p>
+<p class="p11"><span class="Apple-converted-space">    </span>ofObjCType:(const char *)type</p>
+<p class="p11"><span class="Apple-converted-space">    </span>fromData:(NSData *)data</p>
+<p class="p11"><span class="Apple-converted-space">    </span>atCursor:(unsigned *)cursor</p>
+<p class="p11">{</p>
+<p class="p11"><span class="Apple-converted-space">    </span>char *companyName;</p>
+<p class="p13"><br></p>
+<p class="p11"><span class="Apple-converted-space">    </span>[theData deserializeDataAt:&amp;companyName ofObjCType:"*" atCursor:cursor</p>
+<p class="p11"><span class="Apple-converted-space">        </span>context:nil];</p>
+<p class="p11"><span class="Apple-converted-space">    </span>*objectPtr = [[NSString stringWithCString:companyName] retain];</p>
+<p class="p11">}</p>
+<p class="p14"><br></p>
+<p class="p7"><b>Instance Methods</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p15"><b></b><b>deserializeObjectAt:ofObjCType:fromData:atCursor:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><span class="s4">-</span> (void)<b>deserializeObjectAt:</b>(id *)<i>object</i></p>
+<p class="p18"><b>ofObjCType:</b>(const char *)<i>type</i></p>
+<p class="p18"><b>fromData:</b>(NSData *)<i>data</i></p>
+<p class="p18"><b>atCursor:</b>(unsigned *)<i>cursor</i><span class="Apple-converted-space"> </span></p>
+<p class="p19"><br></p>
+<p class="p9">The implementor of this method decodes the referenced <i>object</i> (which should always be of <i>type</i> "@") located at the <i>cursor</i> position in the <i>data</i> object. The decoded object is not autoreleased.</p>
+<p class="p10"><br></p>
+<p class="p20"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span> <b>deserializeDataAt:ofObjCType:context:</b> (NSData)</p>
+<p class="p21"><br></p>
+<p class="p22"><br></p>
+<p class="p15"><b></b><b>serializeObjectAt:ofObjCType:intoData:</b></p>
+<p class="p16"><b></b><br></p>
+<p class="p17"><span class="s4">-</span> (void)<b>serializeObjectAt:</b>(id *)<i>object</i></p>
+<p class="p18"><b>ofObjCType:</b>(const char *)<i>type</i></p>
+<p class="p18"><b>intoData:</b>(NSMutableData *)<i>data</i><span class="Apple-converted-space"> </span></p>
+<p class="p19"><br></p>
+<p class="p9">The implementor of this method encodes the referenced <i>object</i> (which should always be of <i>type</i> "@") in the <i>data</i> object.<span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p20"><span class="s2"><b>See also:<span class="Apple-tab-span">	</span></b></span><i> </i><b>serializeDataAt:ofObjCType:context:</b><i> </i>(NSMutableData)</p>
+<p class="p21"><br></p>
+</body>
+</html>

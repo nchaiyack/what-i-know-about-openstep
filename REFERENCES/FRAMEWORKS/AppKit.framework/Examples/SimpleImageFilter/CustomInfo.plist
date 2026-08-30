@@ -1,0 +1,10 @@
+{
+    NSServices = (
+      { NSExecutable = SimpleImageFilter;
+	NSFilter = "";
+        NSInputMechanism = NSUnixStdio;
+        NSSendTypes = (NSTypedFilenamesPboardType:iff, NSTypedFilenamesPboardType:IFF);
+        NSReturnTypes = (NSTIFFPboardType);
+      }
+    );
+}

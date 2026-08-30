@@ -1,0 +1,14 @@
+"NTVideoWell" = {SUPERCLASS = NSControl; };
+"Controller" = {
+    ACTIONS = (
+        "openDocument:", 
+        "setDocumentSizingPolicy:", 
+        "showInfoPanel:", 
+        "showInspectorPanel:", 
+        "showPreferencesPanel:"
+    ); 
+    OUTLETS = (infoPanel, inspectorPanel, preferencesPanel); 
+    SUPERCLASS = NSObject; 
+};
+"NTControlView" = {SUPERCLASS = NSView; };
+"FirstResponder" = {CATEGORY = LocalActions; };

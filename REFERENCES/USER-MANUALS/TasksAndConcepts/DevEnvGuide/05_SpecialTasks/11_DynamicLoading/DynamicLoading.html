@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 24.0px Helvetica; min-height: 29.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 6.0px Times; min-height: 8.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica; color: #0000ff}
+    p.p8 {margin: 0.0px 0.0px 0.0px 17.0px; font: 12.0px Helvetica}
+    p.p9 {margin: 0.0px 0.0px 0.0px 17.0px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 141.0px; font: 8.0px Times; min-height: 10.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 17.0px; font: 12.0px Helvetica; color: #0000ff}
+    p.p12 {margin: 0.0px 0.0px 0.0px 141.0px; font: 14.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 141.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 25.0px; font: 10.0px Times; min-height: 13.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {color: #00ff00}
+    span.s3 {font: 14.0px Times; color: #000000}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>Next Chapter<span class="Apple-tab-span">	</span><span class="Apple-converted-space">  </span>Previous Chapter</p>
+<p class="p3"><i></i><br></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><i></i><br></p>
+<p class="p3"><i></i><br></p>
+<p class="p6"><b>Special Tasks in the Development Environment</b></p>
+<p class="p5"><br></p>
+<p class="p7"><b>11<span class="Apple-tab-span">	</span>Dynamic Loading</b><b></b></p>
+<p class="p5"><br></p>
+<p class="p1"><i>To conserve memory, you can strategically break your project into<span class="Apple-converted-space"> </span></i></p>
+<p class="p1"><i>pieces that are loaded on demand. For application projects, you can<span class="Apple-converted-space"> </span></i></p>
+<p class="p1"><i>separate the interface into multiple nib files that are loaded only<span class="Apple-converted-space"> </span></i></p>
+<p class="p1"><i>when needed. For any project, you can break out a subsystem of your<span class="Apple-converted-space"> </span></i></p>
+<p class="p1"><i>project into a dynamically loadable bundle.<span class="Apple-converted-space"> </span></i></p>
+<p class="p2"><i></i><br></p>
+<p class="p8"><span class="s2"><b></b><b><span class="Apple-converted-space">  </span></b></span><b>Loading nib files dynamically: an info panel</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Displaying an attention panel</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Creating a window with multiple displays</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p8"><b></b><b><span class="Apple-converted-space">  </span>Creating dynamically loadable bundles</b></p>
+<p class="p10"><br></p>
+<p class="p11"><span class="s3"><span class="Apple-converted-space">  </span></span><b>Related Concepts</b><b></b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">...to divide is not to take away.</p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Percy Bysshe Shelly</p>
+<p class="p10"><br></p>
+<p class="p13"><br></p>
+<p class="p10"><br></p>
+<p class="p12">Choosing each stone, and poising every weight,</p>
+<p class="p12">Trying the measures of the breadth and height;</p>
+<p class="p12">Here pulling down, and there erecting new,<span class="Apple-converted-space"> </span></p>
+<p class="p12">Founding a firm state by proportions true.</p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Matthew Arnold</p>
+<p class="p10"><br></p>
+<p class="p13"><br></p>
+<p class="p10"><br></p>
+<p class="p12">How many things I can do without!</p>
+<p class="p12"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Socrates</p>
+<p class="p14"><br></p>
+</body>
+</html>

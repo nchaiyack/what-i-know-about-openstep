@@ -1,0 +1,15 @@
+.TH filemem 1 "October 5, 1990" "NeXT Computer, Inc."
+.SH NAME
+filemem \- show a list of a file's pages cached in memory
+.SH SYNOPSIS
+filemem filename
+.SH DESCRIPTION
+Filemem is a utility that can determine which pages of a file are cached in memory.  In Mach, pages of a file are cached on demand by page faults.  Pages remain in memory even after they become unreferenced, and are released when memory becomes scarce.
+.PP
+Filemem provides a way to determine which parts of a file are being used.  For example, filemem can be used to help scatterload a file by showing which parts of an executable image are in memory after a certain operation.  After determining which pages are resident in memory, the program pagestuff(1) can be used to show the symbols residing on that particular page of a file.
+.PP
+The output of filemem is a list of logical page numbers, starting from page zero at the beginning of the file.  The page size is the same as the machine-independent page size of the system.
+.SH FILES
+/dev/kmem	
+.SH "SEE ALSO"
+pagestuff(1), Link Optimization developer release notes

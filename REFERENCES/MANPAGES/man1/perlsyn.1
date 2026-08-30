@@ -1,0 +1,437 @@
+.rn '' }`
+''' $RCSfile$$Revision$$Date$
+''' 
+''' $Log$
+''' 
+.de Sh
+.br
+.if t .Sp
+.ne 5
+.PP
+\fB\\$1\fR
+.PP
+..
+.de Sp
+.if t .sp .5v
+.if n .sp
+..
+.de Ip
+.br
+.ie \\n(.$>=3 .ne \\$3
+.el .ne 3
+.IP "\\$1" \\$2
+..
+.de Vb
+.ft CW
+.nf
+.ne \\$1
+..
+.de Ve
+.ft R
+
+.fi
+..
+'''
+'''
+'''     Set up \*(-- to give an unbreakable dash;
+'''     string Tr holds user defined translation string.
+'''     Bell System Logo is used as a dummy character.
+'''
+.tr \(*W-|\(bv\*(Tr
+.ie n \{\
+.ds -- \(*W-
+.if (\n(.H=4u)&(1m=24u) .ds -- \(*W\h'-12u'\(*W\h'-12u'-\" diablo 10 pitch
+.if (\n(.H=4u)&(1m=20u) .ds -- \(*W\h'-12u'\(*W\h'-8u'-\" diablo 12 pitch
+.ds L" ""
+.ds R" ""
+.ds L' '
+.ds R' '
+'br\}
+.el\{\
+.ds -- \(em\|
+.tr \*(Tr
+.ds L" ``
+.ds R" ''
+.ds L' `
+.ds R' '
+.if t .ds PI \(*p
+.if n .ds PI PI
+'br\}
+.TH PERLSYN 1 "\*(RP"
+.UC
+.if n .hy 0 
+.if n .na
+.ds C+ C\v'-.1v'\h'-1p'\s-2+\h'-1p'+\s0\v'.1v'\h'-1p'
+.de CQ          \" put $1 in typewriter font
+.ft CW
+'if n "\c
+'if t \\&\\$1\c
+'if n \\&\\$1\c
+'if n \&"
+\\&\\$2 \\$3 \\$4 \\$5 \\$6 \\$7
+'.ft R
+..
+.\" @(#)ms.acc 1.5 88/02/08 SMI; from UCB 4.2
+.	\" AM - accent mark definitions
+.bd S B 3
+.	\" fudge factors for nroff and troff
+.if n \{\
+.	ds #H 0
+.	ds #V .8m
+.	ds #F .3m
+.	ds #[ \f1
+.	ds #] \fP
+.\}
+.if t \{\
+.	ds #H ((1u-(\\\\n(.fu%2u))*.13m)
+.	ds #V .6m
+.	ds #F 0
+.	ds #[ \&
+.	ds #] \&
+.\}
+.	\" simple accents for nroff and troff
+.if n \{\
+.	ds ' \&
+.	ds ` \&
+.	ds ^ \&
+.	ds , \&
+.	ds ~ ~
+.	ds ? ?
+.	ds ! !
+.	ds / 
+.	ds q 
+.\}
+.if t \{\
+.	ds ' \\k:\h'-(\\n(.wu*8/10-\*(#H)'\'\h"|\\n:u"
+.	ds ` \\k:\h'-(\\n(.wu*8/10-\*(#H)'\`\h'|\\n:u'
+.	ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'^\h'|\\n:u'
+.	ds , \\k:\h'-(\\n(.wu*8/10)',\h'|\\n:u'
+.	ds ~ \\k:\h'-(\\n(.wu-\*(#H-.1m)'~\h'|\\n:u'
+.	ds ? \s-2c\h'-\w'c'u*7/10'\u\h'\*(#H'\zi\d\s+2\h'\w'c'u*8/10'
+.	ds ! \s-2\(or\s+2\h'-\w'\(or'u'\v'-.8m'.\v'.8m'
+.	ds / \\k:\h'-(\\n(.wu*8/10-\*(#H)'\z\(sl\h'|\\n:u'
+.	ds q o\h'-\w'o'u*8/10'\s-4\v'.4m'\z\(*i\v'-.4m'\s+4\h'\w'o'u*8/10'
+.\}
+.	\" troff and (daisy-wheel) nroff accents
+.ds : \\k:\h'-(\\n(.wu*8/10-\*(#H+.1m+\*(#F)'\v'-\*(#V'\z.\h'.2m+\*(#F'.\h'|\\n:u'\v'\*(#V'
+.ds 8 \h'\*(#H'\(*b\h'-\*(#H'
+.ds v \\k:\h'-(\\n(.wu*9/10-\*(#H)'\v'-\*(#V'\*(#[\s-4v\s0\v'\*(#V'\h'|\\n:u'\*(#]
+.ds _ \\k:\h'-(\\n(.wu*9/10-\*(#H+(\*(#F*2/3))'\v'-.4m'\z\(hy\v'.4m'\h'|\\n:u'
+.ds . \\k:\h'-(\\n(.wu*8/10)'\v'\*(#V*4/10'\z.\v'-\*(#V*4/10'\h'|\\n:u'
+.ds 3 \*(#[\v'.2m'\s-2\&3\s0\v'-.2m'\*(#]
+.ds o \\k:\h'-(\\n(.wu+\w'\(de'u-\*(#H)/2u'\v'-.3n'\*(#[\z\(de\v'.3n'\h'|\\n:u'\*(#]
+.ds d- \h'\*(#H'\(pd\h'-\w'~'u'\v'-.25m'\f2\(hy\fP\v'.25m'\h'-\*(#H'
+.ds D- D\\k:\h'-\w'D'u'\v'-.11m'\z\(hy\v'.11m'\h'|\\n:u'
+.ds th \*(#[\v'.3m'\s+1I\s-1\v'-.3m'\h'-(\w'I'u*2/3)'\s-1o\s+1\*(#]
+.ds Th \*(#[\s+2I\s-2\h'-\w'I'u*3/5'\v'-.3m'o\v'.3m'\*(#]
+.ds ae a\h'-(\w'a'u*4/10)'e
+.ds Ae A\h'-(\w'A'u*4/10)'E
+.ds oe o\h'-(\w'o'u*4/10)'e
+.ds Oe O\h'-(\w'O'u*4/10)'E
+.	\" corrections for vroff
+.if v .ds ~ \\k:\h'-(\\n(.wu*9/10-\*(#H)'\s-2\u~\d\s+2\h'|\\n:u'
+.if v .ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'\v'-.4m'^\v'.4m'\h'|\\n:u'
+.	\" for low resolution devices (crt and lpr)
+.if \n(.H>23 .if \n(.V>19 \
+\{\
+.	ds : e
+.	ds 8 ss
+.	ds v \h'-1'\o'\(aa\(ga'
+.	ds _ \h'-1'^
+.	ds . \h'-1'.
+.	ds 3 3
+.	ds o a
+.	ds d- d\h'-1'\(ga
+.	ds D- D\h'-1'\(hy
+.	ds th \o'bp'
+.	ds Th \o'LP'
+.	ds ae ae
+.	ds Ae AE
+.	ds oe oe
+.	ds Oe OE
+.\}
+.rm #[ #] #H #V #F C
+.SH "NAME"
+perlsyn \- Perl syntax
+.SH "DESCRIPTION"
+A Perl script consists of a sequence of declarations and statements.
+The only things that need to be declared in Perl are report formats
+and subroutines.  See the sections below for more information on those
+declarations.  All uninitialized user-created objects are assumed to
+start with a null or 0 value until they are defined by some explicit
+operation such as assignment.  (Though you can get warnings about the
+use of undefined values if you like.)  The sequence of statements is
+executed just once, unlike in \fBsed\fR and \fBawk\fR scripts, where the
+sequence of statements is executed for each input line.  While this means
+that you must explicitly loop over the lines of your input file (or
+files), it also means you have much more control over which files and
+which lines you look at.  (Actually, I'm lying\*(--it is possible to do an
+implicit loop with either the \fB\-n\fR or \fB\-p\fR switch.  It's just not the
+mandatory default like it is in \fBsed\fR and \fBawk\fR.)
+.PP
+Perl is, for the most part, a free-form language.  (The only
+exception to this is format declarations, for obvious reasons.) Comments
+are indicated by the \*(L"#\*(R" character, and extend to the end of the line.  If
+you attempt to use \f(CW/* */\fR C\-style comments, it will be interpreted
+either as division or pattern matching, depending on the context, and \*(C+
+\f(CW//\fR comments just look like a null regular expression, So don't do
+that.
+.PP
+A declaration can be put anywhere a statement can, but has no effect on
+the execution of the primary sequence of statements\*(--declarations all
+take effect at compile time.  Typically all the declarations are put at
+the beginning or the end of the script.
+.PP
+As of Perl 5, declaring a subroutine allows a subroutine name to be used
+as if it were a list operator from that point forward in the program.  You
+can declare a subroutine without defining it by saying just
+.PP
+.Vb 2
+\&    sub myname;
+\&    $me = myname $0             or die "can't get myname";
+.Ve
+Note that it functions as a list operator though, not a unary
+operator, so be careful to use \f(CWor\fR instead of \f(CW||\fR there.
+.PP
+Subroutines declarations can also be imported by a \f(CWuse\fR statement.
+.PP
+Also as of Perl 5, a statement sequence may contain declarations of
+lexically scoped variables, but apart from declaring a variable name,
+the declaration acts like an ordinary statement, and is elaborated within
+the sequence of statements as if it were an ordinary statement.
+.Sh "Simple statements"
+The only kind of simple statement is an expression evaluated for its
+side effects.  Every simple statement must be terminated with a
+semicolon, unless it is the final statement in a block, in which case
+the semicolon is optional.  (A semicolon is still encouraged there if the
+block takes up more than one line, since you may eventually add another line.)
+Note that there are some operators like \f(CWeval {}\fR and \f(CWdo {}\fR that look
+like compound statements, but aren't (they're just TERMs in an expression), 
+and thus need an explicit termination
+if used as the last item in a statement.
+.PP
+Any simple statement may optionally be followed by a \fI\s-1SINGLE\s0\fR modifier,
+just before the terminating semicolon (or block ending).  The possible
+modifiers are:
+.PP
+.Vb 4
+\&    if EXPR
+\&    unless EXPR
+\&    while EXPR
+\&    until EXPR
+.Ve
+The \f(CWif\fR and \f(CWunless\fR modifiers have the expected semantics,
+presuming you're a speaker of English.  The \f(CWwhile\fR and \f(CWuntil\fR
+modifiers also have the usual \*(L"while loop\*(R" semantics (conditional
+evaluated first), except when applied to a do-\s-1BLOCK\s0 (or to the
+now-deprecated do-\s-1SUBROUTINE\s0 statement), in which case the block
+executes once before the conditional is evaluated.  This is so that you
+can write loops like:
+.PP
+.Vb 4
+\&    do {
+\&        $_ = <STDIN>;
+\&        ...
+\&    } until $_ eq ".\en";
+.Ve
+See the \f(CWdo\fR entry in the \fIperlfunc\fR manpage.  Note also that the loop control
+statements described later will \fI\s-1NOT\s0\fR work in this construct, since
+modifiers don't take loop labels.  Sorry.  You can always wrap
+another block around it to do that sort of thing.)
+.Sh "Compound statements"
+In Perl, a sequence of statements that defines a scope is called a block.
+Sometimes a block is delimited by the file containing it (in the case
+of a required file, or the program as a whole), and sometimes a block
+is delimited by the extent of a string (in the case of an eval).
+.PP
+But generally, a block is delimited by curly brackets, also known as braces.
+We will call this syntactic construct a \s-1BLOCK\s0.
+.PP
+The following compound statements may be used to control flow:
+.PP
+.Vb 8
+\&    if (EXPR) BLOCK
+\&    if (EXPR) BLOCK else BLOCK
+\&    if (EXPR) BLOCK elsif (EXPR) BLOCK ... else BLOCK
+\&    LABEL while (EXPR) BLOCK
+\&    LABEL while (EXPR) BLOCK continue BLOCK
+\&    LABEL for (EXPR; EXPR; EXPR) BLOCK
+\&    LABEL foreach VAR (LIST) BLOCK
+\&    LABEL BLOCK continue BLOCK
+.Ve
+Note that, unlike C and Pascal, these are defined in terms of BLOCKs,
+not statements.  This means that the curly brackets are \fIrequired\fR--no
+dangling statements allowed.  If you want to write conditionals without
+curly brackets there are several other ways to do it.  The following
+all do the same thing:
+.PP
+.Vb 5
+\&    if (!open(FOO)) { die "Can't open $FOO: $!"; }
+\&    die "Can't open $FOO: $!" unless open(FOO);
+\&    open(FOO) or die "Can't open $FOO: $!";     # FOO or bust!
+\&    open(FOO) ? 'hi mom' : die "Can't open $FOO: $!";
+\&                        # a bit exotic, that last one
+.Ve
+The \f(CWif\fR statement is straightforward.  Since BLOCKs are always
+bounded by curly brackets, there is never any ambiguity about which
+\f(CWif\fR an \f(CWelse\fR goes with.  If you use \f(CWunless\fR in place of \f(CWif\fR,
+the sense of the test is reversed.
+.PP
+The \f(CWwhile\fR statement executes the block as long as the expression is
+true (does not evaluate to the null string or 0 or \*(L"0").  The \s-1LABEL\s0 is
+optional, and if present, consists of an identifier followed by a
+colon.  The \s-1LABEL\s0 identifies the loop for the loop control statements
+\f(CWnext\fR, \f(CWlast\fR, and \f(CWredo\fR (see below).  If there is a \f(CWcontinue\fR
+\s-1BLOCK\s0, it is always executed just before the conditional is about to be
+evaluated again, just like the third part of a \f(CWfor\fR loop in C.
+Thus it can be used to increment a loop variable, even when the loop
+has been continued via the \f(CWnext\fR statement (which is similar to the C
+\f(CWcontinue\fR statement).
+.PP
+If the word \f(CWwhile\fR is replaced by the word \f(CWuntil\fR, the sense of the
+test is reversed, but the conditional is still tested before the first
+iteration.
+.PP
+In either the \f(CWif\fR or the \f(CWwhile\fR statement, you may replace \*(L"(\s-1EXPR\s0)\*(R"
+with a \s-1BLOCK\s0, and the conditional is true if the value of the last
+statement in that block is true.  (This feature continues to work in Perl
+5 but is deprecated.  Please change any occurrences of \*(L"if BLOCK\*(R" to
+\*(L"if (do \s-1BLOCK\s0)\*(R".)
+.PP
+The C\-style \f(CWfor\fR loop works exactly like the corresponding \f(CWwhile\fR loop:
+.PP
+.Vb 3
+\&    for ($i = 1; $i < 10; $i++) {
+\&        ...
+\&    }
+.Ve
+is the same as
+.PP
+.Vb 6
+\&    $i = 1;
+\&    while ($i < 10) {
+\&        ...
+\&    } continue {
+\&        $i++;
+\&    }
+.Ve
+The foreach loop iterates over a normal list value and sets the
+variable \s-1VAR\s0 to be each element of the list in turn.  The variable is
+implicitly local to the loop and regains its former value upon exiting
+the loop.  (If the variable was previously declared with \f(CWmy\fR, it uses
+that variable instead of the global one, but it's still localized to
+the loop.)  The \f(CWforeach\fR keyword is actually a synonym for the \f(CWfor\fR
+keyword, so you can use \f(CWforeach\fR for readability or \f(CWfor\fR for
+brevity.  If \s-1VAR\s0 is omitted, \f(CW$_\fR is set to each value.  If \s-1LIST\s0 is an
+actual array (as opposed to an expression returning a list value), you
+can modify each element of the array by modifying \s-1VAR\s0 inside the loop.
+Examples:
+.PP
+.Vb 1
+\&    for (@ary) { s/foo/bar/; }
+.Ve
+.Vb 3
+\&    foreach $elem (@elements) {
+\&        $elem *= 2;
+\&    }
+.Ve
+.Vb 3
+\&    for ((10,9,8,7,6,5,4,3,2,1,'BOOM')) {
+\&        print $_, "\en"; sleep(1);
+\&    }
+.Ve
+.Vb 1
+\&    for (1..15) { print "Merry Christmas\en"; }
+.Ve
+.Vb 3
+\&    foreach $item (split(/:[\e\e\en:]*/, $ENV{'TERMCAP'})) {
+\&        print "Item: $item\en";
+\&    }
+.Ve
+A \s-1BLOCK\s0 by itself (labeled or not) is semantically equivalent to a loop
+that executes once.  Thus you can use any of the loop control
+statements in it to leave or restart the block.  The \f(CWcontinue\fR block
+is optional.  This construct is particularly nice for doing case
+structures.
+.PP
+.Vb 6
+\&    SWITCH: {
+\&        if (/^abc/) { $abc = 1; last SWITCH; }
+\&        if (/^def/) { $def = 1; last SWITCH; }
+\&        if (/^xyz/) { $xyz = 1; last SWITCH; }
+\&        $nothing = 1;
+\&    }
+.Ve
+There is no official switch statement in Perl, because there are
+already several ways to write the equivalent.  In addition to the
+above, you could write
+.PP
+.Vb 6
+\&    SWITCH: {
+\&        $abc = 1, last SWITCH  if /^abc/;
+\&        $def = 1, last SWITCH  if /^def/;
+\&        $xyz = 1, last SWITCH  if /^xyz/;
+\&        $nothing = 1;
+\&    }
+.Ve
+(That's actually not as strange as it looks one you realize that you can
+use loop control \*(L"operators\*(R" within an expression,  That's just the normal
+C comma operator.)
+.PP
+or
+.PP
+.Vb 6
+\&    SWITCH: {
+\&        /^abc/ && do { $abc = 1; last SWITCH; };
+\&        /^def/ && do { $def = 1; last SWITCH; };
+\&        /^xyz/ && do { $xyz = 1; last SWITCH; };
+\&        $nothing = 1;
+\&    }
+.Ve
+or formatted so it stands out more as a \*(L"proper\*(R" switch statement:
+.PP
+.Vb 5
+\&    SWITCH: {
+\&        /^abc/      && do { 
+\&                            $abc = 1; 
+\&                            last SWITCH; 
+\&                       };
+.Ve
+.Vb 4
+\&        /^def/      && do { 
+\&                            $def = 1; 
+\&                            last SWITCH; 
+\&                       };
+.Ve
+.Vb 6
+\&        /^xyz/      && do { 
+\&                            $xyz = 1; 
+\&                            last SWITCH; 
+\&                        };
+\&        $nothing = 1;
+\&    }
+.Ve
+or
+.PP
+.Vb 6
+\&    SWITCH: {
+\&        /^abc/ and $abc = 1, last SWITCH;
+\&        /^def/ and $def = 1, last SWITCH;
+\&        /^xyz/ and $xyz = 1, last SWITCH;
+\&        $nothing = 1;
+\&    }
+.Ve
+or even, horrors,
+.PP
+.Vb 8
+\&    if (/^abc/)
+\&        { $abc = 1 }
+\&    elsif (/^def/)
+\&        { $def = 1 }
+\&    elsif (/^xyz/)
+\&        { $xyz = 1 }
+\&    else
+\&        { $nothing = 1 }
+.Ve
+
+.rn }` ''

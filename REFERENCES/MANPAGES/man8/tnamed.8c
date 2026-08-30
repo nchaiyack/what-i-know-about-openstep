@@ -1,0 +1,38 @@
+.\" @(#)tnamed.8c	1.2 87/08/23 3.2/4.3NFSSRC
+.\" @(#)tnamed.8c	1.2 87/02/10 NFSSRC
+.\" @(#)tnamed.8c 1.1 86/09/25 SMI; 
+.TH TNAMED 8C "19 MAr 1986"
+.SH NAME
+tnamed \- DARPA Trivial name server
+.SH SYNOPSIS
+\fB/usr/etc/in.tnamed [-v]\fP
+.SH DESCRIPTION
+.IX  "tnamed command"  ""  "\fLtnamed\fP \(em name server"
+.IX  "DARPA Trivial name server"  ""  "DARPA Trivial name server \(em \fLtnamed\fP"
+.IX  servers  tnamed  ""  "\fLtnamed\fP \(em DARPA Trivial name server"
+.LP
+.I tnamed
+is a server that supports the 
+.SM DARPA 
+Name Server Protocol.  The name server operates
+at the port indicated in the ``name'' service description (see
+.IR services (5)),
+and is invoked by
+.IR inetd (8C)
+when a request is made to the name server.
+.LP
+Two known clients of this service are the 
+.SM "MIT PC/IP"
+software the Bridge boxes.
+.SH OPTIONS
+.IP \fB\-v\fR
+Invoke the deamon in verbose mode.
+.SH "SEE ALSO"
+services(5), inetd(8C)
+.SH BUGS
+.LP
+The service only deals with the most trivial form of names like 
+``krypton'', and does support the 
+.IR uucp (1C)
+.BI ! host ! net
+name format.

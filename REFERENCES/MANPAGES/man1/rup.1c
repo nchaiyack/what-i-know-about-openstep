@@ -1,0 +1,52 @@
+.\" @(#)rup.1c	1.3 87/07/28 3.2/4.3NFSSRC
+.TH RUP 1C "5 July 1985"
+.SH NAME
+rup \- show host status of local machines (RPC version)
+.SH SYNOPSIS
+.B rup
+[
+.B \-h
+] [
+.B \-l
+] [
+.B \-t
+] [
+host \fB.\|.\|.\fP
+]
+.SH DESCRIPTION
+.IX  "rup command"  ""  "\fLrup\fP \(em display status of network hosts"
+.IX  display "status of network hosts \(em \fLrup\fP"
+.I Rup
+gives a status similar to
+.I uptime
+for remote machines;  It broadcasts on the local network, and displays
+the responses it receives.
+.LP
+Normally, the listing is in the order that responses are received,
+but this order can be
+changed by specifying one of the options listed below.
+.LP
+When \fIhost\fP arguments are given, rather than broadcasting
+.I rup
+will only query the list of specified hosts.
+.LP
+A remote host will only respond if it is running the
+.I rstatd
+daemon, which is normally started up from
+.I inetd(8C).
+.SH OPTIONS
+.TP 3
+.B \-h
+sort the display alphabetically by host name.
+.TP 3
+.B \-l
+sort the display by load average
+.TP 3
+.B \-t
+sort the display by up time.
+.SH SEE ALSO
+ruptime(1C), inetd(8C), rstatd(8C)
+.SH BUGS
+.LP
+Broadcasting does not work through gateways.
+

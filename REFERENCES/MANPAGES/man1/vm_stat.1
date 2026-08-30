@@ -1,0 +1,55 @@
+.TH VM_STAT 1 "3/24/89" "NeXT Computer, Inc."
+.SH NAME
+vm_stat \- show Mach virtual memory statistics
+.SH SYNOPSIS
+\fBvm_stat\fR [ \fIinterval\fR ]
+.SH DESCRIPTION
+.I vm_stat
+displays Mach virtual memory statistics.
+If the optional
+.I interval
+is specified, then
+.I vm_stat
+will display the statistics every
+.I interval
+seconds.  In this case, each line of output displays the
+.I change
+in each statistic (an \fIinterval\fR count of 1 displays the values per
+second).  However, the first line of output following each banner
+displays the system-wide totals for each statistic.
+The following values are displayed:
+.br
+.IP "\fBPages free\fR" 1.5i
+the total number of free pages in the system.
+.IP "\fBPages active\fR"
+the total number of pages currently in use and pageable.
+.IP "\fBPages inactive\fR"
+the total number of pages on the inactive list.
+.IP "\fBPages wired down\fR"
+the total number of pages wired down.
+That is, pages that cannot be paged out.
+.IP "\fBTranslation faults\fR"
+the number of times the "vm_fault" routine has been called.
+.IP "\fBPages copy-on-write\fR"
+the number of faults that caused a page to be copied (generally
+caused by copy-on-write faults).
+.IP "\fBPages zero filled\fR"
+the total number of pages that have been zero-filled on demand.
+.IP "\fBPages reactivated\fR"
+the total number of pages that have been moved from the inactive list to the
+active list (reactivated).
+.IP "\fBPageins\fR"
+the number of requests for pages from a pager (such as the inode pager).
+.IP "\fBPageouts\fR"
+the number of pages that have been paged out.
+.i0
+.DT
+.PP
+.br
+If
+.I interval
+is not specified, then \fIvm_stat\fR displays
+all accumulated statistics along with the
+page size and the object cache performance.
+.SH "SEE ALSO"
+vm_statistics(2)

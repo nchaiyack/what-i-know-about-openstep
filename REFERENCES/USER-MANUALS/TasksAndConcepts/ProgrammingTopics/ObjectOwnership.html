@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 32.0px Times; min-height: 38.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 19.0px Helvetica; min-height: 23.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 25.1px; font: 14.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 25.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 40.3px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 40.3px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 25.1px; font: 6.0px Times; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 25.1px; font: 18.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 25.1px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 40.3px; font: 12.0px Courier}
+    p.p14 {margin: 0.0px 0.0px 0.0px 40.3px; font: 12.0px Courier; min-height: 14.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 40.3px; font: 2.0px Courier; min-height: 2.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 40.3px; font: 14.0px Courier; min-height: 17.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 40.3px; text-indent: -15.1px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 40.3px; text-indent: -15.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 25.1px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Symbol}
+    span.s3 {font: 12.0px Times}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><b>Object Ownership and Automatic Disposal</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6">In an Objective-C program, objects are constantly creating and disposing of other objects. Much of the time an object creates things for private use and can dispose of them as it needs. However, when an object passes something to another object through a method invocation, the lines of ownership—and responsibility for disposal—blur. Suppose, for example, that you have a Thingamajig object that contains a number of Sprocket objects, which another object accesses with this method:</p>
+<p class="p7"><br></p>
+<p class="p8"><span class="s2">-</span> (NSArray *)<b>sprockets</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p6">This declaration says nothing about who should release the returned array. If the Thingamajig object returned an instance variable, it's responsible; if the Thingamajig created an array and returned it, the recipient is responsible. This problem applies both to objects returned by a method and objects passed in as arguments to a method.</p>
+<p class="p7"><br></p>
+<p class="p6">Ideally a body of code should never be concerned with releasing something it didn't create. The Foundation Framework therefore sets this policy: <i>If you create an object you alone are responsible for releasing it</i>. If you didn't create the object, you don't own it and shouldn't release it.</p>
+<p class="p7"><br></p>
+<p class="p6">When you write a method that creates and returns an object, then, that method is responsible for releasing the object. It's clearly not fruitful to dispose of an object before the recipient of the object gets it, however. What's needed is a way to mark an object for later release, so that it will be properly disposed of after the recipient has had a chance to use it. The Foundation Framework provides just such a mechanism.</p>
+<p class="p7"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b>Marking Objects for Disposal</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p6">The <b>autorelease</b> method, defined by NSObject, marks the receiver for later release. By autoreleasing an object—that is, by sending it an <b>autorelease</b> message—you declare that you don't need the object to exist beyond the scope you sent <b>autorelease</b> in. When your code completely finishes executing and control returns to the application object (that is, at the end of the event loop), the application object releases the object. The <b>sprockets</b> methods above could be implemented in this way:</p>
+<p class="p7"><br></p>
+<p class="p13"><span class="s1">-</span> (NSArray *)sprockets</p>
+<p class="p13">{</p>
+<p class="p13"><span class="Apple-converted-space">    </span>NSArray *array;</p>
+<p class="p14"><br></p>
+<p class="p13"><span class="Apple-converted-space">    </span>array = [[NSArray alloc] initWithObjects:mainSprocket,</p>
+<p class="p13"><span class="Apple-converted-space">                               </span>auxiliarySprocket, nil];</p>
+<p class="p13"><span class="Apple-converted-space">    </span>return [array autorelease];</p>
+<p class="p13">}</p>
+<p class="p15"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p6">When another method gets the array of Sprockets, that method can assume that the array will be disposed of when it's no longer needed, but can still be safely used anywhere within its scope (with certain exceptions; see “Validity of Shared Objects” below). It can even return the array to its invoker, since the application object defines the bottom of the call stack for your code. The <b>autorelease</b> method thus allows every object to use other objects without worrying about disposing of them.</p>
+<p class="p7"><br></p>
+<p class="p6"><span class="s3"><b>Note: </b></span>Just as it's an error to release an object after it's already been deallocated, it's an error to send so many autorelease messages that the object would later be released after it had already been deallocated. You should send release or autorelease to an object only as many times as are allowed by its creation (one) plus the number of retain messages <i>you</i> have sent it (retain messages are described below).</p>
+<p class="p7"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b>Retaining Objects</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p6">There are times when you don't want a received object to be disposed of; for example, you may need to cache the object in an instance variable. In this case, only you know when the object is no longer needed, so you need the power to ensure that the object is not disposed of while you are still using it. You do this with the <b>retain</b> method, which stays the effect of a pending <b>autorelease</b> (or preempts a later <b>release</b> or <b>autorelease</b> message). By retaining an object you ensure that it won't be deallocated until you're done with it. For example, if your object allows its main Sprocket to be set, you might want to retain that Sprocket like this:</p>
+<p class="p7"><br></p>
+<p class="p13"><span class="s1">-</span> (void)setMainSprocket:(Sprocket *)newSprocket</p>
+<p class="p13">{</p>
+<p class="p13"><span class="Apple-converted-space">    </span>[mainSprocket autorelease];</p>
+<p class="p13"><span class="Apple-converted-space">    </span>mainSprocket = [newSprocket retain]; /* Claim the new Sprocket. */</p>
+<p class="p13"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p13">}</p>
+<p class="p15"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p6">Now, <b>setMainSprocket:</b> might get invoked with a Sprocket that the invoker intends to keep around, which means your object would be sharing the Sprocket with that other object. If that object changes the Sprocket, your object's main Sprocket changes. You might want that, but if your Thingamajig needs to have its own Sprocket the method should make a private copy:</p>
+<p class="p7"><br></p>
+<p class="p13"><span class="s1">-</span> (void)setMainSprocket:(Sprocket *)newSprocket</p>
+<p class="p13">{</p>
+<p class="p13"><span class="Apple-converted-space">    </span>[mainSprocket autorelease];</p>
+<p class="p13"><span class="Apple-converted-space">    </span>mainSprocket = [newSprocket copy]; /* Get a private copy. */</p>
+<p class="p13"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p13">}</p>
+<p class="p15"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p6">Note that both of these methods autorelease the original main sprocket, so they don't need to check that the original main sprocket and the new one are the same. If they simply released the original when it was the same as the new one, that sprocket would be released and possibly deallocated, causing an error as soon as it was retained or copied. Although they could store the old main sprocket and release it later, that kind of code tends to be slightly more complex. For example:</p>
+<p class="p7"><br></p>
+<p class="p13"><span class="s1">-</span> (void)setMainSprocket:(Sprocket *)newSprocket</p>
+<p class="p13">{</p>
+<p class="p13"><span class="Apple-converted-space">    </span>Sprocket *oldSprocket = mainSprocket;</p>
+<p class="p13"><span class="Apple-converted-space">    </span>mainSprocket = [newSprocket copy];</p>
+<p class="p13"><span class="Apple-converted-space">    </span>[oldSprocket release];</p>
+<p class="p13"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p13">}</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p11"><b>Validity of Shared Objects</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p6">The Foundation Framework's ownership policy limits itself to the question of when you have to dispose of an object; it doesn't specify that any object received in a method <i>must</i> remain valid throughout that method's scope. A received object nearly always becomes invalid when its owner is released, and usually becomes invalid when its owner reassigns the instance variable holding that object. Any method other than <b>release</b> that immediately disposes of an object is documented as doing so.</p>
+<p class="p7"><br></p>
+<p class="p6">For example, if you ask for an object's main sprocket and then release the object, you have to consider the main sprocket gone, because it belonged to the object. Similarly, if you ask for the main sprocket and then send <b>setMainSprocket:</b> you can't assume that the sprocket you received remains valid:</p>
+<p class="p7"><br></p>
+<p class="p13">Sprocket *oldMainSprocket;</p>
+<p class="p13">Sprocket *newMainSprocket;</p>
+<p class="p14"><br></p>
+<p class="p13">oldMainSprocket = [myObject mainSprocket];</p>
+<p class="p14"><br></p>
+<p class="p13">/* If this releases the original Sprocket... */</p>
+<p class="p13">[myObject setMainSprocket:newMainSprocket];</p>
+<p class="p14"><br></p>
+<p class="p13">/* ...then this causes the application to crash. */</p>
+<p class="p13">[oldMainSprocket <i>anyMessage</i>];</p>
+<p class="p15"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p6"><b>setMainSprocket:</b> may release the object's original main sprocket, possibly rendering it invalid. Sending any message to the invalid sprocket would then cause your application to crash. If you need to use an object after disposing of its owner or rendering it invalid by some other means, you can retain and autorelease it before sending the message that would invalidate it:</p>
+<p class="p7"><br></p>
+<p class="p13">Sprocket *oldMainSprocket;</p>
+<p class="p13">Sprocket *newMainSprocket;</p>
+<p class="p14"><br></p>
+<p class="p13">oldMainSprocket = [[[myObject mainSprocket] retain] autorelease];</p>
+<p class="p13">[myObject setMainSprocket:newMainSprocket];</p>
+<p class="p13">[oldMainSprocket <i>anyMessage</i>];</p>
+<p class="p15"><br></p>
+<p class="p14"><br></p>
+<p class="p15"><br></p>
+<p class="p6">Retaining and autoreleasing <b>oldMainSprocket</b> guarantees that it will remain valid throughout your scope, even though its owner may release it when you send <b>setMainSprocket:</b>.</p>
+<p class="p7"><br></p>
+<p class="p10"><br></p>
+<p class="p11"><b>Summary</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p6">Now that the concepts behind the Foundation Framework's object ownership policy have been introduced, they can be expressed as a short list of rules:</p>
+<p class="p7"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>If you allocate, copy, or retain an object, you are responsible for releasing the newly created object with <span class="s3"><b>release</b></span> or <span class="s3"><b>autorelease</b></span>. Any other time you receive an object, you're not responsible for releasing it.</p>
+<p class="p18"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>A received object is normally guaranteed to remain valid within the method it was received in. That method may also safely return the object to its invoker.</p>
+<p class="p18"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>If you need to store a received object in an instance variable, you must retain or copy it.</p>
+<p class="p18"><br></p>
+<p class="p17">•<span class="Apple-tab-span">	</span>Use retain and autorelease when needed to prevent an object from being invalidated as a normal side-effect of a message.</p>
+<p class="p18"><br></p>
+<p class="p19"><br></p>
+<p class="p7"><br></p>
+</body>
+</html>

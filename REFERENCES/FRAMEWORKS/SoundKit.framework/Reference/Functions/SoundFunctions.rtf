@@ -1,0 +1,2461 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f4\fmodern Courier;\f3\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+\fs80 \
+
+\f2\b\fs28\li2380 \
+
+{{\NeXTHelpMarker64 \markername NS_DEV_DOCFOR:objc_function:snddriver_get_dsp_cmd_port();}
+¬}{\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0{\NeXTHelpMarker65 \markername NS_DEV_DOCFOR:objc_function:SNDRelease();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 SNDAcquire(), SNDReset(), SNDRelease()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Access sound resources\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/accesssound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDAcquire(
+\b0 int 
+\i soundResource
+\i0 , int 
+\i priority
+\i0 , int 
+\i preempt
+\i0 , int 
+\i timeout
+\i0 ,  SNDNegotiationFun 
+\i negFun
+\i0 , void *
+\i arg
+\i0 , port_t€*
+\i devicePort
+\i0 , port_t€*
+\i ownerPort
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDReset(
+\b0 int 
+\i soundResource
+\i0 , port_t€
+\i devicePort
+\i0 , port_t€
+\i ownerPort
+\b\i0 )\
+
+\b0 int 
+\b SNDRelease(
+\b0 int 
+\i soundResource
+\i0 , port_t€*
+\i devicePort
+\i0 , port_t€*
+\i ownerPort
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b SNDAcquire()
+\b0  attempts to gain ownership of the sound resources specified in 
+\i soundResource
+\i0 , a value that's created by (bitwise) or'ing a combination of the following resource codes:\
+
+\fs20 \
+
+\fs4 \
+
+\pard\tx6420\tx10440\f2\b\fs28\li2760\fc0\cf0 Code	Resource\
+
+\fs6 \
+
+\f0\b0\fs28 SND_ACCESS_OUT	sound-out \
+SND_ACCESS_IN	sound-in\
+SND_ACCESS_DSP	the DSP \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 Alternatively, you can acquire the sound driver device port without gaining ownership of the device by passing 0 as the value of 
+\i soundResource
+\i0 .  \
+
+\fs20 \
+
+\fs28 Device and ownership ports to a successfully acquired sound resource are returned in 
+\i devicePort
+\i0  and 
+\i ownerPort
+\i0 , respectively.  If you pass a previously created port as the value of 
+\i devicePort
+\i0 , that port is used; passing a value of PORT_NULL (0) causes 
+\b SNDAcquire()
+\b0  to create a port for you.  The value you pass through 
+\i ownerPort
+\i0  is ignored by the function; a new owner port is always created.   \
+
+\fs20 \
+
+\fs28 Acquiring a resource makes it active, such that other acquisition requests may fail, even if the requests are in the same process.  You can grant a priority to the acquisition by setting the value of the 
+\i priority
+\i0  argumentÐin a subsequent call to 
+\b SNDAcquire()
+\b0 , the acquisition with the higher priority wins.  The 
+\i preempt
+\i0  flag is used as a tie-breaker.\
+
+\fs20 \
+
+\fs28 The function's 
+\i timeout
+\i0 , 
+\i negFun
+\i0 , and 
+\i arg
+\i0  arguments are currently unused.  \
+
+\fs20 \
+
+\b\fs28 The ports that are created and returned by SNDAcquire()
+\b0  can be passed as arguments to certain sound driver functions (functions that are prefixed ªsnddriverº).  Furthermore, there's not much reason to call 
+\b SNDAcquire()
+\b0  unless this is what you're doing:  Although you can use the function generally to query for the existence of a particular resource, there's not much point in acquiring a sound device if all you're going to do is call other 
+\b SND...() 
+\b0 functions.\
+
+\fs20 \
+
+\b\fs28 SNDReset()
+\b0  and 
+\b SNDRelease()
+\b0  reset to a virgin state and release, respectively, the specified resources.  The resources must have been previously acquired through 
+\b SNDAcquire()
+\b0 ; the device and owner port arguments are values returned by that function.  
+\b SNDRelease()
+\b0  sets the owner port to PORT_NULL; the device port is unaffected.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.  \
+
+\fs20 \
+
+\fs10 \
+
+\fs28\fi-1360 ERRORS	If 
+\b SNDAcquire()
+\b0  is unable to acquire any one of the resources specified in 
+\i soundResource
+\i0 , none of the resources are acquired.  \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker2791 \markername NS_DEV_DOCFOR:objc_function:SNDFree();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 SNDAlloc(), SNDFree()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Create and free a sound structure \
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/utilsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDAlloc(
+\b0 SNDSoundStruct **
+\i sound
+\i0 , int 
+\i dataSize
+\i0 , int 
+\i dataFormat
+\i0 , int€
+\i samplingRate
+\i0 , int 
+\i channelCount
+\i0 , int 
+\i infoSize
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDFree(
+\b0 SNDSoundStruct *
+\i sound
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	The SNDSoundStruct structure is the data format used by the sound software to encapsulate a sound.  It defines the soundfile format and the sound pasteboard type, and it lies at the heart of every Sound object.  
+\b SNDAlloc()
+\b0  creates and returns, in 
+\i sound
+\i0 , a new SNDSoundStruct.  The arguments to 
+\b SNDAlloc()
+\b0  correspond to the SNDSoundStruct fields described below.  
+\b SNDFree()
+\b0  frees the SNDSoundStruct pointed to by 
+\i sound.
+\i0   You should always use 
+\b SNDFree()
+\b0  to free a sound structure created through 
+\b SNDAlloc()
+\b0 .  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The fields of the SNDSoundStruct structure list the attributes of the sound that the structure represents.  The sound data itself isn't contained in the structure, but is located by a structure field.  Nonetheless, it's often convenient to think of a SNDSoundStruct as containing the sound data that it represents.  By convention, the structure is referred to as the sound's ªheader.º  It's defined as:\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 typedef struct  \{\
+    int  magic;         /* SND_MAGIC ((int)0x2e736e64) */\
+    int  dataLocation;  /* Offset or pointer to the raw data */\
+    int  dataSize;      /* Raw data size in bytes */\
+    int  dataFormat;    /* The data format code */\
+    int  samplingRate;  /* The sampling rate */\
+    int  channelCount;  /* The number of channels */\
+    char info[4];       /* Textual information about the sound */\
+SNDSoundStruct;\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\f0\fs28\li2380\fc0\cf0 The 
+\b magic
+\b0  field is a magic number that identifies a SNDSoundStruct.  It's automatically set when you allocate the structure.  \
+
+\fs20 \
+
+\fs28 The 
+\b dataLocation
+\b0  field indicates the location of the actual sound data.  Usually, the data immediately follows the header.  In this case, 
+\b dataLocation
+\b0  is the offset from the beginning of the structure to the first byte of the sound dataÐin other words, it's the size of the sound's header.  However, if you edit the sound through functions such as 
+\b SNDDeleteSamples()
+\b0  or 
+\b SNDInsertSamples()
+\b0 , the sound can become fragmented such that the data no longer follows the header.  In this case, 
+\b dataLocation
+\b0  is a pointer to a NULL-terminated block of addresses, each of which points to a separate SNDSoundStruct.  The collection of these SNDSoundStructs make up the fragmented data.  \
+
+\fs20 \
+
+\b\fs28 dataSize
+\b0  is the size, in bytes, of the memory allocated for the sound data.  The memory is initialized to zero.  \
+
+\fs20 \
+
+\b\fs28 dataFormat
+\b0  describes the sound data as one of the following codes:\
+
+\fs20 \
+
+\fs4 \
+
+\pard\tx7200\tx10440\f2\b\fs28\li2760\fc0\cf0 Code
+\b0 	
+\b Format
+\b0  \
+
+\pard\tx6420\tx10440\fs6\li2760\fc0\cf0 \
+
+\pard\tx7200\tx10440\f0\fs28\li2760\fc0\cf0 SND_FORMAT_MULAW_8	8-bit mu-law samples\
+SND_FORMAT_LINEAR_8	8-bit linear samples\
+SND_FORMAT_LINEAR_16	16-bit linear samples\
+SND_FORMAT_EMPHASIZED	16-bit linear with emphasis\
+SND_FORMAT_COMPRESSED	16-bit linear with compression\
+SND_FORMAT_COMPRESSED_EMPHASIZED	A combination of the two above\
+SND_FORMAT_LINEAR_24	24-bit linear samples\
+SND_FORMAT_LINEAR_32	32-bit linear samples\
+SND_FORMAT_FLOAT	floating-point samples\
+SND_FORMAT_DOUBLE	double-precision float samples\
+SND_FORMAT_DSP_DATA_8	8-bit fixed-point samples\
+SND_FORMAT_DSP_DATA_16	16-bit fixed-point samples\
+SND_FORMAT_DSP_DATA_24	24-bit fixed-point samples\
+SND_FORMAT_DSP_DATA_32	32-bit fixed-point samples\
+SND_FORMAT_DSP_CORE	DSP program\
+SND_FORMAT_DISPLAY	non-audio display data\
+SND_FORMAT_INDIRECT	fragmented sampled data\
+SND_FORMAT_UNSPECIFIED	unspecified format \
+
+\pard\tx6420\tx10440\fs20\li2760\fc0\cf0 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 All but the last five formats identify different sizes and types of sampled data.  The others deserve special note:  \
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	SND_FORMAT_DSP_CORE format contains data that represents a loadable DSP core program.  Sounds in this format are required by the 
+\b SNDBootDSP()
+\b0  and 
+\b SNDRunDSP()
+\b0  functions.  You create a SND_FORMAT_DSP_CORE sound by reading a DSP load file (extension ª.lodº) with the 
+\b SNDReadDSPfile()
+\b0  function.\
+
+\fs20 \
+
+\fs28 ·	SND_FORMAT_DISPLAY format is used by the Sound Kit's SoundView class.  Such sounds can't be played.  \
+
+\fs20 \
+
+\fs28 ·	SND_FORMAT_INDIRECT indicates data that has become fragmented due to editing.€€Only sampled data can become fragmented.  You never allocate a sound with this format.\
+
+\fs20 \
+
+\fs28 ·	SND_FORMAT_UNSPECIFIED is used for unrecognized formats.\
+
+\fs20 \
+
+\b\fs28\fi0\li2380 samplingRate
+\b0  is also given as a code and should be cast into an 
+\b int
+\b0 .  The NeXT sound hardware supports the following sampling rates for recording and playback:\
+
+\fs20 \
+
+\fs4 \
+
+\pard\tx6420\tx10440\f2\b\fs28\li2760\fc0\cf0 Code
+\b0 	
+\b Sampling Rate (Hz)\
+
+\fs6 \
+
+\f0\b0\fs28 SND_RATE_CODEC	8012.8210513\
+SND_RATE_LOW	22050\
+SND_RATE_HIGH	44100\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 channelCount
+\b0  is the number of channels of sound.  Playback of one- and two-channel sounds is supported; a sound with more than two channels is unplayable.  \
+
+\fs20 \
+
+\b\fs28 infoSize
+\b0  is the size of a variable-length string that can be used to textually describe the sound.  The size is extended to the next 4-byte boundary (the minimum size is 4 bytes).  You can't increase the length of the info string once its size has been set.  \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.  \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker7788 \markername NS_DEV_DOCFOR:objc_function:SNDBootDSP();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 SNDBootDSP()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Boot the DSP\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/accesssound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDBootDSP(
+\b0 port_t€*
+\i devicePort
+\i0 , port_t€*
+\i ownerPort
+\i0 , SNDSoundStruct *
+\i dspCore
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b SNDBootDSP()
+\b0  boots the DSP using the DSP bootstrap image specified in 
+\i dspCore.
+\i0   This allows you to load all internal RAM and all but the top six words of external RAM on the DSP.  The owner and device ports must have been previously acquired through 
+\b SNDAcquire()
+\b0 .  The format of 
+\i dspCore
+\i0  must SND_FORMAT_DSP core image should be in loadable (ª.lodº) form, such as is created through the 
+\b SNDReadDSPfile()
+\b0  function.\
+
+\fs20 \
+
+\fs10 \
+
+\fs28\fi-1320 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.  \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\fi-760\li3140\fc0\cf0 SNDCompressSound()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Compress or decompress a sound\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/convertsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDCompressSound(
+\b0 SNDSoundStruct *
+\i fromSound
+\i0 , SNDSoundStruct€**
+\i toSound
+\i0 , BOOL 
+\i bitFaithful
+\i0 , int€
+\i compressionAmount
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b SNDCompressSound()
+\b0  creates and returns, in 
+\i toSound
+\i0 , a new SNDSoundStruct that contains a compressed or decompressed version of the sound in 
+\i fromSound
+\i0 :\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\fi-380\li2760\fc0\cf0 ·	If 
+\i fromSound's
+\i0  format is SND_FORMAT_LINEAR_16 or SND_FORMAT_EMPHASIZED, the sound returned in 
+\i toSound
+\i0  is compressed.\
+
+\fs20 \
+
+\fs28 ·	If its format is SND_FORMAT_COMPRESSED or SND_FORMAT_COMPRESSED_EMPHASIZED, the sound is decompressed.\
+
+\fs20 \
+
+\fs28\fi0\li2380 No other formats are allowed; in addition, the sound can't have more than two channels.\
+
+\fs20 \
+
+\fs28 The function's 
+\i bitFaithful
+\i0  and 
+\i compressionAmount
+\i0  arguments are used only when compressing:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	
+\i bitFaithful
+\i0  determines the fidelity with which a compressed sound can be restored to its original state.  If 
+\i bitFaithful
+\i0  is YES, the sound returned in 
+\i toSound
+\i0  can be decompressed to exactly match the original sound data; if it's NO, some degradation can be expected.  \
+
+\fs20 \
+
+\fs28 ·	The 
+\i compressionAmount
+\i0  argument controls the amount of compression.  Its value ranges from 4 to 8 with higher numbers giving more compression but less fidelity.  Depending on the signal, a 
+\i compressionAmount
+\i0  of 4 will compress the sound to about half its original size; a value of 8 compresses to about one-sixth the size.  For bit-faithful compression, you should set 
+\i compressionAmount
+\i0  to 4.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker10091 \markername NS_DEV_DOCFOR:objc_function:SNDConvertLinearToDecibels();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 SNDConvertDecibelsToLinear(), SNDConvertLinearToDecibels()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Convert between logarithmic and linear units\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	SoundKit/NXSoundDevice.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	float 
+\b SNDConvertDecibelsToLinear(
+\b0 float 
+\i dB
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 float 
+\b SNDConvertLinearToDecibels(
+\b0 float 
+\i linear
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	These convenience functions convert from units of decibels to a linear value, and vice versa.  Decibels express the difference between two quantities in logarithmic units, while on a linear scale the same relationship is expressed as the ratio of the two quantities.  For example, a difference of zero decibels is equivalent to a ratio of 1.0.  The functions are, in their entirety:\
+
+\fs20 \
+
+\pard\tx3140\tx3900\tx4400\tx4900\tx5400\tx5920\tx6420\tx6920\tx7420\tx7920\tx8440\tx8940\tx9440\tx9940\tx10440\tx10960\f4\fs24\li2760\fc0\cf0 float SNDConvertDecibelsToLinear(float dB)\
+\{\
+    return (float)pow(10.0, (double)dB/20.0);\
+\}\
+\
+float SNDConvertLinearToDecibels(float linear)\
+\{\
+    return (float)(20.0 * log10((double)linear));\
+\}\
+
+\fs80 \
+
+\pard\f2\b\fs28\fi-760\li3140\fc0\cf0 SNDConvertSound(), SNDMulaw(), SNDiMulaw()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Convert a sound's attributes\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/convertsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDConvertSound(
+\b0 SNDSoundStruct *
+\i fromSound
+\i0 , SNDSoundStruct **
+\i toSound
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 unsigned char 
+\b SNDMulaw(
+\b0 short 
+\i linearValue
+\b\i0 )\
+
+\b0 short 
+\b SNDiMulaw(
+\b0 unsigned char 
+\i mulawValue
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b SNDConvertSound()
+\b0  copies the sampled data from 
+\i fromSound
+\i0  into 
+\i toSound
+\i0 , converting the copied data to the format, channel count, and sampling rate specified by 
+\i toSound
+\i0 .  Memory for the converted data is automatically allocated.  The following conversions are possible:\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\fi-380\li2760\fc0\cf0 ·	Arbitrary sampling rate conversion.\
+·	Compression and decompression.\
+·	Floating-point formats (including double-precision) to and from linear formats.\
+·	Mono to stereo.\
+·	CODEC mu-law to and from linear formats.\
+
+\fs20 \
+
+\b\fs28\fi0\li2380 SNDMulaw()
+\b0  converts a value from 16-bit linear to mu-law:  It takes a single linear 16-bit argument and returns the corresponding mu-law value.  
+\b SNDiMulaw()
+\b0  performs the inverse operation:  It takes a mu-law argument and returns the 16-bit linear value.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If no error occurs, 
+\b SNDConvertSound()
+\b0  returns SND_ERR_NONE.  Otherwise an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	SNDAlloc(), SNDSamplesToBytes()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\fi-760\li3140\fc0\cf0 SNDCopySound(), SNDCopySamples()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Copy all or part of a sound\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/editsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDCopySound(
+\b0 SNDSoundStruct **
+\i toSound
+\i0 , SNDSoundStruct *
+\i fromSound
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDCopySamples(
+\b0 SNDSoundStruct **
+\i toSound
+\i0 , SNDSoundStruct *
+\i fromSound
+\i0 , int€
+\i startSample
+\i0 , int 
+\i sampleCount
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b SNDCopySound()
+\b0  creates and returns, in 
+\i toSound
+\i0 , a new SNDSoundStruct that contains a copy of the sound in 
+\i fromSound.
+\i0   This works for any type of sound, including DSP sounds.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 SNDCopySamples()
+\b0  also creates a new SNDSoundStruct pointed to by 
+\i toSound
+\i0 , but€copies only the specified of 
+\i fromSound
+\i0 , starting with the 
+\i startSample
+\i0  sample (counting€from sample 0) and copying 
+\i sampleCount
+\i0  samples.  This function works only€for€sampled sounds.\
+
+\fs20 \
+
+\i\fs28 toSound
+\i0  should eventually be freed with 
+\b SNDFree()
+\b0 .\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Both functions return an error code as described in 
+\b SNDSoundError()
+\b0 .\
+
+\fs20 \
+
+\fs10 \
+
+\fs28\fi-1360 ERRORS	If an error occurs, the SNDSoundStruct isn't created.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\fi-760\li3140\fc0\cf0 SNDDropATCSamples(), SNDInsertATCSamples()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Speed up or slow down playback of ATC sound\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/atcsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDDropATCSamples(
+\b0 int 
+\i numSamples
+\i0 , int 
+\i bySamples
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDInsertATCSamples(
+\b0 int 
+\i numSamples
+\i0 , int 
+\i bySamples
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b SNDDropATCSamples()
+\b0  and 
+\b SNDInsertATCSamples()
+\b0  provide elementary support for synchronizing sound playback to other events.  By skipping or repeating selected samples of an ATC sound while it's playing, you can slightly shrink or stretch its duration, as necessary.  This mechanism is intended for subtle timing adjustments, not for effects like fast forward.  Although dropping or inserting samples shouldn't cause any clicks in the  sound, it will cause some distortion.  A sound in the ATC (Audio Transform Compression) format must be playing for these functions to have any effect.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 If 
+\i bySamples
+\i0  is zero, one sample is chosen randomly out of the next 256 consecutive samples and omitted (in the case of 
+\b SNDDropATCSamples()
+\b0 ) or repeated (in the case of 
+\b SNDInsertATCSamples()
+\b0 ).  This process repeats until 
+\i numSamples
+\i0  samples have been dropped or inserted.  If 
+\i bySamples
+\i0  is greater than zero, an attempt is made to drop or add 
+\i numSamples
+\i0  samples before 
+\i bySamples
+\i0  more samples of the original sound have played.  Too large a ratio of 
+\i numSamples
+\i0  to 
+\i bySamples
+\i0  may produce unwanted results.\
+
+\fs20 \
+
+\fs28 To determine when to drop or insert samples, call 
+\b SNDSamplesProcessed()
+\b0  to obtain an estimate of how many samples have been played thus far.  Divide this number by the sampling rate to obtain the elapsed time in seconds, and compare the result to the notion of time with which you want to synchronize.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\b\fs28\fi-1540\li2380\fc0\cf0 SEE ALSO	SNDSamplesProcessed(), SNDCompressSound(), SNDSetATCGain(), SNDGetNumberOfATCBands()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\fi-760\li3140\fc0\cf0 SNDGetDataPointer()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Gain access to sampled sound data\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/utilsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDGetDataPointer(
+\b0 SNDSoundStruct *
+\i sound
+\i0 , char **
+\i data
+\i0 , int *
+\i sampleCount
+\i0 , int€*
+\i width
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	The 
+\b SNDGetDataPointer()
+\b0  provides access to 
+\i sound
+\i0 's sound data (which must be unfragmented sample data).  A pointer to the sound data is returned by reference in
+\i  data
+\i0 , the number of samples in the data is returned in 
+\i sampleCount
+\i0 , and the width (in bytes) of a single sample is returned in 
+\i width
+\i0 .  Note that 
+\i sampleCount
+\i0  is the total sample countÐit isn't a count of the sample frames.   \
+
+\fs20 \
+
+\fs10 \
+
+\fs28\fi-1320 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\fi-760\li3140\fc0\cf0 SNDGetNumberOfATCBands(), SNDGetATCBandFrequencies(), SNDGetATCBandwidths()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Query for frequency bands used by Audio Transform Compression\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/atcsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDGetNumberOfATCBands(
+\b0 int *
+\i numBands
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDGetATCBandFrequencies(
+\b0 int 
+\i numBands
+\i0 , float *
+\i centerFreqs
+\b\i0 )\
+
+\b0 int 
+\b SNDGetATCBandwidths(
+\b0 int 
+\i numBands
+\i0 , float *
+\i bandwidths
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b SNDGetNumberOfATCBands()
+\b0  returns, by reference in 
+\i numBands
+\i0 , the number of frequency bands that 
+\b SNDCompressSound()
+\b0  uses for compressing sounds with ATC (Audio Transform Compression).   Currently, this number is always 40.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 SNDGetATCBandFrequencies()
+\b0  fills the array 
+\i centerFreqs
+\i0  with floating-point numbers that specify the center frequency in Hertz of each band.  Similarly, the array filled by 
+\b SNDGetATCBandwidths()
+\b0  contains the width in Hertz of each band.  The first argument to each of these functions should be the value returned by 
+\b SNDGetNumberOfATCBands()
+\b0 .\
+
+\fs20 \
+
+\fs28 The ATC bands correspond roughly to the ªcritical bandsº of hearing.  Band zero is centered at zero Hz, and the highest band is centered at half the sampling rate.  The bandwidths and spacing are uniform below a certain frequency, above which the bands are progressively wider in Hertz and spaced further apart.  For sounds having the standard sampling rate of 44.1 kHz, bands below 1000 Hz have the same bandwidth, while bands above 1000 Hz have bandwidths of approximately 20% of the band's center frequency.  For sounds with other sampling rates, the bands' frequencies are scaled so that the same number of bands covers zero Hz to half the sampling rate, whatever the latter may be.  
+\b SNDGetATCBandFrequencies()
+\b0  and 
+\b SNDGetATCBandwidths()
+\b0  assume a 44.1-kHz sampling rate when filling the arrays 
+\i centerFreqs
+\i0  and 
+\i bandwidths
+\i0 , respectively.  To obtain the correct values for other sampling rates, multiply each element of the returned arrays by the ratio of the sampling rate to 44.1 kHz.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	0 is returned unless the host isn't a NeXT computer, in which case ATC is unavailable.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	SNDCompressSound(), SNDSetATCGain(), SNDDropATCSamples()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\fi-760\li3140\fc0\cf0 SNDInsertSamples(), SNDDeleteSamples(), SNDCompactSamples()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Edit a sampled sound\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/editsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDInsertSamples(
+\b0 SNDSoundStruct *
+\i toSound
+\i0 , SNDSoundStruct *
+\i fromSound
+\i0 , int€
+\i startSample
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDDeleteSamples(
+\b0 SNDSoundStruct *
+\i sound
+\i0 , int 
+\i startSample
+\i0 , int 
+\i sampleCount
+\b\i0 )\
+
+\b0 int 
+\b SNDCompactSamples(
+\b0 SNDSoundStruct **
+\i toSound
+\i0 , SNDSoundStruct€*
+\i fromSound
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b SNDInsertSamples()
+\b0  inserts a copy of 
+\i fromSound
+\i0  into 
+\i toSound
+\i0  at position 
+\i startSample
+\i0  of 
+\i toSound
+\i0  (counting from sample 0).  This operation may fragment 
+\i toSound
+\i0 .\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 SNDDeleteSamples()
+\b0  deletes 
+\i sampleCount
+\i0  samples from 
+\i sound
+\i0 , starting at sample 
+\i startSample.
+\i0   The memory occupied by the deleted segment is freed.  The sound may become fragmented.\
+
+\fs20 \
+
+\b\fs28 SNDCompactSamples()
+\b0  creates and returns, in 
+\i toSound
+\i0 , a new SNDSoundStruct that contains a compacted version of 
+\i fromSound.
+\i0   Compaction eliminates the fragmentation that can be caused by inserting and deleting samples.\
+
+\fs20 \
+
+\fs28 These functions work only on sounds that contain sampled data.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\fi-760\li3140\fc0\cf0 SNDPlaySoundfile()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Play a soundfile\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/utilsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDPlaySoundfile(
+\b0 char *
+\i path
+\i0 , int 
+\i priority
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b SNDPlaySoundfile()
+\b0  plays the soundfile named 
+\i path.
+\i0   The function returns immediately while playback continues in a background thread.  Playback interrupts a currently playing sound of the same or lower priority.\
+
+\fs20 \
+
+\fs10 \
+
+\fs28\fi-1320 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\fi-760\li3140\fc0\cf0 SNDReadSoundfile(), SNDRead(), SNDReadHeader(), SNDReadDSPfile()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Read a sound from a file\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/filesound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDReadSoundfile(
+\b0 char *
+\i path
+\i0 , SNDSoundStruct **
+\i sound
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDRead(
+\b0 int 
+\i fd
+\i0 , SNDSoundStruct **
+\i sound
+\b\i0 )\
+
+\b0 int 
+\b SNDReadHeader(
+\b0 int 
+\i fd
+\i0 , SNDSoundStruct **
+\i sound
+\b\i0 )\
+
+\b0 int 
+\b SNDReadDSPfile(
+\b0 char *
+\i path
+\i0 , SNDSoundStruct **
+\i sound
+\i0 , char *
+\i info
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	Each of these functions creates and returns, by reference in the 
+\i sound
+\i0  argument, a SNDSoundStruct that contains the sound represented in a specified file.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 SNDReadSoundfile()
+\b0  and 
+\b SNDRead()
+\b0  read the entire contents of a soundfile.  The 
+\i path
+\i0  argument to 
+\b SNDReadSoundfile()
+\b0  is a pathname; the function opens and closes the file automatically.  
+\b SNDRead()
+\b0  takes a file descriptor 
+\i fd
+\i0  that must be open for reading.\
+
+\fs20 \
+
+\b\fs28 SNDReadHeader()
+\b0  reads only the header portion of the file descriptor 
+\i fd.
+\i0   Storage for the actual sound data isn't allocated.  The 
+\b dataLocation
+\b0  field of the new SNDSoundStruct can be interpreted as the size of the header.\
+
+\fs20 \
+
+\b\fs28 SNDReadDSPfile()
+\b0  creates a SNDSoundStruct for the given loadable DSP core file.  The file, which is opened and closed by the function, is specified as a pathname and must have a ª.lodº extension.  The 
+\i info
+\i0  argument is provided as a convenience, allowing you to specify an information string that's written in 
+\i sound
+\i0 's header.  The DSP program is executed by calling 
+\b SNDBootDSP()
+\b0  or 
+\b SNDRunDSP()
+\b0 .\
+
+\fs20 \
+
+\fs28 For all three functions, 
+\i sound
+\i0  should eventually be deallocated with 
+\b SNDFree()
+\b0 .\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.\
+
+\fs20 \
+
+\fs10 \
+
+\fs28\fi-1360 ERRORS	If an error occurs, the SNDSoundStruct isn't created.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	SNDFree()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\fi-760\li3140\fc0\cf0 SNDReserve(), SNDUnreserve()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Reserve sound resources for recording or playback\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/accesssound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDReserve(
+\b0 int 
+\i soundResource
+\i0 , int 
+\i priority
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDUnreserve(
+\b0 int 
+\i soundResource
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b SNDReserve()
+\b0  attempts to gain ownership of the sound resources specified in 
+\b\i soundResource
+\b0\i0 , a value that's created by (bitwise) or'ing a combination of the following resource codes:\
+
+\fs20 \
+
+\fs4 \
+
+\pard\tx6420\tx10440\f2\b\fs28\li2760\fc0\cf0 Code	Resource\
+
+\fs6 \
+
+\f0\b0\fs28 SND_ACCESS_OUT	sound out\
+SND_ACCESS_IN	sound in\
+SND_ACCESS_DSP	the DSP \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The 
+\i priority
+\i0  argument is used, ostensibly, to determine whether a particular reservation can supercede an existing one.  However, the priority scheme doesn't work between applicationsÐif you successfully reserve a sound resource, no other application can take it from you, regardless of the relative priority values that were used in the respective 
+\b SNDReserve()
+\b0  calls.  (The priority argument does have an affect within the same application, but there really isn't much reason for one part of an application to steal sound resources from another part.)\
+
+\fs20 \
+
+\fs28 Despite this, 
+\b SNDReserve()
+\b0  isn't utterly useless; it eliminates some of the overhead of acquiring and setting up a device that would otherwise occur upon each instance of playback (or recording).  For example, if you want to play a series of soundfiles, you stand a better chance of seamless playback if you first reserve the sound-out device.\
+
+\fs20 \
+
+\fs28 Use of 
+\b SNDReserve()
+\b0  is optional; prioritized access to the appropriate resource is established when either the 
+\b SNDStartPlaying()
+\b0  or the 
+\b SNDStartRecording()
+\b0  function is called.  The process should eventually free its reserved resources by calling 
+\b SNDUnreserve()
+\b0 .  Sound resources are automatically freed when the process terminates.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.\
+
+\fs20 \
+
+\fs10 \
+
+\fs28\fi-1360 ERRORS	If 
+\b SNDReserve()
+\b0  is unable to reserve any one of the resources specified in 
+\i soundResource
+\i0 , it won't reserve any of them.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\fi-760\li3140\fc0\cf0 SNDRunDSP()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Run the DSP\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/convertsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDRunDSP(
+\b0 SNDSoundStruct *
+\i dspCore
+\i0 , char *
+\i toDSP
+\i0 , int 
+\i toCount
+\i0 , int
+\i €toWidth
+\i0 , int
+\i €toBufferSize
+\i0 , char **
+\i fromDSP
+\i0 , int *
+\i fromCount
+\i0 , int
+\i €fromWidth
+\i0 , int
+\i €negotiationTimeout
+\i0 , int 
+\i flushTimeout
+\i0 , int 
+\i conversionTimeout
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b SNDRunDSP()
+\b0  loads and runs the DSP program that you provide.  The functions is designed to be used with DSP programs that process sound dataÐyou typically use this function to provide your own sound conversion algorithms.  The arguments are as follows:\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\fi-380\li2760\fc0\cf0 ·	The DSP program is represented by 
+\i dspCore
+\i0 ; it must implement complex DMA mode for its output, and must be in loadable (ª.lodº) form
+\i .
+\i0   \
+
+\fs20 \
+
+\fs28 ·	
+\i toDSP
+\i0  is a pointer to the data that you wish to feed to the DSP.\
+
+\fs20 \
+
+\fs28 ·	
+\i toCount
+\i0  is the number of samples to process.\
+
+\fs20 \
+
+\fs28 ·	
+\i toWidth
+\i0  is the size of a single unprocessed sample.\
+
+\fs20 \
+
+\fs28 ·	
+\i toBufferSize
+\i0  is the total size, in bytes, of the 
+\i toDSP
+\i0  data.  \
+
+\fs20 \
+
+\fs28 ·	
+\i fromDSP
+\i0  is a pointer to the address of the processed data.  The memory to store the data is allocated for you.\
+
+\fs20 \
+
+\fs28 ·	
+\i fromCount
+\i0  is returned by the function to give the number of samples that it actually processed.\
+
+\fs20 \
+
+\fs28 ·	
+\i fromWidth
+\i0  is the size, in bytes, of a single processed sample.\
+
+\fs20 \
+
+\fs28 ·	The timeout arguments, 
+\i negotiationTimeout
+\i0 , 
+\i flushTimeout
+\i0 , and 
+\i conversionTimeout
+\i0 , are€ignored.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.  \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker24381 \markername NS_DEV_DOCFOR:objc_function:SNDSamplesToBytes();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 SNDSampleCount(), SNDBytesToSamples(), SNDSamplesToBytes()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Measure samples in a sound\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/utilsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDSampleCount(
+\b0 SNDSoundStruct *
+\i sound
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDBytesToSamples(
+\b0 int 
+\i byteCount
+\i0 , int 
+\i channelCount
+\i0 , int 
+\i dataFormat
+\b\i0 )\
+
+\b0 int 
+\b SNDSamplesToBytes(
+\b0 int 
+\i sampleCount
+\i0 , int 
+\i channelCount
+\i0 , int 
+\i dataFormat
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b SNDSampleCount()
+\b0  returns the number of sample frames, or channel-independent samples, in 
+\i sound
+\i0 .  The sound must contain sampled data.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 SNDBytesToSamples()
+\b0  returns the number of samples contained in 
+\i byteCount
+\i0  bytes of sound data with the given channel count and data format.  
+\b SNDSamplesToBytes()
+\b0  performs the inverse operation, returning the number of bytes needed to store 
+\i sampleCount
+\i0  samples.  The value returned by 
+\b SNDSamplesToBytes()
+\b0  is useful for computing the 
+\i dataSize
+\i0  argument to 
+\b SNDAlloc()
+\b0 .\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If 
+\i sound
+\i0  doesn't contain sampled data (or if for any other reason the sample count can't€be€determined), 
+\b SNDSampleCount()
+\b0  returns 
+\f1 -
+\f0 1.  
+\b SNDBytesToSamples()
+\b0  and 
+\b SNDSamplesToBytes()
+\b0  return 0 if 
+\i dataFormat
+\i0  isn't a sampled sound format and 
+\f1 -
+\f0 1 if€
+\i dataFormat
+\i0  isn't recognized.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\fi-760\li3140\fc0\cf0 SNDSetATCGain(), SNDGetATCGain(), SNDSetATCEqualizerGains(), SNDGetATCEqualizerGains(), SNDScaleATCEqualizerGains()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Modify volume or equalization for ATC playback\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/atcsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDSetATCGain(
+\b0 float 
+\i level
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDGetATCGain(
+\b0 float *
+\i level
+\b\i0 )\
+
+\b0 int 
+\b SNDSetATCEqualizerGains(
+\b0 int 
+\i numBands
+\i0 , float *
+\i gains
+\b\i0 )\
+
+\b0 int 
+\b SNDGetATCEqualizerGains(
+\b0 int 
+\i numBands
+\i0 , float *
+\i gains
+\b\i0 )\
+
+\b0 int 
+\b SNDScaleATCEqualizerGains(
+\b0 int 
+\i numBands
+\i0 , float *
+\i gainScalars
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	Audio Transform Compression (ATC) can be used not only for compression, but also to manipulate a sound's volume or frequency spectrum.  These functions determine the  playback level of sounds in the ATC formatÐeither their overall gain, or the gains of their individual frequency bands.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 SNDSetATCGain()
+\b0  sets the overall sound output level for ATC sound playback.  The value for 
+\i level
+\i0  can range from 0.0 (which will silence any ATC sound) to 1.0 (which will play sounds unchanged).  The new level setting takes effect starting with the next ATC sound played.  
+\b SNDGetATCGain()
+\b0  returns, in its argument, a pointer to the current level.  Note that this volume settingÐunlike that specified by 
+\b SNDSetVolume()
+\b0 Ðaffects not only the speaker and headphone output, but also the line-out jacks.  This is possible because 
+\b SNDSetATCGain()
+\b0  is implemented as a scaling of the ATC equalizer gains, and so it only affects ATC sounds.  For such sounds, the volume at the speaker and headphones is the product of the ATC gain and the global setting returned by 
+\b SNDGetVolume()
+\b0 .\
+
+\fs20 \
+
+\fs28 Because ATC manipulates the gain of individual frequency bands, it can be used to implement a graphic equalizer for playback of ATC sounds.  An array of ªequalizer gainsº is provided for this purpose.  
+\b SNDSetATCEqualizerGains()
+\b0  sets the equalizer gains to the values in the array 
+\i gains
+\i0 , and 
+\b SNDGetATCEqualizerGains()
+\b0  returns the current equalizer gains by reference.  
+\b SNDScaleATCEqualizerGains()
+\b0  multiplies each band's gain by the corresponding scalar in the array 
+\i gainScalars
+\i0 .  For all three functions, 
+\i numBands
+\i0  should be the value returned by 
+\b SNDGetNumberOfATCBands()
+\b0 .  Each element of the 
+\i gains
+\i0  array specifies a factor by which the sound amplitude in the corresponding frequency band will be multiplied during sound playback.  The gain should be a nonnegative number between 0.0 and 16.0 (inclusive).  Gains greater than 1.0 may cause the output to be clipped.  The system default gain for each band is 1.0, meaning that the sound is played without modification.  Changes take effect starting with the next sound played; any currently playing sound is unaffected.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Zero is returned, with one exception:  If 
+\b SNDSetATCGain()
+\b0 , 
+\b SNDSetATCEqualizerGains()
+\b0 , or 
+\b SNDScaleATCEqualizerGains()
+\b0  sets the gains of any frequency bands to values less than zero or greater than the 16.0, those values are set to zero or the maximum (respectively), and the function returns the number of bands that were clipped in this way.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	SNDCompressSound(), SNDGetNumberOfATCBands(), SNDSetVolume, SNDDropATCSamples()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker28535 \markername NS_DEV_DOCFOR:objc_function:SNDUseDefaultATCSquelchThresholds();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 SNDSetATCSquelchThresholds(), SNDGetATCSquelchThresholds(), SNDUseDefaultATCSquelchThresholds()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Set or get Audio Transform Compression parameters\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/atcsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDSetATCSquelchThresholds(
+\b0 int 
+\i numBands
+\i0 , float *
+\i thresholds
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDGetATCSquelchThresholds(
+\b0 int 
+\i numBands
+\i0 , float *
+\i thresholds
+\b\i0 )\
+
+\b0 int 
+\b SNDUseDefaultATCSquelchThresholds(
+\b0 void
+\b )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	These functions set or retrieve parameters that control the amount of compression achieved by 
+\b SNDCompressSound()
+\b0  when it uses Audio Transform Compression (ATC).\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 SNDSetATCSquelchThresholds()
+\b0  and 
+\b SNDGetATCSquelchThresholds()
+\b0  respectively fill and retrieve the array 
+\i thresholds
+\i0 , which specifies the squelch thresholds for each frequency band.  The first argument to both functions, 
+\i numBands
+\i0 , should be obtained from 
+\b SNDGetNumberOfATCBands()
+\b0 .  (If desired, the frequencies of the bands can be determined by invoking 
+\b SNDGetATCBandFrequencies()
+\b0 .)   The thresholds can range from zero to one.  A value of 0.0 ensures that frequencies in that band will never be suppressed, while a value of 1.0 almost always squelches them. The  default squelch threshold for each band is the estimated threshold of audibility at a normal listening level.  The defaults can be restored by calling 
+\b SNDUseDefaultATCSquelchThresholds()
+\b0 .  Changes to the thresholds take effect starting with the next sound compressed; any currently compressing sound is unaffected.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	Zero is returned upon success, with one exception:  If the 
+\i thresholds
+\i0  array passed to  
+\b SNDSetATCSquelchThresholds()
+\b0  contains any values less than zero or greater than one, those values are set to zero or one (respectively), and the function returns the number of bands that were clipped in this way.\
+
+\fs20 \
+
+\fs10 \
+
+\b\fs28\fi-1540 SEE ALSO	SNDCompressSound(), SNDGetNumberOfATCBands(), SNDGetATCBandFrequencies(), SNDSetATCGain(), SNDDropATCSamples()\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker30389 \markername NS_DEV_DOCFOR:objc_function:SNDGetCompressionOptions();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 SNDSetCompressionOptions(), SNDGetCompressionOptions()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Set and get compression attributes used in recording\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/preformsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDSetCompressionOptions(
+\b0 SNDSoundStruct *
+\i sound
+\i0 , int 
+\i bitFaithful
+\i0 , int€
+\i compressionAmount
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDGetCompressionOptions(
+\b0 SNDSoundStruct 
+\i *sound
+\i0 , int *
+\i bitFaithful
+\i0 , int€*
+\i compressionAmount
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b SNDSetCompressionOptions()
+\b0  sets the bit-faithfulness and the compression amount that 
+\b SNDStartRecording()
+\b0  uses during subsequent recordings into the sound 
+\i sound
+\i0 .  These values are effective only if 
+\i sound
+\i0 's format specifies compression.  By default, such a recording is bit-faithful with a compression amount of 4.  \
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 SNDGetCompressionOptions()
+\b0  returns, in its arguments, pointers to the currently established compression options.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\fi-760\li3140\fc0\cf0 SNDSetHost()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Set the host computer for subsequent playback or recording\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/accesssound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDSetHost(
+\b0 char *
+\i newHostname
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b SNDSetHost()
+\b0  gives you access to the named host for subsequent playbacks or recordings.  If 
+\i newHostname
+\i0  is NULL or a zero-length string, the default (the local host) is restored.\
+
+\fs20 \
+
+\fs10 \
+
+\fs28\fi-1320 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\fi-760\li3140\fc0\cf0 SNDSetVolume(), SNDGetVolume(), SNDSetMute(), SNDGetMute(), SNDSetFilter(), SNDGetFilter()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Sound playback utilities\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/utilsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDSetVolume(
+\b0 int 
+\i left
+\i0 , int 
+\i right
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDGetVolume(
+\b0 int *
+\i left
+\i0 , int *
+\i right
+\b\i0 )\
+
+\b0 int 
+\b SNDSetMute(
+\b0 int 
+\i speakerOn
+\b\i0 )\
+
+\b0 int 
+\b SNDGetMute(
+\b0 int *
+\i speakerOn
+\b\i0 )\
+
+\b0 int 
+\b SNDSetFilter(
+\b0 int 
+\i filterOn
+\b\i0 )\
+
+\b0 int 
+\b SNDGetFilter(
+\b0 int *
+\i filterOn
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b SNDSetVolume()
+\b0  sets the sound playback level for the left and right channels, specified as an integer between 1 and 43 (inclusive).  This only affects the signal to the internal speaker and the stereo headphone jack; the line-out level is undisturbed.  
+\b SNDGetVolume()
+\b0  returns, in its arguments, pointers to the playback levels of either channel.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\b\fs28\li2380\fc0\cf0 SNDSetMute()
+\b0  mutes and unmutes the internal speaker and headphone level as 
+\i speakerOn
+\i0  is 0 and nonzero, respectively.  
+\b SNDGetMute()
+\b0  returns, in its argument, a pointer to the mute status.\
+
+\fs20 \
+
+\b\fs28 SNDSetFilter()
+\b0  turns the low-pass filter off or on as 
+\i filterOn
+\i0  is 0 or nonzero, respectively.  
+\b SNDGetFilter()
+\b0  returns, in its argument, a pointer to the state of the filter.  The filter is automatically turned on while sounds whose format is SND_FORMAT_EMPHASIZED or SND_FORMAT_COMPRESSED_EMPHASIZED are being played.\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker33156 \markername NS_DEV_DOCFOR:objc_function:SNDSoundError();}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 SNDSoundError()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Describe a sound error\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/sounderror.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	char *
+\b SNDSoundError(
+\b0 int 
+\i err
+\b\i0 )\
+
+\fs30 \
+
+\b0\fs28\fi-1960\li2380 DESCRIPTION	
+\b SNDSoundError()
+\b0  returns a pointer to a string that describes the given error code.  The following are defined as error codes:\
+
+\fs20 \
+
+\fs4 \
+
+\pard\tx7920\tx10440\f2\b\fs28\li2760\fc0\cf0 Code	String\
+
+\pard\tx6420\tx10440\fs6\li2760\fc0\cf0 \
+
+\pard\tx7920\tx10440\f0\b0\fs28\li2760\fc0\cf0 SND_ERR_NONE	""\
+SND_ERR_NOT_SOUND	"Not a sound"\
+SND_ERR_BAD_FORMAT	"Bad data format"\
+SND_ERR_BAD_RATE	"Bad sampling rate"\
+SND_ERR_BAD_CHANNEL	"bad channel count"\
+SND_ERR_BAD_SIZE 	"bad size"\
+SND_ERR_BAD_FILENAME	"Bad file name"\
+SND_ERR_CANNOT_OPEN	"Cannot open file"\
+SND_ERR_CANNOT_WRITE	"Cannot write file"\
+SND_ERR_CANNOT_READ	"Cannot read file"\
+SND_ERR_CANNOT_ALLOC 	"Cannot allocate memory"\
+SND_ERR_CANNOT_FREE	"Cannot free memory"\
+SND_ERR_CANNOT_COPY	"Cannot copy"\
+SND_ERR_CANNOT_RESERVE	"Cannot reserve access"\
+SND_ERR_NOT_RESERVED	"Access not reserved"\
+SND_ERR_CANNOT_RECORD	"Cannot record sound"\
+SND_ERR_ALREADY_RECORDING	"Already recording sound"\
+SND_ERR_NOT_RECORDING	"Not recording sound"\
+SND_ERR_CANNOT_PLAY	"Cannot play sound"\
+SND_ERR_ALREADY_PLAYING	"Already playing sound"\
+SND_ERR_NOT_IMPLEMENTED	"Not implemented"\
+SND_ERR_NOT_PLAYING	"Not playing sound"\
+SND_ERR_CANNOT_FIND	"Cannot find sound"\
+SND_ERR_CANNOT_EDIT	"Cannot edit sound"\
+SND_ERR_BAD_SPACE	"Bad memory space in DSP load image"\
+SND_ERR_KERNEL	"Mach kernel error"\
+SND_ERR_BAD_CONFIGURATION	"Bad configuration"\
+SND_ERR_CANNOT_CONFIGURE	"Cannot configure"\
+SND_ERR_UNDERRUN	"Data underrun"\
+SND_ERR_ABORTED	"Aborted"\
+SND_ERR_BAD_TAG	"Bad tag"\
+SND_ERR_CANNOT_ACCESS	"Cannot access hardware resources"\
+SND_ERR_TIMEOUT	"Timeout"\
+SND_ERR_BUSY	"Hardware resources already in use"\
+SND_ERR_CANNOT_ABORT	"Cannot abort operation"\
+SND_ERR_INFO_TOO_BIG	"Information string too large"\
+SND_ERR_UNKNOWN	"Unknown error"\
+
+\pard\tx6420\tx10440\fs20\li2760\fc0\cf0 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li2380\fc0\cf0 \
+
+{{\NeXTHelpMarker34910 \markername NS_DEV_DOCFOR:objc_function:;}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li2380\gray0\fc0\cf0\up0\dn0 SNDStartPlaying(),  SNDVerifyPlayable(), SNDStartRecording(), SNDStartRecordingFile(), SNDWait(), SNDStop(), SNDSamplesProcessed(), SNDModifyPriority()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Recording and playing a sound\
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/performsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDStartPlaying(
+\b0 SNDSoundStruct *
+\i sound
+\i0 , int 
+\i tag
+\i0 , int 
+\i priority
+\i0 , int 
+\i preempt
+\i0 , SNDNotificationFun 
+\i beginFun
+\i0 , SNDNotificationFun 
+\i endFun
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDVerifyPlayable(
+\b0 SNDSoundStruct *
+\i sound
+\b\i0 )\
+
+\b0 int 
+\b SNDStartRecording(
+\b0 SNDSoundStruct *
+\i sound
+\i0 , int 
+\i tag
+\i0 , int 
+\i priority
+\i0 , int 
+\i preempt
+\i0 , SNDNotificationFun 
+\i beginFun
+\i0 , SNDNotificationFun 
+\i endFun
+\b\i0 )\
+
+\b0 int 
+\b SNDStartRecordingFile(
+\b0 char *
+\i fileName
+\i0 , SNDSoundStruct *
+\i sound
+\i0 , int 
+\i tag
+\i0 , int€
+\i priority
+\i0 , int 
+\i preempt
+\i0 , SNDNotificationFun 
+\i beginFun
+\i0 , SNDNotificationFun€
+\i endFun
+\b\i0 )\
+
+\b0 int 
+\b SNDStop(
+\b0 int 
+\i tag
+\b\i0 )\
+
+\b0 int 
+\b SNDWait(
+\b0 int 
+\i tag
+\b\i0 )\
+
+\b0 int 
+\b SNDSamplesProcessed(
+\b0 int 
+\i tag
+\b\i0 )\
+
+\b0 int 
+\b SNDModifyPriority(
+\b0 int 
+\i tag
+\i0 , int 
+\i newPriority
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	
+\b SNDStartPlaying()
+\b0  initiates the playback of 
+\i sound.
+\i0   The function returns immediately while the playback continues in a background thread.  During playback, the sound is played on the internal speaker and sent to the stereo line-out jacks.\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 The 
+\i tag
+\i0  argument is an arbitrary positive integer that the caller supplies to identify the€playback session in subsequent calls to 
+\b SNDWait()
+\b0 , 
+\b SNDStop()
+\b0 , 
+\b SNDSamplesProcessed()
+\b0 , and 
+\b SNDModifyPriority()
+\b0 .  You should never set a sound's tag€to 0.\
+
+\fs20 \
+
+\fs28 The value of 
+\i priority
+\i0  establishes the sound's right to use the playback resources.  The lowest priority is 0, larger numbers signify higher priorities.  Negative priorities are reserved.  A call to 
+\b SNDStartPlaying()
+\b0  will interrupt a currently playing sound if the new€sound has a higher priority.  If the new sound has a lower priority, the old sound continues and the new sound is put in a sound playback queue.  Sounds in the queue are sorted by priority.\
+
+\fs20 \
+
+\fs28 A nonzero 
+\i preempt
+\i0  flag is used for urgent sounds, such as system beeps.  Preemption allows a new sound to interrupt a sound that has the same (or lower) priority.  However, if the new sound can't interrupt, it isn't put in the queue.\
+
+\fs20 \
+
+\i\fs28 beginFun
+\i0  and 
+\i endFun
+\i0  are user-defined notification functions that are automatically called when the sound begins playing and when it ends, respectively.  A notification function is defined as an integer function with three arguments:\
+
+\fs20 \
+
+\fs28 	typedef int (*SNDNotificationFun)(SNDSoundStruct *
+\i sound
+\i0 , int 
+\i tag
+\i0 , int 
+\i err
+\i0 ); \
+
+\fs20 \
+
+\fs28 The 
+\i sound
+\i0  and 
+\i tag
+\i0  arguments are taken directly from the 
+\b SNDStartPlaying()
+\b0  call.  The 
+\i err
+\i0  argument is one of the error codes listed in 
+\b SNDSoundError()
+\b0  and is generated automatically to inform the notification function of the state of the playback.  The return value is ignored.  The value SND_NULL_FUN should be used to specify no function as either 
+\i beginFun
+\i0  or 
+\i endFun
+\i0 .\
+
+\fs20 \
+
+\b\fs28 SNDVerifyPlayable()
+\b0  returns SND_ERR_NONE if 
+\i sound
+\i0  can be played without first being converted to another format, sampling rate, or number of channels.  Otherwise, it returns SND_ERR_CANNOT_PLAY.\
+
+\fs20 \
+
+\fs28 The arguments to 
+\b SNDStartRecording()
+\b0  are like those to 
+\b SNDStartPlaying()
+\b0 .  The sound resource used for recording is implied by information in 
+\i sound
+\i0 's header; currently, two configurations are allowed:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	If the sound is one channel of mulaw format (SND_FORMAT_MULAW) at the CODEC sampling rate (SND_RATE_CODEC), then the recording is made from the CODEC input (the microphone jack at the back of the monitor).\
+
+\fs20 \
+
+\fs28 ·	If the format is one of the DSP data or compressed formats, the recording is made from the DSP port.  In the case of a compressed format, the sound is compressed according to options set by 
+\b SNDSetCompressionOptions()
+\b0 .\
+
+\fs20 \
+
+\fs28\fi0\li2380 Like playback, recording is performed in a background thread.  The recording completes when the storage allocated for the sound is filled with data.\
+
+\fs20 \
+
+\fs28 For both playback and recording, reserving the appropriate sound device first (through 
+\b SNDReserve()
+\b0 ) may help eliminate some overhead.  This is particularly true if you're playing a series of sounds.\
+
+\fs20 \
+
+\b\fs28 SNDStartRecordingFile()
+\b0  is similar to 
+\b SNDStartRecording()
+\b0 , but the sound is written directly to the file 
+\i fileName
+\i0 .  The 
+\i sound
+\i0  argument is used for its size and format information.\
+
+\fs20 \
+
+\b\fs28 SNDStop()
+\b0  terminates the playback or recording session that has a tag of 
+\i tag
+\i0 .\
+
+\fs20 \
+
+\b\fs28 SNDWait()
+\b0  returns only when the playback or recording with a tag of 
+\i tag
+\i0  has completed.  If 
+\i tag
+\i0  is 0, all sounds in the sound queue are awaited.  Note that if you call this function from the main thread of an application that has an asynchronous event-driven user interface, the interface will be effectively frozen until this function returns.\
+
+\fs20 \
+
+\b\fs28 SNDSamplesProcessed()
+\b0  returns the number of samples that have been played or recorded so far in the playback or recording that has the given tag
+\i .
+\i0  If the tagged sound isn't currently active, 
+\f1 -
+\f0 1 is returned. \
+
+\fs20 \
+
+\b\fs28 SNDModifyPriority()
+\b0  resets the priority, as 
+\i newPriority
+\i0 , of the playback or recording that has a tag of 
+\i tag
+\i0 .\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\fi-760\li3140\fc0\cf0 SNDSwapSoundToHost(), SwapHostToSound()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Swap the bytes in each sample in a buffer of sound data \
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/utilsound.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDSwapSoundToHost(
+\b0 void *
+\i dest
+\i0 , void *
+\i src
+\i0 , int 
+\i sampleCount
+\i0 , int 
+\i channelCount
+\i0 , \
+
+\fi0 int 
+\i dataFormat
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDSwapHostToSound(
+\b0 void *
+\i dest
+\i0 , void *
+\i src
+\i0 , int 
+\i sampleCount
+\i0 , int 
+\i channelCount
+\i0 , \
+
+\fi0 int 
+\i dataFormat
+\b\i0 )\
+
+\fs30 \
+
+\pard\tx2380\b0\fs28\fi-1960\li2380\fc0\cf0 DESCRIPTION	These functions read the data pointed to by 
+\i src
+\i0 , swap the order of the bytes that comprise each sample (if necessary) and write the swapped data to 
+\i dest
+\i0  (
+\i src
+\i0  and 
+\i dest
+\i0  can be the same pointer).  The other arguments, taken cumulatively, describe the size of the sound buffer:\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\fi-380\li2760\fc0\cf0 ·	
+\i sampleCount
+\i0  is the number of sample frames, or channel-independent samples.\
+·	
+\i channelCount
+\i0  is the number of channels of sound data.  \
+·	
+\i dataFormat
+\i0  is a format-encoding constant, such as SND_FORMAT_LINEAR_16.\
+
+\fs20 \
+
+\fs28\fi0\li2380 The functions return an error code, where SND_ERR_NONE indicates success.\
+
+\fs20 \
+
+\fs28 The ªSoundº and ªHostº terms in these names have these meanings:\
+
+\fs20 \
+
+\fs28\fi-380\li2760 ·	To play a sound, the sound data must be in ªSoundº format.\
+·	To examine sound data, it must be in ªHostº format. \
+
+\fs20 \
+
+\fs28\fi0\li2380 When you read a soundfile or record a sound, the sound data is guaranteed to be in ªSoundº format; if all you want to do is play the soundfile or write the recorded sound to a fileÐin other words, if you don't want to examine the dataÐthen you don't need to call these functions.\
+
+\fs20 \
+
+\fs28 However, if, for example, you read a soundfile in order to look at the value at each sample, you must first call 
+\b SNDSwapSoundToHost()
+\b0  to convert the sound data to ªHostº format.  If you modify samples in a converted sound, you must re-convert to ªSoundº format, through
+\b  SNDSwapHostToSound()
+\b0 , before the sound can be played or written to a file.\
+
+\fs20 \
+
+\fs28 Note that you don't have to convert entire soundfiles (or SNDSoundStruct data buffers) at a time.  The arguments let you convert an arbitrary range of samples starting at any sample in a sound data buffer.\
+
+\fs20 \
+
+\fs28 These functions are built upon the general 
+\b NXSwap...
+\b0  functions that are described in 
+\b /NextLibrary/Documentation/NextDev/Concepts/PortabilityGuide
+\b0 .  The primary difference between the sound swapping functions and the general swapping functions is that the sound functions let you convert buffers of data, whereas a single call to a general function can convert only one datum.   If you wish, you can call the general functions (iteratively) rather than the sound functions.  The correspondences between the  functions are:\
+
+\fs20 \
+
+\fs4 \
+
+\pard\tx6420\tx10440\f2\b\fs28\li2760\fc0\cf0 Sound function	Analogous general function\
+
+\fs6 \
+
+\f0\b0\fs28 SNDSwapSoundToHost()	NXSwapBigShortToHost()\
+
+\fs20 \
+
+\fs28 SNDSwapHostToSound()	NXSwapHostShortToBig()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\fi-760\li3140\fc0\cf0 SNDWriteSoundfile(), SNDWrite(), SNDWriteHeader()\
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\f0\b0\fs28\fi-1560\li2380\fc0\cf0 SUMMARY	Write a sound to a file \
+
+\fs30 \
+
+\fs28\fi-1960 DECLARED IN	sound/soundfile.h\
+
+\fs30 \
+
+\fs28\fi-1940\li2760 SYNOPSIS	int 
+\b SNDWriteSoundfile(
+\b0 char *
+\i path
+\i0 , SNDSoundStruct *
+\i sound
+\b\i0 )\
+
+\pard\b0\fi-380\li2760\fc0\cf0 int 
+\b SNDWrite(
+\b0 int 
+\i fd
+\i0 , SNDSoundStruct *
+\i sound
+\b\i0 )\
+
+\b0 int 
+\b SNDWriteHeader(
+\b0 int 
+\i fd
+\i0 , SNDSoundStruct *
+\i sound
+\b\i0 )\
+
+\fs20 \
+
+\pard\tx2760\tx3140\tx3520\fs28\li2380\fc0\cf0 SNDWriteSoundfile()
+\b0  writes the specified sound structure as the soundfile.  
+\i path
+\i0  is a full pathname that should include the ª.sndº extension (the convention for soundfiles).  The function automatically opens and closes the file.\
+
+\fs20 \
+
+\b\fs28 SNDWrite()
+\b0  also writes a complete soundfile, but its argument is a file descriptor rather than a pathname.  The file must be open for writing.  \
+
+\fs20 \
+
+\fs28 With both 
+\b SNDWriteSoundfile()
+\b0  and 
+\b SNDWrite()
+\b0 , the actual sound data is written as a contiguous block, even if 
+\i sound
+\i0  is fragmented.  However, 
+\i sound
+\i0  itself isn't affectedÐif it's fragmented, it remains fragmented.  \
+
+\fs20 \
+
+\b\fs28 SNDWriteHeader()
+\b0  is similar to 
+\b SNDWrite()
+\b0 , but it only writes 
+\i sound
+\i0 's header to the file.  \
+
+\fs20 \
+
+\fs10 \
+
+\pard\tx2380\fs28\fi-1320\li2380\fc0\cf0 RETURN	If no error occurs, SND_ERR_NONE is returned.  Otherwise, an error code, as described in 
+\b SNDSoundError()
+\b0 , is returned.\
+
+\fs20 \
+
+}

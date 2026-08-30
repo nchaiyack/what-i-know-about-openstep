@@ -1,0 +1,38 @@
+{
+    APPCLASS = NSApplication; 
+    FILESTABLE = {
+        BUNDLES = (); 
+        CLASSES = (); 
+        FRAMEWORKS = (AppKit.framework, Foundation.framework); 
+        INTERFACES = (); 
+        LIBS = (); 
+        OTHER_LINKED = (iffToTiff.m, SimpleImageFilter_main.m); 
+        OTHER_SOURCES = (
+            Makefile.preamble, 
+            Makefile, 
+            Makefile.postamble, 
+            m.template, 
+            h.template, 
+            CustomInfo.plist, 
+            README.rtf, 
+            SampleImage.iff
+        ); 
+        SUBPROJECTS = (); 
+        TOOLS = (); 
+    }; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {}; 
+    MAKEFILEDIR = "$(NEXT_ROOT)/NextDeveloper/Makefiles/pb_makefiles"; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    NEXTSTEP_DOCUMENTEXTENSIONS = (); 
+    NEXTSTEP_INSTALLDIR = /LocalLibrary/Services; 
+    NEXTSTEP_MAINNIB = SimpleImageFilter; 
+    PDO_UNIX_MAINNIB = SimpleImageFilter; 
+    PROJECTNAME = SimpleImageFilter; 
+    PROJECTTYPE = Application; 
+    PROJECTVERSION = 2.6; 
+    WINDOWS_BUILDTOOL = $NEXT_ROOT/NextDeveloper/Executables/make; 
+    WINDOWS_DOCUMENTEXTENSIONS = (); 
+    WINDOWS_INSTALLDIR = /LocalLibrary/Services; 
+    WINDOWS_MAINNIB = SimpleImageFilter; 
+}

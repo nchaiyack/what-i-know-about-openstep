@@ -1,0 +1,152 @@
+.\" @(#)ypxfr.8	1.2 87/08/23 3.2/4.3NFSSRC
+.\" @(#)ypxfr.8	1.2 87/02/10 NFSSRC
+.\" @(#)ypxfr.8 1.1 86/09/25 SMI;
+.TH YPXFR 8 "19 April 1986"
+.SH NAME
+ypxfr, ypxfr_1perday, ypxfr_1perhour, ypxfr_2perday
+\- transfer a YP map from some YP server to here
+.SH SYNOPSIS
+.B /usr/etc/yp/ypxfr
+[
+.B \-f
+]
+[ \fB-h \fIhost\fR ]
+[ \fB-d \fIdomain\fR ]
+[
+.B \-c
+]
+[ \fB-C\fR
+.I "tid prog ipadd port"
+]
+.I mapname
+.SH DESCRIPTION
+.IX ypxfr "" "\fLypxfr\fR \(em move remote yellow pages map to local host"
+.I ypxfr
+moves a YP map to the local host by making use of normal YP services.
+It creates a temporary map in the directory
+.I /etc/yp/domain
+(which must already exist),
+fills it by enumerating the map's entries,
+fetches the map parameters (master and order number),
+and loads them.
+It then deletes any old versions of the map and moves the
+temporary map to the real mapname.
+.LP
+If
+.I ypxfr
+is run interactively, it writes its output to the terminal.
+However, if it is invoked without a controlling terminal,
+and if the log file
+.I /etc/yp/ypxfr.log
+exists, it will append all its output to that file.  Since
+.I ypxfr
+is most often run from
+.IR /usr/lib/crontab ,
+or by
+.IR ypserv ,
+you can use the log file to retain a record of what was attempted,
+and what the results were.
+.LP
+For consistency between servers,
+.I ypxfr
+should be run periodically for every map in the YP data base.
+Different maps change at different
+rates:
+the
+.I services.byname
+map may not change for months at a time, for instance, and may
+therefore be checked only once a day in the wee hours.
+You may know that
+.I mail.aliases
+or
+.I hosts.byname
+changes several times per day.
+In such a case, you may want to check hourly for updates.
+A
+.IR crontab (5)
+entry can be used to perform periodic updates automatically.
+Rather than having a separate
+.I crontab
+entry for each map,
+you can group commands to update several maps in a shell script.
+Examples (mnemonically named) are in
+.IR /etc/yp :
+.IR ypxfr_1perday.sh ,
+.IR ypxfr_2perday.sh ,
+and
+.IR ypxfr_1perhour.sh .
+They can serve as reasonable first cuts.
+.LP
+Refer to
+.IR ypfiles (5)
+and
+.IR ypserv (8)
+for an overview of the yellow pages.
+.SH OPTIONS
+.IP "\fB\-f\fR" 1i
+Force the transfer to occur even if the version at the master is not
+more recent than the local version.
+.IP "\fB\-c\fR" 1i
+Don't send a "Clear current map" request to the local
+.I ypserv
+process.  Use this flag if
+.I ypserv
+is not running locally at the time you are running
+.IR ypxfr .
+Otherwise,
+.I ypxfr
+will complain that it can't talk to the local
+.IR ypserv ,
+and the transfer will fail.
+.IP "\fB\-h \fIhost\fR"
+Get the map from
+.IR host ,
+regardless of what the map says the master is.  If
+.I host
+is not specified,
+.I ypxfr
+will ask the YP service for the name of the master, and try to get the
+map from there.
+.I host
+may be a name or an internet address in the form
+.IR "a.b.c.d" .
+.IP "\fB\-d \fIdomain\fR"
+Specify a domain other than the default domain.
+.IP "\fB\-C \fItid prog ipadd port\fR"
+This option is
+.B only
+for use by
+.IR ypserv .
+When
+.I ypserv
+invokes
+.IR ypxfr ,
+it specifies that
+.I ypxfr
+should call back a
+.I yppush
+process at the host with IP address
+.IR ipaddr ,
+registered as program number
+.IR prog ,
+listening on port
+.IR port ,
+and waiting for a response to transaction
+.IR tid .
+.SH FILES
+.TP 25n
+.I /etc/yp/ypxfr.log
+log file
+.TP
+.I /etc/yp/ypxfr_1perday
+script to run one transfer per day, for use with 
+.IR cron (8)
+.TP
+.I /etc/yp/ypxfr_2perday
+script to run two transfers per day
+.TP
+/etc/yp/ypxfr_1perhour
+script for hourly transfers of volatile maps
+.IX "files used by programs" "\fL/etc/yp/ypxfr.log\fR \(em Yellow Pages transfer log"
+.SH "SEE ALSO"
+cron(8), ypfiles(5), ypserv(8), yppush(8) 

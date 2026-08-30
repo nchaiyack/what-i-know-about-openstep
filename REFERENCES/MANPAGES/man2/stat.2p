@@ -1,0 +1,273 @@
+.\" Copyright (c) 1980 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)stat.2	1.2 87/09/09 3.2/4.3 NFSSRC
+.\"	@(#)from stat.2	6.5 (Berkeley) 5/12/86
+.\"
+.TH STAT 2P "August 1, 1992"
+.UC 4
+.SH NAME
+stat, fstat \- (POSIX version) get file status
+.SH SYNOPSIS
+.nf
+.ft B
+#include <sys/types.h>
+#include <sys/stat.h>
+.PP
+.ft B
+int stat(const char *\fIpath\fP, struct stat *\fIbuf\fP);
+.PP
+.ft B
+int fstat(int \fIfd\fP, struct stat *\fIbuf\fP);
+.ft R
+.fi
+.SH DESCRIPTION
+The information in this specification applies
+only to POSIX applications.
+.PP
+This is the POSIX specification for \fIstat\fR.
+For the BSD specification, see \fIstat\fR(2).
+.PP
+The
+.IR stat 
+function obtains information about the file
+whose name is given by \fIpath\fP.
+Read, write or execute
+permission of the named file is not required, but all directories
+listed in the pathname leading to the file must be searchable.
+.PP
+The
+.IR fstat 
+function obtains the same information about an open file
+referenced by the file descriptor \fIfd\fP.
+.PP
+The \fIbuf\fP argument is a pointer to a \fIstat\fP
+structure, into which information is placed concerning the file.
+The \fIstat\fP structure is defined in the header
+.I <sys/stat.h>
+and includes the following members:
+.IP
+.PP
+.RS
+.TP 35
+\fBMember Type	Member Name\fP
+\fBDescription\fP
+.TP 35
+\fImode_t		st_mode\fP
+File mode.
+.TP 35
+\fIino_t		st_ino\fP
+File's inode number.
+.TP 35
+\fIdev_t		st_dev\fP
+ID of device containing the file.
+.TP 35
+\fInlink_t		st_nlink\fP
+Number of links to the file.
+.TP 35
+\fIuid_t		st_uid\fP
+User ID of the file's owner.
+.TP 35
+\fIgid_t		st_gid\fP
+Group ID of the file's group.
+.TP 35
+\fIoff_t		st_size\fP
+File size in bytes.
+.TP 35
+\fItime_t		st_atime\fP
+Time of last access.
+.TP 35
+\fItime_t		st_mtime\fP
+Time of last data modification.
+.TP 35
+\fItime_t		st_ctime\fP
+Time of last file status change.
+.RE
+.IP
+.PP
+The values of the time-related fields are given in seconds since
+the Epoch.
+.PP
+The header
+.I <sys/stat.h>
+also defines the following macros which can be used
+to test whether a file is of the specified type.
+The value \fIm\fP supplied to the macros must be the the value of
+the \fIst_mode\fP member of a \fIstat\fP structure.
+Each macro evaluates to a nonzero value if the test is true, and zero if
+the test is false.
+.IP
+.PP
+.RS
+.TP 15
+S_ISDIR(\fIm\fP)
+Test macro for a directory.
+.TP 15
+S_ISCHR(\fIm\fP)
+Test macro for a character special file.
+.TP 15
+S_ISBLK(\fIm\fP)
+Test macro for a block special file.
+.TP 15
+S_ISREG(\fIm\fP)
+Test macro for a regular file.
+.TP 15
+S_ISFIFO(\fIm\fP)
+Test macro for a FIFO.
+.RE
+.IP
+.PP
+Furthermore,
+.I <sys/stat.h>
+includes the following masks and bits which can
+used to encode or decode the file modes portion of values of type
+\fImode_t\fP, such as the \fIst_mode\fP member of the \fIstat\fP structure.
+.IP
+.PP
+.RS
+.TP 15
+S_IRWXU
+Read, write, execute (if a non-directory), or search
+(if a directory) \*(lqowner\*(rq permissions mask.
+.RS 17
+.TP 15
+S_IRUSR
+\*(lqOwner\*(rq read permission bit.
+.TP 15
+S_IWUSR
+\*(lqOwner\*(rq write permission bit.
+.TP 15
+S_IXUSR
+\*(lqOwner\*(rq execute (if a non-directory) or search (if a directory)
+permission bit.
+.RE
+.
+.TP 15
+S_IRWXG
+Read, write, execute (if a non-directory), or search
+(if a directory) \*(lqgroup\*(rq permissions mask.
+.RS 17
+.TP 15
+S_IRGRP
+\*(lqGroup\*(rq read permission bit.
+.TP 15
+S_IWGRP
+\*(lqGroup\*(rq write permission bit.
+.TP 15
+S_IXGRP
+\*(lqGroup\*(rq execute (if a non-directory) or search (if a directory)
+permission bit.
+.RE
+.
+.TP 15
+S_IRWXO
+Read, write, execute (if a non-directory), or search
+(if a directory) \*(lqother\*(rq permissions mask.
+.RS 17
+.TP 15
+S_IROTH
+\*(lqOther\*(rq read permission bit.
+.TP 15
+S_IWOTH
+\*(lqOther\*(rq write permission bit.
+.TP 15
+S_IXOTH
+\*(lqOther\*(rq execute (if a non-directory) or search (if a directory)
+permission bit.
+.RE
+.
+.TP 15
+S_ISUID
+Set-user-id bit.
+The effective user ID of the process is set to that of the file's owner
+when the file is executed.
+On a regular file, this bit is cleared on any write.
+.
+.TP 15
+S_ISGID
+Set-group-id bit.
+The effective group ID of the process is set to that of the file's group
+when the file is executed.
+On a regular file, this bit is cleared on any write.
+.RE
+.IP
+.PP
+The S_IRWXU mask is the bitwise inclusive OR of the S_IRUSR, S_IWUSR and
+S_IXUSR bits.
+.PP
+The S_IRWXG mask is the bitwise inclusive OR of the S_IRGRP, S_IWGRP and
+S_IXGRP bits.
+.PP
+The S_IRWXO mask is the bitwise inclusive OR of the S_IROTH, S_IWOTH and
+S_IXOTH bits.
+.PP
+Both
+.IR stat 
+and
+.IR fstat 
+functions update any time-related fields of the named file before writing into the \fIstat\fP structure.
+.SH "RETURN VALUE"
+Upon successful completion a value of zero is returned.
+Otherwise, a value of \-1 is returned and \fIerrno\fP
+is set to indicate the error.
+.SH "ERRORS"
+If any of the following conditions occurs,
+.IR stat 
+returns \-1 and sets \fIerrno\fP to the corresponding value:
+.TP 15
+[EACCES]
+Search permission is denied for a component of the path prefix.
+.TP 15
+[EFAULT]
+Either \fIpath\fP or \fIbuf\fP points outside the process's allocated
+address space.
+.TP 15
+[EINVAL]
+The pathname contains a character with the high-order bit set.
+.TP 15
+[EIO]
+An I/O error occurred while reading from or writing to the file system.
+.TP 15
+[ELOOP]
+Too many symbolic links were encountered in translating the pathname.
+.TP 15
+[ENAMETOOLONG]
+A component of \fIpath\fP exceeds {NAME_MAX} (see <limits.h>)
+characters,
+or the entire pathname exceeds {PATH_MAX} (see <limits.h>)
+characters.
+.TP 15
+[ENOENT]
+The named file does not exist.
+.TP 15
+[ENOENT]
+The \fIpath\fP argument points to an empty string.
+.TP 15
+[ENOTDIR]
+A component of the path prefix is not a directory.
+.PP
+.PP
+If any of the following conditions occurs,
+.IR fstat 
+returns \-1 and sets \fIerrno\fP to the corresponding value:
+.TP 15
+[EBADF]
+The \fIfd\fP argument
+is not a valid open file descriptor.
+.TP 15
+[EFAULT]
+The \fIbuf\fP argument points outside the process's allocated
+address space.
+.TP 15
+[EIO]
+An I/O error occurred while reading from or writing to the file system.
+.SH "SEE ALSO"
+chmod(2P),
+chown(2P),
+creat(2P),
+dup(2P),
+fcntl(2P),
+open(2P),
+pipe(2P),
+stat(2)

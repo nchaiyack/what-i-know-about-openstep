@@ -1,0 +1,144 @@
+.\" @(#)ntpd.8      92/05/17 rev by JJ
+.TH NTPD 8 "9 December 1988"
+.SH NAME
+ntpd \- time synchronization daemon implementing NTP
+.SH SYNOPSIS
+.B /usr/etc/ntpd
+[-a threshold] [-l] [-n] [-s]
+.SH OPTIONS
+.B -a 
+.I threshold
+is used to set the threshold,
+limiting how far 
+.B ntpd
+will change the system clock.
+It is used
+to prevent the system time
+from being changed a great deal.
+By default,
+the threshold is 1000 seconds.
+The
+.I threshold
+is to be specified in units of seconds,
+or the string
+.B any
+to defeat the sanity check.
+.PP
+.B -l
+will cause
+.I ntpd
+to log a message each time the logical clock is changed.
+Normally,
+do not specify this option
+except to gather statistical information
+for analyzing the logical clock behavior.
+If the
+.B -l 
+option is specified,
+a message will be logged approximately every 2 minutes.
+.PP
+.B -s
+will prevent
+.I ntpd
+from
+adjusting the local clock.
+.PP
+.SH DESCRIPTION
+The
+.I ntpd
+network time synchronization daemon
+is normally invoked at boot time
+from the
+.IR /etc/rc (8)
+file.
+It implements the version of the
+.B Network Time Protocol
+described in RFC-1059.
+It maintains the host's time,
+synchronized with a set of distributed time 
+servers,
+each with varying accuracy and reliability.
+Multiple time server
+masters may exist,
+but there is no requirement
+for election of a single master.
+.PP
+The
+.I ntpd
+daemon uses
+.IR adjtime (2)
+to adjust the clock of the host
+by a small amount in order to keep the
+clock synchronized.
+If the local clock exceeds the ``correct'' time by some
+threshold,
+then 
+.IR settimeofday (2)
+is used to make a step adjustment of the local clock.
+.PP
+When
+.IR ntpd (8)
+is started on the machine,
+it reads configuration information from
+.IR netinfo ,
+which contains information about other 
+ntp time servers and host specific information.
+Configuration information
+is created and managed by the HostManager application.
+.PP
+The
+.B driftfile
+command can be used to specify the name of the file
+from which the drift compensation
+register will be loaded at initialization time,
+and to which updated values
+will be written.
+The drift compensation value describes the intrinsic
+drift of the host clock.
+By default,
+the file
+.B /etc/ntp.drift
+is used.
+.PP
+Currently,
+three time server specifications are supported:
+.B master, clone
+and
+.B client.
+.PP
+It is recommended that the bulk of the machines configured should be
+.IR clients ,
+as this will minimize resource demand on the remote NTP server.
+If the host will be serving
+as a redistribution point for a cluster of hosts,
+it should be set up as a
+.B clone
+or
+.B master
+server.
+Configuration of servers is accomplished through the 
+HostManager 
+application.
+.SH NOTES
+.B Please choose NTP servers carefully.
+.SH BUGS
+No doubt.
+.SH FILES
+.nf
+/etc/ntp.drift  Stores local machines drift parameters.
+.fi
+.SH "SEE ALSO"
+adjtime(2), settimeofday(2),
+.br
+RFC-1059 \fINetwork Time Protocol\fP(1), Mills, D.L.
+.SH "AUTHORS"
+Louis A. Mamakos,
+.I louie@TRANTOR.UMD.EDU
+.br
+Michael G. Petry,
+.I petry@TRANTOR.UMD.EDU
+.br
+The University of Maryland Computer Science Center.
+.br
+.SH "ADAPTATION TO NEXT AND NETINFO"
+Lee T. Tucker, NeXT Computer, Inc.

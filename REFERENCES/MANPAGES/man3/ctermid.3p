@@ -1,0 +1,22 @@
+.TH CTERMID 3P  "August 1, 1992"
+.UC 4
+.SH NAME
+ctermid \- (POSIX only) generate the pathname associated with a terminal
+.SH SYNOPSIS
+.nf
+.B #include <stdio.h>
+.PP
+.B char *ctermid(char *\fIs\fR);
+.fi
+.SH DESCRIPTION
+The information in this specification applies
+only to POSIX applications.
+.PP
+The \fIctermid\fR function generates a strings that, when used as a
+pathname, refers to the current controlling terminal for the calling
+process.
+.SH "RETURN VALUE"
+A pointer to a string is returned.  The string is static.  A empty string
+is returned if the controlling terminal cannot be determined.
+.SH SEE ALSO
+ttyname(3P)

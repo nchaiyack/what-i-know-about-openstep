@@ -1,0 +1,25 @@
+"Preferences" = {
+    ACTIONS = {
+        "changePlainTextFont:" = id; 
+        "changeRichTextFont:" = id; 
+        "miscChanged:" = id; 
+        "ok:" = id; 
+        "revert:" = id; 
+        "revertToDefault:" = id; 
+        "showPanel:" = id; 
+    }; 
+    OUTLETS = {
+        deleteBackupMatrix = id; 
+        plainTextEncodingPopup = id; 
+        plainTextFontNameField = id; 
+        richTextFontNameField = id; 
+        richTextMatrix = id; 
+        saveFilesWritableButton = id; 
+        showPageBreaksButton = id; 
+        tabWidthField = id; 
+        windowHeightField = id; 
+        windowWidthField = id; 
+    }; 
+    SUPERCLASS = NSObject; 
+};
+"FirstResponder" = {ACTIONS = {}; CATEGORY = LocalActions; OUTLETS = {}; };

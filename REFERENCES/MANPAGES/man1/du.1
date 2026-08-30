@@ -1,0 +1,74 @@
+.\"	@(#)du.1	6.1 (Berkeley) 4/29/85
+.\"
+.TH DU 1 "April 29, 1985"
+.AT 3
+.SH NAME
+du \- summarize disk usage
+.SH SYNOPSIS
+.B du
+[
+.B \-p
+] [
+.B \-l
+] [
+.B \-s
+] [
+.B \-a
+] [ 
+\fIname\fR ... ]
+.SH DESCRIPTION
+.I Du
+gives the number of kilobytes contained in all files
+and, recursively, directories within each specified
+directory or file
+.IR name .
+If
+.I name
+is missing,
+`\fB.\fR'
+is used.
+.PP
+A file that's the target of links is normally counted once, in the first directory that is traversed.  The 
+.B \-p
+option changes this accounting to spread the file across all of its directories 
+by causing only 1/\fIn\fRth
+of the file to be counted per occurrence in a directory, where 
+.I n 
+is the number of references to the file.
+.PP
+The 
+.B \-l
+option restricts searches to the file system containing 
+.I name.
+The
+.B \-s
+option causes only the grand total to
+be given.
+The
+.B \-a
+option causes an entry to be generated
+for each file.
+If neither 
+.B \-s
+or
+.B \-a
+is specified, an entry is generated for each directory only.
+.SH "SEE ALSO"
+df(1), quot(8)
+.SH BUGS
+Unless the 
+.B \-a
+option is specified, 
+.I du
+ignores non-directory \fIname\fRs.
+.PP
+If there are too many distinct linked files,
+.I du
+counts the excess files multiply.
+.PP
+If multiple \fIname\fRs are specified, then 
+.I du
+forks a separate process to handle each additional one.  Because these 
+processes don't share information, linked files might be counted more than 
+once.  For example, you can get different information from `\fBdu *\fR'
+than from `\fBdu .\fR'.

@@ -1,0 +1,21 @@
+.TH MKBOM 8 "NeXT Computer Inc" "August 9, 1994"
+.AT 3
+.SH NAME
+mkbom \- Create a bill of materials
+.SH SYNOPSIS
+.B mkbom
+.I source bomfile
+.SH DESCRIPTION
+.B Mkbom
+creates a new bill-of-materials file
+(see
+.IR bom (5)).
+You must specify
+.I source
+as a directory, and 
+.B mkbom
+generates bill-of-materials information
+for that directory.
+Any existing bomfile will be overwritten by the new bomfile. 
+.SH "SEE ALSO"
+bom(5), lsbom(8), showmods(8)

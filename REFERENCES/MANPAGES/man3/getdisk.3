@@ -1,0 +1,44 @@
+.\" Copyright (c) 1983 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)getdisk.3	6.2 (Berkeley) 5/12/86
+.\"
+.TH GETDISKBYNAME 3 "May 12, 1986"
+.UC 5
+.SH NAME
+getdiskbyname \- get disk description by its name
+.SH SYNOPSIS
+.nf
+.B #include <sys/disktab.h>
+.PP
+.B struct disktab *
+.B getdiskbyname(name)
+.B char *name;
+
+.B struct disktab *
+.B getdiskbydev(dev)
+.B char *dev;
+.fi
+.SH DESCRIPTION
+.I Getdiskbyname
+takes a disk name (e.g. omd-1) and returns a structure
+describing its geometry information and the standard
+disk partition tables.  Information is obtained from
+the 
+.IR disktab (5)
+file.  Disk information is also stored on the disk media
+itself in a special area called the disk
+.I label
+(see /NextDeveloper/Headers/bsd/dev/disk.h).
+.I Getdiskbydev
+takes a disk device name (e.g. /dev/rod0a)
+and returns the disk information contained in the label.
+Information in the disk label usually takes precedence over
+.IR disktab (5)
+which is used primarily by disk(8) to initialize the disk
+label.
+.SH "FILES"
+/etc/disktab
+.SH "SEE ALSO"
+disktab(5), disk(8), newfs(8)

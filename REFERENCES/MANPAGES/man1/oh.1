@@ -1,0 +1,62 @@
+.TH OH 1 "March 28, 1996" "NeXT Software, Inc."
+.SH NAME
+oh \- print object history
+.SH SYNOPSIS
+.B oh
+\fIpid\fR \fImode\fR 
+[\fB-subst \fIold new\fR]
+.SH DESCRIPTION
+.B oh
+records all of the \fBretain\fR and \fBrelease\fR activity for a given process and can list all of the stacks that involve a given object.
+Additionally, \fBoh\fR can pinpoint the biggest generators of \fBautorelease\fR.
+Using
+.B oh
+on a process makes it run much more slowly, so you should use it sparingly. 
+.PP
+.B oh
+takes two arguments: a process ID and a mode. The process ID is the ID of the process that you want to record activity about. The mode is any one of the following:
+.TP
+.B start
+Start recording information about the process.
+.TP
+.B stop
+Stop recording information about the process.
+.TP
+.B autorelease
+List all of the stacks that contain an \fBautorelease\fR message. 
+.TP
+.I address
+List all of the stacks that include a message allocating or deallocating the object at \fIadddress\fR. 
+.SH OPTIONS
+.TP
+.I pid
+The ID (obtained using \fBpid\fR(1)) of the process you want to gather information about.
+.TP
+.I mode
+Is the action \fBoh\fR should take (see above).
+.TP
+\fB-subst\fR \fIold\fR \fInew\fR
+Replaces the executable in path \fIold\fR with the executable in path \fInew\fR. This option is often used to replace a stripped version of the executable with a version that contains debugging symbols.  
+.SH EXAMPLES
+.PP
+To use \fBoh\fR, start up the program that you want to analyze, obtain its process id, then execute:
+.IP
+\fBoh\fR \fIpid\fR \fBstart\fR
+.PP
+.B oh
+starts recording information about object allocation and deallocation. After \fBoh\fR has started recording, you can enter the address of an object like this:
+.IP
+\fBoh\fR \fIpid\fR \fIaddress\fR
+.PP
+and \fBoh\fR displays the stacks, from oldest to newest, involving that object. 
+.PP
+To stop recording with \fBoh\fR, enter:
+.IP
+\fBoh\fR \fIpid\fR \fBstop\fR
+.PP
+You might find it useful to set the \fBNSZombieEnabled\fR environment variable to YES before starting up your program. This environment variable ensures that memory does not get reused, thus ensuring that any address you give to \fBoh\fR will be unique. 
+.PP
+You can run \fBoh\fR in conjunction with \fBgdb\fR so that you can use \fBgdb\fR to easily obtain the address of an object. It's also useful to run \fBoh\fR in conjunction with \fBleaks\fR to help find a cause of a memory leak.
+.SH BUGS
+.B oh
+ignores objects that have overridden \fBretain\fR and \fBrelease\fR.

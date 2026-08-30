@@ -1,0 +1,318 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+{\f2\b\fs52\li1500{\NeXTHelpMarker62 \markername NS_DEV_DOCFOR:objc_protocol:NSDecimalNumberBehaviors;}
+¬}\f2\b\i0\ulnone\ql\fs52\fi0\li1500\gray0\fc0\cf0\up0\dn0 NSDecimalNumberBehaviors\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2740\li4220\fc0\cf0 Adopted By:	
+\f0\b0\fs28 NSDecimalNumberHandler\
+
+\fs20 \
+
+\f2\b\fs24 Declared In:	
+\f0\b0\fs28 Foundation/NSDecimalNumber.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Protocol Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 The NSDecimalBehaviors protocol declares three methods that control the discretionary aspects of working with NSDecimalNumbers. The 
+\b scale
+\b0  and 
+\b roundingMode
+\b0  methods determine the precision of NSDecimalNumber's return values, and the way in which those values should be rounded to fit that precision. The 
+\b exceptionDuringOperation:error:leftOperand:rightOperand:
+\b0  determines the way in which an NSDecimalNumber should handle different calculation errors.\
+
+\fs14 \
+
+\fs28 For an example of a class that adopts the NSDecimalBehaviors protocol, see the specification for NSDecimalNumberHandler.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Rounding	
+\f1 -
+\f0 €roundingMode\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €scale\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Handling errors	
+\f1 -
+\f0 €exceptionDuringOperation:error:leftOperand:rightOperand:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods \
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker907 \markername NS_DEV_DOCFOR:objc_method:[NSDecimalNumberBehaviors-exceptionDuringOperation:error:leftOperand:rightOperand:];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 exceptionDuringOperation:error:leftOperand:rightOperand:\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0 €(NSDecimalNumber€*)
+\b exceptionDuringOperation:
+\b0 (SEL)
+\i method
+\b\i0  error:
+\b0 (NSCalculationError)
+\i error
+\i0  
+\b leftOperand:
+\b0 (NSDecimalNumber€*)
+\i leftOperand
+\i0  
+\b rightOperand:
+\b0 (NSDecimalNumber€*)
+\i rightOperand\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Specifies what an NSDecimalNumber will do when, in the course of applying 
+\i method
+\i0  to 
+\i leftOperand
+\i0  and 
+\i rightOperand
+\i0 , it encounters 
+\i error. \
+
+\fs14 \
+
+\i0\fs28 There are four possible values for 
+\i error
+\i0 . The first three have to do with limits on NSDecimalNumber's ability to represent decimal numbers. An NSDecimalNumber can represent any number that can be expressed as 
+\i mantissa
+\b\i0 €x
+\b0 €10
+\f2\b\fs24 exponent
+\f0\b0\i\fs28 , 
+\i0 where 
+\i mantissa
+\i0  is a decimal integer up to 38 digits long, and 
+\i exponent
+\i0  is between -256 and 256. If these limits are exceeded, the NSDecimalNumber returns one of the following errors.\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	NSCalculationLossOfPrecision. The number can't be represented in 38 significant digits.\
+
+\fs14 \
+
+\fs28 ·	NSCalculationOverflow. The number is too large to represent.\
+
+\fs14 \
+
+\fs28 ·	NSCalculationUnderflow. The  number is too small to represent.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The last error is simpler:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	NSCalculationDivideByZero. The caller tried to divide by zero.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 In implementing 
+\b exceptionDuringOperation:error:leftOperand:rightOperand
+\b0 , you can handle each of these errors in several ways:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	Raise an exception. For an explantion of exceptions, see the NSException class description in the 
+\i Foundation Framework Reference
+\i0 .\
+
+\fs14 \
+
+\fs28 ·	Return 
+\b nil
+\b0 . The calling 
+\i method
+\i0  will return its value as though no error had occurred. If 
+\i error
+\i0  is NSCalculationLossOfPrecision, 
+\i method
+\i0  will return an imprecise valueÐthat is, one constrained to 38 significant digits. If 
+\i error
+\i0  is NSCalculationUnderflow or NSCalculationOverflow, 
+\i method
+\i0  will return NSDecimalNumber's 
+\b notANumber
+\b0 . You shouldn't return 
+\b nil
+\b0  if 
+\i error
+\i0  is NSDivideByZero.\
+
+\fs14 \
+
+\fs28 ·	Correct the error and return a valid NSDecimalNumber. The calling method will use this as its own return value.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker2772 \markername NS_DEV_DOCFOR:objc_method:[NSDecimalNumberBehaviors-roundingMode];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 roundingMode\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSRoundingMode)
+\b roundingMode\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns the way that NSDecimalNumber's 
+\b decimalNumberBy...
+\b0  methods round their return values. There are four possible NSRoundingModes: \
+
+\fs14 \
+
+\pard\tx1800\tx3360\tx3740\fs28\fi-300\li1800\fc0\cf0 ·	NSRoundDown. The methods round their return values down.\
+·	NSRoundUp. The methods round their return values up.\
+·	NSRoundPlain. The methods round to the closest possible return value. When they are caught halfway between two positive numbers, they round up; when caught between two negative numbers, they round down.\
+·	NSRoundBankers.
+\i  
+\i0 The methods round to the closest possible return value. When they are caught halfway between two possibilities, they return the possibility whose last digit is even. In practice, this means that, over the long run, numbers will be rounded up as often as they are rounded down; there will be no systematic bias.\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 The rounding mode only matters if the 
+\b scale
+\b0  method sets a limit on the precision of NSDecimalNumber return values. It has no effect if 
+\b scale
+\b0  returns NSDecimalNoScale.\
+
+\fs14 \
+
+\fs28 Assuming that 
+\b scale
+\b0  returns 1, the NSRoundingMode has the following effects on various original values:\
+
+\fs14 \
+
+\pard\tx3720\tx6180\tx8660\tx11100\f2\b\fs28\li1900\fc0\cf0 Value	NSRoundDown	NSRoundUp	NSRoundPlain	NSRoundBankers\
+
+\pard\tx4480\tx7000\tx9540\tx12040\fs6\li1900\fc0\cf0 \
+
+\fs8 \
+
+\b0\fs28 1.24	1.2	1.3	1.2	1.2\
+
+\fs6 \
+
+\fs8 \
+
+\fs28 1.26	1.2	1.3	1.3	1.3\
+
+\fs6 \
+
+\fs8 \
+
+\fs28 1.25	1.2	1.3	1.3	1.2\
+
+\fs6 \
+
+\fs8 \
+
+\fs28 1.35	1.3	1.4	1.4	1.4\
+
+\fs6 \
+
+\fs8 \
+
+\fs28 -1.35	-1.4	-1.3	-1.4	-1.4\
+
+\fs6 \
+
+\fs54 \
+
+{\pard\tx8260\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker4055 \markername NS_DEV_DOCFOR:objc_method:[NSDecimalNumberBehaviors-scale];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 scale\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(short)
+\b scale\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Limits the precision of the values returned by NSDecimalNumber's 
+\b decimalNumberBy...
+\b0  methods. \
+
+\fs14 \
+
+\fs28 Specifically, 
+\b scale
+\b0  returns the number of digits allowed after the decimal separator. If 
+\b scale
+\b0  returns a negative value, it affects the digits 
+\i before
+\i0  the decimal separator as well. If 
+\b scale
+\b0  returns NSDecimalNoScale, the number of digits is unlimited.\
+
+\fs14 \
+
+\fs28 Assuming that 
+\b roundingMode
+\b0  returns NSRoundPlain, different values of 
+\b scale
+\b0  have the following effects on the number 123.456:\
+
+\fs14 \
+
+\pard\tx6740\tx9540\f2\b\fs28\li1900\fc0\cf0 Scale	Return value\
+
+\fs6 \
+
+\pard\tx6740\tx9520\f0\b0\fs28\fi-4840\li6740\fc0\cf0 NSDecimalNoScale	123.456\
+
+\fs14 \
+
+\fs28 2	123.45\
+
+\fs14 \
+
+\fs28 0	123\
+
+\fs14 \
+
+\fs28 -2	100\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li1500\fc0\cf0 \
+
+\fs14 \
+
+}

@@ -1,0 +1,321 @@
+.rn '' }`
+''' $RCSfile$$Revision$$Date$
+''' 
+''' $Log$
+''' 
+.de Sh
+.br
+.if t .Sp
+.ne 5
+.PP
+\fB\\$1\fR
+.PP
+..
+.de Sp
+.if t .sp .5v
+.if n .sp
+..
+.de Ip
+.br
+.ie \\n(.$>=3 .ne \\$3
+.el .ne 3
+.IP "\\$1" \\$2
+..
+.de Vb
+.ft CW
+.nf
+.ne \\$1
+..
+.de Ve
+.ft R
+
+.fi
+..
+'''
+'''
+'''     Set up \*(-- to give an unbreakable dash;
+'''     string Tr holds user defined translation string.
+'''     Bell System Logo is used as a dummy character.
+'''
+.tr \(*W-|\(bv\*(Tr
+.ie n \{\
+.ds -- \(*W-
+.if (\n(.H=4u)&(1m=24u) .ds -- \(*W\h'-12u'\(*W\h'-12u'-\" diablo 10 pitch
+.if (\n(.H=4u)&(1m=20u) .ds -- \(*W\h'-12u'\(*W\h'-8u'-\" diablo 12 pitch
+.ds L" ""
+.ds R" ""
+.ds L' '
+.ds R' '
+'br\}
+.el\{\
+.ds -- \(em\|
+.tr \*(Tr
+.ds L" ``
+.ds R" ''
+.ds L' `
+.ds R' '
+.if t .ds PI \(*p
+.if n .ds PI PI
+'br\}
+.TH PERLSTYLE 1 "\*(RP"
+.UC
+.if n .hy 0 
+.if n .na
+.ds C+ C\v'-.1v'\h'-1p'\s-2+\h'-1p'+\s0\v'.1v'\h'-1p'
+.de CQ          \" put $1 in typewriter font
+.ft CW
+'if n "\c
+'if t \\&\\$1\c
+'if n \\&\\$1\c
+'if n \&"
+\\&\\$2 \\$3 \\$4 \\$5 \\$6 \\$7
+'.ft R
+..
+.\" @(#)ms.acc 1.5 88/02/08 SMI; from UCB 4.2
+.	\" AM - accent mark definitions
+.bd S B 3
+.	\" fudge factors for nroff and troff
+.if n \{\
+.	ds #H 0
+.	ds #V .8m
+.	ds #F .3m
+.	ds #[ \f1
+.	ds #] \fP
+.\}
+.if t \{\
+.	ds #H ((1u-(\\\\n(.fu%2u))*.13m)
+.	ds #V .6m
+.	ds #F 0
+.	ds #[ \&
+.	ds #] \&
+.\}
+.	\" simple accents for nroff and troff
+.if n \{\
+.	ds ' \&
+.	ds ` \&
+.	ds ^ \&
+.	ds , \&
+.	ds ~ ~
+.	ds ? ?
+.	ds ! !
+.	ds / 
+.	ds q 
+.\}
+.if t \{\
+.	ds ' \\k:\h'-(\\n(.wu*8/10-\*(#H)'\'\h"|\\n:u"
+.	ds ` \\k:\h'-(\\n(.wu*8/10-\*(#H)'\`\h'|\\n:u'
+.	ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'^\h'|\\n:u'
+.	ds , \\k:\h'-(\\n(.wu*8/10)',\h'|\\n:u'
+.	ds ~ \\k:\h'-(\\n(.wu-\*(#H-.1m)'~\h'|\\n:u'
+.	ds ? \s-2c\h'-\w'c'u*7/10'\u\h'\*(#H'\zi\d\s+2\h'\w'c'u*8/10'
+.	ds ! \s-2\(or\s+2\h'-\w'\(or'u'\v'-.8m'.\v'.8m'
+.	ds / \\k:\h'-(\\n(.wu*8/10-\*(#H)'\z\(sl\h'|\\n:u'
+.	ds q o\h'-\w'o'u*8/10'\s-4\v'.4m'\z\(*i\v'-.4m'\s+4\h'\w'o'u*8/10'
+.\}
+.	\" troff and (daisy-wheel) nroff accents
+.ds : \\k:\h'-(\\n(.wu*8/10-\*(#H+.1m+\*(#F)'\v'-\*(#V'\z.\h'.2m+\*(#F'.\h'|\\n:u'\v'\*(#V'
+.ds 8 \h'\*(#H'\(*b\h'-\*(#H'
+.ds v \\k:\h'-(\\n(.wu*9/10-\*(#H)'\v'-\*(#V'\*(#[\s-4v\s0\v'\*(#V'\h'|\\n:u'\*(#]
+.ds _ \\k:\h'-(\\n(.wu*9/10-\*(#H+(\*(#F*2/3))'\v'-.4m'\z\(hy\v'.4m'\h'|\\n:u'
+.ds . \\k:\h'-(\\n(.wu*8/10)'\v'\*(#V*4/10'\z.\v'-\*(#V*4/10'\h'|\\n:u'
+.ds 3 \*(#[\v'.2m'\s-2\&3\s0\v'-.2m'\*(#]
+.ds o \\k:\h'-(\\n(.wu+\w'\(de'u-\*(#H)/2u'\v'-.3n'\*(#[\z\(de\v'.3n'\h'|\\n:u'\*(#]
+.ds d- \h'\*(#H'\(pd\h'-\w'~'u'\v'-.25m'\f2\(hy\fP\v'.25m'\h'-\*(#H'
+.ds D- D\\k:\h'-\w'D'u'\v'-.11m'\z\(hy\v'.11m'\h'|\\n:u'
+.ds th \*(#[\v'.3m'\s+1I\s-1\v'-.3m'\h'-(\w'I'u*2/3)'\s-1o\s+1\*(#]
+.ds Th \*(#[\s+2I\s-2\h'-\w'I'u*3/5'\v'-.3m'o\v'.3m'\*(#]
+.ds ae a\h'-(\w'a'u*4/10)'e
+.ds Ae A\h'-(\w'A'u*4/10)'E
+.ds oe o\h'-(\w'o'u*4/10)'e
+.ds Oe O\h'-(\w'O'u*4/10)'E
+.	\" corrections for vroff
+.if v .ds ~ \\k:\h'-(\\n(.wu*9/10-\*(#H)'\s-2\u~\d\s+2\h'|\\n:u'
+.if v .ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'\v'-.4m'^\v'.4m'\h'|\\n:u'
+.	\" for low resolution devices (crt and lpr)
+.if \n(.H>23 .if \n(.V>19 \
+\{\
+.	ds : e
+.	ds 8 ss
+.	ds v \h'-1'\o'\(aa\(ga'
+.	ds _ \h'-1'^
+.	ds . \h'-1'.
+.	ds 3 3
+.	ds o a
+.	ds d- d\h'-1'\(ga
+.	ds D- D\h'-1'\(hy
+.	ds th \o'bp'
+.	ds Th \o'LP'
+.	ds ae ae
+.	ds Ae AE
+.	ds oe oe
+.	ds Oe OE
+.\}
+.rm #[ #] #H #V #F C
+.SH "NAME"
+perlstyle \- Perl style guide
+.SH "DESCRIPTION"
+.Sh "Style"
+Each programmer will, of course, have his or her own preferences in
+regards to formatting, but there are some general guidelines that will
+make your programs easier to read, understand, and maintain.  
+.PP
+Regarding aesthetics of code lay out, about the only thing Larry
+cares strongly about is that the closing curly brace of
+a multi-line \s-1BLOCK\s0 should line up with the keyword that started the construct.
+Beyond that, he has other preferences that aren't so strong:
+.Ip "\(bu" 4
+4-column indent.
+.Ip "\(bu" 4
+Opening curly on same line as keyword, if possible, otherwise line up.
+.Ip "\(bu" 4
+Space before the opening curly of a multiline \s-1BLOCK\s0.
+.Ip "\(bu" 4
+One-line \s-1BLOCK\s0 may be put on one line, including curlies.
+.Ip "\(bu" 4
+No space before the semicolon.
+.Ip "\(bu" 4
+Semicolon omitted in \*(L"short\*(R" one-line \s-1BLOCK\s0.
+.Ip "\(bu" 4
+Space around most operators.
+.Ip "\(bu" 4
+Space around a \*(L"complex\*(R" subscript (inside brackets).
+.Ip "\(bu" 4
+Blank lines between chunks that do different things.
+.Ip "\(bu" 4
+Uncuddled elses.
+.Ip "\(bu" 4
+No space between function name and its opening paren.
+.Ip "\(bu" 4
+Space after each comma.
+.Ip "\(bu" 4
+Long lines broken after an operator (except \*(L"and\*(R" and \*(L"or").
+.Ip "\(bu" 4
+Space after last paren matching on current line.
+.Ip "\(bu" 4
+Line up corresponding items vertically.
+.Ip "\(bu" 4
+Omit redundant punctuation as long as clarity doesn't suffer.
+.PP
+Larry has his reasons for each of these things, but he doen't claim that
+everyone else's mind works the same as his does.
+.PP
+Here are some other more substantive style issues to think about:
+.Ip "\(bu" 4
+Just because you \fI\s-1CAN\s0\fR do something a particular way doesn't mean that
+you \fI\s-1SHOULD\s0\fR do it that way.  Perl is designed to give you several
+ways to do anything, so consider picking the most readable one.  For
+instance
+.Sp
+.Vb 1
+\&    open(FOO,$foo) || die "Can't open $foo: $!";
+.Ve
+is better than
+.Sp
+.Vb 1
+\&    die "Can't open $foo: $!" unless open(FOO,$foo);
+.Ve
+because the second way hides the main point of the statement in a
+modifier.  On the other hand
+.Sp
+.Vb 1
+\&    print "Starting analysis\en" if $verbose;
+.Ve
+is better than
+.Sp
+.Vb 1
+\&    $verbose && print "Starting analysis\en";
+.Ve
+since the main point isn't whether the user typed \fB\-v\fR or not.
+.Sp
+Similarly, just because an operator lets you assume default arguments
+doesn't mean that you have to make use of the defaults.  The defaults
+are there for lazy systems programmers writing one-shot programs.  If
+you want your program to be readable, consider supplying the argument.
+.Sp
+Along the same lines, just because you \fI\s-1CAN\s0\fR omit parentheses in many
+places doesn't mean that you ought to:
+.Sp
+.Vb 2
+\&    return print reverse sort num values %array;
+\&    return print(reverse(sort num (values(%array))));
+.Ve
+When in doubt, parenthesize.  At the very least it will let some poor
+schmuck bounce on the % key in \fBvi\fR.
+.Sp
+Even if you aren't in doubt, consider the mental welfare of the person
+who has to maintain the code after you, and who will probably put
+parens in the wrong place.
+.Ip "\(bu" 4
+Don't go through silly contortions to exit a loop at the top or the
+bottom, when Perl provides the \f(CWlast\fR operator so you can exit in
+the middle.  Just \*(L"outdent\*(R" it a little to make it more visible:
+.Sp
+.Vb 7
+\&    LINE:
+\&        for (;;) {
+\&            statements;
+\&          last LINE if $foo;
+\&            next LINE if /^#/;
+\&            statements;
+\&        }
+.Ve
+.Ip "\(bu" 4
+Don't be afraid to use loop labels\*(--they're there to enhance
+readability as well as to allow multi-level loop breaks.  See the
+previous example.
+.Ip "\(bu" 4
+For portability, when using features that may not be implemented on
+every machine, test the construct in an eval to see if it fails.  If
+you know what version or patchlevel a particular feature was
+implemented, you can test \f(CW$]\fR ($\s-1PERL_VERSION\s0 in \f(CWEnglish\fR) to see if it
+will be there.  The \f(CWConfig\fR module will also let you interrogate values
+determined by the \fBConfigure\fR program when Perl was installed.
+.Ip "\(bu" 4
+Choose mnemonic identifiers.  If you can't remember what mnemonic means,
+you've got a problem.
+.Ip "\(bu" 4
+If you have a really hairy regular expression, use the \f(CW/x\fR modifier and
+put in some whitespace to make it look a little less like line noise.
+Don't use slash as a delimiter when your regexp has slashes or backslashes.
+.Ip "\(bu" 4
+Use the new \*(L"and\*(R" and \*(L"or\*(R" operators to avoid having to parenthesize
+list operators so much, and to reduce the incidence of punctuational
+operators like \f(CW&&\fR and \f(CW||\fR.  Call your subroutines as if they were
+functions or list operators to avoid excessive ampersands and parens.
+.Ip "\(bu" 4
+Use here documents instead of repeated \fIprint()\fR statements.
+.Ip "\(bu" 4
+Line up corresponding things vertically, especially if it'd be too long
+to fit on one line anyway.  
+.Sp
+.Vb 4
+\&    $IDX = $ST_MTIME;       
+\&    $IDX = $ST_ATIME       if $opt_u; 
+\&    $IDX = $ST_CTIME       if $opt_c;     
+\&    $IDX = $ST_SIZE        if $opt_s;     
+.Ve
+.Vb 3
+\&    mkdir $tmpdir, 0700 or die "can't mkdir $tmpdir: $!";
+\&    chdir($tmpdir)      or die "can't chdir $tmpdir: $!";
+\&    mkdir 'tmp',   0777 or die "can't mkdir $tmpdir/tmp: $!";
+.Ve
+.Ip "\(bu" 4
+Line up your translations when it makes sense:
+.Sp
+.Vb 2
+\&    tr [abc]
+\&       [xyz];
+.Ve
+.Ip "\(bu" 4
+Think about reusability.  Why waste brainpower on a one-shot when you
+might want to do something like it again?  Consider generalizing your
+code.  Consider writing a module or object class.  Consider making your
+code run cleanly with \f(CWuse strict\fR and \fB\-w\fR in effect.  Consider giving away
+your code.  Consider changing your whole world view.  Consider... oh,
+never mind.
+.Ip "\(bu" 4
+Be consistent.
+.Ip "\(bu" 4
+Be nice.
+
+.rn }` ''

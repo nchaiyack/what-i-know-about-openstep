@@ -1,0 +1,19 @@
+"Preferences" = {
+    ACTIONS = {
+        "miscChanged:" = id; 
+        "ok:" = id; 
+        "revert:" = id; 
+        "revertToDefault:" = id; 
+        "showPanel:" = id; 
+    }; 
+    OUTLETS = {
+        dontClearCacheButton = id; 
+        dontDeleteBackupButton = id; 
+        showCacheButton = id; 
+        showGridLinesButton = id; 
+        viewHeightField = id; 
+        viewWidthField = id; 
+    }; 
+    SUPERCLASS = NSObject; 
+};
+"FirstResponder" = {ACTIONS = {}; CATEGORY = LocalActions; OUTLETS = {}; };

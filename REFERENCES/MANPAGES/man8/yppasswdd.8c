@@ -1,0 +1,65 @@
+.\" @(#)yppasswdd.8c	1.2 87/08/23 3.2/4.3NFSSRC
+.\" @(#)yppasswdd.8c	1.2 87/02/10 NFSSRC
+.\" @(#)yppasswdd.8c 1.1 86/09/25 SMI
+.TH YPPASSWDD 8C "16 March 1985"
+.SH NAME
+yppasswdd \- server for modifying yellow pages password file
+.SH SYNOPSIS
+.B /usr/etc/rpc.yppasswdd
+.I file 
+[
+.B \-m
+.I arg1 arg2 .\|.\|. 
+]
+.SH DESCRIPTION
+.IX  "yypasswdd command"  ""  "\fLyppasswdd\fP \(em yellow pages password server"
+.IX  servers  yppasswdd  ""  "\fLyppasswdd\fP \(em yellow pages password server"
+.I yppasswdd
+is a server that handles password change requests from
+.IR yppasswd (1).
+It changes a password entry in
+.IR file ,
+which is assumed to be in the format of
+.IR passwd (5).
+An entry in
+.I file
+will only be changed if the password presented by
+.IR yppasswd (1)
+matches the encrypted password of that entry.
+.LP
+If the
+.B \-m
+option is given, then after
+.I file
+is modified, a
+.IR make (1)
+will be performed in
+.IR /usr/etc/yp .
+Any arguments following the flag will be passed to
+.IR make .
+.LP
+This server is not run by default, nor can it be started up from
+.IR inetd (8).
+If it is desired to enable remote password updating for the yellow 
+pages, then an entry for
+.I yppasswdd
+should be put in the
+.I /etc/rc
+file of the host serving as the master for the yellow pages
+.I passwd
+file.
+.SH EXAMPLE
+.LP
+If the yellow pages password file is stored as
+.IR /usr/etc/yp/src/passwd ,
+then to have password changes propagated immediately,
+the server should be invoked as
+.RS
+/usr/etc/rpc.yppasswdd /usr/etc/yp/src/passwd \-m passwd DIR=/usr/etc/yp/src
+.RE
+In this case, "src" is the YP domain name.
+.SH FILES
+/usr/etc/yp/Makefile
+.IX "files used by programs" "\fL/usr/etc/yp/Makefile\fR \(em makefile for Yellow Pages"
+.SH SEE ALSO
+yppasswd(1), passwd(5), ypfiles(5), ypmake(8)

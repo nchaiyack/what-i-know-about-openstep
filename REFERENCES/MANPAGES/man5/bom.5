@@ -1,0 +1,44 @@
+.\"	@(#)bom.5	6.1 (Berkeley) 4/29/85
+.\"
+.TH BOM 5 "January 5, 1993"
+.AT 3
+.SH NAME
+bom \- Bill of materials
+.SH DESCRIPTION
+BuildDisk, Installer, and the software provided
+for upgrading to a new release of NEXTSTEP
+all use a file system \*(lqbill of materials\*(rq
+to determine which files to install, remove, or upgrade.
+A bill of materials (BOM) is similar
+to the output of \*(lqls -lR\*(rq;
+it lists all the files that a directory contains,
+along with some information about each file:
+the file's UNIX permissions, its owner and group,
+its size, its time of last modification, and so on.
+Also included are a checksum for each file
+and information about hard links.
+.PP
+A BOM file (named with the suffix \*(lq.bom\*(rq)
+stores the bill of materials for
+a single directory in a binary format.  
+Since NEXTSTEP includes a number of optional packages
+which may or may not be installed on a particular computer, 
+more than one BOM file may be needed
+to characterize a given NEXTSTEP installation.    
+.PP
+The bill of materials for a minimal NEXTSTEP system
+is stored in
+.BR /usr/lib/NextStep/BaseSystem.bom .
+BOMs for optional packages are found
+within the package receipts located in
+.BR /NextLibrary/Receipts .
+For example, the bill of materials
+for the NEXTSTEP Documentation package
+is located in
+.BR /NextLibrary/Receipts/Documentation.pkg/Documentation.bom .
+.SH FILES
+/usr/lib/NextStep/BaseSystem.bom \- BOM for the non-optional parts of NEXTSTEP
+.PP
+/NextLibrary/Receipts/*.pkg/*.bom \- BOMs for other installed packages
+.SH "SEE ALSO"
+mkbom(8), lsbom(8), showmods(8)

@@ -1,0 +1,6 @@
+"FirstResponder" = {ACTIONS = {"performResize:" = id; }; OUTLETS = {}; SUPERCLASS = NSObject; };
+"LinesView" = {
+    ACTIONS = {"setNumberOfCorners:" = id; "toggleRun:" = id; }; 
+    OUTLETS = {numberOfCorners = id; }; 
+    SUPERCLASS = NSView; 
+};

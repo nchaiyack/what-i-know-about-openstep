@@ -1,0 +1,48 @@
+.TH convert_ts_to_tv 3 "March 24, 1989" "NeXT Computer, Inc."
+.SH NAME
+.nf
+convert_ts_to_tv \- convert timestamp to timeval
+.SH SYNOPSIS
+.nf
+.ft B
+#include <sys/time.h>
+#include <sys/time_stamp.h>
+
+.nf
+.ft B
+convert_ts_to_tv(ts_format, tsp, tvp)
+    int			ts_format;
+    struct tsval	*tsp;
+    struct timeval	*tvp;
+
+.fi
+.ft P
+.SH ARGUMENTS
+.TP 15
+.I
+ts_format
+identifies (machine dependent) timestamp format
+.TP 15
+.I
+tsp
+pointer to (machine dependent) timestamp
+.TP 15
+.I
+tvp
+pointer to (machine independent) timeval [returned].
+
+.SH DESCRIPTION
+.B convert_ts_to_tv
+converts the timestamp pointed to by
+.I tsp
+into a timeval according to
+.I ts_format
+and puts the resultant value in the timeval pointed to by
+\fItvp\fR.  
+.PP
+.I ts_format
+should be the value of the symbol TS_FORMAT at the time that the timestamps
+were taken.
+.SH DIAGNOSTICS
+No value is returned.  If \fIts_format\fR is not valid, the timeval pointed to
+by \fItvp\fR will be zeroed.

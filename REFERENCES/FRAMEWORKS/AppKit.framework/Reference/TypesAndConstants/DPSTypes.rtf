@@ -1,0 +1,1191 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f2\fswiss Helvetica;\f3\fmodern Ohlfs;}
+\paperw14220
+\paperh13220
+\margl200
+\margr0
+{\colortbl;\red0\green0\blue0;}
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+\fs100 \
+
+\f2\b\fs56\li3220 Defined Types\
+
+\fs80 \
+
+\fs28 \
+DPSContextRec\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsfriends.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef struct _t_DPSContextRec \{\
+
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 	char *
+\b priv
+\b0 ;\
+	DPSSpace 
+\b space
+\b0 ;\
+	DPSProgramEncoding 
+\b programEncoding
+\b0 ;\
+	DPSNameEncoding 
+\b nameEncoding
+\b0 ;\
+	struct _t_DPSProcsRec const * 
+\b procs
+\b0 ;\
+	void (*
+\b textProc
+\b0 )();\
+	void (*
+\b errorProc
+\b0 )();\
+	DPSResults 
+\b resultTable
+\b0 ;\
+	unsigned int 
+\b resultTableLength
+\b0 ;\
+	struct _t_DPSContextRec *
+\b chainParent
+\b0 , *
+\b chainChild
+\b0 ;\
+	DPSContextType 
+\b type
+\b0 ;\
+\} 
+\b DPSContextRec
+\b0 , *
+\b DPSContext
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	The 
+\b DPSContextRec
+\b0  structure represents a Display PostScript context.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+DPSContextType\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsfriends.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef enum \{\
+
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 	
+\b dps_machServer
+\b0 ,\
+	
+\b dps_fdServer
+\b0 ,\
+	
+\b dps_stream\
+
+\b0 \} 
+\b DPSContextType
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These represent the context types supported by NeXT's version of Display PostScript, as used in the 
+\b type
+\b0  field of a 
+\b DPSContextRec
+\b0  structure.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+DPSErrorCode\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsclient.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef enum _DPSErrorCode \{\
+
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 	
+\b dps_err_ps
+\b0  = DPS_ERROR_BASE,\
+	
+\b dps_err_nameTooLong
+\b0 ,\
+	
+\b dps_err_resultTagCheck
+\b0 ,\
+	
+\b dps_err_resultTypeCheck
+\b0 ,\
+	
+\b dps_err_invalidContext
+\b0 ,\
+	
+\b dps_err_select
+\b0  = DPS_NEXT_ERROR_BASE,\
+	
+\b dps_err_connectionClosed
+\b0 ,\
+	
+\b dps_err_read
+\b0 ,\
+	
+\b dps_err_write
+\b0 ,\
+	
+\b dps_err_invalidFD
+\b0 ,\
+	
+\b dps_err_invalidTE
+\b0 ,\
+	
+\b dps_err_invalidPort
+\b0 ,\
+	
+\b dps_err_outOfMemory
+\b0 ,\
+	
+\b dps_err_cantConnect\
+
+\b0 \} 
+\b DPSErrorCode
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	Error codes passed to a 
+\b DPSErrorProc()
+\b0  function. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+DPSEventFilterFunc\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS						typedef int (*
+\b DPSEventFilterFunc
+\b0 )(NXEvent *
+\i ev
+\i0  );\
+
+\fs30 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	Call-back function used to filter events. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+DPSFDProc\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS						typedef void (*
+\b DPSFDProc
+\b0 )( int 
+\i fd
+\i0 , void *
+\i userData
+\i0  );\
+
+\fs30 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	Call-back function used when a file descriptor is registered through 
+\b DPSAddFD()
+\b0 .\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+DPSNumberFormat\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef enum _DPSNumberFormat \{\
+
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 #ifdef _ _BIG_ENDIAN_ _\
+	
+\b dps_float
+\b0  = 48,\
+	
+\b dps_long
+\b0  = 0,\
+	
+\b dps_short
+\b0  = 32\
+#else\
+	
+\b dps_float
+\b0  = 48+128,\
+	
+\b dps_long
+\b0  = 0+128,\
+	
+\b dps_short
+\b0  = 32+128\
+\} 
+\b DPSNumberFormat
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These constants are used by the 
+\b DPSDoUserPath()
+\b0  function to describe the type of numbers that are being passed.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+DPSPingProc\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef void (*
+\b DPSPingProc
+\b0 )
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 (DPSContext 
+\i ctxt
+\i0 , void *
+\i userData
+\i0 );\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	Call-back function used by 
+\b DPSAsynchronousWaitContext()
+\b0 . \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+DPSPortProc\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef void (*
+\b DPSPortProc
+\b0 )
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 ( msg_header_t *
+\i msg
+\i0 , void *
+\i userData
+\i0  );\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	Call-back function used when a port is registered through 
+\b DPSAddPort()
+\b0 . \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+DPSTimedEntry\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef struct _ _DPSTimedEntry *
+\b DPSTimedEntry
+\b0 ;\
+
+\fs30 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	The return type for 
+\b DPSAddTimedEntry()
+\b0 . \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+DPSTimedEntryProc\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef void (*
+\b DPSTimedEntryProc
+\b0 )\
+
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 	(DPSTimedEntry 
+\i timedEntry
+\i0 ,\
+	double
+\i  now
+\i0 ,\
+	void *
+\i userData
+\i0  );\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	Call-back function used when a timed entry is registered through 
+\b DPSAddTimedEntry()
+\b0 .\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+DPSUserPathAction\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef enum _DPSUserPathAction \{\
+
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 	
+\b dps_uappend
+\b0 ,\
+	
+\b dps_ufill
+\b0 ,\
+	
+\b dps_ueofill
+\b0 ,\
+	
+\b dps_ustroke
+\b0 ,\
+	
+\b dps_ustrokepath
+\b0 ,\
+	
+\b dps_inufill
+\b0 ,\
+	
+\b dps_inueofill
+\b0 ,\
+	
+\b dps_inustroke
+\b0 ,\
+	
+\b dps_def
+\b0 ,\
+	
+\b dps_put
+\b0 \
+\} 
+\b DPSUserPathAction
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These constants are convenient representations of some of the PostScript operator indices, suitable for enrollment in the action array passed to 
+\b DPSDoUserPath()
+\b0 . \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+DPSUserPathOp\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef enum _DPSUserPathOp \{\
+
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 	
+\b dps_setbbox
+\b0 ,\
+	
+\b dps_moveto
+\b0 ,\
+	
+\b dps_rmoveto
+\b0 ,\
+	
+\b dps_lineto
+\b0 ,\
+	
+\b dps_rlineto
+\b0 ,\
+	
+\b dps_curveto
+\b0 ,\
+	
+\b dps_rcurveto
+\b0 ,\
+	
+\b dps_arc
+\b0 ,\
+	
+\b dps_arcn
+\b0 ,\
+	
+\b dps_arct
+\b0 ,\
+	
+\b dps_closepath
+\b0 ,\
+	
+\b dps_ucache\
+
+\b0 \} 
+\b DPSUserPathOp
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These constants represent the PostScript operators that can be passed in 
+\b DPSDoUserPath()
+\b0 's operator array. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+NXCoord\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/event.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef float 
+\b NXCoord\
+
+\fs30 \
+
+\pard\tx3220\b0\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	Used to represent a single coordinate in a Cartesian coordinate system.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+NXEvent\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/event.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef struct _NXEvent \{\
+
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 	int 
+\b type
+\b0 ; \
+	NXPoint 
+\b location
+\b0 ; \
+	long 
+\b time
+\b0 ; \
+	int 
+\b flags
+\b0 ; \
+	unsigned int 
+\b window
+\b0 ; \
+	NXEventData 
+\b data
+\b0 ; \
+	DPSContext 
+\b ctxt
+\b0 ; \
+\} 
+\b NXEvent
+\b0 , 
+\b *NXEventPtr
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	Represents a single event; this structure is also known as the 
+\i event record
+\i0 .  The fields are:\
+
+\fs20 \
+
+\pard\tx5240\tx9260\fs28\li3600\fc0\cf0 type	The type of event (see ªEvent Types,º below)\
+location	The event's location in the base coordinate system of its window\
+time	The time of the event (in hardware-dependent units) since system startup \
+flags	Mouse-button and modifier-key flags (see ªEvent Flags,º below)\
+window	The window number of the window associated with the event\
+data	Additional type-specific data (see ªNXEventData,º below)\
+ctxt	The PostScript context of the event\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+NXEventData\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/event.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx3220\tx7240\fs28\li1200\fc0\cf0 		SYNOPSIS			typedef union \{\
+
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 	struct \{ \
+		short 
+\b eventNum
+\b0 ; \
+		int 
+\b click
+\b0 ; \
+		unsigned char 
+\b pressure
+\b0 ; \
+	\} 
+\b mouse
+\b0 ;\
+	struct \{ \
+		short 
+\b repeat
+\b0 ; \
+		unsigned short 
+\b charSet
+\b0 ;\
+		unsigned short 
+\b charCode
+\b0 ;\
+		unsigned short 
+\b keyCode
+\b0 ; \
+		short 
+\b keyData
+\b0 ;\
+	\} 
+\b key
+\b0 ;\
+	struct \{ \
+		short 
+\b eventNum
+\b0 ; \
+		int 
+\b trackingNum
+\b0 ; \
+		int 
+\b userData
+\b0 ; \
+	\} 
+\b tracking
+\b0 ;\
+	struct \{ \
+		short 
+\b subtype
+\b0 ; \
+		union \{\
+			float 
+\b F
+\b0 [2]; \
+			long 
+\b L
+\b0 [2]; \
+			short 
+\b S
+\b0 [4]; \
+			char 
+\b C
+\b0 [8]; \
+		\} 
+\b misc
+\b0 ;\
+	\} 
+\b compound
+\b0 ;\
+\} 
+\b NXEventData
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	This structure supplies type-specific information for an event.  It's a union of four structures, where the type of the event determines which structure is pertinent:\
+
+\fs20 \
+
+\pard\tx3600\tx3980\tx4340\fs28\fi-380\li3600\fc0\cf0 ·	
+\b mouse
+\b0  is used for mouse events.\
+·	
+\b key
+\b0  is used for keyboard events.\
+·	
+\b tracking
+\b0  is for tracking-rectangle events.\
+·	
+\b compound
+\b0  is for system-, kit-, and application-defined events.\
+
+\fs80 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+NXPoint\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/event.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef struct _NXPoint \{\
+
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 	NXCoord 
+\b x
+\b0 ;\
+	NXCoord 
+\b y
+\b0 ;\
+\} 
+\b NXPoint
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	Represents a point in a Cartesian coordinate system.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+NXSize\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/event.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS					typedef struct _NXSize \{\
+
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 	NXCoord 
+\b width
+\b0 ;\
+	NXCoord 
+\b height
+\b0 ;\
+\} 
+\b NXSize
+\b0 ;\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	Represents a two-dimensional size.\
+
+\fs20 \
+
+\fs80 \
+
+\pard\f2\b\fs56\li3220\fc0\cf0 Symbolic Constants\
+
+\fs80 \
+
+\fs28 \
+All Contexts\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx3220\tx7240\fs28\li1200\fc0\cf0 		SYNOPSIS\
+		\
+
+\b 		DPS_ALLCONTEXTS \
+
+\b0\fs30 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	This constant represents all extant contexts. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+Alpha Constants\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx3220\tx7240\fs28\li1200\fc0\cf0 		SYNOPSIS\
+\
+
+\b 		NX_DATA\
+
+\pard\tx7240\tx11280\li3220\fc0\cf0 NX_ONES\
+
+\b0\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These constants represent alpha values.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+Character Set Values\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/event.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx3220\tx7240\fs28\li1200\fc0\cf0 		SYNOPSIS\
+\
+
+\b 		NX_ASCIISET \
+
+\pard\tx7240\tx11280\li3220\fc0\cf0 NX_SYMBOLSET \
+NX_DINGBATSSET\
+
+\b0\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These constants represent the values that may occur in the 
+\b data.key.charSet 
+\b0 field of an NXEvent structure.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+Compositing Operations\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx2860\tx3220\tx3980\tx6500\tx8760\fs28\li1200\fc0\cf0 			SYNOPSIS			\
+
+\b 			NX_CLEAR \
+
+\pard\tx3980\tx4720\tx5480\li3220\fc0\cf0 NX_COPY\
+NX_SOVER\
+NX_SIN\
+NX_SOUT\
+NX_SATOP\
+NX_DOVER\
+NX_DIN\
+NX_DOUT\
+NX_DATOP\
+NX_XOR\
+NX_PLUSD\
+NX_HIGHLIGHT\
+NX_PLUSL\
+
+\b0\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These represent the compositing operations used by 
+\b PScomposite()
+\b0  and the NXImage€class.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+Error Code Bases\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsclient.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx3220\tx7240\fs28\li1200\fc0\cf0 		SYNOPSIS			\
+
+\b 		DPS_ERROR_BASE\
+
+\pard\tx7240\tx11280\li3220\fc0\cf0 DPS_NEXT_ERROR_BASE\
+
+\b0\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These constants represent the lowest values for Display PostScript error codes.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+Event Types\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/event.h\
+
+\fs30 \
+
+\fs28\fc1\cf1 	SYNOPSIS\
+
+\pard\tx7240\tx11280\b\li3220\fc1\cf1 \
+Type	Meaning\
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx3220\tx7240\tx11280\f2\fs6\li1200\fc0\cf0 \
+
+\pard\tx7240\tx11280\f0\b0\fs28\li3220\fc0\cf0 NX_NULLEVENT	A non-event\
+
+\fs10 \
+
+\fs28 NX_LMOUSEDOWN	Left mouse-down\
+NX_LMOUSEUP	Left mouse-up \
+NX_LMOUSEDRAGGED	left mouse-dragged\
+
+\fs10 \
+
+\fs28 NX_MOUSEDOWN	Same as NX_LMOUSEDOWN\
+NX_MOUSEUP	Same as NX_LMOUSEUP \
+NX_MOUSEDRAGGED	Same as NX_LMOUSEDRAGGED \
+
+\fs10 \
+
+\fs28 NX_RMOUSEDOWN	Right mouse-down\
+NX_RMOUSEUP	Right mouse-up \
+NX_RMOUSEDRAGGED	Right mouse-dragged \
+
+\fs10 \
+
+\fs28 NX_MOUSEMOVED	Mouse-moved \
+NX_MOUSEENTERED	Mouse-entered\
+NX_MOUSEEXITED	Mouse-exited \
+NX_KEYDOWN	Key-down \
+NX_KEYUP	Key-up event\
+NX_FLAGSCHANGED	Flags-changed \
+
+\fs10 \
+
+\fs28 NX_KITDEFINED	Application Kit-defined\
+NX_SYSDEFINED	System-defined \
+NX_APPDEFINED	Application-defined \
+
+\fs10 \
+
+\fs28 NX_TIMER	Timer used for tracking\
+NX_CURSORUPDATE	Cursor tracking \
+NX_JOURNALEVENT	Event used by journaling \
+
+\fs10 \
+
+\fs28 NX_FIRSTEVENT	The smallest-valued event constant\
+NX_LASTEVENT	The greatest-valued event constant\
+NX_ALLEVENTS	A value that includes all event types\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These constants represent event types.  They're passed as the 
+\b type
+\b0  field of the NXEvent structure that's created when an event occurs.\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+Event Type Masks\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/event.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx3220\tx7240\fs28\li1200\fc0\cf0 		SYNOPSIS			\
+
+\b 		NX_NULLEVENTMASK\
+
+\pard\tx7240\tx11280\li3220\fc0\cf0 NX_LMOUSEDOWNMASK\
+NX_LMOUSEUPMASK\
+NX_RMOUSEDOWNMASK\
+NX_RMOUSEUPMASK\
+NX_MOUSEMOVEDMASK\
+NX_LMOUSEDRAGGEDMASK\
+NX_RMOUSEDRAGGEDMASK\
+NX_MOUSEENTEREDMASK \
+NX_MOUSEEXITEDMASK \
+NX_KEYDOWNMASK\
+NX_KEYUPMASK\
+NX_FLAGSCHANGEDMASK \
+NX_KITDEFINEDMASK \
+NX_APPDEFINEDMASK \
+NX_SYSDEFINEDMASK\
+NX_TIMERMASK\
+NX_CURSORUPDATEMASK\
+NX_MOUSEDOWNMASK\
+NX_MOUSEUPMASK\
+NX_MOUSEDRAGGEDMASK\
+NX_JOURNALEVENTMASK\
+
+\b0\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These masks correspond to the event types defined immediately above.  They let you query the 
+\b type
+\b0  field of an NXEvent structure for the existence of a particular event type. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+Forever\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx3220\tx7240\fs28\li1200\fc0\cf0 		SYNOPSIS\
+\
+
+\b 		NX_FOREVER\
+
+\b0\fs30 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	A long, long time.  Typically used as the timeout argument to 
+\b DPSGetEvent()
+\b0 .\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+Keyboard State Flags Masks\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/event.h\
+
+\fs30 \
+
+\fs28\fc1\cf1 	SYNOPSIS\
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx3220\tx7760\tx11280\f2\b\li1200\fc0\cf0 						Type	Meaning\
+
+\fs6 \
+
+\pard\tx7760\tx11280\f0\b0\fs28\li3220\fc0\cf0 NX_ALPHASHIFTMASK	Shift lock\
+NX_SHIFTMASK	Shift key\
+NX_CONTROLMASK	Control key \
+NX_ALTERNATEMASK	Alt key\
+NX_COMMANDMASK	Command key \
+NX_NUMERICPADMASK	Number pad key\
+NX_HELPMASK	Help key\
+
+\fs10 \
+
+\fs28 NX_NEXTCTRLKEYMASK	Control key\
+NX_NEXTLSHIFTKEYMASK	Left shift key\
+NX_NEXTRSHIFTKEYMASK	Right shift key\
+NX_NEXTLCMDKEYMASK	Left command key \
+NX_NEXTRCMDKEYMASK	Right command key\
+NX_NEXTLALTKEYMASK	Left alt key \
+NX_NEXTRALTKEYMASK	Right alt key\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These masks correspond to keyboard states that might be included in an NXEvent structure's 
+\b flags 
+\b0 mask.  The masks are grouped as device-independent (NX_ALPHASHIFTMASK through NX_HELPMASK) and device-dependent (all€others).\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+Miscellaneous Event Flags Masks\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/event.h\
+
+\fs30 \
+
+\fs28\fc1\cf1 	SYNOPSIS\
+
+\pard\tx2840\tx2840\tx2840\tx2840\tx3220\tx7760\tx11280\f2\b\li1200\fc0\cf0 						Type	Meaning\
+
+\fs6 \
+
+\pard\tx7760\tx11280\f0\b0\fs28\li3220\fc0\cf0 NX_STYLUSPROXIMITYMASK	Stylus is in proximity (for tablets)\
+NX_NONCOALSESCEDMASK	Event coalescing disabled\
+
+\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These masks correspond to miscellaneous states that might be included in an NXEvent structure's 
+\b flags 
+\b0 mask. \
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+Window Backing Types	\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\fs28\fc1\cf1 	SYNOPSIS\
+
+\pard\tx2840\tx2840\tx2840\tx3220\tx7240\li1200\fc0\cf0 \
+
+\b 		NX_RETAINED\
+
+\pard\tx7240\tx11280\li3220\fc0\cf0 NX_NONRETAINED\
+NX_BUFFERED\
+
+\b0\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These represent the three backing types provided by window devices (and used by the Application Kit's Window objects).\
+
+\fs20 \
+
+\fs60 \
+
+\pard\f2\b\fs28\li3220\fc0\cf0 \
+Window Screen List Placement	\
+
+\fs30 \
+
+\pard\tx3220\f0\b0\fs28\fi-2020\li3220\fc0\cf0 	DECLARED IN	dpsclient/dpsNeXT.h\
+
+\fs30 \
+
+\pard\tx2840\tx2840\tx2840\tx3220\tx7240\fs28\li1200\fc0\cf0 		SYNOPSIS\
+\
+
+\b 		NX_ABOVE\
+
+\pard\tx7240\tx11280\li3220\fc0\cf0 NX_BELOW\
+NX_OUT\
+
+\b0\fs10 \
+
+\fs20 \
+
+\pard\tx3220\fs28\fi-2020\li3220\fc0\cf0 	DESCRIPTION	These represent the placement of a window device in the screen list.\
+
+\fs20 \
+
+}

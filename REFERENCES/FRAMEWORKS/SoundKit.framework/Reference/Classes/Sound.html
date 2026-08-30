@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 316.0px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p20 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 75.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p25 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p27 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p29 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 136.0px; text-indent: -61.0px; font: 14.0px Times}
+    p.p32 {margin: 0.0px 0.0px 0.0px 136.0px; text-indent: -61.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 136.0px; text-indent: -61.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 30.0px Times; min-height: 37.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35pt" height="20pt" viewBox="0 0 35 20" role="img" aria-labelledby="eps-svg-1-title" data-source="Sound.rtfd/NS%2B.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">NS+.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 3.453125 5.011719 L 6.433594 5.011719 L 8.9375 11.984375 L 8.96875 11.953125 C 8.84375 10.617188 8.613281 9.296875 8.613281 7.960938 L 8.613281 5.011719 L 11.625 5.011719 L 11.625 16.59375 L 8.613281 16.59375 L 6.28125 9.910156 L 6.25 9.941406 C 6.328125 11.03125 6.464844 12.109375 6.464844 13.199219 L 6.464844 16.59375 L 3.453125 16.59375 L 3.453125 5.011719 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 13.777344 12.816406 C 14.207031 13.460938 14.960938 14.105469 15.761719 14.105469 C 16.191406 14.105469 16.679688 13.847656 16.679688 13.339844 C 16.679688 13.0625 16.589844 12.863281 16.433594 12.695312 C 16.296875 12.523438 16.113281 12.386719 15.914062 12.25 C 15.296875 11.773438 14.761719 11.328125 14.363281 10.773438 C 13.976562 10.234375 13.730469 9.589844 13.730469 8.746094 C 13.730469 7.394531 14.59375 4.9375 17.265625 4.9375 C 18.019531 4.9375 18.832031 5.167969 19.492188 5.519531 L 19.492188 9.039062 C 19.125 8.453125 18.371094 7.792969 17.648438 7.792969 C 17.28125 7.792969 16.835938 8.054688 16.835938 8.5 C 16.835938 8.746094 16.972656 8.960938 17.140625 9.144531 C 17.3125 9.332031 17.542969 9.484375 17.710938 9.621094 C 18.371094 10.082031 18.894531 10.511719 19.246094 11.035156 C 19.613281 11.558594 19.816406 12.171875 19.816406 13.046875 C 19.816406 15.195312 18.308594 16.917969 16.128906 16.917969 C 15.328125 16.917969 14.515625 16.75 13.777344 16.441406 L 13.777344 12.816406 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 24.5625 5.832031 L 26.917969 5.832031 L 26.917969 9.617188 L 30.339844 9.617188 L 30.339844 11.976562 L 26.917969 11.976562 L 26.917969 15.90625 L 24.5625 15.90625 L 24.5625 11.976562 L 21.144531 11.976562 L 21.144531 9.617188 L 24.5625 9.617188 L 24.5625 5.832031 "/>
+<path fill="none" stroke-width="15" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(61.177063%, 61.177063%, 61.177063%)" stroke-opacity="1" stroke-miterlimit="4" d="M 329.257812 7.5 L 329.257812 176.289062 L 7.5 176.289062 L 7.5 7.5 Z M 329.257812 7.5 " transform="matrix(0.1, 0, 0, -0.1, 0, 20)"/>
+</svg></b><b></b><b>Sound</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5">Inherits From:<span class="Apple-tab-span">	</span>NSObject</p>
+<p class="p6"><br></p>
+<p class="p7">Declared In:<span class="Apple-tab-span">	</span>SoundKit/Sound.h</p>
+<p class="p8"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Class Description</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">Sound objects represent and manage sounds. A Sound object's sound can be recorded from a microphone, read from a sound file or NSBundle resource, retrieved from the pasteboard or from the sound segment in the application's executable file, or created algorithmically. The Sound class also provides an application-wide name table that lets you identify and locate sounds by name.</p>
+<p class="p12"><br></p>
+<p class="p11">Playback and recording are performed by background threads, allowing your application to proceed in parallel. The latency between sending a <b>play:</b> or <b>record:</b> message and the start of the playback or recording, while within the tolerance demanded by most applications, can be further decreased by first reserving the sound facilities that you wish to use. This is done by calling the <b>SNDReserve()</b> C function. You should only use a Sound object to play and record sounds in applications that have a running NSApplication object present.</p>
+<p class="p12"><br></p>
+<p class="p11">You can also edit a Sound object by adding and removing samples. To minimize data movement (and thus save time), an edited Sound may become fragmented; in other words, its sound data might become discontiguous in memory. While playback of a fragmented Sound object is transparent, it does incur some overhead. If you perform a number of edits you may want to return the Sound to a contiguous state by sending it a <b>compactSamples</b> message before you play it. However, a large Sound may take a long time to compact, so a judicious and well-timed use of <b>compactSamples</b> is advised. Fragmented Sounds are automatically compacted before they're copied to a pasteboard (through the <b>writeToPasteboard:</b> method). Also, when you write a Sound to a sound file, the data in the file will be compact regardless of the state of the object.</p>
+<p class="p12"><br></p>
+<p class="p11">A Sound object contains a SNDSoundStruct, the structure that describes and contains sound data and that's used as the sound file format and the pasteboard sound type. Most of the methods defined in the Sound class are implemented so that you needn't be aware of this structure. However, if you wish to directly manipulate the sound data in a Sound object, you need to be familiar with the SNDSoundStruct architecture, as described in the <b>SNDAlloc()</b> function</p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p9"><b>Method Types</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p14">Creating and freeing a Sound object<span class="Apple-tab-span">	</span>+ addName:fromBundle:</p>
+<p class="p15">+ addName:fromSection:</p>
+<p class="p15">+ addName:fromSoundfile:</p>
+<p class="p15"><span class="s2">-</span> initFromSection:</p>
+<p class="p15"><span class="s2">-</span> initFromPasteboard:</p>
+<p class="p15"><span class="s2">-</span> initFromSoundfile:</p>
+<p class="p16"><br></p>
+<p class="p14">Accessing the Sound name table<span class="Apple-tab-span">	</span>+ addName:sound:</p>
+<p class="p15">+ findSoundFor:</p>
+<p class="p15">+ removeSoundForName:</p>
+<p class="p16"><br></p>
+<p class="p14">Accessing the Sound's name<span class="Apple-tab-span">	</span><span class="s2">-</span> setName:</p>
+<p class="p15"><span class="s2">-</span> name</p>
+<p class="p16"><br></p>
+<p class="p14">Reading and writing sound data<span class="Apple-tab-span">	</span><span class="s2">-</span> readSoundfile:</p>
+<p class="p15"><span class="s2">-</span> readSoundFromStream:</p>
+<p class="p15"><span class="s2">-</span> writeSoundfile:</p>
+<p class="p15"><span class="s2">-</span> writeSoundToStream:</p>
+<p class="p15"><span class="s2">-</span> writeToPasteboard:</p>
+<p class="p16"><br></p>
+<p class="p14">Modifying sound data<span class="Apple-tab-span">	</span><span class="s2">-</span> convertToFormat:samplingRate:channelCount:</p>
+<p class="p15"><span class="s2">-</span> convertToFormat:</p>
+<p class="p15"><span class="s2">-</span> setDataSize:dataFormat:samplingRate:</p>
+<p class="p17">channelCount:infoSize:</p>
+<p class="p15"><span class="s2">-</span> setSoundStruct:soundStructSize:</p>
+<p class="p15"><span class="s2">-</span> setName:</p>
+<p class="p15"><span class="s2">-</span> name</p>
+<p class="p16"><br></p>
+<p class="p14">Querying the object<span class="Apple-tab-span">	</span><span class="s2">-</span> soundStruct</p>
+<p class="p15"><span class="s2">-</span> soundStructSize</p>
+<p class="p15"><span class="s2">-</span> data</p>
+<p class="p15"><span class="s2">-</span> dataFormat</p>
+<p class="p15"><span class="s2">-</span> dataSize</p>
+<p class="p15"><span class="s2">-</span> channelCount</p>
+<p class="p15"><span class="s2">-</span> samplingRate</p>
+<p class="p15"><span class="s2">-</span> sampleCount</p>
+<p class="p15"><span class="s2">-</span> duration</p>
+<p class="p15"><span class="s2">-</span> info</p>
+<p class="p15"><span class="s2">-</span> infoSize</p>
+<p class="p15"><span class="s2">-</span> isEmpty</p>
+<p class="p15"><span class="s2">-</span> compatibleWith:</p>
+<p class="p15"><span class="s2">-</span> processingError</p>
+<p class="p16"><br></p>
+<p class="p14">Recording and playing<span class="Apple-tab-span">	</span><span class="s2">-</span> pause</p>
+<p class="p15"><span class="s2">-</span> pause:</p>
+<p class="p15"><span class="s2">-</span> isPlayable</p>
+<p class="p15"><span class="s2">-</span> play</p>
+<p class="p15"><span class="s2">-</span> play:</p>
+<p class="p15"><span class="s2">-</span> record</p>
+<p class="p15"><span class="s2">-</span> record:</p>
+<p class="p15"><span class="s2">-</span> resume</p>
+<p class="p15"><span class="s2">-</span> resume:</p>
+<p class="p15"><span class="s2">-</span> stop</p>
+<p class="p15"><span class="s2">-</span> stop:</p>
+<p class="p15"><span class="s2">-</span> samplesProcessed</p>
+<p class="p15"><span class="s2">-</span> status</p>
+<p class="p15"><span class="s2">-</span> soundBeingProcessed</p>
+<p class="p15"><span class="s2">-</span> soundStructBeingProcessed</p>
+<p class="p15"><span class="s2">-</span> waitUntilStopped</p>
+<p class="p16"><br></p>
+<p class="p14">Editing sound data<span class="Apple-tab-span">	</span><span class="s2">-</span> isEditable</p>
+<p class="p15"><span class="s2">-</span> copySamples:at:count:</p>
+<p class="p15"><span class="s2">-</span> copySound:</p>
+<p class="p15"><span class="s2">-</span> deleteSamples</p>
+<p class="p15"><span class="s2">-</span> deleteSamplesAt:count:</p>
+<p class="p15"><span class="s2">-</span> insertSamples:at:</p>
+<p class="p15"><span class="s2">-</span> needsCompacting</p>
+<p class="p15"><span class="s2">-</span> compactSamples</p>
+<p class="p16"><br></p>
+<p class="p14">Accessing the delegate<span class="Apple-tab-span">	</span><span class="s2">-</span> setDelegate:</p>
+<p class="p15"><span class="s2">-</span> delegate</p>
+<p class="p15"><span class="s2">-</span> tellDelegate:</p>
+<p class="p16"><br></p>
+<p class="p14">Accessing the sound hardware<span class="Apple-tab-span">	</span>+ getVolume::</p>
+<p class="p15">+ setVolume::</p>
+<p class="p15">+ isMuted</p>
+<p class="p15">+ setMute:</p>
+<p class="p18"><br></p>
+<p class="p9"><b>Class Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p19"><b></b><b>addName:fromBundle:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">+ (Sound *)<b>addName:</b>(NSString *)<i>name </i><b>fromBundle:</b>(NSBundle *)<i>aBundle</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Creates a Sound object from the sound resource named <i>name</i> in the NSBundle <i>aBundle</i>, assigns the name <i>name</i> to the object, and places the name on the sound name table. If <i>name</i> is already in use, or if the resource isn't found or can't be read, the Sound isn't created and <b>nil</b> is returned. Otherwise, the new Sound is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>addName:fromSection:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">+ (Sound *)<b>addName:</b>(NSString *)<i>name </i><b>fromSection:</b>(NSString *)<i>sectionName</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Creates a Sound object from section <i>sectionName</i> in the sound segment of the application's executable file, assigns the name <i>name</i> to the object, and places the name on the sound name table. If <i>name</i> is already in use, or if the section isn't found or its data can't be copied, the Sound isn't created and <b>nil</b> is returned. Otherwise, the new Sound is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>addName:fromSoundfile:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">+ (Sound *)<b>addName:</b>(NSString *)<i>name </i><b>fromSoundfile:</b>(NSString *)<i>filename</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Creates a Sound object from the sound file <i>filename</i>, assigns the name <i>name</i> to the object, and adds it to the named Sound table. If <i>name</i> is already in use, or if <i>filename</i> isn't found or can't be read, the Sound isn't created and <b>nil</b> is returned. Otherwise, the new Sound is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>addName:sound:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">+ (Sound *)<b>addName:</b>(NSString *)<i>name </i><b>sound:</b>(id)<i>aSound</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Assigns the name <i>name</i> to the Sound <i>aSound</i> and adds it to the named Sound table. Returns <i>aSound</i>, or <b>nil</b> if <i>name</i> is already in use.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>findSoundFor:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">+ (id)<b>findSoundFor:</b>(NSString *)<i>aName</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Finds and returns the named Sound object. First the named Sound table is searched; if the sound isn't found, then the method looks for <i>“aName</i>.snd” in the sound segment of the application's executable file. Finally, <i>the file</i> is searched for in the following directories (in order):</p>
+<p class="p12"><br></p>
+<p class="p24">•<span class="Apple-tab-span">	</span>~/Library/Sounds</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>/LocalLibrary/Sounds</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>/NextLibrary/Sounds</p>
+<p class="p25"><br></p>
+<p class="p11">where <b>~</b> represents the user's home directory. If the Sound eludes the search, <b>nil</b> is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>getVolume::</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">+ <b>getVolume:</b>(float *)<i>left </i><b>:</b>(float *)<i>right</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Returns, by reference, the stereo output levels as floating-point numbers between 0.0 and 1.0.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>isMuted</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">+ (BOOL)<b>isMuted</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns YES if the sound output level is currently muted.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>removeSoundForName:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">+ (Sound *)<b>removeSoundForName:</b>(NSString *)<i>name</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Removes the named Sound from the named Sound table. If the Sound isn't found, returns <b>nil</b>; otherwise returns the Sound.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>setMute:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">+ <b>setMute:</b>(BOOL)<i>aFlag</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Mutes and unmutes the sound output level as <i>aFlag</i> is YES or NO, respectively. If successful, returns<b> self</b>; otherwise returns <b>nil</b>.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>setVolume::</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21">+ <b>setVolume:</b>(float)<i>left </i><b>:</b>(float)<i>right</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Sets the stereo output levels. These affect the volume of the stereo signals sent to the built-in speaker and headphone jacks. <i>left</i> and <i>right</i> must be floating-point numbers between 0.0 (minimum) and 1.0 (maximum). If successful, returns<b> self</b>; otherwise returns <b>nil</b>.</p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p19"><b></b><b>channelCount</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>channelCount</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns the number of channels in the Sound.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>compactSamples</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>compactSamples</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">The Sound's sampled data is compacted into a contiguous block, undoing the fragmentation that can occur during editing. If the Sound's data isn't fragmented (its format isn't SND_FORMAT_INDIRECT), then this method does nothing. Compacting a large sound can take a long time; keep in mind that when you copy a Sound to a pasteboard, the object is automatically compacted before it's copied. Also, the sound file representation of a Sound contains contiguous data so there's no need to compact a Sound before writing it to a sound file simply to ensure that the file representation will be compact. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>compatibleWith:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (BOOL)<b>compatibleWith:</b><i>aSound</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Returns <b>YES</b> if the format, sampling rate, and channel count of <i>aSound</i>'s sound data is the same as that of the Sound receiving this message. If one (or both) of the Sounds doesn't contain a sound (its <b>soundStruct</b> is <b>nil</b>) then the objects are declared compatible and <b>YES</b> is returned.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>convertToFormat:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>convertToFormat:</b>(int)<i>newFormat</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">This is the same as <b>convertToFormat:samplingRate:channelCount:</b>, except that only the format is changed. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>convertToFormat:samplingRate:channelCount:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>convertToFormat:</b>(int)<i>newFormat</i></p>
+<p class="p26"><b>samplingRate:</b>(double)<i>newRate</i></p>
+<p class="p26"><b>channelCount:</b>(int)<i>newChannelCount</i></p>
+<p class="p27"><i></i><br></p>
+<p class="p11">Convert the Sound's data to the given format, sampling rate, and number of channels. The following conversions are possible:</p>
+<p class="p12"><br></p>
+<p class="p24">•<span class="Apple-tab-span">	</span>Arbitrary sampling rate conversion.</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>Compression and decompression.</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>Floating-point formats (including double-precision) to and from linear formats.</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>Mono to stereo.</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>CODEC mu-law to and from linear formats.</p>
+<p class="p25"><br></p>
+<p class="p11">An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>copySamples:at:count:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>copySamples:</b><i>aSound</i></p>
+<p class="p26"><b>at:</b>(int)<i>startSample</i></p>
+<p class="p26"><b>count:</b>(int)<i>sampleCount</i></p>
+<p class="p27"><i></i><br></p>
+<p class="p11">Replaces the Sound's sampled data with a copy of a portion of <i>aSound</i>'s data. The copied portion starts at <i>aSound</i>'s <i>startSample</i>'th sample (zero-based) and extends over <i>sampleCount</i> samples. The Sound receiving this message must be editable and the two Sounds must be compatible. If the specified portion of <i>aSound</i> is fragmented, the Sound receiving this message will also be fragmented. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>copySound:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>copySound:</b><i>aSound</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Replaces the Sound's data with a copy of <i>aSound</i>'s data. The Sound receiving this message needn't be editable, nor must the two Sounds be compatible. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>data</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (unsigned char *)<b>data</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns a pointer to the Sound's sampled data. You can use the pointer to examine, create, and modify the sound data. To intelligently manipulate the data, you need to be aware of its size, format, sampling rate, and the number of channels that it contains (a query method for each of these attributes is provided by the Sound class). The size of the data, in particular, must be respected; it's set when the Sound is created or given a new sound (through <b>readSoundfile:</b>, for example) and can't be changed directly. To resize the data, you should invoke one of the editing methods such as <b>insertSamples:at:</b> or <b>deleteSamplesAt:count:</b>. To start with a new, unfragmented sound with a determinate length, invoke the <b>setDataSize:dataFormat:samplingRate:channelCount:infoSize:</b> method. Keep in mind that the sound data in a fragmented sound is a pointer to a <b>NULL</b>-terminated list of pointers to SNDSoundStructs, one for each fragment. To examine or manipulate the samples in a fragmented sound, you must understand the SNDSoundStruct structure.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>dataFormat</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>dataFormat</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns the format of the Sound's data. If the data is fragmented, the format of the samples is returned (in other words, SND_FORMAT_INDIRECT is never returned by this method).</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>dataSize</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>dataSize</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Return the size (in bytes) of the Sound's data. If you modify the data (through the pointer returned by the <b>data</b> method) you must be careful not to exceed its length. If the sound is fragmented, the value returned by this method is the size of the Sound's <b>soundStruct</b> and doesn't include the actual data itself.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>delegate</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (id)<b>delegate</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns the Sound's delegate.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>deleteSamples</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>deleteSamples</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Deletes all the samples in the Sound's data. The Sound must be editable. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>deleteSamplesAt:count:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>deleteSamplesAt:</b>(int)<i>startSample </i><b>count:</b>(int)<i>sampleCount</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Deletes a range of samples from the Sound: <i>sampleCount</i> samples are deleted starting with the <i>startSample</i>'th sample (zero-based). The Sound must be editable and may become fragmented. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>duration</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (double)<b>duration</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns the Sound's length in seconds.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>info</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (char *)<b>info</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns a pointer to the Sound's info string.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>infoSize</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>infoSize</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns the size (in bytes) of the Sound's info string.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>initFromPasteboard:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (id)<b>initFromPasteboard:</b>(NSPasteboard *)<i>thePboard</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Initializes the Sound instance, which must be newly allocated, by copying the sound data from the Pasteboard object <i>thePboard</i>. (A Pasteboard can have only one sound entry at a time.) Returns <b>self</b> (an unnamed Sound) if <i>thePboard</i> currently contains a sound entry; otherwise, frees the newly allocated Sound and returns <b>nil</b>.</p>
+<p class="p12"><br></p>
+<p class="p28">See also:<span class="Apple-tab-span">	</span>+ <b>alloc </b>(NSObject), + <b>allocWithZone: </b>(NSObject)</p>
+<p class="p29"><br></p>
+<p class="p30"><br></p>
+<p class="p19"><b></b><b>initFromSection:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (id)<b>initFromSection:</b>(NSString *)<i>sectionName</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Initializes the Sound instance, which must be newly allocated, by copying the sound data from section <i>sectionName</i> of the sound segment of the application's executable file. If the section isn't found, the object looks for a sound file named <i>sectionName</i> in the same directory as the application's executable. <span class="Apple-converted-space">  </span>Returns <b>self</b> (an unnamed Sound) if the sound data was successfully copied; otherwise, frees the newly allocated Sound and returns <b>nil</b>.</p>
+<p class="p12"><br></p>
+<p class="p28">See also:<span class="Apple-tab-span">	</span>+ <b>alloc </b>(NSObject), + <b>allocWithZone: </b>(NSObject)</p>
+<p class="p29"><br></p>
+<p class="p30"><br></p>
+<p class="p19"><b></b><b>initFromSoundfile:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (id)<b>initFromSoundfile:</b>(NSString *)<i>filename</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Initializes the Sound instance, which must be newly allocated, from the sound file <i>filename</i>. <span class="Apple-converted-space">  </span>Returns <b>self</b> (an unnamed Sound) if the file was successfully read; otherwise, frees the newly allocated Sound and returns <b>nil</b>.</p>
+<p class="p12"><br></p>
+<p class="p28">See also:<span class="Apple-tab-span">	</span>+ <b>alloc </b>(NSObject), + <b>allocWithZone: </b>(NSObject)</p>
+<p class="p29"><br></p>
+<p class="p30"><br></p>
+<p class="p19"><b></b><b>insertSamples:at:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>insertSamples:</b><i>aSound </i><b>at:</b>(int)<i>startSample</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Pastes the sound data in <i>aSound</i> into the Sound receiving this message, starting at the receiving Sound's <i>startSample</i>'th sample (zero-based). The receiving Sound doesn't lose any of its original sound data—the samples greater than or equal to <i>startSample</i> are moved to accommodate the inserted sound data. The receiving Sound must be editable and the two Sounds must be compatible (as determined by <b>isCompatible:</b>). If the method is successful, the receiving Sound is fragmented. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>isEditable</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (BOOL)<b>isEditable</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns <b>YES</b> if the Sound's format indicates that it can be edited, otherwise returns <b>NO</b>.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>isEmpty</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (BOOL)<b>isEmpty</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns <b>YES</b> if the Sound doesn't contain any sound data, otherwise returns <b>NO</b>. This always returns <b>NO</b> if the Sound isn't editable (as determined by sending it the <b>isEditable</b> message).</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>isPlayable</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (BOOL)<b>isPlayable</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns <b>YES</b> if the Sound can be played, otherwise returns <b>NO</b>. Some unplayable Sounds just need to be converted to another format, sampling rate, or number of channels; others are inherently unplayable, such as those whose format is SND_FORMAT_DISPLAY. To play a Sound that's just been recorded from the DSP, you must change its format from SND_FORMAT_DSP_DATA_16 to SND_FORMAT_LINEAR_16.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>name</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (NSString *)<b>name</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns the Sound's name.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>needsCompacting</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (BOOL)<b>needsCompacting</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns <b>YES</b> if the Sound's data is fragmented. Otherwise returns <b>NO</b>.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>pause</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>pause</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Pauses the Sound during recording or playback. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>pause:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>pause:</b><i>sender</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Action method that pauses the Sound. Other than the argument and the return type, this is the same as the <b>pause</b> method.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>play</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>play</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Initiates playback of the Sound. The method returns immediately while the playback continues asynchronously in the background. The playback ends when the Sound receives the <b>stop</b> message, or when its data is exhausted.</p>
+<p class="p12"><br></p>
+<p class="p11">When playback starts, <b>willPlay:</b> is sent to the Sound's delegate; when it stops, <b>didPlay:</b> is sent. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p31"><b>Warning:<span class="Apple-tab-span">	</span></b>For this method to work properly, the main event loop must not be blocked.</p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p19"><b></b><b>play:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>play:</b><i>sender</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Action method that plays the Sound. Other than the argument and the return type, this is the same as the <b>play</b> method.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>processingError</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>processingError</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns a constant that represents the last error that was generated. The sound error codes are listed in “Types and Constants.”</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>readSoundfile:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>readSoundfile:</b>(NSString *)<i>filename</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Replaces the Sound's contents with those of the sound file <i>filename</i>. The Sound loses its current name, if any. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>readSoundFromStream:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (BOOL)<b>readSoundFromStream:</b>(NXStream *)<i>stream</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Replaces the Sound's contents with those of the sound in the NXStream <i>stream</i>. The Sound is given the name of the sound in the NXStream. If the sound in the NXStream is named, the Sound gets the new name. Returns YES if the sound was read successfully, NO otherwise.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>record</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>record</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Initiate recording into the Sound. To record from the CODEC microphone, the Sound's format, sampling rate, and channel count must be SND_FORMAT_MULAW_8, SND_RATE_CODEC, and 1, respectively. If this information isn't set (if the Sound is a newly created object, for example), it defaults to accommodate a CODEC recording. If the Sound's format is SND_FORMAT_DSP_DATA_16, the recording is from the DSP.</p>
+<p class="p12"><br></p>
+<p class="p11">The method returns immediately while the recording continues asynchronously in the background. The recording stops when the Sound receives the <b>stop</b> message or when the recording has gone on for the duration of the original sound data. The default CODEC recording lasts precisely ten minutes if not stopped. To record for a longer time, first increase the size of the sound data with <b>setSoundStruct:soundStructSize:</b> or <b>setDataSize:dataFormat:samplingRate:channelCount:infoSize:</b>.</p>
+<p class="p12"><br></p>
+<p class="p11">When the recording begins, <b>willRecord:</b> is sent to the Sound's delegate; when the recording stops, <b>didRecord:</b> is sent.</p>
+<p class="p12"><br></p>
+<p class="p11">An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p31"><b>Warning:<span class="Apple-tab-span">	</span></b>For this method to work properly, the main event loop must not be blocked.</p>
+<p class="p32"><br></p>
+<p class="p33"><br></p>
+<p class="p19"><b></b><b>record:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>record:</b><i>sender</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Action method that initiates a recording. Other than the argument and return type, this is the same as the <b>record</b> method.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>resume</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>resume</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Resumes the paused Sound's activity. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>resume:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>resume:</b><i>sender</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Action method that resumes the paused Sound.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>sampleCount</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>sampleCount</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns the number of sample frames, or channel count-independent samples, in the Sound.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>samplesProcessed</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>samplesProcessed</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">If the Sound is currently playing or recording, this returns the number of sample frames that have been played or recorded so far. Otherwise, the number of sample frames in the Sound is returned. If the sample frame count can't be determined, <span class="s2">-</span>1 is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>samplingRate</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (double)<b>samplingRate</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns the Sound's sampling rate.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>setDataSize:dataFormat:samplingRate:channelCount:infoSize:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>setDataSize:</b>(int)<i>newDataSize </i><b>dataFormat:</b>(int)<i>newDataFormat </i><b>samplingRate:</b>(double)<i>newSamplingRate </i><b>channelCount:</b>(int)<i>newChannelCount </i><b>infoSize:</b>(int)<i>newInfoSize</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Allocates new, unfragmented sound data for the Sound, as described by the arguments. The Sound's previous data is freed. This method is useful for setting a determinate data length prior to a recording or for creating a scratch pad for algorithmic sound creation. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>setDelegate:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>setDelegate:</b>(id)<i>anObject</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Sets the Sound's delegate to <i>anObject</i>.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>setName:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (BOOL)<b>setName:</b>(NSString *)<i>aName</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Sets the Sound's name to <i>aName</i>. If <i>aName</i> is already being used, then the Sound's name isn't set and NO is returned; otherwise returns YES.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>setSoundStruct:soundStructSize:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>setSoundStruct:</b>(SNDSoundStruct *)<i>aStruct</i><b><span class="Apple-converted-space">  </span>soundStructSize:</b>(int)<i>size</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Sets the Sound's sound structure to <i>aStruct</i>. The size in bytes of the new structure, including its sound data storage, must be specified by <i>size</i>. This method can be used to set up a large buffer before recording into an existing Sound, by passing the existing <b>soundStruct</b> in the first argument while making <i>size</i> larger than the current size. (The default buffer holds ten minutes of CODEC sound.) The method is also useful in cases where <i>aStruct</i> already has sound data but isn't encapsulated in a Sound object yet. The Sound's status must be NX_SoundInitialized or NX_SoundStopped for this method to do anything.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>soundBeingProcessed</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> <b>soundBeingProcessed</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns the Sound object that's being performed. The default implementation always returns <b>self</b>.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>soundStruct</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (SNDSoundStruct *)<b>soundStruct</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns a pointer to the Sound's SNDSoundStruct structure that holds the object's sound data.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>soundStructBeingProcessed</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (SNDSoundStruct *)<b>soundStructBeingProcessed</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns a pointer to the SNDSoundStruct structure that's being performed. This may not be the same structure as returned by the <b>soundStruct</b> method—Sound object's contain a private sound structure that may be used for recording playing. If the Sound isn't currently playing or recording, then this will return the public structure.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>soundStructSize</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>soundStructSize</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Returns the size, in bytes, of the Sound's sound structure (pointed to by <b>soundStruct</b>). Use of this value requires a knowledge of the SNDSoundStruct architecture.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>status</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>status</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Return the Sound's current status, one of the following integer constants:</p>
+<p class="p12"><br></p>
+<p class="p24">•<span class="Apple-tab-span">	</span>NX_SoundStopped</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>NX_SoundRecording</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>NX_SoundPlaying</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>NX_SoundInitialized</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>NX_SoundRecordingPaused</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>NX_SoundPlayingPaused</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>NX_SoundRecordingPending</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>NX_SoundPlayingPending</p>
+<p class="p24">•<span class="Apple-tab-span">	</span>NX_SoundFreed</p>
+<p class="p34"><br></p>
+<p class="p19"><b></b><b>stop</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>stop</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">Terminates the Sound's playback or recording. If the Sound was recording, the <b>didRecord:</b> message is sent to the delegate; if playing, <b>didPlay:</b> is sent. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>stop:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>stop:</b>(id)<i>sender</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Action method that stops the Sound's playback or recording. Other than the argument and the return type, this is the same as the <b>stop</b> method.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>tellDelegate:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>tellDelegate:</b>(SEL)<i>theMessage</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Sends <i>theMessage</i> to the Sound's delegate (only sent if the delegate implements <i>theMessage</i>). You never invoke this method directly; it's invoked automatically as the result of activities such as recording and playing. However, you can use it in designing a subclass of Sound.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>waitUntilStopped</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>waitUntilStopped</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11">If the Sound is currently playing or recording, waits until the sound has finished playing or recording, at which time it returns the result of the <b>SNDWait() </b>function. If the Sound is not playing or recording when <b>waitUntilStopped</b> is invoked, it returns SND_ERROR_NONE.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>writeSoundfile:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>writeSoundfile:</b>(NSString *)<i>filename</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Writes the Sound's contents (its SNDSoundStruct and sound data) to the sound file <i>filename</i>. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>writeSoundToStream:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>writeSoundToStream:</b>(NXStream *)<i>stream</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Writes the Sound's name (if any), priority, SNDSoundStruct, and sound data (if any) to the NXStream <i>stream</i>.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>writeToPasteboard:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (int)<b>writeToPasteboard:</b>(NSPasteboard *)<i>thePboard</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Puts a copy of the Sound's contents (its SNDSoundStruct and sound data) on the pasteboard maintained by the NSPasteboard object <i>thePboard</i>. If the Sound is fragmented, it's compacted before the copy is created. An error code is returned.</p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p9"><b>Methods Implemented By the Delegate</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p19"><b></b><b>didPlay:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>didPlay:</b>(id)<i>sender</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Sent to the delegate when the Sound stops playing.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>didRecord:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>didRecord:</b>(id)<i>sender</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Sent to the delegate when the Sound stops recording.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>hadError:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>hadError:</b>(id)<i>sender</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Sent to the delegate if an error occurs during recording or playback.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>willPlay:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>willPlay:</b>(id)<i>sender</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Sent to the delegate when the Sound begins to play.</p>
+<p class="p12"><br></p>
+<p class="p23"><br></p>
+<p class="p19"><b></b><b>willRecord:</b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><span class="s2">-</span> (void)<b>willRecord:</b>(id)<i>sender</i></p>
+<p class="p22"><i></i><br></p>
+<p class="p11">Sent to the delegate when the Sound begins to record.</p>
+<p class="p12"><br></p>
+</body>
+</html>

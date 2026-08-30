@@ -1,0 +1,71 @@
+.\" Copyright 1990, NeXT Computer, Inc.
+.\"
+.TH fontloader 1 "October 5, 1990"
+.UC 4
+.SH NAME
+fontloader \- Install typefaces in non-NeXT printer
+.SH SYNOPSIS
+.B fontloader
+[
+.B \-p
+password ]
+typeface ...
+.br
+.SH DESCRIPTION
+.I fontloader
+is a program for downloading typefaces into a non-NeXT PostScript printer.
+Once a typeface has been downloaded, it is available to print jobs in the same way
+as the typefaces that come with the printer.
+These typefaces stay resident in the printer until the printer is turned off and on,
+or is reset.
+Typefaces must be known to the NeXT system, so they must be in one of the standard
+directories for fonts.
+The list of typefaces can be obtained from the Font panel.
+.PP
+Please note:
+This application only works on 2.0 format fonts.
+To convert from 1.0 to 2.0 font format, use the
+.I font_update_2.0
+program.
+.PP
+.I fontloader
+writes a PostScript print job to the standard output that will install the specified typefaces
+in a printer.
+The job must then be spooled, normally by using the
+.B lpr
+command.  For example:
+.PP
+fontloader Optima Optima-Bold | lpr -POur_LaserWriter
+.PP
+The typefaces are not available in the printer until after this spooled job completes.
+.PP
+A typeface name must be the PostScript font name.
+This is the name of the .font directory in which the typeface information is stored.
+The name is often constructed from the font family name, a dash (\-),
+and the typeface or style name, for example: Times-BoldItalic.
+.PP
+Each typeface must be specified separately; there is no way to specify an entire
+font family.
+Since each typeface uses up memory in the printer, it is important to be selective
+about which typefaces are downloaded.
+There is no way to selectively delete typefaces once they have been downloaded.
+However, all downloaded typefaces can be deleted by turning the printer off and on again.
+.PP
+The generated PostScript job does not check whether the font is already defined in the printer.
+This allows downloading of a newer version of the same typeface.
+It also means that the user should be careful not to download the same typeface twice.
+.PP
+The only option is:
+.TP
+.BI \-p password
+includes the printer password in the spooled job.
+If this is not specified, the password "0" is used.
+.PP
+.I fontloader
+will not work with a NeXT 400 dpi printer;
+this will result in a PostScript error like "undefined; Offending Command: serverdict".
+Use the normal NeXT font installation procedures for NeXT 400 dpi printers. 
+.SH BUGS
+The only way to determine whether the typefaces were downloaded successfully is to
+examine the end of the /usr/adm/lpd-errs log file, which contains a record of errors
+from spooled jobs.

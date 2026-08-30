@@ -1,0 +1,110 @@
+.\" @(#)exportent.3 1.4 88/03/01 D/NFS
+.\" @(#)exportent.3 1.9 88/03/01 SMI;
+.TH EXPORTENT 3 "4 January 1987"
+.SH NAME
+exportent, getexportent, setexportent, addexportent, remexportent, endexportent, getexportopt \- get exported file system information
+.SH SYNOPSIS
+.nf
+.ft B
+#include <stdio.h>
+#include <exportent.h>
+\s-1FILE\s0 *setexportent(\|)
+struct exportent *getexportent(filep)
+	\s-1FILE\s0 *filep;
+int addexportent(filep, dirname, options)
+	\s-1FILE\s0 *filep;
+	char *dirname;
+	char *options;
+int remexportent(filep, dirname)
+	\s-1FILE\s0 *filep;
+	char *dirname;
+char *getexportopt(xent, opt)
+	struct exportent *xent;
+	char *opt;
+void endexportent(filep)
+	\s-1FILE\s0 *filep;
+.ft R
+.fi
+.SH DESCRIPTION
+.LP
+These routines access the exported filesystem information in
+.BR /etc/xtab .
+.LP
+.B setexportent(\|)
+opens the export information file and returns
+a file pointer to use with
+.BR getexportent ,
+.BR addexportent ,
+.BR remexportent ,
+and
+.BR endexportent .
+.B getexportent(\|)
+reads the next line from
+.I filep
+and returns a pointer to an object with the following structure
+containing the broken-out fields of a line in the file,
+.B /etc/xtab
+The fields have meanings described in
+.BR exports (5).
+.LP
+.RS
+.ft B
+.nf
+#define \s-1ACCESS_OPT\s0  ``access''  /* machines that can mount fs */
+#define \s-1ROOT_OPT\s0    ``root''    /* machines with root access of fs */
+#define \s-1RO_OPT\s0      ``ro''      /* export read-only */
+#define \s-1RW_OPT\s0      ``rw''      /* export read-mostly */
+#define \s-1ANON_OPT\s0    ``anon''    /* uid for anonymous requests */
+struct exportent {
+	char *xent_dirname;	/* directory (or file) to export */
+	char *xent_options;	/* options, as above */
+};
+.fi
+.ft R
+.RE
+.LP
+.B addexportent(\|)
+adds the
+.B exportent(\|)
+to the end of the open file
+.IR filep .
+It returns 0 if successful and  \-1 on failure.
+.B remexportent(\|)
+removes the indicated entry from the list.  It also returns 0 on
+success and \-1 on failure.
+.B getexportopt(\|)
+scans the
+.I xent_options
+field of the
+.B exportent(\|)
+structure for a substring that matches
+.IR opt .
+It returns the string value of
+.IR opt ,
+or
+.SM NULL
+if the option is not found.
+.LP
+.B endexportent(\|)
+closes the file.
+.SH FILES
+.PD 0
+.TP 20
+.B /etc/exports
+.TP
+.B /etc/xtab
+.PD
+.SH SEE ALSO
+.BR exports (5),
+.BR exportfs (8)
+.SH DIAGNOSTICS
+.LP
+.SM NULL
+pointer (0) returned on
+.SM EOF
+or error.
+.SH BUGS
+.LP
+The returned
+.B exportent(\|)
+structure points to static information that is overwritten in each call.

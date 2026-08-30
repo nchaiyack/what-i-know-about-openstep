@@ -1,0 +1,2835 @@
+.\	" ======================
+.\	" This version is 2.4.
+.\	" ======================
+.TH CC 1 "June 15, 1989" "Free Software Foundation, Inc."
+.SH NAME
+cc, cc++ \- GNU C and C++ Compiler
+.SH SYNOPSIS
+.B cc
+.RI "[ " option " | " filename " ].\|.\|."
+.br
+.B cc++
+.RI "[ " option " | " filename " ].\|.\|."
+.SH DESCRIPTION
+\fIcc\fR handles C, Objective-C, C++, and Objective-C++ source files.
+\fIcc++\fR is not needed (but is still present for compatibility).  
+\fIcc\fR processes input files
+through one or more of four stages: preprocessing, compilation,
+assembly, and linking.  Source filename suffixes identify the source
+language, but which name you use for the compiler governs default
+assumptions:
+.TP
+.B cc
+assumes preprocessed (\c
+.B .i\c
+\&) files are C and assumes C style linking.
+.TP
+.B cc++
+assumes preprocessed (\c
+.B .ii\c
+\&) files are C++ and assumes C++ style linking.
+.PP
+Suffixes of source file names indicate the language and kind of
+processing to be done:
+.sp
+.nf
+.ta \w'\fB.cxx\fP  'u
+\&\fB.c\fP	C source; preprocess, compile, assemble
+\&\fB.C\fP	C++ source; preprocess, compile, assemble
+\&\fB.cc\fP	C++ source; preprocess, compile, assemble
+\&\fB.cxx\fP	C++ source; preprocess, compile, assemble
+\&\fB.m\fP	Objective-C source; preprocess, compile, assemble
+\&\fB.M\fP	Objective-C++ source; preprocess, compile, assemble
+\&\fB.i\fP	preprocessed C; compile, assemble
+\&\fB.ii\fP	preprocessed C++; compile, assemble
+\&\fB.s\fP	Assembler source; assemble
+\&\fB.S\fP	Assembler source; preprocess, assemble
+\&\fB.h\fP	Preprocessor file; not usually named on command line
+.sp
+.fi
+Files with other suffixes are passed to the linker.  Common cases include:
+.sp
+.nf
+\&\fB.o\fP	Object file
+\&\fB.a\fP	Archive file
+.br
+.fi
+.sp
+Linking is always the last stage unless you use one of the
+.BR \-c ,
+.BR \-S ,
+or
+.B \-E
+options to avoid it (or unless compilation errors stop the whole
+process).  For the link stage, all
+.B .o
+files corresponding to source files,
+.B \-l
+libraries, unrecognized filenames (including named
+.B .o
+object files and
+.B .a
+archives)
+are passed to the linker in command-line order.
+.PP
+\fIcc\fR has been substantially
+modified and extended by NeXT Computer, Inc. to support the use of Objective-C, Objective-C++, and
+Mach.
+For documentation, see
+the \fINeXT Developer's Library\fR
+(accessible through the NeXT Developer target of the Digital Librarian).
+.SH OPTIONS
+Options must be separate: `\|\c
+.B \-dr\c
+\&\|' is quite different from `\|\c
+.B \-d \-r
+\&\|'.
+.PP
+Most `\|\c
+.B \-f\c
+\&\|' and `\|\c
+.B \-W\c
+\&\|' options have two contrary forms:
+.BI \-f name
+and
+.BI \-fno\- name\c
+\& (or
+.BI \-W name
+and
+.BI \-Wno\- name\c
+\&).  Only the non-default forms are shown here.
+.PP
+Here is a summary of all the options, grouped by type.  Explanations are
+in the following sections.
+.hy 0
+.na
+.TP
+.B Overall Options
+.br
+\-c
+\-S
+\-E
+.RI "\-o " file
+\-pipe
+\-v
+.RI "\-x " language
+.TP
+.B Language Options
+\-ansi
+\-fall\-virtual
+\-fcond\-mismatch
+\-fdollars\-in\-identifiers
+\-fenum\-int\-equiv
+\-fexternal\-templates
+\-fno\-asm
+\-fno\-builtin
+\-fno\-strict\-prototype
+\-fsigned\-bitfields
+\-fsigned\-char
+\-fthis\-is\-variable
+\-funsigned\-bitfields
+\-funsigned\-char
+\-fwritable\-strings
+\-traditional
+\-traditional\-cpp
+\-trigraphs
+\-ObjC
+\-ObjC++
+\-posix
+\-posixstrict
+.TP
+.B Warning Options
+\-fsyntax\-only
+\-pedantic
+\-pedantic\-errors
+\-w
+\-W
+\-Wall
+\-Waggregate\-return
+\-Wcast\-align
+\-Wcast\-qual
+\-Wchar\-subscript
+\-Wcomment
+\-Wconversion
+\-Wenum\-clash
+\-Werror
+\-Wformat
+.RI \-Wid\-clash\- len
+\-Wimplicit
+\-Winline
+\-Wmissing\-prototypes
+\-Wnested\-externs
+\-Wno\-import
+\-Wparentheses
+\-Wpointer\-arith
+\-Wredundant\-decls
+\-Wreturn\-type
+\-Wshadow
+\-Wstrict\-prototypes
+\-Wswitch
+\-Wtemplate\-debugging
+\-Wtraditional
+\-Wtrigraphs
+\-Wuninitialized
+\-Wunused
+\-Wwrite\-strings
+\-Wprecomp
+\-Wno\-precomp
+.TP
+.B Debugging Options
+\-a
+.RI \-d letters
+\-fpretend\-float
+\-g
+.RI \-g level
+\-ggdb
+\-p
+\-pg
+\-save\-temps
+\-print\-libgcc\-file\-name
+.TP
+.B Optimization Options
+\-fcaller\-saves
+\-fcse\-follow\-jumps
+\-fcse\-skip\-blocks
+\-fdelayed\-branch
+\-felide\-constructors
+\-fexpensive\-optimizations
+\-ffast\-math
+\-ffloat\-store
+\-fforce\-addr
+\-fforce\-mem
+\-finline\-functions
+\-fkeep\-inline\-functions
+\-fmemoize\-lookups
+\-fno\-default\-inline
+\-fno\-defer\-pop
+\-fno\-function\-cse
+\-fno\-inline
+\-fno\-peephole
+\-fomit\-frame\-pointer
+\-frerun\-cse\-after\-loop
+\-fschedule\-insns
+\-fschedule\-insns2
+\-fstrength\-reduce
+\-fthread\-jumps
+\-funroll\-all\-loops
+\-funroll\-loops
+\-O
+\-O2
+.TP
+.B Preprocessor Options
+.RI \-A assertion
+\-C
+\-dD
+\-dM
+\-dN
+.RI \-D macro [\|= defn \|]
+\-E
+\-H
+.RI "\-idirafter " dir
+.RI "\-include " file
+.RI "\-imacros " file
+.RI "\-iprefix " file
+.RI "\-iwithprefix " dir
+\-M
+\-MD
+\-MM
+\-MMD
+\-nostdinc
+\-P
+.RI \-U macro
+\-undef
+\-precomp
+\-no\-precomp
+.TP
+.B Assembler Option
+.RI \-Wa, option
+.TP
+.B Linker Options
+.RI \-l library
+\-nostartfiles
+\-nostdlib
+\-shared
+\-symbolic
+.RI "\-Xlinker\ " option
+.RI \-Wl, option
+.RI "\-u " symbol
+.TP
+.B Directory Options
+.RI \-B prefix
+.RI \-I dir
+\-I\-
+.RI \-L dir
+.TP
+.B Target Options
+.RI "\-b  " machine
+.RI "\-V " version
+.TP
+.B Configuration Dependent Options
+.I M680x0\ Options
+.br
+\-m68000
+\-m68020
+\-m68020\-40
+\-m68030
+\-m68040
+\-m68881
+\-mbitfield
+\-mc68000
+\-mc68020
+\-mfpa
+\-mnobitfield
+\-mrtd
+\-mshort
+\-msoft\-float
+.sp
+.I i386 Options
+.br
+\-m486
+\-mno\-486
+\-msoft\-float
+\-mno\-fp\-ret\-in\-387
+.sp
+.I HPPA Options
+.br
+\-mpa\-risc\-1\-0
+\-mpa\-risc\-1\-1
+\-mkernel
+\-mshared\-libs
+\-mno\-shared\-libs
+\-mlong\-calls
+\-mdisable\-fpregs
+\-mdisable\-indexing
+\-mtrailing\-colon
+.TP
+.B Code Generation Options
+.RI \-fcall\-saved\- reg
+.RI \-fcall\-used\- reg
+.RI \-ffixed\- reg
+\-finhibit\-size\-directive
+\-fnonnull\-objects
+\-fno\-common
+\-fno\-gnu\-linker
+\-fpcc\-struct\-return
+\-freg\-struct\-returno
+\-fshared\-data
+\-fshort\-enums
+\-fshort\-double
+\-fvolatile
+\-fvolatile\-global
+\-fverbose\-asm
+.ad b
+.hy 1
+.SH OVERALL OPTIONS
+.TP
+.BI "\-x " "language"
+Specify explicitly the
+.I language\c
+\& for the following input files (rather than choosing a default based
+on the file name suffix) .  This option applies to all following input
+files until the next `\|\c
+.B \-x\c
+\&\|' option.  Possible values of \c
+.I language\c
+\& are
+`\|\c
+.B c\c
+\&\|', `\|\c
+.B objective\-c\c
+\&\|', `\|\c
+.B c\-header\c
+\&\|', `\|\c
+.B c++\c
+\&\|',
+`\|\c
+.B cpp\-output\c
+\&\|', `\|\c
+.B assembler\c
+\&\|', and `\|\c
+.B assembler\-with\-cpp\c
+\&\|'.
+.TP
+.B \-x none
+Turn off any specification of a language, so that subsequent files are
+handled according to their file name suffixes (as they are if `\|\c
+.B \-x\c
+\&\|'
+has not been used at all).
+.PP
+If you want only some of the four stages (preprocess, compile,
+assemble, link), you can use
+`\|\c
+.B \-x\c
+\&\|' (or filename suffixes) to tell \c
+\fIcc\fR
+\& where to start, and
+one of the options `\|\c
+.B \-c\c
+\&\|', `\|\c
+.B \-S\c
+\&\|', or `\|\c
+.B \-E\c
+\&\|' to tell where
+\fIcc\fR 
+\& to stop.  Note that some combinations (for example,
+`\|\c
+.B \-x cpp\-output \-E\c
+\&\|') instruct \c
+\fIcc\fR\c
+\& to do nothing at all.
+.TP
+.B \-c
+Compile or assemble the source files, but do not link.  The compiler
+output is an object file corresponding to each source file.
+.sp
+By default, \fIcc\fR makes the object file name for a source file by replacing
+the suffix `\|\c
+.B .c\c
+\&\|', `\|\c
+.B .i\c
+\&\|', `\|\c
+.B .s\c
+\&\|', etc., with `\|\c
+.B .o\c
+\&\|'.  Use
+.B \-o\c
+\& to select another name.
+.sp
+\fIcc\fR ignores any unrecognized input files (those that do not require
+compilation or assembly) with the
+.B \-c
+option.
+.TP
+.B \-S
+Stop after the stage of compilation proper; do not assemble.  The output
+is an assembler code file for each non-assembler input
+file specified.
+.sp
+By default, \fIcc\fR makes the assembler file name for a source file by
+replacing the suffix `\|\c
+.B .c\c
+\&\|', `\|\c
+.B .i\c
+\&\|', etc., with `\|\c
+.B .s\c
+\&\|'.  Use
+.B \-o\c
+\& to select another name.
+.sp
+\fIcc\fR ignores any input files that don't require compilation.
+.TP
+.B \-E
+Stop after the preprocessing stage; do not run the compiler proper.  The
+output is preprocessed source code, which is sent to the
+standard output.
+.sp
+\fIcc\fR ignores input files which don't require preprocessing.
+.TP
+.BI "\-o " file
+Place output in file \c
+.I file\c
+\&.  This applies regardless to whatever
+sort of output \fIcc\fR produces, whether it be an executable file,
+an object file, an assembler file or preprocessed C code.
+.sp
+Since only one output file can be specified, it does not make sense to
+use `\|\c
+.B \-o\c
+\&\|' when compiling more than one input file, unless you are
+producing an executable file as output.
+.sp
+If you do not specify `\|\c
+.B \-o\c
+\&\|', the default is to put an executable file
+in `\|\c
+.B a.out\c
+\&\|', the object file for `\|\c
+.I source\c
+.B \&.\c
+.I suffix\c
+\&\c
+\&\|' in
+`\|\c
+.I source\c
+.B \&.o\c
+\&\|', its assembler file in `\|\c
+.I source\c
+.B \&.s\c
+\&\|', and
+all preprocessed C source on standard output.
+.TP
+.B \-v
+Print (on standard error output) the commands executed to run the stages
+of compilation.  Also print the version number of the compiler driver
+program and of the preprocessor and the compiler proper.
+.TP
+.B \-pipe
+Use pipes rather than temporary files for communication between the
+various stages of compilation.  This fails to work on some systems where
+the assembler cannot read from a pipe; but the GNU assembler has
+no trouble.
+.PP
+.SH LANGUAGE OPTIONS
+The following options control the dialect of C that the compiler
+accepts:
+.TP
+.B \-ansi
+Support all ANSI standard C programs.
+.sp
+This turns off certain features of \fIcc\fR that are incompatible with
+ANSI C, such as the \c
+.B asm\c
+\&, \c
+.B inline\c
+\& and \c
+.B typeof
+keywords, and predefined macros such as \c
+.B unix\c
+\& and \c
+.B vax
+that identify the type of system you are using.  It also enables the
+undesirable and rarely used ANSI trigraph feature, and disallows `\|\c
+.B $\c
+\&\|' as part of identifiers.
+.sp
+The alternate keywords \c
+.B _\|_asm_\|_\c
+\&, \c
+.B _\|_extension_\|_\c
+\&,
+.B _\|_inline_\|_\c
+\& and \c
+.B _\|_typeof_\|_\c
+\& continue to work despite
+`\|\c
+.B \-ansi\c
+\&\|'.  You would not want to use them in an ANSI C program, of
+course, but it is useful to put them in header files that might be included
+in compilations done with `\|\c
+.B \-ansi\c
+\&\|'.  Alternate predefined macros
+such as \c
+.B _\|_unix_\|_\c
+\& and \c
+.B _\|_vax_\|_\c
+\& are also available, with or
+without `\|\c
+.B \-ansi\c
+\&\|'.
+.sp
+The `\|\c
+.B \-ansi\c
+\&\|' option does not cause non-ANSI programs to be
+rejected gratuitously.  For that, `\|\c
+.B \-pedantic\c
+\&\|' is required in
+addition to `\|\c
+.B \-ansi\c
+\&\|'.
+.sp
+The preprocessor predefines a macro \c
+.B _\|_STRICT_ANSI_\|_\c
+\& when you use the `\|\c
+.B \-ansi\c
+\&\|'
+option.  Some header files may notice this macro and refrain
+from declaring certain functions or defining certain macros that the
+ANSI standard doesn't call for; this is to avoid interfering with any
+programs that might use these names for other things.
+.TP
+.B \-fno\-asm
+Do not recognize \c
+.B asm\c
+\&, \c
+.B inline\c
+\& or \c
+.B typeof\c
+\& as a
+keyword.  These words may then be used as identifiers.  You can
+use \c
+.B _\|_asm_\|_\c
+\&, \c
+.B _\|_inline_\|_\c
+\& and \c
+.B _\|_typeof_\|_\c
+\& instead.
+`\|\c
+.B \-ansi\c
+\&\|' implies `\|\c
+.B \-fno\-asm\c
+\&\|'.
+.TP
+.B \-fno\-builtin
+Don't recognize built-in functions that do not begin with two leading
+underscores.  Currently, the functions affected include \c
+.B _exit\c
+\&,
+.B abort\c
+\&, \c
+.B abs\c
+\&, \c
+.B alloca\c
+\&, \c
+.B cos\c
+\&, \c
+.B exit\c
+\&,
+.B fabs\c
+\&, \c
+.B labs\c
+\&, \c
+.B memcmp\c
+\&, \c
+.B memcpy\c
+\&, \c
+.B sin\c
+\&,
+.B sqrt\c
+\&, \c
+.B strcmp\c
+\&, \c
+.B strcpy\c
+\&, and \c
+.B strlen\c
+\&.
+.sp
+The `\|\c
+.B \-ansi\c
+\&\|' option prevents \c
+.B alloca\c
+\& and \c
+.B _exit\c
+\& from
+being builtin functions.
+.TP
+.B \-fno\-strict\-prototype
+Treat a function declaration with no arguments, such as `\|\c
+.B int foo
+();\c
+\&\|', as C would treat it\(em\&as saying nothing about the number of
+arguments or their types (C++ only).  Normally, such a declaration in
+C++ means that the function \c
+.B foo\c
+\& takes no arguments.
+.TP
+.B \-trigraphs
+Support ANSI C trigraphs.  The `\|\c
+.B \-ansi\c
+\&\|' option implies `\|\c
+.B \-trigraphs\c
+\&\|'.
+.TP
+.B \-traditional
+Attempt to support some aspects of traditional C compilers.
+For details, see the GNU C Manual; the duplicate list here
+has been deleted so that we won't get complaints when it
+is out of date.
+.sp
+But one note about C++ programs only (not C).  `\|\c
+.B \-traditional\c
+\&\|' has one additional effect for C++: assignment to
+.B this
+is permitted.  This is the same as the effect of `\|\c
+.B \-fthis\-is\-variable\c
+\&\|'.
+.TP
+.B \-traditional\-cpp
+Use the regular GNU preprocessor rather than the NEXTSTEP\-specific \fBcpp\-precomp\fR option. Precompiled headers are not supported when `\fB\-traditional\-cpp\fR' is used.
+.TP
+.B \-fdollars\-in\-identifiers
+Permit the use of `\|\c
+.B $\c
+\&\|' in identifiers (C++ only).  You can also use
+`\|\c
+.B \-fno\-dollars\-in\-identifiers\c
+\&\|' to explicitly prohibit use of
+`\|\c
+.B $\c
+\&\|'.  (\fIcc++\fR allows `\|\c
+.B $\c
+\&\|' by default on some target systems
+but not others.)
+.TP
+.B \-fenum\-int\-equiv
+Permit implicit conversion of \c
+.B int\c
+\& to enumeration types (C++
+only).  Normally \fIcc++\fR allows conversion of \c
+.B enum\c
+\& to \c
+.B int\c
+\&,
+but not the other way around.
+.TP
+.B \-fexternal\-templates
+Produce smaller code for template declarations, by generating only a
+single copy of each template function where it is defined (C++ only).
+To use this option successfully, you must also mark all files that
+use templates with either `\|\c
+.B #pragma implementation\c
+\&\|' (the definition) or
+`\|\c
+.B #pragma interface\c
+\&\|' (declarations).
+
+When your code is compiled with `\|\c
+.B \-fexternal\-templates\c
+\&\|', all
+template instantiations are external.  You must arrange for all
+necessary instantiations to appear in the implementation file; you can
+do this with a \c
+.B typedef\c
+\& that references each instantiation needed.
+Conversely, when you compile using the default option
+`\|\c
+.B \-fno\-external\-templates\c
+\&\|', all template instantiations are
+explicitly internal.
+.TP
+.B \-fall\-virtual
+Treat all possible member functions as virtual, implicitly.  All
+member functions (except for constructor functions and
+.B new
+or
+.B delete
+member operators) are treated as virtual functions of the class where
+they appear.
+.sp
+This does not mean that all calls to these member functions will be
+made through the internal table of virtual functions.  Under some
+circumstances, the compiler can determine that a call to a given
+virtual function can be made directly; in these cases the calls are
+direct in any case.
+.TP
+.B \-fcond\-mismatch
+Allow conditional expressions with mismatched types in the second and
+third arguments.  The value of such an expression is void.
+.TP
+.B \-fthis\-is\-variable
+Permit assignment to \c
+.B this\c
+\& (C++ only).  The incorporation of
+user-defined free store management into C++ has made assignment to
+`\|\c
+.B this\c
+\&\|' an anachronism.  Therefore, by default it is invalid to
+assign to \c
+.B this\c
+\& within a class member function.  However, for
+backwards compatibility, you can make it valid with
+`\|\c
+.B \-fthis-is-variable\c
+\&\|'.
+.TP
+.B \-funsigned\-char
+Let the type \c
+.B char\c
+\& be unsigned, like \c
+.B unsigned char\c
+\&.
+.sp
+Each kind of machine has a default for what \c
+.B char\c
+\& should
+be.  It is either like \c
+.B unsigned char\c
+\& by default or like
+.B signed char\c
+\& by default.
+.sp
+Ideally, a portable program should always use \c
+.B signed char\c
+\& or
+.B unsigned char\c
+\& when it depends on the signedness of an object.
+But many programs have been written to use plain \c
+.B char\c
+\& and
+expect it to be signed, or expect it to be unsigned, depending on the
+machines they were written for.  This option, and its inverse, let you
+make such a program work with the opposite default.
+.sp
+The type \c
+.B char\c
+\& is always a distinct type from each of
+.B signed char\c
+\& and \c
+.B unsigned char\c
+\&, even though its behavior
+is always just like one of those two.
+.TP
+.B \-fsigned\-char
+Let the type \c
+.B char\c
+\& be signed, like \c
+.B signed char\c
+\&.
+.sp
+Note that this is equivalent to `\|\c
+.B \-fno\-unsigned\-char\c
+\&\|', which is
+the negative form of `\|\c
+.B \-funsigned\-char\c
+\&\|'.  Likewise,
+`\|\c
+.B \-fno\-signed\-char\c
+\&\|' is equivalent to `\|\c
+.B \-funsigned\-char\c
+\&\|'.
+.TP
+.B \-fsigned\-bitfields
+.TP
+.B \-funsigned\-bitfields
+.TP
+.B \-fno\-signed\-bitfields
+.TP
+.B \-fno\-unsigned\-bitfields
+These options control whether a bitfield is
+signed or unsigned, when declared with no explicit `\|\c
+.B signed\c
+\&\|' or `\|\c
+.B unsigned\c
+\&\|' qualifier.  By default, such a bitfield is
+signed, because this is consistent: the basic integer types such as
+.B int\c
+\& are signed types.
+.sp
+However, when you specify `\|\c
+.B \-traditional\c
+\&\|', bitfields are all unsigned
+no matter what.
+.TP
+.B \-fwritable\-strings
+Store string constants in the writable data segment and don't uniquize
+them.  This is for compatibility with old programs which assume they
+can write into string constants.  `\|\c
+.B \-traditional\c
+\&\|' also has this
+effect.
+.sp
+Writing into string constants is a very bad idea; \*(lqconstants\*(rq should
+be constant.
+.TP
+.B \-ObjC
+Specify that the file should be compiled as an Objective-C source program.
+.TP
+.B \-ObjC++
+Specify that the file should be compiled as an Objective-C++ source program.
+.TP
+.B \-posix
+Specify that the file should be compiled as a POSIX 1003.1 conforming source program. Note that POSIX kernel interfaces are not supported for NEXTSTEP applications. The POSIX kernal interfaces are supported only for C source files.
+.TP
+.B \-posixstrict
+Specify that the file should be compiled as a strict POSIX 1003.1 conforming source program without optional features. Note that POSIX kernel interfaces 
+are not supported for NEXTSTEP applications. The POSIX kernal interfaces
+are supported only for C source files. 
+.SH PREPROCESSOR OPTIONS
+These options control the C preprocessor, which is run on each C source
+file before actual compilation.
+.PP
+If you use the `\|\c
+.B \-E\c
+\&\|' option, \fIcc\fR does nothing except preprocessing.
+Some of these options make sense only together with `\|\c
+.B \-E\c
+\&\|' because
+they cause the preprocessor output to be unsuitable for actual
+compilation.
+.TP
+.BI "\-include " "file"
+Process \c
+.I file\c
+\& as input before processing the regular input file.
+In effect, the contents of \c
+.I file\c
+\& are compiled first.  Any `\|\c
+.B \-D\c
+\&\|'
+and `\|\c
+.B \-U\c
+\&\|' options on the command line are always processed before
+`\|\c
+.B \-include \c
+.I file\c
+\&\c
+\&\|', regardless of the order in which they are
+written.  All the `\|\c
+.B \-include\c
+\&\|' and `\|\c
+.B \-imacros\c
+\&\|' options are
+processed in the order in which they are written.
+.TP
+.BI "\-imacros " file
+Process \c
+.I file\c
+\& as input, discarding the resulting output, before
+processing the regular input file.  Because the output generated from
+.I file\c
+\& is discarded, the only effect of `\|\c
+.B \-imacros \c
+.I file\c
+\&\c
+\&\|' is to
+make the macros defined in \c
+.I file\c
+\& available for use in the main
+input.  The preprocessor evaluates any `\|\c
+.B \-D\c
+\&\|' and `\|\c
+.B \-U\c
+\&\|' options
+on the command line before processing `\|\c
+.B \-imacros\c
+.I file\c
+\&\|', regardless of the order in
+which they are written.  All the `\|\c
+.B \-include\c
+\&\|' and `\|\c
+.B \-imacros\c
+\&\|'
+options are processed in the order in which they are written.
+.TP
+.BI "\-idirafter " "dir"
+Add the directory \c
+.I dir\c
+\& to the second include path.  The directories
+on the second include path are searched when a header file is not found
+in any of the directories in the main include path (the one that
+`\|\c
+.B \-I\c
+\&\|' adds to).
+.TP
+.BI "\-iprefix " "prefix"
+Specify \c
+.I prefix\c
+\& as the prefix for subsequent `\|\c
+.B \-iwithprefix\c
+\&\|'
+options.
+.TP
+.BI "\-iwithprefix " "dir"
+Add a directory to the second include path.  The directory's name is
+made by concatenating \c
+.I prefix\c
+\& and \c
+.I dir\c
+\&, where \c
+.I prefix
+was specified previously with `\|\c
+.B \-iprefix\c
+\&\|'.
+.TP
+.B \-nostdinc
+Do not search the standard system directories for header files.  Only
+the directories you have specified with `\|\c
+.B \-I\c
+\&\|' options (and the
+current directory, if appropriate) are searched.
+.sp
+By using both `\|\c
+.B \-nostdinc\c
+\&\|' and `\|\c
+.B \-I\-\c
+\&\|', you can limit the include-file search file to only those
+directories you specify explicitly.
+.TP
+.B \-nostdinc++
+Do not search for header files in the C++\-specific standard directories,
+but do still search the other standard directories.
+(This option is used when building `\|\c
+.B libg++\c
+\&\|'.)
+.TP
+.B \-undef
+Do not predefine any nonstandard macros.  (Including architecture flags).
+.TP
+.B \-E
+Run only the C preprocessor.  Preprocess all the C source files
+specified and output the results to standard output or to the
+specified output file.
+.TP
+.B \-C
+Tell the preprocessor not to discard comments.  Used with the
+`\|\c
+.B \-E\c
+\&\|' option.
+.TP
+.B \-P
+Tell the preprocessor not to generate `\|\c
+.B #line\c
+\&\|' commands.
+Used with the `\|\c
+.B \-E\c
+\&\|' option.
+.TP
+.B \-M
+Tell the preprocessor to output a rule suitable for \c
+.B make
+describing the dependencies of each object file.  For each source file,
+the preprocessor outputs one \c
+.B make\c
+\&-rule whose target is the object
+file name for that source file and whose dependencies are all the files
+`\|\c
+.B #include\c
+\&\|'d in it.  This rule may be a single line or may be
+continued with `\|\c
+.B \e\c
+\&\|'-newline if it is long.  The list of rules is
+printed on standard output instead of the preprocessed C program.
+.sp
+`\|\c
+.B \-M\c
+\&\|' implies `\|\c
+.B \-E\c
+\&\|'.
+.TP
+.B \-MM
+Like `\|\c
+.B \-M\c
+\&\|' but the output mentions only the user header files
+included with `\|\c
+.B #include "\c
+.I file\c
+\&"\c
+\&\|'.  System header files
+included with `\|\c
+.B #include <\c
+.I file\c
+\&>\c
+\&\|' are omitted.
+.TP
+.B \-MD
+Like `\|\c
+.B \-M\c
+\&\|' but the dependency information is written to files with
+names made by replacing `\|\c
+.B .o\c
+\&\|' with `\|\c
+.B .d\c
+\&\|' at the end of the
+output file names.  This is in addition to compiling the file as
+specified\(em\&`\|\c
+.B \-MD\c
+\&\|' does not inhibit ordinary compilation the way
+`\|\c
+.B \-M\c
+\&\|' does.
+.sp
+The Mach utility `\|\c
+.B md\c
+\&\|' can be used to merge the `\|\c
+.B .d\c
+\&\|' files
+into a single dependency file suitable for using with the `\|\c
+.B make\c
+\&\|'
+command.
+.TP
+.B \-MMD
+Like `\|\c
+.B \-MD\c
+\&\|' except mention only user header files, not system
+header files.
+.TP
+.B \-H
+Print the name of each header file used, in addition to other normal
+activities.
+.TP
+.BI "\-A" "question" ( answer )
+Assert the answer
+.I answer
+for
+.I question\c
+\&, in case it is tested
+with a preprocessor conditional such as `\|\c
+.BI "#if #" question ( answer )\c
+\&\|'.  `\|\c
+.B \-A\-\c
+\&\|' disables the standard
+assertions that normally describe the target machine.
+.TP
+.BI "\-A" "question"\c
+\&(\c
+.I answer\c
+\&)
+Assert the answer \c
+.I answer\c
+\& for \c
+.I question\c
+\&, in case it is tested
+with a preprocessor conditional such as `\|\c
+.B #if
+#\c
+.I question\c
+\&(\c
+.I answer\c
+\&)\c
+\&\|'.  `\|\c
+.B \-A-\c
+\&\|' disables the standard
+assertions that normally describe the target machine.
+.TP
+.BI \-D macro
+Define macro \c
+.I macro\c
+\& with the string `\|\c
+.B 1\c
+\&\|' as its definition.
+.TP
+.BI \-D macro = defn
+Define macro \c
+.I macro\c
+\& as \c
+.I defn\c
+\&.    All instances of `\|\c
+.B \-D\c
+\&\|' on
+the command line are processed before any `\|\c
+.B \-U\c
+\&\|' options.
+.TP
+.BI \-U macro
+Undefine macro \c
+.I macro\c
+\&.  `\|\c
+.B \-U\c
+\&\|' options are evaluated after all `\|\c
+.B \-D\c
+\&\|' options, but before any `\|\c
+.B \-include\c
+\&\|' and `\|\c
+.B \-imacros\c
+\&\|' options.
+.TP
+.B \-dM
+Tell the preprocessor to output only a list of the macro definitions
+that are in effect at the end of preprocessing.  Used with the `\|\c
+.B \-E\c
+\&\|'
+option.
+.TP
+.B \-dD
+Tell the preprocessor to pass all macro definitions into the output, in
+their proper sequence in the rest of the output.
+.TP
+.B \-dN
+Like `\|\c
+.B \-dD\c
+\&\|' except that the macro arguments and contents are omitted.
+Only `\|\c
+.B #define \c
+.I name\c
+\&\c
+\&\|' is included in the output.
+.TP
+.B \-precomp
+Produce a precompiled header.
+.TP
+.B \-no\-precomp
+Do not use precompiled headers.
+.TP
+.SH ASSEMBLER OPTION
+.TP
+.BI "\-Wa," "option"
+Pass \c
+.I option\c
+\& as an option to the assembler.  If \c
+.I option
+contains commas, it is split into multiple options at the commas.
+.SH LINKER OPTIONS
+These options come into play when the compiler links object files into
+an executable output file.  They are meaningless if the compiler is
+not doing a link step.
+.TP
+.I object-file-name
+A file name that does not end in a special recognized suffix is
+considered to name an object file or library.  (Object files are
+distinguished from libraries by the linker according to the file
+contents.)  If \fIcc\fR does a link step, these object files are used as input
+to the linker.
+.TP
+.BI \-l library
+Use the library named \c
+.I library\c
+\& when linking.
+.sp
+The linker searches a standard list of directories for the library,
+which is actually a file named `\|\c
+.B lib\c
+.I library\c
+\&.a\c
+\&\|'.  The linker
+then uses this file as if it had been specified precisely by name.
+.sp
+The directories searched include several standard system directories
+plus any that you specify with `\|\c
+.B \-L\c
+\&\|'.
+.sp
+Normally the files found this way are library files\(em\&archive files
+whose members are object files.  The linker handles an archive file by
+scanning through it for members which define symbols that have so far
+been referenced but not defined.  However, if the linker finds an
+ordinary object file rather than a library, the object file is linked
+in the usual fashion.  The only difference between using an `\|\c
+.B \-l\c
+\&\|' option and specifying a file
+name is that `\|\c
+.B \-l\c
+\&\|' surrounds
+.I library
+with `\|\c
+.B lib\c
+\&\|' and `\|\c
+.B .a\c
+\&\|' and searches several directories.
+.TP
+.B \-nostartfiles
+Do not use the standard system startup files when linking.
+The standard libraries are used normally.
+.TP
+.B \-nostdlib
+Don't use the standard system libraries and startup files when linking.
+Only the files you specify will be passed to the linker.
+.TP
+.B \-shared
+Produce a shared object which can then be linked with other objects to
+form an executable.  Only a few systems support this option.
+.TP
+.B \-symbolic
+Bind references to global symbols when building a shared object.  Warn
+about any unresolved references (unless overridden by the link editor
+option `\|\c
+.B
+\-Xlinker \-z \-Xlinker defs\c
+\&\|').  Only a few systems support
+this option.
+.TP
+.BI "\-Xlinker " "option"
+Pass \c
+.I option
+as an option to the linker.  You can use this to
+supply system-specific linker options which \fIcc\fR does not know how to
+recognize.
+.sp
+If you want to pass an option that takes an argument, you must use
+`\|\c
+.B \-Xlinker\c
+\&\|' twice, once for the option and once for the argument.
+For example, to pass `\|\c
+.B
+\-assert definitions\c
+\&\|', you must write
+`\|\c
+.B
+\-Xlinker \-assert \-Xlinker definitions\c
+\&\|'.  It does not work to write
+`\|\c
+.B
+\-Xlinker "\-assert definitions"\c
+\&\|', because this passes the entire
+string as a single argument, which is not what the linker expects.
+.TP
+.BI "\-Wl," "option"
+Pass \c
+.I option\c
+\& as an option to the linker.  If \c
+.I option\c
+\& contains
+commas, it is split into multiple options at the commas.
+.TP
+.BI "\-u " "symbol"
+Pretend the symbol
+.I symbol
+is undefined, to force linking of
+library modules to define it.  You can use `\|\c
+.B \-u\c
+\&\|' multiple times with
+different symbols to force loading of additional library modules.
+.SH DIRECTORY OPTIONS
+These options specify directories to search for header files, for
+libraries and for parts of the compiler:
+.TP
+.BI "\-I" "dir"
+Append directory \c
+.I dir\c
+\& to the list of directories searched for include files.
+.TP
+.B \-I\-
+Any directories you specify with `\|\c
+.B \-I\c
+\&\|' options before the `\|\c
+.B \-I\-\c
+\&\|'
+option are searched only for the case of `\|\c
+.B
+#include "\c
+.I file\c
+.B
+\&"\c
+\&\|';
+they are not searched for `\|\c
+.B #include <\c
+.I file\c
+\&>\c
+\&\|'.
+.sp
+If additional directories are specified with `\|\c
+.B \-I\c
+\&\|' options after
+the `\|\c
+.B \-I\-\c
+\&\|', these directories are searched for all `\|\c
+.B #include\c
+\&\|'
+directives.  (Ordinarily \c
+.I all\c
+\& `\|\c
+.B \-I\c
+\&\|' directories are used
+this way.)
+.sp
+In addition, the `\|\c
+.B \-I\-\c
+\&\|' option inhibits the use of the current
+directory (where the current input file came from) as the first search
+directory for `\|\c
+.B
+#include "\c
+.I file\c
+.B
+\&"\c
+\&\|'.  There is no way to
+override this effect of `\|\c
+.B \-I\-\c
+\&\|'.  With `\|\c
+.B \-I.\c
+\&\|' you can specify
+searching the directory which was current when the compiler was
+invoked.  That is not exactly the same as what the preprocessor does
+by default, but it is often satisfactory.
+.sp
+`\|\c
+.B \-I\-\c
+\&\|' does not inhibit the use of the standard system directories
+for header files.  Thus, `\|\c
+.B \-I\-\c
+\&\|' and `\|\c
+.B \-nostdinc\c
+\&\|' are
+independent.
+.TP
+.BI "\-L" "dir"
+Add directory \c
+.I dir\c
+\& to the list of directories to be searched
+for `\|\c
+.B \-l\c
+\&\|'.
+.TP
+.BI "\-B" "prefix"
+This option specifies where to find the executables, libraries and
+data files of the compiler itself.
+.sp
+The compiler driver program runs one or more of the subprograms
+`\|\c
+.B cpp\c
+\&\|', `\|\c
+.B cc1obj\c
+\&\|' (or, for C++, `\|\c
+.B cc1objplus\c
+\&\|'), `\|\c
+.B as\c
+\&\|' and `\|\c
+.B ld\c
+\&\|'.  It tries
+.I prefix\c
+\& as a prefix for each program it tries to run, both with and
+without `\|\c
+.I machine\c
+.B /\c
+.I version\c
+.B /\c
+\&\|'.
+.sp
+For each subprogram to be run, the compiler driver first tries the
+`\|\c
+.B \-B\c
+\&\|' prefix, if any.  If that name is not found, or if `\|\c
+.B \-B\c
+\&\|'
+was not specified, the driver tries the directory 
+`\|\c
+.B \/lib\/\fIarch\fR/\c
+\&\|'.  Otherwise, the compiler driver
+searches for the unmodified program
+name, using the directories specified in your
+`\|\c
+.B PATH\c
+\&\|' environment variable.
+.sp
+.sp
+You can get a similar result from the environment variable
+.B GCC_EXEC_PREFIX\c
+\&; if it is defined, its value is used as a prefix
+in the same way.  If both the `\|\c
+.B \-B\c
+\&\|' option and the
+.B GCC_EXEC_PREFIX\c
+\& variable are present, the `\|\c
+.B \-B\c
+\&\|' option is
+used first and the environment variable value second.
+.SH WARNING OPTIONS
+Warnings are diagnostic messages that report constructions which
+are not inherently erroneous but which are risky or suggest there
+may have been an error.
+.sp
+These options control the amount and kinds of warnings produced by \fIcc\fR:
+.TP
+.B \-fsyntax\-only
+Check the code for syntax errors, but don't emit any output.
+.TP
+.B \-w
+Inhibit all warning messages.
+.TP
+.B \-Wno\-import
+Inhibit warning messages about the use of
+.BR #import .
+.TP
+.B \-pedantic
+Issue all the warnings demanded by strict ANSI standard C; reject
+all programs that use forbidden extensions.
+.sp
+Valid ANSI standard C programs should compile properly with or without
+this option (though a rare few will require `\|\c
+.B \-ansi\c
+\&\|').  However,
+without this option, certain GNU extensions and traditional C features
+are supported as well.  With this option, they are rejected.  There is
+no reason to \c
+.I use\c
+\& this option; it exists only to satisfy pedants.
+.sp
+`\|\c
+.B \-pedantic\c
+\&\|' does not cause warning messages for use of the
+alternate keywords whose names begin and end with `\|\c
+.B _\|_\c
+\&\|'.  Pedantic
+warnings are also disabled in the expression that follows
+.B _\|_extension_\|_\c
+\&.  However, only system header files should use
+these escape routes; application programs should avoid them.
+.TP
+.B \-pedantic\-errors
+Like `\|\c
+.B \-pedantic\c
+\&\|', except that errors are produced rather than
+warnings.
+.TP
+.B \-W
+Print extra warning messages for these events:
+.TP
+\ \ \ \(bu
+A nonvolatile automatic variable might be changed by a call to
+.B longjmp\c
+\&.  These warnings are possible only in
+optimizing compilation.
+.sp
+The compiler sees only the calls to \c
+.B setjmp\c
+\&.  It cannot know
+where \c
+.B longjmp\c
+\& will be called; in fact, a signal handler could
+call it at any point in the code.  As a result, you may get a warning
+even when there is in fact no problem because \c
+.B longjmp\c
+\& cannot
+in fact be called at the place which would cause a problem.
+.TP
+\ \ \ \(bu
+A function can return either with or without a value.  (Falling
+off the end of the function body is considered returning without
+a value.)  For example, this function would evoke such a
+warning:
+.sp
+.nf
+foo (a)
+{
+  if (a > 0)
+    return a;
+}
+.sp
+.fi
+Spurious warnings can occur because \fIcc\fR does not realize that
+certain functions (including \c
+.B abort\c
+\& and \c
+.B longjmp\c
+\&)
+will never return.
+.TP
+\ \ \ \(bu
+An expression-statement contains no side effects.
+.TP
+\ \ \ \(bu
+An unsigned value is compared against zero with `\|\c
+.B >\c
+\&\|' or `\|\c
+.B <=\c
+\&\|'.
+.PP
+.TP
+.B \-Wimplicit
+Warn whenever a function or parameter is implicitly declared.
+.TP
+.B \-Wreturn\-type
+Warn whenever a function is defined with a return-type that defaults
+to \c
+.B int\c
+\&.  Also warn about any \c
+.B return\c
+\& statement with no
+return-value in a function whose return-type is not \c
+.B void\c
+\&.
+.TP
+.B \-Wunused
+Warn whenever a local variable is unused aside from its declaration,
+whenever a function is declared static but never defined, and whenever
+a statement computes a result that is explicitly not used.
+.TP
+.B \-Wswitch
+Warn whenever a \c
+.B switch\c
+\& statement has an index of enumeral type
+and lacks a \c
+.B case\c
+\& for one or more of the named codes of that
+enumeration.  (The presence of a \c
+.B default\c
+\& label prevents this
+warning.)  \c
+.B case\c
+\& labels outside the enumeration range also
+provoke warnings when this option is used.
+.TP
+.B \-Wcomment
+Warn whenever a comment-start sequence `\|\c
+.B /\(**\c
+\&\|' appears in a comment.
+.TP
+.B \-Wtrigraphs
+Warn if any trigraphs are encountered (assuming they are enabled).
+.TP
+.B \-Wformat
+Check calls to \c
+.B printf\c
+\& and \c
+.B scanf\c
+\&, etc., to make sure that
+the arguments supplied have types appropriate to the format string
+specified.
+.TP
+.B \-Wchar\-subscripts
+Warn if an array subscript has type
+.BR char .
+This is a common cause of error, as programmers often forget that this
+type is signed on some machines.
+.TP
+.B \-Wuninitialized
+An automatic variable is used without first being initialized.
+.sp
+These warnings are possible only in optimizing compilation,
+because they require data flow information that is computed only
+when optimizing.  If you don't specify `\|\c
+.B \-O\c
+\&\|', you simply won't
+get these warnings.
+.sp
+These warnings occur only for variables that are candidates for
+register allocation.  Therefore, they do not occur for a variable that
+is declared \c
+.B volatile\c
+\&, or whose address is taken, or whose size
+is other than 1, 2, 4 or 8 bytes.  Also, they do not occur for
+structures, unions or arrays, even when they are in registers.
+.sp
+Note that there may be no warning about a variable that is used only
+to compute a value that itself is never used, because such
+computations may be deleted by data flow analysis before the warnings
+are printed.
+.sp
+These warnings are made optional because \fIcc\fR is not smart
+enough to see all the reasons why the code might be correct
+despite appearing to have an error.  Here is one example of how
+this can happen:
+.sp
+.nf
+{
+  int x;
+  switch (y)
+    {
+    case 1: x = 1;
+      break;
+    case 2: x = 4;
+      break;
+    case 3: x = 5;
+    }
+  foo (x);
+}
+.sp
+.fi
+If the value of \c
+.B y\c
+\& is always 1, 2 or 3, then \c
+.B x\c
+\& is
+always initialized, but \fIcc\fR doesn't know this.  Here is
+another common case:
+.sp
+.nf
+{
+  int save_y;
+  if (change_y) save_y = y, y = new_y;
+  .\|.\|.
+  if (change_y) y = save_y;
+}
+.sp
+.fi
+This has no bug because \c
+.B save_y\c
+\& is used only if it is set.
+.sp
+Some spurious warnings can be avoided if you declare as
+.B volatile\c
+\& all the functions you use that never return.
+.TP
+.B \-Wparentheses
+Warn if parentheses are omitted in certain contexts.
+.TP
+.B \-Wtemplate\-debugging
+When using templates in a C++ program, warn if debugging is not yet
+fully available (C++ only).
+.TP
+.B \-Wall
+All of the above `\|\c
+.B \-W\c
+\&\|' options combined.  These are all the
+options which pertain to usage that we recommend avoiding and that we
+believe is easy to avoid, even in conjunction with macros.
+.PP
+The remaining `\|\c
+.B \-W.\|.\|.\c
+\&\|' options are not implied by `\|\c
+.B \-Wall\c
+\&\|'
+because they warn about constructions that we consider reasonable to
+use, on occasion, in clean programs.
+.TP
+.B \-Wtraditional
+Warn about certain constructs that behave differently in traditional and
+ANSI C.
+.TP
+\ \ \ \(bu
+Macro arguments occurring within string constants in the macro body.
+These would substitute the argument in traditional C, but are part of
+the constant in ANSI C.
+.TP
+\ \ \ \(bu
+A function declared external in one block and then used after the end of
+the block.
+.TP
+\ \ \ \(bu
+A \c
+.B switch\c
+\& statement has an operand of type \c
+.B long\c
+\&.
+.PP
+.TP
+.B \-Wshadow
+Warn whenever a local variable shadows another local variable.
+.TP
+.BI "\-Wid\-clash\-" "len"
+Warn whenever two distinct identifiers match in the first \c
+.I len
+characters.  This may help you prepare a program that will compile
+with certain obsolete, brain-damaged compilers.
+.TP
+.B \-Wpointer\-arith
+Warn about anything that depends on the \*(lqsize of\*(rq a function type or
+of \c
+.B void\c
+\&.  \fIcc\fR assigns these types a size of 1, for
+convenience in calculations with \c
+.B void \(**\c
+\& pointers and pointers
+to functions.
+.TP
+.B \-Wcast\-qual
+Warn whenever a pointer is cast so as to remove a type qualifier from
+the target type.  For example, warn if a \c
+.B const char \(**\c
+\& is cast
+to an ordinary \c
+.B char \(**\c
+\&.
+.TP
+.B \-Wcast\-align
+Warn whenever a pointer is cast such that the required alignment of the
+target is increased.  For example, warn if a \c
+.B char \(**\c
+\& is cast to
+an \c
+.B int \(**\c
+\& on machines where integers can only be accessed at
+two- or four-byte boundaries.
+.TP
+.B \-Wwrite\-strings
+Give string constants the type \c
+.B const char[\c
+.I length\c
+.B ]\c
+\& so that
+copying the address of one into a non-\c
+.B const\c
+\& \c
+.B char \(**
+pointer will get a warning.  These warnings will help you find at
+compile time code that can try to write into a string constant, but
+only if you have been very careful about using \c
+.B const\c
+\& in
+declarations and prototypes.  Otherwise, it will just be a nuisance;
+this is why we did not make `\|\c
+.B \-Wall\c
+\&\|' request these warnings.
+.TP
+.B \-Wconversion
+Warn if a prototype causes a type conversion that is different from what
+would happen to the same argument in the absence of a prototype.  This
+includes conversions of fixed point to floating and vice versa, and
+conversions changing the width or signedness of a fixed point argument
+except when the same as the default promotion.
+.TP
+.B \-Waggregate\-return
+Warn if any functions that return structures or unions are defined or
+called.  (In languages where you can return an array, this also elicits
+a warning.)
+.TP
+.B \-Wstrict\-prototypes
+Warn if a function is declared or defined without specifying the
+argument types.  (An old-style function definition is permitted without
+a warning if preceded by a declaration which specifies the argument
+types.)
+.TP
+.B \-Wmissing\-prototypes
+Warn if a global function is defined without a previous prototype
+declaration.  This warning is issued even if the definition itself
+provides a prototype.  The aim is to detect global functions that fail
+to be declared in header files.
+.TP
+.B \-Wredundant-decls
+Warn if anything is declared more than once in the same scope, even in
+cases where multiple declaration is valid and changes nothing.
+.TP
+.B \-Wnested-externs
+Warn if an \c
+.B extern\c
+\& declaration is encountered within an function.
+.TP
+.B \-Wenum\-clash
+Warn about conversion between different enumeration types (C++ only).
+.TP
+.B \-Woverloaded\-virtual
+(C++ only.)
+In a derived class, the definitions of virtual functions must match
+the type signature of a virtual function declared in the base class.
+Use this option to request warnings when a derived class declares a
+function that may be an erroneous attempt to define a virtual
+function: that is, warn when a function with the same name as a
+virtual function in the base class, but with a type signature that
+doesn't match any virtual functions from the base class.
+.TP
+.B \-Winline
+Warn if a function can not be inlined, and either it was declared as inline,
+or else the
+.B \-finline\-functions
+option was given.
+.TP
+.B \-Wprecomp
+Warn if a precompiled header cannot be used.
+.TP
+.B \-Wno\-precomp
+Suppress warnings when a precompiled header cannot be used.
+.TP
+.B \-Werror
+Treat warnings as errors; abort compilation after any warning.
+.SH DEBUGGING OPTIONS
+\fIcc\fR has various special options that are used for debugging
+either your program or \fIcc\fR:
+.TP
+.B \-g
+Produce debugging information in the operating system's native format.  
+GDB can work with this debugging
+information.
+.sp
+On most systems that use stabs format, `\|\c
+.B \-g\c
+\&\|' enables use of extra
+debugging information that only GDB can use; this extra information
+makes debugging work better in GDB but will probably make other debuggers
+crash or
+refuse to read the program.  
+.sp
+Unlike most other C compilers, \fIcc\fR allows you to use `\|\c
+.B \-g\c
+\&\|' with
+`\|\c
+.B \-O\c
+\&\|'.  The shortcuts taken by optimized code may occasionally
+produce surprising results: some variables you declared may not exist
+at all; flow of control may briefly move where you did not expect it;
+some statements may not be executed because they compute constant
+results or their values were already at hand; some statements may
+execute in different places because they were moved out of loops.
+.sp
+Nevertheless it proves possible to debug optimized output.  This makes
+it reasonable to use the optimizer for programs that might have bugs.
+.PP
+The following options are useful when \fIcc\fR is generated with the
+capability for more than one debugging format.
+.TP
+.B \-ggdb
+Produce debugging information in the native format (if that is supported),
+including GDB extensions if at all possible.
+.TP
+.B \-p
+Generate extra code to write profile information suitable for the
+analysis program \c
+.B prof\c
+\&.
+.TP
+.B \-pg
+Generate extra code to write profile information suitable for the
+analysis program \c
+.B gprof\c
+\&.
+.TP
+.B \-a
+Generate extra code to write profile information for basic blocks,
+which will record the number of times each basic block is executed.
+This data could be analyzed by a program like \c
+.B tcov\c
+\&.  Note,
+however, that the format of the data is not what \c
+.B tcov\c
+\& expects.
+Eventually GNU \c
+.B gprof\c
+\& should be extended to process this data.
+.TP
+.BI "\-d" "letters"
+Says to make debugging dumps during compilation at times specified by
+.I letters\c
+\&.  This is used for debugging the compiler.  The file names
+for most of the dumps are made by appending a word to the source file
+name (e.g.  `\|\c
+.B foo.c.rtl\c
+\&\|' or `\|\c
+.B foo.c.jump\c
+\&\|').
+.TP
+.B \-dM
+Dump all macro definitions, at the end of preprocessing, and write no
+output.
+.TP
+.B \-dN
+Dump all macro names, at the end of preprocessing.
+.TP
+.B \-dD
+Dump all macro definitions, at the end of preprocessing, in addition to
+normal output.
+.TP
+.B \-dy
+Dump debugging information during parsing, to standard error.
+.TP
+.B \-dr
+Dump after RTL generation, to `\|\c
+.I file\c
+.B \&.rtl\c
+\&\|'.
+.TP
+.B \-dx
+Just generate RTL for a function instead of compiling it.  Usually used
+with `\|\c
+.B r\c
+\&\|'.
+.TP
+.B \-dj
+Dump after first jump optimization, to `\|\c
+.I file\c
+.B \&.jump\c
+\&\|'.
+.TP
+.B \-ds
+Dump after CSE (including the jump optimization that sometimes
+follows CSE), to `\|\c
+.I file\c
+.B \&.cse\c
+\&\|'.
+.TP
+.B \-dL
+Dump after loop optimization, to `\|\c
+.I file\c
+.B \&.loop\c
+\&\|'.
+.TP
+.B \-dt
+Dump after the second CSE pass (including the jump optimization that
+sometimes follows CSE), to `\|\c
+.I file\c
+.B \&.cse2\c
+\&\|'.
+.TP
+.B \-df
+Dump after flow analysis, to `\|\c
+.I file\c
+.B \&.flow\c
+\&\|'.
+.TP
+.B \-dc
+Dump after instruction combination, to `\|\c
+.I file\c
+.B \&.combine\c
+\&\|'.
+.TP
+.B \-dS
+Dump after the first instruction scheduling pass, to
+`\|\c
+.I file\c
+.B \&.sched\c
+\&\|'.
+.TP
+.B \-dl
+Dump after local register allocation, to `\|\c
+.I file\c
+.B \&.lreg\c
+\&\|'.
+.TP
+.B \-dg
+Dump after global register allocation, to `\|\c
+.I file\c
+.B \&.greg\c
+\&\|'.
+.TP
+.B \-dR
+Dump after the second instruction scheduling pass, to
+`\|\c
+.I file\c
+.B \&.sched2\c
+\&\|'.
+.TP
+.B \-dJ
+Dump after last jump optimization, to `\|\c
+.I file\c
+.B \&.jump2\c
+\&\|'.
+.TP
+.B \-dd
+Dump after delayed branch scheduling, to `\|\c
+.I file\c
+.B \&.dbr\c
+\&\|'.
+.TP
+.B \-dk
+Dump after conversion from registers to stack, to `\|\c
+.I file\c
+.B \&.stack\c
+\&\|'.
+.TP
+.B \-da
+Produce all the dumps listed above.
+.TP
+.B \-dm
+Print statistics on memory usage, at the end of the run, to
+standard error.
+.TP
+.B \-dp
+Annotate the assembler output with a comment indicating which
+pattern and alternative was used.
+.TP
+.B \-fpretend\-float
+When running a cross-compiler, pretend that the target machine uses the
+same floating point format as the host machine.  This causes incorrect
+output of the actual floating constants, but the actual instruction
+sequence will probably be the same as \fIcc\fR would make when running on
+the target machine.
+.TP
+.B \-save\-temps
+Store the usual \*(lqtemporary\*(rq intermediate files permanently; place them
+in the current directory and name them based on the source file.  Thus,
+compiling `\|\c
+.B foo.c\c
+\&\|' with `\|\c
+.B \-c \-save\-temps\c
+\&\|' would produce files
+`\|\c
+.B foo.cpp\c
+\&\|' and `\|\c
+.B foo.s\c
+\&\|', as well as `\|\c
+.B foo.o\c
+\&\|'.
+.TP
+.B \-print\-libgcc\-file\-name
+Print the full absolute name of the library file `\|\c
+.B libgcc.a\c
+\&\|' that
+would be used when linking\(em\&and do not do anything else.  With this
+option, \fIcc\fR does not compile or link anything; it just prints the
+file name.
+.SH OPTIMIZATION OPTIONS
+These options control various sorts of optimizations:
+.TP
+.B \-O
+.TP
+.B \-O1
+Optimize.  Optimizing compilation takes somewhat more time, and a lot
+more memory for a large function.
+.sp
+Without `\|\c
+.B \-O\c
+\&\|', the compiler's goal is to reduce the cost of
+compilation and to make debugging produce the expected results.
+Statements are independent: if you stop the program with a breakpoint
+between statements, you can then assign a new value to any variable or
+change the program counter to any other statement in the function and
+get exactly the results you would expect from the source code.
+.sp
+Without `\|\c
+.B \-O\c
+\&\|', only variables declared \c
+.B register\c
+\& are
+allocated in registers.  The resulting compiled code is a little worse
+than produced by PCC without `\|\c
+.B \-O\c
+\&\|'.
+.sp
+With `\|\c
+.B \-O\c
+\&\|', the compiler tries to reduce code size and execution
+time.
+.sp
+When you specify `\|\c
+.B \-O\c
+\&\|', `\|\c
+.B \-fthread\-jumps\c
+\&\|' and
+`\|\c
+.B \-fdelayed\-branch\c
+\&\|' are turned on.  On some machines other
+flags may also be turned on.
+.TP
+.B \-O2
+Optimize even more.  Nearly all supported optimizations that do not
+involve a space-speed tradeoff are performed.  As compared to
+.B \-O\c
+\&,
+this option increases both compilation time and the performance of the
+generated code.
+.sp
+.B \-O2
+turns on all
+.BI \-f flag
+options that enable more optimization, except for
+.B \-funroll\-loops\c
+\&,
+.B \-funroll\-all\-loops
+and
+.BR \-fomit\-frame\-pointer .
+.TP
+.B \-O0
+Do not optimize.
+.sp
+If you use multiple
+.B \-O
+options, with or without level numbers, the last such option is the
+one that is effective.
+.PP
+Options of the form `\|\c
+.B \-f\c
+.I flag\c
+\&\c
+\&\|' specify machine-independent
+flags.  Most flags have both positive and negative forms; the negative
+form of `\|\c
+.B \-ffoo\c
+\&\|' would be `\|\c
+.B \-fno\-foo\c
+\&\|'.  The following list shows
+only one form\(em\&the one which is not the default.
+You can figure out the other form by either removing `\|\c
+.B no\-\c
+\&\|' or
+adding it.
+.TP
+.B \-ffloat\-store
+Do not store floating point variables in registers.  This
+prevents undesirable excess precision on machines such as the
+68000 where the floating registers (of the 68881) keep more
+precision than a \c
+.B double\c
+\& is supposed to have.
+.sp
+For most programs, the excess precision does only good, but a few
+programs rely on the precise definition of IEEE floating point.
+Use `\|\c
+.B \-ffloat\-store\c
+\&\|' for such programs.
+.TP
+.B \-fmemoize\-lookups
+.TP
+.B \-fsave\-memoized
+Use heuristics to compile faster (C++ only).  These heuristics are not
+enabled by default, since they are only effective for certain input
+files.  Other input files compile more slowly.
+.sp
+The first time the compiler must build a call to a member function (or
+reference to a data member), it must (1) determine whether the class
+implements member functions of that name; (2) resolve which member
+function to call (which involves figuring out what sorts of type
+conversions need to be made); and (3) check the visibility of the member
+function to the caller.  All of this adds up to slower compilation.
+Normally, the second time a call is made to that member function (or
+reference to that data member), it must go through the same lengthy
+process again.  This means that code like this
+.sp
+\&  cout << "This " << p << " has " << n << " legs.\en";
+.sp
+makes six passes through all three steps.  By using a software cache,
+a \*(lqhit\*(rq significantly reduces this cost.  Unfortunately, using the
+cache introduces another layer of mechanisms which must be implemented,
+and so incurs its own overhead.  `\|\c
+.B \-fmemoize\-lookups\c
+\&\|' enables
+the software cache.
+.sp
+Because access privileges (visibility) to members and member functions
+may differ from one function context to the next,
+\fIcc\fR
+may need to flush the cache.  With the `\|\c
+.B \-fmemoize\-lookups\c
+\&\|' flag, the cache is flushed after every
+function that is compiled.  The `\|\c
+\-fsave\-memoized\c
+\&\|' flag enables the same software cache, but when the compiler
+determines that the context of the last function compiled would yield
+the same access privileges of the next function to compile, it
+preserves the cache.
+This is most helpful when defining many member functions for the same
+class: with the exception of member functions which are friends of
+other classes, each member function has exactly the same access
+privileges as every other, and the cache need not be flushed.
+.TP
+.B \-fno\-default\-inline
+Don't make member functions inline by default merely because they are
+defined inside the class scope (C++ only).
+.TP
+.B \-fno\-defer\-pop
+Always pop the arguments to each function call as soon as that
+function returns.  For machines which must pop arguments after a
+function call, the compiler normally lets arguments accumulate on the
+stack for several function calls and pops them all at once.
+.TP
+.B \-fforce\-mem
+Force memory operands to be copied into registers before doing
+arithmetic on them.  This may produce better code by making all
+memory references potential common subexpressions.  When they are
+not common subexpressions, instruction combination should
+eliminate the separate register-load.  I am interested in hearing
+about the difference this makes.
+.TP
+.B \-fforce\-addr
+Force memory address constants to be copied into registers before
+doing arithmetic on them.  This may produce better code just as
+`\|\c
+.B \-fforce\-mem\c
+\&\|' may.  I am interested in hearing about the
+difference this makes.
+.TP
+.B \-fomit\-frame\-pointer
+Don't keep the frame pointer in a register for functions that
+don't need one.  This avoids the instructions to save, set up and
+restore frame pointers; it also makes an extra register available
+in many functions.  \c
+.I It also makes debugging impossible on
+most machines.
+.sp
+On some machines, such as the Vax, this flag has no effect, because
+the standard calling sequence automatically handles the frame pointer
+and nothing is saved by pretending it doesn't exist.  The
+machine-description macro \c
+.B FRAME_POINTER_REQUIRED\c
+\& controls
+whether a target machine supports this flag.
+.TP
+.B \-finline\-functions
+Integrate all simple functions into their callers.  The compiler
+heuristically decides which functions are simple enough to be worth
+integrating in this way.
+.sp
+If all calls to a given function are integrated, and the function is
+declared \c
+.B static\c
+\&, then \fIcc\fR normally does not output the function as
+assembler code in its own right.
+.TP
+.B \-fcaller\-saves
+Enable values to be allocated in registers that will be clobbered by
+function calls, by emitting extra instructions to save and restore the
+registers around such calls.  Such allocation is done only when it
+seems to result in better code than would otherwise be produced.
+.sp
+This option is enabled by default on certain machines, usually those
+which have no call-preserved registers to use instead.
+.TP
+.B \-fkeep\-inline\-functions
+Even if all calls to a given function are integrated, and the function
+is declared \c
+.B static\c
+\&, nevertheless output a separate run-time
+callable version of the function.
+.TP
+.B \-fno\-function\-cse
+Do not put function addresses in registers; make each instruction that
+calls a constant function contain the function's address explicitly.
+.sp
+This option results in less efficient code, but some strange hacks
+that alter the assembler output may be confused by the optimizations
+performed when this option is not used.
+.TP
+.B \-fno\-peephole
+Disable any machine-specific peephole optimizations.
+.TP
+.B \-ffast-math
+This option allows \fIcc\fR to violate some ANSI or IEEE rules/specifications
+in the interest of optimizing code for speed.  For example, it allows
+the compiler to assume arguments to the \c
+.B sqrt\c
+\& function are
+non-negative numbers.
+.sp
+This option should never be turned on by any `\|\c
+.B \-O\c
+\&\|' option since
+it can result in incorrect output for programs which depend on
+an exact implementation of IEEE or ANSI rules/specifications for
+math functions.
+.PP
+The following options control specific optimizations.  The `\|\c
+.B \-O2\c
+\&\|'
+option turns on all of these optimizations except `\|\c
+.B \-funroll\-loops\c
+\&\|'
+and `\|\c
+.B \-funroll\-all\-loops\c
+\&\|'.
+.PP
+The `\|\c
+.B \-O\c
+\&\|' option usually turns on
+the `\|\c
+.B \-fthread\-jumps\c
+\&\|' and `\|\c
+.B \-fdelayed\-branch\c
+\&\|' options, but
+specific machines may change the default optimizations.
+.PP
+You can use the following flags in the rare cases when \*(lqfine-tuning\*(rq
+of optimizations to be performed is desired.
+.TP
+.B \-fstrength\-reduce
+Perform the optimizations of loop strength reduction and
+elimination of iteration variables.
+.TP
+.B \-fthread\-jumps
+Perform optimizations where we check to see if a jump branches to a
+location where another comparison subsumed by the first is found.  If
+so, the first branch is redirected to either the destination of the
+second branch or a point immediately following it, depending on whether
+the condition is known to be true or false.
+.TP
+.B \-funroll\-loops
+Perform the optimization of loop unrolling.  This is only done for loops
+whose number of iterations can be determined at compile time or run time.
+.TP
+.B \-funroll\-all\-loops
+Perform the optimization of loop unrolling.  This is done for all loops.
+This usually makes programs run more slowly.
+.TP
+.B \-fcse\-follow\-jumps
+In common subexpression elimination, scan through jump instructions
+when the target of the jump is not reached by any other path.  For
+example, when CSE encounters an \c
+.B if\c
+\& statement with an
+.B else\c
+\& clause, CSE will follow the jump when the condition
+tested is false.
+.TP
+.B \-fcse\-skip\-blocks
+This is similar to `\|\c
+.B \-fcse\-follow\-jumps\c
+\&\|', but causes CSE to
+follow jumps which conditionally skip over blocks.  When CSE
+encounters a simple \c
+.B if\c
+\& statement with no else clause,
+`\|\c
+.B \-fcse\-skip\-blocks\c
+\&\|' causes CSE to follow the jump around the
+body of the \c
+.B if\c
+\&.
+.TP
+.B \-frerun\-cse\-after\-loop
+Re-run common subexpression elimination after loop optimizations has been
+performed.
+.TP
+.B \-felide\-constructors
+Elide constructors when this seems plausible (C++ only).  With this
+flag, \fIcc\fR initializes \c
+.B y\c
+\& directly from the call to \c
+.B foo
+without going through a temporary in the following code:
+.sp
+A foo ();
+A y = foo ();
+.sp
+Without this option, \fIcc\fR first initializes \c
+.B y\c
+\& by calling the
+appropriate constructor for type \c
+.B A\c
+\&; then assigns the result of
+.B foo\c
+\& to a temporary; and, finally, replaces the initial valyue of
+`\|\c
+.B y\c
+\&\|' with the temporary.
+.sp
+The default behavior (`\|\c
+.B \-fno\-elide\-constructors\c
+\&\|') is specified by
+the draft ANSI C++ standard.  If your program's constructors have side
+effects, using `\|\c
+.B \-felide-constructors\c
+\&\|' can make your program act
+differently, since some constructor calls may be omitted.
+.TP
+.B \-fexpensive\-optimizations
+Perform a number of minor optimizations that are relatively expensive.
+.TP
+.B \-fdelayed\-branch
+If supported for the target machine, attempt to reorder instructions
+to exploit instruction slots available after delayed branch
+instructions.
+.TP
+.B \-fschedule\-insns
+If supported for the target machine, attempt to reorder instructions to
+eliminate execution stalls due to required data being unavailable.  This
+helps machines that have slow floating point or memory load instructions
+by allowing other instructions to be issued until the result of the load
+or floating point instruction is required.
+.TP
+.B \-fschedule\-insns2
+Similar to `\|\c
+.B \-fschedule\-insns\c
+\&\|', but requests an additional pass of
+instruction scheduling after register allocation has been done.  This is
+especially useful on machines with a relatively small number of
+registers and where memory load instructions take more than one cycle.
+.SH MACHINE DEPENDENT OPTIONS
+Each of the target machine types can have its own special options,
+starting with `\|\c
+.B \-m\c
+\&\|', to choose among various hardware models or
+configurations\(em\&for example, 68010 vs 68020, floating coprocessor or
+none.  A single installed version of the compiler can compile for any
+model or configuration, according to the options specified.
+.PP
+Some configurations of the compiler also support additional special
+options, usually for command-line compatibility with other compilers on
+the same platform.
+.PP
+These are the `\|\c
+.B \-m\c
+\&\|' options defined for the 68000 series:
+.TP
+.B \-m68000
+.TP
+.B \-mc68000
+Generate output for a 68000.  This is the default when the compiler is
+configured for 68000-based systems.
+.TP
+.B \-m68020
+.TP
+.B \-mc68020
+Generate output for a 68020 (rather than a 68000).  This is the
+default when the compiler is configured for 68020-based systems.
+.TP
+.B \-m68881
+Generate output containing 68881 instructions for floating point.
+This is the default for most 68020-based systems unless
+.B \-nfp
+was specified when the compiler was configured.
+.TP
+.B \-m68030
+Generate output for a 68030.  This is the default when the compiler is
+configured for 68030-based systems.
+.TP
+.B \-m68040
+Generate output for a 68040.  This is the default when the compiler is
+configured for 68040-based systems.
+.TP
+.B \-m68020\-40
+Generate output for a 68040, without using any of the new instructions.
+This results in code which can run relatively efficiently on either a
+68020/68881 or a 68030 or a 68040.
+.TP
+.B \-mfpa
+Generate output containing Sun FPA instructions for floating point.
+.TP
+.B \-msoft\-float
+Generate output containing library calls for floating point.
+.I
+WARNING:
+the requisite libraries are not part of the GNU C compiler.  Normally the
+facilities of the machine's usual C compiler are used, but this can't
+be done directly in cross-compilation.  You must make your own
+arrangements to provide suitable library functions for cross-compilation.
+.TP
+.B \-mshort
+Consider type \c
+.B int\c
+\& to be 16 bits wide, like \c
+.B short int\c
+\&.
+.TP
+.B \-mnobitfield
+Do not use the bit-field instructions.  `\|\c
+.B \-m68000\c
+\&\|' implies
+`\|\c
+.B \-mnobitfield\c
+\&\|'.
+.TP
+.B \-mbitfield
+Do use the bit-field instructions.  `\|\c
+.B \-m68020\c
+\&\|' implies
+`\|\c
+.B \-mbitfield\c
+\&\|'.  This is the default if you use the unmodified
+sources.
+.TP
+.B \-mrtd
+Use a different function-calling convention, in which functions
+that take a fixed number of arguments return with the \c
+.B rtd
+instruction, which pops their arguments while returning.  This
+saves one instruction in the caller since there is no need to pop
+the arguments there.
+.sp
+This calling convention is incompatible with the one normally
+used on Unix, so you cannot use it if you need to call libraries
+compiled with the Unix compiler.
+.sp
+Also, you must provide function prototypes for all functions that
+take variable numbers of arguments (including \c
+.B printf\c
+\&);
+otherwise incorrect code will be generated for calls to those
+functions.
+.sp
+In addition, seriously incorrect code will result if you call a
+function with too many arguments.  (Normally, extra arguments are
+harmlessly ignored.)
+.sp
+The \c
+.B rtd\c
+\& instruction is supported by the 68010 and 68020
+processors, but not by the 68000.
+.PP
+These `\|\c
+.B \-m\c
+\&\|' options are defined for the Intel 80386 family of computers:
+.TP
+.B \-m486
+.TP
+.B \-mno\-486
+Control whether or not code is optimized for a 486 instead of an
+386.  Code generated for a 486 will run on a 386 and vice versa.
+.TP
+.B \-msoft\-float
+Generate output containing library calls for floating point.
+.I Warning:
+the requisite libraries are not part of the GNU C compiler.
+Normally the facilities of the machine's usual C compiler are used, but
+this can't be done directly in cross-compilation.  You must make your
+own arrangements to provide suitable library functions for
+cross-compilation.
+.sp
+On machines where a function returns floating point results in the 80387
+register stack, some floating point opcodes may be emitted even if
+`\|\c
+.B \-msoft-float\c
+\&\|' is used.
+.TP
+.B \-mno-fp-ret-in-387
+Do not use the FPU registers for return values of functions.
+.sp
+The usual calling convention has functions return values of types
+.B float\c
+\& and \c
+.B double\c
+\& in an FPU register, even if there
+is no FPU.  The idea is that the operating system should emulate
+an FPU.
+.sp
+The option `\|\c
+.B \-mno-fp-ret-in-387\c
+\&\|' causes such values to be returned
+in ordinary CPU registers instead.
+.PP
+These `\|\c
+.B \-m\c
+\&\|' options are defined for the HPPA family of computers:
+.TP
+.B \-mpa-risc-1-0
+Generate code for a PA 1.0 processor.
+.TP
+.B \-mpa-risc-1-1
+Generate code for a PA 1.1 processor.
+.TP
+.B \-mkernel
+Generate code which is suitable for use in kernels.  Specifically, avoid
+.B add\c
+\& instructions in which one of the arguments is the DP register;
+generate \c
+.B addil\c
+\& instructions instead.  This avoids a rather serious
+bug in the HP-UX linker.
+.TP
+.B \-mshared-libs
+Generate code that can be linked against HP-UX shared libraries.  This option
+is not fully function yet, and is not on by default for any PA target.  Using
+this option can cause incorrect code to be generated by the compiler.
+.TP
+.B \-mno-shared-libs
+Don't generate code that will be linked against shared libraries.  This is
+the default for all PA targets.
+.TP
+.B \-mlong-calls
+Generate code which allows calls to functions greater than 256K away from
+the caller when the caller and callee are in the same source file.  Do
+not turn this option on unless code refuses to link with \*(lqbranch out of
+range errors\*('' from the linker.
+.TP
+.B \-mdisable-fpregs
+Prevent floating point registers from being used in any manner.  This is
+necessary for compiling kernels which perform lazy context switching of
+floating point registers.  If you use this option and attempt to perform
+floating point operations, the compiler will abort.
+.TP
+.B \-mdisable-indexing
+Prevent the compiler from using indexing address modes.  This avoids some
+rather obscure problems when compiling MIG generated code under MACH.
+.TP
+.B \-mtrailing-colon
+Add a colon to the end of label definitions (for ELF assemblers).
+.SH CODE GENERATION OPTIONS
+These machine-independent options control the interface conventions
+used in code generation.
+.PP
+Most of them begin with `\|\c
+\-f\c
+\&\|'.  These options have both positive and negative forms; the negative form
+of `\|\c
+.B \-ffoo\c
+\&\|' would be `\|\c
+.B \-fno\-foo\c
+\&\|'.  In the table below, only
+one of the forms is listed\(em\&the one which is not the default.  You
+can figure out the other form by either removing `\|\c
+.B no\-\c
+\&\|' or adding
+it.
+.TP
+.B \-fnonnull\-objects
+Assume that objects reached through references are not null
+(C++ only).
+.sp
+Normally, \fIcc\fR makes conservative assumptions about objects reached
+through references.  For example, the compiler must check that \c
+.B a
+is not null in code like the following:
+.sp
+obj &a = g ();
+a.f (2);
+.sp
+Checking that references of this sort have non-null values requires
+extra code, however, and it is unnecessary for many programs.  You can
+use `\|\c
+.B \-fnonnull-objects\c
+\&\|' to omit the checks for null, if your
+program doesn't require checking.
+.TP
+.B \-fpcc\-struct\-return
+Use the same convention for returning \c
+.B struct\c
+\& and \c
+.B union
+values that is used by the usual C compiler on your system.  This
+convention is less efficient for small structures, and on many
+machines it fails to be reentrant; but it has the advantage of
+allowing intercallability between GCC-compiled code and PCC-compiled
+code.
+.TP
+.B \-freg\-struct\-return
+Use the convention that
+.B struct
+and
+.B union
+values are returned in registers when possible.  This is more
+efficient for small structures than
+.BR \-fpcc\-struct\-return .
+.sp
+If you specify neither
+.B \-fpcc\-struct\-return
+nor
+.BR \-freg\-struct\-return ,
+\fIcc\fR defaults to whichever convention is standard for the target.
+If there is no standard convention, \fIcc\fR defaults to
+.BR \-fpcc\-struct\-return .
+.TP
+.B \-fshort\-enums
+Allocate to an \c
+.B enum\c
+\& type only as many bytes as it needs for the
+declared range of possible values.  Specifically, the \c
+.B enum\c
+\& type
+will be equivalent to the smallest integer type which has enough room.
+.TP
+.B \-fshort\-double
+Use the same size for
+.B double
+as for
+.B float
+\&.
+.TP
+.B \-fshared\-data
+Requests that the data and non-\c
+.B const\c
+\& variables of this
+compilation be shared data rather than private data.  The distinction
+makes sense only on certain operating systems, where shared data is
+shared between processes running the same program, while private data
+exists in one copy per process.
+.TP
+.B \-fno\-common
+Allocate even uninitialized global variables in the bss section of the
+object file, rather than generating them as common blocks.  This has the
+effect that if the same variable is declared (without \c
+.B extern\c
+\&) in
+two different compilations, you will get an error when you link them.
+The only reason this might be useful is if you wish to verify that the
+program will work on other systems which always work this way.
+.TP
+.B \-fno\-gnu\-linker
+Do not output global initializations (such as C++ constructors and
+destructors) in the form used by the GNU linker (on systems where the GNU
+linker is the standard method of handling them).  Use this option when
+you want to use a non-GNU linker, which also requires using the
+.B collect2\c
+\& program to make sure the system linker includes
+constructors and destructors.  (\c
+.B collect2\c
+\& is included in the GNU C distribution.)  For systems which \c
+.I must\c
+\& use \c
+.B collect2\c
+\&, the
+compiler driver \c
+.B gcc\c
+\& is configured to do this automatically.
+.TP
+.B \-finhibit-size-directive
+Don't output a \c
+.B .size\c
+\& assembler directive, or anything else that
+would cause trouble if the function is split in the middle, and the
+two halves are placed at locations far apart in memory.  This option is
+used when compiling `\|\c
+.B crtstuff.c\c
+\&\|'; you should not need to use it
+for anything else.
+.TP
+.B \-fverbose-asm
+Put extra commentary information in the generated assembly code to
+make it more readable.  This option is generally only of use to those
+who actually need to read the generated assembly code (perhaps while
+debugging the compiler itself).
+.TP
+.B \-fvolatile
+Consider all memory references through pointers to be volatile.
+.TP
+.B \-fvolatile\-global
+Consider all memory references to extern and global data items to
+be volatile.
+.TP
+.BI "\-ffixed\-" "reg"
+Treat the register named \c
+.I reg\c
+\& as a fixed register; generated code
+should never refer to it (except perhaps as a stack pointer, frame
+pointer or in some other fixed role).
+.sp
+.I reg\c
+\& must be the name of a register.  The register names accepted
+are machine-specific and are defined in the \c
+.B REGISTER_NAMES
+macro in the machine description macro file.
+.sp
+This flag does not have a negative form, because it specifies a
+three-way choice.
+.TP
+.BI "\-fcall\-used\-" "reg"
+Treat the register named \c
+.I reg\c
+\& as an allocatable register that is
+clobbered by function calls.  It may be allocated for temporaries or
+variables that do not live across a call.  Functions compiled this way
+will not save and restore the register \c
+.I reg\c
+\&.
+.sp
+Use of this flag for a register that has a fixed pervasive role in the
+machine's execution model, such as the stack pointer or frame pointer,
+will produce disastrous results.
+.sp
+This flag does not have a negative form, because it specifies a
+three-way choice.
+.TP
+.BI "\-fcall\-saved\-" "reg"
+Treat the register named \c
+.I reg\c
+\& as an allocatable register saved by
+functions.  It may be allocated even for temporaries or variables that
+live across a call.  Functions compiled this way will save and restore
+the register \c
+.I reg\c
+\& if they use it.
+.sp
+Use of this flag for a register that has a fixed pervasive role in the
+machine's execution model, such as the stack pointer or frame pointer,
+will produce disastrous results.
+.sp
+A different sort of disaster will result from the use of this flag for
+a register in which function values may be returned.
+.sp
+This flag does not have a negative form, because it specifies a
+three-way choice.
+.SH 
+Two `\|\c
+.B #pragma\c
+\&\|' directives are supported for \fIcc\fR, to permit using the same
+header file for two purposes: as a definition of interfaces to a given
+object class, and as the full definition of the contents of that object class.
+.TP
+.B #pragma interface
+(C++ only.)
+Use this directive in header files that define object classes, to save
+space in most of the object files that use those classes.  Normally,
+local copies of certain information (backup copies of inline member
+functions, debugging information, and the internal tables that
+implement virtual functions) must be kept in each object file that
+includes class definitions.  You can use this pragma to avoid such
+duplication.  When a header file containing `\|\c
+.B #pragma interface\c
+\&\|' is included in a compilation, this auxiliary information
+will not be generated (unless the main input source file itself uses
+`\|\c
+.B #pragma implementation\c
+\&\|').  Instead, the object files will contain references to be
+resolved at link time.
+.TP
+.B #pragma implementation
+.TP
+\fB#pragma implementation "\fP\fIobjects\fP\fB.h"\fP
+(C++ only.)
+Use this pragma in a main input file, when you want full output from
+included header files to be generated (and made globally visible).
+The included header file, in turn, should use `\|\c
+.B #pragma interface\c
+\&\|'.
+Backup copies of inline member functions, debugging information, and
+the internal tables used to implement virtual functions are all
+generated in implementation files.
+.sp
+If you use `\|\c
+.B #pragma implementation\c
+\&\|' with no argument, it applies to an include file with the same
+basename as your source file; for example, in `\|\c
+.B allclass.cc\c
+\&\|', `\|\c
+.B #pragma implementation\c
+\&\|' by itself is equivalent to `\|\c
+.B
+#pragma implementation "allclass.h"\c
+\&\|'.  Use the string argument if you want a single implementation
+file to include code from multiple header files.
+.sp
+There is no way to split up the contents of a single header file into
+multiple implementation files.
+.SH FILES
+.nf
+.ta \w'LIBDIR/g++\-include 'u
+file.c	C source file
+file.h	C header (preprocessor) file
+file.i	preprocessed C source file
+file.C	C++ source file
+file.cc	C++ source file
+file.cxx	C++ source file
+file.m	Objective-C source file
+file.M	Objective-C++ source file
+file.s	assembly language file
+file.o	object file
+a.out	link edited output
+\/tmp/cc\(**	temporary files
+\/lib/\fIarch\fR\/cpp	preprocessor
+\/lib/\fIarch\fR\/cc1	compiler for C
+\/lib/\fIarch\fR\/cc1objplus
+	compiler for C++
+\/lib/\fIarch\fR\/collect	linker front end needed on some machines
+\/lib\/crt[01n].o	start-up routine
+\/lib/\fIarch\fR\/ccrt0	additional start-up routine for C++
+\/lib\/libc.a	standard C library, see \fIintro\fR(3)
+\/usr\/include	standard directory for \fB#include\fP files
+\/lib/\fIarch\fR\/include	standard \fIcc\fR directory for \fB#include\fP files
+\/lib/\fIarch\fR\/g++\/include
+	additional \fIcc\fR directory for \fB#include\fP files
+.SH SEE ALSO
+gdb(1), ld(1)

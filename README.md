@@ -8,9 +8,23 @@ Learnings about developing for OPENSTEP 4.2, macOS' non-Apple predecessor.
 
 1. `GETTING-STARTED.md`: a guide (and quick reference) to the OPENSTEP Unix environment; how to set up a headless OPENSTEP host to do development. **As provided here, the specific credentials, IP, port for connecting to the guest are mine -- read through and edit! It's short.**
 
-2. `GUEST-TOOLCHAIN.md`: Unix tools available on the guest, as well as recipes for working with files -- "skills", in AI parlance. A bit of a terse reference; some of the parts are written for people who know modern *nix tools well (e.g. AI!)
+2. `UNIX-ENVIRONMENT`: in-depth guides to the Unix environment available on the guest; `UNIX-ENVIRONMENT.md` documents general things to remember; the sub-folder `UNIX-ENVIRONMENT/SKILLS` presents guides to doing various Unix-y tasks that an AI agent might do.
 
-3. `manpages`: raw manpages from OPENSTEP 4.2.
+3. `REFERENCES/MANPAGES`: raw manpages from OPENSTEP 4.2. Additionally:
+
+	1. `.../MANPAGES/SECTIONS.md` lists (sub)sections of the manual, their purpose, and where to find them;
+
+	2. `.../MANPAGES/whatis` is the OPENSTEP 4.2 `whatis` index (i.e. synopses of manpages.)
+	
+4. `REFERENCES/FRAMEWORKS`: Resources for Objective-C frameworks, organized by framework name.
+	
+	- Some frameworks: `Foundation.framework` (the Objective-C "standard" library); `AppKit.framework` (the OPENSTEP UI application development framework); `SoundKit.framework` (audio streaming-playing-recording; useful widgets); `NEXTIME.framework` (similarly for video.) More included.
+	
+	- Subfolder structure: `*.framework/Reference` provides HTML documentation; `*.framework/Headers` provides Objective-C headers; `*.framework/Examples` provides examples.
+	
+	2. `REFERENCES/NextDeveloper/Examples`: examples for these frameworks, folders refer to frameworks.
+
+6. `REFERENCES/C-HEADERS`: headers for core C libraries; highlights include the ANSI C stdlib (`ansi`), Objective-C runtime (`objc`), native Mach API (`mach`), 4.2 BSD-derived/Unix headers (`bsd`), etc.
 
 ## Licensing
 

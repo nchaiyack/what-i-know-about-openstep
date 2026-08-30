@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.0px Times; min-height: 10.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 14.0px Times}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 48.0px Times; min-height: 58.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 14.0px Times; min-height: 18.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 48.0px Helvetica; min-height: 58.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 25.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 25.0px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 25.0px; font: 22.0px Times; min-height: 28.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 24.0px Helvetica}
+    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 19.0px Helvetica; min-height: 23.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 12.0px; font: 14.0px Times; min-height: 18.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 40.0px; font: 2.0px Courier; min-height: 2.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 40.0px; font: 12.0px Courier}
+    p.p18 {margin: 0.0px 0.0px 0.0px 40.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 25.0px; font: 12.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 25.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 176.0px; text-indent: -152.0px; font: 12.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 176.0px; text-indent: -152.0px; font: 2.0px Times; min-height: 4.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 176.0px; text-indent: -152.0px; font: 40.0px Times; min-height: 48.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 40.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 12.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 12.0px; font: 20.0px Times; min-height: 24.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 40.0px; text-indent: -16.0px; font: 22.0px Times; min-height: 28.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Times}
+    span.s3 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p4"><i>Appendix A</i></p>
+<p class="p5"><i></i><br></p>
+<p class="p6"><i></i><br></p>
+<p class="p5"><i></i><br></p>
+<p class="p7"><b>Objective-C Language Summary</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><br></p>
+<p class="p11">Objective-C adds a small number of constructs to the C language and defines a handful of conventions for effectively interacting with the run-time system. This appendix lists all the additions to the language, but doesn't go into great detail. For more information, see Chapter 2 and Chapter 3 of this manual. For a more formal presentation of Objective-C syntax, see Appendix B, “Reference Manual for the Objective-C Language,” which follows this summary.</p>
+<p class="p10"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><b>Messages</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p11">Message expressions are enclosed in square brackets:</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p17"><span class="s2"><b>[</b></span><i>receiver message</i><span class="s2"><b>]</b></span></p>
+<p class="p18"><b></b><br></p>
+<p class="p15"><br></p>
+<p class="p11">The <i>receiver</i> can be:</p>
+<p class="p10"><br></p>
+<p class="p19">•<span class="Apple-tab-span">	</span>A variable or expression that evaluates to an object (including the variable <span class="s2"><b>self</b></span>)</p>
+<p class="p19">•<span class="Apple-tab-span">	</span>A class name (indicating the class object)</p>
+<p class="p19">•<span class="Apple-tab-span">	</span><span class="s2"><b>super</b></span> (indicating an alternative search for the method implementation)</p>
+<p class="p20"><br></p>
+<p class="p11">The <i>message</i> is the name of a method plus any arguments passed to it.</p>
+<p class="p10"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><b>Defined Types</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p11">The principal types used in Objective-C are defined in <span class="s2"><b>objc/objc.h</b></span>. They are:</p>
+<p class="p10"><br></p>
+<p class="p12"><br></p>
+<p class="p21"><b>Type<span class="Apple-tab-span">	</span>Definition</b></p>
+<p class="p21"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-1-title" data-source="A_Summary.rtfd/824895_TableHeadRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-1-title">824895_TableHeadRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(3.529358%, 75.686646%, 42.744446%)" stroke-opacity="1" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></b><b></b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23">id<span class="Apple-tab-span">	</span>An object (a pointer to its data structure)</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-2-title" data-source="A_Summary.rtfd/933583_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-2-title">933583_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">Class<span class="Apple-tab-span">	</span>A class object (a pointer to the class data structure)</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-3-title" data-source="A_Summary.rtfd/166243_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-3-title">166243_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">SEL<span class="Apple-tab-span">	</span>A selector, a compiler-assigned code that identifies a method name</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-4-title" data-source="A_Summary.rtfd/520955_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-4-title">520955_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">IMP<span class="Apple-tab-span">	</span>A pointer to a method implementation that returns an <b>id</b></p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-5-title" data-source="A_Summary.rtfd/910718_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-5-title">910718_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><b></b><br></p>
+<p class="p23">BOOL<span class="Apple-tab-span">	</span>A boolean value, either YES or NO</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-6-title" data-source="A_Summary.rtfd/328086_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-6-title">328086_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p25"><br></p>
+<p class="p11"><span class="s2"><b>id</b></span> can be used to type any kind of object, class, or instance.<span class="Apple-converted-space">  </span>In addition, class names can be used as type names to statically type instances of a class.<span class="Apple-converted-space">  </span>A statically typed instance is declared to be a pointer to its class or to any class it inherits from.</p>
+<p class="p10"><br></p>
+<p class="p11">The <span class="s2"><b>objc.h</b></span> header file also defines these useful terms:</p>
+<p class="p10"><br></p>
+<p class="p12"><br></p>
+<p class="p21"><b>Term<span class="Apple-tab-span">	</span>Definition</b></p>
+<p class="p21"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-7-title" data-source="A_Summary.rtfd/376487_TableHeadRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-7-title">376487_TableHeadRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(3.529358%, 75.686646%, 42.744446%)" stroke-opacity="1" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></b><b></b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23">nil<span class="Apple-tab-span">	</span>A null object pointer, (<b>id</b>)0</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-8-title" data-source="A_Summary.rtfd/499045_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-8-title">499045_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">Nil<span class="Apple-tab-span">	</span>A null class pointer, (<b>Class</b>)0</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-9-title" data-source="A_Summary.rtfd/439156_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-9-title">439156_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p25"><br></p>
+<p class="p13"><b>Preprocessor Directives</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p11">The preprocessor understands these new notations:</p>
+<p class="p10"><br></p>
+<p class="p12"><br></p>
+<p class="p21"><b>Notation<span class="Apple-tab-span">	</span>Definition</b></p>
+<p class="p21"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-10-title" data-source="A_Summary.rtfd/509337_TableHeadRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-10-title">509337_TableHeadRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(3.529358%, 75.686646%, 42.744446%)" stroke-opacity="1" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></b><b></b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23">#import<span class="Apple-tab-span">	</span>Imports a header file.<span class="Apple-converted-space">  </span>This directive is identical to <b>#include</b>, except that it won't include the same file more than once.</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-11-title" data-source="A_Summary.rtfd/229486_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-11-title">229486_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">//<span class="Apple-tab-span">	</span>Begins a comment that continues to the end of the line.</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-12-title" data-source="A_Summary.rtfd/950132_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-12-title">950132_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p25"><br></p>
+<p class="p13"><b>Compiler Directives</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p11">Directives to the compiler begin with “@”.<span class="Apple-converted-space">  </span>The following directives are used to declare and define classes, categories, and protocols:</p>
+<p class="p10"><br></p>
+<p class="p12"><br></p>
+<p class="p21"><b>Directive<span class="Apple-tab-span">	</span>Definition</b></p>
+<p class="p21"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-13-title" data-source="A_Summary.rtfd/980352_TableHeadRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-13-title">980352_TableHeadRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(3.529358%, 75.686646%, 42.744446%)" stroke-opacity="1" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></b><b></b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23">@interface<span class="Apple-tab-span">	</span>Begins the declaration of a class or category interface</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-14-title" data-source="A_Summary.rtfd/11083_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-14-title">11083_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">@implementation<span class="Apple-tab-span">	</span>Begins the definition of a class or category</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-15-title" data-source="A_Summary.rtfd/281995_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-15-title">281995_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">@protocol<span class="Apple-tab-span">	</span>Begins the declaration of a formal protocol</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-16-title" data-source="A_Summary.rtfd/428549_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-16-title">428549_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">@end<span class="Apple-tab-span">	</span>Ends the declaration/definition of a class, category, or protocol</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-17-title" data-source="A_Summary.rtfd/646153_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-17-title">646153_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p25"><br></p>
+<p class="p11">The following mutually-exclusive directives specify the visibility of instance variables:</p>
+<p class="p10"><br></p>
+<p class="p12"><br></p>
+<p class="p21"><b>Directive<span class="Apple-tab-span">	</span>Definition</b></p>
+<p class="p21"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-18-title" data-source="A_Summary.rtfd/729465_TableHeadRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-18-title">729465_TableHeadRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(3.529358%, 75.686646%, 42.744446%)" stroke-opacity="1" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></b><b></b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23">@private<span class="Apple-tab-span">	</span>Limits the scope of an instance variable to the class that declares it</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-19-title" data-source="A_Summary.rtfd/475196_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-19-title">475196_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">@protected<span class="Apple-tab-span">	</span>Limits instance variable scope to declaring and inheriting classes</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-20-title" data-source="A_Summary.rtfd/967809_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-20-title">967809_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">@public<span class="Apple-tab-span">	</span>Removes restrictions on the scope of instance variables</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-21-title" data-source="A_Summary.rtfd/150003_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-21-title">150003_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p11">The default is <span class="s2"><b>@protected</b></span>.</p>
+<p class="p10"><br></p>
+<p class="p11">In addition, there are directives for these particular purposes:</p>
+<p class="p10"><br></p>
+<p class="p12"><br></p>
+<p class="p21"><b>Directive<span class="Apple-tab-span">	</span>Definition</b></p>
+<p class="p21"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-22-title" data-source="A_Summary.rtfd/418025_TableHeadRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-22-title">418025_TableHeadRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(3.529358%, 75.686646%, 42.744446%)" stroke-opacity="1" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></b><b></b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23">@class<span class="Apple-tab-span">	</span>Declares the names of classes defined elsewhere</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-23-title" data-source="A_Summary.rtfd/127057_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-23-title">127057_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">@selector(<i>method</i>)<span class="Apple-tab-span">	</span>Returns the compiled selector that identifies <i>method</i></p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-24-title" data-source="A_Summary.rtfd/468938_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-24-title">468938_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><i></i><br></p>
+<p class="p23">@protocol(<i>name</i>)<span class="Apple-tab-span">	</span>Returns the <i>name</i> protocol (an instance of the Protocol class)</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-25-title" data-source="A_Summary.rtfd/883665_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-25-title">883665_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">@encode(<i>spec</i>)<span class="Apple-tab-span">	</span>Yields a character string that encodes the type structure of <i>spec</i></p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-26-title" data-source="A_Summary.rtfd/296906_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-26-title">296906_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><i></i><br></p>
+<p class="p23">@defs(<i>classname</i>)<span class="Apple-tab-span">	</span>Yields the internal data structure of <i>classname</i> instances</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-27-title" data-source="A_Summary.rtfd/734765_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-27-title">734765_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p25"><br></p>
+<p class="p13"><b>Classes</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p11">A new class is declared with the <span class="s2"><b>@interface</b></span> directive. It imports the interface file for its<span class="Apple-converted-space">  </span>superclass:</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p17">#import <b>"</b><i>ItsSuperclass</i>.h"</p>
+<p class="p26"><b></b><br></p>
+<p class="p17">@interface <i>ClassName</i><b> : </b><i>ItsSuperclass </i><b>&lt;</b><i> protocol list </i><b>&gt;</b></p>
+<p class="p17">{</p>
+<p class="p17"><b><span class="Apple-tab-span">	</span></b><i>instance variable declarations</i></p>
+<p class="p17">}<b><span class="Apple-converted-space"> </span></b></p>
+<p class="p17"><i>method declarations</i><span class="Apple-converted-space"> </span></p>
+<p class="p17">@end</p>
+<p class="p16"><br></p>
+<p class="p15"><br></p>
+<p class="p11">Everything but the compiler directives and class name is optional.<span class="Apple-converted-space">  </span>If the colon and superclass name are omitted, the class is declared to be a new root class.<span class="Apple-converted-space">  </span>If any protocols are listed, the header files where they're declared must also be imported.</p>
+<p class="p10"><br></p>
+<p class="p11">A class definition imports its own interface:</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p17">#import "<i>ClassName</i>.h"</p>
+<p class="p26"><b></b><br></p>
+<p class="p17">@implementation <i>ClassName</i></p>
+<p class="p17"><i>method definitions</i><span class="Apple-converted-space"> </span></p>
+<p class="p17">@end</p>
+<p class="p16"><br></p>
+<p class="p26"><br></p>
+<p class="p16"><br></p>
+<p class="p15"><br></p>
+<p class="p27"><br></p>
+<p class="p28"><br></p>
+<p class="p13"><b>Categories</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p11">A category is declared in much the same way as a class.<span class="Apple-converted-space">  </span>It imports the interface file that declares the class:</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p17">#import "<i>ClassName</i>.h"</p>
+<p class="p26"><br></p>
+<p class="p17">@interface <i>ClassName</i> ( <i>CategoryName</i> ) &lt; <i>protocol list</i> &gt;</p>
+<p class="p17"><i>method declarations</i><span class="Apple-converted-space"> </span></p>
+<p class="p17">@end</p>
+<p class="p16"><br></p>
+<p class="p15"><br></p>
+<p class="p11">The protocol list and method declarations are optional.<span class="Apple-converted-space">  </span>If any protocols are listed, the header files where they're declared must also be imported.</p>
+<p class="p10"><br></p>
+<p class="p11">Like a class definition, a category definition imports its own interface:</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p17">#import "<i>CategoryName</i>.h"</p>
+<p class="p26"><br></p>
+<p class="p17">@implementation <i>ClassName</i> ( <i>CategoryName</i> )</p>
+<p class="p17"><i>method definitions</i><span class="Apple-converted-space"> </span></p>
+<p class="p17">@end</p>
+<p class="p16"><br></p>
+<p class="p26"><br></p>
+<p class="p16"><br></p>
+<p class="p15"><br></p>
+<p class="p27"><br></p>
+<p class="p28"><br></p>
+<p class="p13"><b>Formal Protocols</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p11">Formal protocols are declared using the <span class="s2"><b>@protocol</b></span> directive:</p>
+<p class="p15"><br></p>
+<p class="p16"><br></p>
+<p class="p17">@protocol <i>ProtocolName</i> &lt; <i>protocol list</i> &gt;</p>
+<p class="p17"><i>method declarations</i><span class="Apple-converted-space"> </span></p>
+<p class="p17">@end</p>
+<p class="p16"><br></p>
+<p class="p15"><br></p>
+<p class="p11">The list of incorporated protocols and the method declarations are optional.<span class="Apple-converted-space">  </span>The protocol must import the header files that declare any protocols it incorporates.</p>
+<p class="p10"><br></p>
+<p class="p11">Within source code, protocols are referred to using the similar <span class="s2"><b>@protocol()</b></span> directive, where the parentheses enclose the protocol name.</p>
+<p class="p10"><br></p>
+<p class="p11">Protocol names listed within angle brackets (&lt;...&gt;) are used to do three different things:</p>
+<p class="p10"><br></p>
+<p class="p19">•<span class="Apple-tab-span">	</span>In a protocol declaration, to incorporate other protocols (as shown above)</p>
+<p class="p19">•<span class="Apple-tab-span">	</span>In a class or category declaration, to adopt the protocol (as shown under “Classes” and “Categories” above)</p>
+<p class="p19">•<span class="Apple-tab-span">	</span>In a type specification, to limit the type to objects that conform to the protocol</p>
+<p class="p20"><br></p>
+<p class="p11">Within protocol declarations, these type qualifiers support remote messaging:</p>
+<p class="p10"><br></p>
+<p class="p12"><br></p>
+<p class="p21"><b>Type Qualifier<span class="Apple-tab-span">	</span>Definition</b></p>
+<p class="p21"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-28-title" data-source="A_Summary.rtfd/274939_TableHeadRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-28-title">274939_TableHeadRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(3.529358%, 75.686646%, 42.744446%)" stroke-opacity="1" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></b><b></b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23">oneway<span class="Apple-tab-span">	</span>The method is for asynchronous messages and has no valid return.</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-29-title" data-source="A_Summary.rtfd/996657_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-29-title">996657_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">in<span class="Apple-tab-span">	</span>The argument passes information to the remote receiver.</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-30-title" data-source="A_Summary.rtfd/60065_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-30-title">60065_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">out<span class="Apple-tab-span">	</span>The argument gets information returned by reference.</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-31-title" data-source="A_Summary.rtfd/921714_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-31-title">921714_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">inout<span class="Apple-tab-span">	</span>The argument both passes information and gets information.</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-32-title" data-source="A_Summary.rtfd/654885_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-32-title">654885_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">bycopy<span class="Apple-tab-span">	</span>A copy of the object, not a proxy, should be passed or returned.</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-33-title" data-source="A_Summary.rtfd/485199_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-33-title">485199_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p24"><br></p>
+<p class="p23">byref<span class="Apple-tab-span">	</span>A reference to the object, not a copy, should be passed or returned.</p>
+<p class="p23"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="690pt" height="8pt" viewBox="0 0 690 8" role="img" aria-labelledby="manual-svg-34-title" data-source="A_Summary.rtfd/25984_TableRule.svg" style="max-width:100%;height:auto">
+<title id="manual-svg-34-title">25984_TableRule.eps</title><path fill="none" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="5 35 5 35" stroke-miterlimit="10" d="M 0 40 L 6900 40 " transform="matrix(0.1, 0, 0, -0.1, 0, 8)"/>
+</svg></p>
+<p class="p25"><br></p>
+<p class="p13"><b>Method Declarations</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p11">The following conventions are used in method declarations:</p>
+<p class="p10"><br></p>
+<p class="p19">•<span class="Apple-tab-span">	</span>A “+” precedes declarations of class methods.</p>
+<p class="p20"><br></p>
+<p class="p19">•<span class="Apple-tab-span">	</span>A “<span class="s3">-</span>” precedes declarations of instance methods.</p>
+<p class="p20"><br></p>
+<p class="p19">•<span class="Apple-tab-span">	</span>Arguments are declared after colons (:).<span class="Apple-converted-space">  </span>Typically, a label describing the argument precedes the colon.<span class="Apple-converted-space">  </span>Both labels and colons are considered part of the method name.</p>
+<p class="p20"><br></p>
+<p class="p19">•<span class="Apple-tab-span">	</span>Argument and return types are declared using the C syntax for type casting.</p>
+<p class="p20"><br></p>
+<p class="p19">•<span class="Apple-tab-span">	</span>The default return and argument type for methods is <span class="s2"><b>id</b></span>, not <span class="s2"><b>int</b></span> as it is for functions. (However, the modifier <span class="s2"><b>unsigned</b></span> when used without a following type always means <span class="s2"><b>unsigned int</b></span>)</p>
+<p class="p20"><br></p>
+<p class="p29"><br></p>
+<p class="p13"><b>Method Implementations</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p11">Each method implementation is passed two hidden arguments:</p>
+<p class="p10"><br></p>
+<p class="p19">•<span class="Apple-tab-span">	</span>The receiving object (<span class="s2"><b>self</b></span>)</p>
+<p class="p19">•<span class="Apple-tab-span">	</span>The selector for the method (<span class="s2"><b>_cmd</b></span>)</p>
+<p class="p20"><br></p>
+<p class="p11">Within the implementation, both <span class="s2"><b>self</b></span> and <span class="s2"><b>super</b></span> refer to the receiving object.<span class="Apple-converted-space">  </span><span class="s2"><b>super</b></span> replaces <span class="s2"><b>self</b></span> as the receiver of a message to indicate that only methods inherited by the implementation should be performed in response to the message.</p>
+<p class="p10"><br></p>
+<p class="p11">Methods with no other valid return typically return <span class="s2"><b>void</b></span>.</p>
+<p class="p10"><br></p>
+<p class="p12"><br></p>
+<p class="p13"><b>Naming Conventions</b></p>
+<p class="p14"><b></b><br></p>
+<p class="p11">The names of files that contain Objective-C source code have a “.m” extension.<span class="Apple-converted-space">  </span>Files that declare class and category interfaces or that declare protocols have the “.h” extension typical of header files.</p>
+<p class="p10"><br></p>
+<p class="p11">Class, category, and protocol names generally begin with an uppercase letter; the names of methods and instance variables typically begin with a lowercase letter.<span class="Apple-converted-space">  </span>The names of variables that hold instances usually also begin with lowercase letters.</p>
+<p class="p10"><br></p>
+<p class="p11">In Objective-C, identical names that serve different purposes don't clash.<span class="Apple-converted-space">  </span>Within a class, names can be freely assigned:</p>
+<p class="p10"><br></p>
+<p class="p19">•<span class="Apple-tab-span">	</span>A class can declare methods with the same names as methods in other classes.</p>
+<p class="p19">•<span class="Apple-tab-span">	</span>A class can declare instance variables with the same names as variables in other classes.</p>
+<p class="p19">•<span class="Apple-tab-span">	</span>An instance method can have the same name as a class method.</p>
+<p class="p19">•<span class="Apple-tab-span">	</span>A method can have the same name as an instance variable.</p>
+<p class="p20"><br></p>
+<p class="p11">Likewise, protocols and categories of the same class have protected name spaces:</p>
+<p class="p10"><br></p>
+<p class="p19">•<span class="Apple-tab-span">	</span>A protocol can have the same name as a class, a category, or anything else.</p>
+<p class="p19">•<span class="Apple-tab-span">	</span>A category of one class can have the same name as a category of another class.</p>
+<p class="p20"><br></p>
+<p class="p11">However, class names are in the same name space as variables and defined types.<span class="Apple-converted-space">  </span>A program can't have a global variable with the same name as a class.</p>
+<p class="p10"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><br></p>
+</body>
+</html>

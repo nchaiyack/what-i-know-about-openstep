@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 28.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 35.0px Helvetica; min-height: 42.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 10.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 75.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 36.0px Helvetica; min-height: 43.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 26.0px Helvetica}
+    p.p11 {margin: 0.0px 0.0px 0.0px 73.0px; text-indent: -38.0px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 12.0px Helvetica}
+    p.p13 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -136.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 211.0px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 211.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 211.0px; text-indent: -137.0px; font: 15.0px Times; min-height: 18.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 10.0px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 10.0px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 75.0px; font: 12.0px Helvetica}
+    p.p22 {margin: 0.0px 0.0px 0.0px 75.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 388.0px; text-indent: -313.0px; font: 14.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 388.0px; text-indent: -313.0px; font: 9.0px Times; min-height: 11.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 75.0px; font: 10.0px Times; min-height: 13.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 10.0px; font: 9.0px Helvetica; min-height: 11.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 317.0px; text-indent: -242.0px; font: 9.0px Helvetica}
+    p.p28 {margin: 0.0px 0.0px 0.0px 10.0px; font: 8.0px Helvetica; min-height: 10.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 10.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 12.0px Helvetica}
+    p.p31 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 14.0px Times}
+    p.p33 {margin: 0.0px 0.0px 0.0px 115.0px; text-indent: -40.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p34 {margin: 0.0px 0.0px 0.0px 75.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Helvetica}
+    p.p36 {margin: 0.0px 0.0px 0.0px 75.0px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 75.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier}
+    p.p39 {margin: 0.0px 0.0px 0.0px 95.0px; font: 7.0px Courier; min-height: 8.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 95.0px; font: 12.0px Courier; min-height: 14.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 95.0px; font: 20.0px Courier; min-height: 24.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p43 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p44 {margin: 0.0px 0.0px 0.0px 337.0px; text-indent: -242.0px; font: 13.0px Times; min-height: 16.0px}
+    p.p45 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 14.0px Times}
+    p.p46 {margin: 0.0px 0.0px 0.0px 90.0px; text-indent: -15.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p47 {margin: 0.0px 0.0px 0.0px 75.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p48 {margin: 0.0px 0.0px 0.0px 60.0px; text-indent: -51.0px; font: 14.0px Helvetica}
+    p.p49 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 14.0px Times}
+    p.p50 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -242.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p51 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 14.0px Times}
+    p.p52 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 35.0px Times; min-height: 42.0px}
+    p.p53 {margin: 0.0px 0.0px 0.0px 316.0px; text-indent: -12.0px; font: 5.0px Times; min-height: 6.0px}
+    p.p54 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 14.0px Times}
+    p.p55 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -31.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p56 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 14.0px Times}
+    p.p57 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p58 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 23.0px Times; min-height: 28.0px}
+    p.p59 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 12.0px Helvetica}
+    p.p60 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 14.0px Helvetica}
+    p.p61 {margin: 0.0px 0.0px 0.0px 75.0px; text-indent: -26.0px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p62 {margin: 0.0px 0.0px 0.0px 140.0px; text-indent: -65.0px; font: 28.0px Times; min-height: 34.0px}
+    p.p63 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p64 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p65 {margin: 0.0px 0.0px 0.0px 75.0px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.0px Helvetica}
+    span.s3 {font: 14.0px Times}
+    span.s4 {font: 12.0px Helvetica}
+    span.s5 {font: 14.0px Symbol}
+    span.s6 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">c<span class="Apple-tab-span">	</span></span><b>NSDate Class Cluster</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Class Cluster Description</b></p>
+<p class="p6"><b></b><br></p>
+<p class="p7">NSDate objects represent a single point in time. The NSDate cluster's single public superclass, NSDate, declares the programmatic interface for specific and relative time values.</p>
+<p class="p8"><br></p>
+<p class="p7">The objects you create using NSDate are referred to as <i>date objects</i>. They are immutable objects. Because of the nature of class clusters, objects returned by the NSDate class are not instances of that abstract class but of one of its private subclasses. Although a date object's class is private, its interface is public, as declared by the abstract superclass, NSDate. (See “Class Clusters” in the introduction to the Foundation Kit for more information on class clusters and creating subclasses within a cluster.)<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">Generally, you instantiate a suitable date object by invoking one of the <b>date...</b> class methods.</p>
+<p class="p8"><br></p>
+<p class="p7">The date classes adopt the NSCopying and NSCoding protocols.</p>
+<p class="p8"><br></p>
+<p class="p9"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2">i<span class="Apple-tab-span">	</span></span><b></b><b>NSDate</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p12"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s3">NSObject</span></p>
+<p class="p13"><br></p>
+<p class="p14"><span class="s4"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSCoding, NSCopying</p>
+<p class="p15">NSObject (NSObject)<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p14"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>Foundation/NSDate.h</p>
+<p class="p17"><br></p>
+<p class="p18"><br></p>
+<p class="p19"><b></b><br></p>
+<p class="p5"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="22pt" viewBox="0 0 597 22" role="img" aria-labelledby="eps-svg-1-title" data-source="NSDateClassCluster.rtfd/AtaGlance.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-1-title">AtaGlance.eps</title><defs>
+<g>
+<g id="eps-svg-1-glyph-0-0">
+<path d="M 8.859375 -6.265625 C 8.796875 -7.078125 8.625 -7.609375 8.234375 -8.140625 C 7.5 -9.09375 6.328125 -9.640625 4.90625 -9.640625 C 2.234375 -9.640625 0.578125 -7.71875 0.578125 -4.65625 C 0.578125 -1.59375 2.21875 0.296875 4.859375 0.296875 C 7.234375 0.296875 8.78125 -1.0625 8.90625 -3.234375 L 7 -3.234375 C 6.875 -2.03125 6.125 -1.34375 4.90625 -1.34375 C 3.40625 -1.34375 2.515625 -2.5625 2.515625 -4.625 C 2.515625 -6.71875 3.4375 -7.96875 4.984375 -7.96875 C 6.109375 -7.96875 6.75 -7.421875 7 -6.265625 Z M 8.859375 -6.265625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-1">
+<path d="M 2.6875 -9.484375 L 0.875 -9.484375 L 0.875 0 L 2.6875 0 Z M 2.6875 -9.484375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-2">
+<path d="M 6.8125 -0.21875 C 6.5 -0.515625 6.390625 -0.734375 6.390625 -1.078125 L 6.390625 -4.984375 C 6.390625 -6.40625 5.421875 -7.140625 3.515625 -7.140625 C 1.625 -7.140625 0.640625 -6.328125 0.515625 -4.703125 L 2.28125 -4.703125 C 2.359375 -5.4375 2.671875 -5.671875 3.5625 -5.671875 C 4.265625 -5.671875 4.609375 -5.4375 4.609375 -4.96875 C 4.609375 -4.734375 4.5 -4.53125 4.296875 -4.421875 C 4.0625 -4.296875 4.0625 -4.296875 3.15625 -4.140625 L 2.4375 -4.015625 C 1.046875 -3.78125 0.359375 -3.0625 0.359375 -1.8125 C 0.359375 -0.546875 1.203125 0.296875 2.5 0.296875 C 3.28125 0.296875 3.984375 -0.03125 4.625 -0.703125 C 4.625 -0.34375 4.671875 -0.203125 4.84375 0 L 6.8125 0 Z M 4.609375 -2.828125 C 4.609375 -1.765625 4.09375 -1.171875 3.171875 -1.171875 C 2.5625 -1.171875 2.1875 -1.5 2.1875 -2.015625 C 2.1875 -2.5625 2.46875 -2.828125 3.21875 -2.984375 L 3.84375 -3.09375 C 4.328125 -3.1875 4.40625 -3.21875 4.609375 -3.3125 Z M 4.609375 -2.828125 "/>
+</g>
+<g id="eps-svg-1-glyph-0-3">
+<path d="M 6.5625 -4.765625 C 6.53125 -6.234375 5.390625 -7.140625 3.515625 -7.140625 C 1.734375 -7.140625 0.625 -6.234375 0.625 -4.796875 C 0.625 -4.328125 0.765625 -3.921875 1.015625 -3.65625 C 1.265625 -3.40625 1.484375 -3.28125 2.15625 -3.0625 L 4.328125 -2.390625 C 4.78125 -2.25 4.9375 -2.109375 4.9375 -1.8125 C 4.9375 -1.390625 4.4375 -1.125 3.59375 -1.125 C 3.109375 -1.125 2.75 -1.203125 2.515625 -1.375 C 2.3125 -1.515625 2.234375 -1.65625 2.15625 -2.046875 L 0.375 -2.046875 C 0.421875 -0.5 1.5625 0.296875 3.6875 0.296875 C 4.671875 0.296875 5.40625 0.09375 5.921875 -0.328125 C 6.453125 -0.734375 6.765625 -1.390625 6.765625 -2.078125 C 6.765625 -2.984375 6.3125 -3.578125 5.375 -3.84375 L 3.078125 -4.515625 C 2.578125 -4.671875 2.4375 -4.765625 2.4375 -5.0625 C 2.4375 -5.453125 2.859375 -5.703125 3.5 -5.703125 C 4.375 -5.703125 4.796875 -5.390625 4.8125 -4.765625 Z M 6.5625 -4.765625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-4">
+</g>
+<g id="eps-svg-1-glyph-0-5">
+<path d="M 3.90625 -6.875 L 2.90625 -6.875 L 2.90625 -8.765625 L 1.078125 -8.765625 L 1.078125 -6.875 L 0.1875 -6.875 L 0.1875 -5.671875 L 1.078125 -5.671875 L 1.078125 -1.359375 C 1.078125 -0.25 1.65625 0.296875 2.859375 0.296875 C 3.28125 0.296875 3.578125 0.265625 3.90625 0.15625 L 3.90625 -1.125 C 3.734375 -1.09375 3.640625 -1.078125 3.5 -1.078125 C 3.015625 -1.078125 2.90625 -1.21875 2.90625 -1.84375 L 2.90625 -5.671875 L 3.90625 -5.671875 Z M 3.90625 -6.875 "/>
+</g>
+<g id="eps-svg-1-glyph-0-6">
+<path d="M 9.25 -5.09375 L 5.453125 -5.09375 L 5.453125 -3.46875 L 7.609375 -3.46875 C 7.546875 -2.9375 7.421875 -2.609375 7.140625 -2.28125 C 6.671875 -1.703125 5.9375 -1.359375 5.203125 -1.359375 C 3.609375 -1.359375 2.5 -2.75 2.5 -4.6875 C 2.5 -6.734375 3.484375 -7.96875 5.140625 -7.96875 C 5.828125 -7.96875 6.390625 -7.78125 6.828125 -7.390625 C 7.09375 -7.15625 7.234375 -6.9375 7.40625 -6.453125 L 9.25 -6.453125 C 9.015625 -8.40625 7.421875 -9.640625 5.140625 -9.640625 C 2.40625 -9.640625 0.546875 -7.625 0.546875 -4.671875 C 0.546875 -1.796875 2.421875 0.296875 4.984375 0.296875 C 6.25 0.296875 7.109375 -0.15625 7.84375 -1.21875 L 8.078125 0.03125 L 9.25 0.03125 Z M 9.25 -5.09375 "/>
+</g>
+<g id="eps-svg-1-glyph-0-7">
+<path d="M 0.8125 -7.015625 L 0.8125 0 L 2.640625 0 L 2.640625 -4.21875 C 2.640625 -5.046875 3.21875 -5.59375 4.109375 -5.59375 C 4.890625 -5.59375 5.28125 -5.15625 5.28125 -4.328125 L 5.28125 0 L 7.09375 0 L 7.09375 -4.703125 C 7.09375 -6.265625 6.25 -7.140625 4.75 -7.140625 C 3.796875 -7.140625 3.15625 -6.796875 2.640625 -6 L 2.640625 -7.015625 Z M 0.8125 -7.015625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-8">
+<path d="M 6.78125 -4.390625 C 6.65625 -6.109375 5.53125 -7.140625 3.75 -7.140625 C 1.65625 -7.140625 0.4375 -5.765625 0.4375 -3.359375 C 0.4375 -1.046875 1.65625 0.296875 3.734375 0.296875 C 5.4375 0.296875 6.609375 -0.75 6.78125 -2.4375 L 5.046875 -2.4375 C 4.828125 -1.515625 4.453125 -1.171875 3.734375 -1.171875 C 2.8125 -1.171875 2.265625 -1.984375 2.265625 -3.359375 C 2.265625 -4.046875 2.390625 -4.65625 2.609375 -5.0625 C 2.828125 -5.453125 3.21875 -5.671875 3.75 -5.671875 C 4.484375 -5.671875 4.84375 -5.3125 5.046875 -4.390625 Z M 6.78125 -4.390625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-9">
+<path d="M 6.8125 -2.9375 C 6.828125 -3.09375 6.828125 -3.15625 6.828125 -3.25 C 6.828125 -3.953125 6.71875 -4.609375 6.546875 -5.09375 C 6.078125 -6.375 4.953125 -7.140625 3.53125 -7.140625 C 1.515625 -7.140625 0.28125 -5.6875 0.28125 -3.328125 C 0.28125 -1.078125 1.515625 0.296875 3.5 0.296875 C 5.0625 0.296875 6.34375 -0.578125 6.75 -1.96875 L 4.953125 -1.96875 C 4.734375 -1.421875 4.21875 -1.09375 3.5625 -1.09375 C 3.046875 -1.09375 2.625 -1.3125 2.359375 -1.703125 C 2.203125 -1.96875 2.125 -2.28125 2.109375 -2.9375 Z M 2.125 -4.140625 C 2.25 -5.21875 2.703125 -5.75 3.515625 -5.75 C 4.34375 -5.75 4.84375 -5.1875 4.921875 -4.140625 Z M 2.125 -4.140625 "/>
+</g>
+<g id="eps-svg-1-glyph-0-10">
+</g>
+</g>
+</defs>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 21.5 L 595.5 1.5 L 49.5 1.5 L 49.5 21.5 L 595.5 21.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 200 L 20 200 " transform="matrix(0.1, 0, 0, -0.1, 0, 22)"/>
+<g fill="rgb(100%, 100%, 100%)" fill-opacity="1">
+<use xlink:href="#eps-svg-1-glyph-0-0" x="67" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="76.386" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="80" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="87.228" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-3" x="94.456" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="101.684" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="105.298" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-5" x="112.526" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="116.855" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="120.469" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-4" x="127.697" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-6" x="131.311" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-1" x="141.425" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-2" x="145.039" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-7" x="152.267" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-8" x="160.21" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-9" x="167.438" y="17"/>
+<use xlink:href="#eps-svg-1-glyph-0-10" x="174.666" y="17"/>
+</g>
+</svg></b><b></b></p>
+<p class="p20"><b></b><br></p>
+<p class="p21"><b>Purpose</b></p>
+<p class="p7">An NSDate object stores a date and time that can be compared to other dates and times.<span class="Apple-converted-space"> </span></p>
+<p class="p22"><br></p>
+<p class="p21"><b>Principal Attributes</b></p>
+<p class="p7">•<span class="Apple-tab-span">	</span>Seconds since absolute reference date (1 January, 2001, GMT)</p>
+<p class="p22"><br></p>
+<p class="p21"><b>Creation</b></p>
+<p class="p23">+ date<span class="Apple-tab-span">	</span>Represents the current date and time.</p>
+<p class="p23">+ dateWithTimeIntervalSinceNow:<span class="Apple-tab-span">	</span>Represents a date relative to the current date and time.</p>
+<p class="p23">+ dateWithTimeIntervalSinceReferenceDate<span class="Apple-tab-span">	</span>Represents a date relative to the absolute reference date.</p>
+<p class="p24"><br></p>
+<p class="p21"><b>Commonly Used Methods</b></p>
+<p class="p23"><span class="s5">-</span> earlierDate:<span class="Apple-tab-span">	</span>Compares the receiver to the argument and returns the earlier of the two.</p>
+<p class="p23"><span class="s5">-</span> isEqual:<span class="Apple-tab-span">	</span>Returns YES if the receiver and the argument are equal.</p>
+<p class="p23"><span class="s5">-</span> laterDate:<span class="Apple-tab-span">	</span>Compares the receiver to the argument and returns the later of the two.<span class="Apple-converted-space"> </span></p>
+<p class="p23"><span class="s5">-</span> timeIntervalSinceNow<span class="Apple-tab-span">	</span>Returns the number of seconds difference between the receiver and the current date and time.</p>
+<p class="p24"><br></p>
+<p class="p21"><b>Primitive Method</b></p>
+<p class="p7"><span class="s5">-</span> timeIntervalSinceReferenceDate</p>
+<p class="p25"><br></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="597pt" height="9pt" viewBox="0 0 597 9" role="img" aria-labelledby="eps-svg-2-title" data-source="NSDateClassCluster.rtfd/AtaGlanceClose.svg" style="max-width:100%;height:auto">
+<title id="eps-svg-2-title">AtaGlanceClose.eps</title><path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 595.5 7.5 L 595.5 0.25 L 49.5 0.25 L 49.5 7.5 L 595.5 7.5 "/>
+<path fill="none" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 700 20 L 20 20 " transform="matrix(0.1, 0, 0, -0.1, 0, 9)"/>
+</svg></b><b></b></p>
+<p class="p28"><b></b><br></p>
+<p class="p29"><b></b><br></p>
+<p class="p30"><b>Class Description</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p7">NSDate is an abstract class that provides behavior for creating dates, comparing dates, representing dates, computing intervals, and similar functionality. It presents a programmatic interface through which suitable date objects are requested and returned. Date objects returned from NSDate are lightweight and immutable since they represent a invariant point in time. This class is designed to provide the foundation for arbitrary calendrical representations. Its subclass NSCalendarDate offers date objects that are suitable for representing dates according to western calendrical systems.</p>
+<p class="p8"><br></p>
+<p class="p7">“Date” as used above implies clock time as well. The standard unit of time for date objects is a value typed as NSTimeInterval and expressed as seconds. The NSTimeInterval type makes possible a wide and fine-grained range of date and time values, giving accuracy within milliseconds for dates 10,000 years apart.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">NSDate and its subclasses compute time as seconds <i>relative</i> to an absolute reference date. This reference date is the first instant of 1 January, 2001, Greenwich Mean Time (GMT). NSDate converts all date and time representations to and from NSTimeInterval values that are relative to this absolute reference date. A positive interval relative to a date represents a point in the future, a negative interval represents a time in the past.</p>
+<p class="p8"><br></p>
+<p class="p32"><span class="s4"><b>Note:<span class="Apple-tab-span">	</span></b></span>Conventional UNIX systems implement time according to the Network Time Protocol (NTP) standard, which is based on Coordinated Universal Time. The current private implementations of NSDate follow the NTP standard. However, they do not account for leap seconds and therefore are not synchronized with International Atomic Time (the most accurate).</p>
+<p class="p33"><br></p>
+<p class="p7">Like various other Foundation classes, NSDate enables you to obtain operating-system functionality (dates and times) without depending on operating-system internals. It also provides a basis for the NSRunLoop and NSTimer classes, which use concrete date objects to implement local event loops and timers.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">NSDate's sole primitive method, <b>timeIntervalSinceReferenceDate</b>, provides the basis for all the other methods in the NSDate interface. It returns a time value relative to an absolute reference date.</p>
+<p class="p8"><br></p>
+<p class="p34"><br></p>
+<p class="p35"><b>Creating NSDate Objects</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p7">Use a date object to store a point in time. If you want to store the current time, use the <b>date</b> class method to create the date object. If you want to store some time other than the current time, use one of the <b>dateWithTimeInterval...</b> methods.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">The <b>dateWithTimeInterval...</b> methods create date objects relative to a particular time, which the method name describes. You specify (in seconds) how much more recent or how much more in the past you want your date object to be. To specify a date that occurs earlier than the method's reference date, use a negative number of seconds. The code fragment below defines two date objects. <b>tomorrow</b> is exactly 24 hours from the current date and time, and <b>yesterday</b> is exactly 24 hours earlier than the current date and time.</p>
+<p class="p8"><br></p>
+<p class="p38">NSTimeInterval secondsPerDay = 24 * 60 * 60;</p>
+<p class="p38">NSDate *tomorrow = [NSDate<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>dateWithTimeIntervalSinceNow:secondsPerDay];</p>
+<p class="p38">NSDate *yesterday = [NSDate<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>dateWithTimeInstervalSinceNow:-secondsPerDay];</p>
+<p class="p39"><br></p>
+<p class="p7">To get new date objects with date-and-time values adjusted from existing date objects, use <b>addTimeInterval:</b>.</p>
+<p class="p8"><br></p>
+<p class="p38">NSTimeInterval secondsPerDay = 24 * 60 * 60;</p>
+<p class="p38">NSDate *today = [NSDate date];</p>
+<p class="p38">NSDate *tomorrow, yesterday;</p>
+<p class="p40"><br></p>
+<p class="p38">tomorrow = [today addTimeInterval:secondsPerDay];</p>
+<p class="p38">yesterday = [today addTimeInterval:-secondsPerDay];</p>
+<p class="p41"><br></p>
+<p class="p35"><b>NSCalendarDate</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p7">The NSDate class cluster provides, for your convenience, a public concrete subclass of NSDate that satisfies many requirements for dates and times. This subclass, NSCalendarDate, enables you to represent dates as arbitrary strings, to create new date objects from string representations, to extract date and time elements from date objects, and to do other calendar-related functions. You can create an NSCalendarDate out of your NSDate using the <b>dateWithCalendarFormat:timeZone:</b> method.</p>
+<p class="p8"><br></p>
+<p class="p34"><br></p>
+<p class="p35"><b>Comparing NSDate Objects</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p7">To obtain the difference between a date object and another point in time, send a <b>timeInterval...</b> message to the date object. For instance,<b> timeIntervalSinceNow </b>gives you the time, in seconds, between the current time and the receiving date object.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">To compare dates, use the <b>isEqual:</b>, <b>compare:</b>, <b>laterDate:</b>, and <b>earlierDate:</b> methods. These methods perform exact comparisons, which means they will detect subsecond differences between dates. You might want to compare dates with a less fine granularity. For example, you might want to consider two dates equal if they are within a minute of each other. If this is the case, use <b>timeIntervalSinceDate:</b> to compare the two dates or use NSCalendarDate objects instead. The following code shows how to use <b>timeIntervalSinceDate:</b> to see if two dates are within one minute (60 seconds) of each other.</p>
+<p class="p8"><br></p>
+<p class="p38">if (fabs([date2 timeIntervalSinceDate:date1]) &lt; 60) ...</p>
+<p class="p41"><br></p>
+<p class="p35"><b>NSString Representations for NSDates</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p7">To represent your date object as an NSString, use the <b>description...</b> methods. The simplest method, <b>description</b>, prints out the date in the format YYYY-MM-DD HH:MM:SS <span class="s5">–</span>HHMM, where <span class="s5">–</span>HHMM represents the time zone offset in hours and minutes from GMT. (Adding the offset to the specific time yields the equivalent GMT.) To have a specific locale dictionary affect the representation of your NSDate, use <b>descriptionWithLocale:</b> instead of <b>description</b>. The following keys in the locale dictionary affect NSDates:</p>
+<p class="p8"><br></p>
+<p class="p42">NSTimeDateFormatString<span class="Apple-tab-span">	</span>Specifies how dates with times are printed. The default is to use abbreviated months and days with a 24 hour clock, as in “Sun Jan 01 23:00:00 +6 2001.”</p>
+<p class="p43"><br></p>
+<p class="p42">NSAMPMDesignation<span class="Apple-tab-span">	</span>Specifies how the morning and afternoon designations are printed. The default is AM and PM.</p>
+<p class="p43"><br></p>
+<p class="p42">NSMonthNameArray<span class="Apple-tab-span">	</span>Specifies the names for the months.</p>
+<p class="p43"><br></p>
+<p class="p42">NSShortMonthNameArray<span class="Apple-tab-span">	</span>Specifies the abbreviations for the months.</p>
+<p class="p43"><br></p>
+<p class="p42">NSWeekDayNameArray<span class="Apple-tab-span">	</span>Specifies the names for the days of the week.</p>
+<p class="p43"><br></p>
+<p class="p42">NSShortWeekDayNameArray<span class="Apple-tab-span">	</span>Specifies the abbreviations for the days of the week.</p>
+<p class="p43"><br></p>
+<p class="p44"><br></p>
+<p class="p35"><b>Subclassing NSDate</b></p>
+<p class="p36"><b></b><br></p>
+<p class="p37"><b></b><br></p>
+<p class="p7">If you want to subclass NSDate to obtain behavior different than that provided by the private subclasses, you must do these three things:</p>
+<p class="p8"><br></p>
+<p class="p45">•<span class="Apple-tab-span">	</span>Declare a suitable instance variable to hold the date and time value (relative to an absolute reference date).<span class="Apple-converted-space"> </span></p>
+<p class="p46"><br></p>
+<p class="p45">•<span class="Apple-tab-span">	</span>Override the <b>timeIntervalSinceReferenceDate</b> instance method to provide the correct date and time value based on your instance variable.</p>
+<p class="p46"><br></p>
+<p class="p45">•<span class="Apple-tab-span">	</span>Override <b>initWithTimeIntervalSinceReferenceDate:</b>, the designated initializer method.<span class="Apple-converted-space"> </span></p>
+<p class="p46"><br></p>
+<p class="p7">Your subclass may use a different reference date than the absolute reference date used by NSDate (the first instance of 1 January 2001 GMT). If it does, it must still use the absolute reference date in its implementations of the methods <b>timeIntervalSinceReferenceDate</b> and <b>initWithTimeSinceReferenceDate:</b>. That is, the reference date referred to in the titles of these methods is the absolute reference date. If you do not use the absolute reference date in these methods, comparisons between NSDate objects of your subclass and NSDate objects of a private subclass will not work.</p>
+<p class="p8"><br></p>
+<p class="p47"><br></p>
+<p class="p48"><b>Adopted Protocols</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p49">NSCopying<span class="Apple-tab-span">	</span><span class="s5">-</span> copyWithZone:</p>
+<p class="p50"><br></p>
+<p class="p49">NSCoding<span class="Apple-tab-span">	</span><span class="s5">-</span> encodeWithCoder:</p>
+<p class="p51"><span class="s5">-</span> initWithCoder:</p>
+<p class="p52"><br></p>
+<p class="p48"><b>Method Types</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p49">Creating an NSDate instance<span class="Apple-tab-span">	</span>+ date</p>
+<p class="p51">+ dateWithTimeIntervalSinceNow:</p>
+<p class="p51">+ dateWithNaturalLanguageString:</p>
+<p class="p51">+ dateWithNaturalLanguageString:locale:</p>
+<p class="p51">+ dateWithTimeIntervalSinceReferenceDate:</p>
+<p class="p51">+ dateWithTimeIntervalSince1970:</p>
+<p class="p51">+ distantFuture</p>
+<p class="p51">+ distantPast</p>
+<p class="p51">+ allocWithZone:</p>
+<p class="p51"><span class="s5">-</span> initWithTimeIntervalSinceNow:</p>
+<p class="p51"><span class="s5">-</span> initWithString:</p>
+<p class="p51"><span class="s5">-</span> initWithTimeInterval:sinceDate:</p>
+<p class="p51"><span class="s5">-</span> init</p>
+<p class="p51"><span class="s5">-</span> initWithTimeIntervalSinceReferenceDate:</p>
+<p class="p51"><span class="s5">-</span> addTimeInterval:</p>
+<p class="p53"><br></p>
+<p class="p49">Comparing dates<span class="Apple-tab-span">	</span><span class="s5">-</span> isEqualToDate:</p>
+<p class="p51"><span class="s5">-</span> earlierDate:</p>
+<p class="p51"><span class="s5">-</span> laterDate:<span class="Apple-converted-space"> </span></p>
+<p class="p51"><span class="s5">-</span> compare:</p>
+<p class="p53"><br></p>
+<p class="p49">Getting time intervals<span class="Apple-tab-span">	</span><span class="s5">-</span> timeIntervalSinceDate:</p>
+<p class="p51"><span class="s5">-</span> timeIntervalSinceNow</p>
+<p class="p51">+ timeIntervalSinceReferenceDate</p>
+<p class="p51"><span class="s5">-</span> timeIntervalSinceReferenceDate</p>
+<p class="p51"><span class="s5">-</span> timeIntervalSince1970</p>
+<p class="p53"><br></p>
+<p class="p49">Representing dates as NSStrings<span class="Apple-tab-span">	</span><span class="s5">-</span> description<span class="Apple-converted-space"> </span></p>
+<p class="p51"><span class="s5">-</span> descriptionWithLocale:</p>
+<p class="p51"><span class="s5">-</span> descriptionWithCalendarFormat:timeZone:locale:</p>
+<p class="p53"><br></p>
+<p class="p49">Converting to an NSCalendarDate object</p>
+<p class="p51"><span class="s5">-</span> dateWithCalendarFormat:timeZone:</p>
+<p class="p52"><br></p>
+<p class="p48"><b>Class Methods</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p35"><b></b><b>allocWithZone:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54">+<b> </b>(id)<b>allocWithZone</b>:(NSZone *)<i>zone</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Allocates an uninitialized NSDate in zone. <b>nil</b> is returned if allocation fails. Usually, you use <b>date</b>, <b>dateWithTimeIntervalSinceNow:</b>, <b>dateWithTimeIntervalSince1970:</b>, or <b>dateWithTimeIntervalSinceReferenceDate:</b> instead of this method. You are responsible for releasing objects created with <b>alloc</b>... methods.</p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><b>+ date</b>, <b>+ dateWithTimeIntervalSinceNow</b>:, <b>+ dateWithTimeIntervalSince1970:</b>, <b>+ dateWithTimeIntervalSinceReferenceDate:</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>date</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54">+ (NSDate *)<b>date</b></p>
+<p class="p55"><b></b><br></p>
+<p class="p7">Creates and returns an NSDate set to the current date and time. This method uses the default initializer method for the class, <b>init</b>.</p>
+<p class="p8"><br></p>
+<p class="p7">A typical example of using <b>date</b> to get the current date is:</p>
+<p class="p8"><br></p>
+<p class="p38">NSDate *today = [NSDate date];</p>
+<p class="p39"><br></p>
+<p class="p59"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s3"> </span><span class="s5">-</span><span class="s3"><b> init</b></span></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p60"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>dateWithNaturalLanguageString:</b></p>
+<p class="p61"><b></b><br></p>
+<p class="p54">+ (NSDate *)<b>dateWithNaturalLanguageString:</b>(NSString *)<i>string</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Creates and returns an NSDate set to the date and time specified by <i>string</i>. The argument <i>string</i> can be a colloquial specification of a date, such as “last Tuesday at dinner,” “3pm December 31, 1995,” “12/31/95,” or “31/12/95.” In parsing <i>string</i>, this method uses the date and time preferences stored in the user's defaults database. (See <b>dateWithNaturalLanguageString:locale:</b> for a list of the specific items used.)<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>dateWithNaturalLanguageString:locale:</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p60"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>dateWithNaturalLanguageString:locale:</b></p>
+<p class="p61"><b></b><br></p>
+<p class="p54">+ (NSDate *)<b>dateWithNaturalLanguageString:</b>(NSString *)<i>string</i> <b>locale:</b>(NSDictionary *)<i>localeDictionary</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Creates and returns an NSDate set to the date and time specified by <i>string</i>. The argument <i>string</i> can be a colloquial specification of a date, such as “last Tuesday at dinner,” “3pm December 31, 1995,” “12/31/95,” or “31/12/95.” The keys and values that represent the locale data from <i>localeDictionary</i> are used when parsing the string. In addition to the locale keys listed in the class description, these keys are used when parsing natural language strings:</p>
+<p class="p8"><br></p>
+<p class="p42">NSDateTimeOrdering<span class="Apple-tab-span">	</span>Determines how to use ambiguous numbers. Specify this value as a permutation of the letters M (month), D (day), Y (year), and H (hour). For example, MDYH treats “2/3/95 10” as the 3rd day of February 1995 at 10:00am, whereas DMYH treats the same value as the 2nd day of March 1995 at 10:00am.<span class="Apple-converted-space"> </span></p>
+<p class="p43"><br></p>
+<p class="p42"><span class="Apple-tab-span">	</span>If fewer numbers are specified than are needed, the numbers are prioritized to satisfy day first, then the month, and then the year. For example, if you supply only the value 12, it means the 12th day of this month in this year because the day must be specified. If you supply “2 12” it means either February 12 or December 2, depending on if the ordering is “MDYH” or “DMYH.”<span class="Apple-converted-space"> </span></p>
+<p class="p43"><br></p>
+<p class="p42">NSEarlierTimeDesignations<span class="Apple-tab-span">	</span>An array of strings that denote a time in the past. These are adjectives that modify values from NSYearMonthWeekDesignations. The defaults are “prior,” “last,” “past,” and “ago.”</p>
+<p class="p43"><br></p>
+<p class="p42">NSHourNameDesignations<span class="Apple-tab-span">	</span>Strings that identify the time of day. These strings should be bound to an hour. The default is this array of arrays: (0, midnight), (12, noon, lunch), (10, morning), (14, afternoon), (19, dinner).</p>
+<p class="p43"><br></p>
+<p class="p42">NSLaterTimeDesignations<span class="Apple-tab-span">	</span>An array of strings that denote a time in the future. This is an adjective that modifies a value from NSYearMonthWeekDesignations. The default is “next.”</p>
+<p class="p43"><br></p>
+<p class="p42">NSNextDayDesignations<span class="Apple-tab-span">	</span>A string that identifies the day after today. The default is “tomorrow.”</p>
+<p class="p43"><br></p>
+<p class="p42">NSNextNextDayDesignations<span class="Apple-tab-span">	</span>A string that identifies the day after tomorrow. The default is “nextday”.<span class="Apple-converted-space"> </span></p>
+<p class="p43"><br></p>
+<p class="p42">NSPriorDayDesignations<span class="Apple-tab-span">	</span>A string that identifies the day before today. The default is “yesterday.”</p>
+<p class="p43"><br></p>
+<p class="p42">NSThisDayDesignations<span class="Apple-tab-span">	</span>A string that identifies what this day is called. The default is “today.”</p>
+<p class="p43"><br></p>
+<p class="p42">NSYearMonthWeekDesignations<span class="Apple-tab-span">	</span>An array of strings that specify the word for year, month, and week in the current locale. The defaults are “year,” “month,” and “week.”</p>
+<p class="p43"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>dateWithNaturalLanguageString:</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p60"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>dateWithString:</b></p>
+<p class="p61"><b></b><br></p>
+<p class="p54">+ (id)<b>dateWithString:</b>(NSString *)<i>aString</i><span class="Apple-converted-space"> </span></p>
+<p class="p55"><br></p>
+<p class="p7">Creates and returns an NSDate with a date and time value specified by the international string-representation format: YYYY-MM-DD HH:MM:SS <span class="s5">–HHMM, </span>where <span class="s5">–</span>HHMM is a time zone offset in hours and minutes from GMT (for example, “1994-05-23 10:45:32 +0600”). You must specify all fields of the format, including the time zone offset, which must have a plus- or minus-sign prefix.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>initWithString:</b><span class="Apple-converted-space"> </span></p>
+<p class="p57"><br></p>
+<p class="p58"><br></p>
+<p class="p35"><b></b><b>dateWithTimeIntervalSinceNow:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54">+ (NSDate *)<b>dateWithTimeIntervalSinceNow</b>:(NSTimeInterval)<i>seconds</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Creates and returns an NSDate set to the specified number of seconds from the current date and time. Use a negative argument value to specify a date before the current date.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>initWithTimeIntervalSinceNow:</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>dateWithTimeIntervalSince1970:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54">+ (NSDate *)<b>dateWithTimeIntervalSince1970:</b>(NSTimeInterval)<i>seconds</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Creates an returns an NSDate set to the specified number of seconds from the reference date used by UNIX systems, 1 January 1970. Use a negative argument to specify a date before this date.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">This method is useful for creating NSDate objects from the <b>time_t</b> values returned by UNIX system functions.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>timeIntervalSince1970</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>dateWithTimeIntervalSinceReferenceDate:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54">+ (NSDate *)<b>dateWithTimeIntervalSinceReferenceDate</b>:(NSTimeInterval)<i>seconds</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Creates and returns an NSDate set to a specified number of seconds from the absolute reference date (the first instant of 1 January 2001, GMT). Use a negative argument to specify a date and time before the reference date.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>initWithTimeIntervalSinceReferenceDate:</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>distantFuture</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54">+ (NSDate *)<b>distantFuture</b></p>
+<p class="p55"><b></b><br></p>
+<p class="p7">Creates and returns an NSDate that represents a date in the distant future (in terms of centuries).<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">You can pass this value where an NSDate is required to have the date argument essentially ignored. For example, the NSWindow method <b>nextEventMatchingMask:untilDate:inMode:dequeue:</b> returns <b>nil</b> if an event specified in the event mask does not happen before the specified date. You can use the object returned by <b>distantFuture</b> as the date argument to wait indefinitely for the event to occur.</p>
+<p class="p8"><br></p>
+<p class="p38">myEvent = [myWindow nextEventMatchingMask:myEventMask<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-tab-span">	</span>untilDate:[NSDate distantFuture]<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-tab-span">	</span>inMode:NSDefaultRunLoopMode<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-tab-span">	</span>dequeue:YES];</p>
+<p class="p39"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>distantPast</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>distantPast</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54">+ (NSDate *)<b>distantPast</b></p>
+<p class="p55"><b></b><br></p>
+<p class="p7">Creates and returns an NSDate that represents a date in the distant past (in terms of centuries). You can use this object in your code as a control date, a guaranteed temporal boundary.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>distantFuture</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>timeIntervalSinceReferenceDate</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54">+ (NSTimeInterval)<b>timeIntervalSinceReferenceDate</b><span class="Apple-converted-space"> </span></p>
+<p class="p55"><br></p>
+<p class="p7">Returns the interval between the system's absolute reference date (the first instance of 1 January 2001, GMT) and the current date and time. Currently, this value is a negative number.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>timeIntervalSinceReferenceDate</b>, <span class="s5">-</span> <b>timeIntervalSinceDate:</b>, <span class="s5">-</span> <b>timeIntervalSince1970</b>, <span class="s5">-</span> <b>timeIntervalSinceNow</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p62"><b></b><br></p>
+<p class="p48"><b>Instance Methods</b></p>
+<p class="p31"><b></b><br></p>
+<p class="p35"><b></b><b>addTimeInterval:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (id)<b>addTimeInterval:</b>(NSTimeInterval)<i>seconds</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Returns an NSDate object that is set to a specified number of seconds relative to the receiver. Use a negative value for <i>seconds</i> to have the returned object specify a date before the receiving object. The date returned might have a representation different from the receiver's.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>initWithTimeInterval:sinceDate:</b>, <span class="s5">-</span> <b>timeIntervalSinceDate:</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>compare:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (NSComparisonResult)<b>compare:</b>(NSDate *)<i>anotherDate</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Compares the receiving date to <i>anotherDate</i>, using <b>timeIntervalSinceDate:</b>, and returns a value of type NSComparisonResult. If the two dates are exactly equal to each other, this method returns NSOrderedSame. If the receiving object in the comparison is more recent than <i>anotherDate</i>, the method returns NSOrderedDescending. If it is older, it returns NSOrderedAscending.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">This method detects subsecond differences between dates. If you want to compare dates with a less fine granularity, use <b>timeIntervalSinceDate:</b> to compare the two dates or use NSCalendarDate objects instead.</p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>earlierDate:</b>, <span class="s5">-</span><b> isEqual</b>: (NSObject protocol), <span class="s5">-</span> <b>laterDate:</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>dateWithCalendarFormat:timeZone</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (NSCalendarDate *)<b>dateWithCalendarFormat</b>:(NSString *)<i>formatString</i> <b>timeZone</b>:(NSTimeZone *)<i>timeZone</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Converts the NSDate to an NSCalendarDate object bound to <i>formatString</i> and the time zone <i>timeZone</i>. If you specify <b>nil</b> for either or both of these arguments, the default format string and time zone are assumed. (The default time zone is the one specific to the current locale; the default format string, which is “%Y-%m-%d %H:%M:%S %z”, conforms to the international format YYYY-MM-DD HH:MM:SS <span class="s5">–</span>HHMM.)<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">The conversion specifiers for <i>formatString</i> cover a range of date conventions:<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p42">%% <span class="Apple-tab-span">	</span>a '%' character</p>
+<p class="p43"><br></p>
+<p class="p42">%a <span class="Apple-tab-span">	</span>abbreviated weekday name</p>
+<p class="p43"><br></p>
+<p class="p42">%A <span class="Apple-tab-span">	</span>full weekday name</p>
+<p class="p43"><br></p>
+<p class="p42">%b <span class="Apple-tab-span">	</span>abbreviated month name</p>
+<p class="p43"><br></p>
+<p class="p42">%B <span class="Apple-tab-span">	</span>full month name</p>
+<p class="p43"><br></p>
+<p class="p42">%c <span class="Apple-tab-span">	</span>shorthand for %X %x, the locale format for date and time</p>
+<p class="p43"><br></p>
+<p class="p42">%d <span class="Apple-tab-span">	</span>day of the month as a decimal number (01-31)<span class="Apple-converted-space"> </span></p>
+<p class="p43"><br></p>
+<p class="p42">%F<span class="Apple-tab-span">	</span>milliseconds as a decimal number (000 - 999)</p>
+<p class="p43"><br></p>
+<p class="p42">%H <span class="Apple-tab-span">	</span>hour based on a 24-hour clock as a decimal number <span class="Apple-tab-span">	</span>(00-23)<span class="Apple-converted-space"> </span></p>
+<p class="p43"><br></p>
+<p class="p42">%I <span class="Apple-tab-span">	</span>hour based on a 12-hour clock as a decimal number <span class="Apple-tab-span">	</span>(01-12)<span class="Apple-converted-space"> </span></p>
+<p class="p43"><br></p>
+<p class="p42">%j <span class="Apple-tab-span">	</span>day of the year as a decimal number (001-366)<span class="Apple-converted-space"> </span></p>
+<p class="p43"><br></p>
+<p class="p42">%m <span class="Apple-tab-span">	</span>month as a decimal number (01-12)<span class="Apple-converted-space"> </span></p>
+<p class="p43"><br></p>
+<p class="p42">%M <span class="Apple-tab-span">	</span>minute as a decimal number (00-59)<span class="Apple-converted-space"> </span></p>
+<p class="p43"><br></p>
+<p class="p42">%p <span class="Apple-tab-span">	</span>AM/PM designation for the locale</p>
+<p class="p43"><br></p>
+<p class="p42">%S <span class="Apple-tab-span">	</span>second as a decimal number (00-61)<span class="Apple-converted-space"> </span></p>
+<p class="p43"><br></p>
+<p class="p42">%w <span class="Apple-tab-span">	</span>weekday as a decimal number (0-6), where Sunday is 0</p>
+<p class="p43"><br></p>
+<p class="p42">%x <span class="Apple-tab-span">	</span>date using the date representation for the locale</p>
+<p class="p43"><br></p>
+<p class="p42">%X <span class="Apple-tab-span">	</span>time using the time representation for the locale</p>
+<p class="p43"><br></p>
+<p class="p42">%y <span class="Apple-tab-span">	</span>year without century (00-99)<span class="Apple-converted-space"> </span></p>
+<p class="p43"><br></p>
+<p class="p42">%Y <span class="Apple-tab-span">	</span>year with century (such as 1990)</p>
+<p class="p43"><br></p>
+<p class="p42">%Z <span class="Apple-tab-span">	</span>time zone abbreviation (such as PDT)</p>
+<p class="p43"><br></p>
+<p class="p42">%z <span class="Apple-tab-span">	</span>time zone offset in hours and minutes from GMT (HHMM)</p>
+<p class="p43"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>description</b>, <span class="s5">-</span> <b>descriptionWithCalendarFormat:timeZone:locale:</b>, <span class="s5">-</span> <b>descriptionWithLocale:</b>, + <b>dateWithString:calendarFormat:</b> (NSCalendarDate)</p>
+<p class="p57"><br></p>
+<p class="p58"><br></p>
+<p class="p35"><b></b><b>description</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (NSString *)<b>description</b></p>
+<p class="p55"><b></b><br></p>
+<p class="p7">Returns an NSString representing the NSDate object and conforming to the international format YYYY-MM-DD HH:MM:SS <span class="s5">–</span>HHMM, where <span class="s5">–</span>HHMM represents the time zone offset in hours and minutes from GMT (for example, “1994-05-23 10:45:32 +0600”).</p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>dateWithCalendarFormat:timeZone:</b>, <span class="s5">-</span> <b>descriptionWithCalendarFormat:timeZone:locale:</b>, <span class="s5">-</span> <b>descriptionWithLocale:</b>, <span class="s5">-</span> <b>description</b> (NSCalendarDate)<b><span class="Apple-converted-space"> </span></b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>descriptionWithCalendarFormat:timeZone:locale:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (NSString *)<b>descriptionWithCalendarFormat:</b>(NSString *)<i>formatString</i><b> timeZone:</b>(NSTimeZone *)<i>aTimeZone<span class="Apple-converted-space"> </span></i></p>
+<p class="p63"><b>locale:</b>(NSDictionary *)<i>localeDictionary</i></p>
+<p class="p64"><i></i><br></p>
+<p class="p7">Returns an NSString representing the NSDate, formatted as specified by the conversion specifiers in <i>formatString</i> (see the method description for <b>dateWithCalendarFormat:timeZone:</b> for a list of these). Specify the time zone for the date in <i>aTimeZone</i> and specify keys and values representing the locale in <i>localeDictionary</i>. (See the class description for a list of the appropriate locale dictionary keys.) If you specify <b>nil</b> for one of these arguments, its default value is assumed. (The default time zone is the one specific to the current locale; the default format string, which is “%Y-%m-%d %H:%M:%S %z”, conforms to the international format YYYY-MM-DD HH:MM:SS <span class="s5">–</span>HHMM.)<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">You could use this method to print the current time as follows:</p>
+<p class="p8"><br></p>
+<p class="p38">sprintf(aString, "The current time is %s\n", [[[NSDate date]<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-tab-span">	</span>descriptionWithCalendarFormat:@"%H:%M:%S %Z" timeZone:nil<span class="Apple-converted-space"> </span></p>
+<p class="p38"><span class="Apple-tab-span">	</span>locale:nil] cString]);</p>
+<p class="p39"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>description</b>, <span class="s5">-</span> <b>descriptionWithCalendarFormat:locale:</b> (NSCalendarDate), <span class="s5">-</span> <b>descriptionWithLocale:</b><span class="Apple-converted-space"> </span></p>
+<p class="p57"><br></p>
+<p class="p58"><br></p>
+<p class="p35"><b></b><b>descriptionWithLocale:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (NSString *)<b>descriptionWithLocale:</b>(NSDictionary *)<i>localeDictionary</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Returns an NSString representing the NSDate that conforms to the international format YYYY-MM-DD HH:MM:SS <span class="s5">–</span>HHMM, where <span class="s5">–</span>HHMM represents the time zone offset in hours and minutes from GMT (for example, “1994-05-23 10:45:32 +0600”).<i> </i>Included are the keys and values that represent the locale data from <i>localeDictionary</i> (see the class description).<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>description</b>, <span class="s5">-</span> <b>descriptionWithCalendarFormat:timeZone:locale:</b>, <span class="s5">-</span> <b>descriptionWithLocale:</b> (NSCalendarDate)</p>
+<p class="p57"><br></p>
+<p class="p58"><br></p>
+<p class="p35"><b></b><b>earlierDate:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (NSDate *)<b>earlierDate:</b>(NSDate *)<i>anotherDate</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Compares the receiver date to <i>anotherDate</i>, using <b>timeIntervalSinceDate:</b>, and returns the earlier of the two.</p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>compare:</b>, <span class="s5">-</span><b> isEqual</b>: (NSObject protocol), <span class="s5">-</span> <b>laterDate:</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>init</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (id)<b>init</b></p>
+<p class="p55"><b></b><br></p>
+<p class="p7">When sent to the object returned by <b>alloc</b> or <b>allocWithZone:</b>, this method returns an NSDate initialized to the current date and time. This method uses the designated initializer, <b>initWithTimeIntervalSinceReferenceDate:</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>date</b>, <span class="s5">-</span> <b>initWithTimeIntervalSinceReferenceDate:</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>initWithString:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (id)<b>initWithString:</b>(NSString *)<i>description</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Returns an NSDate with a date and time value specified by the international string-representation format: YYYY-MM-DD HH:MM:SS <span class="s5">–HHMM, </span>where <span class="s5">–</span>HHMM is a time zone offset in hours and minutes from GMT (for example, “1994-05-23 10:45:32 +0600”). You must specify all fields of the format, including the time zone offset, which must have a plus- or minus-sign prefix. This method uses the designated initializer, <b>initWithTimeIntervalSinceReferenceDate:</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>dateWithString:</b>, <span class="s5">-</span> <b>description</b>, <span class="s5">-</span> <b>initWithTimeIntervalSinceReferenceDate:</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>initWithTimeInterval:sinceDate:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (NSDate *)<b>initWithTimeInterval:</b>(NSTimeInterval)<i>seconds</i><b> sinceDate:</b>(NSDate *)<i>anotherDate</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Returns an NSDate initialized relative to another NSDate by a specified number of <i>seconds</i> (plus or minus). This method uses the designated initializer, <b>initWithTimeIntervalSinceReferenceDate:</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>initWithTimeIntervalSinceReferenceDate:</b><span class="Apple-converted-space"> </span></p>
+<p class="p57"><br></p>
+<p class="p58"><br></p>
+<p class="p35"><b></b><b>initWithTimeIntervalSinceNow:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (NSDate *)<b>initWithTimeIntervalSinceNow:</b>(NSTimeInterval)<i>seconds</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Returns an NSDate initialized relative to the current date and time by the specified number of <i>seconds</i> (plus or minus). This method uses the designated initializer, <b>initWithTimeIntervalSinceReferenceDate:</b>.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>dateWithTimeIntervalSinceNow:</b>, <span class="s5">-</span> <b>initWithTimeIntervalSinceReferenceDate:</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>initWithTimeIntervalSinceReferenceDate:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (id)<b>initWithTimeIntervalSinceReferenceDate:</b>(NSTimeInterval)<i>seconds</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">When sent to the object returned by <b>alloc</b> or <b>allocWithZone:</b>, this method returns an NSDate initialized relative to the absolute reference date (the first instant of 1 January 2001, GMT) by the specified number of seconds (plus or minus).<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">This method is the designated initializer for the NSDate class and is declared primarily for the use of subclasses of NSDate. When you subclass NSDate to create a concrete date class, you must override this method.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>dateWithTimeIntervalSinceReferenceDate:</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>isEqualToDate:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (BOOL)<b>isEqualToDate:</b>(id)<i>anotherDate</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Returns YES if the two objects compared are NSDate objects and are exactly equal to each other, NO if one of the objects is not of the NSDate class or if their date and time values differ. This method detects subsecond differences between dates. If you want to compare dates with a less fine granularity, either use <b>timeIntervalSinceDate:</b> to compare the two dates or use NSCalendarDate objects instead.</p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span><b> compare:</b>, <span class="s5">-</span> <b>earlierDate</b>:, <span class="s5">-</span> <b>laterDate:</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>laterDate:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (NSDate *)<b>laterDate:</b>(NSDate *)<i>anotherDate</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Compares the receiver to <i>anotherDate</i>, using <b>timeIntervalSinceDate:</b>, and returns the later of the two.</p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>compare:</b>, <span class="s5">-</span> <b>earlierDate:</b>, <span class="s5">-</span><b> isEqual</b>: (NSObject protocol)</p>
+<p class="p57"><br></p>
+<p class="p58"><br></p>
+<p class="p35"><b></b><b>timeIntervalSinceDate:</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (NSTimeInterval)<b>timeIntervalSinceDate:</b>(NSDate *)<i>anotherDate</i></p>
+<p class="p55"><i></i><br></p>
+<p class="p7">Returns the interval between the receiver and <i>anotherDate</i>. If the return value is a negative number, <i>anotherDate</i> is earlier than the receiver.</p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>timeIntervalSince1970</b>, <span class="s5">-</span> <b>timeIntervalSinceNow</b>, <span class="s5">-</span> <b>timeIntervalSinceReferenceDate</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>timeIntervalSince1970</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (NSTimeInterval)<b>timeIntervalSince1970</b><span class="Apple-converted-space"> </span></p>
+<p class="p55"><br></p>
+<p class="p7">Returns the interval between the receiver and the reference date used by UNIX systems, 1 January 1970. If the receiver is earlier than 1 January 1970, the return value is negative.</p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>timeIntervalSinceDate:</b>, <span class="s5">-</span> <b>timeIntervalSinceNow</b>, <span class="s5">-</span> <b>timeIntervalSinceReferenceDate</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>timeIntervalSinceNow</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (NSTimeInterval)<b>timeIntervalSinceNow</b></p>
+<p class="p55"><b></b><br></p>
+<p class="p7">Returns the interval between the receiver and the current date and time. If the receiver is earlier than the current date and time, the return value is negative.</p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>timeIntervalSinceDate:</b>, <span class="s5">-</span> <b>timeIntervalSince1970</b>, <span class="s5">-</span> <b>timeIntervalSinceReferenceDate</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p58"><b></b><br></p>
+<p class="p35"><b></b><b>timeIntervalSinceReferenceDate</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p54"><span class="s5">-</span> (NSTimeInterval)<b>timeIntervalSinceReferenceDate</b></p>
+<p class="p55"><b></b><br></p>
+<p class="p7">Returns the interval between the receiver and the system's absolute reference date, 1 January 2001, GMT. If the receiver is earlier than the absolute reference date, the return value is negative.<span class="Apple-converted-space"> </span></p>
+<p class="p8"><br></p>
+<p class="p7">This is the primitive method for NSDate. If you subclass NSDate, you must override this method with your own implementation for it.</p>
+<p class="p8"><br></p>
+<p class="p56"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>timeIntervalSinceDate:</b>, <span class="s5">-</span> <b>timeIntervalSince1970</b>, <span class="s5">-</span> <b>timeIntervalSinceNow</b>, + <b>timeIntervalSinceReferenceDate</b></p>
+<p class="p57"><b></b><br></p>
+<p class="p65"><br></p>
+<p class="p8"><br></p>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+    APPCLASS = NSApplication; 
+    APPICON = SimplePlayerapp.tiff; 
+    DOCUMENTEXTENSIONS = (
+        {Extension = mov; Image = MovieFile.tiff; IsPrimary = YES; }, 
+        {Extension = movie; Image = MovieFile.tiff; IsPrimary = YES; }, 
+        {Extension = MOV; Image = MovieFile.tiff; IsPrimary = YES; }, 
+        {Extension = moov; Image = MovieFile.tiff; IsPrimary = YES; }, 
+        {Extension = qt; Image = MovieFile.tiff; IsPrimary = YES; }
+    ); 
+    FILESTABLE = {
+        CLASSES = (Controller.m, Document.m, DocumentView.m, SimplePlayer_Globals.m); 
+        FRAMEWORKS = (NEXTIME.framework, SoundKit.framework, AppKit.framework, Foundation.framework); 
+        FRAMEWORKSEARCH = (); 
+        H_FILES = (Controller.h, Document.h, DocumentView.h, SimplePlayer_Globals.h); 
+        IMAGES = (MovieFile.tiff, SimplePlayerapp.tiff); 
+        INTERFACES = (InfoPanel.nib, PreferencesPanel.nib, SimplePlayer.nib); 
+        M_FILES = (); 
+        OTHER_LINKED = (SimplePlayer_main.m); 
+        OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble, m.template, h.template); 
+    }; 
+    GENERATEMAIN = YES; 
+    INSTALLDIR = "~/Apps"; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {
+        InfoPanel.nib = InfoPanel.nib; 
+        PreferencesPanel.nib = PreferencesPanel.nib; 
+        SimplePlayer.nib = SimplePlayer.nib; 
+    }; 
+    MAINNIB = SimplePlayer; 
+    PROJECTNAME = SimplePlayer; 
+    PROJECTTYPE = Application; 
+    PROJECTVERSION = 2.2; 
+}

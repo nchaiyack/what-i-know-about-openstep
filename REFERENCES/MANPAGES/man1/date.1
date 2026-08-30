@@ -1,0 +1,123 @@
+.TH DATE 1 "July 22, 1998" "NeXT, Inc."
+.SH NAME
+date \- print and set the date
+.SH SYNOPSIS
+.B date
+.RB "[-nu] [[cc]yymmddhhmm[.ss]]"
+.SH DESCRIPTION
+If no arguments are given, the current date and time are printed.
+Providing an argument will set the desired date.
+Only the superuser can set the date.
+.PP
+The The valid range of dates which can be set by the date command is:
+.IP
+Jan 1 00:00:00 1970 through Dec 31 23:59:59 2037
+.PP
+Dates before and after this range are rejected. The canonical 
+representation for setting the date and time is:
+.PP
+.B cc
+\  The century digits of a four-digit year. If two digits 
+.in +5
+are given, i.e., 19 or 20, the value is interpreted literally.
+A single digit may also be used to represent century, where
+0 represents "19" and 1 represents "20". 
+.PP
+.B yy
+\  If cc is given, the year digits of a four-digit year 
+.in +5
+(i.e., the "98" of "1998"); otherwise, the year in abbreviated form. 
+Two-digit years from 70-99 are interpreted as being in the 
+20th century (i.e., "89" equates to "1989"); years 00 
+through 69 are interpreted as being in the 21st century 
+(i.e., "03" equates to "2003").
+.PP
+.B mm
+\  Numeric month. A number from 1 to 12. 
+.PP
+.B dd
+\  Day, a number from 1 to 31.
+.PP
+.B hh
+\  Hour, a number from 0 to 23.
+.PP
+.B mm
+\  Minutes, a number from 0 to 59.
+.PP
+.B ss
+\  Seconds, a number from 0 to 61 (59 plus a maximum of 
+.in +5
+two leap seconds).
+.PP
+Everything but the minutes is optional.
+Time changes for Daylight Saving and Standard time and leap seconds
+and years are handled automatically.
+.PP
+Options:
+.PP
+.B
+\- n
+\  The utility timed(8) is used to synchronize the clocks
+.in +6
+on groups of machines. By default, if timed is running, \fIdate\fP
+will set the time on all of the machines in the local group.
+The \-n option stops \fIdate\fP from setting the time for other
+than the current machine.
+.PP
+.B
+\-u
+\  Display or set the date in UTC
+(universal) time.
+.PP
+.SH EXAMPLES
+The command:
+.IP
+date 9807101421.05 
+.in -3
+or
+.in +3
+date 09807101421.05
+.in -3
+or
+.in +3
+date 199807101421.05
+.PP
+sets the date to
+"Fri Jul 10 14:21:05 1998" .
+.PP
+The command:
+.IP
+date 0109080706.05
+.in -3
+or
+.in +3
+date 10109080706.05
+.in -3
+or
+.in +3
+date 200109080706.05
+.PP
+sets the date to
+"Sat Sep  8 07:06:05 2001" .
+.PP
+The command:
+.IP
+date 1432
+.PP
+sets the time to
+"2:32 PM" ,
+without modifying the date.
+.PP
+.SH SEE ALSO
+gettimeofday(2), ntpd(8)
+.SH DIAGNOSTICS
+Exit status is 0 on success and 1 on failure to set the date.
+(An exit status of 2 means that
+.I timed(8) 
+is running and the local date was set successfully, 
+but not the global date.)
+.PP
+If you try to set the date
+but are not the super-user, 
+an error message is printed, along
+with the current (unchanged) date and time.

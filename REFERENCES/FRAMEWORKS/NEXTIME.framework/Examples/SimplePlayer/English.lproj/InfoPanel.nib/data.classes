@@ -1,0 +1,6 @@
+"Controller" = {
+    ACTIONS = ("openDocument:", "showInfoPanel:", "showInspectorPanel:"); 
+    OUTLETS = (infoPanel, inspectorPanel); 
+    SUPERCLASS = NSObject; 
+};
+"FirstResponder" = {CATEGORY = LocalActions; };

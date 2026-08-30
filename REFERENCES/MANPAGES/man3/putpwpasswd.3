@@ -1,0 +1,37 @@
+.TH PUTPWPASSWD 3 "October 8, 1990" "NeXT Computer, Inc."
+.SH NAME
+putpwpasswd \- change password
+.SH SYNOPSIS
+.nf
+.B int 
+.B putpwpasswd(
+.B	char *username, 
+.B	char *cleartext, 
+.B	char *encrypted
+.B	)
+.fi
+.SH DESCRIPTION
+.I putpwpasswd
+changes the encrypted password in the NetInfo database for the user
+.I username.
+.I encrypted
+is the new encrypted value to be stored in the database.
+.I cleartext
+is the old unencrypted password for
+.I username
+which is normally required. 
+If this value, when encrypted, does not match the stored encrypted value
+for 
+.I username, 
+then the password cannot be changed.  The old password is not required
+if the current encrypted password for
+.I username
+is the null string ("") nor if the 
+calling process has superuser status 
+and is attempting to change a value in a local database.
+.SH DIAGNOSTICS
+A value of one (1) is returned if the information was successfully changed.
+A value of zero (0) is returned if the information could not be changed.
+.SH "SEE ALSO"
+crypt(3), getpwent(3), netinfo(5)
+

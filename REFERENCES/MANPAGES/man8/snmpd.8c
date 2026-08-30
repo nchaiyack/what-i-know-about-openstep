@@ -1,0 +1,106 @@
+.TH SNMPD "8C" "3 June 1992"				\" -*- nroff -*-
+.SH NAME
+snmpd \- a server for supplying SNMP management information
+.SH SYNOPSIS
+.BR snmpd
+.RB [\| \-d \|]
+.RB [\| \-A \|]
+.RB [\| \-N \|]
+.SH DESCRIPTION
+The
+.B snmpd
+daemon is a server (agent)
+implementing the Simple Network Management Protocol
+for the NeXT Computer.
+An SNMP agent supports a management information base (MIB)
+consisting of a set of variables layed out in a tree.
+The variables and their types
+are defined using ASN.1
+and are listed in /etc/snmp.mib.
+The management base currently implemented by
+.B snmpd
+is that of MIB-I,
+as defined by RFC1156.
+.PP
+The
+.B snmpd
+server should always be run as root
+because it needs to open a privileged socket
+in order to receive its queries.
+The current implementation also
+needs to read /dev/kmem
+in order to obtain the information necessary
+to describe the running system.
+.PP
+By default,
+.B snmpd
+will only allow access to hosts
+listed in NetInfo by name, address, or network number.
+This can be overridden by supplying the
+.B \-A
+option when starting
+.BR snmpd ,
+which will allow any network entity
+access to the information in your SNMP agent.
+To grant individual hosts or networks access explicitly,
+first decide on a community name (e.g. ``public'')
+and create a subdirectory of
+.B /locations/snmp/communities
+with that name.
+Then create a property named
+.B hosts
+or
+.B networks
+in that directory
+and list the host names or network numbers
+from which you wish to allow queries.
+Hosts should be specified using their official hostname
+as returned by
+.IR gethostbyname (3);
+networks should be in dot notion.
+An asterisk (``*'') in either of these properties
+will match any host or network
+and open access to any host on the internet.
+.SH OPTIONS
+.TP
+.B \-d
+Turn on debugging output.
+Each time a packet is received or sent,
+a hexadecimal dump its contents
+will be produced on standard output.
+.TP
+.B \-A
+Allow anyone access to the SNMP server.
+By default, only hosts or other management entities
+listed in in the
+.B /locations/snmp/communities
+directories in NetInfo
+will have access to the information in local SNMP server.
+See below under Access Control for more details.
+.TP
+.B \-N
+Only run if enabled in NetInfo.
+This option will cause
+.B snmpd
+to quit immediately unless the
+.B enabled
+property in NetInfo's
+.B /locations/snmp
+directory has a value of
+.BR YES .
+This is used to start
+.B snmpd
+automatically
+from /etc/rc.
+.SH NOTE
+The current implementation of the SNMP server
+is based on a public domain package
+and is copyright 1988, 1989 by Carnegie Mellon University.
+.SH "SEE ALSO"
+.IR snmp (1C),
+.IR snmpnetstat (1C),
+RFC1155,
+RFC1156,
+RFC1157
+and
+RFC1158.

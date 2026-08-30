@@ -1,0 +1,156 @@
+.TH WAIT 2P "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+wait, waitpid, WIFEXITED, WEXITSTATUS, WIFSIGNALED, WTERMSIG, WIFSTOPPED, WSTOPSIG \- (POSIX version) wait for process to terminate or stop
+.SH SYNOPSIS
+.ft B
+#include <sys/types.h>
+.br
+.B #include <sys/wait.h>
+.PP
+.B int wait(int *\fIstat_loc\fP);
+.PP
+.B int waitpid(pid_t \fIpid\fP, int *\fIstat_loc\fP,
+.B int \fIoptions\fP);
+.LP
+.B WIFEXITED(int \fIstat_val\fR)
+.LP
+.B WEXITSTATUS(int \fIstat_val\fR)
+.LP
+.B WIFSIGNALED(int \fIstat_val\fR)
+.LP
+.B WTERMSIG(int \fIstat_val\fR)
+.LP
+.B WIFSTOPPED(int \fIstat_val\fR)
+.LP
+.B WSTOPSIG(int \fIstat_val\fR)
+.fi
+.SH DESCRIPTION
+The information in this specification applies
+only to POSIX applications.
+.PP
+This is the POSIX specification for \fIstat\fR.
+For the BSD specification, see \fIstat\fR(2).
+.PP
+The \fIwait\fP function delays its caller until a signal is received or one
+of its child processes terminates or stops due to tracing.  If any child has
+died or stopped due to tracing and this has not been reported using
+\fIwait\fP, return is immediate, returning the process ID
+and exit status of one of those children.  If that child had died, it is
+discarded.  If there are no children, return is immediate with the value \-1
+returned.  If there are only running or stopped but reported children, the
+calling process is blocked.
+.LP
+If \fIstat_loc\fP is not a NULL pointer, then on return from a successful
+\fIwait\fP call the status of the child process whose process ID
+is the return value of \fIwait\fP is stored in the int pointed to by
+\fIstat_loc\fP.  The \fIstat_loc\fP argument to \fIwait)\fP and \fIwaitpid()\fP
+(\fIstat_val\fP is the value pointed to by \fIstat_loc\fP) indicates the cause
+of termination and other information about the terminated process in the
+following manner:
+.LP
+.RS
+.TP 5
+\-
+If the low-order 8 bits of \fIstat_val\fP are equal to 0177, the child process
+has stopped; see \fIptrace(2)\fP and \fIsigvec(2)\fP.
+.TP 5
+\-
+If the low-order 8 bits of \fIstat_val\fP are non-zero and are not equal to
+0177, the child process terminated due to a signal; the low-order 7 bits of
+\fIstat_val\fP contain the number of the signal that terminated the process.
+In addition, if the low-order seventh bit of \fIstat_val\fP (that is, bit 0200)
+is set, a ``core image'' of the process was produced; see \fIsigvec(2)\fP.
+.TP 5
+\-
+Otherwise, the child process terminated due to an \fIexit(2)\fP call; the 8 bits
+higher up from the low-order 8 bits of \fIstat_val\fP contain the low-order 8
+bits of the argument that the child process passed to \fIexit(2)\fP.
+.RE
+.LP
+The \fIoptions\fP argument is constructed from the bitwise inclusive OR of zero
+or more of the following flags, defined in the header \fI<sys/wait.h>\fP.
+.TP 25
+WNOHANG
+The \fIwaitpid()\fP function will not suspend execution of the calling process
+if status is not immediately available for one of the child processes specified
+by \fIpid\fP.
+.TP 25
+WUNTRACED
+The status of any child processes specified by \fIpid\fP that are stopped and 
+whose status has not yet been reported since they stopped, will also be
+reported to the requesting process.
+.LP
+.IR WIFEXITED \s0,
+.IR WEXITSTATUS \s0,
+.IR WIFSIGNALED \s0,
+.IR WTERMSIG \s0,
+.IR WIFSTOPPED \s0,
+\fRand\fP
+.IR WSTOPSIG \s0,
+are macros that take an argument \fIstat_val\fP as
+returned by \fIwait\fP or \fIwaitpid()\fP.
+.TP 25
+WIFEXITED(stat_val)
+evaluates to a nonzero value if status was returned for a child process that
+terminated normally.
+.LP
+.TP 25
+WEXITSTATUS(stat_val)
+If the value of \fIWIFEXITED(stat_val\fP) is nonzero, this macro evaluates to
+the low-order 8 bits of the \fIstatus\fP argument that the child process passed
+to \fI_exit(2)\fP or \fIexit(2)\fP, or the value the child process returned
+from \fImain()\fP.
+.TP 25
+WIFSIGNALED(stat_val)
+evaluates to true when the process was terminated with a signal.
+.TP 25
+WTERMSIG(stat_val)
+If the value of \fIWIFSIGNALED(stat_val\fP) is nonzero, this macro evaluates to
+the number of the signal that caused the termination of the child process.
+.TP 25
+WIFSTOPPED(stat_val)
+evaluates to true (1) when the process for which the \fIwait\fP or
+\fIwaitpid()\fP call was made is stopped, or to false (0) otherwise.
+.TP 25
+WSTOPSIG(stat_val)
+If the value of \fIWIFSTOPPED(stat_val\fP) is nonzero, this macro evaluates to
+the number of the signal that caused the child process to stop.
+.SH NOTES
+If a parent process terminates without waiting on its children,
+the initialization process (process ID = 1) inherits the children.
+.SH "RETURN VALUE
+If \fIwait\fP or \fIwaitpid()\fP returns due to a stopped or terminated child
+process, the process ID of the child is returned to the calling process.
+Otherwise, a value of \-1 is returned and \fIerrno\fP is set to indicate the
+error.
+.LP
+\fIwaitpid()\fP returns 0 if
+WNOHANG
+is specified and there are no stopped or exited children, and return the
+process ID of the child process if it returns due to a stopped or terminated
+child process.  Otherwise, it returns a value of \-1 and set \fIerrno\fP to
+indicate the error.
+.SH ERRORS
+If any of the following conditions occur, the \fIwait\fP and \fIwaitpid()\fP
+functions will return \-1 and set \fIerrno\fR to the corresponding value:
+.TP 15
+[ECHILD]
+The calling process has no existing unwaited-for
+child processes.
+.TP 15
+[EFAULT]
+The
+\fIstat_loc\fP 
+argument points to an illegal address.
+.TP 15
+[EINTR]
+The function was interrupted by a signal.  The value of the location pointed
+to by \fIstat_loc\fP is undefined.
+.PP
+Additionally, \fIwaitpid()\fR will fail if:
+.TP 15
+[EINVAL]
+The value of the \fIoptions\fP argument is not valid.
+.SH "SEE ALSO"
+exit(2), getrusage(2), sigvec(2), siginterrupt(3), signal(3), wait(2)

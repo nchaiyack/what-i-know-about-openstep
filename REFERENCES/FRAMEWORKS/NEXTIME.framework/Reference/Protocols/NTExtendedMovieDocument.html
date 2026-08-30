@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -20.2px; font: 28.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -20.2px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 249.4px; text-indent: -138.6px; font: 14.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 249.4px; text-indent: -138.6px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 110.8px; text-indent: -50.4px; font: 18.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 110.8px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 110.8px; font: 14.0px Times}
+    p.p10 {margin: 0.0px 0.0px 0.0px 110.8px; font: 7.0px Times; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 110.8px; font: 28.0px Times; min-height: 34.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 362.9px; text-indent: -231.8px; font: 14.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 388.1px; text-indent: -25.1px; font: 14.0px Times}
+    p.p14 {margin: 0.0px 0.0px 0.0px 388.1px; text-indent: -25.1px; font: 5.0px Times; min-height: 6.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 388.1px; text-indent: -25.1px; font: 35.0px Times; min-height: 42.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 110.8px; text-indent: -45.3px; font: 18.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 110.8px; text-indent: -45.3px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -20.2px; font: 14.0px Helvetica}
+    p.p19 {margin: 0.0px 0.0px 0.0px 131.0px; text-indent: -20.2px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 161.2px; text-indent: -30.2px; font: 14.0px Times}
+    p.p21 {margin: 0.0px 0.0px 0.0px 161.2px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 110.8px; font: 23.0px Times; min-height: 28.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 110.8px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><b>NTExtendedMovieDocument</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5">Adopted By:<span class="Apple-tab-span">	</span>NTMovieDocument class</p>
+<p class="p6"><br></p>
+<p class="p5">Incorporates:<span class="Apple-tab-span">	</span>NTMovieDocument protocol</p>
+<p class="p6"><br></p>
+<p class="p5">Declared In:<span class="Apple-tab-span">	</span>NEXTIME/NTMovieDocument.h <span class="Apple-converted-space"> </span></p>
+<p class="p6"><br></p>
+<p class="p6"><br></p>
+<p class="p7"><b>Protocol Description</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9">This protocol extends the movie-playing behavior of the NTMovieDocument protocol, which it incorporates.<span class="Apple-converted-space">  </span>Whereas the NTMovieDocument protocol provides for simple playback of movies, NTExtendedMovieDocument adds fast-forward and fast-reverse playback, as well as the ability to single-step through the movie's frames.<span class="Apple-converted-space">  </span>The actual speed of the fast-forward and fast-reverse operations are left unspecified.</p>
+<p class="p10"><br></p>
+<p class="p9">Like the NTMovieDocument protocol, this protocol can be used for either software or hardware playback systems.</p>
+<p class="p10"><br></p>
+<p class="p9">The NTMovieDocument class, which adopts this protocol, mutes the movie's sound during fast-forward and fast-reverse playback of the video.<span class="Apple-converted-space">  </span>Other classes conforming to this protocol can likewise mute the sound or else provide means to play it at the fast speed.</p>
+<p class="p10"><br></p>
+<p class="p11"><br></p>
+<p class="p7"><b>Method Types<span class="Apple-converted-space"> </span></b></p>
+<p class="p8"><b></b><br></p>
+<p class="p12">Positioning the movie<span class="Apple-tab-span">	</span><span class="s2">-</span> stepForward:</p>
+<p class="p13"><span class="s2">-</span> stepReverse:</p>
+<p class="p14"><br></p>
+<p class="p12">Playing<span class="Apple-tab-span">	</span><span class="s2">-</span> fastForward:</p>
+<p class="p13"><span class="s2">-</span> fastReverse:</p>
+<p class="p15"><br></p>
+<p class="p16"><b>Instance Methods</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><b>fastForward:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><span class="s2">-</span> (BOOL)<b>fastForward:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p21"><br></p>
+<p class="p9">Starts fast playback in the forward direction. <span class="Apple-converted-space">  </span>If the movie is currently playing back at the normal speed (or fast in the reverse direction), playback is stopped, and the notification NTMovieDocumentDidStopPlaybackNotification posted, before attempting the fast-forward operation.</p>
+<p class="p10"><br></p>
+<p class="p9">An NTMovieDocumentWillStartFastForwardNotification is posted just before beginning fast-forward playback.<span class="Apple-converted-space">  </span>During the fast-forward operation, the notification NTMovieDocumentDidSetPositionNotification is posted periodically to indicate the movie's current position.<span class="Apple-converted-space">  </span>Observers may use this notification to update their displays, reflecting the movie's current state and position. <span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p9">If the end of the movie is reached, fast forward is automatically stopped, and the notification NTMovieDocumentDidStopPlaybackNotification is posted.<span class="Apple-converted-space">  </span>Observers should update their displays accordingly.</p>
+<p class="p10"><br></p>
+<p class="p9">Returns YES upon success; NO otherwise.<span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p22"><br></p>
+<p class="p18"><b></b><b>fastReverse:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><span class="s2">-</span> (BOOL)<b>fastReverse:</b>(id)<i>sender</i><span class="Apple-converted-space"> </span></p>
+<p class="p21"><br></p>
+<p class="p9">Starts fast playback in the backwards direction. <span class="Apple-converted-space">  </span>If the movie is currently playing back normally (or in fast-forward mode), playback is stopped, and the notification NTMovieDocumentDidStopPlaybackNotification posted, before attempting the fast-reverse operation.</p>
+<p class="p10"><br></p>
+<p class="p9">This method posts the notification NTMovieDocumentWillStartFastReverseNotification just before beginning fast-reverse playback.<span class="Apple-converted-space">  </span>As with <b>fastForward:</b>, the NTMovieDocumentDidSetPositionNotification notification is posted periodically to indicate the movie's current position.</p>
+<p class="p10"><br></p>
+<p class="p9">If the movie reaches its beginning, fast reverse is automatically stopped, and the notification NTMovieDocumentDidStopPlaybackNotification is posted to inform observers that they should update their displays.</p>
+<p class="p10"><br></p>
+<p class="p9">Returns YES upon success; NO otherwise.<span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p22"><br></p>
+<p class="p18"><b></b><b>stepForward:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><span class="s2">-</span> (BOOL)<b>stepForward:</b>(id)<i>sender</i></p>
+<p class="p21"><i></i><br></p>
+<p class="p9">Advances the current position to the next video frame and displays it.<span class="Apple-converted-space">  </span>If the movie<span class="Apple-converted-space">  </span>is currently playing, playback is stopped, and the notification NTMovieDocumentDidStopPlaybackNotification posted, before attempting to advance the movie.<span class="Apple-converted-space">  </span>This method posts the notification NTMovieDocumentDidSetPositionNotification after advancing the movie's position.<span class="Apple-converted-space">  </span>Returns YES upon success, or NO to indicate a failure (typically because the movie was already positioned at its final frame).<span class="Apple-converted-space"> </span></p>
+<p class="p10"><br></p>
+<p class="p22"><br></p>
+<p class="p18"><b></b><b>stepReverse:</b></p>
+<p class="p19"><b></b><br></p>
+<p class="p20"><span class="s2">-</span> (BOOL)<b>stepReverse:</b>(id)<i>sender</i></p>
+<p class="p21"><i></i><br></p>
+<p class="p9">Moves the movie's position backward one frame, displaying the new video image.<span class="Apple-converted-space">  </span>If the movie<span class="Apple-converted-space">  </span>is currently playing, playback is stopped, and the notification NTMovieDocumentDidStopPlaybackNotification posted, before attempting to step backward.<span class="Apple-converted-space">  </span>The NTMovieDocumentDidSetPositionNotification notification is posted after changing the movie's position.<span class="Apple-converted-space">  </span>Returns YES upon success, or NO to indicate a failure (typically because the movie was already positioned at the beginning).</p>
+<p class="p10"><br></p>
+<p class="p23"><br></p>
+<p class="p10"><br></p>
+</body>
+</html>

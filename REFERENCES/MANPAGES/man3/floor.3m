@@ -1,0 +1,71 @@
+.\" Copyright (c) 1985 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)floor.3m	6.4 (Berkeley) 5/12/86
+.\"
+.TH FLOOR 3M  "August 1, 1992"
+.UC 4
+.SH NAME
+fabs, floor, ceil\- absolute value, floor, and ceiling functions
+.SH SYNOPSIS
+.nf
+.B #include <math.h>
+.PP
+.B double floor(double \fIx\fP);
+.PP
+.B double ceil(double \fIx\fP);
+.PP
+.B double fabs(double \fIx\fP);
+.fi
+.SH (ALSO AVAILABLE IN BSD)
+.nf
+.B double rint(double \fIx\fP);
+.fi
+.SH DESCRIPTION
+.I Fabs
+returns the absolute value |\|\fIx\fP\||\|.
+.PP
+.I Floor
+returns the largest integer no greater than \fIx\fP.
+.PP
+.I Ceil
+returns the smallest integer no less than \fIx\fP.
+.PP
+.I Rint
+returns the integer (represented as a double precision number)
+nearest \fIx\fP in the direction of the prevailing rounding mode.
+.SH NOTES
+In the default rounding mode, to nearest,
+on a machine that conforms to IEEE 754,
+.IR rint (\fIx\fP)
+is the integer nearest
+.I x
+with the additional stipulation
+that if
+|\|\fIrint\fP(\fIx\fP)\-\fIx\fP\||\|\|=\|1/2
+then \fIrint\fP(\fIx\fP) is even.
+Other rounding modes can make rint act like floor, or like ceil,
+or round towards zero.
+.PP
+Another way to obtain an integer near \fIx\fP is to declare (in C):
+.RS
+double x;\0\0\0\0 int k;\0\0\0\0k\0=\0x;
+.RE
+Most C compilers round \fIx\fP towards 0 to get the integer \fIk\fP, but
+some do otherwise.
+If in doubt, use
+.IR floor ,
+.IR ceil ,
+or
+.I rint
+first, whichever you intend.
+Also note that, if \fIx\fP is larger than \fIk\fP can accommodate,
+the value of
+.I k
+and the presence or absence of an integer overflow are hard to
+predict.
+.SH SEE ALSO
+abs(3),
+ieee(3M),
+math(3M)

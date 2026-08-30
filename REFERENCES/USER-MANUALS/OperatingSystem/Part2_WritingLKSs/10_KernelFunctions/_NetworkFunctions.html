@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 50.4px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 50.4px; font: 24.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 50.4px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 151.2px; font: 26.0px Helvetica; min-height: 31.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 151.2px; font: 14.0px Helvetica}
+    p.p8 {margin: 0.0px 0.0px 0.0px 151.2px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 5.0px Times; min-height: 6.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 14.0px Times}
+    p.p11 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 14.0px Times; min-height: 18.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 170.1px; text-indent: -18.9px; font: 14.0px Times}
+    p.p13 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 10.0px Times; min-height: 13.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 151.2px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 151.2px; font: 14.0px Times}
+    p.p16 {margin: 0.0px 0.0px 0.0px 151.2px; font: 10.0px Times; min-height: 13.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 170.1px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 170.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 5.0px Courier; min-height: 6.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 12.0px Courier}
+    p.p21 {margin: 0.0px 0.0px 0.0px 151.2px; font: 12.0px Courier}
+    p.p22 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 14.0px Courier; min-height: 17.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 151.2px; font: 12.0px Courier; min-height: 14.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 151.2px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 151.2px; font: 5.0px Times; min-height: 6.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 151.2px; text-indent: -100.8px; font: 10.0px Helvetica}
+    p.p27 {margin: 0.0px 0.0px 0.0px 151.2px; font: 14.0px Helvetica; min-height: 17.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 10.0px Helvetica}
+    span.s3 {font: 14.0px Symbol}
+    span.s4 {font: 14.0px Helvetica}
+    span.s5 {font: 14.0px Times}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><br></p>
+<p class="p4"><b>Network Functions</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><b></b><br></p>
+<p class="p7"><b>htonl(), htons(), ntohl(), ntohs()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Convert values between host and network byte order</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;netinet/in.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">u_long <b>htonl(</b>u_long <i>hostlong</i><b>)</b></p>
+<p class="p12">u_short <b>htons(</b>u_short <i>hostshort</i><b>)</b></p>
+<p class="p12">u_long <b>ntohl(</b>u_long <i>netlong</i><b>)</b></p>
+<p class="p12">u_short <b>ntohs(</b>u_short <i>netshort</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>These functions and macros simulate the C library functions of the same name.<span class="Apple-converted-space">  </span>See the UNIX manual page for <b>byteorder</b> for more information.</p>
+<p class="p13"><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7"><b>if_attach()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Initialize and install a new netif</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netif.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">netif_t <b>if_attach(</b>if_init_func_t <i>init_func</i>, if_input_func_t <i>input_func</i>, if_output_func_t <i>output_func</i>, if_getbuf_func_t <i>getbuf_func</i>, if_control_func_t <i>control_func</i>, const char *<i>name</i>, unsigned int <i>unit</i>, const char *<i>type</i>, unsigned int <i>mtu</i>, unsigned int <i>flags</i>, netif_class_t <i>class</i>, void *<i>private</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>init_func</i>:<span class="Apple-converted-space">  </span>The initialization function of this module.</p>
+<p class="p13"><br></p>
+<p class="p15"><i>input_func</i>:<span class="Apple-converted-space">  </span>The input function of this module.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>output_func</i>:<span class="Apple-converted-space">  </span>The output function of this module.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>getbuf_func</i>:<span class="Apple-converted-space">  </span>The buffer allocation function of this module.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>control_func</i>:<span class="Apple-converted-space">  </span>The control function of this module.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>name</i>:<span class="Apple-converted-space">  </span>A constant string that names this module (for example, “en”).</p>
+<p class="p16"><br></p>
+<p class="p15"><i>unit</i>:<span class="Apple-converted-space">  </span>The unit number of this module (for example, <b>0</b>).</p>
+<p class="p16"><br></p>
+<p class="p15"><i>type</i>:<span class="Apple-converted-space">  </span>A constant string that describes the type of this module (for example, “10MB Ethernet”).</p>
+<p class="p16"><br></p>
+<p class="p15"><i>mtu</i>:<span class="Apple-converted-space">  </span>The maximum transfer unit (for example, <b>1500</b> for Ethernet).<span class="Apple-converted-space">  </span>This is the maximum amount of data your module can send or receive.<span class="Apple-converted-space">  </span>Note that protocol-level modules must return the minimum of either the protocol limit or the network device driver's limit (minus header information).</p>
+<p class="p16"><br></p>
+<p class="p15"><i>flags</i>:<span class="Apple-converted-space">  </span>Initial flags for the interface.<span class="Apple-converted-space">  </span>Possible values are:</p>
+<p class="p16"><br></p>
+<p class="p17">IFF_UP:<span class="Apple-tab-span">	</span>If true, this interface is working.</p>
+<p class="p17">IFF_BROADCAST:<span class="Apple-tab-span">	</span>If true, this interface supports broadcast.</p>
+<p class="p17">IFF_LOOPBACK:<span class="Apple-tab-span">	</span>If true, this interface is local only.</p>
+<p class="p17">IFF_POINTTOPOINT:<span class="Apple-tab-span">	</span>If true, this is a point-to-point interface.</p>
+<p class="p18"><br></p>
+<p class="p15"><i>class</i>:<span class="Apple-converted-space">  </span>The class of this interface.<span class="Apple-converted-space">  </span>Possible values are:</p>
+<p class="p16"><br></p>
+<p class="p17">NETIFCLASS_REAL:<span class="Apple-tab-span">	</span>Network driver (a module that manipulates the hardware).</p>
+<p class="p17">NETIFCLASS_VIRTUAL:<span class="Apple-tab-span">	</span>Protocol handler (a module that doesn't talk to hardware).</p>
+<p class="p17">NETIFCLASS_SNIFFER:<span class="Apple-tab-span">	</span>Packet sniffer (a module that merely examines packets).</p>
+<p class="p18"><br></p>
+<p class="p15"><i>private</i>:<span class="Apple-converted-space">  </span>Private data, which can be retrieved using <b>if_private()</b>.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>Initializes a new netif and installs it, returning the resulting netif.<span class="Apple-converted-space">  </span>Network device drivers should call this function at load time.<span class="Apple-converted-space">  </span>Protocol handlers and packet sniffers should instead call <b>if_registervirtual()</b> at load time, supplying as an argument the callback function that calls <b>if_attach()</b>.</p>
+<p class="p13"><br></p>
+<p class="p15">The first five arguments are the functions that are associated with netifs.<span class="Apple-converted-space">  </span>These functions are described in Chapter 8, “Network Modules.”<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p15">This function doesn't check any of its arguments, so it always succeeds.</p>
+<p class="p16"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>ifp = if_attach(NULL, myhandler_input, myhandler_output,</p>
+<p class="p21"><span class="Apple-converted-space">    </span>myhandler_getbuf, myhandler_control, name, unit, IFTYPE_IP,</p>
+<p class="p21"><span class="Apple-converted-space">    </span>MYMTU, IFF_BROADCAST, NETIFCLASS_VIRTUAL, ifprivate);</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>if_flags()</b>, <b>if_output()</b>, <b>if_init()</b>, <b>if_control()</b>, <b>if_ioctl()</b>, <b>if_getbuf()</b>, <b>if_handle_input()</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7"><b>if_class()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get the class of a netif</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netif.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">netif_class_t <b>if_class(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>netif</i>:<span class="Apple-converted-space">  </span>The module to get the class for.</p>
+<p class="p13"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>This function returns the class of <i>netif</i>.<span class="Apple-converted-space">  </span>The value returned is one of the following:</p>
+<p class="p13"><br></p>
+<p class="p12">•<span class="Apple-tab-span">	</span>NETIFCLASS_REAL</p>
+<p class="p12">•<span class="Apple-tab-span">	</span>NETIFCLASS_VIRTUAL<span class="Apple-converted-space"> </span></p>
+<p class="p12">•<span class="Apple-tab-span">	</span>NETIFCLASS_SNIFFER</p>
+<p class="p22"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>netif_t ni;</p>
+<p class="p23"><br></p>
+<p class="p21">for (ni = iflist_first(); ni != NULL; ni = iflist_next(ni)) {</p>
+<p class="p21"><span class="Apple-converted-space">    </span>printf("name: %s%d, class: %s\n", if_name(ni), if_unit(ni),<span class="Apple-converted-space"> </span></p>
+<p class="p21"><span class="Apple-converted-space">        </span>(if_class(ni) == NETIFCLASS_REAL) ? "real" :<span class="Apple-converted-space"> </span></p>
+<p class="p21"><span class="Apple-converted-space">            </span>((if_class(ni) == NETIFCLASS_VIRTUAL) ? "virtual" :</p>
+<p class="p21"><span class="Apple-converted-space">            </span>((if_class(ni) == NETIFCLASS_SNIFFER) ? "sniffer" : "unknown")));</p>
+<p class="p21">}</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>iflist_first()</b>, <b>iflist_next()</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7"><b>if_collisions(), if_collisions_set()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get or set the number of collisions</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netif.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">unsigned int <b>if_collisions(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p12">void <b>if_collisions_set(</b>netif_t <i>netif</i>, unsigned int <i>collisions</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>netif</i>:<span class="Apple-converted-space">  </span>The module to get or set collision data for.</p>
+<p class="p13"><br></p>
+<p class="p15"><i>collisions</i>:<span class="Apple-converted-space">  </span>The new number of collisions.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The functions <b>if_collisions()</b> and <b>if_collisions_set()</b> get and set, respectively, the number of collisions encountered.<span class="Apple-converted-space">  </span>Only the module corresponding to <i>netif</i> should call <b>if_collisions_set()</b>.</p>
+<p class="p13"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>printf("Number of collisions encountered so far:<span class="Apple-converted-space">  </span>%d\n",</p>
+<p class="p21"><span class="Apple-converted-space">     </span>if_collisions(netif));</p>
+<p class="p24"><b></b><br></p>
+<p class="p7"><b>if_control(), if_getbuf(), if_init(), if_ioctl(), if_output()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Call one of the functions associated with a netif</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netif.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">int <b>if_control(</b>netif_t <i>netif</i>, const char *<i>command</i>, void *<i>data</i><b>)</b></p>
+<p class="p12">netbuf_t <b>if_getbuf(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p12">int <b>if_init(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p12">int <b>if_ioctl(</b>netif_t <i>netif</i>, unsigned int <i>command</i>, void *<i>data</i><b>)</b></p>
+<p class="p12">int <b>if_output(</b>netif_t <i>netif</i>, netbuf_t <i>packet</i>, void *<i>address</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>netif</i>:<span class="Apple-converted-space">  </span>The module whose function should be called.</p>
+<p class="p13"><br></p>
+<p class="p15"><i>command</i>:<span class="Apple-converted-space">  </span>The control command that should be executed.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>data</i>:<span class="Apple-converted-space">  </span>Data specific to the control command.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>packet</i>:<span class="Apple-converted-space">  </span>The packet that should be passed to <i>netif</i>'s output function.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>address</i>:<span class="Apple-converted-space">  </span>The address that should be specified in the call to <i>netif</i>'s output function.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The <b>if_control()</b> function calls <i>netif</i>'s control function, <b>if_getbuf()</b> calls <i>netif</i>'s buffer allocation function, <b>if_init()</b> calls <i>netif</i>'s initialization function, and <b>if_output()</b> calls <i>netif</i>'s output function.</p>
+<p class="p13"><br></p>
+<p class="p15">It is recommended that you don't use <b>if_ioctl()</b>; it's provided only for compatibility with UNIX code that operates using <b>ioctl</b>.<span class="Apple-converted-space">  </span>The <b>if_ioctl()</b> function calls <i>netif</i>'s control function.</p>
+<p class="p16"><br></p>
+<p class="p15">Except for <b>if_getbuf()</b>, these functions return ENXIO if the corresponding function isn't implemented in <i>netif</i>; otherwise they return the value returned by the call to the corresponding function.<span class="Apple-converted-space">  </span>The <b>if_getbuf()</b> function returns NULL if the corresponding function isn't implemented.</p>
+<p class="p16"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>nb = if_getbuf(ifp);</p>
+<p class="p21">if (nb == NULL)<span class="Apple-converted-space"> </span></p>
+<p class="p21"><span class="Apple-converted-space">    </span>return ENOBUFS;</p>
+<p class="p11"><b></b><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>if_attach()</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7"><b>if_detach()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Detach a netif so it can be unloaded</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netif.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">void <b>if_detach(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>netif</i>:<span class="Apple-converted-space">  </span>The module to detach.</p>
+<p class="p13"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The <b>if_detach()</b> function removes <i>netif</i> from the system lists of attached netifs.<span class="Apple-converted-space">  </span>You should call this function before unloading a network module.</p>
+<p class="p13"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>netif_t ni;</p>
+<p class="p23"><br></p>
+<p class="p21">for (ni = iflist_first(); ni != NULL; ni = iflist_next(ni)) {</p>
+<p class="p21"><span class="Apple-converted-space">    </span>if (if_unit(ni) == myunit &amp;&amp; if_type(ni) == mytype &amp;&amp;</p>
+<p class="p21"><span class="Apple-converted-space">        </span>strcmp(if_name(ni), myname) == 0) {</p>
+<p class="p21"><span class="Apple-converted-space">            </span>if_detach(ni);</p>
+<p class="p21"><span class="Apple-converted-space">            </span>break;</p>
+<p class="p21"><span class="Apple-converted-space">    </span>}</p>
+<p class="p21">}</p>
+<p class="p24"><b></b><br></p>
+<p class="p7"><b>if_flags(), if_flags_set()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get or set the flags associated with a netif</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netif.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">unsigned int <b>if_flags(</b>netif_t<i> netif</i><b>)</b></p>
+<p class="p12">void <b>if_flags_set(</b>netif_t<i> netif</i>, unsigned int <i>flags</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>netif</i>:<span class="Apple-converted-space">  </span>The module to get or set flags for.</p>
+<p class="p13"><br></p>
+<p class="p15"><i>flags</i>:<span class="Apple-converted-space">  </span>The new flags.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The functions <b>if_flags()</b> and <b>if_flags_set()</b> get and set, respectively, the flags associated with <i>netif</i>.<span class="Apple-converted-space">  </span>Only the module corresponding to <i>netif</i> should use <b>if_flags_set()</b>.</p>
+<p class="p13"><br></p>
+<p class="p15">Possible flag values are:</p>
+<p class="p16"><br></p>
+<p class="p17">IFF_UP:<span class="Apple-tab-span">	</span>If true, this interface is working.</p>
+<p class="p17">IFF_BROADCAST:<span class="Apple-tab-span">	</span>If true, this interface supports broadcast.</p>
+<p class="p17">IFF_LOOPBACK:<span class="Apple-tab-span">	</span>If true, this interface is local only.</p>
+<p class="p17">IFF_POINTTOPOINT:<span class="Apple-tab-span">	</span>If true, this is a point-to-point interface.</p>
+<p class="p18"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>if_flags_set(ifp, if_flags(ifp) | IFF_UP);</p>
+<p class="p11"><b></b><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>if_attach()</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7"><b>if_handle_input()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Dispatch an input packet to a protocol handler</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netif.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">int <b>if_handle_input(</b>netif_t <i>netif</i>, netbuf_t <i>packet</i>, void *<i>extra</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>netif</i>:<span class="Apple-converted-space">  </span>This module, which must be a network device driver.</p>
+<p class="p13"><br></p>
+<p class="p15"><i>packet</i>:<span class="Apple-converted-space">  </span>The input packet.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>extra</i>:<span class="Apple-converted-space">  </span>Any extra data that might be needed by the protocol handler.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>Call this in a network device driver to have an input packet dispatched to a protocol handler.<span class="Apple-converted-space">  </span>This function calls the input functions of one or more protocol handlers, passing along the <i>packet</i> and <i>extra</i> arguments. <span class="Apple-converted-space"> </span></p>
+<p class="p13"><br></p>
+<p class="p15">This function returns EAFNOSUPPORT if no protocol handler accepts the packet.</p>
+<p class="p16"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>if (nb == 0) {</p>
+<p class="p21"><span class="Apple-converted-space">    </span>printf ("Error:<span class="Apple-converted-space">  </span>buffer is null\n");</p>
+<p class="p21"><span class="Apple-converted-space">    </span>goto resetup;</p>
+<p class="p21">}<span class="Apple-converted-space"> </span></p>
+<p class="p21">else {</p>
+<p class="p21"><span class="Apple-converted-space">    </span>if_handle_input(netif, nb, NULL);</p>
+<p class="p21">}</p>
+<p class="p24"><b></b><br></p>
+<p class="p7"><b>if_ierrors(), if_ierrors_set(), if_oerrors(), if_oerrors_set()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get or set the number of input or output errors</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netif.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">unsigned int <b>if_ierrors(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p12">void <b>if_ierrors_set(</b>netif_t <i>netif</i>, unsigned int <i>ierrors</i><b>)</b></p>
+<p class="p12">unsigned int <b>if_oerrors(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p12">void <b>if_oerrors_set(</b>netif_t <i>netif</i>, unsigned int <i>oerrors</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>netif</i>:<span class="Apple-converted-space">  </span>The module for which to access the number of errors.</p>
+<p class="p13"><br></p>
+<p class="p15"><i>ierrors</i>:<span class="Apple-converted-space">  </span>The number of input errors.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>oerrors</i>:<span class="Apple-converted-space">  </span>The number of output errors.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The functions <b>if_ierrors()</b> and <b>if_ierrors_set()</b> get and set, respectively, the number of input errors encountered.<span class="Apple-converted-space">  </span>Only the module corresponding to <i>netif</i> should call <b>if_ierrors_set().</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p15">The <b>if_oerrors()</b> function and the <b>if_oerrors_set()</b> function get and set the number of output errors encountered.<span class="Apple-converted-space">  </span>Again, only the <i>netif</i>'s module should call <b>if_oerrors_set()</b>.</p>
+<p class="p16"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>error = if_output(lowernetif, nb, (void *)addr);</p>
+<p class="p21">if (error == 0)</p>
+<p class="p21"><span class="Apple-converted-space">    </span>if_opackets_set(netif, if_opackets(netif) + 1);<span class="Apple-converted-space"> </span></p>
+<p class="p21">else<span class="Apple-converted-space"> </span></p>
+<p class="p21"><span class="Apple-converted-space">    </span>if_oerrors_set(netif, if_oerrors(netif) + 1);</p>
+<p class="p21">return (error);</p>
+<p class="p24"><b></b><br></p>
+<p class="p7"><b>if_ipackets(), if_ipackets_set(), if_opackets(), if_opackets_set()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get or set the number of packets received or sent</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netif.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">unsigned int <b>if_ipackets(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p12">void <b>if_ipackets_set(</b>netif_t <i>netif</i>, unsigned int <i>ipackets</i><b>)</b></p>
+<p class="p12">unsigned int <b>if_opackets(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p12">void <b>if_opackets_set(</b>netif_t <i>netif</i>, unsigned int <i>opackets</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>netif</i>:<span class="Apple-converted-space">  </span>The module whose packet information is to be accessed.</p>
+<p class="p13"><br></p>
+<p class="p15"><i>ipackets</i>:<span class="Apple-converted-space">  </span>The number of input packets handled by this module since it was loaded.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>opackets</i>:<span class="Apple-converted-space">  </span>The number of packets sent to a lower level by this module since it was loaded.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The <b>if_ipackets()</b> function gets and the <b>if_ipackets_set() </b>function sets the number of input packets handled.<span class="Apple-converted-space">  </span>Only the module specified by <i>netif</i> should call <b>if_ipackets_set()</b>.</p>
+<p class="p13"><br></p>
+<p class="p15">Similarly, <b>if_opackets()</b> gets and <b>if_opackets_set()</b> sets the number of output packets sent.<span class="Apple-converted-space">  </span>Only <i>netif</i>'s module should call <b>if_opackets_set()</b>.</p>
+<p class="p16"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>error = if_output(lowernetif, nb, (void *)addr);</p>
+<p class="p21">if (error == 0) {</p>
+<p class="p21"><span class="Apple-converted-space">    </span>if_opackets_set(netif, if_opackets(netif) + 1);</p>
+<p class="p21">} else {</p>
+<p class="p21"><span class="Apple-converted-space">    </span>if_oerrors_set(netif, if_oerrors(netif) + 1);</p>
+<p class="p21">}</p>
+<p class="p21">return (error);</p>
+<p class="p24"><b></b><br></p>
+<p class="p7"><b>if_mtu(), if_name(), if_private(), if_type(), if_unit()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get information about a netif</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netif.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">unsigned int <b>if_mtu(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p12">const char *<b>if_name(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p12">void *<b>if_private(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p12">const char *<b>if_type(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p12">unsigned int <b>if_unit(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>netif</i>:<span class="Apple-converted-space">  </span>The netif whose data is being requested.</p>
+<p class="p13"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>These functions return the following information about <i>netif</i>:</p>
+<p class="p13"><br></p>
+<p class="p17"><b>if_mtu()</b>:<span class="Apple-tab-span">	</span>Its maximum transfer unit (for example, <b>1500</b> for Ethernet).</p>
+<p class="p17"><b>if_name()</b>:<span class="Apple-tab-span">	</span>Its name (for example, “en”).</p>
+<p class="p17"><b>if_private()</b>:<span class="Apple-tab-span">	</span>Its private data.</p>
+<p class="p17"><b>if_type()</b>:<b><span class="Apple-tab-span">	</span></b>Its type string (for example, “10MB Ethernet”).</p>
+<p class="p17"><b>if_unit()</b>:<span class="Apple-tab-span">	</span>Its unit number (for example, <b>0</b>).</p>
+<p class="p18"><br></p>
+<p class="p15">See Chapter 8 for more information on netifs.<span class="Apple-converted-space">  </span>Only the module specified by <i>netif</i> should call <b>if_private()</b>.</p>
+<p class="p16"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>((venip_private_t *)if_private(netif))-&gt;lowernetif = realnetif;</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>if_flags()</b>, <b>if_flags_set()</b>, <b>if_attach()</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7"><b>if_registervirtual()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Register a callback function that calls <b>if_attach()</b></p>
+<p class="p11"><b></b><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netif.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">void <b>if_registervirtual(</b>if_attach_func_t <i>attach_func</i>, void *<i>private</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>attach_func</i>:<span class="Apple-converted-space">  </span>The callback function.</p>
+<p class="p13"><br></p>
+<p class="p15"><i>private</i>:<span class="Apple-converted-space">  </span>Data to be passed to the callback function.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>For use by protocol handlers and packet sniffers.<span class="Apple-converted-space">  </span>This function registers a callback function that should call <b>if_attach()</b>.<span class="Apple-converted-space">  </span>See Chapter 8 for more information on implementing this callback function.</p>
+<p class="p13"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>if_registervirtual(myhandler_attach, NULL);</p>
+<p class="p24"><b></b><br></p>
+<p class="p7"><b>iflist_first(), iflist_next()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Find the first or next netif in the system netif list</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netif.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">netif_t <b>iflist_first(</b>void<b>)</b></p>
+<p class="p12">netif_t <b>iflist_next(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>netif</i>:<span class="Apple-converted-space">  </span>The previous netif in the list.</p>
+<p class="p13"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>These functions are useful for cycling through the system list of attached netifs.<span class="Apple-converted-space">  </span>The <b>iflist_first()</b> function returns the first netif in the list.<span class="Apple-converted-space">  </span>The <b>iflist_next()</b> function returns the netif after <i>netif</i> in the list.</p>
+<p class="p13"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>netif_t ni;</p>
+<p class="p23"><br></p>
+<p class="p21">for (ni = iflist_first(); ni != NULL; ni = iflist_next(ni)) {</p>
+<p class="p21"><span class="Apple-converted-space">    </span>printf("name: %s%d, type: %s\n", if_name(ni), if_type(ni));</p>
+<p class="p21">}</p>
+<p class="p24"><b></b><br></p>
+<p class="p7"><b>inet_queue()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Give an IP input packet to the kernel for processing</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netif.h&gt;</b></p>
+<p class="p15"><b>#import &lt;net/netbuf.h&gt;</b></p>
+<p class="p25"><b></b><br></p>
+<p class="p12">void <b>inet_queue(</b>netif_t <i>netif</i>, netbuf_t <i>netbuf</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>netif</i>:<span class="Apple-converted-space">  </span>The protocol handler.</p>
+<p class="p13"><br></p>
+<p class="p15"><i>netbuf</i>:<span class="Apple-converted-space">  </span>The packet to hand over.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>IP protocol handlers wishing to hand over their input packets to the kernel for processing should call this function.</p>
+<p class="p13"><br></p>
+<p class="p15">You can safely call this function from an interrupt handler, since it doesn't block. <span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>nb_shrink_top(netbuf, HDRSIZE);</p>
+<p class="p21">if_ipackets_set(netif, if_ipackets(netif) + 1);</p>
+<p class="p21">inet_queue(netif, netbuf);</p>
+<p class="p24"><b></b><br></p>
+<p class="p7"><b>nb_alloc(), nb_alloc_wrapper()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Allocate a netbuf or a netbuf wrapper</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netbuf.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">netbuf_t <b>nb_alloc(</b>unsigned int <i>size</i><b>)</b></p>
+<p class="p12">netbuf_t <b>nb_alloc_wrapper(</b>void *<i>data</i>, unsigned int <i>size</i>, void<i> freefunc</i>(void *), void *<i>freefunc_arg</i><b>)</b><i> <span class="Apple-converted-space"> </span></i></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>size????</i>:<span class="Apple-converted-space">  </span>The size of the data to be stored.</p>
+<p class="p13"><br></p>
+<p class="p15"><i>data</i>:<span class="Apple-converted-space">  </span>The data to be stored.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>freefunc</i>:<span class="Apple-converted-space">  </span>The function to be called when the netbuf is freed.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>freefunc_arg</i>:<span class="Apple-converted-space">  </span>The argument to be passed to <i>freefunc</i>.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The <b>nb_alloc()</b> function allocates a netbuf containing <i>size</i> bytes.<span class="Apple-converted-space">  </span>It returns the netbuf.</p>
+<p class="p13"><br></p>
+<p class="p15">The <b>nb_alloc_wrapper()</b> function allocates only a wrapper for a netbuf.<span class="Apple-converted-space">  </span>Use this function when you have already allocated space for the packet.<span class="Apple-converted-space">  </span>The returned netbuf's original start of data is <i>data</i>, and its bottom pointer is initialized to <i>data</i> + <i>size</i> <span class="s3">-</span>1.<span class="Apple-converted-space">  </span>If <b>nb_free()</b> is called on the returned netbuf, <i>freefunc</i> will be called with the argument <i>freefunc_arg</i>.<span class="Apple-converted-space">  </span>The value of <i>freefunc</i> can't be null.</p>
+<p class="p16"><br></p>
+<p class="p15"><span class="s4"><b>Note:<span class="Apple-converted-space">  </span></b></span>Don't call either <b>nb_alloc()</b> or <b>nb_alloc_wrapper()</b> from an interrupt handler.<span class="Apple-converted-space">  </span>(Both functions can sleep.)</p>
+<p class="p16"><br></p>
+<p class="p15">Both <b>nb_alloc()</b> and <b>nb_alloc_wrapper()</b> return a null pointer if they fail.</p>
+<p class="p16"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>nb = nb_alloc_wrapper((void *)buf, HDR_SIZE + MYMTU,<span class="Apple-converted-space"> </span></p>
+<p class="p21"><span class="Apple-converted-space">    </span>mydriver_buf_put, (void *)buf);</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>nb_free()</b>, <b>nb_free_wrapper()</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7"><b>nb_free(), nb_free_wrapper()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Free a netbuf or only its wrapper</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netbuf.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">void <b>nb_free(</b>netbuf_t <i>nb</i><b>)</b></p>
+<p class="p12">void <b>nb_free_wrapper(</b>netbuf_t <i>nb</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>nb</i>:<span class="Apple-converted-space">  </span>The netbuf to be freed (or whose wrapper is to be freed).</p>
+<p class="p13"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The <b>nb_free()</b> function frees the netbuf <i>nb</i>.<span class="Apple-converted-space">  </span>The <b>nb_free_wrapper()</b> function frees only the wrapper of <i>nb</i>, leaving its data area intact.</p>
+<p class="p13"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>nb_free_wrapper(nb);</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>nb_alloc()</b>, <b>nb_alloc_wrapper()</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7"><b>nb_grow_bot(), nb_shrink_bot(), nb_grow_top(), nb_shrink_top()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Change the size of a netbuf</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netbuf.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">int <b>nb_grow_bot(</b>netbuf_t <i>nb</i>, unsigned int <i>size</i><b>)</b></p>
+<p class="p12">int <b>nb_shrink_bot(</b>netbuf_t <i>nb</i>, unsigned int <i>size</i><b>)</b></p>
+<p class="p12">int <b>nb_grow_top(</b>netbuf_t <i>nb</i>, unsigned int <i>size</i><b>)</b></p>
+<p class="p12">int <b>nb_shrink_top(</b>netbuf_t <i>nb</i>, unsigned int <i>size</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>nb</i>:<span class="Apple-converted-space">  </span>The netbuf to be affected.</p>
+<p class="p13"><br></p>
+<p class="p15"><i>size</i>:<span class="Apple-converted-space">  </span>The number of bytes to add or delete from the top or bottom pointer.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The <b>nb_grow_bot()</b> function moves the bottom pointer down.<span class="Apple-converted-space">  </span>After this call, the data is assumed to end <i>size</i> bytes after where it used to end (the data area has effectively grown).</p>
+<p class="p13"><br></p>
+<p class="p15">The <b>nb_shrink_bot()</b> function moves the bottom pointer up, effectively shrinking the data area.<span class="Apple-converted-space">  </span>After this call, the data is assumed to end <i>size</i> bytes before where it used to end.</p>
+<p class="p16"><br></p>
+<p class="p15">The <b>nb_grow_top()</b> function moves the top pointer up, enlarging the data area.<span class="Apple-converted-space">  </span>After this call, the data is assumed to start <i>size</i> bytes before where it used to start.</p>
+<p class="p16"><br></p>
+<p class="p15">The <b>nb_shrink_top()</b> function moves the top pointer down, shrinking the data area.<span class="Apple-converted-space">  </span>After this call, the data is assumed to start <i>size</i> bytes beyond where it used to start.</p>
+<p class="p16"><br></p>
+<p class="p15">These functions perform no error checking, so they always succeed and return zero.</p>
+<p class="p16"><br></p>
+<p class="p15"><span class="s4"><b>Warning:<span class="Apple-converted-space">  </span></b></span>Writing to space outside of the original starting and ending points will cause serious errors, since the extra memory doesn't belong to the netbuf data section.</p>
+<p class="p16"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>nb_shrink_top(netbuf, HDRSIZE);</p>
+<p class="p21">if_ipackets_set(netif, if_ipackets(netif) + 1);</p>
+<p class="p21">inet_queue(netif, netbuf);</p>
+<p class="p11"><b></b><br></p>
+<p class="p26"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b><span class="s5"><b>nb_size()</b></span></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7"><b>nb_map()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get a pointer to the data stored in a netbuf</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netbuf.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">char *<b>nb_map(</b>netbuf_t <i>nb</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>nb</i>:<span class="Apple-converted-space">  </span>The netbuf whose data you want.</p>
+<p class="p13"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>Returns a pointer to the data stored in <i>nb</i>.<span class="Apple-converted-space">  </span>The pointer is valid only until another <b>nb_*()</b> function is called on <i>nb</i>.</p>
+<p class="p13"><br></p>
+<p class="p15">This function returns a null pointer if it fails.</p>
+<p class="p16"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>char *map = nb_map(nb);</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>nb_read()</b>, <b>nb_write()</b>, <b>nb_size()</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7"><b>nb_read(), nb_write()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Access data in a netbuf</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netbuf.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">int <b>nb_read(</b>netbuf_t <i>nb</i>, unsigned int <i>offset</i>, unsigned int <i>size</i>, void *<i>target</i><b>)</b></p>
+<p class="p12">int <b>nb_write(</b>netbuf_t <i>nb</i>, unsigned int <i>offset</i>, unsigned int <i>size</i>, void *<i>source</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>nb</i>:<span class="Apple-converted-space">  </span>The netbuf whose data you want to read or write.</p>
+<p class="p13"><br></p>
+<p class="p15"><i>offset</i>:<span class="Apple-converted-space">  </span>The offset of the start of data from the beginning of the netbuf.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>size</i>:<span class="Apple-converted-space">  </span>The number of bytes to be read or written.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>target</i>:<span class="Apple-converted-space">  </span>The place to put the data.</p>
+<p class="p16"><br></p>
+<p class="p15"><i>source</i>:<span class="Apple-converted-space">  </span>The place to read the data from.</p>
+<p class="p16"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>The <b>nb_read()</b> function reads data from <i>nb</i> into <i>target</i>.<span class="Apple-converted-space">  </span>It starts at offset <i>offset</i> from the starting point in the data and reads <i>size</i> bytes into <i>target</i>. <span class="Apple-converted-space"> </span></p>
+<p class="p13"><br></p>
+<p class="p15">The <b>nb_write()</b> function writes data into <i>nb</i>.<span class="Apple-converted-space">  </span>It starts writing at offset <i>offset</i> from the starting point in the data and writes <i>size</i> bytes from <i>source</i>.</p>
+<p class="p16"><br></p>
+<p class="p15">Both <b>nb_read()</b> and <b>nb_write()</b> return zero if the call was successful; otherwise, they return a nonzero value.</p>
+<p class="p16"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>char<span class="Apple-converted-space">    </span>buf[MAXTRAILERBUF];</p>
+<p class="p23"><br></p>
+<p class="p21">/*</p>
+<p class="p21"><span class="Apple-converted-space"> </span>* Save copy of data.</p>
+<p class="p21"><span class="Apple-converted-space"> </span>*/</p>
+<p class="p21">nb_read(nb, HDRSIZE, offset, &amp;buf);</p>
+<p class="p11"><b></b><br></p>
+<p class="p26"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b><span class="s5"><b>nb_map()</b></span></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b></b><br></p>
+<p class="p7"><b>nb_size()</b></p>
+<p class="p8"><b></b><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SUMMARY<span class="Apple-tab-span">	</span></b></span>Get the size of the data stored in a netbuf</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SYNOPSIS<span class="Apple-tab-span">	</span></b></span><b>#import &lt;net/netbuf.h&gt;</b></p>
+<p class="p9"><b></b><br></p>
+<p class="p12">unsigned int <b>nb_size(</b>netbuf_t <i>nb</i><b>)</b></p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>ARGUMENTS<span class="Apple-tab-span">	</span></b></span><i>nb</i>:<span class="Apple-converted-space">  </span>The netbuf to get the size of.</p>
+<p class="p13"><br></p>
+<p class="p9"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>DESCRIPTION<span class="Apple-tab-span">	</span></b></span>Returns the size (in bytes) of the data stored by <i>nb</i>.</p>
+<p class="p13"><br></p>
+<p class="p19"><br></p>
+<p class="p20"><span class="s2"><b><span class="Apple-tab-span">	</span>EXAMPLE<span class="Apple-tab-span">	</span></b></span>if (HDRSIZE + offset + size &gt; nb_size(nb)) {</p>
+<p class="p21"><span class="Apple-converted-space">    </span>return (EAFNOSUPPORT);</p>
+<p class="p21">}</p>
+<p class="p11"><br></p>
+<p class="p10"><span class="s2"><b><span class="Apple-tab-span">	</span>SEE ALSO<span class="Apple-tab-span">	</span></b></span><b>nb_grow_bot()</b>, <b>nb_shrink_bot()</b>, <b>nb_grow_top()</b>, <b>nb_shrink_top()</b>, <b>nb_map()</b></p>
+<p class="p13"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p8"><b></b><br></p>
+</body>
+</html>

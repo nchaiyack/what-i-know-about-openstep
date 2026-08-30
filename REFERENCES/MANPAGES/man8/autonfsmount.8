@@ -1,0 +1,329 @@
+.\" @(#)autonfsmount.8	1.1 88/06/02 4.0NFSSRC; from 1.11 88/03/07 SMI;
+.TH AUTOMOUNT 8 "20 January 1988"
+.SH NAME
+autonfsmount \- automatically mount NFS file systems
+.SH SYNOPSIS
+.B autonfsmount
+[
+.B \-mnT
+] [
+.BI \-tl " duration"
+] [
+.BI \-tm " interval"
+] [
+.BI \-tw " interval"
+] [
+.BI \-a " directory"
+]
+.if t .ti +.5i
+[
+.I directory
+.I mapname
+.RI [ " \-mount-options " ]
+] .\|.\|.
+.SH DESCRIPTION
+.IX "autonfsmount command" "" "\fLautonfsmount\fP command"
+.B autonfsmount
+is a daemon that will automatically and transparently mount an
+.SM NFS
+file system whenever a file or directory
+within that system is opened.
+.B autonfsmount
+forks a daemon, which appears to be an
+.SM NFS
+server to the kernel; lookups on the specified
+.I directory
+are intercepted by this daemon, which uses the map contained in
+.I mapname
+to determine a server, exported file system, and appropriate
+mount options for a given file system.
+The named map can either be a file on the local system, a
+Yellow Pages map or some special "maps" which are hardwired into
+.B autonfsmount
+itself.
+.I directory
+is a full pathname starting with a 
+.RB ` / '.
+.LP
+When supplied,
+.I \-mount-options
+consists of the leading
+.B \-
+and a comma-separated list of 
+.BR mount (8)
+options; if mount options are specified in the map, however,
+those in the map take precedence.
+.LP
+Once mounted, members of the
+.I directory
+are made available using a symbolic link
+to the real mount point within a temporary directory.
+.LP
+If
+.I directory
+does not exist, the daemon creates it, and then removes it
+automatically when the daemon exits.
+.LP
+Since the name-to-location binding is dynamic, updates to a Yellow Pages
+map are transparent to the user.
+This obviates the need to ``pre-mount'' shared file
+systems for applications that have ``hard coded'' references to files.
+It also obviates the need to maintain records of which hosts
+must be mounted for what applications.
+.SS Maps
+.B autonfsmount
+looks first for the indicated
+.I mapname
+in a file by that name. If there is no such file, it looks
+for a YP map by that name.
+.LP
+An autonfsmount map is composed of a list of mappings, with one
+mapping per line.  Each mapping is composed of the following fields:
+.IP
+.I
+basename\ \ \ \fR[\fB\-\fImount-options\|\fR]\fI\ \ \ location\ \ \ \fR[\.\|.\|.]\fP
+.LP
+where
+.I basename
+is the name of a subdirectory within the
+.I directory
+specified in the
+.B autonfsmount
+command line (not a relative pathname).  The
+.I location
+field consists of an entry of the form:
+.IP
+\fIhost\|\fB:\fIdirectory\|\fR[\fB:\fIsubdir\|\fR]
+.LP
+where
+.I host
+is the name of the host from which to mount the file system,
+.I directory
+is the pathname of the directory to mount, and
+.IR subdir ,
+when supplied, is the name of a subdirectory to which the
+symbolic link is made.  This can be used to prevent duplicate
+mounts in cases where multiple directories in the same remote
+file system are accessed.
+.LP
+The contents of a YP map can be included within a map
+by adding an entry of the form:
+.IP
+.BI + mapname
+.LP
+A mapping can be continued across line breaks using a 
+.B \e
+as the last character before the
+.SM NEWLINE.
+Comments begin with a
+.B  #
+and end at the subsequent
+.SM NEWLINE.
+.LP
+If more than one
+.I location
+is supplied, there is no guarantee as to which location will be
+used; the first location to respond to the mount request gets
+mounted.
+The
+.I mount-options
+field can be used to supply options to the
+.BR mount (8)
+command for the mounted file system.
+.br
+.ne 8
+.SS Special Maps
+.LP
+There are two special maps currently available.  The
+.B \-hosts
+map uses the Yellow Pages
+.B hosts.byname
+map to locate a remote host when the hostname is specified as a
+subdirectory of
+.IR directory .
+This map specifies mounts of all exported file systems from any host.
+For instance, if the following
+.B autonfsmount
+command is already in effect:
+.IP
+.B autonfsmount /net \-hosts
+.LP
+then a reference to
+.B /net/hermes/usr
+would initiate an automatic mount of all file systems from
+.B hermes
+that
+.B autonfsmount
+can mount; references to a directory under
+.B /net/hermes
+will refer to the corresponding directory on
+.BR hermes .
+.LP
+.LP
+The
+.B \-fstab
+special map uses the mounts database (fstab(5))
+map to locate a remote host when the hostname is specified as a
+subdirectory of
+.IR directory .
+This map specifies mounts of all exported file systems from any host in
+the mounts database.
+The advantage of 
+.B \-fstab
+over 
+.B \-hosts
+is that you can list the available servers and also
+leverage off of the mount options available in the familiar fstab(5)
+format. Note that for 
+.B autonfsmount
+to pick up entries in the mounts database, the entries must have the 
+.B fstab(5)
+"net" option and also must have a mount point identical to that of
+.B autonfsmount.
+For instance, if the following
+.B autonfsmount
+command is already in effect:
+.IP
+.B autonfsmount /Net \-fstab
+.LP
+and 
+.B hermes
+is in the mounts database as follows:
+.IP
+.B hermes:/usr /Net nfs rw,net 0 0
+.LP
+then a reference to
+.B /Net/hermes/usr
+would initiate an automatic mount of all file systems from
+.B hermes
+that
+.B autonfsmount
+can find in the mounts database; references to a directory under
+.B /Net/hermes
+will refer to the corresponding directory on
+.BR hermes .
+.LP
+The
+.B \-passwd
+map uses the
+.BR passwd (5)
+database to attempt to locate the home directory
+of a user.  For instance, if the following
+.B autonfsmount
+command is already in effect:
+.IP
+.B autonfsmount /homes \-passwd
+.LP
+then if the home directory shown
+in the passwd entry for the user
+.I username
+has the form
+.BI / dir / server / username\fR,
+and
+.B server
+matches the host system on which that directory resides,
+references to files in
+.BI /homes/ username
+result in the file system containing that directory being mounted if necessary,
+and all such references will refer to that user's home directory.
+.SS Configuration
+.B autonfsmount
+normally consults the
+.B auto.master
+Yellow Pages configuration database for a list of initial
+.IR directory
+to
+.I mapname
+pairs, and sets up automatic mounts for them in addition to
+those given on the command line; if there are duplications, the
+command-line arguments take precedence.
+(Note that this database contains arguments to the
+.B autonfsmount
+command, rather than mappings, and that
+.B autonfsmount
+does 
+.I not
+look for an
+.B auto.master
+file on the local host.)
+.SH OPTIONS
+.TP
+.B \-m
+Suppress initialization of
+.IR directory - mapname
+pairs listed in the
+.B auto.master
+Yellow Pages database.
+.TP
+.B \-n
+Disable dynamic mounts.  With this option, references through the
+.B autonfsmount
+daemon only succeed when the target file system has been previously
+mounted.  This can be used to prevent
+.SM NFS
+servers from cross-mounting each other.
+.TP
+.B -T
+Trace.  Expand each
+.SM NFS
+call and display it on the standard output.
+.TP
+.BI \-tl " duration"
+Specify a
+.IR duration ,
+in seconds, that a looked up name remains
+cached when not in use.  The default is 5 minutes.
+.TP
+.BI \-tm " interval"
+Specify an
+.IR interval ,
+in seconds, between attempts
+to mount a file system. The default is 30 seconds.
+.TP
+.BI \-tw " interval"
+Specify an
+.IR interval ,
+in seconds, between attempts to dismount
+file systems that have exceeded their cached times.
+The default is 1 minute.
+.TP
+.BI \-a " directory"
+Specify an alternate directory for the actual mounts performed by
+.B autonfsmount.
+The default is /tmp_mnt.
+.SH EXAMPLE
+.IP
+.B
+tutorial# autonfsmount \-m /net \-hosts
+.LP
+Provide
+.B autonfsmount
+access to the exported file systems of
+any host in the Yellow Pages
+.B hosts.byname
+database, by prefixing the pathname with
+.BI /net/ hostname "/ :"
+.IP
+.B
+tutorial% ls /net/hermes/usr/src
+\&.\|.\|.
+.SH FILES
+.PD 0
+.TP 20
+.B /tmp_mnt
+directory under which file systems are dynamically mounted
+.PD
+.SH "SEE ALSO"
+.BR mount (8), netinfo(5), fstab(5)
+.SH BUGS
+Shell filename expansion does not apply to objects not currently
+mounted or cached.  For instance, in the above example, the
+command
+.B ls /net/*
+might not list
+.B hermes
+as a subdirectory of
+.BR /net .
+However, the special map
+.B -fstab
+does not suffer from this bug.

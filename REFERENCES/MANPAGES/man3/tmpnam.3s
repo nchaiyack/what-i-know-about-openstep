@@ -1,0 +1,32 @@
+.TH TMPNAM 3S "August 1, 1992"
+.ds ]W ANSI C
+.SH NAME
+tmpnam \- generate unique file name
+.SH SYNOPSIS
+.B #include <stdio.h>
+.PP
+.B char *tmpnam(char *\fIs\fP);
+.SH DESCRIPTION
+.I Tmpnam
+generates a string that is a valid file name
+and is not the same as the name of an existing file.
+.I Tmpnam
+generates a different string each time it is called, up to TMP_MAX times.
+If called more than TMP_MAX times, the behavior is undefined.
+.SH "RETURN VALUE"
+If the argument is a null pointer,
+.I tmpnam
+leaves its result in an internal static object and returns a pointer
+to that object.  Subsequent calls to
+.I tmpnam
+will modify this object.
+If the argument is not a null pointer, it is assumed to point to
+an array of at least
+.I L_tmpnam
+characters; the
+.I tmpnam
+function writes its result in that array and
+returns the argument as its value.
+.SH "SEE ALSO"
+tmpfile(3S)
+

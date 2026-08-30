@@ -1,0 +1,42 @@
+.\" Copyright (c) 1992 NeXT Computer, Inc.
+.\" All rights reserved..\"
+.\"
+.TH SETPRIVEXEC 2 "July 2, 1992"
+.UC 4
+.SH NAME
+setprivexec \- allow other processes to exec set\-bit programs
+.SH SYNOPSIS
+.ft B
+old = setprivexec(onoff)
+.br
+int old, onoff;
+.ft R
+.SH DESCRIPTION
+If called with a nonzero (zero) argument, the 
+.I setprivexec()
+system call marks the process as one 
+that is (isn't) interested in holding privileged Mach ports 
+of other processes 
+that intend to 
+.I exec
+programs with set-bit markings 
+(for example, debuggers and program launchers).  
+A nonzero mark persists across 
+.IR exec , 
+but is not inherited by a 
+.IR fork ed
+child.  
+The initial value is zero.
+.PP
+This mark is set to nonzero
+as a side effect
+of a process making a successful
+.I get_task_by_unix_pid()
+call, 
+if the process is the superuser.  
+.SH RETURN VALUE
+This system call returns the previous value of the flag.  
+.SH SEE ALSO
+get_task_by_unix_pid() (in the NEXTSTEP documentation available through Digital Librarian), 
+exec(2), 
+fork(2)

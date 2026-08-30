@@ -1,0 +1,678 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.2px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.2px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 95.8px; font: 12.0px Courier}
+    p.p14 {margin: 0.0px 0.0px 0.0px 95.8px; font: 7.0px Courier; min-height: 8.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 75.6px; font: 13.0px Times; min-height: 16.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Helvetica}
+    p.p17 {margin: 0.0px 0.0px 0.0px 75.6px; font: 4.0px Helvetica; min-height: 5.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 75.6px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 116.9px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 116.9px; font: 7.0px Times; min-height: 8.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 337.6px; text-indent: -241.9px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 337.6px; text-indent: -241.9px; font: 7.0px Times; min-height: 8.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 95.8px; font: 14.0px Helvetica}
+    p.p24 {margin: 0.0px 0.0px 0.0px 95.8px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 75.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p26 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 14.0px Times}
+    p.p27 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 5.0px Times; min-height: 6.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 14.0px Times}
+    p.p29 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 5.0px Times; min-height: 6.0px}
+    p.p30 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 35.0px Times; min-height: 42.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p32 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 14.0px Times}
+    p.p34 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p36 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p37 {margin: 0.0px 0.0px 0.0px 75.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p39 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 95.8px; font: 14.0px Times}
+    p.p41 {margin: 0.0px 0.0px 0.0px 95.8px; font: 7.0px Times; min-height: 8.0px}
+    p.p42 {margin: 0.0px 0.0px 0.0px 95.8px; font: 12.0px Courier; min-height: 14.0px}
+    p.p43 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 12.0px Helvetica}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 14.0px Times}
+    span.s3 {font: 12.0px Helvetica}
+    span.s4 {font: 14.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b>NSFontManager</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s2">NSObject</span></p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s3"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSObject (NSObject)</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s3"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSFontManager.h</p>
+<p class="p8"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Class Description</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">NSFontManager is the center of activity for the font conversion system. It records the currently selected font, updates the Font Panel and Font menu to reflect the selected font, initiates font changes, and converts fonts in response to requests from text-bearing objects. In a more prosaic role, NSFontManager can be queried for the fonts available to the application, and for the particular attributes of a font, such as whether it's condensed or extended.</p>
+<p class="p12"><br></p>
+<p class="p11">You normally set up a font manager and the Font Menu using Interface Builder. However, you can also do so programmatically by getting the shared font manager instance and having it create the standard Font menu at run time:</p>
+<p class="p12"><br></p>
+<p class="p13">NSFontManager *fontManager = [NSFontManager sharedFontManager];</p>
+<p class="p13">NSMenu *fontMenu = [fontManager fontMenu:YES];</p>
+<p class="p14"><br></p>
+<p class="p11">You can then add the Font menu to your application's main menu. Once the Font menu is installed, your application automatically gains the functionality of both the Font menu and the Font Panel.</p>
+<p class="p12"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Recording the Selected Font</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">Any object that records fonts that the user can change should tell the font manager what the font of its selection is whenever it becomes the first responder and whenever its selection changes while it's the first responder. The object does so by sending the shared font manager a <b>setSelectedFont:isMultiple:</b> message. It should pass in the first font of the selection, along with a flag indicating whether there's more than one font.</p>
+<p class="p12"><br></p>
+<p class="p11">The font manager uses this information to update the Font Panel and Font menu to reflect the selected font. For example, suppose the selected font is set as Helvetica Oblique 12.0 point. In this case the Font Panel selects that font and displays its name; the Font menu changes its Italic command to Unitalic; if there's no Bold variant of Helvetica available, the Bold menu item is disabled; and so on.</p>
+<p class="p12"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Initiating Font Changes</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">The user normally changes the font of the selection by manipulating the Font Panel and Font menu. These objects initiate the intended change by sending an action message to the font manager. There are four font-changing action methods:</p>
+<p class="p12"><br></p>
+<p class="p19"><span class="s4">-</span> addFontTrait:</p>
+<p class="p19"><span class="s4">-</span> removeFontTrait:</p>
+<p class="p19"><span class="s4">-</span> modifyFont:</p>
+<p class="p19"><span class="s4">-</span> modifyFontViaPanel:</p>
+<p class="p20"><br></p>
+<p class="p11">The first three cause the font manager to query the sender of the message in order to determine which trait to add or remove, or how to modify the font. The last causes the font manager to use the settings in the Font Panel to modify the font. The font manager records this information and uses it in later requests to convert fonts, as described under “Responding to Font Changes.”</p>
+<p class="p12"><br></p>
+<p class="p11">When the font manager receives an <b>addFontTrait:</b> or <b>removeFontTrait:</b> message, it queries the sender with a <b>tag</b> message, interpreting the return value as a trait mask for use with <b>convertFont:toHaveTrait:</b> or <b>convertFont:toNotHaveTrait:</b>, as described below under “Converting Fonts Manually.” The Italic and Bold Font menu commands, for example, have tags of NSItalicFontMask and NSBoldFontMask, respectively. See <b>convertFont:toHaveTrait:</b> for a list of trait mask values.</p>
+<p class="p12"><br></p>
+<p class="p11">When the font manager receives a <b>modifyFont:</b> message, it queries the sender with a <b>tag</b> message and interprets the return value as a particular kind of conversion to perform, via the various conversion methods described under “Converting Fonts Manually.” For example, a button whose tag value is NSSizeUpFontAction causes the font manager's <b>convertFont:</b> method to increase the size of the NSFont passed as the argument. See <b>modifyFont:</b> for a list of conversion tag values.</p>
+<p class="p12"><br></p>
+<p class="p11">For <b>modifyFontViaPanel:</b>, the font manager sends the application's Font Panel a <b>panelConvertFont:</b> message. The Font Panel in turn uses the font manager to convert the font provided according to the user's choices. For example, if the user selects only the font family in the Font Panel (perhaps to Helvetica), then whatever fonts are provided to <b>panelConvertFont:</b>, only the family is changed: Courier Medium 10.0 point becomes Helvetica Medium 10.0 point, while Times Italic 12.0 point becomes Helvetica Oblique 12.0 point.</p>
+<p class="p12"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Responding to Font Changes</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">The font manager responds to a font-changing action method by sending a <b>changeFont:</b> action message up the responder chain. A text-bearing object that receives this message should have the font manager convert the fonts in its selection by invoking <b>convertFont:</b> for each font and using the NSFont object returned. <b>convertFont:</b> uses the information recorded by the font-changing action method, such as <b>addFontTrait:</b>, modifying the font provided appropriately. (There's no way to explicitly set the font-changing action or trait; instead, you use the methods described under “Converting Fonts Manually.”)</p>
+<p class="p12"><br></p>
+<p class="p11">This simple example assumes there's only one font in the selection:</p>
+<p class="p12"><br></p>
+<p class="p13"><span class="s1">-</span> (void)changeFont:(id)sender</p>
+<p class="p13">{</p>
+<p class="p13"><span class="Apple-converted-space">    </span>NSFont *oldFont = [self selectionFont];</p>
+<p class="p13"><span class="Apple-converted-space">    </span>NSFont *newFont = [sender convertFont:oldFont];</p>
+<p class="p13"><span class="Apple-converted-space">    </span>[self setSelectionFont:newFont];</p>
+<p class="p13"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p13">}</p>
+<p class="p14"><br></p>
+<p class="p11">Most text-bearing objects will have to scan the selection for ranges with different fonts, and invoke <b>convertFont:</b> for each one.</p>
+<p class="p12"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Font Trait Masks</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">NSFontManager categorizes fonts according to a small set of traits. You can convert fonts by adding and removing individual traits, and you can get a font with a specific combination of traits. The traits defined and available for your use are:</p>
+<p class="p12"><br></p>
+<p class="p21">NSItalicFontMask<span class="Apple-tab-span">	</span>NSCondensedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSBoldFontMask<span class="Apple-tab-span">	</span>NSExpandedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSNarrowFontMask<span class="Apple-tab-span">	</span>NSCompressedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSFixedPitchFontMask<span class="Apple-tab-span">	</span>NSSmallCapsFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSPosterFontMask</p>
+<p class="p22"><br></p>
+<p class="p11">NSCondensedFontMask and NSExpandedFontMask are mutually exclusive. In addition to these, NSFontManager defines the masks NSUnitalicFontMask, NSUnboldFontMask, and NSNonStandardCharacterSetFontMask for its own internal use. Though they're defined in the header file, you shouldn't use these masks.</p>
+<p class="p12"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Converting Fonts Manually</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">NSFontManager defines a number of methods for explicitly converting particular traits and characteristics of a font. These methods are:</p>
+<p class="p12"><br></p>
+<p class="p19"><span class="s4">-</span> convertFont:toFace:</p>
+<p class="p19"><span class="s4">-</span> convertFont:toFamily:</p>
+<p class="p19"><span class="s4">-</span> convertFont:toHaveTrait:</p>
+<p class="p19"><span class="s4">-</span> convertFont:toNotHaveTrait:</p>
+<p class="p19"><span class="s4">-</span> convertFont:toSize:</p>
+<p class="p19"><span class="s4">-</span> convertWeight:ofFont:</p>
+<p class="p20"><br></p>
+<p class="p11">Each returns a transformed version of the font provided, or the original font if it can't be converted. <b>convertFont:toFace:</b> and <b>convertFont:toFamily:</b> both alter the basic design of the font provided. The first method requires a fully-specified typeface name, such as “Times-Roman” or “Helvetica-BoldOblique”, while the second expects only a family name, such as “Times” or “Helvetica”.</p>
+<p class="p12"><br></p>
+<p class="p11"><b>convertFont:toHaveTrait:</b> and <b>convertFont:toNotHaveTrait:</b> use trait masks to add or remove a single trait such as Italic, Bold, Condensed, or Extended.</p>
+<p class="p12"><br></p>
+<p class="p11"><b>convertFont:toSize:</b> returns a font of the requested size, with all other characteristics the same as those of the original font.</p>
+<p class="p12"><br></p>
+<p class="p11"><b>convertWeight:ofFont:</b> either increases or decreases the weight of the font provided, according to a boolean flag. Font weights are typically indicated by a series of names, which can vary from font to font. Some go from Light to Medium to Bold, while others have Book, SemiBold, Bold, and Black. This method offers a uniform way of incrementing and decrementing any font's weight.</p>
+<p class="p12"><br></p>
+<p class="p11">The default implementation of font conversion is very conservative, making a change only if no other trait or aspect is affected. For example, if you try to convert Helvetica Oblique 12.0 point by adding the Bold trait, and only Helvetica Bold is available, the font isn't converted. You can create a subclass of NSFontManager and override the conversion methods to perform less conservative conversion, perhaps using Helvetica Bold in this case and losing the Oblique trait.</p>
+<p class="p12"><br></p>
+<p class="p11">In addition to the font-conversion methods, NSFontManager defines <b>fontWithFamily:traits:weight:size:</b> to construct a font with a given set of characteristics. If you don't care to make a subclass of NSFontManager, you can use this method to perform approximate font conversions yourself.</p>
+<p class="p12"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Examining Fonts</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">In addition to converting fonts, NSFontManager provides information on which fonts are available to the application, and on the characteristics of any given font. <b>availableFonts</b> returns an array of the names of all fonts available. <b>availableFontNamesWithTraits:</b> filters the available fonts based on a font trait mask.</p>
+<p class="p12"><br></p>
+<p class="p11">There are three methods for examining individual fonts. <b>fontNamed:hasTraits:</b> returns YES if the font matches the trait mask provided. <b>traitsOfFont:</b> returns a trait mask for a given font. <b>weightOfFont:</b> returns an approximate ranking of a font's weight on a scale of 0<span class="s4">-</span>15, where 0 is the lightest possible weight, 5 is Normal or Book weight, 9 is the equivalent of Bold, and 15 is the heaviest possible (often called Black or Ultra Black).</p>
+<p class="p12"><br></p>
+<p class="p15"><br></p>
+<p class="p16"><b>Customizing the Font Conversion System</b></p>
+<p class="p17"><b></b><br></p>
+<p class="p18"><b></b><br></p>
+<p class="p11">If you need to customize the font conversion system by creating subclasses of NSFontManager or NSFontPanel, you must inform the NSFontManager class of this change with a <b>setFontManagerFactory:</b> or <b>setFontPanelFactory:</b> message, before either the shared font manager or shared font panel is created. These methods record your class as the one to instantiate the first time the font manager or Font Panel is requested.</p>
+<p class="p12"><br></p>
+<p class="p11">You may be able to avoid using subclasses if all you need is to add some custom controls to the Font Panel. In this case, you can invoke NSFontPanel's <b>setAccessoryView:</b> method to add an NSView below its font browser. This allows you to add controls for such things as font color, kerning, and so on.</p>
+<p class="p12"><br></p>
+<p class="p11">If you provide your own Font menu, you should register it with the font manager using the <b>setFontMenu:</b> method. The font manager is responsible for validating Font menu items and changing their titles and tags according to the selected font. For example, when the selected font is Italic the font manager changes the Italic Font menu item to Unitalic, and changes its tag to NSUnitalicFontMask. Your Font menu's items should use the appropriate action methods and tags. Here are some examples:</p>
+<p class="p12"><br></p>
+<p class="p23"><b>Font Menu Item<span class="Apple-tab-span">	</span>Action<span class="Apple-tab-span">	</span>Tag</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p21">Italic<span class="Apple-tab-span">	</span><b>addFontTrait:</b><span class="Apple-tab-span">	</span>NSItalicFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">Bold<span class="Apple-tab-span">	</span><b>addFontTrait:</b><span class="Apple-tab-span">	</span>NSBoldFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">Heavier<span class="Apple-tab-span">	</span><b>modifyFont:</b><span class="Apple-tab-span">	</span>NSHeavierFontAction</p>
+<p class="p22"><br></p>
+<p class="p21">Larger<span class="Apple-tab-span">	</span><b>modifyFont:</b><span class="Apple-tab-span">	</span>NSSizeUpFontAction</p>
+<p class="p22"><br></p>
+<p class="p11">Normally, the application's Font Panel displays all the standard fonts available on the system. If this isn't appropriate for your application—for example, if only fixed-pitch fonts should be used—you can assign a delegate to the font manager object to filter the available fonts. Before the Font Panel displays a particular font family or face, it asks the font manager to confirm it. The font manager in turn queries its delegate with a <b>fontManager:willIncludeFont:</b> message. If the delegate returns YES (or doesn't implement this method), the font is displayed in the Font Panel. If the delegate returns NO, the font isn't listed.</p>
+<p class="p12"><br></p>
+<p class="p25"><br></p>
+<p class="p9"><b>Method Types</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p26">Getting the shared font manager<span class="Apple-tab-span">	</span>+ sharedFontManager</p>
+<p class="p27"><br></p>
+<p class="p26">Changing the default font conversion classes</p>
+<p class="p28">+ setFontManagerFactory:</p>
+<p class="p28">+ setFontPanelFactory:</p>
+<p class="p29"><br></p>
+<p class="p26">Getting available fonts<span class="Apple-tab-span">	</span><span class="s4">-</span> availableFonts</p>
+<p class="p28"><span class="s4">-</span> availableFontNamesWithTraits:</p>
+<p class="p29"><br></p>
+<p class="p26">Setting and examining the selected font</p>
+<p class="p28"><span class="s4">-</span> setSelectedFont:isMultiple:</p>
+<p class="p28"><span class="s4">-</span> selectedFont</p>
+<p class="p28"><span class="s4">-</span> isMultiple</p>
+<p class="p28"><span class="s4">-</span> sendAction</p>
+<p class="p29"><br></p>
+<p class="p26">Action methods<span class="Apple-tab-span">	</span><span class="s4">-</span> addFontTrait:</p>
+<p class="p28"><span class="s4">-</span> removeFontTrait:</p>
+<p class="p28"><span class="s4">-</span> modifyFont:</p>
+<p class="p28"><span class="s4">-</span> modifyFontViaPanel:</p>
+<p class="p29"><br></p>
+<p class="p26">Converting fonts automatically<span class="Apple-tab-span">	</span><span class="s4">-</span> convertFont:</p>
+<p class="p27"><br></p>
+<p class="p26">Converting fonts manually<span class="Apple-tab-span">	</span><span class="s4">-</span> convertFont:toFace:</p>
+<p class="p28"><span class="s4">-</span> convertFont:toFamily:</p>
+<p class="p28"><span class="s4">-</span> convertFont:toHaveTrait:</p>
+<p class="p28"><span class="s4">-</span> convertFont:toNotHaveTrait:</p>
+<p class="p28"><span class="s4">-</span> convertFont:toSize:</p>
+<p class="p28"><span class="s4">-</span> convertWeight:ofFont:</p>
+<p class="p29"><br></p>
+<p class="p26">Getting a particular font<span class="Apple-tab-span">	</span><span class="s4">-</span> fontWithFamily:traits:weight:size:</p>
+<p class="p27"><br></p>
+<p class="p26">Examining fonts<span class="Apple-tab-span">	</span><span class="s4">-</span> traitsOfFont:</p>
+<p class="p28"><span class="s4">-</span> fontNamed:hasTraits:</p>
+<p class="p28"><span class="s4">-</span> weightOfFont:</p>
+<p class="p29"><br></p>
+<p class="p26">Enabling the Font Panel and Font menu</p>
+<p class="p28"><span class="s4">-</span> setEnabled:</p>
+<p class="p28"><span class="s4">-</span> isEnabled</p>
+<p class="p29"><br></p>
+<p class="p26">Setting the Font menu<span class="Apple-tab-span">	</span><span class="s4">-</span> setFontMenu:</p>
+<p class="p28"><span class="s4">-</span> fontMenu:</p>
+<p class="p29"><br></p>
+<p class="p26">Getting the Font Panel<span class="Apple-tab-span">	</span><span class="s4">-</span> fontPanel:</p>
+<p class="p28"><span class="s4">-</span> orderFrontFontPanel:</p>
+<p class="p29"><br></p>
+<p class="p26">Setting the delegate<span class="Apple-tab-span">	</span><span class="s4">-</span> setDelegate:</p>
+<p class="p28"><span class="s4">-</span> delegate</p>
+<p class="p29"><br></p>
+<p class="p26">Setting the action method<span class="Apple-tab-span">	</span><span class="s4">-</span> setAction:</p>
+<p class="p28"><span class="s4">-</span> action</p>
+<p class="p30"><br></p>
+<p class="p9"><b>Class Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p16"><b></b><b>setFontManagerFactory:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31">+ (void)<b>setFontManagerFactory:</b>(Class)<i>aClass</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Sets the class object used to create the font manager to <i>aClass</i>, which should be a subclass of NSFontManager. When the NSFontManager class object receives a <b>sharedFontManager</b> message, it creates an instance of <i>aClass</i>, if no instance already exists. Your font manager class should implement <b>init</b> as its designated initializer. The default font manager factory is NSFontManager.</p>
+<p class="p12"><br></p>
+<p class="p11">This method must be invoked before your application's main nib file is loaded, such as in the application delegate's <b>applicationWillFinishLaunching:</b> method.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>setFontPanelFactory:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>setFontPanelFactory:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31">+ (void)<b>setFontPanelFactory:</b>(Class)<i>factoryId</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Sets the class used to create the Font Panel to <i>aClass</i>, which should be a subclass of NSFontPanel. Invoke this method before accessing the Font Panel in any wa, such as in the application delegate's <b>applicationWillFinishLaunching:</b> method.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>setFontManagerFactory:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>sharedFontManager</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31">+ (NSFontManager *)<b>sharedFontManager</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p11">Returns the singleton instance of the font manager factory for the application, creating it if necessary.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>setFontManagerFactory:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p36"><b></b><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p16"><b></b><b>action</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (SEL)<b>action</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p11">Returns the action that's sent to the first responder when the user selects a new font from the Font panel or chooses a command from the Font menu. The default action is <b>changeFont:</b>.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setAction:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>addFontTrait:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (void)<b>addFontTrait:</b>(id)<i>sender</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">This action method causes the receiver to send its action message (<b>changeFont:</b> by default) up the responder chain. When a responder replies by providing a font to convert in a <b>convertFont:</b> message, the receiver converts the font by adding the trait specified by <i>sender</i>. This trait is determined by sending a <b>tag</b> message to <i>sender</i> and interpreting it as a font trait mask for a <b>convertFont:toHaveTrait:</b> message.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>removeFontTrait:</b>, <span class="s4">-</span> <b>modifyFont:</b>, <span class="s4">-</span> <b>modifyFontViaPanel:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>availableFontNamesWithTraits:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSArray *)<b>availableFontNamesWithTraits:</b>(NSFontTraitMask)<i>fontTraitMask</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns the names of the fonts available in the system whose traits are described exactly by <i>fontTraitMask</i> (not the NSFont objects themselves). These fonts are discovered by searching the user's personal font directory, the local font directory, and the OPENSTEP system font directory. You specify the desired traits by combining these font trait mask values using the C bitwise OR operator:</p>
+<p class="p12"><br></p>
+<p class="p21">NSItalicFontMask<span class="Apple-tab-span">	</span>NSCondensedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSBoldFontMask<span class="Apple-tab-span">	</span>NSExpandedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSNarrowFontMask<span class="Apple-tab-span">	</span>NSCompressedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSFixedPitchFontMask<span class="Apple-tab-span">	</span>NSSmallCapsFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSPosterFontMask</p>
+<p class="p22"><br></p>
+<p class="p11">NSCondensedFontMask and NSExpandedFontMask are mutually exclusive.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>availableFonts</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>availableFonts</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSArray *)<b>availableFonts</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p11">Returns the names of the fonts available in the system (not the NSFont objects themselves). These fonts are discovered by searching the user's personal font directory, the local font directory, and the OPENSTEP system font directory.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>availableFontNamesWithTraits:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>convertFont:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSFont *)<b>convertFont:</b>(NSFont *)<i>aFont</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Converts <i>aFont</i> according to the object that initiated a font change, typically the Font Panel or Font menu. Returns the converted font, or <i>aFont</i> itself if the conversion isn't possible.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is invoked in response to a <b>changeFont:</b> message, which is itself initiated by an action message such as <b>addFontTrait:</b> or <b>modifyFontViaPanel:</b>. These initiating methods cause the font manager to query the sender for the action to take and the traits to change. See the class description for more information.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>convertFont:toFace:</b>, <span class="s4">-</span> <b>convertFont:toFamily:</b>, <span class="s4">-</span> <b>convertFont:toHaveTrait:</b>, <span class="s4">-</span> <b>convertFont:toNotHaveTrait:</b>, <span class="s4">-</span> <b>convertFont:toSize:</b>, <span class="s4">-</span> <b>convertWeight:ofFont:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>convertFont:toFace:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSFont *)<b>convertFont:</b>(NSFont *)<i>aFont</i> <b>toFace:</b>(NSString *)<i>typeface</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns an NSFont whose traits are as similar as possible to those of <i>aFont</i> except for the typeface, which is changed to <i>typeface</i>. Returns <i>aFont</i> if it can't be converted. A typeface is a fully specified family-face name, such as Helvetica-BoldOblique or Times-Roman.</p>
+<p class="p12"><br></p>
+<p class="p11">This method attempts to match the weight and angle of <i>aFont</i> as closely as possible. Italic is mapped to Oblique, for example. Weights are mapped based on an approximate numeric scale of 0<span class="s4">-</span>15.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>convertFont:toFamily:</b>, <span class="s4">-</span> <b>convertFont:toHaveTrait:</b>, <span class="s4">-</span> <b>convertFont:toNotHaveTrait:</b>, <span class="s4">-</span> <b>convertFont:toSize:</b>, <span class="s4">-</span> <b>convertWeight:ofFont:</b>, <span class="s4">-</span> <b>convertFont:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>convertFont:toFamily:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSFont *)<b>convertFont:</b>(NSFont *)<i>aFont</i> <b>toFamily:</b>(NSString *)<i>family</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns an NSFont whose traits are as similar as possible to those of <i>aFont</i> except for the font family, which is changed to <i>family</i>. Returns <i>aFont</i> if it can't be converted. A family is a generic font name, such as Helvetica or Times.</p>
+<p class="p12"><br></p>
+<p class="p11">This method attempts to match the weight and angle of <i>aFont</i> as closely as possible. Italic is mapped to Oblique, for example. Weights are mapped based on an approximate numeric scale of 0<span class="s4">-</span>15.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>convertFont:toFace:</b>, <span class="s4">-</span> <b>convertFont:toHaveTrait:</b>, <span class="s4">-</span> <b>convertFont:toNotHaveTrait:</b>, <span class="s4">-</span> <b>convertFont:toSize:</b>, <span class="s4">-</span> <b>convertWeight:ofFont:</b>, <span class="s4">-</span> <b>convertFont:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>convertFont:toHaveTrait:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSFont *)<b>convertFont:</b>(NSFont *)<i>aFont</i> <b>toHaveTrait:</b>(NSFontTraitMask)<i>fontTrait</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns an NSFont whose traits are the same as those of <i>aFont</i> except for the traits, which are changed to include the single trait <i>fontTrait</i>, which may be any one of:</p>
+<p class="p12"><br></p>
+<p class="p21">NSItalicFontMask<span class="Apple-tab-span">	</span>NSCondensedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSBoldFontMask<span class="Apple-tab-span">	</span>NSExpandedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSNarrowFontMask<span class="Apple-tab-span">	</span>NSCompressedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSFixedPitchFontMask<span class="Apple-tab-span">	</span>NSSmallCapsFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSPosterFontMask</p>
+<p class="p22"><br></p>
+<p class="p11">NSCondensedFontMask and NSExpandedFontMask are mutually exclusive.</p>
+<p class="p12"><br></p>
+<p class="p11">Returns <i>aFont</i> if it can't be converted.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>convertFont:toNotHaveTrait:</b>, <span class="s4">-</span> <b>convertFont:toFace:</b>, <span class="s4">-</span> <b>convertFont:toFamily:</b>, <span class="s4">-</span> <b>convertFont:toSize:</b>, <span class="s4">-</span> <b>convertWeight:ofFont:</b>, <span class="s4">-</span> <b>convertFont:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>convertFont:toNotHaveTrait:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSFont *)<b>convertFont:</b>(NSFont *)<i>aFont</i> <b>toNotHaveTrait:</b>(NSFontTraitMask)<i>fontTraitMask</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns an NSFont whose traits are the same as those of <i>aFont</i> except for the traits, which are changed so as not to include the single trait <i>fontTrait</i>, which may be any one of:</p>
+<p class="p12"><br></p>
+<p class="p21">NSItalicFontMask<span class="Apple-tab-span">	</span>NSCondensedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSBoldFontMask<span class="Apple-tab-span">	</span>NSExpandedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSNarrowFontMask<span class="Apple-tab-span">	</span>NSCompressedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSFixedPitchFontMask<span class="Apple-tab-span">	</span>NSSmallCapsFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSPosterFontMask</p>
+<p class="p22"><br></p>
+<p class="p11">NSCondensedFontMask and NSExpandedFontMask are mutually exclusive.</p>
+<p class="p12"><br></p>
+<p class="p11">Returns <i>aFont</i> if it can't be converted.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>convertFont:toHaveTrait:</b>, <span class="s4">-</span> <b>convertFont:toFace:</b>, <span class="s4">-</span> <b>convertFont:toFamily:</b>, <span class="s4">-</span> <b>convertFont:toSize:</b>, <span class="s4">-</span> <b>convertWeight:ofFont:</b>, <span class="s4">-</span> <b>convertFont:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>convertFont:toSize:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSFont *)<b>convertFont:</b>(NSFont *)<i>aFont</i> <b>toSize:</b>(float)<i>size</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns an NSFont whose traits are the same as those of <i>aFont</i> except for the size, which is changed to <i>size</i>. Returns <i>aFont</i> if it can't be converted.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>convertFont:toFace:</b>, <span class="s4">-</span> <b>convertFont:toFamily:</b>, <span class="s4">-</span> <b>convertFont:toHaveTrait:</b>, <span class="s4">-</span> <b>convertFont:toNotHaveTrait:</b>, <span class="s4">-</span> <b>convertWeight:ofFont:</b>, <span class="s4">-</span> <b>convertFont:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>convertWeight:ofFont:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSFont *)<b>convertWeight:</b>(BOOL)<i>increaseFlag</i> <b>ofFont:</b>(NSFont *)<i>aFont</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns an NSFont whose weight is greater or lesser than that of <i>aFont</i>, if possible. If <i>increaseFlag</i> is YES, a heavier font is returned; if it's NO, a lighter font is returned. Returns <i>aFont</i> unchanged if it can't be converted. Weights are typically graded along this scale:</p>
+<p class="p12"><br></p>
+<p class="p11">NSFontManager's implementation of this method refuses to convert a font's weight if it can't maintain all other traits, such as Italic and Condensed. You might wish to override this method to allow a looser interpretation of weight conversion.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>convertFont:toFace:</b>, <span class="s4">-</span> <b>convertFont:toFamily:</b>, <span class="s4">-</span> <b>convertFont:toHaveTrait:</b>, <span class="s4">-</span> <b>convertFont:toNotHaveTrait:</b>, <span class="s4">-</span> <b>convertFont:toSize:</b>, <span class="s4">-</span> <b>convertFont:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>delegate</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (id)<b>delegate</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p11">Returns the receiver's delegate.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setDelegate:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>fontMenu:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSMenu *)<b>fontMenu:</b>(BOOL)<i>createFlag</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns the menu that's hooked up to the font conversion system, creating it if necessary and if <i>createFlag</i> is YES.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setFontMenu:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>fontNamed:hasTraits:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (BOOL)<b>fontNamed:</b>(NSString *)<i>typeface</i> <b>hasTraits:</b>(NSFontTraitMask)<i>fontTraitMask</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns YES if the font named <i>typeface</i> has all the traits specified in <i>fontTraitMask</i>, NO if it doesn't. You specify the desired traits by combining these font trait mask values using the C bitwise OR operator:</p>
+<p class="p12"><br></p>
+<p class="p21">NSItalicFontMask<span class="Apple-tab-span">	</span>NSCondensedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSBoldFontMask<span class="Apple-tab-span">	</span>NSExpandedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSNarrowFontMask<span class="Apple-tab-span">	</span>NSCompressedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSFixedPitchFontMask<span class="Apple-tab-span">	</span>NSSmallCapsFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSPosterFontMask</p>
+<p class="p22"><br></p>
+<p class="p11">NSCondensedFontMask and NSExpandedFontMask are mutually exclusive.</p>
+<p class="p12"><br></p>
+<p class="p37"><br></p>
+<p class="p16"><b></b><b>fontPanel:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSFontPanel *)<b>fontPanel:</b>(BOOL)<i>createFlag</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns the application's shared Font Panel object, creating if necessary and if <i>createFlag</i> is YES.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span>+ <b>sharedFontPanel</b> (NSFontPanel), + <b>sharedFontPanelExists</b> (NSFontPanel), + <b>setFontPanelFactory:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>fontWithFamily:traits:weight:size:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSFont *)<b>fontWithFamily:</b>(NSString *)<i>family</i></p>
+<p class="p38"><b>traits:</b>(NSFontTraitMask)<i>fontTraitMask</i></p>
+<p class="p38"><b>weight:</b>(int)<i>weight</i></p>
+<p class="p38"><b>size:</b>(float)<i>size</i></p>
+<p class="p39"><i></i><br></p>
+<p class="p11">Attempts to load a font with the specified characteristics, returning the font if successful and <b>nil</b> if not. <i>family</i> is the generic name of the font desired, such as Times or Helvetica. <i>weight</i> is a hint for the weight desired, on a scale of 0<span class="s4">-</span>15: a value of 5 indicates a normal or book weight and 9 or more a bold or heavier weight. It's ignored if <i>fontTraitMask</i> includes NSBoldFontMask.</p>
+<p class="p12"><br></p>
+<p class="p11">You specify <i>fontTraitMask</i> by combining these font trait mask values using the C bitwise OR operator:</p>
+<p class="p12"><br></p>
+<p class="p21">NSItalicFontMask<span class="Apple-tab-span">	</span>NSCondensedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSBoldFontMask<span class="Apple-tab-span">	</span>NSExpandedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSNarrowFontMask<span class="Apple-tab-span">	</span>NSCompressedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSFixedPitchFontMask<span class="Apple-tab-span">	</span>NSSmallCapsFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSPosterFontMask</p>
+<p class="p22"><br></p>
+<p class="p11">NSCondensedFontMask and NSExpandedFontMask are mutually exclusive.</p>
+<p class="p12"><br></p>
+<p class="p37"><br></p>
+<p class="p16"><b></b><b>isEnabled</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (BOOL)<b>isEnabled</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p11">Returns YES if the font-conversion system's user interface items (the Font Panel and Font menu items) are enabled, NO if they're not.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>isEnabled</b> (NSFontPanel), <span class="s4">-</span> <b>isEnabled</b> (NSMenuItem), <span class="s4">-</span> <b>setEnabled:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>isMultiple</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (BOOL)<b>isMultiple</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p11">Returns YES if the last font selection recorded has multiple fonts, NO if it's a single font.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setSelectedFont:isMultiple:</b>, <span class="s4">-</span> <b>selectedFont</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>modifyFont:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (void)<b>modifyFont:</b>(id)<i>sender</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">This action method causes the receiver to send its action message (<b>changeFont:</b> by default) up the responder chain. When a responder replies by providing a font to convert in a <b>convertFont:</b> message, the receiver converts the font in the manner specified by <i>sender</i>. The conversion is determined by sending a <b>tag</b> message to <i>sender</i> and invoking a corresponding method:</p>
+<p class="p12"><br></p>
+<p class="p23"><b>Sender's Tag<span class="Apple-tab-span">	</span>Method Used</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p40">NSNoFontChangeAction<span class="Apple-tab-span">	</span>None, the font is returned unchanged</p>
+<p class="p40">NSViaPanelFontAction<span class="Apple-tab-span">	</span>The Font Panel's <b>panelConvertFont:</b></p>
+<p class="p40">NSAddTraitFontAction<span class="Apple-tab-span">	</span><b>convertFont:toHaveTrait:</b></p>
+<p class="p40">NSRemoveTraitFontAction<span class="Apple-tab-span">	</span><b>convertFont:toNotHaveTrait:</b></p>
+<p class="p40">NSSizeUpFontAction<span class="Apple-tab-span">	</span><b>convertFont:toSize:</b></p>
+<p class="p40">NSSizeDownFontAction<span class="Apple-tab-span">	</span><b>convertFont:toSize:</b></p>
+<p class="p40">NSHeavierFontAction<span class="Apple-tab-span">	</span><b>convertWeight:ofFont:</b></p>
+<p class="p40">NSLighterFontAction<span class="Apple-tab-span">	</span><b>convertWeight:ofFont:</b></p>
+<p class="p41"><b></b><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>addFontTrait:</b>, <span class="s4">-</span> <b>removeFontTrait:</b>, <span class="s4">-</span> <b>modifyFontViaPanel:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>modifyFontViaPanel:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (void)<b>modifyFontViaPanel:</b>(id)<i>sender</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">This action method causes the receiver to send its action message (<b>changeFont:</b> by default) up the responder chain. When a responder replies by providing a font to convert in a <b>convertFont:</b> message, the receiver converts the font by sending a <b>panelConvertFont:</b> message to the Font Panel. The panel in turn may send <b>convertFont:toFamily:</b>, <b>convertFont:toHaveTrait:</b>, and other specific conversion methods to make its change.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>addFontTrait:</b>, <span class="s4">-</span> <b>removeFontTrait:</b>, <span class="s4">-</span> <b>modifyFont:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>orderFrontFontPanel:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (void)<b>orderFrontFontPanel:</b>(id)<i>sender</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">This action method opens the Font Panel by sending it an <b>orderFront:</b> message, creating the Font Panel if necessary.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>fontPanel:</b>, + <b>setFontPanelFactory:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>removeFontTrait:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (void)<b>removeFontTrait:</b>(id)<i>sender</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">This action method causes the receiver to send its action message (<b>changeFont:</b> by default) up the responder chain. When a responder replies by providing a font to convert in a <b>convertFont:</b> message, the receiver converts the font by removing the trait specified by <i>sender</i>. This trait is determined by sending a <b>tag</b> message to <i>sender</i> and interpreting it as a font trait mask for a <b>convertFont:toNotHaveTrait:</b> message.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>addFontTrait:</b>, <span class="s4">-</span> <b>modifyFont:</b>, <span class="s4">-</span> <b>modifyFontViaPanel:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>selectedFont</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSFont *)<b>selectedFont</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p11">Returns the last font recorded with a <b>setSelectedFont:isMultiple:</b> message. While fonts are being converted in response to a <b>changeFont:</b> message, you can determine the font selected in the Font Panel like this:</p>
+<p class="p12"><br></p>
+<p class="p13">NSFontManager *fontManager = [NSFontManager sharedFontManager];</p>
+<p class="p42"><br></p>
+<p class="p13">panelFont = [fontManager convertFont:[fontManager selectedFont]];</p>
+<p class="p14"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>isMultiple</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>sendAction</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (BOOL)<b>sendAction</b></p>
+<p class="p32"><b></b><br></p>
+<p class="p11">Sends the receiver's action message, <b>changeFont:</b> by default, up the responder chain, initiating a font change for whatever conversion and trait to change were last requested. Returns YES if some object handled the <b>changeFont:</b> message, NO if the message went unheard.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is used internally by the font conversion system. You should never need to invoke it directly. Instead, use the action methods such as <b>addFontTrait:</b> or <b>modifyFontViaPanel:</b>.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setAction:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>setAction:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (void)<b>setAction:</b>(SEL)<i>aSelector</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Sets the action that's sent to the first responder when the user selects a new font from the Font panel or chooses a command from the Font menu to <i>aSelector</i>. The default action is <b>changeFont:</b>. You should rarely need to change this.</p>
+<p class="p12"><br></p>
+<p class="p43"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> <b>action</b></span></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>setDelegate:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (void)<b>setDelegate:</b>(id)<i>anObject</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Sets the receiver's delegate to <i>anObject</i>.</p>
+<p class="p12"><br></p>
+<p class="p43"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s4">-</span><span class="s2"> <b>delegate</b></span></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>setEnabled:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (void)<b>setEnabled:</b>(BOOL)<i>flag</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Controls whether the font-conversion system's user interface items (the Font Panel and Font menu items) are enabled. If <i>flag</i> is YES they're enabled; if <i>flag</i> is NO they're disabled.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>setEnabled:</b> (NSFontPanel), <span class="s4">-</span> <b>isEnabled</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>setFontMenu:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (void)<b>setFontMenu:</b>(NSMenu *)<i>aMenu</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Records <i>aMenu</i> as the application's Font menu.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>fontMenu:</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>setSelectedFont:isMultiple:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (void)<b>setSelectedFont:</b>(NSFont *)<i>aFont</i> <b>isMultiple:</b>(BOOL)<i>flag</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Records <i>aFont</i> as the currently selected font, and updates the Font Panel to reflect this. If <i>flag</i> is YES, the Font Panel indicates that more than one font is contained in the selection.</p>
+<p class="p12"><br></p>
+<p class="p11">An object that manipulates fonts should invoke this method whenever it becomes first responder and whenever its selection changes. It shouldn't invoke this method in the process of handling a <b>changeFont:</b> message, as this causes the font manager to lose the information necessary to effect the change. After all fonts have been converted, the font manager itself records the new selected font.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s3"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s4">-</span> <b>selectedFont</b>, <span class="s4">-</span> <b>isMultiple</b></p>
+<p class="p34"><b></b><br></p>
+<p class="p35"><b></b><br></p>
+<p class="p16"><b></b><b>traitsOfFont:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (NSFontTraitMask)<b>traitsOfFont:</b>(NSFont *)<i>aFont</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns the traits of <i>aFont</i>, a mask created by combining these options with the C bitwise OR operator:</p>
+<p class="p12"><br></p>
+<p class="p21">NSItalicFontMask<span class="Apple-tab-span">	</span>NSCondensedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSBoldFontMask<span class="Apple-tab-span">	</span>NSExpandedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSNarrowFontMask<span class="Apple-tab-span">	</span>NSCompressedFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSFixedPitchFontMask<span class="Apple-tab-span">	</span>NSSmallCapsFontMask</p>
+<p class="p22"><br></p>
+<p class="p21">NSPosterFontMask</p>
+<p class="p22"><br></p>
+<p class="p11">NSCondensedFontMask and NSExpandedFontMask are mutually exclusive.</p>
+<p class="p12"><br></p>
+<p class="p37"><br></p>
+<p class="p16"><b></b><b>weightOfFont:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (int)<b>weightOfFont:</b>(NSFont *)<i>aFont</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns a rough numeric measure of <i>aFont</i>'s weight, where 0 indicates the lightest possible weight, 5 indicates a normal or book weight, and 9 or more indicates a bold or heavier weight.</p>
+<p class="p12"><br></p>
+<p class="p25"><br></p>
+<p class="p9"><b>Methods Implemented By the Delegate</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p16"><b>fontManager:willIncludeFont:</b></p>
+<p class="p18"><b></b><br></p>
+<p class="p31"><span class="s4">-</span> (BOOL)<b>fontManager:</b>(id)<i>theFontManager</i> <b>willIncludeFont:</b>(NSString *)<i>fontName</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Requests permission from the delegate to display <i>fontName</i> in the Font Panel.<i> fontName</i> is the full PostScript name of the font, such as “Helvetica-BoldOblique” or “Helvetica-Narrow-Bold”. If the delegate returns YES, <i>fontName</i> is listed; if the delegate returns NO, it isn't.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is invoked repeatedly as necessary whenever the Font Panel needs updating, such as when the Font Panel is first loaded, and when the user selects a family name to see which typefaces in that family are available. Your implementation should execute fairly quickly to guarantee the responsiveness of the Font Panel.</p>
+<p class="p12"><br></p>
+</body>
+</html>

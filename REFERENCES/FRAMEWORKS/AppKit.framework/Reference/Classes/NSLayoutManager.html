@@ -1,0 +1,982 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 73.2px; text-indent: -37.9px; font: 26.0px Helvetica}
+    p.p4 {margin: 0.0px 0.0px 0.0px 73.2px; text-indent: -37.9px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 12.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 211.6px; text-indent: -135.9px; font: 10.0px Times; min-height: 13.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 14.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 211.7px; text-indent: -136.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 14.0px Helvetica}
+    p.p10 {margin: 0.0px 0.0px 0.0px 60.5px; text-indent: -50.4px; font: 7.0px Helvetica; min-height: 8.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times}
+    p.p12 {margin: 0.0px 0.0px 0.0px 75.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 75.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 14.0px Times}
+    p.p15 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -241.1px; font: 5.0px Times; min-height: 6.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 14.0px Times}
+    p.p17 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 5.0px Times; min-height: 6.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 316.7px; font: 14.0px Times}
+    p.p19 {margin: 0.0px 0.0px 0.0px 316.7px; font: 5.0px Times; min-height: 6.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 316.7px; text-indent: -11.9px; font: 35.0px Times; min-height: 42.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 75.6px; text-indent: -25.1px; font: 14.0px Helvetica}
+    p.p22 {margin: 0.0px 0.0px 0.0px 75.6px; text-indent: -25.1px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 14.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 126.0px; text-indent: -30.2px; font: 7.0px Times; min-height: 8.0px}
+    p.p25 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 14.0px Times}
+    p.p26 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 7.0px Times; min-height: 8.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p28 {margin: 0.0px 0.0px 0.0px 75.6px; font: 23.0px Times; min-height: 28.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Helvetica}
+    p.p30 {margin: 0.0px 0.0px 0.0px 75.6px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 126.0px; font: 14.0px Times}
+    p.p32 {margin: 0.0px 0.0px 0.0px 126.0px; font: 7.0px Times; min-height: 8.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 115.5px; text-indent: -39.9px; font: 14.0px Times}
+    p.p34 {margin: 0.0px 0.0px 0.0px 115.5px; text-indent: -39.9px; font: 7.0px Times; min-height: 8.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 12.0px Helvetica}
+    p.p36 {margin: 0.0px 0.0px 0.0px 95.8px; font: 14.0px Helvetica}
+    p.p37 {margin: 0.0px 0.0px 0.0px 95.8px; font: 3.0px Helvetica; min-height: 4.0px}
+    p.p38 {margin: 0.0px 0.0px 0.0px 95.8px; font: 14.0px Times}
+    p.p39 {margin: 0.0px 0.0px 0.0px 95.8px; font: 7.0px Times; min-height: 8.0px}
+    p.p40 {margin: 0.0px 0.0px 0.0px 140.2px; text-indent: -64.6px; font: 28.0px Times; min-height: 34.0px}
+    p.p41 {margin: 0.0px 0.0px 0.0px 75.6px; font: 14.0px Times; min-height: 18.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 36.5px Helvetica}
+    span.s3 {font: 14.0px Times}
+    span.s4 {font: 12.0px Helvetica}
+    span.s5 {font: 14.0px Symbol}
+    span.s6 {font: 26.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1997 by Apple Computer, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">p<span class="Apple-tab-span">	</span></span><b></b><b>NSLayoutManager</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p5"><b>Inherits From:<span class="Apple-tab-span">	</span></b><span class="s3">NSObject</span></p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s4"><b>Conforms To:<span class="Apple-tab-span">	</span></b></span>NSObject (NSObject)</p>
+<p class="p8"><br></p>
+<p class="p7"><span class="s4"><b>Declared In:<span class="Apple-tab-span">	</span></b></span>AppKit/NSLayoutManager.h</p>
+<p class="p8"><br></p>
+<p class="p8"><br></p>
+<p class="p9"><b>Class Description</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p11">An NSLayoutManager coordinates the layout and display of characters held in an NSTextStorage object. It maps Unicode character codes to glyphs, sets the glyphs in a series of NSTextContainers, and displays them in a series of NSTextViews. In addition to its core function of laying out text, an NSLayoutManager coordinates its NSTextViews, provides services to those NSTextViews to support NSRulerViews for editing paragraph styles, and handles the layout and display of text attributes not inherent in glyphs (such as underline or strikethrough). You can create a subclass of NSLayoutManager to handle additional text attributes, whether inherent or not.</p>
+<p class="p12"><br></p>
+<p class="p13"><br></p>
+<p class="p9"><b>Method Types</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p14">Creating an instance<span class="Apple-tab-span">	</span><span class="s5">-</span> init</p>
+<p class="p15"><br></p>
+<p class="p14">Setting the text storage<span class="Apple-tab-span">	</span><span class="s5">-</span> setTextStorage:</p>
+<p class="p16"><span class="s5">-</span> textStorage</p>
+<p class="p16"><span class="s5">-</span> replaceTextStorage:</p>
+<p class="p17"><br></p>
+<p class="p14">Setting text containers<span class="Apple-tab-span">	</span><span class="s5">-</span> textContainers</p>
+<p class="p16"><span class="s5">-</span> addTextContainer:</p>
+<p class="p16"><span class="s5">-</span> insertTextContainer:atIndex:</p>
+<p class="p16"><span class="s5">-</span> removeTextContainerAtIndex:</p>
+<p class="p17"><br></p>
+<p class="p14">Invalidating glyphs and layout<span class="Apple-tab-span">	</span><span class="s5">-</span> invalidateGlyphsForCharacterRange:changeInLength:</p>
+<p class="p18">actualCharacterRange:</p>
+<p class="p16"><span class="s5">-</span> invalidateLayoutForCharacterRange:isSoft:</p>
+<p class="p18">actualCharacterRange:</p>
+<p class="p16"><span class="s5">-</span> invalidateDisplayForGlyphRange:</p>
+<p class="p16"><span class="s5">-</span> textContainerChangedGeometry:</p>
+<p class="p16"><span class="s5">-</span> textStorage:edited:range:changeInLength:</p>
+<p class="p18">invalidatedRange:</p>
+<p class="p19"><br></p>
+<p class="p14">Turning background layout on/off<span class="Apple-tab-span">	</span><span class="s5">-</span> setBackgroundLayoutEnabled:</p>
+<p class="p16"><span class="s5">-</span> backgroundLayoutEnabled</p>
+<p class="p17"><br></p>
+<p class="p14">Accessing glyphs<span class="Apple-tab-span">	</span><span class="s5">-</span> insertGlyph:atGlyphIndex:characterIndex:</p>
+<p class="p16"><span class="s5">-</span> glyphAtIndex:</p>
+<p class="p16"><span class="s5">-</span> glyphAtIndex:isValidIndex:</p>
+<p class="p16"><span class="s5">-</span> replaceGlyphAtIndex:withGlyph:</p>
+<p class="p16"><span class="s5">-</span> getGlyphs:range:</p>
+<p class="p16"><span class="s5">-</span> deleteGlyphsInRange:</p>
+<p class="p16"><span class="s5">-</span> numberOfGlyphs</p>
+<p class="p17"><br></p>
+<p class="p14">Mapping characters to glyphs<span class="Apple-tab-span">	</span><span class="s5">-</span> setCharacterIndex:forGlyphAtIndex:</p>
+<p class="p16"><span class="s5">-</span> characterIndexForGlyphAtIndex:</p>
+<p class="p16"><span class="s5">-</span> characterRangeForGlyphRange:actualGlyphRange:</p>
+<p class="p16"><span class="s5">-</span> glyphRangeForCharacterRange:actualCharacterRange:</p>
+<p class="p17"><br></p>
+<p class="p14">Setting glyph attributes<span class="Apple-tab-span">	</span><span class="s5">-</span> setIntAttribute:value:forGlyphAtIndex:</p>
+<p class="p16"><span class="s5">-</span> intAttribute:forGlyphAtIndex:</p>
+<p class="p17"><br></p>
+<p class="p14">Handling layout for text containers<span class="Apple-tab-span">	</span><span class="s5">-</span> setTextContainer:forGlyphRange:</p>
+<p class="p16"><span class="s5">-</span> glyphRangeForTextContainer:</p>
+<p class="p16"><span class="s5">-</span> textContainerForGlyphAtIndex:effectiveRange:</p>
+<p class="p16"><span class="s5">-</span> usedRectForTextContainer:</p>
+<p class="p17"><br></p>
+<p class="p14">Handling line fragment rectangles<span class="Apple-tab-span">	</span><span class="s5">-</span> setLineFragmentRect:forGlyphRange:usedRect:</p>
+<p class="p16"><span class="s5">-</span> lineFragmentRectForGlyphAtIndex:effectiveRange:</p>
+<p class="p16"><span class="s5">-</span> lineFragmentUsedRectForGlyphAtIndex:effectiveRange:</p>
+<p class="p16"><span class="s5">-</span> setExtraLineFragmentRect:usedRect:textContainer:</p>
+<p class="p16"><span class="s5">-</span> extraLineFragmentRect</p>
+<p class="p16"><span class="s5">-</span> extraLineFragmentUsedRect</p>
+<p class="p16"><span class="s5">-</span> extraLineFragmentTextContainer</p>
+<p class="p16"><span class="s5">-</span> setDrawsOutsideLineFragment:forGlyphAtIndex:</p>
+<p class="p16"><span class="s5">-</span> drawsOutsideLineFragmentForGlyphAtIndex:</p>
+<p class="p17"><br></p>
+<p class="p14">Layout of glyphs<span class="Apple-tab-span">	</span><span class="s5">-</span> setLocation:forStartOfGlyphRange:</p>
+<p class="p16"><span class="s5">-</span> locationForGlyphAtIndex:</p>
+<p class="p16"><span class="Apple-converted-space"> </span><span class="s5">-</span> rangeOfNominallySpacedGlyphsContainingIndex:</p>
+<p class="p16"><span class="s5">-</span> rectArrayForCharacterRange:</p>
+<p class="p18">withinSelectedCharacterRange:</p>
+<p class="p18">inTextContainer:rectCount:</p>
+<p class="p16"><span class="s5">-</span> rectArrayForGlyphRange:withinSelectedGlyphRange:</p>
+<p class="p18"><span class="Apple-converted-space"> </span>inTextContainer:rectCount:</p>
+<p class="p16"><span class="s5">-</span> boundingRectForGlyphRange:inTextContainer:</p>
+<p class="p16"><span class="s5">-</span> glyphRangeForBoundingRect:inTextContainer:</p>
+<p class="p16"><span class="s5">-</span> glyphRangeForBoundingRectWithoutAdditionalLayout:</p>
+<p class="p18">inTextContainer:</p>
+<p class="p16"><span class="s5">-</span> glyphIndexForPoint:inTextContainer:</p>
+<p class="p18">fractionOfDistanceThroughGlyph:</p>
+<p class="p19"><br></p>
+<p class="p14">Display of special glyphs<span class="Apple-tab-span">	</span><span class="s5">-</span> setNotShownAttribute:forGlyphAtIndex:</p>
+<p class="p16"><span class="s5">-</span> notShownAttributeForGlyphAtIndex:</p>
+<p class="p16"><span class="s5">-</span> setShowsInvisibleCharacters:</p>
+<p class="p16"><span class="s5">-</span> showsInvisibleCharacters</p>
+<p class="p16"><span class="s5">-</span> setShowsControlCharacters:</p>
+<p class="p16"><span class="s5">-</span> showsControlCharacters</p>
+<p class="p17"><br></p>
+<p class="p14">Finding unlaid characters/glyphs<span class="Apple-tab-span">	</span><span class="s5">-</span> getFirstUnlaidCharacterIndex:glyphIndex:</p>
+<p class="p15"><br></p>
+<p class="p14">Using screen fonts<span class="Apple-tab-span">	</span><span class="s5">-</span> setUsesScreenFonts:</p>
+<p class="p16"><span class="s5">-</span> usesScreenFonts</p>
+<p class="p16"><span class="s5">-</span> substituteFontForFont:</p>
+<p class="p17"><br></p>
+<p class="p14">Handling rulers<span class="Apple-tab-span">	</span><span class="s5">-</span> rulerAccessoryViewForTextView:paragraphStyle:ruler:enabled:</p>
+<p class="p16"><span class="s5">-</span> rulerMarkersForTextView:paragraphStyle:ruler:</p>
+<p class="p17"><br></p>
+<p class="p14">Managing the responder chain<span class="Apple-tab-span">	</span><span class="s5">-</span> layoutManagerOwnsFirstResponderInWindow:</p>
+<p class="p16"><span class="s5">-</span> firstTextView</p>
+<p class="p16"><span class="s5">-</span> textViewForBeginningOfSelection</p>
+<p class="p17"><br></p>
+<p class="p14">Drawing<span class="Apple-tab-span">	</span><span class="s5">-</span> drawBackgroundForGlyphRange:atPoint:</p>
+<p class="p16"><span class="s5">-</span> drawGlyphsForGlyphRange:atPoint:</p>
+<p class="p16"><span class="s5">-</span> drawUnderlineForGlyphRange:underlineType:baselineOffset:</p>
+<p class="p18">lineFragmentRect:lineFragmentGlyphRange:containerOrigin:</p>
+<p class="p16"><span class="s5">-</span> underlineGlyphRange:underlineType:lineFragmentRect:</p>
+<p class="p18">lineFragmentGlyphRange:containerOrigin:</p>
+<p class="p19"><br></p>
+<p class="p14">Setting the delegate<span class="Apple-tab-span">	</span><span class="s5">-</span> setDelegate:</p>
+<p class="p16"><span class="s5">-</span> delegate</p>
+<p class="p20"><br></p>
+<p class="p9"><b>Instance Methods</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>addTextContainer:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>addTextContainer:</b>(NSTextContainer *)<i>aTextContainer</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Appends <i>aTextContainer</i> to the series of NSTextContainers where the receiver arranges text. Invalidates glyphs and layout as needed, but doesn't perform glyph generation or layout.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>insertTextContainer:atIndex:</b>, <span class="s5">-</span> <b>removeTextContainerAtIndex:</b>, <span class="s5">-</span> <b>textContainers</b>, <span class="s5">-</span> <b>invalidateGlyphsForCharacterRange:changeInLength:actualCharacterRange:</b>, <span class="s5">-</span> <b>invalidateLayoutForCharacterRange:isSoft:actualCharacterRange:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>backgroundLayoutEnabled</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (BOOL)<b>backgroundLayoutEnabled</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Returns YES if the receiver generates glyphs and lays out text when the application's run loop is idle, NO if it only performs glyph generation and layout when necessary.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>setBackgroundLayoutEnabled:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>boundingRectForGlyphRange:inTextContainer:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRect)<b>boundingRectForGlyphRange:</b>(NSRange)<i>glyphRange </i><b>inTextContainer:</b>(NSTextContainer *)<i>aTextContainer</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns a single bounding rectangle enclosing all glyphs and other marks drawn in <i>aTextContainer</i> for <i>glyphRange</i>, including glyphs that draw outside their line fragment rectangles and text attributes such as underlining. This method is useful for determining the area that needs to be redrawn when a range of glyphs changes.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>glyphRangeForTextContainer:</b>, <span class="s5">-</span> <b>drawsOutsideLineFragmentForGlyphAtIndex:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>characterIndexForGlyphAtIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (unsigned int)<b>characterIndexForGlyphAtIndex:</b>(unsigned int)<i>glyphIndex</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the index in the NSTextStorage for the first character mapped to the glyph at <i>glyphIndex</i> within the receiver. In many cases it's better to use the range-mapping methods, <b>characterRangeForGlyphRange:actualGlyphRange:</b> and <b>glyphRangeForCharacterRange:actualCharacterRange:</b>, which provide more comprehensive information.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation if needed.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>characterRangeForGlyphRange:actualGlyphRange:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRange)<b>characterRangeForGlyphRange:</b>(NSRange)<i>glyphRange </i><b>actualGlyphRange:</b>(NSRange *)<i>actualGlyphRange</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the range for the characters in the receiver's text store that are mapped to the glyphs in <i>glyphRange</i>. If <i>actualGlyphRange</i> is non-NULL, expands the requested range as needed so that it identifies all glyphs mapped to those characters and returns the new range by reference in <i>actualGlyphRange</i>.</p>
+<p class="p12"><br></p>
+<p class="p11">Suppose the text store begins with the character “Ö” and the glyph cache contains “O” and “¨”. If you get the character range for the glyph range {0, 1} or {1, 1}, <i>actualGlyphRange</i> is returned as {0, 2}, indicating that both of the glyphs are mapped to the character “Ö”.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>characterIndexForGlyphAtIndex:</b>, <span class="s5">-</span> <b>glyphRangeForCharacterRange:actualCharacterRange:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>delegate</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (id)<b>delegate</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Returns the receiver's delegate.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>setDelegate:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>deleteGlyphsInRange:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>deleteGlyphsInRange:</b>(NSRange)<i>glyphRange</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Deletes the glyphs in <i>glyphRange</i>.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is for use by the glyph generation mechanism, and doesn't perform any invalidation or generation of the glyphs or layout. You should never directly invoke this method.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>insertGlyph:atGlyphIndex:characterIndex:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>drawBackgroundForGlyphRange:atPoint:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>drawBackgroundForGlyphRange:</b>(NSRange)<i>glyphRange </i><b>atPoint:</b>(NSPoint)<i>containerOrigin</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Draws background marks for <i>glyphRange</i>, which must lie completely within a single NSTextContainer. <i>containerOrigin</i> indicates the position of the NSTextContainer in the coordinate system of the NSView being drawn. This method must be invoked with the graphics focus locked on that NSView.</p>
+<p class="p12"><br></p>
+<p class="p11">Background marks are such things as selection highlighting, text background color, and any background for marked text.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>drawGlyphsForGlyphRange:atPoint:</b>, <span class="s5">-</span> <b>glyphRangeForTextContainer:</b>, <span class="s5">-</span> <b>textContainerOrigin</b> (NSTextView)</p>
+<p class="p26"><br></p>
+<p class="p27"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>drawGlyphsForGlyphRange:atPoint:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>drawGlyphsForGlyphRange:</b>(NSRange)<i>glyphRange </i><b>atPoint:</b>(NSPoint)<i>containerOrigin</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Draws the glyphs in <i>glyphRange</i>, which must lie completely within a single NSTextContainer. <i>containerOrigin</i> indicates the position of the NSTextContainer in the coordinate system of the NSView being drawn. This method must be invoked with the graphics focus locked on that NSView.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>drawBackgroundForGlyphRange:atPoint:</b>, <span class="s5">-</span> <b>glyphRangeForTextContainer:</b>, <span class="s5">-</span> <b>textContainerOrigin</b> (NSTextView)</p>
+<p class="p26"><br></p>
+<p class="p27"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>drawsOutsideLineFragmentForGlyphAtIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (BOOL)<b>drawsOutsideLineFragmentForGlyphAtIndex:</b>(unsigned int)<i>glyphIndex</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns YES if the glyph at <i>glyphIndex</i> exceeds the bounds of the line fragment where it's laid out, NO otherwise. This can happen when text is set at a fixed line height. For example, if the user specifies a fixed line height of 12 points and sets the font size to 24 points, the glyphs will exceed their layout rectangles.</p>
+<p class="p12"><br></p>
+<p class="p11">Glyphs that draw outside their line fragment rectangles aren't considered when calculating enclosing rectangles with the <b>rectArrayForCharacterRange:withinSelectedCharacterRange:inTextContainer:rectCount:</b> and <b>rectArrayForGlyphRange:withinSelectedGlyphRange:inTextContainer:rectCount:</b> methods. They are, however, considered by <b>boundingRectForGlyphRange:inTextContainer:</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>drawUnderlineForGlyphRange:underlineType:baselineOffset:lineFragmentRect:</b></p>
+<p class="p29"><b>lineFragmentGlyphRange:containerOrigin:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>drawUnderlineForGlyphRange:</b>(NSRange)<i>glyphRange</i></p>
+<p class="p31"><b>underlineType:</b>(int)<i>underlineType</i></p>
+<p class="p31"><b>baselineOffset:</b>(float)<i>baselineOffset</i></p>
+<p class="p31"><b>lineFragmentRect:</b>(NSRect)<i>lineRect</i></p>
+<p class="p31"><b>lineFragmentGlyphRange:</b>(NSRange)<i>lineGlyphRange</i></p>
+<p class="p31"><b>containerOrigin:</b>(NSPoint)<i>containerOrigin</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Draws underlining for the glyphs in <i>glyphRange</i>, which must belong to a single line fragment rectangle (as returned by <b>lineFragmentRectForGlyphAtIndex:effectiveRange:</b>). <i>underlineType</i> indicates the style of underlining to draw; NSLayoutManager accepts only NSSingleUnderlineStyle, but subclasses can define their own underline styles. <i>baselineOffset</i> indicates how far below the text baseline the underline should be drawn; it's usually a positive value. <i>lineRect</i> is the line fragment rectangle containing the glyphs to draw underlining for, and <i>lineGlyphRange</i> is the range of all glyphs within that line fragment rectangle. <i>containerOrigin</i> is the origin of the line fragment rectangle's NSTextContainer in its NSTextView.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is invoked automatically by <b>underlineGlyphRange:...</b>; you should rarely need to invoke it directly.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>textContainerForGlyphAtIndex:effectiveRange:</b>, <span class="s5">-</span> <b>textContainerOrigin</b> (NSTextView)</p>
+<p class="p26"><br></p>
+<p class="p27"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>extraLineFragmentRect</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRect)<b>extraLineFragmentRect</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Returns the rectangle defining the extra line fragment for the insertion point at the end of a text (either in an empty text or after a final paragraph separator). The rectangle is defined in the coordinate system of its NSTextContainer. Returns NSZeroRect if there is no such rectangle.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>extraLineFragmentUsedRect</b>, <span class="s5">-</span> <b>extraLineFragmentTextContainer</b>, <span class="s5">-</span> <b>setExtraLineFragmentRect:usedRect:textContainer:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>extraLineFragmentTextContainer</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSTextContainer *)<b>extraLineFragmentTextContainer</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Returns the NSTextContainer that contains the extra line fragment rectangle, or <b>nil</b> if there is no extra line fragment rectangle. This rectangle is used to display the insertion point for the insertion point at the end of a text (either in an empty text or after a final paragraph separator).</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>extraLineFragmentRect</b>, <span class="s5">-</span> <b>extraLineFragmentUsedRect</b>, <span class="s5">-</span> <b>setExtraLineFragmentRect:usedRect:textContainer:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>extraLineFragmentUsedRect</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRect)<b>extraLineFragmentUsedRect</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Returns the rectangle enclosing the insertion point drawn in the extra line fragment rectangle. The rectangle is defined in the coordinate system of its NSTextContainer. Returns NSZeroRect if there is no extra line fragment rectangle.</p>
+<p class="p12"><br></p>
+<p class="p11">The extra line fragment used rectangle is twice as wide (or tall) as the NSTextContainer's line fragment padding, with the insertion point itself in the middle.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>extraLineFragmentRect</b>, <span class="s5">-</span> <b>extraLineFragmentTextConainer</b>, <span class="s5">-</span> <b>setExtraLineFragmentRect:usedRect:textContainer:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>firstTextView</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSTextView *)<b>firstTextView</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Returns the first NSTextView in the receiver's series of text views. This is the object of various NSText and NSTextView notifications posted.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>getFirstUnlaidCharacterIndex:glyphIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>getFirstUnlaidCharacterIndex:</b>(unsigned int *)<i>charIndex</i> <b>glyphIndex:</b>(unsigned int *)<i>glyphIndex</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns by reference in <i>charIndex</i> and <i>glyphIndex</i> the indexes for the first character and glyph that have invalid layout information. Either parameter may be NULL, in which case the receiver simply ignores it.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>getGlyphs:range:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (unsigned int)<b>getGlyphs:</b>(NSGlyph *)<i>glyphArray </i><b>range:</b>(NSRange)<i>glyphRange</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Fills <i>glyphArray</i> with displayable glyphs from <i>glyphRange</i> and returns the actual number of glyphs filled (which may be smaller than <i>glyphRange</i>'s length if some glyphs aren't drawn—for example, tab and newline characters). Raises an NSRangeException if the range specified exceeds the bounds of the actual glyph range for the receiver.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>glyphAtIndex:</b>, <span class="s5">-</span> <b>glyphAtIndex:isValidIndex:</b>, <span class="s5">-</span> <b>notShownAttributeForGlyphAtIndex:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>glyphAtIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSGlyph)<b>glyphAtIndex:</b>(unsigned int)<i>glyphIndex</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the glyph at <i>glyphIndex</i>. Raises an NSRangeException if <i>glyphIndex</i> is out of bounds.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation if needed. To avoid an exception with <b>glyphAtIndex:</b> you must first check the glyph index against the number of glyphs, which requires generating <i>all</i> glyphs. Another method, <b>glyphAtIndex:isValidIndex:</b>, generates glyphs only up to the one requested, so using it can be more efficient.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>getGlyphs:range:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>glyphAtIndex:isValidIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSGlyph)<b>glyphAtIndex:</b>(unsigned int)<i>glyphIndex </i><b>isValidIndex:</b>(BOOL *)<i>flag</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">If <i>glyphIndex</i> is valid, returns the glyph at <i>glyphIndex</i> and sets <i>flag</i> to YES. Otherwise sets <i>flag</i> to NO (in which case the return value is meaningless).</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>getGlyphs:range:</b>, <span class="s5">-</span> <b>glyphAtIndex:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>glyphIndexForPoint:inTextContainer:fractionOfDistanceThroughGlyph:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (unsigned int)<b>glyphIndexForPoint:</b>(NSPoint)<i>aPoint</i></p>
+<p class="p31"><b>inTextContainer:</b>(NSTextContainer *)<i>aTextContainer</i></p>
+<p class="p31"><b>fractionOfDistanceThroughGlyph:</b>(float *)<i>partialFraction</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns the index for the glyph nearest <i>aPoint</i> within <i>aTextContainer</i>. <i>aPoint</i> is expressed in <i>aTextContainer'</i>s coordinate system. If <i>partialFraction</i> is non-NULL the ratio of the distance into the glyph relative to the next glyph (in the appropriate sweep direction)<i> </i>is returned by reference in <i>partialFraction</i>.</p>
+<p class="p12"><br></p>
+<p class="p33"><span class="s4"><b>Note:<span class="Apple-tab-span">	</span></b></span>NSLayoutManager currently supports only left-to-right sweep.</p>
+<p class="p34"><br></p>
+<p class="p11">For purposes such as dragging out a selection or placing the insertion point, a partial percentage less than or equal to 0.5 indicates that <i>aPoint</i> should be considered as falling before the glyph index returned; a partial percentage greater than 0.5 indicates that it should be considered as falling after the glyph index returned. If the nearest glyph doesn't lie under <i>aPoint</i> at all (for example, if <i>aPoint</i> is beyond the beginning or end of a line) this ratio will be 0 or 1.</p>
+<p class="p12"><br></p>
+<p class="p11">Suppose the glyph stream contains the glyphs “A” and “b”, with the width of “A” being 13 points. If the user clicks at a location 8 points into “A”, <i>partialFraction</i> is 8 <span class="s5">‚</span> 13, or 0.615. In this case, the point given should be considered as falling between “A” and “b” for purposes such as dragging out a selection or placing the insertion point.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>glyphRangeForBoundingRect:inTextContainer:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRange)<b>glyphRangeForBoundingRect:</b>(NSRect)<i>aRect </i><b>inTextContainer:</b>(NSTextContainer *)<i>aTextContainer</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the smallest contiguous range for glyphs that are laid out wholly or partially within <i>aRect</i> in <i>aTextContainer</i>. The range returned can include glyphs that don't fall inside or intersect <i>aRect</i>, though the first and last glyphs in the range always do. This method is used to determine which glyphs need to be displayed within a given rectangle.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>glyphRangeForBoundingRectWithoutAdditionalLayout:inTextContainer:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>glyphRangeForBoundingRectWithoutAdditionalLayout:inTextContainer:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRange)<b>glyphRangeForBoundingRectWithoutAdditionalLayout:</b>(NSRect)<i>bounds </i><b>inTextContainer:</b>(NSTextContainer *)<i>container</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the smallest contiguous range for glyphs that are laid out wholly or partially within <i>aRect</i> in <i>aTextContainer</i>. The range returned can include glyphs which don't fall inside or intersect <i>aRect</i>, though the first and last glyphs in the range always do.</p>
+<p class="p12"><br></p>
+<p class="p11">Unlike <b>glyphRangeForBoundingRect:inTextContainer:</b>, this method doesn't perform glyph generation or layout. Its results, though faster, can be incorrect. This method is primarily for use by NSTextView; you should rarely need to use it yourself.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>glyphRangeForBoundingRect:inTextContainer:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>glyphRangeForCharacterRange:actualCharacterRange:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRange)<b>glyphRangeForCharacterRange:</b>(NSRange)<i>charRange </i><b>actualCharacterRange:</b>(NSRange *)<i>actualCharRange</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the range for the glyphs mapped to the characters of the text store in <i>charRange</i>. If <i>actualCharRange</i> is non-NULL, expands the requested range as needed so that it identifies all characters mapped to those glyphs and returns the new range by reference in <i>actualCharRange</i>.</p>
+<p class="p12"><br></p>
+<p class="p11">Suppose the text store contains the characters “n˜” and the glyph cache contains “ñ”. If you get the glyph range for the character range {0, 1} or {1, 1}, <i>actualCharRange</i> is returned as {0, 2}, indicating both of the characters mapped to the glyph “ñ”.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>characterIndexForGlyphAtIndex:</b>, <span class="s5">-</span> <b>glyphRangeForCharacterRange:actualCharacterRange</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>glyphRangeForTextContainer:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRange)<b>glyphRangeForTextContainer:</b>(NSTextContainer *)<i>aTextContainer</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the range for glyphs laid out within <i>aTextContainer</i>.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>init</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (id)<b>init</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Initializes the receiver, a newly created NSLayoutManager object. This is the designated initializer for the NSLayoutManager class. Returns <b>self</b>.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>addLayoutManager:</b> (NSTextStorage), <span class="s5">-</span> <b>addTextContainer:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>insertGlyph:atGlyphIndex:characterIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>insertGlyph:</b>(NSGlyph)<i>aGlyph</i></p>
+<p class="p31"><b>atGlyphIndex:</b>(unsigned int)<i>glyphIndex</i></p>
+<p class="p31"><b>characterIndex:</b>(unsigned int)<i>charIndex</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Inserts <i>aGlyph</i> into the glyph cache at <i>glyphIndex</i> and maps it to the character at <i>charIndex</i>. If the glyph is mapped to several characters, <i>charIndex</i> should indicate the first character that it's mapped to.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is for use by the glyph generation mechanism, and doesn't perform any invalidation or generation of the glyphs or layout. You should never directly invoke this method.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>deleteGlyphsInRange:</b>, <span class="s5">-</span> <b>replaceGlyphAtIndex:withGlyph:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>insertTextContainer:atIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>insertTextContainer:</b>(NSTextContainer *)<i>aTextContainer </i><b>atIndex:</b>(unsigned int)<i>index</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Inserts <i>aTextContainer</i> into the series of text containers at <i>index</i>, and invalidates layout for all subsequent NSTextContainer's. Also invalidates glyph information as needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>addTextContainer:</b>, <span class="s5">-</span> <b>removeTextContainerAtIndex:</b>, <span class="s5">-</span> <b>textContainers</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>intAttribute:forGlyphAtIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (int)<b>intAttribute:</b>(int)<i>attributeTag</i> <b>forGlyphAtIndex:</b>(unsigned int)<i>glyphIndex</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the value of the attribute identified by <i>attributeTag</i> for the glyph at <i>glyphIndex</i>.</p>
+<p class="p12"><br></p>
+<p class="p11">Subclasses that define their own custom attributes must override this method to access their own storage for the attribute values. Non-negative tags are reserved by NeXT; you can define your own attributes with negative tags and set values using <b>setIntAttribute:value:forGlyphAtIndex:</b>.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b>invalidateDisplayForGlyphRange:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>invalidateDisplayForGlyphRange:</b>(NSRange)<i>glyphRange</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Marks the glyphs in <i>glyphRange</i> as needing display, as well as the appropriate regions of the NSTextViews that display those glyphs (using NSView's <b>setNeedsDisplayInRect:</b>). You should rarely need to invoke this method.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>invalidateGlyphsForCharacterRange:changeInLength:actualCharacterRange:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>invalidateGlyphsForCharacterRange:</b>(NSRange)<i>charRange</i></p>
+<p class="p31"><b>changeInLength:</b>(int)<i>lengthChange</i></p>
+<p class="p31"><b>actualCharacterRange:</b>(NSRange *)<i>actualCharRange</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Invalidates the cached glyphs for the characters in <i>charRange</i> and adjusts the remaining glyph-to-character mapping according to <i>lengthChange</i>, which indicates the number of characters added to or removed from the text store. If non-NULL, <i>actualCharRange</i> is set to the range of characters mapped to the glyphs just invalidated. This can be larger than the range of characters given due to the effect of context on glyphs and layout.</p>
+<p class="p12"><br></p>
+<p class="p11">You should rarely need to invoke this method. It only invalidates glyph information, and performs no glyph generation or layout. Because invalidating glyphs also invalidates layout, after invoking this method you should also invoke <b>invalidateLayoutForCharacterRange:isSoft:actualCharacterRange:</b>, passing <i>charRange</i> as the first argument and NO as the flag to the <b>isSoft:</b> keyword.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>invalidateLayoutForCharacterRange:isSoft:actualCharacterRange:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>invalidateLayoutForCharacterRange:</b>(NSRange)<i>charRange</i></p>
+<p class="p31"><b>isSoft:</b>(BOOL)<i>flag</i></p>
+<p class="p31"><b>actualCharacterRange:</b>(NSRange *)<i>actualCharRange</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Invalidates the layout information for the glyphs mapped to the characters in <i>charRange</i>. If <i>flag</i> is YES, attempts to save some layout information to avoid recalculation; if flag is NO, saves no layout information. You should typically pass NO for <i>flag</i>. If non-NULL, <i>actualCharRange</i> is set to the range of characters mapped to the glyphs whose layout information has been invalidated. This can be larger than the range of characters given due to the effect of context on glyphs and layout.</p>
+<p class="p12"><br></p>
+<p class="p11">This method only invalidates information; it performs no glyph generation or layout. You should rarely need to invoke this method.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>invalidateGlyphsForCharacterRange:changeInLength:actualCharacterRange:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>layoutManagerOwnsFirstResponderInWindow:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (BOOL)<b>layoutManagerOwnsFirstResponderInWindow:</b>(NSWindow *)<i>aWindow</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns YES if the first responder in <i>aWindow</i> is an NSTextView associated with the receiver, NO otherwise.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>lineFragmentRectForGlyphAtIndex:effectiveRange:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRect)<b>lineFragmentRectForGlyphAtIndex:</b>(unsigned int)<i>glyphIndex </i><b>effectiveRange:</b>(NSRange *)<i>lineFragmentRange</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the line fragment rectangle containing the glyph at <i>glyphIndex</i>. The rectangle is defined in the coordinate system of its NSTextContainer. If non-NULL, <i>lineFragmentRange</i> is set to contain the range for all glyphs in that line fragment.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>lineFragmentUsedRectForGlyphAtIndex:effectiveRange:</b>, <span class="s5">-</span> <b>setLineFragmentRect:forGlyphRange:usedRect:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>lineFragmentUsedRectForGlyphAtIndex:effectiveRange:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRect)<b>lineFragmentUsedRectForGlyphAtIndex:</b>(unsigned int)<i>glyphIndex </i><b>effectiveRange:</b>(NSRange *)<i>lineFragmentRange</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the portion of the line fragment rectangle containing <i>glyphAtIndex</i> that actually contains glyphs (such as for a partial or wrapped line), plus the line fragment padding defined by the NSTextContainer where the glyphs reside. This rectangle is defined in the coordinate system of its NSTextContainer, and is based on line calculation only—that is, it isn't a bounding box for the glyphs in the line fragment.</p>
+<p class="p12"><br></p>
+<p class="p11">If non-NULL, <i>lineFragmentRange</i> is set to contain the range for all glyphs in the line fragment.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>lineFragmentRectForGlyphAtIndex:effectiveRange:</b>, <span class="s5">-</span> <b>setLineFragmentRect:forGlyphRange:usedRect:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>locationForGlyphAtIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSPoint)<b>locationForGlyphAtIndex:</b>(unsigned int)<i>glyphIndex</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the location, in terms of its line fragment rectangle, for the glyph at <i>glyphIndex</i>. The line fragment rectangle in turn is defined in the coordinate system of the text container where it resides.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>lineFragmentRectForGlyphAtIndex:effectiveRange:</b>, <span class="s5">-</span> <b>lineFragmentUsedRectForGlyphAtIndex:effectiveRange:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>notShownAttributeForGlyphAtIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (BOOL)<b>notShownAttributeForGlyphAtIndex:</b>(unsigned int)<i>glyphIndex</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns YES if the glyph at <i>glyphIndex</i> isn't shown (in the sense of the PostScript <b>show</b> operator), NO if it is. For example, a tab, newline, or attachment glyph doesn't get shown; it just affects the layout of following glyphs or locates the attachment graphic. Space characters, however, typically are shown as glyphs with a displacement, though they leave no visible marks. Raises an NSRangeException if <i>glyphIndex</i> is out of bounds.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>setNotShownAttribute:forGlyphAtIndex:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>numberOfGlyphs</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (unsigned int)<b>numberOfGlyphs</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Returns the number of glyphs in the receiver, performing glyph generation if needed to determine this number.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>rangeOfNominallySpacedGlyphsContainingIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRange)<b>rangeOfNominallySpacedGlyphsContainingIndex:</b>(unsigned int)<i>glyphIndex</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the range for the glyphs around <i>glyphIndex</i> that can be displayed with a single PostScript <b>show</b> operation; in other words, glyphs with no pairwise kerning or other adjustments to spacing.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>rectArrayForCharacterRange:withinSelectedCharacterRange:inTextContainer:</b></p>
+<p class="p29"><b>rectCount:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRect *)<b>rectArrayForCharacterRange:</b>(NSRange)<i>charRange</i></p>
+<p class="p31"><b>withinSelectedCharacterRange:</b>(NSRange)<i>selCharRange</i></p>
+<p class="p31"><b>inTextContainer:</b>(NSTextContainer *)<i>aTextContainer</i></p>
+<p class="p31"><b>rectCount:</b>(unsigned int *)<i>rectCount</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns a C array of rectangles for the glyphs in <i>aTextContainer</i> that correspond to <i>charRange</i>, and by reference in <i>rectCount</i> the number of such rectangles. These rectangles can be used to draw the background or highlight for the given range of characters. <i>selCharRange</i> indicates selected characters, which can affect the size of the rectangles; it must be equal to or contain <i>charRange</i>. To calculate the rectangles for drawing the background, use a selected character range whose location is NSNotFound. To calculate the rectangles for drawing highlighting for <i>charRange</i>, use a selected character range that contains <i>charRange</i>.</p>
+<p class="p12"><br></p>
+<p class="p11">The number of rectangles returned isn't necessarily the number of lines enclosing the specified range. Contiguous lines can share an enclosing rectangle, and lines broken into several fragments have a separate enclosing rectangle for each fragment.</p>
+<p class="p12"><br></p>
+<p class="p11">The array of rectangles returned is owned by the receiver, and is overwritten by various NSLayoutManager methods. You should never free it, and should copy it if you need to keep the values or use them after sending other messages to the layout manager.</p>
+<p class="p12"><br></p>
+<p class="p11">The purpose of this method is to calculate line rectangles for drawing the text background and highlighting. These rectangles don't necessarily enclose glyphs that draw outside their line fragment rectangles; use <b>boundingRectForGlyphRange:inTextContainer:</b> to determine the area that contains all drawing performed for a range of glyphs.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>glyphRangeForTextContainer:</b>, <span class="s5">-</span> <b>characterRangeForGlyphRange:actualGlyphRange:</b>, <span class="s5">-</span> <b>drawsOutsideLineFragmentForGlyphAtIndex:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>rectArrayForGlyphRange:withinSelectedGlyphRange:inTextContainer:</b></p>
+<p class="p29"><b>rectCount:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRect *)<b>rectArrayForGlyphRange:</b>(NSRange)<i>glyphRange</i></p>
+<p class="p31"><b>withinSelectedGlyphRange:</b>(NSRange)<i>selGlyphRange</i></p>
+<p class="p31"><b>inTextContainer:</b>(NSTextContainer *)<i>aTextContainer</i></p>
+<p class="p31"><b>rectCount:</b>(unsigned *)<i>rectCount</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns a C array of rectangles for the glyphs in <i>aTextContainer</i> in <i>glyphRange</i>, and by reference in <i>rectCount</i> the number of such rectangles. These rectangles can be used to draw the background or highlight for the given range of glyphs. <i>selGlyphRange</i> indicates selected glyphs. To calculate the rectangles for drawing the background, use a selected glyph range whose location is NSNotFound. To calculate the rectangles for highlighting, use a selected glyph range that contains <i>glyphRange</i>.</p>
+<p class="p12"><br></p>
+<p class="p11">The number of rectangles returned isn't necessarily the number of lines enclosing the specified range. Contiguous lines can share an enclosing rectangle, and lines broken into several fragments have a separate enclosing rectangle for each fragment.</p>
+<p class="p12"><br></p>
+<p class="p11">The array of rectangles returned is owned by the receiver, and is overwritten by various NSLayoutManager methods. You should never free it, and should copy it if you need to keep the values or use them after sending other messages to the layout manager.</p>
+<p class="p12"><br></p>
+<p class="p11">The purpose of this method is to calculate line rectangles for drawing the text background and highlighting. These rectangles don't necessarily enclose glyphs that draw outside their line fragment rectangles; use <b>boundingRectForGlyphRange:inTextContainer:</b> to determine the area that contains all drawing performed for a range of glyphs.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>glyphRangeForTextContainer:</b>, <span class="s5">-</span> <b>drawsOutsideLineFragmentForGlyphAtIndex:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>removeTextContainerAtIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>removeTextContainerAtIndex:</b>(unsigned int)<i>index</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Removes the NSTextContainer at <i>index</i> and invalidates the layout as needed.Also invalidates glyph information as needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>addTextContainer:</b>, <span class="s5">-</span> <b>insertTextContainer:atIndex:</b>, <span class="s5">-</span> <b>textContainers</b>, <span class="s5">-</span> <b>invalidateGlyphsForCharacterRange:changeInLength:actualCharacterRange:</b>, <span class="s5">-</span> <b>invalidateLayoutForCharacterRange:isSoft:actualCharacterRange:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>replaceGlyphAtIndex:withGlyph:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>replaceGlyphAtIndex:</b>(unsigned int)<i>glyphIndex </i><b>withGlyph:</b>(NSGlyph)<i>newGlyph</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Replaces the glyph at <i>glyphIndex</i> with <i>newGlyph</i>. Doesn't alter the glyph-to-character mapping or invalidate layout information.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is for use by the glyph generation mechanism, and doesn't perform any invalidation or generation of the glyphs or layout. You should never directly invoke this method.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>setCharacterIndex:forGlyphAtIndex:</b>, <span class="s5">-</span> <b>invalidateGlyphsForCharacterRange:changeInLength:actualCharacterRange:</b>, <span class="s5">-</span> <b>invalidateLayoutForCharacterRange:isSoft:actualCharacterRange:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>replaceTextStorage:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>replaceTextStorage:</b>(NSTextStorage *)<i>newTextStorage</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Replaces the NSTextStorage for the group of text-system objects containing the receiver with <i>newTextStorage</i>. All NSLayoutManagers sharing the original NSTextStorage then share the new one. This method makes all the adjustments necessary to keep these relationships intact, unlike <b>setTextStorage:</b>.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerAccessoryViewForTextView:paragraphStyle:ruler:enabled:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSView *)<b>rulerAccessoryViewForTextView:</b>(NSTextView *)<i>aTextView</i></p>
+<p class="p31"><b>paragraphStyle:</b>(NSParagraphStyle *)<i>paraStyle</i></p>
+<p class="p31"><b>ruler:</b>(NSRulerView *)<i>aRulerView</i></p>
+<p class="p31"><b>enabled:</b>(BOOL)<i>flag</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns the accessory NSView for <i>aRulerView</i>. This accessory contains tab wells, text alignment buttons, and so on. <i>paraStyle</i> is used to set the state of the controls in the accessory NSView; it must not be <b>nil</b>. If <i>flag</i> is YES the accessory view is enabled and accepts mouse and keyboard events; if NO it's disabled.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is invoked automatically by the NSTextView object using the layout manager. You should rarely need to invoke it, but you can override it to customize ruler support. If you do this method directly, not that it neither installs the ruler accessory view nor sets the markers for the NSRulerView. You must install the accessory view into the ruler using NSRulerView's <b>setAccessoryView:</b> method. To set the markers, use <b>rulerMarkersForTextView:paragraphSyle:ruler:</b> to get the markers needed and then send <b>setMarkers:</b> to the ruler.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>horizontalRulerView</b> (NSScrollView)</p>
+<p class="p26"><br></p>
+<p class="p27"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>rulerMarkersForTextView:paragraphStyle:ruler:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSArray *)<b>rulerMarkersForTextView:</b>(NSTextView *)<i>aTextView</i></p>
+<p class="p31"><b>paragraphStyle:</b>(NSParagraphStyle *)<i>paraStyle</i></p>
+<p class="p31"><b>ruler:</b>(NSRulerView *)<i>aRulerView</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Returns the NSRulerMarkers for <i>aRulerView</i> in <i>aTextView</i>, based on <i>paraStyle</i>. These markers represent such things as left and right margins, first-line indent, and tab stops. You can set these markers immediately with NSRulerView's <b>setMarkers:</b> method.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is invoked automatically by the NSTextView object using the layout manager. You should rarely need to invoke it; but you can override it to add new kinds of markers or otherwise customize ruler support.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>rulerAccessoryViewForTextView:paragraphStyle:ruler:enabled:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setBackgroundLayoutEnabled:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>setBackgroundLayoutEnabled:</b>(BOOL)<i>flag</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Sets according to <i>flag</i> whether the receiver generates glyphs and lays them out when the application's run loop is idle.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>backgroundLayoutEnabled</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setCharacterIndex:forGlyphAtIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>setCharacterIndex:</b>(unsigned int)<i>charIndex </i><b>forGlyphAtIndex:</b>(unsigned int)<i>glyphIndex</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Maps the character at <i>charIndex</i> to the glyph at <i>glyphIndex</i>.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is for use by the glyph generation mechanism, and doesn't perform any invalidation or generation of the glyphs or layout. You should never directly invoke this method.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>characterIndexForGlyphAtIndex:</b>, <span class="s5">-</span> <b>characterRangeForGlyphRange:actualGlyphRange:</b>, <span class="s5">-</span> <b>glyphRangeForCharacterRange:actualCharacterRange:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setDelegate:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>setDelegate:</b>(id)<i>anObject</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Sets the receiver's delegate to <i>anObject</i>, without retaining it.</p>
+<p class="p12"><br></p>
+<p class="p35"><b>See also:<span class="Apple-tab-span">	</span></b><span class="s5">-</span><span class="s3"> <b>delegate</b></span></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setDrawsOutsideLineFragment:forGlyphAtIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>setDrawsOutsideLineFragment:</b>(BOOL)<i>flag </i><b>forGlyphAtIndex:</b>(unsigned int)<i>glyphIndex</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Sets according to <i>flag</i> whether the glyph at <i>glyphIndex</i> exceeds the bounds of the line fragment where it's laid out. This can happen when text is set at a fixed line height. For example, if the user specifies a fixed line height of 12 points and sets the font size to 24 points, the glyphs will exceed their layout rectangles.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is used by the layout mechanism; you should never invoke it directly.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>drawsOutsideLineFragmentForGlyphAtIndex</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setExtraLineFragmentRect:usedRect:textContainer:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>setExtraLineFragmentRect:</b>(NSRect)<i>aRect</i></p>
+<p class="p31"><b>usedRect:</b>(NSRect)<i>usedRect</i></p>
+<p class="p31"><b>textContainer:</b>(NSTextContainer *)<i>aTextContainer</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Sets a line fragment rectangle for displaying an empty last line in a body of text. <i>aRect</i> is the rectangle to set, and <i>aTextContainer</i> is the NSTextContainer where the rectangle should be laid out. <i>usedRect</i> indicates where the insertion point is drawn.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is used by the layout mechanism; you should never invoke it directly.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>extraLineFragmentRect</b>, <span class="s5">-</span> <b>extraLineFragmentUsedRect</b>, <span class="s5">-</span> <b>textContainer</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setIntAttribute:value:forGlyphAtIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>setIntAttribute:</b>(int)<i>attributeTag</i></p>
+<p class="p31"><b>value:</b>(int)<i>anInt</i></p>
+<p class="p31"><b>forGlyphAtIndex:</b>(unsigned int)<i>glyphIndex</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Sets a custom attribute value for the glyph at <i>glyphIndex</i>. <i>attributeTag</i> identifies the custom attribute, and <i>anInt</i> is its new value.</p>
+<p class="p12"><br></p>
+<p class="p11">Subclasses that define their own custom attributes must override this method and provide their own storage for the attribute values. Non-negative tags are reserved by NeXT; you can define your own attributes with negative tags and set values using this method.</p>
+<p class="p12"><br></p>
+<p class="p11">This method doesn't perform glyph generation or layout. The glyph at <i>glyphIndex</i> must already have been generated.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>intAttribute:forGlyphAtIndex:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setLineFragmentRect:forGlyphRange:usedRect:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>setLineFragmentRect:</b>(NSRect)<i>fragmentRect</i></p>
+<p class="p31"><b>forGlyphRange:</b>(NSRange)<i>glyphRange</i></p>
+<p class="p31"><b>usedRect:</b>(NSRect)<i>usedRect</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Sets to <i>fragmentRect</i> the line fragment rectangle where the glyphs in <i>glyphRange</i> are laid out. The text container must be specified first with <b>setTextContainer:forGlyphRange:</b>, and the exact positions of the glyphs must be set after the line fragment rectangle with <b>setLocation:forStartOfGlyphRange:</b>. <i>usedRect</i> indicates the portion of <i>fragmentRect</i>, in the NSTextContainer's coordinate system, that actually contains glyphs or other marks that are drawn (including the text container's line fragment padding). <i>usedRect</i> must be equal to or contained within <i>fragmentRect</i>.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is used by the layout mechanism; you should never invoke it directly.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>lineFragmentRectForGlyphRange:effectiveRange:</b>, <span class="s5">-</span> <b>lineFragmentUsedRectForGlyphRange:effectiveRange:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setLocation:forStartOfGlyphRange:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>setLocation:</b>(NSPoint)<i>aPoint </i><b>forStartOfGlyphRange:</b>(NSRange)<i>glyphRange</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Sets the location where the glyphs in <i>glyphRange</i> are laid out to <i>aPoint</i>, which is expressed relative to the origin of the line fragment rectangle for <i>glyphRange</i>. <i>glyphRange</i> defines a series of glyphs that can be displayed with a single PostScript <b>show</b> operation (a nominal range). Setting the location for a series of glyphs implies that the glyphs preceding it can't be included in a single <b>show</b> operation.</p>
+<p class="p12"><br></p>
+<p class="p11">Before setting the location for a glyph range, you must specify the text container with <b>setTextContainer:forGlyphRange:</b> and the line fragment rectangle with <b>setLineFragmentRect:forGlyphRange:usedRect:</b>.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is used by the layout mechanism; you should never invoke it directly.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>rangeOfNominallySpacedGlyphsContainingIndex:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setNotShownAttribute:forGlyphAtIndex:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>setNotShownAttribute:</b>(BOOL)<i>flag </i><b>forGlyphAtIndex:</b>(unsigned int)<i>glyphIndex</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Sets according to <i>flag</i> whether the glyph at <i>glyphIndex</i> is one that isn't shown. For example, a tab or newline character doesn't leave any marks; it just indicates where following glyphs are laid out. Raises an NSRangeException if <i>glyphIndex</i> is out of bounds.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is used by the layout mechanism; you should never invoke it directly.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>notShownAttributeForGlyphAtIndex</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setShowsControlCharacters:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>setShowsControlCharacters:</b>(BOOL)<i>flag</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Controls whether the receiver makes control characters visible in layout where possible. If <i>flag</i> is YES, it substitutes visible glyphs for control characters if the font and script support it; if <i>flag</i> is NO it doesn't.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>setShowsInvisibleCharacters:</b>, <span class="s5">-</span> <b>showsControlCharacters</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setShowsInvisibleCharacters:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>setShowsInvisibleCharacters:</b>(BOOL)<i>flag</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Controls whether the receiver makes whitespace and other typically nonvisible characters visible in layout where possible. If <i>flag</i> is YES, it substitutes visible glyphs for invisible characters if the font and script support it; if <i>flag</i> is NO it doesn't.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>setShowsControlCharacters:</b>, <span class="s5">-</span> <b>showsInvisibleCharacters</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setTextContainer:forGlyphRange:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>setTextContainer:</b>(NSTextContainer *)<i>aTextContainer </i><b>forGlyphRange:</b>(NSRange)<i>glyphRange</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Sets to <i>aTextContainer</i> the NSTextContainer where the glyphs in <i>glyphRange</i> are laid out. You specify the layout within the container with the <b>setLineFragmentRect:forGlyphRange:usedRect:</b> and <b>setLocation:forStartOfGlyphRange:</b> methods.</p>
+<p class="p12"><br></p>
+<p class="p11">This method is used by the layout mechanism; you should never invoke it directly.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>textContainerForGlyphRange:effectiveRange:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setTextStorage:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>setTextStorage:</b>(NSTextStorage *)<i>textStorage</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Sets the receiver's NSTextStorage to <i>textStorage</i>. This method is invoked automatically when you add an NSLayoutManager to an NSTextStorage object; you should never need to invoke it directly, but might want to override it. If you want to replace the NSTextStorage for an established group of text-system objects containing the receiver, use <b>replaceTextStorage:</b>.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>addLayoutManager:</b> (NSTextStorage)</p>
+<p class="p26"><br></p>
+<p class="p27"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>setUsesScreenFonts:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span>(void)<b>setUsesScreenFonts:</b>(BOOL)<i>flag</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Sets according to <i>flag</i> whether the receiver calculates layout and displays text using screen fonts when possible.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>usesScreenFonts</b>, <span class="s5">-</span> <b>substituteFontForFont:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>showsControlCharacters</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (BOOL)<b>showsControlCharacters</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Returns YES if the receiver substitutes visible glyphs for control characters if the font and script support it, NO if it doesn't.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>showsInvisibleCharacters</b>, <span class="s5">-</span> <b>setShowsControlCharacters:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>showsInvisibleCharacters</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (BOOL)<b>showsInvisibleCharacters</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Returns YES if the receiver substitutes visible glyphs for invisible characters if the font and script support it, NO if it doesn't.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>showsControlCharacters</b>, <span class="s5">-</span> <b>setShowsInvisibleCharacters:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>substituteFontForFont:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSFont *)<b>substituteFontForFont:</b>(NSFont *)<i>originalFont</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns a screen font suitable for use in place of <i>originalFont</i>, or simply returns <i>originalFont</i> if a screen font can't be used or isn't available. A screen font can be substituted if the receiver is set to use screen fonts and if no NSTextView associated with the receiver are scaled or rotated.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>usesScreenFonts</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>textContainerChangedGeometry:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>textContainerChangedGeometry:</b>(NSTextContainer *)<i>aTextContainer</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Invalidates the layout information, and possibly glyphs, for <i>aTextContainer</i> and all subsequent NSTextContainers. This method is invoked automatically by other components of the text system; you should rarely need to invoke it directly. Subclasses of NSTextContainer, however, must invoke this method any time their size of shape changes (a text container that dynamically adjusts its shape to wrap text around placed graphics, for example, must do so when a graphic is added, moved, or removed).</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>textContainerChangedTextView:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>textContainerChangedTextView:</b>(NSTextContainer *)<i>aTextContainer</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Updates information needed to manage NSTextView objects. This method is invoked automatically by other components of the text system; you should rarely need to invoke it directly.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>textContainerForGlyphAtIndex:effectiveRange:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSTextContainer *)<b>textContainerForGlyphAtIndex:</b>(unsigned int)<i>glyphIndex </i><b>effectiveRange:</b>(NSRange *)<i>effectiveGlyphRange</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the NSTextContainer where the glyph at <i>glyphIndex</i> is laid out. If non-NULL, <i>effectiveGlyphRange</i> is set to the range for all glyphs laid out in that text container.</p>
+<p class="p12"><br></p>
+<p class="p11">Performs glyph generation and layout if needed.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>setTextContainer:forGlyphAtIndex:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>textContainers</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSArray *)<b>textContainers</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Returns the receiver's NSTextContainers.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>addTextContainer:</b>, <span class="s5">-</span> <b>insertTextContainer:atIndex:</b>, <span class="s5">-</span> <b>removeTextContainerAtIndex:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>textStorage</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSTextStorage *)<b>textStorage</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Returns the receiver's NSTextStorage.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>setTextStorage:</b>, <span class="s5">-</span> <b>replaceTextStorage:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>textStorage:edited:range:changeInLength:invalidatedRange:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>textStorage:</b>(NSTextStorage *)<i>aTextStorage</i></p>
+<p class="p31"><b>edited:</b>(unsigned int)<i>mask</i></p>
+<p class="p31"><b>range:</b>(NSRange)<i>range</i></p>
+<p class="p31"><b>changeInLength:</b>(int)<i>lengthChange</i></p>
+<p class="p31"><b>invalidatedRange:</b>(NSRange)<i>invalidatedCharRange</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Invalidates glyph and layout information for a portion of text in <i>aTextStorage</i>. This message is sent from NSTextStorage's <b>processEditing</b> method to indicate that its characters or attributes have been changed. This method invalidates glyphs and layout for the affected characters, and performs a soft invalidation of the layout information for all subsequent characters. <i>mask</i> specifies the nature of the changes. Its value is made by combining these options with the C bitwise OR operator:</p>
+<p class="p12"><br></p>
+<p class="p36"><b>Option<span class="Apple-tab-span">	</span>Meaning</b></p>
+<p class="p37"><b></b><br></p>
+<p class="p38">NSTextStorageEditedAttributes<span class="Apple-tab-span">	</span>Attributes were added, removed, or changed.</p>
+<p class="p38">NSTextStorageEditedCharacters<span class="Apple-tab-span">	</span>Characters were added, removed, or replaced.</p>
+<p class="p39"><br></p>
+<p class="p11"><i>range</i> indicates the extent of characters resulting from the edits. If the NSTextStorageEditedCharacters bit of <i>mask</i> is set, <i>lengthChange</i> gives the number of characters added to or removed from the original range (otherwise its value is irrelevant). For example, after replacing “The” with “Several” to produce the string “Several files couldn't be saved”, <i>range</i> is {0, 7} and <i>lengthChange</i> is 4. The receiver uses this information to update its character-to-glyph mapping and to update the selection range based on the change.</p>
+<p class="p12"><br></p>
+<p class="p11"><i>invalidatedRange</i> represents the range of characters affected after attributes have been fixed. For example, deleting a paragraph separator character invalidates the layout information for all characters in the paragraphs that precede and follow the separator.</p>
+<p class="p12"><br></p>
+<p class="p11"><b>textStorage:edited:range:changeInLength:invalidatedRange:</b> messages are sent in a series to each NSLayoutManager associated with the text storage object, so the NSLayoutManagers receiving them shouldn't edit <i>aTextStorage</i>. If one of them does, the <i>range</i>, <i>lengthChange</i>, and <i>invalidatedRange</i> arguments will be incorrect for all following NSLayoutManagers that receive the message.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>invalidateLayoutForCharacterRange:isSoft:actualCharacterRange:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p27"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>textViewForBeginningOfSelection</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSTextView *)<b>textViewForBeginningOfSelection</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Returns the NSTextView containing the first glyph in the selection, or <b>nil</b> if there's no selection or if there isn't enough layout information to determine the text view.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>underlineGlyphRange:underlineType:lineFragmentRect:lineFragmentGlyphRange:</b></p>
+<p class="p29"><b>containerOrigin:</b></p>
+<p class="p30"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>underlineGlyphRange:</b>(NSRange)<i>glyphRange</i></p>
+<p class="p31"><b>underlineType:</b>(int)<i>underlineType</i></p>
+<p class="p31"><b>lineFragmentRect:</b>(NSRect)<i>lineRect</i></p>
+<p class="p31"><b>lineFragmentGlyphRange:</b>(NSRange)<i>lineGlyphRange</i></p>
+<p class="p31"><b>containerOrigin:</b>(NSPoint)<i>containerOrigin</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Calculates and draws underlining for the glyphs in <i>glyphRange</i>, which must belong to a single line fragment rectangle (as returned by <b>lineFragmentRectForGlyphAtIndex:effectiveRange:</b>). <i>underlineType</i> indicates the style of underlining to draw; NSLayoutManager accepts only NSSingleUnderlineStyle, but subclasses can define their own underline styles. <i>lineRect</i> is the line fragment rectangle containing the glyphs to draw underlining for, and <i>lineGlyphRange</i> is the range of all glyphs within that line fragment rectangle. <i>containerOrigin</i> is the origin of the line fragment rectangle's NSTextContainer in its NSTextView.</p>
+<p class="p12"><br></p>
+<p class="p11">This method determines which glyphs actually need to be underlined based on <i>underlineType</i>. With NSSingleUnderlineStyle, for example, leading and trailing whitespace isn't underlined, but whitespace between visible glyphs is. A potential word-underline style would omit underlining on any whitespace. After determining which glyphs to draw underlining on, this method invokes <b>drawUnderlineForGlyphRange:...</b> for each contiguous range of glyphs that requires it.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>textContainerForGlyphAtIndex:effectiveRange:</b>, <span class="s5">-</span> <b>textContainerOrigin</b> (NSTextView)</p>
+<p class="p26"><br></p>
+<p class="p27"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>usedRectForTextContainer:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (NSRect)<b>usedRectForTextContainer:</b>(NSTextContainer *)<i>aTextContainer</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Returns the bounding rectangle for the glyphs laid out in <i>aTextContainer</i>, which tells “how full” it is. This rectangle is given in the <i>aTextContainer</i>'s coordinate system.<span class="Apple-converted-space"> </span></p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>containerSize</b> (NSTextContainer)</p>
+<p class="p26"><br></p>
+<p class="p27"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>usesScreenFonts</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (BOOL)<b>usesScreenFonts</b></p>
+<p class="p24"><b></b><br></p>
+<p class="p11">Returns YES if the receiver calculates layout and displays text using screen fonts when possible, NO otherwise.</p>
+<p class="p12"><br></p>
+<p class="p25"><span class="s4"><b>See also:<span class="Apple-tab-span">	</span></b></span><span class="s5">-</span> <b>setUsesScreenFonts:</b>, <span class="s5">-</span> <b>substituteFontForFont:</b></p>
+<p class="p26"><b></b><br></p>
+<p class="p40"><b></b><br></p>
+<p class="p9"><b>Methods Implemented By the Delegate</b></p>
+<p class="p10"><b></b><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>layoutManager:didCompleteLayoutForTextContainer:atEnd:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>layoutManager:</b>(NSLayoutManager *)<i>aLayoutManager</i> <b>didCompleteLayoutForTextContainer:</b>(NSTextContainer *)<i>aTextContainer</i></p>
+<p class="p31"><b>atEnd:</b>(BOOL)<i>flag</i></p>
+<p class="p32"><i></i><br></p>
+<p class="p11">Informs the delegate that <i>aLayoutManager</i> has finished laying out text in <i>aTextContainer</i>. <i>aTextContainer</i> is <b>nil</b> if there aren't enough containers to hold all the text; the delegate can use this information as a cue to add another container. If <i>flag</i> is YES, <i>aLayoutManager</i> is finished laying out its text—this also means that <i>aTextContainer</i> is the final text container used by the layout manager. Delegates can use this information to show an indicator or background or to enable or disable a button that forces immediate layout of text.</p>
+<p class="p12"><br></p>
+<p class="p28"><br></p>
+<p class="p21"><span class="s6">p<span class="Apple-tab-span">	</span></span><b></b><b>layoutManagerDidInvalidateLayout:</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p23"><span class="s5">-</span> (void)<b>layoutManagerDidInvalidateLayout:</b>(NSLayoutManager *)<i>aLayoutManager</i></p>
+<p class="p24"><i></i><br></p>
+<p class="p11">Informs the delegate that <i>aLayoutManager</i> has invalidated layout information (not glyph information). This method is invoked only when layout was complete and then became invalidated for some reason. Delegates can use this information to show an indicator or background layout or to enable a button that forces immediate layout of text.</p>
+<p class="p12"><br></p>
+<p class="p41"><br></p>
+<p class="p12"><br></p>
+</body>
+</html>

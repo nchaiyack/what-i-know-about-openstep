@@ -1,0 +1,27 @@
+.TH SLEEP 3 "August 1, 1992"
+.ds ]W POSIX 1003.1
+.SH NAME
+sleep \- suspend execution for interval
+.SH SYNOPSIS
+.nf
+.B int sleep(unsigned int \fIseconds\fP);
+.fi
+.SH DESCRIPTION
+The current process is suspended from execution for the number
+of seconds specified by the argument.
+The actual suspension time may be up to 1 second less than
+that requested, because scheduled wakeups occur at fixed 1-second intervals,
+and an arbitrary amount longer because of other activity
+in the system.
+.SH RETURNS
+If the \fIsleep\fR function returns because the requested time
+has elapsed, the value returned will be zero. If the \fIsleep\fR
+function returns due to the delivery of a signal, the value returned
+is the requested time minus the time actually
+slept, in seconds.
+.SH ERRORS
+.TP 15
+[EAGAIN]
+A resource is temporarily unavailable.
+.SH "SEE ALSO"
+alarm(3C), pause(2P), setitimeer(2), sigaction(2P), sigpause(2), usleep(3)

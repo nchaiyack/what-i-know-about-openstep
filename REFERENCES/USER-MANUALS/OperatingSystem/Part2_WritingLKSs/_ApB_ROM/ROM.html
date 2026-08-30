@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 50.4px; font: 10.0px Helvetica; color: #ff00ff; min-height: 12.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 50.4px; font: 42.0px Helvetica; color: #ff00ff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 50.4px; font: 24.0px Helvetica; color: #ff00ff; min-height: 29.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 12.6px; font: 44.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 12.6px; font: 60.0px Times; min-height: 72.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 151.2px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 151.2px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 50.4px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 50.4px; font: 26.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 50.4px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 151.2px; font: 26.0px Helvetica; min-height: 31.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 151.2px; font: 24.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 151.2px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 170.1px; font: 12.0px Courier}
+    p.p17 {margin: 0.0px 0.0px 0.0px 170.1px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 170.1px; font: 12.0px Courier; min-height: 14.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 151.2px; font: 35.0px Helvetica; min-height: 42.0px}
+    p.p20 {margin: 0.0px 0.0px 0.0px 170.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 277.1px; text-indent: -107.1px; font: 14.0px Times}
+    p.p22 {margin: 0.0px 0.0px 0.0px 277.1px; text-indent: -107.1px; font: 10.0px Times; min-height: 13.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 170.1px; text-indent: -18.9px; font: 14.0px Times}
+    p.p24 {margin: 0.0px 0.0px 0.0px 170.1px; text-indent: -18.9px; font: 10.0px Times; min-height: 13.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.s2 {font: 12.0px Courier}
+    span.s3 {font: 14.0px Times}
+    span.s4 {font: 12.0px Times}
+    span.s5 {font: 14.0px Helvetica}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><br></p>
+<p class="p4"><b>B</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><i>The ROM Monitor and NMI Mini-Monitor</i></p>
+<p class="p7"><i></i><br></p>
+<p class="p8">Most of the commands in the ROM monitor and NMI mini-monitor are discussed in the <i>NeXTSTEP Network and System Administration</i> manual; some other useful commands are covered in Chapter 9 of this book, “Building, Loading, and Debugging Loadable Kernel Servers.”<span class="Apple-converted-space">  </span>However, a few commands are of interest to only a few hardware or device-driver developers.<span class="Apple-converted-space">  </span>These rarely used commands are described in this appendix. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b>ROM Monitor Commands</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p8">Most ROM monitor commands display the current value of a register or parameter, and prompt for a new value with a question mark.<span class="Apple-converted-space">  </span>To enter a new value, type the value and press the Return key.<span class="Apple-converted-space">  </span>To leave the current value unchanged and skip to the next one (if any), just press the Return key.<span class="Apple-converted-space">  </span>Type a period to exit the command and leave the current value unchanged.</p>
+<p class="p9"><br></p>
+<p class="p8">Numeric values are usually in hexadecimal (base 16) notation if they represent a memory address or data value.<span class="Apple-converted-space">  </span>The <b>R</b> (radix) command can be used to change the input base/radix.</p>
+<p class="p9"><br></p>
+<p class="p8">The values of register bit fields are displayed symbolically between angle brackets <b>&lt;</b> <b>&gt;</b> in addition to the numeric value (for example, “2700&lt;trace=0,s,ipl=7&gt;”).<span class="Apple-converted-space">  </span>For more information on 68040 registers, see Motorola's <i>MC68040 User's Manual</i>.</p>
+<p class="p9"><br></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b>Open Address Register</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p8">The command</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="Apple-tab-span">	</span><b>a</b> [<i>n</i>]</p>
+<p class="p9"><br></p>
+<p class="p8">accesses the contents of address registers a0 through a7 of the 680x0 processor.</p>
+<p class="p9"><br></p>
+<p class="p8">Example:</p>
+<p class="p9"><br></p>
+<p class="p16">NeXT&gt; <b>a</b><span class="Apple-converted-space"> </span></p>
+<p class="p17"><span class="s2">a0: 00001234? <b>5678</b><span class="Apple-converted-space">          </span></span>Change a0 from 0x1234 to 0x5678.</p>
+<p class="p16">a1: 00000000? <span class="Apple-converted-space">              </span><span class="s3">Don't change a1.</span></p>
+<p class="p16">a2: 00000001? <b>. <span class="Apple-converted-space"> </span></b> <span class="Apple-converted-space">          </span><span class="s3">Type a period to exit.</span></p>
+<p class="p18"><br></p>
+<p class="p16">NeXT&gt; <b>a0</b><span class="Apple-converted-space"> </span></p>
+<p class="p17"><span class="s2">a0: 00001234? <b>5678</b><span class="Apple-converted-space">          </span></span>Change a0 from 0x1234 to 0x5678<span class="s4">.<span class="Apple-converted-space"> </span></span></p>
+<p class="p16">NeXT&gt;</p>
+<p class="p19"><b></b><br></p>
+<p class="p14"><b>Open Data Register</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p8">The command</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="Apple-tab-span">	</span><b>d</b> [<i>n</i>]</p>
+<p class="p9"><br></p>
+<p class="p8">accesses the contents of data registers d0 through d7 of the 680x0 processor.</p>
+<p class="p9"><br></p>
+<p class="p8">Example:</p>
+<p class="p9"><br></p>
+<p class="p16">NeXT&gt; <b>d</b><span class="Apple-converted-space"> </span></p>
+<p class="p17"><span class="s2">d0: 00001234? <b>5678</b><span class="Apple-converted-space">          </span></span>Change d0 from 0x1234 to 0x5678.<span class="s4"><span class="Apple-converted-space"> </span></span></p>
+<p class="p16">d1: 00000000? <span class="Apple-converted-space">              </span><span class="s3">Don't change d1.</span></p>
+<p class="p16">d2: 00000001? <b>. <span class="Apple-converted-space"> </span></b> <span class="Apple-converted-space">          </span><span class="s3">Type a period to exit.</span></p>
+<p class="p18"><br></p>
+<p class="p16">NeXT&gt; <b>d0</b><span class="Apple-converted-space"> </span></p>
+<p class="p17"><span class="s2">d0: 00001234? <b>5678</b><span class="Apple-converted-space">          </span></span>Change d0 from 0x1234 to 0x5678.<span class="s4"><span class="Apple-converted-space"> </span></span></p>
+<p class="p16">NeXT&gt;</p>
+<p class="p19"><b></b><br></p>
+<p class="p14"><b>Open Processor Register</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p8">The command</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="Apple-tab-span">	</span><b>r</b> [<i>regname</i>]</p>
+<p class="p9"><br></p>
+<p class="p8">accesses the contents of the 680x0 processor registers.<span class="Apple-converted-space">  </span>Possible values for <i>regname</i> are:</p>
+<p class="p9"><br></p>
+<p class="p17">pc<span class="Apple-tab-span">	</span>Program counter<span class="Apple-converted-space"> </span></p>
+<p class="p17">sr<span class="Apple-tab-span">	</span>Status register<span class="Apple-converted-space"> </span></p>
+<p class="p17">usp<span class="Apple-tab-span">	</span>User stack pointer</p>
+<p class="p17">isp<span class="Apple-tab-span">	</span>Interrupt stack pointer<span class="Apple-converted-space"> </span></p>
+<p class="p17">msp<span class="Apple-tab-span">	</span>Master stack pointer<span class="Apple-converted-space"> </span></p>
+<p class="p17">vbr<span class="Apple-tab-span">	</span>Vector base register<span class="Apple-converted-space"> </span></p>
+<p class="p17">sfc<span class="Apple-tab-span">	</span>Source function code<span class="Apple-converted-space"> </span></p>
+<p class="p17">dfc<span class="Apple-tab-span">	</span>Destination function code<span class="Apple-converted-space"> </span></p>
+<p class="p17">cacr<span class="Apple-tab-span">	</span>Cache control register<span class="Apple-converted-space"> </span></p>
+<p class="p17">caar<span class="Apple-tab-span">	</span>Cache address register (68030 only)</p>
+<p class="p20"><br></p>
+<p class="p8">If you don't specify <i>regname</i>, all the processor registers are opened in the order listed above.</p>
+<p class="p9"><br></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b>Open System Register</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p8">The command</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="Apple-tab-span">	</span><b>s</b> [<i>systemreg</i>]</p>
+<p class="p9"><br></p>
+<p class="p8">accesses the contents of the system registers.<span class="Apple-converted-space">  </span>Possible values for <i>systemreg</i> are:</p>
+<p class="p9"><br></p>
+<p class="p17">intrstat<span class="Apple-tab-span">	</span>Interrupt status register</p>
+<p class="p17">intrmask<span class="Apple-tab-span">	</span>Interrupt mask register<span class="Apple-converted-space"> </span></p>
+<p class="p17">scr1<span class="Apple-tab-span">	</span>System control register #1<span class="Apple-converted-space"> </span></p>
+<p class="p17">scr2<span class="Apple-tab-span">	</span>System control register #2</p>
+<p class="p20"><br></p>
+<p class="p8">If you don't specify <i>systemreg</i>, all of the system registers are opened in the order they're listed above.</p>
+<p class="p9"><br></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b>Examine Memory Locations</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p8">The command</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="Apple-tab-span">	</span><b>e</b> [<i>lwb</i>] [<i>addrlist</i>] [<i>format</i>]</p>
+<p class="p9"><br></p>
+<p class="p8">lets you examine particular locations in memory.</p>
+<p class="p9"><br></p>
+<p class="p21">[<i>lwb</i>]<span class="Apple-tab-span">	</span>Specify <b>l</b>, <b>w</b>, or <b>b</b> to select long, word, or byte length.<span class="Apple-converted-space">  </span>The default is long.</p>
+<p class="p22"><br></p>
+<p class="p21">[<i>addrlist</i>] <span class="Apple-tab-span">	</span>This argument specifies the starting address or list of addresses to cyclically examine.<span class="Apple-converted-space">  </span>If you don't specify a value for <i>addrlist</i>, the command uses the most recent value of <i>addrlist</i>.</p>
+<p class="p22"><br></p>
+<p class="p21">[<i>format</i>] <span class="Apple-tab-span">	</span>This argument controls how the value is displayed.<span class="Apple-converted-space">  </span>It can be any of the standard format types supported by the C language <b>printf()</b> library routine.<span class="Apple-converted-space">  </span>The default, <b>%x</b>, displays a number in hexadecimal.</p>
+<p class="p22"><br></p>
+<p class="p8">To have access to hardware addresses, you must get into the ROM monitor just after the system is powered on, before it has booted.<span class="Apple-converted-space">  </span>Otherwise, you'll read or write to virtual addresses, not physical addresses.<span class="Apple-converted-space">  </span>To enter the ROM monitor, do the following:</p>
+<p class="p9"><br></p>
+<p class="p23"><span class="s5"><b>1.<span class="Apple-tab-span">	</span></b></span>If your computer is on, press the Power key to turn it off. <span class="Apple-converted-space"> </span></p>
+<p class="p24"><br></p>
+<p class="p8">Locate the ~ key on your keyboard.<span class="Apple-converted-space">  </span>(You'll need to press it along with the Command and left Alternate keys soon after you turn the power back on.)</p>
+<p class="p9"><br></p>
+<p class="p23"><span class="s5"><b>2.<span class="Apple-tab-span">	</span></b></span>Turn the computer back on by pressing the Power key.</p>
+<p class="p24"><br></p>
+<p class="p23"><span class="s5"><b>3.<span class="Apple-tab-span">	</span></b></span><i>Within three seconds</i> of the appearance of the message “Loading from disk” or “Loading from network,” hold down the Command and left Alternate keys and press the ~ key.<span class="Apple-converted-space">  </span>(If you're using a keyboard that has two Command keys, don't hold down the Alternate key; just hold down one of the Command keys and press the ~ key.)</p>
+<p class="p24"><br></p>
+<p class="p8">You should now be in the ROM monitor.<span class="Apple-converted-space">  </span>You can use the <b>e</b> command to look at addresses on the CPU board. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">Example 1:</p>
+<p class="p9"><br></p>
+<p class="p17"><span class="s2">NeXT&gt; <b>e 4000000</b><span class="Apple-converted-space">          </span></span>Examine the long at memory location 0x4000000.</p>
+<p class="p17"><span class="s2">4000000: 0? <b>12345678</b> <span class="Apple-converted-space">    </span></span>See that its value is 0x0; deposit the value 0x12345678.</p>
+<p class="p16">4000004: 0? <b>.<span class="Apple-converted-space">  </span></b><span class="Apple-converted-space">          </span><span class="s3">Type a period to exit.</span></p>
+<p class="p9"><br></p>
+<p class="p8">Example 2:</p>
+<p class="p9"><br></p>
+<p class="p17"><span class="s2">NeXT&gt; <b>e 4000000 4000000</b><span class="Apple-converted-space">  </span></span>Repeatedly examine memory location 0x4000000.</p>
+<p class="p17"><span class="s2">4000000: 0? <b>12345678</b> <span class="Apple-converted-space">    </span></span>See that its value is 0x0; deposit the value 0x12345678.</p>
+<p class="p17"><span class="s2">4000000: 12345678? <b>.</b> <span class="Apple-converted-space">    </span></span>See that its value is 0x12345678; type a period to exit.</p>
+<p class="p19"><b></b><br></p>
+<p class="p14"><b>Open Function Code</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p8">The command</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="Apple-tab-span">	</span><b>S</b> [<i>fcode</i>]</p>
+<p class="p9"><br></p>
+<p class="p8">lets you inspect or modify the 680x0 function code (address space) used with the <b>e</b> (examine) command.<span class="Apple-converted-space">  </span>The default code is 5 (supervisor data space).</p>
+<p class="p9"><br></p>
+<p class="p8">Possible values for <i>fcode</i> are:</p>
+<p class="p9"><br></p>
+<p class="p17">0<span class="Apple-tab-span">	</span>Undefined, reserved<span class="Apple-converted-space"> </span></p>
+<p class="p17">1<span class="Apple-tab-span">	</span>User data space (UD)<span class="Apple-converted-space"> </span></p>
+<p class="p17">2<span class="Apple-tab-span">	</span>User program space (UP)<span class="Apple-converted-space"> </span></p>
+<p class="p17">3<span class="Apple-tab-span">	</span>Undefined, reserved<span class="Apple-converted-space"> </span></p>
+<p class="p17">4<span class="Apple-tab-span">	</span>Undefined, reserved<span class="Apple-converted-space"> </span></p>
+<p class="p17">5<span class="Apple-tab-span">	</span>Supervisor data space (SD)<span class="Apple-converted-space"> </span></p>
+<p class="p17">6<span class="Apple-tab-span">	</span>Supervisor program space (SP)<span class="Apple-converted-space"> </span></p>
+<p class="p17">7<span class="Apple-tab-span">	</span>CPU space</p>
+<p class="p20"><br></p>
+<p class="p8">Example:</p>
+<p class="p9"><br></p>
+<p class="p16">NeXT&gt; <b>S</b><span class="Apple-converted-space"> </span></p>
+<p class="p16">Function code 5 (SD)<span class="Apple-converted-space">          </span><span class="s3">Current function code is 5.<span class="Apple-converted-space"> </span></span></p>
+<p class="p16">NeXT&gt; <b>S 6</b><span class="Apple-converted-space"> </span></p>
+<p class="p16">Function code 6 (SP)<span class="Apple-converted-space">          </span><span class="s3">Change function code to 6.</span></p>
+<p class="p19"><b></b><br></p>
+<p class="p14"><b>Set Input Radix</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p8">The command</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="Apple-tab-span">	</span><b>R</b> [<i>radix</i>]</p>
+<p class="p9"><br></p>
+<p class="p8">lets you set the input radix.<span class="Apple-converted-space">  </span>The default value for the input radix is 16.<span class="Apple-converted-space">  </span>Any numbers you enter are interpreted in the base of the input radix (for example, input radix 16 means numbers are interpreted as base 16).<span class="Apple-converted-space">  </span>If you don't specify <i>radix</i>, the current default input radix is displayed.</p>
+<p class="p9"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b>NMI Mini-Monitor Commands</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p8">The following NMI mini-monitor commands aren't currently useful for developers outside of NeXT.</p>
+<p class="p9"><br></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b>Set or Examine Any Kernel Flag</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p8">The command</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="Apple-tab-span">	</span><i>flag</i><b>=</b>[<i>value</i>]</p>
+<p class="p9"><br></p>
+<p class="p8">lets you examine or modify internal system flags (most internal system flags are of interest only to system developers at NeXT).</p>
+<p class="p9"><br></p>
+<p class="p8">Example:</p>
+<p class="p9"><br></p>
+<p class="p16">nmi&gt; <b>debug=</b><span class="Apple-converted-space"> </span></p>
+<p class="p17"><span class="s2">kernel flags debug = 0x0<span class="Apple-converted-space">      </span></span>The <b>debug</b> flag has the value 0.<span class="Apple-converted-space"> </span></p>
+<p class="p16">nmi&gt; <b>debug=2</b><span class="Apple-converted-space"> </span></p>
+<p class="p17"><span class="s2">kernel flag = 0x2 <span class="Apple-converted-space">            </span></span>Change the value of the <b>debug</b> flag to 2.</p>
+<p class="p19"><b></b><br></p>
+<p class="p14"><b>Set the IP Address</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p8">The command</p>
+<p class="p9"><br></p>
+<p class="p8"><span class="Apple-tab-span">	</span><b>kd_ipaddr=</b><i>value</i></p>
+<p class="p9"><i></i><br></p>
+<p class="p8">lets you set the IP address used by the computer for kernel debugging.<span class="Apple-converted-space">  </span>It's useful only to system developers at NeXT.</p>
+<p class="p9"><br></p>
+</body>
+</html>

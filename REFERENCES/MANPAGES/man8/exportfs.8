@@ -1,0 +1,156 @@
+.\" @(#)exportfs.8 1.5 92/05/17 rev JJ
+.\" @(#)exportfs.8 1.5 88/03/03 D/NFS
+.\" @(#)exportfs.8 1.13 88/03/02 SMI;
+.TH EXPORTFS 8 "9 September 1987"
+.SH NAME
+exportfs \- export and unexport directories to NFS clients
+.SH SYNOPSIS
+.B /usr/etc/exportfs
+[
+.B \-avui
+] [
+.B \-o
+.I options
+] [
+.B directory
+]
+.SH DESCRIPTION
+.LP
+.B exportfs
+makes a local directory (or file)
+available for mounting over the network by
+.SM NFS
+clients.
+It is normally invoked at boot time by the
+.B /etc/rc.local
+script,
+and uses information contained in the exports list 
+(either the
+.B /etc/exports
+file 
+or the NetInfo
+.B /exports
+directory)
+to export a
+.IR directory
+(which must be specified as a full pathname).
+The super-user can run
+.B exportfs
+at any time to alter the list or characteristics of exported directories.
+Directories that are currently exported  are listed in the file
+.BR /etc/xtab .
+.LP
+With no options or arguments,
+.B exportfs
+prints out the list
+of directories currently exported.
+.SH OPTIONS
+.TP
+.B \-a
+All.
+Export all directories listed in the exports list
+or if
+.B \-u
+is specified,
+unexport all of the currently exported directories.
+.TP
+.B \-v
+Verbose.
+Print each directory as it is exported or unexported.
+.TP
+.B \-u
+Unexport the indicated directories.
+.TP
+.B \-i
+Ignore the options in the exports list.
+Normally,
+.B exportfs 
+will consult the exports list
+for the options associated with the exported directory.
+.TP
+\fB\-o\ \fIoptions\fR
+Specify a comma-separated list of optional characteristics for
+the directory being exported.
+.I options
+can be selected from among:
+.RS
+.TP
+.B ro
+Export the directory read-only.
+If not specified,
+the directory is exported read-write.
+.TP
+.BI rw=\fP\fIhostname\fR[\fB: hostname\fR]\|.\|.\|.
+Export the directory read-mostly.
+Read-mostly means exported read-only to most
+machines,
+but read-write to those specified.
+If not specified,
+the directory is exported read-write to all.
+.TP
+.BI anon=\fP uid
+If a request comes from an unknown user, use
+.I uid
+as the
+effective user
+.SM ID\s0.
+Note: root users (uid 0) are always
+considered "unknown" by the
+.SM NFS
+server,
+unless they are included in
+the "root" option below.
+The default value for this option is \-2.
+Setting the value of ``anon'' to -1 disables anonymous access.
+.TP
+.BI root=\fP\fIhostname\fR[\fB: hostname\fR]\|.\|.\|.
+Give root access only to the root users from a specified
+.IR hostname  .
+The default is for no hosts to be granted root access.
+.TP
+.BI access=\fP\fIclient\fR[\fB: client\fR]\|.\|.\|.
+Give mount access to each
+.I client
+listed.
+A
+.I client
+can either be a hostname,
+or a netgroup (see
+.BR netgroup (5)).
+Each
+.I client
+in the list is first checked for in the
+.B /etc/netgroup
+database,
+and then the
+.B /etc/hosts
+database.
+The default value allows any
+machine to mount the given directory.
+.RE
+.SH FILES
+.PD 0
+.TP 20
+.B /etc/exports  
+static export information
+.TP
+.B /etc/xtab
+current state of exported directories
+.TP
+.B /etc/netgroup
+.PD
+.SH "SEE ALSO"
+.BR exports (5),
+.BR netgroup (5)
+.SH WARNINGS
+You cannot export a directory that is either
+a parent- or a sub-directory
+of one that is currently exported and
+.I within the same filesystem.
+It would be illegal,
+for example, to export
+both
+\fB/usr\fP and
+.B /usr/local
+if both directories resided in the
+same disk partition.

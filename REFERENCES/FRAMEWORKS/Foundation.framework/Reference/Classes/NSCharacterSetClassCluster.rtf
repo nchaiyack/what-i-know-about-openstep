@@ -1,0 +1,1132 @@
+{\rtf0\ansi{\fonttbl\f0\fnil Times-Roman;\f1\ftech Symbol;\f5\fnil NeXTdoc;\f2\fswiss Helvetica;\f3\fmodern Courier;\f4\fmodern Ohlfs;}
+\paperw14220
+\paperh13320
+\margl200
+\margr0
+\f0\b0\i0\ulnone\ql\fs24\fi0\li0\gray0\fc0\cf0\up0\dn0 Copyright 
+\f1 ã
+\f0 1996 by NeXT Software, Inc.  All Rights Reserved.\
+\
+
+\pard\tx1460\f5\fs72\fi-760\li1460\fc0\cf0 c	
+\f2\b\fs56 NSCharacterSet Class Cluster\
+
+\fs70 \
+
+\pard\tx3600\tx3980\tx4340\fs28\li200\fc0\cf0 Class Cluster Description\
+
+\fs14 \
+
+\f0\b0\fs28\li1500 An NSCharacterSet object represents a set of Unicode characters. NSString and NSScanner objects use NSCharacterSets to group characters together for searching operations, so that they can find any of a particular set of characters during a search. The cluster's two public classes, NSCharacterSet and NSMutableCharacterSet, declare the programmatic interface for static and dynamic character sets, respectively.\
+
+\fs14 \
+
+\fs28 The objects you create using these classes are referred to as 
+\i character set objects
+\i0  (and when no confusion will result, merely as 
+\i character sets
+\i0 ). Because of the nature of class clusters, character set objects aren't actual instances of the NSCharacterSet or NSMutableCharacterSet classes but of one of their private subclasses. Although a character set object's class is private, its interface is public, as declared by these abstract superclasses, NSCharacterSet and NSMutableCharacterSet. (See ªClass Clustersº in the introduction to the Foundation Kit for more information on class clusters and on creating subclasses within a cluster.) The character set classes adopt the NSCopying and NSMutableCopying protocols, making it convenient to convert a character set of one type to the other.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Building a Character Set\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 NSCharacterSet defines class methods that return commonly used character sets, such as letters (uppercase or lowercase), decimal digits, whitespace, and so on. These ªstandardº character sets are always immutable, even if created by sending a message to NSMutableCharacterSet. See ªStandard Character Sets and Unicode Definitionsº below for more information on standard character sets.\
+
+\fs14 \
+
+\fs28 You can use a standard character set as a starting point for building a custom set by making a mutable copy of it and changing that. (You can also start from scratch by creating a mutable character set with 
+\b alloc
+\b0  and 
+\b init
+\b0  and adding characters to it.) For example, this fragment creates a character set containing letters, digits, and basic punctuation:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 NSMutableCharacterSet *workingSet;\
+NSCharacterSet *finalCharSet;\
+\
+workingSet = [[NSCharacterSet alphanumericCharacterSet] mutableCopy];\
+[workingSet addCharactersInString:@";:,."];\
+finalCharSet = [workingSet copy];\
+[workingSet release];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 For performance reasons (explained in ªUsing a Character Setº), always finish by converting the working mutable character set into an immutable set. If you need to keep changing the character set after you've created it, of course, you should just use the mutable set.\
+
+\fs14 \
+
+\fs28 If your application frequently uses a custom character set, you'll want to save its definition in a resource file and load that instead of explicitly adding individual characters each time you need to create the set. You can save a character set by getting its bitmap representation (an NSData object) and saving that object to a file:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 NSString *filename;    /* Assume this exists. */\
+NSString *absolutePath;\
+NSData *charSetRep;\
+BOOL result;\
+\
+absolutePath = [filename stringByStandardizingPath];\
+charSetRep = [finalCharSet bitmapRepresentation];\
+result = [charSetRep writeToFile:absolutePath atomically:YES];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 Character set filenames by convention use the extension 
+\b .bitmap
+\b0 . If you intend for others to use your character set files, you should follow this convention. To read a character set file with a 
+\b .bitmap
+\b0  extension, simply use the 
+\b characterSetWithContentsOfFile:
+\b0  method.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Using a Character Set\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 A character set object doesn't perform any tasks; it simply holds a set of character values to limit operations on strings. The NSString and NSScanner classes define methods that take NSCharacterSets as arguments to find any of several characters. For example, this code excerpt finds the range of the first uppercase letter in 
+\b myString
+\b0 :\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 NSString *myString = @"some text in an NSString...";\
+NSRange letterRange;\
+\
+letterRange = [myString rangeOfCharacterFromSet:[NSCharacterSet\
+    uppercaseLetterCharacterSet]];\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 After this fragment executes, 
+\b letterRange.location
+\b0  is equal to the index of the first ªNº in ªNSStringº after 
+\b rangeOfCharacterFromSet:
+\b0  is invoked. If the first letter of the string were ªSº then 
+\b letterRange.location
+\b0  would be 0.\
+
+\fs14 \
+
+\fs28 Because character sets often participate in performance-critical code, you should be aware of the aspects of their use that can affect the performance of your application. Mutable character sets are generally much more expensive than immutable character sets. They consume more memory and are costly to invert (an operation often performed in scanning a string). Because of this, you should follow these guidelines:\
+
+\fs14 \
+
+\pard\tx1800\tx6300\tx6580\tx15140\fs28\fi-300\li1800\fc0\cf0 ·	Create as few mutable character sets as possible.\
+
+\fs14 \
+
+\fs28 ·	Cache character sets (in a global dictionary, perhaps) instead of continually recreating them.\
+
+\fs14 \
+
+\fs28 ·	When creating a custom set that doesn't need to change after creation, make an immutable copy of the final character set for actual use, and dispose of the working mutable character set. Alternatively, create a character set file as described in ªBuilding a Character Setº and store it in your application's main bundle.\
+
+\fs14 \
+
+\fs28 ·	Similarly, avoid archiving character set objects; store them in character set files instead. Archiving can result in a character set being duplicated in different archive files, resulting in wasted disk space and duplicates in memory for each separate archive read.\
+
+\fs14 \
+
+\fs26 \
+
+\pard\f2\b\fs28\li1500\fc0\cf0 Standard Character Sets and Unicode Definitions\
+
+\fs8 \
+
+\fs6 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 The standard character sets, such as that returned by 
+\b letterCharacterSet
+\b0 , are formally defined in terms of the normative and informative categories established by the Unicode standard, such as Uppercase Letter, Combining Mark, and so on. The formal definition of a standard character set is in most cases given as one or more of the categories defined in the standard. For example, the set returned by 
+\b lowercaseLetterCharacterSet
+\b0  include all characters in normative category Lowercase Letters, while the set returned by 
+\b letterCharacterSet
+\b0  includes the characters in all of the Letter categories.\
+
+\fs14 \
+
+\fs28 Note that the definitions of the categories themselves may change with new versions of the Unicode standard. You can download the files that define category membership from 
+\b http://www.unicode.org/
+\b0 . \
+
+\fs14 \
+
+\pard\tx1460\f5\fs72\fi-760\li1460\fc0\cf0 \
+\
+i	
+{\f2\b\fs52{\NeXTHelpMarker6266 \markername NS_DEV_DOCFOR:objc_class:NSCharacterSet;}
+¬}\pard\tx1460\f2\b\i0\ulnone\fs52\fi-760\li1460\fc0\cf0 NSCharacterSet\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSObject\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding\
+
+\fi0 NSCopying\
+NSMutableCopying\
+NSObject€(NSObject)\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 Foundation/NSCharacterSet.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 The NSCharacterSet class declares the programmatic interface for an object that manages a set of Unicode characters (see the NSString class cluster specification for information on Unicode). NSCharacterSet's principal primitive method, 
+\b characterIsMember:
+\b0 , provides the basis for all other instance methods in its interface. A subclass of NSCharacterSet needs only to implement this method, plus 
+\b mutableCopyWithZone:
+\b0 , for proper behavior. For optimal performance, a subclass should also override 
+\b bitmapRepresentation
+\b0  which otherwise works by invoking 
+\b characterIsMember:
+\b0  for every possible Unicode value.\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Adopted Protocols\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 NSCoding	
+\f1 -
+\f0 €encodeWithCoder:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €initWithCoder:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 NSCopying	
+\f1 -
+\f0 €copyWithZone:\
+
+\fs10 \
+
+\fs28 NSMutableCopying	
+\f1 -
+\f0 €mutableCopyWithZone:\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Creating a standard character set	+€alphanumericCharacterSet\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€controlCharacterSet\
++€decimalDigitCharacterSet\
++€decomposableCharacterSet\
++€illegalCharacterSet\
++€letterCharacterSet\
++€lowercaseLetterCharacterSet\
++€nonBaseCharacterSet\
++€punctuationCharacterSet\
++€uppercaseLetterCharacterSet\
++€whitespaceAndNewlineCharacterSet\
++€whitespaceCharacterSet\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Creating a custom character set	+€characterSetWithRange:\
+
+\pard\tx11280\fi-240\li6320\fc0\cf0 +€characterSetWithCharactersInString:\
++€characterSetWithBitmapRepresentation:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Opening a character set file	+€characterSetWithContentsOfFile:\
+
+\fs10 \
+
+\fs28 Testing set membership	
+\f1 -
+\f0 €characterIsMember:\
+
+\fs10 \
+
+\fs28 Inverting a character set	
+\f1 -
+\f0 €invertedSet\
+
+\fs10 \
+
+\fs28 Getting a binary representation	
+\f1 -
+\f0 €bitmapRepresentation\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker7898 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-alphanumericCharacterSet];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 alphanumericCharacterSet\
+
+\fs6 \
+
+\f0\b0\fs28\fi-620\li2520 +€(NSCharacterSet€*)
+\b alphanumericCharacterSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a character set containing the characters in the categories Letters, Marks, and Numbers. Informally, this is the set of all characters used as basic units of alphabets, syllabaries, ideographs, and digits.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b letterCharacterSet
+\b0 , +€
+\b decimalDigitCharacterSet\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker8247 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-characterSetWithBitmapRepresentation:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 characterSetWithBitmapRepresentation:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b characterSetWithBitmapRepresentation:
+\b0 (NSData€*)
+\i data\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a character set containing characters determined by the bitmap representation 
+\i data
+\i0 . This method is useful for creating a character set object with data from a file or other external data source.\
+
+\fs14 \
+
+\fs28 A raw bitmap representation of a character set is a byte array of 2
+\f2\b\fs24 16
+\f0\b0\fs28  bits (that is, 8192 bytes). The value of the bit at position 
+\i n
+\i0  represents the presence in the character set of the character with decimal Unicode value 
+\i n
+\i0 . To add a character with decimal Unicode value 
+\i n
+\i0  to a raw bitmap representation, use a statement such as:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 unsigned char bitmapRep[8192];\
+\
+bitmapRep[n >> 3] |= (((unsigned int)1) << (n & 7));\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\fs28\li1500\fc0\cf0 To remove that character:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 bitmapRep[n >> 3] &= ~(((unsigned int)1) << (n & 7));\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b bitmapRepresentation
+\b0 , +€
+\b characterSetWithContentsOfFile:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker9133 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-characterSetWithCharactersInString:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 characterSetWithCharactersInString:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b characterSetWithCharactersInString:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a character set containing the characters in 
+\i aString
+\i0 . Returns an empty character set if 
+\i aString
+\i0  is empty.\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx1500\tx8260\f5\fs52\fi-520\li1500\fc0\cf0 p	
+\f2\b\fs28 characterSetWithContentsOfFile:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b characterSetWithContentsOfFile:
+\b0 (NSString€*)
+\i path\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a character set read from the bitmap representation stored in the file at 
+\i path
+\i0 , which must end with the extension 
+\b .bitmap
+\b0 . To read a bitmap representation from any file, use NSData's 
+\b dataWithContentsOfFile:
+\b0  method and pass the result to 
+\b characterSetWithBitmapRepresentation:
+\b0 .\
+
+\fs14 \
+
+\fs28 This method doesn't perform filename-based uniquing of the character sets it creates. To prevent duplication of character sets in memory, cache them and make them available through an API that checks whether the requested set has already been loaded.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker10005 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-characterSetWithRange:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 characterSetWithRange:\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b characterSetWithRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns a character set containing characters whose Unicode values are given by 
+\i aRange
+\i0 . 
+\i aRange.location
+\i0  is the value of the first character, and 
+\i aRange.location
+\i0 €+ 
+\i aRange.length
+\i0 €
+\f1 -
+\f0  1 is the value of the last. Returns an empty character set if 
+\i aRange.length
+\i0  is 0.\
+
+\fs14 \
+
+\fs28 This code excerpt creates a character set object containing the lowercase English alphabetic characters:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 NSRange lcEnglishRange;\
+NSCharacterSet *lcEnglishLetters;\
+\
+lcEnglishRange.location = (unsigned int)'a';\
+lcEnglishRange.length = 26;\
+lcEnglishLetters = [NSCharacterSet\
+    characterSetWithRange:lcEnglishRange];\
+
+\fs60 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker10668 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-controlCharacterSet];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 controlCharacterSet\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b controlCharacterSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a character set containing the characters in the categories of Control or Format Characters. These are specifically the Unicode values U+0000 to U+001F and U+007F to U+009F.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b illegalCharacterSet\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker10948 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-decimalDigitCharacterSet];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 decimalDigitCharacterSet\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b decimalDigitCharacterSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a character set containing the characters in the category of Decimal Numbers. Informally, this is the set of all characters used to represent the decimal values 0 through 9. These include, for example, the decimal digits of the Indic scripts and Arabic.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b alphanumericCharacterSet\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker11323 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-decomposableCharacterSet];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 decomposableCharacterSet\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b decomposableCharacterSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a character set containing all individual Unicode characters that can also be represented as composed character sequences (such as for letters with accents), by the definition of ªstandard decompositionº in version 1.1 of the Unicode character encoding standard. These include compatibility characters as well as precomposed characters.\
+
+\fs14 \
+
+\pard\tx2300\f2\b\fs24\fi-800\li2300\fc0\cf0 Note:	
+\f0\b0\fs28 This character set doesn't currently include the Hangul characters defined in version 2.0 of the Unicode standard.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b nonBaseCharacterSet\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker11898 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-illegalCharacterSet];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 illegalCharacterSet\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b illegalCharacterSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a character set containing values in the category of Non-Characters, or that have not yet been defined in version 2.0 of the Unicode standard.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b controlCharacterSet\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12147 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-letterCharacterSet];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 letterCharacterSet\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b letterCharacterSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a character set containing the characters in the categories Letters and Marks. Informally, this is the set of all characters used as letters of alphabets and ideographs.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b alphanumericCharacterSet
+\b0 , +€
+\b lowercaseLetterCharacterSet
+\b0 , +€
+\b uppercaseLetterCharacterSet\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12488 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-lowercaseLetterCharacterSet];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 lowercaseLetterCharacterSet\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b lowercaseLetterCharacterSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a character set containing the characters in the category of Lowercase Letters. Informally, this is the set of all characters used as lowercase letters in alphabets which make case distinctions.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b uppercaseLetterCharacterSet
+\b0 , +€
+\b letterCharacterSet\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker12835 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-nonBaseCharacterSet];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 nonBaseCharacterSet\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b nonBaseCharacterSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a character set containing the characters in the category of Marks. This set is also defined as all legal Unicode characters with a non-spacing priority greater than zero. Informally, this is the set of all characters used as modifiers of base characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b decomposableCharacterSet\
+
+\fs14 \
+
+\fs46 \
+
+\pard\tx8260\f2\fs28\li1500\fc0\cf0 punctuationCharacterSet\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b punctuationCharacterSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a character set containing the characters in the category of Punctuation. Informally, this is the set of all non-whitespace characters used to separate linguistic units in scripts, such as periods, dashes, parentheses, and so on.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker13512 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-uppercaseLetterCharacterSet];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 uppercaseLetterCharacterSet\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b uppercaseLetterCharacterSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a character set containing the characters in the category of Uppercase Letters. Informally, this is the set of all characters used as uppercase letters in alphabets which make case distinctions.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b lowercaseLetterCharacterSet
+\b0 , +€
+\b letterCharacterSet\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker13859 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-whitespaceAndNewlineCharacterSet];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 whitespaceAndNewlineCharacterSet\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b whitespaceAndNewlineCharacterSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a character set containing only the whitespace characters space (U+0020) and tab (U+0009) and the newline character (U+000A).\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b whitespaceCharacterSet\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker14120 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-whitespaceCharacterSet];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 whitespaceCharacterSet\
+
+\fs6 \
+
+\pard\f0\b0\fs28\fi-620\li2520\fc0\cf0 +€(NSCharacterSet€*)
+\b whitespaceCharacterSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a character set containing only the in-line whitespace characters space (U+0020) and tab (U+0009). This set doesn't contain the newline or carriage return characters.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b whitespaceAndNewlineCharacterSet\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker14430 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-characterIsMember:];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 characterIsMember:\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0 €(BOOL)
+\b characterIsMember:
+\b0 (unichar)
+\i aCharacter\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Returns YES if 
+\i aCharacter
+\i0  is in the receiving character set, NO if it isn't.\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker14577 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-bitmapRepresentation];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 bitmapRepresentation\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSData€*)
+\b bitmapRepresentation\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns an NSData object encoding the receiving character set in binary format. This format is suitable for saving to a file or otherwise transmitting or archiving.\
+
+\fs14 \
+
+\fs28 A raw bitmap representation of a character set is a byte array of 2
+\f2\b\fs24 16
+\f0\b0\fs28  bits (that is, 8192 bytes). The value of the bit at position 
+\i n
+\i0  represents the presence in the character set of the character with decimal Unicode value 
+\i n
+\i0 . To test for the presence of a character with decimal Unicode value 
+\i n
+\i0  in a raw bitmap representation, use an expression such as:\
+
+\fs14 \
+
+\pard\tx2400\tx2880\tx3420\tx3940\tx4440\tx4920\tx7000\tx7500\tx8000\tx8500\tx9020\tx9520\tx10020\tx10520\tx11020\tx11500\f3\fs24\li1900\fc0\cf0 unsigned char bitmapRep[8192];\
+\
+if (bitmapRep[n >> 3] & (((unsigned int)1) << (n & 7))) \{\
+    /* Character is present. */\
+\}\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f0\b0\fs28 +€
+\b characterSetWithBitmapRepresentation:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker15331 \markername NS_DEV_DOCFOR:objc_method:[NSCharacterSet-invertedSet];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 invertedSet\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(NSCharacterSet€*)
+\b invertedSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Returns a character set containing only characters that 
+\i don't
+\i0  exist in the receiver. Inverting an immutable character set is much more efficient that inverting a mutable character set.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b invert
+\b0  (NSMutableCharacterSet)\
+
+\fs14 \
+
+\pard\tx1460\f5\fs72\fi-760\li1460\fc0\cf0 \
+\
+i	
+{\f2\b\fs52{\NeXTHelpMarker15612 \markername NS_DEV_DOCFOR:objc_class:NSMutableCharacterSet;}
+¬}\pard\tx1460\f2\b\i0\ulnone\fs52\fi-760\li1460\fc0\cf0 NSMutableCharacterSet\
+
+\fs80 \
+
+\pard\tx4220\fs24\fi-2720\li4220\fc0\cf0 Inherits From:	
+\f0\b0\fs28 NSCharacterSet€:€NSObject\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Conforms To:	
+\f0\b0\fs28 NSCoding (NSCharacterSet) \
+
+\fi0 NSCopying (NSCharacterSet) \
+NSMutableCopying (NSCharacterSet) \
+NSObject (NSObject)\
+
+\fs20 \
+
+\f2\b\fs24\fi-2740 Declared In:	
+\f0\b0\fs28 Foundation/NSCharacterSet.h\
+
+\fs20 \
+\
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Class Description\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\f0\b0\fs28\li1500\fc0\cf0 The NSMutableCharacterSet class declares the programmatic interface to objects that manage a modifiable set of Unicode characters. You can add or remove characters from a mutable character set as numeric values in NSRanges or as character values in strings; combine character sets by union or intersection; and invert a character set.\
+
+\fs14 \
+
+\fs28 Mutable character sets are less efficient to use than immutable character sets. If you don't need to change a character set after creating it, create an immutable copy with 
+\b copy
+\b0  and use that.\
+
+\fs14 \
+
+\fs28 NSMutableCharacterSet defines no primitive methods. Subclasses must implement all methods declared by this class in addition to the primitives of NSCharacterSet. They must also implement 
+\b mutableCopyWithZone:
+\b0 .\
+
+\fs14 \
+
+\fs56 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Method Types\
+
+\fs14 \
+
+\pard\tx6080\tx11280\f0\b0\fs28\fi-4840\li6320\fc0\cf0 Adding and removing characters	
+\f1 -
+\f0 €addCharactersInRange:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €removeCharactersInRange:\
+
+\f1 -
+\f0 €addCharactersInString:\
+
+\f1 -
+\f0 €removeCharactersInString:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Combining character sets	
+\f1 -
+\f0 €formIntersectionWithCharacterSet:\
+
+\pard\tx11280\f1\fi-240\li6320\fc0\cf0 -
+\f0 €formUnionWithCharacterSet:\
+
+\fs10 \
+
+\pard\tx6080\tx11280\fs28\fi-4840\li6320\fc0\cf0 Inverting a character set	
+\f1 -
+\f0 €invert\
+
+\fs70 \
+
+\pard\f2\b\fs28\fi-1020\li1200\fc0\cf0 Instance Methods\
+
+\fs14 \
+
+{\fs28\fi0\li1500{\NeXTHelpMarker16899 \markername NS_DEV_DOCFOR:objc_method:[NSMutableCharacterSet-addCharactersInRange:];}
+¬}\f2\b\i0\ulnone\ql\fs28\fi0\li1500\gray0\fc0\cf0\up0\dn0 addCharactersInRange:\
+
+\fs6 \
+
+\f1\b0\fs28\fi-620\li2520 -
+\f0 €(void)
+\b addCharactersInRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Adds the characters whose integer values are given by 
+\i aRange
+\i0  to the receiver. 
+\i aRange.location
+\i0  is the value of the first character to add, 
+\i aRange
+\i0  
+\i range.location
+\i0 €+ 
+\i aRange.length
+\i0 €
+\f1 -
+\f0  1 is the value of the last. If 
+\i aRange.length
+\i0  is 0 this method has no effect.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b removeCharactersInRange:
+\b0 , 
+\f1 -
+\f0 €
+\b addCharactersInString:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker17290 \markername NS_DEV_DOCFOR:objc_method:[NSMutableCharacterSet-addCharactersInString:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 addCharactersInString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b addCharactersInString:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Adds the characters in 
+\i aString
+\i0  to those in the receiver. This method has no effect if 
+\i aString
+\i0  is empty.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b removeCharactersInString:
+\b0 , 
+\f1 -
+\f0 €
+\b addCharactersInRange:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker17536 \markername NS_DEV_DOCFOR:objc_method:[NSMutableCharacterSet-formIntersectionWithCharacterSet:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 formIntersectionWithCharacterSet:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b formIntersectionWithCharacterSet:
+\b0 (NSCharacterSet€*)
+\i otherSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Modifies the receiver so that it contains only characters that exist in both the receiver and in 
+\i otherSet
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b formUnionWithCharacterSet:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker17790 \markername NS_DEV_DOCFOR:objc_method:[NSMutableCharacterSet-formUnionWithCharacterSet:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 formUnionWithCharacterSet:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b formUnionWithCharacterSet:
+\b0 (NSCharacterSet€*)
+\i otherSet\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Modifies the receiver so that it contains all characters that exist in either the receiver or 
+\i otherSet
+\i0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b formIntersectionWithCharacterSet:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker18034 \markername NS_DEV_DOCFOR:objc_method:[NSMutableCharacterSet-invert];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 invert\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b invert\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\b0\fs28\li1500\fc0\cf0 Replaces all of the characters in the receiver with all the characters it didn't previously contain. Inverting a mutable character set, whether by 
+\b invert
+\b0  or by 
+\b invertedSet
+\b0 , is much less efficient that inverting an immutable character set with 
+\b invertedSet
+\b0 .\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b invertedSet
+\b0 €(NSCharacterSet)\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\b\fs28\li1500\fc0\cf0{\NeXTHelpMarker18359 \markername NS_DEV_DOCFOR:objc_method:[NSMutableCharacterSet-removeCharactersInRange:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 removeCharactersInRange:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b removeCharactersInRange:
+\b0 (NSRange)
+\i aRange\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Removes from the receiver the characters whose integer values are given by 
+\i aRange
+\i0 . 
+\i aRange.location
+\i0  is the value of the first character to remove, and 
+\i aRange.location
+\i0 €+ 
+\i aRange.length
+\i0 €
+\f1 -
+\f0  1 is the value of the last. If 
+\i aRange.length
+\i0  is 0 this method has no effect.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b addCharactersInRange:
+\b0 , 
+\f1 -
+\f0 €
+\b removeCharactersInString:\
+
+\fs14 \
+
+\fs46 \
+
+{\pard\tx8260\f2\fs28\li1500\fc0\cf0{\NeXTHelpMarker18762 \markername NS_DEV_DOCFOR:objc_method:[NSMutableCharacterSet-removeCharactersInString:];}
+¬}\pard\tx8260\f2\b\i0\ulnone\fs28\li1500\fc0\cf0 removeCharactersInString:\
+
+\fs6 \
+
+\pard\f1\b0\fs28\fi-620\li2520\fc0\cf0 -
+\f0 €(void)
+\b removeCharactersInString:
+\b0 (NSString€*)
+\i aString\
+
+\fs14 \
+
+\pard\tx3600\tx3980\tx4340\i0\fs28\li1500\fc0\cf0 Removes the characters in 
+\i aString
+\i0  from those in the receiver. This method has no effect if 
+\i aString
+\i0  is empty.\
+
+\fs14 \
+
+\pard\tx2780\tx3280\tx3760\f2\b\fs24\fi-1300\li2800\fc0\cf0 See also:	
+\f1\b0\fs28 -
+\f0 €
+\b addCharactersInString:
+\b0 , 
+\f1 -
+\f0 €
+\b removeCharactersInRange:\
+
+\fs14 \
+
+}

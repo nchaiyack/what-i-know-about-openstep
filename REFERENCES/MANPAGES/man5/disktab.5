@@ -1,0 +1,74 @@
+.\" Copyright (c) 1983 Regents of the University of California.
+.\" All rights reserved.  The Berkeley software License Agreement
+.\" specifies the terms and conditions for redistribution.
+.\"
+.\"	@(#)disktab.5	6.4 (Berkeley) 5/17/86
+.\"
+.TH DISKTAB 5 "May 17, 1986"
+.UC 5
+.SH NAME
+disktab \- disk description file
+.SH SYNOPSIS
+.B #include <sys/disktab.h>
+.SH DESCRIPTION
+.I Disktab
+is a simple data base which describes disk geometries and
+disk partition characteristics.  The format is patterned
+after the
+.IR termcap (5)
+terminal data base.  Entries in 
+.I disktab
+consist of a number of `:' separated fields.  The
+first entry for each disk gives the names which are
+known for the disk, separated by `|' characters.  The
+last name given should be a long name fully identifying
+the disk.
+.PP
+The disk(8) program writes this information to the label area
+of a disk when it is initialized.  The
+.IR getdiskbyname (3)
+and
+.IR getdiskbydev (3)
+routines may be used to read this information from the data base
+or disk label respectively.
+.PP
+The following list indicates the normal values
+stored for each disk entry.
+.nf
+
+.ta \w'Name  'u +\w'Type  'u
+\fBName	Type	Description\fP
+ty	str	Type of disk (e.g. removable_rw_optical)
+ns	num	Number of sectors per track
+nt	num	Number of tracks per cylinder
+nc	num	Total number of cylinders on the disk
+pa-h	num	Base sector number of partition [a-h]
+sa-h	num	Size of partition [a-h] (sectors)
+ba-h	num	Block size for partition [a-h] (bytes)
+fa-h	num	Fragment size for partition [a-h] (bytes)
+ca-h	num	Partition "cylinders-per-group" for newfs
+da-h	num	Partition density ("bytes-per-inode") for newfs
+ra-h	num	Partition "minfree" for newfs
+oa-h	str	Partition optimization ("space" or "time") for newfs
+ia-h	bool	Run newfs(8) on partition during initialization with disk(8)
+ma-h	str	Partition mount point name
+aa-h	num	Partition auto-mount on insert
+ta-h	str	Partition file system type ("4.3BSD", "sound" etc.)
+rm	num	Rotational speed in rpm (3600 default)
+ss	num	Sector size in bytes
+fp	num	Number of sectors in "front porch" of disk
+bp	num	Number of sectors in "back porch" of disk
+ng	num	Number of alternate groups on the disk
+gs	num	Number of sectors per alternate group
+ga	num	Number of alternate sectors per alternate group
+ao	num	Sector offset of alternates in alternate group
+os	str	Name of file to boot from
+z0-1	num	Locations (block number) of first level boot code
+hn	str	Hostname
+ro	char	Read only root partition (e.g. 'a')
+rw	char	Read/write partition (e.g. 'b')
+.fi
+.SH FILES
+/etc/disktab
+.SH "SEE ALSO"
+disk(8), newfs(8), getdiskbyname(3), getdiskbydev(3)

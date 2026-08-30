@@ -1,0 +1,47 @@
+"Preferences" = {
+    ACTIONS = {
+        "changePlainTextFont:" = id; 
+        "changeRichTextFont:" = id; 
+        "miscChanged:" = id; 
+        "ok:" = id; 
+        "revert:" = id; 
+        "revertToDefault:" = id; 
+        "showPanel:" = id; 
+    }; 
+    OUTLETS = {
+        deleteBackupMatrix = id; 
+        plainTextEncodingPopup = id; 
+        plainTextFontNameField = id; 
+        richTextFontNameField = id; 
+        richTextMatrix = id; 
+        saveFilesWritableButton = id; 
+        showPageBreaksButton = id; 
+        windowHeightField = id; 
+        windowWidthField = id; 
+    }; 
+    SUPERCLASS = NSObject; 
+};
+"Controller" = {
+    ACTIONS = {"createNew:" = id; "open:" = id; "saveAll:" = id; "showInfoPanel:" = id; }; 
+    OUTLETS = {infoPanel = id; outputView = id; scrollView = id; }; 
+    SUPERCLASS = NSObject; 
+};
+"YapOutput" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSView; };
+"FirstResponder" = {
+    ACTIONS = {
+        "close:" = id; 
+        "enterSelection:" = id; 
+        "execute:" = id; 
+        "findNext:" = id; 
+        "findPrevious:" = id; 
+        "jumpToSelection:" = id; 
+        "orderFrontFindPanel:" = id; 
+        "printDocument:" = id; 
+        "revert:" = id; 
+        "save:" = id; 
+        "saveAs:" = id; 
+        "saveTo:" = id; 
+    }; 
+    CATEGORY = LocalActions; 
+    OUTLETS = {}; 
+};

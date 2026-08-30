@@ -1,0 +1,50 @@
+.TH NEWCLIENT 8 "February 21, 1989" "NeXT Computer, Inc."
+.SH NAME
+newclient \- /private directory builder
+.SH SYNOPSIS
+.B newclient
+[
+.B \-s
+.I server
+]
+.I client ...
+.br
+.B newclient
+-p
+.I disktype devroot
+.SH DESCRIPTION
+The
+.I newclient
+command builds the /private directory for NetBoot clients of the local
+machine.  A NetBoot client uses the local filesystem as its root
+filesystem via NFS.
+.I newclient
+is also used to configure the /private directory during the builddisk
+process.
+.PP
+The first form of the command is used to build new client directories.
+.I client
+is the name of the client you are building this directory for.  The
+.B \-s
+option will cause
+.I server
+to be used as the name of the server in the client's
+.B /etc/fstab
+file.
+.PP
+The second form of the command takes an existing /private directory
+and prepares it to be used in a bootable system.  Before any modifications
+are made, /private is copied into /usr/template/client on the new disk
+to be used as a template for new client partitions.
+The
+.I disktype
+parameter specifies the type of disk the new /private is on, and
+.I devroot
+is the path to where that new disk is currently mounted.
+.SH FILES
+.ta 2.5i
+.nf
+/private/etc/fstab*	Fstab files for different disks.
+/private/vm/swapfile	Swapfile that gets preallocated.
+/usr/template/client	New client template directory.
+.fi

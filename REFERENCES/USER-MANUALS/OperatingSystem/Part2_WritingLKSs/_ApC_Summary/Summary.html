@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 50.4px; font: 10.0px Helvetica; color: #ff00ff; min-height: 12.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 50.4px; font: 42.0px Helvetica; color: #ff00ff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 50.4px; font: 24.0px Helvetica; color: #ff00ff; min-height: 29.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 12.6px; font: 44.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 12.6px; font: 60.0px Times; min-height: 72.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 151.2px; font: 14.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 151.2px; font: 10.0px Times; min-height: 13.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 50.4px; font: 30.0px Helvetica; min-height: 36.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 50.4px; font: 26.0px Helvetica}
+    p.p12 {margin: 0.0px 0.0px 0.0px 50.4px; font: 14.0px Helvetica; min-height: 17.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 113.4px; font: 26.0px Helvetica; min-height: 31.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 113.4px; font: 24.0px Helvetica}
+    p.p15 {margin: 0.0px 0.0px 0.0px 113.4px; font: 10.0px Helvetica; min-height: 12.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 113.4px; font: 5.0px Times; min-height: 6.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 113.4px; font: 14.0px Times}
+    p.p18 {margin: 0.0px 0.0px 0.0px 113.4px; font: 4.0px Times; min-height: 5.0px}
+    p.p19 {margin: 0.0px 0.0px 0.0px 340.1px; text-indent: -207.9px; font: 14.0px Times}
+    p.p20 {margin: 0.0px 0.0px 0.0px 113.4px; font: 14.0px Times; min-height: 18.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 113.4px; font: 35.0px Helvetica; min-height: 42.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 50.4px; font: 40.0px Helvetica; min-height: 48.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 113.4px; font: 10.0px Times; min-height: 13.0px}
+    span.s1 {font: 12.0px Symbol}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">Copyright <span class="s1">ª</span>1996 by NeXT Software, Inc.<span class="Apple-converted-space">  </span>All Rights Reserved.</p>
+<p class="p2"><br></p>
+<p class="p3"><b></b><br></p>
+<p class="p4"><b>C</b></p>
+<p class="p5"><b></b><br></p>
+<p class="p6"><i>Summary of Kernel Support Functions</i></p>
+<p class="p7"><i></i><br></p>
+<p class="p8">This appendix summarizes the kernel support functions (and some macros that behave like functions) that loadable kernel servers can call.<span class="Apple-converted-space">  </span>Within the general categories of “General Functions” and “Network Functions,” function declarations are further subgrouped to help you identify their interrelationships. <span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<p class="p8">Chapter 10, “Kernel Support Functions,” contains full descriptions of all the functions listed here.<span class="Apple-converted-space">  </span>In addition, loadable kernel servers can use many Mach kernel functions, which are described in a section of Chapter 4, “Mach Functions.”<span class="Apple-converted-space">  </span>The Mach kernel functions are summarized in the manual, <i>NeXTSTEP Programmer Interface Summary</i>.</p>
+<p class="p9"><br></p>
+<p class="p10"><b></b><br></p>
+<p class="p11"><b>General Functions</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p8">This section contains a summary of the general purpose kernel support functions.<span class="Apple-converted-space">  </span>Most of the functions and macros in this section are declared through either the <b>kernserv/kern_server_types.h</b> or <b>kernserv/prototypes.h </b>header file.</p>
+<p class="p9"><br></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b>Time Functions</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><br></p>
+<p class="p17">Busy-wait for a certain amount of time:</p>
+<p class="p18"><br></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>DELAY(</b>unsigned int <i>usecs</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Get or set the current time:</p>
+<p class="p18"><br></p>
+<p class="p19">ns_time_t <b><span class="Apple-tab-span">	</span>clock_value(</b>clock_types_t <i>which_clock</i><b>)</b></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>set_clock(</b>clock_types_t <i>which_clock</i>, ns_time_t <i>ns</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Get information about a clock:</p>
+<p class="p18"><br></p>
+<p class="p19">chrono_attributes_t<span class="Apple-converted-space"> </span></p>
+<p class="p19"><b><span class="Apple-tab-span">	</span>clock_attributes(</b>clock_types_t <i>which_clock</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Convert between <b>ns_time_t</b> and <b>timeval</b> data formats:</p>
+<p class="p18"><br></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>ns_time_to_timeval(</b>ns_time_t <i>ns</i>, struct timeval *<i>tv</i><b>)</b></p>
+<p class="p19">ns_time_t <b><span class="Apple-tab-span">	</span>timeval_to_ns_time(</b>struct timeval *<i>tv</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Schedule or unschedule a function to be called later:</p>
+<p class="p18"><br></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>ns_abstimeout(</b>func <i>function</i>, vm_address_t <i>arg</i>, ns_time_t <i>deadline</i>, int <i>priority</i><b>)</b></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>ns_timeout(</b>func <i>function</i>, vm_address_t <i>arg</i>, ns_time_t <i>time</i>, int <i>priority</i><b>)</b></p>
+<p class="p19">boolean_t <b><span class="Apple-tab-span">	</span>ns_untimeout(</b>func <i>function</i>, vm_address_t <i>arg</i><b>)</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p14"><b>Memory Functions</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><br></p>
+<p class="p17">Make addresses pageable or memory-resident:</p>
+<p class="p18"><br></p>
+<p class="p19">kern_return_t<span class="Apple-tab-span">	</span><b>kern_serv_unwire_range(</b>kern_server_t *<i>ksp</i>, vm_address_t <i>address</i>, vm_size_t <i>size</i><b>)</b></p>
+<p class="p19">kern_return_t<span class="Apple-tab-span">	</span><b>kern_serv_wire_range(</b>kern_server_t *<i>ksp</i>, vm_address_t <i>address</i>, vm_size_t <i>size</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Copy or initialize data:</p>
+<p class="p18"><br></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>bcopy(</b>void *<i>from</i>, void *<i>to</i>, int <i>length</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>bytecopy(</b>void *<i>from</i>, void *<i>to</i>, int <i>length</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>bzero(</b>void *<i>address</i>, int <i>length</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Allocate or free memory:</p>
+<p class="p18"><br></p>
+<p class="p19">void *<b><span class="Apple-tab-span">	</span>kalloc(</b>int <i>size</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>kfree(</b>void *<i>address</i>, int <i>size</i><b>)</b></p>
+<p class="p19">void *<b><span class="Apple-tab-span">	</span>kget(</b>int <i>size</i><b>)</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p14"><b>Critical Section and Synchronization Functions</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><br></p>
+<p class="p17">Use read and write locks:</p>
+<p class="p18"><br></p>
+<p class="p19">lock_t<span class="Apple-tab-span">	</span><b>lock_alloc(</b>void<b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>lock_free(</b>lock_t <i>lock</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>lock_done(</b>lock_t <i>lock</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>lock_init(</b>lock_t <i>lock</i>, boolean_t <i>can_sleep</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>lock_read(</b>lock_t <i>lock</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>lock_write(</b>lock_t <i>lock</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Use simple, nonsleeping locks:</p>
+<p class="p18"><br></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>simple_lock(</b>simple_lock_t <i>lock</i><b>)</b></p>
+<p class="p19">simple_lock_t<span class="Apple-tab-span">	</span><b>simple_lock_alloc(</b>void<b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>simple_lock_free(</b>simple_lock_t <i>lock</i><b>)</b></p>
+<p class="p19">void<b><span class="Apple-tab-span">	</span>simple_lock_init(</b>simple_lock_t <i>lock</i><b>)</b></p>
+<p class="p19">void<b><span class="Apple-tab-span">	</span>simple_unlock(</b>simple_lock_t <i>lock</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Cause a thread to sleep or wake up:</p>
+<p class="p18"><br></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>assert_wait(</b>int <i>event</i>, boolean_t <i>interruptible</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>clear_wait(</b>thread_t <i>thread</i>, int <i>result</i>, boolean_t <i>interrupt_only</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>thread_block(</b>void<b>)</b></p>
+<p class="p19">void<b><span class="Apple-tab-span">	</span>thread_set_timeout(</b>int <i>ticks</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>thread_sleep(</b>int <i>event</i>, simple_lock_t <i>lock</i>, boolean_t <i>interruptible</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>thread_wakeup(</b>int <i>event</i><b>)</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p14"><b>General Task and Thread Functions</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><br></p>
+<p class="p17">Get information about this thread or task:</p>
+<p class="p18"><br></p>
+<p class="p19">task_t<span class="Apple-tab-span">	</span><b>current_task(</b>void<b>)</b></p>
+<p class="p19">int<b><span class="Apple-tab-span">	</span>thread_wait_result(</b>void<b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Create or kill a thread:</p>
+<p class="p18"><br></p>
+<p class="p19">thread_t<span class="Apple-tab-span">	</span><b>kernel_thread(</b>task_t <i>task</i>, void (*<i>start</i>)(void)<b>)</b></p>
+<p class="p19">void<b><span class="Apple-tab-span">	</span>thread_halt_self(</b>void<b>)</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p14"><b>Port and Message Functions</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><br></p>
+<p class="p17">Request notification messages, such as port death notification:</p>
+<p class="p18"><br></p>
+<p class="p19">kern_return_t<b><span class="Apple-tab-span">	</span>kern_serv_notify(</b>kern_server_t<b> </b>*<i>ksp</i>,<b> </b>port_t <i>reply_port</i>, port_t<b> </b><i>request_port</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Get the kernel's task port:</p>
+<p class="p18"><br></p>
+<p class="p19">port_t <b><span class="Apple-tab-span">	</span>kern_serv_kernel_task_port(</b>void<b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Get or set information about this server's ports:</p>
+<p class="p18"><br></p>
+<p class="p19">port_t<b><span class="Apple-tab-span">	</span>kern_serv_bootstrap_port(</b>kern_server_t *<i>ksp</i><b>)</b></p>
+<p class="p19">port_t<b><span class="Apple-tab-span">	</span>kern_serv_local_port(</b>kern_server_t<b> </b>*<i>ksp</i><b>)</b></p>
+<p class="p19">port_t<b><span class="Apple-tab-span">	</span>kern_serv_notify_port(</b>kern_server_t<b> </b>*<i>ksp</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>kern_serv_port_gone(</b>kern_server_t<b> </b>*<i>ksp</i>, port_name_t <i>port</i><b>)</b></p>
+<p class="p19">kern_return_t<span class="Apple-tab-span">	</span><b>kern_serv_port_proc(</b>kern_server_t<b> </b>*<i>ksp</i>, port_all_t <i>port</i>, port_map_proc_t<i> function</i>, int <i>arg</i><b>)</b></p>
+<p class="p19">kern_return_t<span class="Apple-tab-span">	</span><b>kern_serv_port_serv(</b>kern_server_t<b> </b>*<i>ksp</i>, port_all_t <i>port</i>, port_map_proc_t<i> function</i>, int <i>arg</i><b>)</b></p>
+<p class="p19">port_set_name_t<b><span class="Apple-tab-span">	</span>kern_serv_port_set(</b>kern_server_t<b> </b>*<i>ksp</i><b>)</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p14"><b>Hardware Interface Functions</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><br></p>
+<p class="p17">Set up or remove an interrupt handler:</p>
+<p class="p18"><br></p>
+<p class="p19">int<b><span class="Apple-tab-span">	</span>install_polled_intr(</b>int<b> </b><i>which</i>, int (*<i>my_intr</i>)(void)<b>)</b></p>
+<p class="p19">int<b><span class="Apple-tab-span">	</span>uninstall_polled_intr(</b>int<b> </b><i>which</i>, int (*<i>my_intr</i>)(void)<b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Get or test a virtual address that corresponds to a hardware address:</p>
+<p class="p18"><br></p>
+<p class="p19">caddr_t<span class="Apple-tab-span">	</span><b>map_addr(</b>caddr_t<b> </b><i>address</i>,<b> </b>int<b> </b><i>size</i><b>)</b></p>
+<p class="p19">int<span class="Apple-tab-span">	</span><b>probe_rb(</b>void *<i>address</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Change or determine the processor level:</p>
+<p class="p18"><br></p>
+<p class="p19">int<span class="Apple-tab-span">	</span><b>curipl(</b>void<b>)</b></p>
+<p class="p19">int<b><span class="Apple-tab-span">	</span>spl0(</b>void<b>)</b>,<b> spl1(</b>void<b>)</b>,<b> spl2(</b>void<b>)</b>,<b> spl3(</b>void<b>)</b>,<b> spl4(</b>void<b>)</b>,<b> spl5(</b>void<b>)</b>,<b> spl6(</b>void<b>)</b>,<b> spl7(</b>void<b>)</b></p>
+<p class="p19">void<b><span class="Apple-tab-span">	</span>splx(</b>int <i>priority</i><b>)</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p14"><b>Logging and Debugging Functions</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><br></p>
+<p class="p17">Kill the loadable kernel server:</p>
+<p class="p18"><br></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>ASSERT(</b>int <i>expression</i><b>)</b></p>
+<p class="p19">kern_return_t<span class="Apple-tab-span">	</span><b>kern_serv_panic(</b>port_t <i>bootstrap_port</i>, panic_msg_t <i>message</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>panic(</b>char *<i>string</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Log a message:</p>
+<p class="p18"><br></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>kern_serv_log(</b>kern_server_t *<i>ksp</i>, int <i>log_level</i>, char *<i>format</i>, <i>arg1</i>,<i> ...</i>, <i>arg5</i><b>)</b></p>
+<p class="p19">int<span class="Apple-tab-span">	</span><b>log(</b>int <i>level</i>, char *<i>format</i>, <i>arg</i>,<i> ...</i><b>)</b></p>
+<p class="p19">int<span class="Apple-tab-span">	</span><b>printf(</b>char *<i>format</i>, <i>arg</i>, ...<b>)</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p14"><b>UNIX Support Functions</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><br></p>
+<p class="p17">In a UNIX-style server, determine whether the user has root privileges:</p>
+<p class="p18"><br></p>
+<p class="p19">int<b><span class="Apple-tab-span">	</span>suser(</b>void<b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">In a UNIX-style server, wait for I/O completion on a buffer:</p>
+<p class="p18"><br></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>biodone(</b>struct buf *<i>bp</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>biowait(</b>struct buf *<i>bp</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">In a UNIX-style server, copy data between user and kernel address space:</p>
+<p class="p18"><br></p>
+<p class="p19">int<span class="Apple-tab-span">	</span><b>copyin(</b>void *<i>from</i>, void *<i>to</i>, int <i>length</i><b>)</b></p>
+<p class="p19">int<span class="Apple-tab-span">	</span><b>copyout(</b>void *<i>from</i>, void *<i>to</i>, int <i>length</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">In a UNIX-style server, implement the <b>select()</b> system call:</p>
+<p class="p18"><br></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>selthreadcache(</b>void **<i>waiterPtr</i><b>)</b></p>
+<p class="p19">void <span class="Apple-tab-span">	</span><b>selthreadclear(</b>void **<i>waiterPtr</i><b>)</b></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>selwakeup(</b>void *<i>waiter</i>, int <i>collided</i><b>)</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p14"><b>Miscellaneous Functions</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p16"><br></p>
+<p class="p17">Modify or inspect a string:</p>
+<p class="p18"><br></p>
+<p class="p19">int<span class="Apple-tab-span">	</span><b>sprintf(</b>char *<i>string</i>, char *<i>format</i>, <i>arg</i>, ...<b>)</b></p>
+<p class="p19">char *<b><span class="Apple-tab-span">	</span>strcat(</b>char *<i>string1</i>, char *<i>string2</i><b>)</b></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>strcmp(</b>char *<i>string1</i>, char *<i>string2</i><b>)</b></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>strncmp(</b>char *<i>string1</i>, char *<i>string2</i>, unsigned long <i>length</i><b>)</b></p>
+<p class="p19">char *<b><span class="Apple-tab-span">	</span>strcpy(</b>char *<i>to</i>, char *<i>from</i><b>)</b></p>
+<p class="p19">char *<b><span class="Apple-tab-span">	</span>strncpy(</b>char *<i>to</i>, char *<i>from</i>, unsigned long <i>length</i><b>)</b></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>strlen(</b>char *<i>string</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Call a function from the main thread:</p>
+<p class="p18"><br></p>
+<p class="p19">kern_return_t<span class="Apple-tab-span">	</span><b>kern_serv_callout(</b>kern_server_t *<i>ksp</i>, void (*<i>func</i>)(void *), void *<i>arg</i><b>)</b></p>
+<p class="p22"><b></b><br></p>
+<p class="p11"><b>Network Functions</b></p>
+<p class="p12"><b></b><br></p>
+<p class="p17">This section contains a summary of the network-specific kernel support functions, which are described in detail in Chapter 10.<span class="Apple-converted-space">  </span>A general discussion of networking drivers and protocols is in Chapter 8, “Network Modules.”</p>
+<p class="p23"><br></p>
+<p class="p13"><b></b><br></p>
+<p class="p14"><b>Netif Functions</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p17">To use these functions, you need to include the header file <b>net/netif.h</b>.</p>
+<p class="p23"><br></p>
+<p class="p16"><br></p>
+<p class="p17">Initialize and install a new netif:</p>
+<p class="p18"><br></p>
+<p class="p19">netif_t<span class="Apple-tab-span">	</span><b>if_attach(</b>if_init_func_t <i>init_func</i>, if_input_func_t <i>input_func</i>, if_output_func_t <i>output_func</i>, if_getbuf_func_t <i>getbuf_func</i>, if_control_func_t <i>control_func</i>, const char *<i>name</i>, unsigned int <i>unit</i>, const char *<i>type</i>, unsigned int <i>mtu</i>, unsigned int <i>flags</i>, netif_class_t <i>class</i>, void *<i>private</i><b>)</b></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>if_registervirtual(</b>if_attach_func_t <i>attach_func</i>, void *<i>private</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Remove a netif:</p>
+<p class="p18"><br></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>if_detach(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Get or set data for a netif:</p>
+<p class="p18"><br></p>
+<p class="p19">unsigned int<span class="Apple-tab-span">	</span><b>if_collisions(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p19">void<span class="Apple-tab-span">	</span><b>if_collisions_set(</b>netif_t <i>netif</i>, unsigned int <i>collisions</i><b>)</b></p>
+<p class="p19">unsigned int <b><span class="Apple-tab-span">	</span>if_flags(</b>netif_t<i> netif</i><b>)</b></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>if_flags_set(</b>netif_t<i> netif</i>, unsigned int <i>flags</i><b>)</b></p>
+<p class="p19">unsigned int <b><span class="Apple-tab-span">	</span>if_ierrors(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>if_ierrors_set(</b>netif_t <i>netif</i>, unsigned int <i>ierrors</i><b>)</b></p>
+<p class="p19">unsigned int <b><span class="Apple-tab-span">	</span>if_oerrors(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>if_oerrors_set(</b>netif_t <i>netif</i>, unsigned int <i>oerrors</i><b>)</b></p>
+<p class="p19">unsigned int <b><span class="Apple-tab-span">	</span>if_ipackets(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>if_ipackets_set(</b>netif_t <i>netif</i>, unsigned int <i>ipackets</i><b>)</b></p>
+<p class="p19">unsigned int <b><span class="Apple-tab-span">	</span>if_opackets(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>if_opackets_set(</b>netif_t <i>netif</i>, unsigned int <i>opackets</i><b>)</b></p>
+<p class="p19">unsigned int <b><span class="Apple-tab-span">	</span>if_mtu(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p19">const char *<b><span class="Apple-tab-span">	</span>if_name(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p19">void *<b><span class="Apple-tab-span">	</span>if_private(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p19">const char *<b><span class="Apple-tab-span">	</span>if_type(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p19">unsigned int <b><span class="Apple-tab-span">	</span>if_unit(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Call a function implemented by a network module:</p>
+<p class="p18"><br></p>
+<p class="p19">int<span class="Apple-tab-span">	</span><b>if_control(</b>netif_t <i>netif</i>, const char *<i>command</i>, void *<i>data</i><b>)</b></p>
+<p class="p19">netbuf_t<span class="Apple-tab-span">	</span><b>if_getbuf(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>if_init(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>if_ioctl(</b>netif_t <i>netif</i>, unsigned int <i>command</i>, void *<i>data</i><b>)</b></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>if_output(</b>netif_t <i>netif</i>, netbuf_t <i>packet</i>, void *<i>address</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Get information about netifs:</p>
+<p class="p18"><br></p>
+<p class="p19">netif_class_t <span class="Apple-tab-span">	</span><b>if_class(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p19">netif_t <span class="Apple-tab-span">	</span><b>iflist_first(</b>void<b>)</b></p>
+<p class="p19">netif_t <span class="Apple-tab-span">	</span><b>iflist_next(</b>netif_t <i>netif</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Dispatch a packet to a protocol handler:</p>
+<p class="p18"><br></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>if_handle_input(</b>netif_t <i>netif</i>, netbuf_t <i>packet</i>, void *<i>extra</i><b>)</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p14"><b>Netbuf Functions</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p17">You should include the header file<b> net/netbuf.h</b> when you use these functions.</p>
+<p class="p23"><br></p>
+<p class="p16"><br></p>
+<p class="p17">Allocate or free a netbuf or its wrapper:</p>
+<p class="p18"><br></p>
+<p class="p19">netbuf_t <b><span class="Apple-tab-span">	</span>nb_alloc(</b>unsigned int <i>size</i><b>)</b></p>
+<p class="p19">netbuf_t <b><span class="Apple-tab-span">	</span>nb_alloc_wrapper(</b>void *<i>data</i>, unsigned int <i>size</i>, void<i> freefunc</i>(void *), void *<i>freefunc_arg</i><b>)</b></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>nb_free(</b>netbuf_t <i>nb</i><b>)</b></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>nb_free_wrapper(</b>netbuf_t <i>nb</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Change the size of a netbuf:</p>
+<p class="p18"><br></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>nb_grow_bot(</b>netbuf_t <i>nb</i>, unsigned int <i>size</i><b>)</b></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>nb_shrink_bot(</b>netbuf_t <i>nb</i>, unsigned int <i>size</i><b>)</b></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>nb_grow_top(</b>netbuf_t <i>nb</i>, unsigned int <i>size</i><b>)</b></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>nb_shrink_top(</b>netbuf_t <i>nb</i>, unsigned int <i>size</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Access the data in a netbuf:</p>
+<p class="p18"><br></p>
+<p class="p19">char *<b><span class="Apple-tab-span">	</span>nb_map(</b>netbuf_t <i>nb</i><b>)</b></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>nb_read(</b>netbuf_t <i>nb</i>, unsigned int <i>offset</i>, unsigned int <i>size</i>, void *<i>target</i><b>)</b></p>
+<p class="p19">int <b><span class="Apple-tab-span">	</span>nb_write(</b>netbuf_t <i>nb</i>, unsigned int <i>offset</i>, unsigned int <i>size</i>, void *<i>source</i><b>)</b></p>
+<p class="p19">unsigned int <b><span class="Apple-tab-span">	</span>nb_size(</b>netbuf_t <i>nb</i><b>)</b></p>
+<p class="p21"><b></b><br></p>
+<p class="p14"><b>Miscellaneous Functions</b></p>
+<p class="p15"><b></b><br></p>
+<p class="p17">For the host-network conversion functions, you need to include the header file <b>netinet/in.h</b>.<span class="Apple-converted-space">  </span>For <b>inet_queue()</b>, you should include both <b>net/netif.h</b> and <b>net/netbuf.h</b>.</p>
+<p class="p23"><br></p>
+<p class="p16"><br></p>
+<p class="p17">Convert values between host and network byte order:</p>
+<p class="p18"><br></p>
+<p class="p19">u_long<span class="Apple-tab-span">	</span><b>htonl(</b>u_long <i>hostlong</i><b>)</b></p>
+<p class="p19">u_short<span class="Apple-tab-span">	</span><b>htons(</b>u_short <i>hostshort</i><b>)</b></p>
+<p class="p19">u_long<span class="Apple-tab-span">	</span><b>ntohl(</b>u_long <i>netlong</i><b>)</b></p>
+<p class="p19">u_short<span class="Apple-tab-span">	</span><b>ntohs(</b>u_short <i>netshort</i><b>)</b></p>
+<p class="p20"><br></p>
+<p class="p17">Give an IP input packet to the kernel for processing:</p>
+<p class="p18"><br></p>
+<p class="p19">void <b><span class="Apple-tab-span">	</span>inet_queue(</b>netif_t <i>netif</i>, netbuf_t <i>netbuf</i><b>)</b></p>
+</body>
+</html>

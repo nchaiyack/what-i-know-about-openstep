@@ -1,0 +1,48 @@
+.TH VPRINTF 3S "June 23, 1989"
+.ds ]W ANSI C
+.SH NAME
+vfprintf, vprintf, vsprintf \-
+.SH SYNOPSIS
+.B #include <stdarg.h>
+.br
+.B #include <stdio.h>
+.PP
+\fBint vfprintf(FILE *stream, const char *format, va_list arg);\fR
+.PP
+\fBint vprintf(const char *format, va_list arg);\fR
+.PP
+\fBint vsprintf(char *s, const char *format, va_list arg);\fR
+.SH DESCRIPTION
+.B Vfprintf
+is equivalent to
+.BR fprintf ,
+.B vprintf
+is equivalent to
+.BR printf ,
+and
+.B vsprintf
+is equivalent to
+.BR sprintf ,
+with the variable argument list replaced in each case by
+.BR arg ,
+which has been initialized by the
+.B va_start
+macro
+(and possibly by subsequent
+.B va_arg
+calls).
+The
+.B vfprintf
+function does not invoke the
+.B va_end
+macro.
+.SH "RETURN VALUE
+.BR Vfprintf ,
+.BR vprintf ,
+and
+.B vsprintf
+return the number of characters transmitted,
+or a negative value if an output error occurred.
+.SH "SEE ALSO"
+fprintf(3), stdarg(3)
+
