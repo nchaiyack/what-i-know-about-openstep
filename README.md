@@ -8,7 +8,7 @@ Learnings about developing for OPENSTEP 4.2, macOS' non-Apple predecessor.
 
 1. `GETTING-STARTED.md`: a guide (and quick reference) to the OPENSTEP Unix environment; how to set up a headless OPENSTEP host to do development. **As provided here, the specific credentials, IP, port for connecting to the guest are mine -- read through and edit! It's short.**
 
-2. `GUEST-TOOLCHAIN.md`: Unix tools available on the guest.
+2. `GUEST-TOOLCHAIN.md`: Unix tools available on the guest (and "skills", in AI parlance). A bit of a terse reference; some of the parts are written for people who know modern *nix tools well (e.g. AI!)
 
 3. `manpages`: raw manpages from OPENSTEP 4.2.
 
