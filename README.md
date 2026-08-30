@@ -10,7 +10,7 @@ Learnings about developing for OPENSTEP 4.2, macOS' non-Apple predecessor.
 
 2. `GUEST-TOOLCHAIN.md`: Unix tools available on the guest.
 
-3. `manfiles`: raw manfiles from OPENSTEP 4.2
+3. `manpages`: raw manpages from OPENSTEP 4.2.
 
 ## Licensing
 
