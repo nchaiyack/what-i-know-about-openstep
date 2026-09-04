@@ -24,6 +24,8 @@ Learnings about developing for OPENSTEP 4.2, macOS' non-Apple predecessor.
 
 6. `REFERENCES/C-HEADERS`: headers for core C libraries; highlights include the ANSI C stdlib (`ansi`), Objective-C runtime (`objc`), native Mach API (`mach`), 4.2 BSD-derived/Unix headers (`bsd`), etc.
 
+7. `REFERENCES/OPENSTEP-94`: an HTML version of the 1994 OPENSTEP specification (originally provided as RTF), graciously made available by the [GNUstep project.](https://www.gnustep.org/developers/documentation.html). Although this information duplicates much of what is available in `REFERENCES/FRAMEWORKS`, especially for Foundation and AppKit, the Display PostScript documentation is invaluable (`.../OPENSTEP-94/DisplayPostScript`). As well as the various indexes.
+
 ## Licensing
 
 All text I've created public domain. Historic OPENSTEP/NeXT content provided "as-is".

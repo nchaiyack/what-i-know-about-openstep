@@ -1,0 +1,19 @@
+<!DOCTYPE HTML SYSTEM "legacy.dtd">
+<HTML><HEAD><TITLE>Application Kit Introduction</TITLE></HEAD>
+<BODY>Copyright (c)1994 by NeXT Computer, Inc.  All Rights
+Reserved.<P><B>1</B></P><P><I>Application Kit</I></P><P><B>Introduction</B></P><P
+>The Application Kit defines Objective C classes, protocols, C functions,
+constants, and data types that are designed to be used by virtually every
+OpenStep application.  The principal aim of the Application Kit is to provide
+the framework for implementing a graphical, event-driven application. </P><P
+><B>Classes</B></P><P>The Application Kit contains over sixty classes which inherit directly
+or indirectly from NSObject, the root class defined in the Foundation Kit. The
+following diagram shows the inheritance relationship among these classes. After
+the diagram, the specifications for these classes are arranged in alphabetical
+order.</P>
+<P>
+<A HREF = "/cgi-bin/imagemap/OpenStep/ApplicationKit/Classes/IntroAppKitClasses/appkit.map">
+<IMG SRC="F0.gif" ISMAP>
+</A>
+<B>Figure 1-1</B>Application Kit Classes</P>
+</BODY></HTML>
