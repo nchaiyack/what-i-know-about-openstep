@@ -21,8 +21,6 @@ Learnings about developing for OPENSTEP 4.2, macOS' non-Apple predecessor.
 	- Some frameworks: `Foundation.framework` (the Objective-C "standard" library); `AppKit.framework` (the OPENSTEP UI application development framework); `SoundKit.framework` (audio streaming-playing-recording; useful widgets); `NEXTIME.framework` (similarly for video.) More included.
 	
 	- Subfolder structure: `*.framework/Reference` provides HTML documentation; `*.framework/Headers` provides Objective-C headers; `*.framework/Examples` provides examples.
-	
-	2. `REFERENCES/NextDeveloper/Examples`: examples for these frameworks, folders refer to frameworks.
 
 6. `REFERENCES/C-HEADERS`: headers for core C libraries; highlights include the ANSI C stdlib (`ansi`), Objective-C runtime (`objc`), native Mach API (`mach`), 4.2 BSD-derived/Unix headers (`bsd`), etc.
 
